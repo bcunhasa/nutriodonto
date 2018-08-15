@@ -4,6 +4,11 @@ from django.db import models
 class Aluno(models.Model):
     """Modelo que representa um aluno"""
     nome = models.CharField(max_length=TAMANHO_NOMES, blank=True, null=True, verbose_name='Nome')
+    sexo = models.IntegerField(choices=SEXO, blank=True, null=True, verbose_name='Sexo')
+    escola = models.IntegerField(choices=ESCOLA, blank=True, null=True, verbose_name='Escola')
+    periodo = models.IntegerField(choices=PERIODO, blank=True, null=True, verbose_name='Período')
+    turma = models.IntegerField(choices=TURMA, blank=True, null=True, verbose_name='Turma')
+    municipio = models.IntegerField(choices=MUNICIPIO, blank=True, null=True, verbose_name='Município')
 
     def __str__(self):
         """Devolve a representação do modelo em string"""
@@ -12,7 +17,7 @@ class Aluno(models.Model):
 
 class Questionario(models.Model):
     """Modelo que representa um questionário"""
-    questao1 = models.CharField(max_length=TAMANHO_NOMES, blank=True, null=True, verbose_name='Nome')
+    questao1 = models.IntegerField(choices=QUESTAO, blank=True, null=True, verbose_name='Questão pessoal 1')
 
     def __str__(self):
         """Devolve a representação do modelo em string"""
@@ -21,6 +26,9 @@ class Questionario(models.Model):
 
 class Exame(models.Model):
     """Modelo que representa um exame completo"""
+    data = models.DateField(blank=True, null=True, verbose_name='Data')
+    examinador = models.CharField(max_length=TAMANHO_NOMES, blank=True, null=True, verbose_name='Examinador')
+    anotador = models.CharField(max_length=TAMANHO_NOMES, blank=True, null=True, verbose_name='Anotador')
     
     def __str__(self):
         """Devolve a representação do modelo em string"""
