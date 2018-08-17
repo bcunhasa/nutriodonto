@@ -60,14 +60,11 @@ MUNICIPIO = (
 
 # Constantes do modelo Questionário
 
-FREQUENCIA = (
-    (0, 'NAO_SE_APLICA'),
-    (1, 'NAO_SEI'),
-    (2, 'NUNCA'),
-    (3, 'RARAMENTE'),
-    (4, 'POUCAS_VEZES'),
-    (5, 'ALGUMAS_VEZES'),
-    (6, 'QUASE_SEMPRE'),
+QUESTOES = (
+    (1, 'Discordo totalmente'),
+    (2, 'Discordo mais que concordo'),
+    (3, 'Não discordo nem concordo'),
+    (4, 'Concordo mais do que discordo'),
+    (5, 'Concordo totalmente'),
+    (6, 'Não tenho opinião')
 )
-
-
