@@ -29,7 +29,7 @@ end
 # unset irrelevant variables
 deactivate nondestructive
 
-set -gx VIRTUAL_ENV "/home/projetoabo/dev/scado/servidor/env"
+set -gx VIRTUAL_ENV "/home/ubuntu/dev/sado/servidor/env"
 
 set -gx _OLD_VIRTUAL_PATH $PATH
 set -gx PATH "$VIRTUAL_ENV/bin" $PATH

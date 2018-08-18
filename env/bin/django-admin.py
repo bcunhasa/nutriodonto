@@ -1,4 +1,4 @@
-#!/home/projetoabo/dev/scado/servidor/env/bin/python3
+#!/home/ubuntu/dev/sado/servidor/env/bin/python3
 from django.core import management
 
 if __name__ == "__main__":
