@@ -6,4 +6,4 @@ Unipath
 gunicorn
 whitenoise
 dj_database_url
-reportlab
+django-widget-tweaks

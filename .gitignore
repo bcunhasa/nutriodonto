@@ -1,0 +1,7 @@
+administracao/__pycache__/
+api/__pycache__/
+servidor/__pycache__/
+media/
+.vscode/
+env/
+db.sqlite3

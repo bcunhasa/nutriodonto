@@ -1,0 +1,183 @@
+{% extends "administracao/base.html" %}
+
+{% load staticfiles %}
+
+{% block head %}
+  <!-- Cabeçalho local -->
+{% endblock head %}
+
+{% block header %}
+  Visão geral
+{% endblock header %}
+
+{% block content %}
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-default" id="painel-info">
+        <div class="panel-heading">
+          <div class="panel-title">Informações sobre as campanhas</div>
+        </div>
+        <div class="panel-body">
+          <div class="col-md-4">
+            <div class="panel panel-primary">
+              <div class="panel-heading">
+                <div class="row">
+                  <div class="col-xs-3">
+                    <em class="fa fa-bookmark fa-5x"></em>
+                  </div>
+                  <div class="col-xs-9 text-right">
+                    <div class="text-lg">{{ campanhas }}</div>
+                    <p class="m0">Campanhas</p>
+                  </div>
+                </div>
+              </div>
+              <a class="panel-footer bg-gray-dark bt0 clearfix btn-block" href="{% url 'administracao:campanhas' %}">
+                <span class="pull-left">Ver detalhes</span>
+                <span class="pull-right">
+                  <em class="fa fa-chevron-circle-right"></em>
+                </span>
+              </a>
+              <!-- END panel-->
+            </div>
+          </div>
+          <div class="col-md-4">
+            <!-- START panel-->
+            <div class="panel panel-primary">
+              <div class="panel-heading">
+                <div class="row">
+                  <div class="col-xs-3">
+                    <em class="fa fa-bookmark-o fa-5x"></em>
+                  </div>
+                  <div class="col-xs-9 text-right">
+                    <div class="text-lg">{{ questionarios }}</div>
+                    <p class="m0">Ações</p>
+                  </div>
+                </div>
+              </div>
+              <a class="panel-footer bg-gray-dark bt0 clearfix btn-block" href="{% url 'administracao:questionarios' %}">
+                <span class="pull-left">Ver detalhes</span>
+                <span class="pull-right">
+                  <em class="fa fa-chevron-circle-right"></em>
+                </span>
+              </a>
+            </div>
+            <!-- END panel-->
+          </div>
+          <div class="col-md-4">
+            <!-- START panel-->
+            <div class="panel panel-primary">
+              <div class="panel-heading">
+                <div class="row">
+                  <div class="col-xs-3">
+                    <em class="fa fa-book fa-5x"></em>
+                  </div>
+                  <div class="col-xs-9 text-right">
+                    <div class="text-lg">{{ escolas }}</div>
+                    <p class="m0">Escolas</p>
+                  </div>
+                </div>
+              </div>
+              <a class="panel-footer bg-gray-dark bt0 clearfix btn-block" href="{% url 'administracao:escolas' %}">
+                <span class="pull-left">Ver detalhes</span>
+                <span class="pull-right">
+                  <em class="fa fa-chevron-circle-right"></em>
+                </span>
+              </a>
+            </div>
+            <!-- END panel-->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-default" id="painel-info">
+        <div class="panel-heading">
+          <div class="panel-title">Informações sobre os alunos</div>
+        </div>
+        <div class="panel-body">
+          <div class="col-md-4">
+            <div class="panel panel-green">
+              <div class="panel-heading">
+                <div class="row">
+                  <div class="col-xs-3">
+                    <em class="fa fa-users fa-5x"></em>
+                  </div>
+                  <div class="col-xs-9 text-right">
+                    <div class="text-lg">{{ alunos }}</div>
+                    <p class="m0">Alunos</p>
+                  </div>
+                </div>
+              </div>
+              <a class="panel-footer bg-gray-dark bt0 clearfix btn-block" href="{% url 'administracao:alunos' %}">
+                <span class="pull-left">Ver detalhes</span>
+                <span class="pull-right">
+                  <em class="fa fa-chevron-circle-right"></em>
+                </span>
+              </a>
+              <!-- END panel-->
+            </div>
+          </div>
+          <div class="col-md-4">
+            <!-- START panel-->
+            <div class="panel panel-green">
+              <div class="panel-heading">
+                <div class="row">
+                  <div class="col-xs-3">
+                    <em class="fa fa-question fa-5x"></em>
+                  </div>
+                  <div class="col-xs-9 text-right">
+                    <div class="text-lg">{{ questionarios }}</div>
+                    <p class="m0">Questionários</p>
+                  </div>
+                </div>
+              </div>
+              <a class="panel-footer bg-gray-dark bt0 clearfix btn-block" href="{% url 'administracao:questionarios' %}">
+                <span class="pull-left">Ver detalhes</span>
+                <span class="pull-right">
+                  <em class="fa fa-chevron-circle-right"></em>
+                </span>
+              </a>
+            </div>
+            <!-- END panel-->
+         </div>
+         <div class="col-md-4">
+            <!-- START panel-->
+            <div class="panel panel-green">
+              <div class="panel-heading">
+                <div class="row">
+                  <div class="col-xs-3">
+                    <em class="fa fa-user-md fa-5x"></em>
+                  </div>
+                  <div class="col-xs-9 text-right">
+                    <div class="text-lg">{{ exames }}</div>
+                    <p class="m0">Exames</p>
+                  </div>
+                </div>
+              </div>
+              <a class="panel-footer bg-gray-dark bt0 clearfix btn-block" href="{% url 'administracao:exames' %}">
+                <span class="pull-left">Ver detalhes</span>
+                <span class="pull-right">
+                  <em class="fa fa-chevron-circle-right"></em>
+                </span>
+              </a>
+            </div>
+            <!-- END panel-->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <script src="{% static 'administracao/vendor/flot/jquery.flot.js' %}"></script>
+  <script src="{% static 'administracao/vendor/flot.tooltip/js/jquery.flot.tooltip.min.js' %}"></script>
+  <script src="{% static 'administracao/vendor/flot/jquery.flot.resize.js' %}"></script>
+  <script src="{% static 'administracao/vendor/flot/jquery.flot.pie.js' %}"></script>
+  <script src="{% static 'administracao/vendor/flot/jquery.flot.time.js' %}"></script>
+  <script src="{% static 'administracao/vendor/flot/jquery.flot.categories.js' %}"></script>
+  <script src="{% static 'administracao/vendor/flot-spline/js/jquery.flot.spline.min.js' %}"></script>
+  <script src="{% static 'administracao/js/demo/demo-flot.js' %}"></script>
+
+{% endblock content %}

@@ -1,0 +1,21 @@
+/* Estilos css para as páginas do site de administração */
+
+.nav-footer {
+    background-color: #f5f7fa;
+    position: absolute;
+    display: inline-block;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+}
+
+.sidebar .nav-heading {
+    color: #37bc9b;
+}
+
+/* Mapa de localizações */
+#map {
+  width: 100%;
+  height: 400px;
+  margin-bottom: 15px;
+}

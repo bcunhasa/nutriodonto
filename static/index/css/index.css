@@ -1,0 +1,103 @@
+/* Definição de fontes */
+body {
+    font-family: Quicksand;
+}
+
+/* Header */
+header {
+  padding: 154px 0 100px;
+}
+
+@media (min-width: 992px) {
+  header {
+    padding: 156px 0 120px;
+  }
+}
+
+/* Mídia */
+#logomarca {
+    height: auto;
+    width: 270px;
+}
+
+.logomarca-pequena {
+    height: auto;
+    width: 30px;
+}
+
+/* Seções */
+#cabecalho {
+    background-color: #00695c;
+    color: #ffffff;
+    font-size: 30px;
+    text-align: center;
+}
+
+#cronograma {
+    background-color: #ffffff;
+    padding: 110px 0;
+}
+
+#escolas {
+    background-color: #00695c;
+    padding: 60px 0;
+    color: #ffffff;
+}
+
+.titulo {
+    padding-bottom: 40px;
+}
+
+footer {
+    background-color: #00838f;
+    color: #ffffff;
+    padding: 40px 0;
+}
+
+footer a {
+    color: #ffffff;
+}
+
+.card-body {
+    margin: 0px auto;
+}
+
+/* Mapa de localizações */
+#map {
+    width: 100%;
+    height: 500px;
+}
+
+/* Efeito de fadein para imagens */
+
+.img-fadein {
+    -webkit-animation: fadein 2.5s; /* Safari and Chrome */
+    -moz-animation: fadein 2.5s; /* Firefox */
+    -ms-animation: fadein 2.5s; /* Internet Explorer */
+    -o-animation: fadein 2.5s; /* Opera */
+    animation: fadein 2.5s;
+} 
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+/* Firefox */
+@-moz-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+/* Safari and Chrome */
+@-webkit-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+/* Internet Explorer */
+@-ms-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}​
+/* Opera */
+@-o-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}​
