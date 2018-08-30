@@ -15,12 +15,12 @@ class Campanha(models.Model):
 
 class Acao(models.Model):
     """Modelo que representa uma acao de uma campanha"""
-    campanha = models.ForeignKey('Campanha', on_delete=models.CASCADE)
+    campanha = models.ForeignKey('Campanha', related_name='acoes', on_delete=models.CASCADE)
     nome = models.CharField(max_length=TAMANHO_NOMES, verbose_name='Nome')
 
     class Meta:
-        verbose_name = 'Acao'
-        verbose_name_plural = 'Acoes'
+        verbose_name = 'Ação'
+        verbose_name_plural = 'Ações'
 
     def __str__(self):
         """Devolve a representação do modelo em string"""
@@ -212,6 +212,10 @@ class Questionario(models.Model):
     
     # A sua opinião
     questao130 = ArrayField(models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES), null=True, verbose_name='130. O que você achou deste questionário?')
+
+    class Meta:
+        verbose_name = 'Questionário'
+        verbose_name_plural = 'Questionários'
 
     def __str__(self):
         """Devolve a representação do modelo em string"""

@@ -19,14 +19,7 @@ class ClienteAutenticacaoAPIView(ObtainAuthToken):
         # Define o conteudo da resposta em caso de autenticacao com sucesso
         if authentication.status_code == status.HTTP_200_OK:
             token = Token.objects.get(key=authentication.data['token'])
-            user = token.user
-            cliente = Cliente.objects.get(usuario=user.id)
-            
             response.update(token=token.key)
-            response.update(mensagem='Usuário autenticado com sucesso.')
-            response.update(usuario=user.id)
-            response.update(perfil=cliente.id)
-            response.update(username=user.username)
             response.update(sucesso=True)
 
         return Response(response)
@@ -37,3 +30,10 @@ class CargaInicialAPIView(generics.ListAPIView):
     permission_classes = [permissions.IsAuthenticated]
     queryset = Campanha.objects.all()
     serializer_class = CampanhaSerializer
+
+
+class AtualizaAlunoAPIView(generics.UpdateAPIView):
+    """View para editar os dados do perfil de um cliente"""
+    permission_classes = [permissions.IsAuthenticated]
+    queryset = Aluno.objects.all()
+    serializer_class = AlunoSerializer
