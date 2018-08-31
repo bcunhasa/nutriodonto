@@ -29,8 +29,10 @@ class Acao(models.Model):
 
 class Escola(models.Model):
     """Modelo que representa uma escola de uma acao"""
-    acao = models.ForeignKey('Acao', on_delete=models.CASCADE)
+    acao = models.ForeignKey('Acao', related_name='escolas', on_delete=models.CASCADE)
     nome = models.CharField(choices=ESCOLA, max_length=TAMANHO_NOMES, verbose_name='Nome')
+    latitude = models.DecimalField(max_digits=22, decimal_places=18, default=0, verbose_name='Latitude')
+    longitude = models.DecimalField(max_digits=22, decimal_places=18, default=0, verbose_name='Longitude')
 
     def __str__(self):
         """Devolve a representação do modelo em string"""
@@ -39,7 +41,7 @@ class Escola(models.Model):
 
 class Aluno(models.Model):
     """Modelo que representa um aluno"""
-    escola = models.ForeignKey('Escola', on_delete=models.CASCADE)
+    escola = models.ForeignKey('Escola', related_name='alunos', on_delete=models.CASCADE)
 
     nome = models.CharField(max_length=TAMANHO_NOMES, verbose_name='Nome')
     sexo = models.CharField(choices=SEXO, max_length=TAMANHO_OPCOES, verbose_name='Sexo')
