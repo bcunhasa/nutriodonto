@@ -294,7 +294,7 @@ class Carie(models.Model):
 
 class Dente(models.Model):
     """Modelo que representa um dente do da seção de cárie do exame"""
-    carie = models.OneToOneField('Carie', on_delete=models.CASCADE)
+    carie = models.ForeignKey('Carie', related_name='dentes', on_delete=models.CASCADE)
     
     codigo = models.CharField(null=True, max_length=TAMANHO_CODIGOS, verbose_name='Código')
     coroa = models.CharField(choices=CARIE_COROA, max_length=TAMANHO_OPCOES, null=True, verbose_name='Coroa')
@@ -320,7 +320,7 @@ class Periodontal(models.Model):
 
 class Gengiva(models.Model):
     """Modelo que representa um dente do índice periodontal comunitário"""
-    periodontal = models.OneToOneField('Periodontal', on_delete=models.CASCADE)
+    periodontal = models.ForeignKey('Periodontal', related_name='gengivas', on_delete=models.CASCADE)
     
     codigo = models.CharField(null=True, max_length=TAMANHO_CODIGOS, verbose_name='Código')
     
