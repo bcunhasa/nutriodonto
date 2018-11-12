@@ -52,7 +52,7 @@ class Aluno(models.Model):
 
     def __str__(self):
         """Devolve a representação do modelo em string"""
-        return self.nome
+        return self.numero_identificacao
 
 
 class Questionario(models.Model):
