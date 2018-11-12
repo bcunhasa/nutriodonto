@@ -103,13 +103,17 @@
               </li>
               
               <li class="nav-heading ">
-                <span data-localize="sidebar.heading.HEADER">Dados</span>
+                <span data-localize="sidebar.heading.HEADER">Administração</span>
               </li>
               <li class="{% if pagina_usuarios %} active {% endif %}">
                 <a href="{% url 'administracao:usuarios' %}" title="Usuários">
                   <em class="fa fa-user"></em>
                   <span data-localize="sidebar.nav.SINGLEVIEW">Usuários</span>
                 </a>
+              </li>
+              
+              <li class="nav-heading ">
+                <span data-localize="sidebar.heading.HEADER">Dados</span>
               </li>
               <li class="{% if pagina_campanhas %} active {% endif %}">
                 <a href="{% url 'administracao:campanhas' %}" title="Campanhas">
