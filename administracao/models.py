@@ -43,12 +43,12 @@ class Aluno(models.Model):
     """Modelo que representa um aluno"""
     escola = models.ForeignKey('Escola', related_name='alunos', on_delete=models.CASCADE)
 
-    nome = models.CharField(max_length=TAMANHO_NOMES, verbose_name='Nome')
+    numero_identificacao = models.CharField(max_length=TAMANHO_NOMES, verbose_name='Número de identificação')
     sexo = models.CharField(choices=SEXO, max_length=TAMANHO_OPCOES, verbose_name='Sexo')
     nascimento = models.DateField(verbose_name="Data de nascimento")
     periodo = models.CharField(choices=PERIODO, max_length=TAMANHO_OPCOES, verbose_name='Período')
     turma = models.CharField(choices=TURMA, max_length=TAMANHO_OPCOES, verbose_name='Turma')
-    municipio = models.CharField(choices=MUNICIPIO, max_length=TAMANHO_OPCOES, verbose_name='Município')
+    raça = models.CharField(choices=RACA, max_length=TAMANHO_OPCOES, verbose_name='Raça')
 
     def __str__(self):
         """Devolve a representação do modelo em string"""
@@ -58,6 +58,7 @@ class Aluno(models.Model):
 class Questionario(models.Model):
     """Modelo que representa um questionário"""
     aluno = models.OneToOneField('Aluno', on_delete=models.CASCADE)
+    data = models.DateField(null=True, verbose_name='Data')
     
     # Informações pessoais
     questao_1 = models.CharField(choices=ALUNO_1, max_length=TAMANHO_OPCOES, blank=True, null=True, verbose_name='01. Qual o grau de escolaridade mais elevado que você pretende concluir?')

@@ -8,8 +8,18 @@ TAMANHO_CODIGOS = 5
 # Constantes do modelo Aluno
 
 SEXO = (
-    ('0', 'Feminino'),
-    ('1', 'Masculino')
+    ('0', 'Masculino'),
+    ('1', 'Feminino'),
+    ('2', 'Outro'),
+    ('3', 'Prefiro não responder'),
+)
+
+RACA = (
+    ('0', 'Amarela'),
+    ('1', 'Branca'),
+    ('2', 'Indígena'),
+    ('3', 'Parda'),
+    ('4', 'Preta'),
 )
 
 ESCOLA = (
