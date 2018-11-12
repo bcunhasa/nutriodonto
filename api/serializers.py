@@ -3,71 +3,13 @@ from rest_framework import serializers
 from administracao.models import *
 
 
-class GengivaSerializer(serializers.ModelSerializer):
-    """Serializer do modelo Gengiva"""
-    
-    class Meta:
-        model = Gengiva
-        fields = '__all__'
-
-
-class PeriodontalSerializer(serializers.ModelSerializer):
-    """Serializer do modelo Periodontal"""
-    gengivas = GengivaSerializer(many=True)
-    
-    class Meta:
-        model = Periodontal
-        fields = ('id', 'exame', 'gengivas')
-
-
-class DenteSerializer(serializers.ModelSerializer):
-    """Serializer do modelo Dente"""
-    
-    class Meta:
-        model = Dente
-        fields = '__all__'
-
-
-class CarieSerializer(serializers.ModelSerializer):
-    """Serializer do modelo Carie"""
-    dentes = DenteSerializer(many=True)
-    
-    class Meta:
-        model = Carie
-        fields = ('id', 'exame', 'dentes')
-
-
-class EdentulismoSerializer(serializers.ModelSerializer):
-    """Serializer do modelo Edentulismo"""
-    
-    class Meta:
-        model = Edentulismo
-        fields = '__all__'
-
-
-class FluoroseSerializer(serializers.ModelSerializer):
-    """Serializer do modelo Fluorose"""
-    
-    class Meta:
-        model = Fluorose
-        fields = '__all__'
-
-
-class TraumatismoSerializer(serializers.ModelSerializer):
-    """Serializer do modelo Traumatismo"""
-    
-    class Meta:
-        model = Traumatismo
-        fields = '__all__'
-
-
 class ExameSerializer(serializers.ModelSerializer):
     """Serializer do modelo Exame"""
-    edentulismo = EdentulismoSerializer(many=False)
-    fluorose = FluoroseSerializer(many=False)
-    traumatismo = TraumatismoSerializer(many=False)
-    carie = CarieSerializer(many=False)
-    periodontal = PeriodontalSerializer(many=False)
+    # edentulismo = EdentulismoSerializer(many=False)
+    # fluorose = FluoroseSerializer(many=False)
+    # traumatismo = TraumatismoSerializer(many=False)
+    # carie = CarieSerializer(many=False)
+    # periodontal = PeriodontalSerializer(many=False)
     
     class Meta:
         model = Exame

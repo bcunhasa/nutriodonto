@@ -38,7 +38,7 @@ class LoginView(View):
         usuario = authenticate(username=username, password=password)
         
         try:
-            if username != 'admin':
+            if username != 'sadoadmin':
                 request.user.administrador
             
             if usuario is not None:

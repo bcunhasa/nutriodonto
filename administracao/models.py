@@ -60,160 +60,152 @@ class Questionario(models.Model):
     aluno = models.OneToOneField('Aluno', on_delete=models.CASCADE)
     
     # Informações pessoais
-    questao1 = models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES, null=True, verbose_name='1. Qual é a sua cor ou raça?')
-    questao2 = models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES, null=True, verbose_name='2. Qual é a sua idade?')
-    questao3 = models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES, null=True, verbose_name='3. Qual é o mês do seu aniversário?')
-    questao4 = models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES, null=True, verbose_name='4. Em que ano você nasceu?')
-    
-    # Informações gerais
-    questao5 = models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES, null=True, verbose_name='5. Qual é o seu gênero?')
-    questao6 = models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES, null=True, verbose_name='6. Em que ano/série você está?')
-    questao7 = ArrayField(models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES), null=True, verbose_name='7. Em que turno você estuda? (pode ser múltipla escola).')
-    questao8 = models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES, null=True, verbose_name='8. Você estuda em regime integral (tem atividades escolares por 7 horas ou mais diárias, durante todo o período escolar)?')
-    questao9 = models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES, null=True, verbose_name='9. Você estuda em regime de internato (a escola possui alojamento onde os alunos permanecem e dormem diariamente, durante todo o período escolar)?')
-    questao10 = models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES, null=True, verbose_name='10. Qual o grau de escolaridade mais elevado que você pretende concluir?')
-    questao11 = models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES, null=True, verbose_name='11. Quando terminar o ciclo/curso que você está frequentando atualmente, você pretende?')
-    questao12 = models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES, null=True, verbose_name='12. Você mora com sua mãe?')
-    questao13 = models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES, null=True, verbose_name='13. Você mora com seu pai?')
-    questao14 = models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES, null=True, verbose_name='14. Contando com você, quantas pessoas moram na sua casa ou apartamento?')
-    questao15 = models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES, null=True, verbose_name='15. Na sua casa tem telefone fixo (convencional)?')
-    questao16 = models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES, null=True, verbose_name='16. Você tem celular?')
-    questao17 = models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES, null=True, verbose_name='17. Na sua casa tem computador (de mesa, netbook, laptop etc.)?')
-    questao18 = models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES, null=True, verbose_name='18. Você tem acesso à internet em sua casa?')
-    questao19 = models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES, null=True, verbose_name='19. Alguém que mora na sua casa tem carro?')
-    questao20 = models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES, null=True, verbose_name='20. Alguém que mora na sua casa tem moto?')
-    questao21 = models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES, null=True, verbose_name='21. Quantos banheiros com chuveiro têm dentro da sua casa?')
-    questao22 = models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES, null=True, verbose_name='22. Tem empregado(a) doméstico(a) recebendo dinheiro para fazer o trabalho em sua casa, três ou mais dias por semana?')
-    questao23 = models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES, null=True, verbose_name='23. Qual nível de ensino (grau) sua mãe estudou ou estuda?')
-    questao24 = models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES, null=True, verbose_name='24. Você tem algum trabalho, emprego ou negócio atualmente?')
-    questao25 = models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES, null=True, verbose_name='25. Você recebe dinheiro por este trabalho, emprego ou negócio?')
-    questao26 = models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES, null=True, verbose_name='26. Sua família recebe benefícios do Programa Bolsa Família?')
-    
-    # Alimentação
-    questao27 = models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES, null=True, verbose_name='27. Você costuma tomar o café da manhã?')
-    questao28 = models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES, null=True, verbose_name='28. Você costuma almoçar ou jantar com sua mãe, pai ou responsável?')
-    questao29 = models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES, null=True, verbose_name='29. Você costuma comer quando está assistindo à TV ou estudando?')
-    questao30 = models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES, null=True, verbose_name='30. Sua escola oferece comida (merenda escolar/almoço) aos alunos da sua turma? (Não considerar lanches/comida comprados na cantina)')
-    questao31 = models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES, null=True, verbose_name='31. Você costuma comer a comida (merenda/almoço) oferecida pela escola? (Não considerar lanches/comida comprados na cantina)')
-    questao32 = models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES, null=True, verbose_name='32. NOS ÚLTIMOS 7 DIAS, em quantos dias você comeu feijão?')
-    questao33 = models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES, null=True, verbose_name='33. NOS ÚLTIMOS 7 DIAS, em quantos dias você comeu salgados fritos? Exemplo: batata frita (sem contar a batata de pacote) ou salgados fritos como coxinha de galinha, quibe frito, pastel frito, comidas típicas, etc.')
-    questao34 = models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES, null=True, verbose_name='34. NOS ÚLTIMOS 7 DIAS, em quantos dias você comeu pelo menos um tipo de legume ou verdura? Exemplos: alface, abóbora, brócolis, cebola, cenoura, chuchu, couve, espinafre, pepino, tomate etc. Não inclua batata e aipim (mandioca/macaxeira).')
-    questao35 = models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES, null=True, verbose_name='35. NOS ÚLTIMOS 7 DIAS, em quantos dias você comeu guloseimas (doces, balas, chocolates, chicletes, bombons ou pirulitos)?')
-    questao36 = models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES, null=True, verbose_name='36. NOS ÚLTIMOS 7 DIAS, em quantos dias você comeu frutas frescas ou salada de frutas?')
-    questao37 = models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES, null=True, verbose_name='37. NOS ÚLTIMOS SETE DIAS, em quantos dias você tomou refrigerante?')
-    questao38 = models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES, null=True, verbose_name='38. NOS ÚLTIMOS SETE DIAS, em quantos dias você comeu alimentos industrializados/ultraprocessados salgados, como hambúrguer, presunto, mortadela, salame, linguiça, salsicha, macarrão instantâneo, salgadinho de pacote, biscoitos salgados?')
-    questao39 = models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES, null=True, verbose_name='39. NOS ÚLTIMOS SETE DIAS, em quantos dias você comeu em restaurantes fast food, tais como lanchonetes, barracas de cachorro quentes, pizzaria etc.?')
-    questao40 = models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES, null=True, verbose_name='40. NOS ÚLTIMOS 30 DIAS, com que frequência você ficou com fome por não ter comida suficiente em sua casa?')
-    questao41 = models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES, null=True, verbose_name='41. NOS ÚLTIMOS 30 DIAS, quantas vezes por dia você normalmente comeu frutas frescas ou salada de frutas?')
-    questao42 = models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES, null=True, verbose_name='42. NOS ÚLTIMOS 30 DIAS, quantas vezes por dia você normalmente comeu legumes ou verduras, tais como alface, abóbora, brócolis, cebola, cenoura, chuchu, couve, espinafre, pepino, tomate etc.? Não inclua batata e aipim (mandioca/macaxeira)')
-    questao43 = models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES, null=True, verbose_name='43. NOS ÚLTIMOS 30 DIAS, quantas vezes por dia você tomou refrigerante?')
-    
-    # Atividade física
-    questao44 = models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES, null=True, verbose_name='44. NOS ÚLTIMOS 7 DIAS, em quantos dias você FOI a pé ou de bicicleta para a escola?')
-    questao45 = models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES, null=True, verbose_name='45. Quando você VAI para a escola a pé ou de bicicleta, quanto tempo você gasta?')
-    questao46 = models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES, null=True, verbose_name='46. NOS ÚLTIMOS 7 DIAS, em quantos dias você VOLTOU a pé ou de bicicleta da escola?')
-    questao47 = models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES, null=True, verbose_name='47. Quando você VOLTA da escola a pé ou de bicicleta, quanto tempo você gasta?')
-    questao48 = models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES, null=True, verbose_name='48. NOS ÚLTIMOS 7 DIAS, quantos dias você teve aulas de educação física na escola?')
-    questao49 = models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES, null=True, verbose_name='49. NOS ÚLTIMOS 7 DIAS, quanto tempo por dia você fez atividade física ou esporte durante as aulas de educação física na escola?')
-    questao50 = models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES, null=True, verbose_name='50. NOS ÚLTIMOS 7 DIAS, sem contar as aulas de educação física da escola, em quantos dias você praticou alguma atividade física, como esportes, dança, ginástica, musculação, lutas ou outra atividade?')
-    questao51 = models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES, null=True, verbose_name='51. NORMALMENTE, quanto tempo por dia duram essas atividades (como esportes, dança, ginástica, musculação, lutas ou outra atividade) que você faz? (Sem contar as aulasde educação física)')
-    questao52 = models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES, null=True, verbose_name='52. NOS ÚLTIMOS 7 DIAS, em quantos dias você fez atividade física por pelo menos 60 minutos (1 hora) por dia? (Some todo o tempo que você gastou em qualquer tipo de atividade física, EM CADA DIA)')
-    questao53 = models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES, null=True, verbose_name='53. Se você tivesse oportunidade de fazer atividade física na maioria dos dias da semana, qual seria a sua atitude?')
-    questao54 = models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES, null=True, verbose_name='54. Em um dia de semana comum, quantas horas por dia você assiste a TV? (não contar sábado, domingo e feriado)')
-    questao55 = models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES, null=True, verbose_name='55. Em um dia de semana comum, quanto tempo você fica sentado(a), assistindo televisão, usando computador, jogando videogame, conversando com amigos(as) ou fazendo outras atividades sentado(a)? (não contar sábado, domingo, feriados e o tempo sentado na escola)')
-    
-    # Uso de cigarro
-    questao56 = models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES, null=True, verbose_name='56. Alguma vez na vida, você já fumou cigarro, mesmo uma ou duas tragadas?')
-    questao57 = models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES, null=True, verbose_name='57. Que idade você tinha quando experimentou fumar cigarro pela primeira vez?')
-    questao58 = models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES, null=True, verbose_name='58. NOS ÚLTIMOS 30 DIAS, em quantos dias você fumou cigarros?')
-    questao59 = models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES, null=True, verbose_name='59. NOS ÚLTIMOS 30 DIAS, em geral, como você conseguiu seus próprios cigarros?')
-    questao60 = models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES, null=True, verbose_name='60. NOS ÚLTIMOS 30 DIAS, alguém se recusou a lhe vender cigarros por causa de sua idade?')
-    questao61 = models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES, null=True, verbose_name='61. NOS ÚLTIMOS 30 DIAS, em quantos dias você usou outros produtos de tabaco: cigarros de palha ou enrolados a mão, charuto, cachimbo, cigarrilha, cigarro indiano ou bali, narguilé, rapé, fumo de mascar etc.? (não incluir cigarro comum)')
-    questao62 = models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES, null=True, verbose_name='62. Qual outro produto do tabaco você usou com mais frequência NOS ÚLTIMOS 30 DIAS?')
-    questao63 = models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES, null=True, verbose_name='63. NOS ÚLTIMOS 7 DIAS, em quantos dias pessoas fumaram na sua presença?')
-    questao64 = models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES, null=True, verbose_name='64. Algum de seus pais ou responsáveis fuma?')
-    questao65 = models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES, null=True, verbose_name='65. Primeira dose de bebida alcoólica (uma dose equivale a uma lata de cerveja ou uma taça de vinho ou uma dose de cachaça ou uísque etc.)?')
-    
-    # Bebidas alcoólicas
-    questao66 = models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES, null=True, verbose_name='66. Alguma vez na vida você tomou uma dose de bebida alcoólica (uma dose equivale a uma lata de cerveja ou uma taça de vinho ou uma dose de cachaça ou uísque etc.)?')
-    questao67 = models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES, null=True, verbose_name='67. Que idade você tinha quando tomou a primeira dose de bebida alcoólica (uma dose equivale a uma lata de cerveja ou uma taça de vinho ou uma dose de cachaça ou uísque etc.)?')
-    questao68 = models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES, null=True, verbose_name='68. NOS ÚLTIMOS 30 DIAS, em quantos dias você tomou pelo menos um copo ou uma dose de bebida alcoólica (uma dose equivale a uma lata de cerveja ou uma taça de vinho ou uma dose de cachaça ou uísque etc.)?')
-    questao69 = models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES, null=True, verbose_name='69. NOS ÚLTIMOS 30 DIAS, nos dias em que você tomou alguma bebida alcoólica, quantos copos ou doses você tomou por dia?')
-    questao70 = models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES, null=True, verbose_name='70. NOS ÚLTIMOS 30 DIAS, na maioria das vezes, como você conseguiu a bebida que tomou?')
-    questao71 = models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES, null=True, verbose_name='71. Na sua vida, quantas vezes você bebeu tanto que ficou realmente bêbado(a)?')
-    questao72 = models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES, null=True, verbose_name='72. Na sua vida, quantas vezes você teve problemas com sua família ou amigos, perdeu aulas ou brigou por que tinha bebido?')
-    questao73 = models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES, null=True, verbose_name='73. Quantos amigos seus consomem bebida alcoólica?')
-    
-    # Drogas ilícitas
-    questao74 = models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES, null=True, verbose_name='74. Alguma vez na vida, você já usou alguma droga como: maconha, cocaína, crack, cola, loló, lança-perfume, ecstasy, oxy etc.?')
-    questao75 = models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES, null=True, verbose_name='75. Que idade você tinha quando usou alguma droga como: maconha, cocaína, crack, cola, loló, lança-perfume, ecstasy, oxy ou outra pela primeira vez?')
-    questao76 = models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES, null=True, verbose_name='76. NOS ÚLTIMOS 30 DIAS, quantos dias você usou droga como maconha, cocaína, crack, cola, loló, lança-perfume, ecstasy, oxy etc.?')
-    questao77 = models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES, null=True, verbose_name='77. NOS ÚLTIMOS 30 DIAS, quantos dias você usou maconha?')
-    questao78 = models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES, null=True, verbose_name='78. NOS ÚLTIMOS 30 DIAS, quantos dias você usou crack?')
-    questao79 = models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES, null=True, verbose_name='79. Quantos amigos seus usam drogas?')
-    
-    # Situações em casa e na escola
-    questao80 = models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES, null=True, verbose_name='80. NOS ÚLTIMOS 30 DIAS, em quantos dias você faltou às aulas ou à escola sem permissão dos seus pais ou responsáveis?')
-    questao81 = models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES, null=True, verbose_name='81. NOS ÚLTIMOS 30 DIAS, com que frequência seus pais ou responsáveis sabiam realmente o que você estava fazendo em seu tempo livre?')
-    questao82 = models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES, null=True, verbose_name='82. NOS ÚLTIMOS 30 DIAS, com que frequência seus pais ou responsáveis verificaram se os seus deveres de casa (lição de casa) foram feitos?')
-    questao83 = models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES, null=True, verbose_name='83. NOS ÚLTIMOS 30 DIAS, com que frequência seus pais ou responsáveis entenderam seus problemas e preocupações?')
-    questao84 = models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES, null=True, verbose_name='84. NOS ÚLTIMOS 30 DIAS, com que frequência seus pais ou responsáveis mexeram em suas coisas sem a sua concordância?')
-    questao85 = models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES, null=True, verbose_name='85. NOS ÚLTIMOS 30 DIAS, com que frequência os colegas de sua escola trataram você bem e/ou foram prestativos contigo?')
-    questao86 = models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES, null=True, verbose_name='86. NOS ÚLTIMOS 30 DIAS, com que frequência algum dos seus colegas de escola te esculacharam, zoaram, mangaram, intimidaram ou caçoaram tanto que você ficou magoado, incomodado, aborrecido, ofendido ou humilhado?')
-    questao87 = models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES, null=True, verbose_name='87. NOS ÚLTIMOS 30 DIAS, qual o motivo/causa de seus colegas terem te esculachado, zombado, zoado, caçoado, mangado, intimidado ou humilhado?')
-    questao88 = models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES, null=True, verbose_name='88. NOS ÚLTIMOS 30 DIAS, você esculachou, zombou, mangou, intimidou ou caçoou algum de seus colegas da escola tanto que ele ficou magoado, aborrecido, ofendido ou humilhado?')
-    questao89 = models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES, null=True, verbose_name='89. Você já sofreu bullying?')
-    questao90 = models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES, null=True, verbose_name='90. NOS ÚLTIMOS 12 MESES, com que frequência você não conseguiu dormir à noite porque algo o(a) preocupava muito?')
-    questao91 = models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES, null=True, verbose_name='91. Quantos amigos(as) próximos você tem?')
-    
-    # Higiene e saúde bucal
-    questao92 = models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES, null=True, verbose_name='92. NOS ÚLTIMOS 30 DIAS, com que frequência você lavou as mãos antes de comer?')
-    questao93 = models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES, null=True, verbose_name='93. NOS ÚLTIMOS 30 DIAS, com que frequência você lavou as mãos após usar o banheiro ou o vaso sanitário?')
-    questao94 = models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES, null=True, verbose_name='94. NOS ÚLTIMOS 30 DIAS, com que frequência você usou sabão ou sabonete quando lavou suas mãos?')
-    questao95 = models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES, null=True, verbose_name='95. NOS ÚLTIMOS 30 DIAS, quantas vezes por dia você usualmente escovou os dentes?')
-    questao96 = models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES, null=True, verbose_name='96. NOS ÚLTIMOS 06 MESES, você teve dor de dente? (excluir dor de dente causada por uso de aparelho)')
-    questao97 = models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES, null=True, verbose_name='97. NOS ÚLTIMOS 12 MESES, quantas vezes você foi ao dentista?')
-    
-    # Segurança
-    questao98 = models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES, null=True, verbose_name='98. NOS ÚLTIMOS 30 DIAS, em quantos dias você deixou de ir à escola porque não se sentia seguro no caminho de casa para a escola ou da escola para casa?')
-    questao99 = models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES, null=True, verbose_name='99. NOS ÚLTIMOS 30 DIAS, em quantos dias você não foi à escola porque não se sentia seguro na escola?')
-    questao100 = models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES, null=True, verbose_name='100. NOS ÚLTIMOS 30 DIAS, com que frequência você usou cinto de segurança enquanto andava como passageiro(a) NO BANCO DA FRENTE de carro/automóvel, van ou táxi?')
-    questao101 = models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES, null=True, verbose_name='101. NOS ÚLTIMOS 30 DIAS, com que frequência você usou capacete ao andar de motocicleta?')
-    questao102 = models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES, null=True, verbose_name='102. NOS ÚLTIMOS 30 DIAS, quantas vezes você dirigiu um veículo motorizado de transporte (carro, motocicleta, voadeira, barco)?')
-    questao103 = models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES, null=True, verbose_name='103. NOS ÚLTIMOS 30 DIAS, quantas vezes você andou em carro ou outro veículo motorizado dirigido por alguém que tinha consumido alguma bebida alcoólica?')
-    questao104 = models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES, null=True, verbose_name='104. NOS ÚLTIMOS 30 DIAS, quantas vezes você foi agredido(a) fisicamente por um adulto da sua família?')
-    questao105 = models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES, null=True, verbose_name='105. NOS ÚLTIMOS 30 DIAS, você esteve envolvido(a) em alguma briga em que alguma pessoa usou arma de fogo, como revólver ou espingarda?')
-    questao106 = models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES, null=True, verbose_name='106. NOS ÚLTIMOS 30 DIAS, você esteve envolvido(a) em alguma briga em que alguma pessoa usou alguma outra arma como faca, canivete, peixeira, pedra, pedaço de pau ou garrafa?')
-    questao107 = models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES, null=True, verbose_name='107. NOS ÚLTIMOS 12 MESES, quantas vezes você foi agredido(a) fisicamente?')
-    questao108 = models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES, null=True, verbose_name='108. NOS ÚLTIMOS 12 MESES, quantas vezes você se envolveu em briga (uma luta física)?')
-    questao109 = models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES, null=True, verbose_name='109. NOS ÚLTIMOS 12 MESES, quantas vezes você foi seriamente ferido(a)?')
-    questao110 = models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES, null=True, verbose_name='110. NOS ÚLTIMOS 12 MESES, qual foi o ferimento ou a lesão MAIS SÉRIA que aconteceu com você?')
-    questao111 = models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES, null=True, verbose_name='111. NOS ÚLTIMOS 12 MESES, qual foi a PRINCIPAL CAUSA do ferimento ou da lesão mais séria que aconteceu com você?')
-    questao112 = models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES, null=True, verbose_name='112. NOS ÚLTIMOS 12 MESES, você sofreu algum acidente de bicicleta (caiu e se machucou)?')
-    questao113 = models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES, null=True, verbose_name='113. Alguma vez na vida você foi forçado(a) a ter relação sexual?')
-    questao114 = models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES, null=True, verbose_name='114. Quem forçou você a ter relação sexual?')
-    
-    # Uso de serviço de saúde
-    questao115 = models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES, null=True, verbose_name='115. Como você classificaria seu estado de saúde?')
-    questao116 = models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES, null=True, verbose_name='116. NOS ÚLTIMOS 12 MESES, quantos dias você faltou a escola por motivo(s) relacionado(s) à sua saúde?')
-    questao117 = models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES, null=True, verbose_name='117. NOS ÚLTIMOS 12 MESES você procurou algum serviço ou profissional de saúde para atendimento relacionado à própria saúde?')
-    questao118 = models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES, null=True, verbose_name='118. NOS ÚLTIMOS 12 MESES, qual foi o serviço de saúde que você procurou com MAIS FREQUÊNCIA?')
-    questao119 = models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES, null=True, verbose_name='119. Você foi atendido(a) NA ÚLTIMA VEZ que procurou alguma Unidade Básica de Saúde (Centro ou Posto de saúde ou Unidade de Saúde da Família/PSF), NESTES ÚLTIMOS 12 MESES?')
-    questao120 = models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES, null=True, verbose_name='120. Qual foi o PRINCIPAL MOTIVO da sua procura na Unidade Básica de Saúde (Centro ou Posto de saúde ou Unidade de Saúde da Família/PSF) NESTA ÚLTIMA VEZ?')
-    questao121 = models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES, null=True, verbose_name='121. Você conhece/ouviu falar sobre a campanha de vacinação contra o vírus HPV?')
-    questao122 = models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES, null=True, verbose_name='122. Você foi vacinada contra o vírus HPV?')
-    
-    # Imagem corporal
-    questao123 = models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES, null=True, verbose_name='123. Você considera sua imagem corporal como sendo algo:')
-    questao124 = models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES, null=True, verbose_name='124. Como você se sente em relação ao seu corpo?')
-    questao125 = models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES, null=True, verbose_name='125. Quanto ao seu corpo, você se considera:')
-    questao126 = models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES, null=True, verbose_name='126. O que você está fazendo em relação a seu peso?')
-    questao127 = models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES, null=True, verbose_name='127. NOS ÚLTIMOS 30 DIAS, você vomitou ou tomou laxantes para perder peso ou evitar ganhar peso?')
-    questao128 = models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES, null=True, verbose_name='128. NOS ÚLTIMOS 30 DIAS, você tomou algum remédio, fórmula ou outro produto para perder peso, sem acompanhamento médico?')
-    questao129 = models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES, null=True, verbose_name='129. NOS ÚLTIMOS 30 DIAS, você tomou algum remédio, fórmula ou outro produto para ganhar peso ou massa muscular sem acompanhamento médico?')
-    
-    # A sua opinião
-    questao130 = ArrayField(models.CharField(choices=QUESTAO1, max_length=TAMANHO_OPCOES), null=True, verbose_name='130. O que você achou deste questionário?')
+    questao_1 = models.CharField(choices=ALUNO_1, max_length=TAMANHO_OPCOES, null=True, verbose_name='01. Qual o grau de escolaridade mais elevado que você pretende concluir?')
+    questao_2 = models.CharField(choices=ALUNO_2, max_length=TAMANHO_OPCOES, null=True, verbose_name='02. Quando terminar o ciclo/curso que você está frequentando atualmente, você pretende?')
+    questao_3 = models.CharField(choices=ALUNO_3, max_length=TAMANHO_OPCOES, null=True, verbose_name='03. Você mora com sua mãe?')
+    questao_4 = models.CharField(choices=ALUNO_4, max_length=TAMANHO_OPCOES, null=True, verbose_name='04. Você mora com seu pai?')
+    questao_5 = models.CharField(choices=ALUNO_5, max_length=TAMANHO_OPCOES, null=True, verbose_name='05. Contando com você, quantas pessoas moram na sua casa ou apartamento?')
+    questao_6 = models.CharField(choices=ALUNO_6, max_length=TAMANHO_OPCOES, null=True, verbose_name='06. Na sua casa tem telefone fixo (convencional)?')
+    questao_7 = ArrayField(models.CharField(choices=ALUNO_7, max_length=TAMANHO_OPCOES), null=True, verbose_name='07. Você tem celular?')
+    questao_8 = models.CharField(choices=ALUNO_8, max_length=TAMANHO_OPCOES, null=True, verbose_name='08. Na sua casa tem computador (de mesa, notbook, laptop etc.)?')
+    questao_9 = models.CharField(choices=ALUNO_9, max_length=TAMANHO_OPCOES, null=True, verbose_name='09. Você tem acesso à internet em sua casa?')
+    questao_10 = models.CharField(choices=ALUNO_10, max_length=TAMANHO_OPCOES, null=True, verbose_name='10. Alguém que mora na sua casa tem carro?')
+    questao_11 = models.CharField(choices=ALUNO_11, max_length=TAMANHO_OPCOES, null=True, verbose_name='11. Alguém que mora na sua casa tem moto?')
+    questao_12 = models.CharField(choices=ALUNO_12, max_length=TAMANHO_OPCOES, null=True, verbose_name='12. Quantos banheiros com chuveiro têm dentro da sua casa?')
+    questao_13 = models.CharField(choices=ALUNO_13, max_length=TAMANHO_OPCOES, null=True, verbose_name='13. Na sua casa tem empregado (a) doméstico (a)?')
+    questao_14 = models.CharField(choices=ALUNO_14, max_length=TAMANHO_OPCOES, null=True, verbose_name='14. Caso responda SIM, quantos dias esta pessoa trabalha?')
+    questao_15 = models.CharField(choices=ALUNO_15, max_length=TAMANHO_OPCOES, null=True, verbose_name='15. Qual nível de ensino (grau) sua mãe estudou ou estuda?')
+    questao_16 = models.CharField(choices=ALUNO_16, max_length=TAMANHO_OPCOES, null=True, verbose_name='16. Você tem algum trabalho, emprego ou negócio atualmente?')
+    questao_17 = models.CharField(choices=ALUNO_17, max_length=TAMANHO_OPCOES, null=True, verbose_name='17. Você recebe dinheiro por este trabalho, emprego ou negócio?')
+    questao_18 = models.CharField(choices=ALUNO_18, max_length=TAMANHO_OPCOES, null=True, verbose_name='18. Sua família recebe benefícios do Programa Bolsa Família? Comportamento Alimentar')
+    questao_19 = models.CharField(choices=ALUNO_19, max_length=TAMANHO_OPCOES, null=True, verbose_name='19. Você costuma tomar o café da manhã?')
+    questao_20 = models.CharField(choices=ALUNO_20, max_length=TAMANHO_OPCOES, null=True, verbose_name='20. Você costuma almoçar ou jantar com sua mãe, pai ou responsável?')
+    questao_21 = models.CharField(choices=ALUNO_21, max_length=TAMANHO_OPCOES, null=True, verbose_name='21. Você costuma comer quando está assistindo à TV ou estudando?')
+    questao_22 = models.CharField(choices=ALUNO_22, max_length=TAMANHO_OPCOES, null=True, verbose_name='22. Sua escola oferece comida (merenda escolar/almoço) aos alunos da sua turma? (Não considerar lanches/comida comprados na cantina)')
+    questao_23 = models.CharField(choices=ALUNO_23, max_length=TAMANHO_OPCOES, null=True, verbose_name='23. Você costuma comer a comida (merenda/almoço) oferecida pela escola? (Não considerar lanches/comida comprados na cantina)')
+    questao_24 = models.CharField(choices=ALUNO_24, max_length=TAMANHO_OPCOES, null=True, verbose_name='24. Nos últimos 30 dias, com que frequência você ficou com fome por não ter comida suficiente em sua casa?')
+    questao_25 = models.CharField(choices=ALUNO_25, max_length=TAMANHO_OPCOES, null=True, verbose_name='25. Leite de vaca:')
+    questao_26 = models.CharField(choices=ALUNO_26, max_length=TAMANHO_OPCOES, null=True, verbose_name='26. Leite de vaca com adição de achocolatados em pó (nescau, toddy, ovomaltine), mel ou açúcar:')
+    questao_27 = models.CharField(choices=ALUNO_27, max_length=TAMANHO_OPCOES, null=True, verbose_name='27. Achocolatados líquidos comprados em supermercados como, por exemplo: Todyynho, Chokinho; Nescau; Italac etc.')
+    questao_28 = models.CharField(choices=ALUNO_28, max_length=TAMANHO_OPCOES, null=True, verbose_name='28. Iogurte como, por exemplo: Danone, Danoninho, Nestlé, Ninho, etc.')
+    questao_29 = models.CharField(choices=ALUNO_29, max_length=TAMANHO_OPCOES, null=True, verbose_name='29. Queijo.')
+    questao_30 = models.CharField(choices=ALUNO_30, max_length=TAMANHO_OPCOES, null=True, verbose_name='30. Sobremesas feitas com leite (pudim, flam, pudim de chocolate, creme de leite).')
+    questao_31 = models.CharField(choices=ALUNO_31, max_length=TAMANHO_OPCOES, null=True, verbose_name='31. Gelados (Picolé, sorvete, geladinho).')
+    questao_32 = models.CharField(choices=ALUNO_32, max_length=TAMANHO_OPCOES, null=True, verbose_name='32. Pão ou torrada (torrada é o mesmo que pão, sendo que em torrado).')
+    questao_33 = models.CharField(choices=ALUNO_33, max_length=TAMANHO_OPCOES, null=True, verbose_name='33. Flocos de cereais açucarados (por exemplo, flocos conhecidos como sucrilhos ou equivalentes, nescau cereal), etc.')
+    questao_34 = models.CharField(choices=ALUNO_34, max_length=TAMANHO_OPCOES, null=True, verbose_name='34. Flocos de cereais (aveia, milho, centeio, como os da marca Nesfit e Nutry)')
+    questao_35 = models.CharField(choices=ALUNO_35, max_length=TAMANHO_OPCOES, null=True, verbose_name='35. Arroz, massas, batatas.')
+    questao_36 = models.CharField(choices=ALUNO_36, max_length=TAMANHO_OPCOES, null=True, verbose_name='36. Batatas fritas pacote Ruffles, Pringles, Lay’s')
+    questao_37 = models.CharField(choices=ALUNO_37, max_length=TAMANHO_OPCOES, null=True, verbose_name='37. Batatas fritas caseiras.')
+    questao_38 = models.CharField(choices=ALUNO_38, max_length=TAMANHO_OPCOES, null=True, verbose_name='38. Bolachas Maria, bolachas Mabel, biscoitos ou bolachas cream cracker, (ou água e sal) etc.')
+    questao_39 = models.CharField(choices=ALUNO_39, max_length=TAMANHO_OPCOES, null=True, verbose_name='39. Outras bolachas (biscoitos recheados como Bono, Trakinas e Oreo).')
+    questao_40 = models.CharField(choices=ALUNO_40, max_length=TAMANHO_OPCOES, null=True, verbose_name='40. Produtos de pastelaria (coxinhas, pastéis, salgadinhos de queijo, kibes).')
+    questao_41 = models.CharField(choices=ALUNO_41, max_length=TAMANHO_OPCOES, null=True, verbose_name='41. Snacks (chocolates vendidos em barrinhas, como Twix, Kitkat, Bis e Chokito)')
+    questao_42 = models.CharField(choices=ALUNO_42, max_length=TAMANHO_OPCOES, null=True, verbose_name='42. Marmelada, doce em potinho, geleia, mel. (Como Paçoquita, Melzinho e Pé de moleque)')
+    questao_43 = models.CharField(choices=ALUNO_43, max_length=TAMANHO_OPCOES, null=True, verbose_name='43. Açúcares em geral.')
+    questao_44 = models.CharField(choices=ALUNO_44, max_length=TAMANHO_OPCOES, null=True, verbose_name='44. Sopas comuns caseiras (de carne, frango ou legumes)')
+    questao_45 = models.CharField(choices=ALUNO_45, max_length=TAMANHO_OPCOES, null=True, verbose_name='45. Vegetais crus em salada ou cozinhados (Cenoura, couve flor, brócolis, alface, beterraba, agrião)')
+    questao_46 = models.CharField(choices=ALUNO_46, max_length=TAMANHO_OPCOES, null=True, verbose_name='46. Leguminosas (feijão, grão de bico, ervilhas, favas).')
+    questao_47 = models.CharField(choices=ALUNO_47, max_length=TAMANHO_OPCOES, null=True, verbose_name='47. Fruta fresca. (Manga, caju, banana, goiaba, acerola, murici, maça, laranja)')
+    questao_48 = models.CharField(choices=ALUNO_48, max_length=TAMANHO_OPCOES, null=True, verbose_name='48. Frutos enlatados em calda: (pêssego, banana, caju, goiaba).')
+    questao_49 = models.CharField(choices=ALUNO_49, max_length=TAMANHO_OPCOES, null=True, verbose_name='49. Sucos naturais (de laranja, acerola, tangerina, uva)')
+    questao_50 = models.CharField(choices=ALUNO_50, max_length=TAMANHO_OPCOES, null=True, verbose_name='50. Refrigerantes (Coca cola, graraná ou fanta) ou ainda sucos de caixinha com néctar (como Kapo, del Valle)')
+    questao_51 = models.CharField(choices=ALUNO_51, max_length=TAMANHO_OPCOES, null=True, verbose_name='51. Pizzas. (Mini Pizza por exemplo)')
+    questao_52 = models.CharField(choices=ALUNO_52, max_length=TAMANHO_OPCOES, null=True, verbose_name='52. Hamburguer e cachorro quente.')
+    questao_53 = models.CharField(choices=ALUNO_53, max_length=TAMANHO_OPCOES, null=True, verbose_name='53. Rebuçados, gomas, pastilhas elásticas. (Chicletes, balinhas, jujubas)')
+    questao_54 = models.CharField(choices=ALUNO_54, max_length=TAMANHO_OPCOES, null=True, verbose_name='54. Rosquinhas (como Donuts, Sonhos, Rosquinhas de Polvilho, Pão de Mel) Hábitos Alimentares quando o (a) estudante tinha menos de dois anos de idade')
+    questao_55 = models.CharField(choices=ALUNO_55, max_length=TAMANHO_OPCOES, null=True, verbose_name='55. Seu filho (a) foi alimentado (a) com leite materno?')
+    questao_56 = models.CharField(choices=ALUNO_56, max_length=TAMANHO_OPCOES, null=True, verbose_name='56. Ele (a) mamou (apenas no peito) até quantos meses de idade?')
+    questao_57 = models.CharField(choices=ALUNO_57, max_length=TAMANHO_OPCOES, null=True, verbose_name='57. Se seu filho ou sua filha mamou até seis meses ou mais, até quantos meses ele (a) mamou no peito (mesmo que tenha se alimentado com outras comidas ou bebidas) Meu (minha) Filho (filha) mamou no peito até:')
+    questao_58 = models.CharField(choices=ALUNO_58, max_length=TAMANHO_OPCOES, null=True, verbose_name='58. Antes de completar dois anos de idade, seu filho (a) foi alimentado (a) com leite industrial? (aquele leite comprado nas farmácias ou supermercados)')
+    questao_59 = models.CharField(choices=ALUNO_59, max_length=TAMANHO_OPCOES, null=True, verbose_name='59. Caso sua resposta tenha sido SIM, até quantos meses ele se alimentou de leite industrial, isto é, aquele leite que é comprado nas farmácias e supermercados?')
+    questao_60 = models.CharField(choices=ALUNO_60, max_length=TAMANHO_OPCOES, null=True, verbose_name='60. Até dois anos de idade, seu filho ou sua filha recebeu alimentação mista, isto é:')
+    questao_61 = models.CharField(choices=ALUNO_61, max_length=TAMANHO_OPCOES, null=True, verbose_name='61. Até dois anos de idade, seu filho ou sua filha tomou leite de vaca?')
+    questao_62 = models.CharField(choices=ALUNO_62, max_length=TAMANHO_OPCOES, null=True, verbose_name='62. Caso sua resposta tenha sido sim, com que idade (em meses) ele começou a tomar leite de vaca?')
+    questao_63 = models.CharField(choices=ALUNO_63, max_length=TAMANHO_OPCOES, null=True, verbose_name='63. Nos últimos dias, em quantos deles você foi a pé ou de bicicleta para a escola?')
+    questao_64 = models.CharField(choices=ALUNO_64, max_length=TAMANHO_OPCOES, null=True, verbose_name='64. Quando você vai para a escola a pé ou de bicicleta, quanto tempo você gasta?')
+    questao_65 = models.CharField(choices=ALUNO_65, max_length=TAMANHO_OPCOES, null=True, verbose_name='66. Nos últimos sete dias, quanto tempo por dia você fez atividade física ou esporte durante as aulas de educação física na escola?')
+    questao_66 = models.CharField(choices=ALUNO_66, max_length=TAMANHO_OPCOES, null=True, verbose_name='67. Nos últimos 7 dias, sem contar as aulas de educação física da escola, em quantos dias você praticou alguma atividade física, como esportes, dança, ginástica, musculação, lutas ou outra atividade?')
+    questao_67 = models.CharField(choices=ALUNO_67, max_length=TAMANHO_OPCOES, null=True, verbose_name='68. Normalmente, quanto tempo por dia duram essas atividades (como esportes, dança, ginástica, musculação, lutas ou outra atividade) que você faz? (Sem contar as aulas de educação física)')
+    questao_68 = models.CharField(choices=ALUNO_68, max_length=TAMANHO_OPCOES, null=True, verbose_name='69. Nos últimos 7 dias, em quantos dias você fez atividade física por pelo menos 60 minutos (1 hora) por dia? (Some todo o tempo que você gastou em qualquer tipo de atividade física, em cada dia)')
+    questao_79 = models.CharField(choices=ALUNO_79, max_length=TAMANHO_OPCOES, null=True, verbose_name='70. Se você tivesse oportunidade de fazer atividade física na maioria dos dias da semana, qual seria a sua atitude?')
+    questao_70 = models.CharField(choices=ALUNO_70, max_length=TAMANHO_OPCOES, null=True, verbose_name='71. Em um dia de semana comum, quantas horas por dia você assiste a TV? (não contar sábado, domingo e feriado)')
+    questao_71 = models.CharField(choices=ALUNO_71, max_length=TAMANHO_OPCOES, null=True, verbose_name='72. Em um dia de semana comum, quanto tempo você fica sentado(a), assistindo televisão, usando computador, jogando videogame, conversando com amigos(as) ou fazendo outras atividades sentado(a)? (não contar sábado, domingo, feriados e o tempo sentado na escola)')
+    questao_72 = models.CharField(choices=ALUNO_72, max_length=TAMANHO_OPCOES, null=True, verbose_name='73. Alguma vez na vida, você já fumou cigarro, mesmo uma ou duas tragadas?')
+    questao_73 = models.CharField(choices=ALUNO_73, max_length=TAMANHO_OPCOES, null=True, verbose_name='74. Que idade você tinha quando experimentou fumar cigarro pela primeira vez?')
+    questao_74 = models.CharField(choices=ALUNO_74, max_length=TAMANHO_OPCOES, null=True, verbose_name='75. Nos últimos 30 dias, em quantos dias você fumou cigarros?')
+    questao_75 = models.CharField(choices=ALUNO_75, max_length=TAMANHO_OPCOES, null=True, verbose_name='76. Nos últimos 30 dias, em geral, como você conseguiu seus próprios cigarros?')
+    questao_76 = models.CharField(choices=ALUNO_76, max_length=TAMANHO_OPCOES, null=True, verbose_name='77. Nos ultimos 30 dias, alguém se recusou a lhe vender cigarros por causa de sua idade?')
+    questao_77 = models.CharField(choices=ALUNO_77, max_length=TAMANHO_OPCOES, null=True, verbose_name='78. Nos últimos 30 dias, em quantos dias você usou outros produtos de tabaco: cigarros de palha ou enrolados a mão, charuto, cachimbo, cigarrilha, cigarro indiano ou bali, narguilé, rapé, fumo de mascar etc.? (não incluir cigarro comum)')
+    questao_78 = models.CharField(choices=ALUNO_78, max_length=TAMANHO_OPCOES, null=True, verbose_name='79. Qual outro produto do tabaco você usou com mais frequência nos últimos 30 dias?')
+    questao_79 = models.CharField(choices=ALUNO_79, max_length=TAMANHO_OPCOES, null=True, verbose_name='80. Nos últimos 7 dias, em quantos dias pessoas fumaram na sua presença?')
+    questao_80 = models.CharField(choices=ALUNO_80, max_length=TAMANHO_OPCOES, null=True, verbose_name='81. Algum de seus pais ou responsáveis fuma?')
+    questao_81 = models.CharField(choices=ALUNO_81, max_length=TAMANHO_OPCOES, null=True, verbose_name='82. Alguma vez na vida você tomou uma dose de bebida alcoólica (uma dose equivale a uma')
+    questao_82 = models.CharField(choices=ALUNO_82, max_length=TAMANHO_OPCOES, null=True, verbose_name='lata de cerveja ou uma taça de vinho ou uma dose de cachaça ou uísque etc.)?')
+    questao_83 = models.CharField(choices=ALUNO_83, max_length=TAMANHO_OPCOES, null=True, verbose_name='83. Que idade você tinha quando tomou a primeira dose de bebida alcoólica (uma dose equivale a uma lata de cerveja ou uma taça de vinho ou uma dose de cachaça ou uísque etc.)?')
+    questao_84 = models.CharField(choices=ALUNO_84, max_length=TAMANHO_OPCOES, null=True, verbose_name='84. Nos últimos 30 dias, em quantos dias você tomou pelo menos um copo ou uma dose de bebida alcoólica (uma dose equivale a uma lata de cerveja ou uma taça de vinho ou uma dose de cachaça ou uísque etc.)?')
+    questao_85 = models.CharField(choices=ALUNO_85, max_length=TAMANHO_OPCOES, null=True, verbose_name='85. Nos últimos 30 dias, nos dias em que você tomou alguma bebida alcoólica, quantos copos ou doses você tomou por dia?')
+    questao_86 = models.CharField(choices=ALUNO_86, max_length=TAMANHO_OPCOES, null=True, verbose_name='86. Nos últimos 30 dias, na maioria das vezes, como você conseguiu a bebida que tomou?')
+    questao_87 = models.CharField(choices=ALUNO_87, max_length=TAMANHO_OPCOES, null=True, verbose_name='87. Na sua vida, quantas vezes você bebeu tanto que ficou realmente bêbado(a)?')
+    questao_88 = models.CharField(choices=ALUNO_88, max_length=TAMANHO_OPCOES, null=True, verbose_name='88. Na sua vida, quantas vezes você teve problemas com sua família ou amigos, perdeu aulas ou brigou por que tinha bebido?')
+    questao_89 = models.CharField(choices=ALUNO_89, max_length=TAMANHO_OPCOES, null=True, verbose_name='89. Quantos amigos seus consomem bebida alcoólica?')
+    questao_90 = models.CharField(choices=ALUNO_90, max_length=TAMANHO_OPCOES, null=True, verbose_name='90. Alguma vez na vida, você já usou alguma droga como: maconha, cocaína, crack, cola, loló, lança-perfume, ecstasy, oxy etc.?')
+    questao_91 = models.CharField(choices=ALUNO_91, max_length=TAMANHO_OPCOES, null=True, verbose_name='91. Que idade você tinha quando usou alguma droga como: maconha, cocaína, crack, cola, loló, lança-perfume, ecstasy, oxy ou outra pela primeira vez?')
+    questao_92 = models.CharField(choices=ALUNO_92, max_length=TAMANHO_OPCOES, null=True, verbose_name='92. Nos ultimos 30 dias, quantos dias você usou droga como maconha, cocaína, crack, cola, loló, lança-perfume, ecstasy, oxy etc.?')
+    questao_93 = models.CharField(choices=ALUNO_93, max_length=TAMANHO_OPCOES, null=True, verbose_name='93. Nos últimos 30 dias, quantos dias você usou maconha?')
+    questao_94 = models.CharField(choices=ALUNO_94, max_length=TAMANHO_OPCOES, null=True, verbose_name='94. Nos últimos 30 dias, quantos dias você usou crack?')
+    questao_95 = models.CharField(choices=ALUNO_95, max_length=TAMANHO_OPCOES, null=True, verbose_name='95. Quantos amigos seus usam drogas?')
+    questao_96 = models.CharField(choices=ALUNO_96, max_length=TAMANHO_OPCOES, null=True, verbose_name='96. Nos últimos 30 dias, em quantos dias você faltou às aulas ou à escola sem permissão dos seus pais ou responsáveis?')
+    questao_97 = models.CharField(choices=ALUNO_97, max_length=TAMANHO_OPCOES, null=True, verbose_name='97. Nos últimos 30 dias, com que frequência seus pais ou responsáveis sabiam realmente o que você estava fazendo em seu tempo livre?')
+    questao_98 = models.CharField(choices=ALUNO_98, max_length=TAMANHO_OPCOES, null=True, verbose_name='98. Nos últimos 30 dias, com que frequência seus pais ou responsáveis verificaram se os seus deveres de casa (lição de casa) foram feitos?')
+    questao_99 = models.CharField(choices=ALUNO_99, max_length=TAMANHO_OPCOES, null=True, verbose_name='99. Nos últimos 30 dias, com que frequência seus pais ou responsáveis entenderam seus problemas e preocupações?')
+    questao_100 = models.CharField(choices=ALUNO_100, max_length=TAMANHO_OPCOES, null=True, verbose_name='100. Nos últimos 30 dias, com que frequência seus pais ou responsáveis mexeram em suas coisas sem a sua concordância?')
+    questao_101 = models.CharField(choices=ALUNO_101, max_length=TAMANHO_OPCOES, null=True, verbose_name='101. Nos últimos 30 dias, com que frequência os colegas de sua escola trataram você bem e/ou foram prestativos com você?')
+    questao_102 = models.CharField(choices=ALUNO_102, max_length=TAMANHO_OPCOES, null=True, verbose_name='102. Nos últimos 30 dias, com que frequência algum dos seus colegas de escola lhe esculacharam, zoaram, mangaram, intimidaram ou caçoaram tanto que você ficou magoado, incomodado, aborrecido, ofendido ou humilhado?')
+    questao_103 = models.CharField(choices=ALUNO_103, max_length=TAMANHO_OPCOES, null=True, verbose_name='103. Nos últimos 30 dias, qual o motivo ou causa de seus colegas terem lhe esculachado, zombado, zoado, caçoado, mangado, intimidado ou humilhado?')
+    questao_104 = models.CharField(choices=ALUNO_104, max_length=TAMANHO_OPCOES, null=True, verbose_name='104. Nos últimos 30 dias, você esculachou, zombou, mangou, intimidou ou caçoou algum de seus colegas da escola tanto que ele ficou magoado, aborrecido, ofendido ou humilhado?')
+    questao_105 = models.CharField(choices=ALUNO_105, max_length=TAMANHO_OPCOES, null=True, verbose_name='105. Você já sofreu bullying?')
+    questao_106 = models.CharField(choices=ALUNO_106, max_length=TAMANHO_OPCOES, null=True, verbose_name='106. Nos ultimos 12 meses, com que frequência você não conseguiu dormir à noite porque algo o(a) preocupava muito?')
+    questao_107 = models.CharField(choices=ALUNO_107, max_length=TAMANHO_OPCOES, null=True, verbose_name='107. Quantos amigos(as) próximos você tem?')
+    questao_108 = models.CharField(choices=ALUNO_108, max_length=TAMANHO_OPCOES, null=True, verbose_name='108. Nos últimos 30 dias, com que frequência você lavou as mãos antes de comer?')
+    questao_109 = models.CharField(choices=ALUNO_109, max_length=TAMANHO_OPCOES, null=True, verbose_name='109. Nos últimos 30 dias, com que frequência você lavou as mãos após usar o banheiro ou o vaso sanitário?')
+    questao_110 = models.CharField(choices=ALUNO_110, max_length=TAMANHO_OPCOES, null=True, verbose_name='110. Nos últimos 30 dias, com que frequência você usou sabão ou sabonete quando lavou suas mãos?')
+    questao_111 = models.CharField(choices=ALUNO_111, max_length=TAMANHO_OPCOES, null=True, verbose_name='111. Nos últimos 30 dias, quantas vezes por dia você usualmente escovou os dentes?')
+    questao_112 = models.CharField(choices=ALUNO_112, max_length=TAMANHO_OPCOES, null=True, verbose_name='112. Nos últimos 06 meses, você teve dor de dente? (Não vale aquela dor de dente causada por uso de aparelho para correção dos dentes, isto é, aparelhos ortodônticos).)')
+    questao_113 = models.CharField(choices=ALUNO_113, max_length=TAMANHO_OPCOES, null=True, verbose_name='113. Nos últimos 12 meses, quantas vezes você foi ao dentista?')
+    questao_114 = models.CharField(choices=ALUNO_114, max_length=TAMANHO_OPCOES, null=True, verbose_name='114. Nos últimos 30 dias, em quantos dias você deixou de ir à escola porque não se sentia seguro no caminho de casa para a escola ou da escola para casa?')
+    questao_115 = models.CharField(choices=ALUNO_115, max_length=TAMANHO_OPCOES, null=True, verbose_name='115. Nos últimos 30 dias, em quantos dias você não foi à escola porque não se sentia seguro na escola?')
+    questao_116 = models.CharField(choices=ALUNO_116, max_length=TAMANHO_OPCOES, null=True, verbose_name='116. Nos últimos 30 dias, com que frequência você usou cinto de segurança enquanto andava como passageiro(a) no banco da frente de carro/automóvel, van ou táxi?')
+    questao_117 = models.CharField(choices=ALUNO_117, max_length=TAMANHO_OPCOES, null=True, verbose_name='117. Nos últimos 30 dias, com que frequência você usou capacete ao andar de motocicleta?')
+    questao_118 = models.CharField(choices=ALUNO_118, max_length=TAMANHO_OPCOES, null=True, verbose_name='118. Nos últimos 30 dias, quantas vezes você dirigiu um veículo motorizado de transporte? (carro, motocicleta, voadeira, barco, etc.)')
+    questao_119 = models.CharField(choices=ALUNO_119, max_length=TAMANHO_OPCOES, null=True, verbose_name='119. Nos últimos 30 dias, quantas vezes você andou em carro ou outro veículo motorizado dirigido por alguém que tinha consumido alguma bebida alcoólica?')
+    questao_120 = models.CharField(choices=ALUNO_120, max_length=TAMANHO_OPCOES, null=True, verbose_name='120. Nos últimos 30 dias, quantas vezes você foi agredido(a) fisicamente por um adulto da sua família?')
+    questao_121 = models.CharField(choices=ALUNO_121, max_length=TAMANHO_OPCOES, null=True, verbose_name='121. Nos últimos 30 dias, você esteve envolvido(a) em alguma briga em que alguma pessoa usou arma de fogo, como revólver ou espingarda?')
+    questao_122 = models.CharField(choices=ALUNO_122, max_length=TAMANHO_OPCOES, null=True, verbose_name='122. Nos últimos 30 dias, você esteve envolvido(a) em alguma briga em que alguma pessoa usou alguma outra arma como faca, canivete, peixeira, pedra, pedaço de pau ou garrafa?')
+    questao_123 = models.CharField(choices=ALUNO_123, max_length=TAMANHO_OPCOES, null=True, verbose_name='123. Nos últimos 12 meses, quantas vezes você foi agredido(a) fisicamente?')
+    questao_124 = models.CharField(choices=ALUNO_124, max_length=TAMANHO_OPCOES, null=True, verbose_name='124. Nos últimos 12 meses, quantas vezes você se envolveu em briga (uma luta física)?')
+    questao_125 = models.CharField(choices=ALUNO_125, max_length=TAMANHO_OPCOES, null=True, verbose_name='125. Nos últimos 12 meses, quantas vezes você foi seriamente ferido(a) em uma briga?')
+    questao_126 = models.CharField(choices=ALUNO_126, max_length=TAMANHO_OPCOES, null=True, verbose_name='126. Nos últimos 12 meses, qual foi o ferimento ou a lesão mais séria que aconteceu com você?')
+    questao_127 = models.CharField(choices=ALUNO_127, max_length=TAMANHO_OPCOES, null=True, verbose_name='127. Nos últimos 12 meses, qual foi a principal causa do ferimento ou da lesão mais séria que aconteceu com você?')
+    questao_128 = models.CharField(choices=ALUNO_128, max_length=TAMANHO_OPCOES, null=True, verbose_name='128. Nos últimos 12 meses, você sofreu algum acidente de bicicleta (caiu e se machucou)?')
+    questao_129 = ArrayField(models.CharField(choices=ALUNO_129, max_length=TAMANHO_OPCOES), null=True, verbose_name='129. Alguma vez na vida você foi forçado(a) a ter relação sexual?')
+    questao_130 = models.CharField(choices=ALUNO_130, max_length=TAMANHO_OPCOES, null=True, verbose_name='130. Quem forçou você a ter relação sexual?')
+    questao_131 = models.CharField(choices=ALUNO_131, max_length=TAMANHO_OPCOES, null=True, verbose_name='131. Como você classificaria seu estado de saúde?')
+    questao_132 = models.CharField(choices=ALUNO_132, max_length=TAMANHO_OPCOES, null=True, verbose_name='132. Nos últimos 12 meses, quantos dias você faltou a escola por motivo(s) relacionado(s) à sua saúde?')
+    questao_133 = models.CharField(choices=ALUNO_133, max_length=TAMANHO_OPCOES, null=True, verbose_name='133. Nos últimos 12 meses você procurou algum serviço ou profissional de saúde para atendimento relacionado à própria saúde?')
+    questao_134 = models.CharField(choices=ALUNO_134, max_length=TAMANHO_OPCOES, null=True, verbose_name='134. Nos últimos 12 meses, qual foi o serviço de saúde que você procurou com mais frequência?')
+    questao_135 = models.CharField(choices=ALUNO_135, max_length=TAMANHO_OPCOES, null=True, verbose_name='135. Você foi atendido(a) na última vez que procurou alguma Unidade Básica de Saúde (Centro ou Posto de saúde ou Unidade de Saúde da Família/PSF), nestes últimos 12 meses?')
+    questao_136 = models.CharField(choices=ALUNO_136, max_length=TAMANHO_OPCOES, null=True, verbose_name='136. Qual foi o principal motivo da sua procura na Unidade Básica de Saúde (Centro ou Posto de saúde ou Unidade de Saúde da Família/PSF) nesta última vez?')
+    questao_137 = models.CharField(choices=ALUNO_137, max_length=TAMANHO_OPCOES, null=True, verbose_name='137. Você conhece/ouviu falar sobre a campanha de vacinação contra o vírus HPV?')
+    questao_138 = models.CharField(choices=ALUNO_138, max_length=TAMANHO_OPCOES, null=True, verbose_name='138. Você foi vacinada contra o vírus HPV?')
+    questao_139 = models.CharField(choices=ALUNO_139, max_length=TAMANHO_OPCOES, null=True, verbose_name='139. Você considera sua imagem corporal como sendo algo:')
+    questao_140 = models.CharField(choices=ALUNO_140, max_length=TAMANHO_OPCOES, null=True, verbose_name='140. Como você se sente em relação ao seu corpo?')
+    questao_141 = models.CharField(choices=ALUNO_141, max_length=TAMANHO_OPCOES, null=True, verbose_name='141. Quanto ao seu corpo, você se considera:')
+    questao_142 = models.CharField(choices=ALUNO_142, max_length=TAMANHO_OPCOES, null=True, verbose_name='142. O que você está fazendo em relação a seu peso?')
+    questao_143 = models.CharField(choices=ALUNO_143, max_length=TAMANHO_OPCOES, null=True, verbose_name='143. Nos últimos 30 dias, você vomitou ou tomou laxantes para perder peso ou evitar ganhar peso?')
+    questao_144 = models.CharField(choices=ALUNO_144, max_length=TAMANHO_OPCOES, null=True, verbose_name='144. Nos últimos 30 dias, você tomou algum remédio, fórmula ou outro produto para perder peso, sem acompanhamento médico?')
+    questao_145 = models.CharField(choices=ALUNO_145, max_length=TAMANHO_OPCOES, null=True, verbose_name='145. Nos últimos 30 dias, você tomou algum remédio, fórmula ou outro produto para ganhar peso ou massa muscular sem acompanhamento médico?')
+    questao_146 = models.CharField(choices=ALUNO_146, max_length=TAMANHO_OPCOES, null=True, verbose_name='146. O que você achou deste questionário?')
 
     class Meta:
         verbose_name = 'Questionário'
@@ -231,109 +223,280 @@ class Exame(models.Model):
     examinador = models.CharField(max_length=TAMANHO_NOMES, null=True, verbose_name='Examinador')
     anotador = models.CharField(max_length=TAMANHO_NOMES, null=True, verbose_name='Anotador')
     
+    # Edentulismo
+    edentulismo_uso_superior = models.CharField(choices=USO_PROTESE, max_length=TAMANHO_OPCOES, null=True, verbose_name='Uso de prótese - superior')
+    edentulismo_uso_inferior = models.CharField(choices=USO_PROTESE, max_length=TAMANHO_OPCOES, null=True, verbose_name='Uso de prótese - inferior')
+    edentulismo_necessidade_superior = models.CharField(choices=NECESSIDADE_PROTESE, max_length=TAMANHO_OPCOES, null=True, verbose_name='Necessidade de prótese - superior')
+    edentulismo_necessidade_inferior = models.CharField(choices=NECESSIDADE_PROTESE, max_length=TAMANHO_OPCOES, null=True, verbose_name='Necessidade de prótese - inferior')
+    
+    # Fluorose
+    fluorose_valor = models.CharField(choices=FLUOROSE, max_length=TAMANHO_OPCOES, null=True, verbose_name='Fluorose')
+    
+    # Traumatismo
+    traumatismo_dente_12 = models.CharField(choices=TRAUMATISMO, max_length=TAMANHO_OPCOES, null=True, verbose_name='Dente 12')
+    traumatismo_dente_11 = models.CharField(choices=TRAUMATISMO, max_length=TAMANHO_OPCOES, null=True, verbose_name='Dente 11')
+    traumatismo_dente_21 = models.CharField(choices=TRAUMATISMO, max_length=TAMANHO_OPCOES, null=True, verbose_name='Dente 21')
+    traumatismo_dente_22 = models.CharField(choices=TRAUMATISMO, max_length=TAMANHO_OPCOES, null=True, verbose_name='Dente 22')
+    traumatismo_dente_42 = models.CharField(choices=TRAUMATISMO, max_length=TAMANHO_OPCOES, null=True, verbose_name='Dente 42')
+    traumatismo_dente_41 = models.CharField(choices=TRAUMATISMO, max_length=TAMANHO_OPCOES, null=True, verbose_name='Dente 41')
+    traumatismo_dente_31 = models.CharField(choices=TRAUMATISMO, max_length=TAMANHO_OPCOES, null=True, verbose_name='Dente 31')
+    traumatismo_dente_32 = models.CharField(choices=TRAUMATISMO, max_length=TAMANHO_OPCOES, null=True, verbose_name='Dente 32')
+    
+    # Cárie
+    carie_coroa_18 = models.CharField(choices=CARIE_COROA, max_length=TAMANHO_OPCOES, null=True, verbose_name='Coroa')
+    carie_raiz_18 = models.CharField(choices=CARIE_RAIZ, max_length=TAMANHO_OPCOES, null=True, verbose_name='Raiz')
+    carie_tratamento_18 = models.CharField(choices=CARIE_TRATAMENTO, max_length=TAMANHO_OPCOES, null=True, verbose_name='Tratamento')
+    
+    carie_coroa_17 = models.CharField(choices=CARIE_COROA, max_length=TAMANHO_OPCOES, null=True, verbose_name='Coroa')
+    carie_raiz_17 = models.CharField(choices=CARIE_RAIZ, max_length=TAMANHO_OPCOES, null=True, verbose_name='Raiz')
+    carie_tratamento_17 = models.CharField(choices=CARIE_TRATAMENTO, max_length=TAMANHO_OPCOES, null=True, verbose_name='Tratamento')
+
+    carie_coroa_16 = models.CharField(choices=CARIE_COROA, max_length=TAMANHO_OPCOES, null=True, verbose_name='Coroa')
+    carie_raiz_16 = models.CharField(choices=CARIE_RAIZ, max_length=TAMANHO_OPCOES, null=True, verbose_name='Raiz')
+    carie_tratamento_16 = models.CharField(choices=CARIE_TRATAMENTO, max_length=TAMANHO_OPCOES, null=True, verbose_name='Tratamento')
+
+    carie_coroa_15 = models.CharField(choices=CARIE_COROA, max_length=TAMANHO_OPCOES, null=True, verbose_name='Coroa')
+    carie_raiz_15 = models.CharField(choices=CARIE_RAIZ, max_length=TAMANHO_OPCOES, null=True, verbose_name='Raiz')
+    carie_tratamento_15 = models.CharField(choices=CARIE_TRATAMENTO, max_length=TAMANHO_OPCOES, null=True, verbose_name='Tratamento')
+
+    carie_coroa_14 = models.CharField(choices=CARIE_COROA, max_length=TAMANHO_OPCOES, null=True, verbose_name='Coroa')
+    carie_raiz_14 = models.CharField(choices=CARIE_RAIZ, max_length=TAMANHO_OPCOES, null=True, verbose_name='Raiz')
+    carie_tratamento_14 = models.CharField(choices=CARIE_TRATAMENTO, max_length=TAMANHO_OPCOES, null=True, verbose_name='Tratamento')
+
+    carie_coroa_13 = models.CharField(choices=CARIE_COROA, max_length=TAMANHO_OPCOES, null=True, verbose_name='Coroa')
+    carie_raiz_13 = models.CharField(choices=CARIE_RAIZ, max_length=TAMANHO_OPCOES, null=True, verbose_name='Raiz')
+    carie_tratamento_13 = models.CharField(choices=CARIE_TRATAMENTO, max_length=TAMANHO_OPCOES, null=True, verbose_name='Tratamento')
+
+    carie_coroa_12 = models.CharField(choices=CARIE_COROA, max_length=TAMANHO_OPCOES, null=True, verbose_name='Coroa')
+    carie_raiz_12 = models.CharField(choices=CARIE_RAIZ, max_length=TAMANHO_OPCOES, null=True, verbose_name='Raiz')
+    carie_tratamento_12 = models.CharField(choices=CARIE_TRATAMENTO, max_length=TAMANHO_OPCOES, null=True, verbose_name='Tratamento')
+
+    carie_coroa_11 = models.CharField(choices=CARIE_COROA, max_length=TAMANHO_OPCOES, null=True, verbose_name='Coroa')
+    carie_raiz_11 = models.CharField(choices=CARIE_RAIZ, max_length=TAMANHO_OPCOES, null=True, verbose_name='Raiz')
+    carie_tratamento_11 = models.CharField(choices=CARIE_TRATAMENTO, max_length=TAMANHO_OPCOES, null=True, verbose_name='Tratamento')
+    
+    carie_coroa_21 = models.CharField(choices=CARIE_COROA, max_length=TAMANHO_OPCOES, null=True, verbose_name='Coroa')
+    carie_raiz_21 = models.CharField(choices=CARIE_RAIZ, max_length=TAMANHO_OPCOES, null=True, verbose_name='Raiz')
+    carie_tratamento_21 = models.CharField(choices=CARIE_TRATAMENTO, max_length=TAMANHO_OPCOES, null=True, verbose_name='Tratamento')
+
+    carie_coroa_22 = models.CharField(choices=CARIE_COROA, max_length=TAMANHO_OPCOES, null=True, verbose_name='Coroa')
+    carie_raiz_22 = models.CharField(choices=CARIE_RAIZ, max_length=TAMANHO_OPCOES, null=True, verbose_name='Raiz')
+    carie_tratamento_22 = models.CharField(choices=CARIE_TRATAMENTO, max_length=TAMANHO_OPCOES, null=True, verbose_name='Tratamento')
+
+    carie_coroa_23 = models.CharField(choices=CARIE_COROA, max_length=TAMANHO_OPCOES, null=True, verbose_name='Coroa')
+    carie_raiz_23 = models.CharField(choices=CARIE_RAIZ, max_length=TAMANHO_OPCOES, null=True, verbose_name='Raiz')
+    carie_tratamento_23 = models.CharField(choices=CARIE_TRATAMENTO, max_length=TAMANHO_OPCOES, null=True, verbose_name='Tratamento')
+
+    carie_coroa_24 = models.CharField(choices=CARIE_COROA, max_length=TAMANHO_OPCOES, null=True, verbose_name='Coroa')
+    carie_raiz_24 = models.CharField(choices=CARIE_RAIZ, max_length=TAMANHO_OPCOES, null=True, verbose_name='Raiz')
+    carie_tratamento_24 = models.CharField(choices=CARIE_TRATAMENTO, max_length=TAMANHO_OPCOES, null=True, verbose_name='Tratamento')
+
+    carie_coroa_25 = models.CharField(choices=CARIE_COROA, max_length=TAMANHO_OPCOES, null=True, verbose_name='Coroa')
+    carie_raiz_25 = models.CharField(choices=CARIE_RAIZ, max_length=TAMANHO_OPCOES, null=True, verbose_name='Raiz')
+    carie_tratamento_25 = models.CharField(choices=CARIE_TRATAMENTO, max_length=TAMANHO_OPCOES, null=True, verbose_name='Tratamento')
+
+    carie_coroa_26 = models.CharField(choices=CARIE_COROA, max_length=TAMANHO_OPCOES, null=True, verbose_name='Coroa')
+    carie_raiz_26 = models.CharField(choices=CARIE_RAIZ, max_length=TAMANHO_OPCOES, null=True, verbose_name='Raiz')
+    carie_tratamento_26 = models.CharField(choices=CARIE_TRATAMENTO, max_length=TAMANHO_OPCOES, null=True, verbose_name='Tratamento')
+
+    carie_coroa_27 = models.CharField(choices=CARIE_COROA, max_length=TAMANHO_OPCOES, null=True, verbose_name='Coroa')
+    carie_raiz_27 = models.CharField(choices=CARIE_RAIZ, max_length=TAMANHO_OPCOES, null=True, verbose_name='Raiz')
+    carie_tratamento_27 = models.CharField(choices=CARIE_TRATAMENTO, max_length=TAMANHO_OPCOES, null=True, verbose_name='Tratamento')
+
+    carie_coroa_28 = models.CharField(choices=CARIE_COROA, max_length=TAMANHO_OPCOES, null=True, verbose_name='Coroa')
+    carie_raiz_28 = models.CharField(choices=CARIE_RAIZ, max_length=TAMANHO_OPCOES, null=True, verbose_name='Raiz')
+    carie_tratamento_28 = models.CharField(choices=CARIE_TRATAMENTO, max_length=TAMANHO_OPCOES, null=True, verbose_name='Tratamento')
+
+    carie_coroa_38 = models.CharField(choices=CARIE_COROA, max_length=TAMANHO_OPCOES, null=True, verbose_name='Coroa')
+    carie_raiz_38 = models.CharField(choices=CARIE_RAIZ, max_length=TAMANHO_OPCOES, null=True, verbose_name='Raiz')
+    carie_tratamento_38 = models.CharField(choices=CARIE_TRATAMENTO, max_length=TAMANHO_OPCOES, null=True, verbose_name='Tratamento')
+
+    carie_coroa_37 = models.CharField(choices=CARIE_COROA, max_length=TAMANHO_OPCOES, null=True, verbose_name='Coroa')
+    carie_raiz_37 = models.CharField(choices=CARIE_RAIZ, max_length=TAMANHO_OPCOES, null=True, verbose_name='Raiz')
+    carie_tratamento_37 = models.CharField(choices=CARIE_TRATAMENTO, max_length=TAMANHO_OPCOES, null=True, verbose_name='Tratamento')
+
+    carie_coroa_36 = models.CharField(choices=CARIE_COROA, max_length=TAMANHO_OPCOES, null=True, verbose_name='Coroa')
+    carie_raiz_36 = models.CharField(choices=CARIE_RAIZ, max_length=TAMANHO_OPCOES, null=True, verbose_name='Raiz')
+    carie_tratamento_36 = models.CharField(choices=CARIE_TRATAMENTO, max_length=TAMANHO_OPCOES, null=True, verbose_name='Tratamento')
+
+    carie_coroa_35 = models.CharField(choices=CARIE_COROA, max_length=TAMANHO_OPCOES, null=True, verbose_name='Coroa')
+    carie_raiz_35 = models.CharField(choices=CARIE_RAIZ, max_length=TAMANHO_OPCOES, null=True, verbose_name='Raiz')
+    carie_tratamento_35 = models.CharField(choices=CARIE_TRATAMENTO, max_length=TAMANHO_OPCOES, null=True, verbose_name='Tratamento')
+
+    carie_coroa_34 = models.CharField(choices=CARIE_COROA, max_length=TAMANHO_OPCOES, null=True, verbose_name='Coroa')
+    carie_raiz_34 = models.CharField(choices=CARIE_RAIZ, max_length=TAMANHO_OPCOES, null=True, verbose_name='Raiz')
+    carie_tratamento_34 = models.CharField(choices=CARIE_TRATAMENTO, max_length=TAMANHO_OPCOES, null=True, verbose_name='Tratamento')
+
+    carie_coroa_33 = models.CharField(choices=CARIE_COROA, max_length=TAMANHO_OPCOES, null=True, verbose_name='Coroa')
+    carie_raiz_33 = models.CharField(choices=CARIE_RAIZ, max_length=TAMANHO_OPCOES, null=True, verbose_name='Raiz')
+    carie_tratamento_33 = models.CharField(choices=CARIE_TRATAMENTO, max_length=TAMANHO_OPCOES, null=True, verbose_name='Tratamento')
+
+    carie_coroa_32 = models.CharField(choices=CARIE_COROA, max_length=TAMANHO_OPCOES, null=True, verbose_name='Coroa')
+    carie_raiz_32 = models.CharField(choices=CARIE_RAIZ, max_length=TAMANHO_OPCOES, null=True, verbose_name='Raiz')
+    carie_tratamento_32 = models.CharField(choices=CARIE_TRATAMENTO, max_length=TAMANHO_OPCOES, null=True, verbose_name='Tratamento')
+
+    carie_coroa_31 = models.CharField(choices=CARIE_COROA, max_length=TAMANHO_OPCOES, null=True, verbose_name='Coroa')
+    carie_raiz_31 = models.CharField(choices=CARIE_RAIZ, max_length=TAMANHO_OPCOES, null=True, verbose_name='Raiz')
+    carie_tratamento_31 = models.CharField(choices=CARIE_TRATAMENTO, max_length=TAMANHO_OPCOES, null=True, verbose_name='Tratamento')
+
+    carie_coroa_41 = models.CharField(choices=CARIE_COROA, max_length=TAMANHO_OPCOES, null=True, verbose_name='Coroa')
+    carie_raiz_41 = models.CharField(choices=CARIE_RAIZ, max_length=TAMANHO_OPCOES, null=True, verbose_name='Raiz')
+    carie_tratamento_41 = models.CharField(choices=CARIE_TRATAMENTO, max_length=TAMANHO_OPCOES, null=True, verbose_name='Tratamento')
+
+    carie_coroa_42 = models.CharField(choices=CARIE_COROA, max_length=TAMANHO_OPCOES, null=True, verbose_name='Coroa')
+    carie_raiz_42 = models.CharField(choices=CARIE_RAIZ, max_length=TAMANHO_OPCOES, null=True, verbose_name='Raiz')
+    carie_tratamento_42 = models.CharField(choices=CARIE_TRATAMENTO, max_length=TAMANHO_OPCOES, null=True, verbose_name='Tratamento')
+
+    carie_coroa_43 = models.CharField(choices=CARIE_COROA, max_length=TAMANHO_OPCOES, null=True, verbose_name='Coroa')
+    carie_raiz_43 = models.CharField(choices=CARIE_RAIZ, max_length=TAMANHO_OPCOES, null=True, verbose_name='Raiz')
+    carie_tratamento_43 = models.CharField(choices=CARIE_TRATAMENTO, max_length=TAMANHO_OPCOES, null=True, verbose_name='Tratamento')
+
+    carie_coroa_44 = models.CharField(choices=CARIE_COROA, max_length=TAMANHO_OPCOES, null=True, verbose_name='Coroa')
+    carie_raiz_44 = models.CharField(choices=CARIE_RAIZ, max_length=TAMANHO_OPCOES, null=True, verbose_name='Raiz')
+    carie_tratamento_44 = models.CharField(choices=CARIE_TRATAMENTO, max_length=TAMANHO_OPCOES, null=True, verbose_name='Tratamento')
+
+    carie_coroa_45 = models.CharField(choices=CARIE_COROA, max_length=TAMANHO_OPCOES, null=True, verbose_name='Coroa')
+    carie_raiz_45 = models.CharField(choices=CARIE_RAIZ, max_length=TAMANHO_OPCOES, null=True, verbose_name='Raiz')
+    carie_tratamento_45 = models.CharField(choices=CARIE_TRATAMENTO, max_length=TAMANHO_OPCOES, null=True, verbose_name='Tratamento')
+
+    carie_coroa_46 = models.CharField(choices=CARIE_COROA, max_length=TAMANHO_OPCOES, null=True, verbose_name='Coroa')
+    carie_raiz_46 = models.CharField(choices=CARIE_RAIZ, max_length=TAMANHO_OPCOES, null=True, verbose_name='Raiz')
+    carie_tratamento_46 = models.CharField(choices=CARIE_TRATAMENTO, max_length=TAMANHO_OPCOES, null=True, verbose_name='Tratamento')
+
+    carie_coroa_47 = models.CharField(choices=CARIE_COROA, max_length=TAMANHO_OPCOES, null=True, verbose_name='Coroa')
+    carie_raiz_47 = models.CharField(choices=CARIE_RAIZ, max_length=TAMANHO_OPCOES, null=True, verbose_name='Raiz')
+    carie_tratamento_47 = models.CharField(choices=CARIE_TRATAMENTO, max_length=TAMANHO_OPCOES, null=True, verbose_name='Tratamento')
+
+    carie_coroa_48 = models.CharField(choices=CARIE_COROA, max_length=TAMANHO_OPCOES, null=True, verbose_name='Coroa')
+    carie_raiz_48 = models.CharField(choices=CARIE_RAIZ, max_length=TAMANHO_OPCOES, null=True, verbose_name='Raiz')
+    carie_tratamento_48 = models.CharField(choices=CARIE_TRATAMENTO, max_length=TAMANHO_OPCOES, null=True, verbose_name='Tratamento')
+    
+    # Periodontal
+    periodontal_sangramento_1716 = models.CharField(choices=CPI_SANGRAMENTO, max_length=TAMANHO_OPCOES, null=True, verbose_name='Sangramento')
+    periodontal_calculo_1716 = models.CharField(choices=CPI_CALCULO, max_length=TAMANHO_OPCOES, null=True, verbose_name='Cálculo dentário')
+    periodontal_bolsa_1716 = models.CharField(choices=CPI_BOLSA, max_length=TAMANHO_OPCOES, null=True, verbose_name='Bolsa periodontal')
+    periodontal_pip_1716 = models.CharField(choices=PIP, max_length=TAMANHO_OPCOES, null=True, verbose_name='Índice de Perda de Inserção Periodontal')
+    
+    periodontal_sangramento_11 = models.CharField(choices=CPI_SANGRAMENTO, max_length=TAMANHO_OPCOES, null=True, verbose_name='Sangramento')
+    periodontal_calculo_11 = models.CharField(choices=CPI_CALCULO, max_length=TAMANHO_OPCOES, null=True, verbose_name='Cálculo dentário')
+    periodontal_bolsa_11 = models.CharField(choices=CPI_BOLSA, max_length=TAMANHO_OPCOES, null=True, verbose_name='Bolsa periodontal')
+    periodontal_pip_11 = models.CharField(choices=PIP, max_length=TAMANHO_OPCOES, null=True, verbose_name='Índice de Perda de Inserção Periodontal')
+
+    periodontal_sangramento_2627 = models.CharField(choices=CPI_SANGRAMENTO, max_length=TAMANHO_OPCOES, null=True, verbose_name='Sangramento')
+    periodontal_calculo_2627 = models.CharField(choices=CPI_CALCULO, max_length=TAMANHO_OPCOES, null=True, verbose_name='Cálculo dentário')
+    periodontal_bolsa_2627 = models.CharField(choices=CPI_BOLSA, max_length=TAMANHO_OPCOES, null=True, verbose_name='Bolsa periodontal')
+    periodontal_pip_2627 = models.CharField(choices=PIP, max_length=TAMANHO_OPCOES, null=True, verbose_name='Índice de Perda de Inserção Periodontal')
+
+    periodontal_sangramento_3736 = models.CharField(choices=CPI_SANGRAMENTO, max_length=TAMANHO_OPCOES, null=True, verbose_name='Sangramento')
+    periodontal_calculo_3736 = models.CharField(choices=CPI_CALCULO, max_length=TAMANHO_OPCOES, null=True, verbose_name='Cálculo dentário')
+    periodontal_bolsa_3736 = models.CharField(choices=CPI_BOLSA, max_length=TAMANHO_OPCOES, null=True, verbose_name='Bolsa periodontal')
+    periodontal_pip_3736 = models.CharField(choices=PIP, max_length=TAMANHO_OPCOES, null=True, verbose_name='Índice de Perda de Inserção Periodontal')
+
+    periodontal_sangramento_31 = models.CharField(choices=CPI_SANGRAMENTO, max_length=TAMANHO_OPCOES, null=True, verbose_name='Sangramento')
+    periodontal_calculo_31 = models.CharField(choices=CPI_CALCULO, max_length=TAMANHO_OPCOES, null=True, verbose_name='Cálculo dentário')
+    periodontal_bolsa_31 = models.CharField(choices=CPI_BOLSA, max_length=TAMANHO_OPCOES, null=True, verbose_name='Bolsa periodontal')
+    periodontal_pip_31 = models.CharField(choices=PIP, max_length=TAMANHO_OPCOES, null=True, verbose_name='Índice de Perda de Inserção Periodontal')
+
+    periodontal_sangramento_4647 = models.CharField(choices=CPI_SANGRAMENTO, max_length=TAMANHO_OPCOES, null=True, verbose_name='Sangramento')
+    periodontal_calculo_4647 = models.CharField(choices=CPI_CALCULO, max_length=TAMANHO_OPCOES, null=True, verbose_name='Cálculo dentário')
+    periodontal_bolsa_4647 = models.CharField(choices=CPI_BOLSA, max_length=TAMANHO_OPCOES, null=True, verbose_name='Bolsa periodontal')
+    periodontal_pip_4647 = models.CharField(choices=PIP, max_length=TAMANHO_OPCOES, null=True, verbose_name='Índice de Perda de Inserção Periodontal')
+    
     def __str__(self):
         """Devolve a representação do modelo em string"""
         return self.aluno.nome
 
 
-class Edentulismo(models.Model):
-    """Modelo que representa a seção de edentulismo do exame"""
-    exame = models.OneToOneField('Exame', on_delete=models.CASCADE)
+class Diretor(models.Model):
+    """Modelo que representa um questionário para ser respondido pelo diretor de escola"""
+    escola = models.ForeignKey('Escola', related_name='diretores', on_delete=models.CASCADE)
+    data = models.DateField(verbose_name="Data de preenchimento")
     
-    uso_superior = models.CharField(choices=USO_PROTESE, max_length=TAMANHO_OPCOES, null=True, verbose_name='Uso de prótese - superior')
-    uso_inferior = models.CharField(choices=USO_PROTESE, max_length=TAMANHO_OPCOES, null=True, verbose_name='Uso de prótese - inferior')
-    necessidade_superior = models.CharField(choices=NECESSIDADE_PROTESE, max_length=TAMANHO_OPCOES, null=True, verbose_name='Necessidade de prótese - superior')
-    necessidade_inferior = models.CharField(choices=NECESSIDADE_PROTESE, max_length=TAMANHO_OPCOES, null=True, verbose_name='Necessidade de prótese - inferior')
-    
-    def __str__(self):
-        """Devolve a representação do modelo em string"""
-        return self.exame.aluno.nome
-
-
-class Fluorose(models.Model):
-    """Modelo que representa a seção de fluorose do exame"""
-    exame = models.OneToOneField('Exame', on_delete=models.CASCADE)
-    
-    valor = models.CharField(choices=FLUOROSE, max_length=TAMANHO_OPCOES, null=True, verbose_name='Fluorose')
-    
-    def __str__(self):
-        """Devolve a representação do modelo em string"""
-        return self.exame.aluno.nome
-
-
-class Traumatismo(models.Model):
-    """Modelo que representa a seção de traumatismo do exame"""
-    exame = models.OneToOneField('Exame', on_delete=models.CASCADE)
-    
-    dente12 = models.CharField(choices=TRAUMATISMO, max_length=TAMANHO_OPCOES, null=True, verbose_name='Dente 12')
-    dente11 = models.CharField(choices=TRAUMATISMO, max_length=TAMANHO_OPCOES, null=True, verbose_name='Dente 11')
-    dente21 = models.CharField(choices=TRAUMATISMO, max_length=TAMANHO_OPCOES, null=True, verbose_name='Dente 21')
-    dente22 = models.CharField(choices=TRAUMATISMO, max_length=TAMANHO_OPCOES, null=True, verbose_name='Dente 22')
-    dente42 = models.CharField(choices=TRAUMATISMO, max_length=TAMANHO_OPCOES, null=True, verbose_name='Dente 42')
-    dente41 = models.CharField(choices=TRAUMATISMO, max_length=TAMANHO_OPCOES, null=True, verbose_name='Dente 41')
-    dente31 = models.CharField(choices=TRAUMATISMO, max_length=TAMANHO_OPCOES, null=True, verbose_name='Dente 31')
-    dente32 = models.CharField(choices=TRAUMATISMO, max_length=TAMANHO_OPCOES, null=True, verbose_name='Dente 32')
-    
-    def __str__(self):
-        """Devolve a representação do modelo em string"""
-        return self.exame.aluno.nome
-
-
-class Carie(models.Model):
-    """Modelo que representa a seção de cárie do exame"""
-    exame = models.OneToOneField('Exame', on_delete=models.CASCADE)
-    
-    class Meta:
-        verbose_name = 'Cárie'
-        verbose_name_plural = 'Cáries'
-    
-    def __str__(self):
-        """Devolve a representação do modelo em string"""
-        return self.exame.aluno.nome
-
-
-class Dente(models.Model):
-    """Modelo que representa um dente do da seção de cárie do exame"""
-    carie = models.ForeignKey('Carie', related_name='dentes', on_delete=models.CASCADE)
-    
-    codigo = models.CharField(null=True, max_length=TAMANHO_CODIGOS, verbose_name='Código')
-    coroa = models.CharField(choices=CARIE_COROA, max_length=TAMANHO_OPCOES, null=True, verbose_name='Coroa')
-    raiz = models.CharField(choices=CARIE_RAIZ, max_length=TAMANHO_OPCOES, null=True, verbose_name='Raiz')
-    tratamento = models.CharField(choices=CARIE_TRATAMENTO, max_length=TAMANHO_OPCOES, null=True, verbose_name='Tratamento')
-    
-    def __str__(self):
-        """Devolve a representação do modelo em string"""
-        return self.codigo
-
-
-class Periodontal(models.Model):
-    """Modelo que representa a seção de periodontia do exame"""
-    exame = models.OneToOneField('Exame', on_delete=models.CASCADE)
-    
-    class Meta:
-        verbose_name_plural = 'Periodontais'
-    
-    def __str__(self):
-        """Devolve a representação do modelo em string"""
-        return self.exame.aluno.nome
-
-
-class Gengiva(models.Model):
-    """Modelo que representa um dente do índice periodontal comunitário"""
-    periodontal = models.ForeignKey('Periodontal', related_name='gengivas', on_delete=models.CASCADE)
-    
-    codigo = models.CharField(null=True, max_length=TAMANHO_CODIGOS, verbose_name='Código')
-    
-    sangramento = models.CharField(choices=CPI_SANGRAMENTO, max_length=TAMANHO_OPCOES, null=True, verbose_name='Sangramento')
-    calculo = models.CharField(choices=CPI_CALCULO, max_length=TAMANHO_OPCOES, null=True, verbose_name='Cálculo dentário')
-    bolsa = models.CharField(choices=CPI_BOLSA, max_length=TAMANHO_OPCOES, null=True, verbose_name='Bolsa periodontal')
-    
-    pip = models.CharField(choices=PIP, max_length=TAMANHO_OPCOES, null=True, verbose_name='Índice de Perda de Inserção Periodontal')
-    
-    class Meta:
-        verbose_name = 'CPI'
-        verbose_name_plural = 'CPI'
+    questao_1 = models.CharField(choices=DIRETOR_1, max_length=TAMANHO_OPCOES, null=True, verbose_name='1. ')
+    questao_2 = models.CharField(choices=DIRETOR_2, max_length=TAMANHO_OPCOES, null=True, verbose_name='2. ')
+    questao_3 = models.CharField(choices=DIRETOR_3, max_length=TAMANHO_OPCOES, null=True, verbose_name='3. ')
+    questao_4 = models.CharField(choices=DIRETOR_4, max_length=TAMANHO_OPCOES, null=True, verbose_name='4. ')
+    questao_5 = models.CharField(choices=DIRETOR_5, max_length=TAMANHO_OPCOES, null=True, verbose_name='5. ')
+    questao_6 = models.CharField(choices=DIRETOR_6, max_length=TAMANHO_OPCOES, null=True, verbose_name='6. ')
+    questao_7 = models.CharField(choices=DIRETOR_7, max_length=TAMANHO_OPCOES, null=True, verbose_name='7. ')
+    questao_8 = models.CharField(choices=DIRETOR_8, max_length=TAMANHO_OPCOES, null=True, verbose_name='8. ')
+    questao_9 = models.CharField(choices=DIRETOR_9, max_length=TAMANHO_OPCOES, null=True, verbose_name='9. ')
+    questao_10 = models.CharField(choices=DIRETOR_10, max_length=TAMANHO_OPCOES, null=True, verbose_name='10. ')
+    questao_11 = models.CharField(choices=DIRETOR_11, max_length=TAMANHO_OPCOES, null=True, verbose_name='11. ')
+    questao_12 = models.CharField(choices=DIRETOR_12, max_length=TAMANHO_OPCOES, null=True, verbose_name='12. ')
+    questao_13 = models.CharField(choices=DIRETOR_13, max_length=TAMANHO_OPCOES, null=True, verbose_name='13. ')
+    questao_14 = models.CharField(choices=DIRETOR_14, max_length=TAMANHO_OPCOES, null=True, verbose_name='14. ')
+    questao_15 = models.CharField(choices=DIRETOR_15, max_length=TAMANHO_OPCOES, null=True, verbose_name='15. ')
+    questao_16 = models.CharField(choices=DIRETOR_16, max_length=TAMANHO_OPCOES, null=True, verbose_name='16. ')
+    questao_17 = models.CharField(choices=DIRETOR_17, max_length=TAMANHO_OPCOES, null=True, verbose_name='17. ')
+    questao_18 = models.CharField(choices=DIRETOR_18, max_length=TAMANHO_OPCOES, null=True, verbose_name='18. ')
+    questao_19 = models.CharField(choices=DIRETOR_19, max_length=TAMANHO_OPCOES, null=True, verbose_name='19. ')
+    questao_20 = models.CharField(choices=DIRETOR_20, max_length=TAMANHO_OPCOES, null=True, verbose_name='20. ')
+    questao_21 = models.CharField(choices=DIRETOR_21, max_length=TAMANHO_OPCOES, null=True, verbose_name='21. ')
+    questao_22 = models.CharField(choices=DIRETOR_22, max_length=TAMANHO_OPCOES, null=True, verbose_name='22. ')
+    questao_23 = models.CharField(choices=DIRETOR_23, max_length=TAMANHO_OPCOES, null=True, verbose_name='23. ')
+    questao_24 = models.CharField(choices=DIRETOR_24, max_length=TAMANHO_OPCOES, null=True, verbose_name='24. ')
+    questao_25 = models.CharField(choices=DIRETOR_25, max_length=TAMANHO_OPCOES, null=True, verbose_name='25. ')
+    questao_26 = models.CharField(choices=DIRETOR_26, max_length=TAMANHO_OPCOES, null=True, verbose_name='26. ')
+    questao_27 = models.CharField(choices=DIRETOR_27, max_length=TAMANHO_OPCOES, null=True, verbose_name='27. ')
+    questao_28 = models.CharField(choices=DIRETOR_28, max_length=TAMANHO_OPCOES, null=True, verbose_name='28. ')
+    questao_29 = models.CharField(choices=DIRETOR_29, max_length=TAMANHO_OPCOES, null=True, verbose_name='29. ')
+    questao_30 = models.CharField(choices=DIRETOR_30, max_length=TAMANHO_OPCOES, null=True, verbose_name='30. ')
+    questao_31 = models.CharField(choices=DIRETOR_31, max_length=TAMANHO_OPCOES, null=True, verbose_name='31. ')
+    questao_32 = models.CharField(choices=DIRETOR_32, max_length=TAMANHO_OPCOES, null=True, verbose_name='32. ')
+    questao_33 = models.CharField(choices=DIRETOR_33, max_length=TAMANHO_OPCOES, null=True, verbose_name='33. ')
+    questao_34 = models.CharField(choices=DIRETOR_34, max_length=TAMANHO_OPCOES, null=True, verbose_name='34. ')
+    questao_35 = models.CharField(choices=DIRETOR_35, max_length=TAMANHO_OPCOES, null=True, verbose_name='35. ')
+    questao_36 = models.CharField(choices=DIRETOR_36, max_length=TAMANHO_OPCOES, null=True, verbose_name='36. ')
+    questao_37 = models.CharField(choices=DIRETOR_37, max_length=TAMANHO_OPCOES, null=True, verbose_name='37. ')
+    questao_38 = models.CharField(choices=DIRETOR_38, max_length=TAMANHO_OPCOES, null=True, verbose_name='38. ')
+    questao_39 = models.CharField(choices=DIRETOR_39, max_length=TAMANHO_OPCOES, null=True, verbose_name='39. ')
+    questao_40 = models.CharField(choices=DIRETOR_40, max_length=TAMANHO_OPCOES, null=True, verbose_name='40. ')
+    questao_41 = models.CharField(choices=DIRETOR_41, max_length=TAMANHO_OPCOES, null=True, verbose_name='41. ')
+    questao_42 = models.CharField(choices=DIRETOR_42, max_length=TAMANHO_OPCOES, null=True, verbose_name='42. ')
+    questao_43 = models.CharField(choices=DIRETOR_43, max_length=TAMANHO_OPCOES, null=True, verbose_name='43. ')
+    questao_44 = models.CharField(choices=DIRETOR_44, max_length=TAMANHO_OPCOES, null=True, verbose_name='44. ')
+    questao_45 = models.CharField(choices=DIRETOR_45, max_length=TAMANHO_OPCOES, null=True, verbose_name='45. ')
+    questao_46 = models.CharField(choices=DIRETOR_46, max_length=TAMANHO_OPCOES, null=True, verbose_name='46. ')
+    questao_47 = models.CharField(choices=DIRETOR_47, max_length=TAMANHO_OPCOES, null=True, verbose_name='47. ')
+    questao_48 = models.CharField(choices=DIRETOR_48, max_length=TAMANHO_OPCOES, null=True, verbose_name='48. ')
+    questao_49 = models.CharField(choices=DIRETOR_49, max_length=TAMANHO_OPCOES, null=True, verbose_name='49. ')
+    questao_50 = models.CharField(choices=DIRETOR_50, max_length=TAMANHO_OPCOES, null=True, verbose_name='50. ')
+    questao_51 = models.CharField(choices=DIRETOR_51, max_length=TAMANHO_OPCOES, null=True, verbose_name='51. ')
+    questao_52 = models.CharField(choices=DIRETOR_52, max_length=TAMANHO_OPCOES, null=True, verbose_name='52. ')
+    questao_53 = models.CharField(choices=DIRETOR_53, max_length=TAMANHO_OPCOES, null=True, verbose_name='53. ')
+    questao_54 = models.CharField(choices=DIRETOR_54, max_length=TAMANHO_OPCOES, null=True, verbose_name='54. ')
+    questao_55 = models.CharField(choices=DIRETOR_55, max_length=TAMANHO_OPCOES, null=True, verbose_name='55. ')
+    questao_56 = models.CharField(choices=DIRETOR_56, max_length=TAMANHO_OPCOES, null=True, verbose_name='56. ')
+    questao_57 = models.CharField(choices=DIRETOR_57, max_length=TAMANHO_OPCOES, null=True, verbose_name='57. ')
+    questao_58 = models.CharField(choices=DIRETOR_58, max_length=TAMANHO_OPCOES, null=True, verbose_name='58. ')
+    questao_59 = models.CharField(choices=DIRETOR_59, max_length=TAMANHO_OPCOES, null=True, verbose_name='59. ')
+    questao_60 = models.CharField(choices=DIRETOR_60, max_length=TAMANHO_OPCOES, null=True, verbose_name='60. ')
+    questao_61 = models.CharField(choices=DIRETOR_61, max_length=TAMANHO_OPCOES, null=True, verbose_name='61. ')
+    questao_62 = models.CharField(choices=DIRETOR_62, max_length=TAMANHO_OPCOES, null=True, verbose_name='62. ')
+    questao_63 = models.CharField(choices=DIRETOR_63, max_length=TAMANHO_OPCOES, null=True, verbose_name='63. ')
+    questao_64 = models.CharField(choices=DIRETOR_64, max_length=TAMANHO_OPCOES, null=True, verbose_name='64. ')
+    questao_65 = models.CharField(choices=DIRETOR_65, max_length=TAMANHO_OPCOES, null=True, verbose_name='65. ')
+    questao_66 = models.CharField(choices=DIRETOR_66, max_length=TAMANHO_OPCOES, null=True, verbose_name='66. ')
+    questao_67 = models.CharField(choices=DIRETOR_67, max_length=TAMANHO_OPCOES, null=True, verbose_name='67. ')
+    questao_68 = models.CharField(choices=DIRETOR_68, max_length=TAMANHO_OPCOES, null=True, verbose_name='68. ')
+    questao_69 = models.CharField(choices=DIRETOR_69, max_length=TAMANHO_OPCOES, null=True, verbose_name='69. ')
+    questao_70 = models.CharField(choices=DIRETOR_70, max_length=TAMANHO_OPCOES, null=True, verbose_name='70. ')
+    questao_71 = models.CharField(choices=DIRETOR_71, max_length=TAMANHO_OPCOES, null=True, verbose_name='71. ')
+    questao_72 = models.CharField(choices=DIRETOR_72, max_length=TAMANHO_OPCOES, null=True, verbose_name='72. ')
+    questao_73 = models.CharField(choices=DIRETOR_73, max_length=TAMANHO_OPCOES, null=True, verbose_name='73. ')
+    questao_74 = models.CharField(choices=DIRETOR_74, max_length=TAMANHO_OPCOES, null=True, verbose_name='74. ')
+    questao_75 = models.CharField(choices=DIRETOR_75, max_length=TAMANHO_OPCOES, null=True, verbose_name='75. ')
+    questao_76 = models.CharField(choices=DIRETOR_76, max_length=TAMANHO_OPCOES, null=True, verbose_name='76. ')
+    questao_77 = models.CharField(choices=DIRETOR_77, max_length=TAMANHO_OPCOES, null=True, verbose_name='77. ')
+    questao_78 = models.CharField(choices=DIRETOR_78, max_length=TAMANHO_OPCOES, null=True, verbose_name='78. ')
+    questao_79 = models.CharField(choices=DIRETOR_79, max_length=TAMANHO_OPCOES, null=True, verbose_name='79. ')
+    questao_80 = models.CharField(choices=DIRETOR_80, max_length=TAMANHO_OPCOES, null=True, verbose_name='80. ')
+    questao_81 = models.CharField(choices=DIRETOR_81, max_length=TAMANHO_OPCOES, null=True, verbose_name='81. ')
+    questao_82 = models.CharField(choices=DIRETOR_82, max_length=TAMANHO_OPCOES, null=True, verbose_name='82. ')
+    questao_83 = models.CharField(choices=DIRETOR_83, max_length=TAMANHO_OPCOES, null=True, verbose_name='83. ')
+    questao_84 = models.CharField(choices=DIRETOR_84, max_length=TAMANHO_OPCOES, null=True, verbose_name='84. ')
     
     def __str__(self):
         """Devolve a representação do modelo em string"""
-        return self.codigo
+        return self.escola.nome

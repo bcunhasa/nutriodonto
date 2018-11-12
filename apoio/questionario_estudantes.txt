@@ -1,0 +1,146 @@
+01. Qual o grau de escolaridade mais elevado que você pretende concluir?
+02. Quando terminar o ciclo/curso que você está frequentando atualmente, você pretende?
+03. Você mora com sua mãe?
+04. Você mora com seu pai?
+05. Contando com você, quantas pessoas moram na sua casa ou apartamento?
+06. Na sua casa tem telefone fixo (convencional)?
+07. Você tem celular?
+08. Na sua casa tem computador (de mesa, notbook, laptop etc.)?
+09. Você tem acesso à internet em sua casa?
+10. Alguém que mora na sua casa tem carro?
+11. Alguém que mora na sua casa tem moto?
+12. Quantos banheiros com chuveiro têm dentro da sua casa?
+13. Na sua casa tem empregado (a) doméstico (a)?
+14. Caso responda SIM, quantos dias esta pessoa trabalha?
+15. Qual nível de ensino (grau) sua mãe estudou ou estuda?
+16. Você tem algum trabalho, emprego ou negócio atualmente?
+17. Você recebe dinheiro por este trabalho, emprego ou negócio?
+18. Sua família recebe benefícios do Programa Bolsa Família? Comportamento Alimentar
+19. Você costuma tomar o café da manhã?
+20. Você costuma almoçar ou jantar com sua mãe, pai ou responsável?
+21. Você costuma comer quando está assistindo à TV ou estudando?
+22. Sua escola oferece comida (merenda escolar/almoço) aos alunos da sua turma? (Não considerar lanches/comida comprados na cantina)
+23. Você costuma comer a comida (merenda/almoço) oferecida pela escola? (Não considerar lanches/comida comprados na cantina)
+24. Nos últimos 30 dias, com que frequência você ficou com fome por não ter comida suficiente em sua casa?
+25. Leite de vaca:
+26. Leite de vaca com adição de achocolatados em pó (nescau, toddy, ovomaltine), mel ou açúcar:
+27. Achocolatados líquidos comprados em supermercados como, por exemplo: Todyynho, Chokinho; Nescau; Italac etc.
+28. Iogurte como, por exemplo: Danone, Danoninho, Nestlé, Ninho, etc.
+29. Queijo.
+30. Sobremesas feitas com leite (pudim, flam, pudim de chocolate, creme de leite).
+31. Gelados (Picolé, sorvete, geladinho).
+32. Pão ou torrada (torrada é o mesmo que pão, sendo que em torrado).
+33. Flocos de cereais açucarados (por exemplo, flocos conhecidos como sucrilhos ou equivalentes, nescau cereal), etc.
+34. Flocos de cereais (aveia, milho, centeio, como os da marca Nesfit e Nutry)
+35. Arroz, massas, batatas.
+36. Batatas fritas pacote Ruffles, Pringles, Lay’s
+37. Batatas fritas caseiras.
+38. Bolachas Maria, bolachas Mabel, biscoitos ou bolachas cream cracker, (ou água e sal) etc.
+39. Outras bolachas (biscoitos recheados como Bono, Trakinas e Oreo).
+40. Produtos de pastelaria (coxinhas, pastéis, salgadinhos de queijo, kibes).
+41. Snacks (chocolates vendidos em barrinhas, como Twix, Kitkat, Bis e Chokito)
+42. Marmelada, doce em potinho, geleia, mel. (Como Paçoquita, Melzinho e Pé de moleque)
+43. Açúcares em geral.
+44. Sopas comuns caseiras (de carne, frango ou legumes)
+45. Vegetais crus em salada ou cozinhados (Cenoura, couve flor, brócolis, alface, beterraba, agrião)
+46. Leguminosas (feijão, grão de bico, ervilhas, favas).
+47. Fruta fresca. (Manga, caju, banana, goiaba, acerola, murici, maça, laranja)
+48. Frutos enlatados em calda: (pêssego, banana, caju, goiaba).
+49. Sucos naturais (de laranja, acerola, tangerina, uva)
+50. Refrigerantes (Coca cola, graraná ou fanta) ou ainda sucos de caixinha com néctar (como Kapo, del Valle)
+51. Pizzas. (Mini Pizza por exemplo)
+52. Hamburguer e cachorro quente.
+53. Rebuçados, gomas, pastilhas elásticas. (Chicletes, balinhas, jujubas)
+54. Rosquinhas (como Donuts, Sonhos, Rosquinhas de Polvilho, Pão de Mel) Hábitos Alimentares quando o (a) estudante tinha menos de dois anos de idade
+55. Seu filho (a) foi alimentado (a) com leite materno?
+56. Ele (a) mamou (apenas no peito) até quantos meses de idade?
+57. Se seu filho ou sua filha mamou até seis meses ou mais, até quantos meses ele (a) mamou no peito (mesmo que tenha se alimentado com outras comidas ou bebidas) Meu (minha) Filho (filha) mamou no peito até:
+58. Antes de completar dois anos de idade, seu filho (a) foi alimentado (a) com leite industrial? (aquele leite comprado nas farmácias ou supermercados)
+59. Caso sua resposta tenha sido SIM, até quantos meses ele se alimentou de leite industrial, isto é, aquele leite que é comprado nas farmácias e supermercados?
+60. Até dois anos de idade, seu filho ou sua filha recebeu alimentação mista, isto é:
+61. Até dois anos de idade, seu filho ou sua filha tomou leite de vaca?
+62. Caso sua resposta tenha sido sim, com que idade (em meses) ele começou a tomar leite de vaca?
+63. Nos últimos dias, em quantos deles você foi a pé ou de bicicleta para a escola?
+64. Quando você vai para a escola a pé ou de bicicleta, quanto tempo você gasta?
+66. Nos últimos sete dias, quanto tempo por dia você fez atividade física ou esporte durante as aulas de educação física na escola?
+67. Nos últimos 7 dias, sem contar as aulas de educação física da escola, em quantos dias você praticou alguma atividade física, como esportes, dança, ginástica, musculação, lutas ou outra atividade?
+68. Normalmente, quanto tempo por dia duram essas atividades (como esportes, dança, ginástica, musculação, lutas ou outra atividade) que você faz? (Sem contar as aulas de educação física)
+69. Nos últimos 7 dias, em quantos dias você fez atividade física por pelo menos 60 minutos (1 hora) por dia? (Some todo o tempo que você gastou em qualquer tipo de atividade física, em cada dia)
+70. Se você tivesse oportunidade de fazer atividade física na maioria dos dias da semana, qual seria a sua atitude?
+71. Em um dia de semana comum, quantas horas por dia você assiste a TV? (não contar sábado, domingo e feriado)
+72. Em um dia de semana comum, quanto tempo você fica sentado(a), assistindo televisão, usando computador, jogando videogame, conversando com amigos(as) ou fazendo outras atividades sentado(a)? (não contar sábado, domingo, feriados e o tempo sentado na escola)
+73. Alguma vez na vida, você já fumou cigarro, mesmo uma ou duas tragadas?
+74. Que idade você tinha quando experimentou fumar cigarro pela primeira vez?
+75. Nos últimos 30 dias, em quantos dias você fumou cigarros?
+76. Nos últimos 30 dias, em geral, como você conseguiu seus próprios cigarros?
+77. Nos ultimos 30 dias, alguém se recusou a lhe vender cigarros por causa de sua idade?
+78. Nos últimos 30 dias, em quantos dias você usou outros produtos de tabaco: cigarros de palha ou enrolados a mão, charuto, cachimbo, cigarrilha, cigarro indiano ou bali, narguilé, rapé, fumo de mascar etc.? (não incluir cigarro comum)
+79. Qual outro produto do tabaco você usou com mais frequência nos últimos 30 dias?
+80. Nos últimos 7 dias, em quantos dias pessoas fumaram na sua presença?
+81. Algum de seus pais ou responsáveis fuma?
+82. Alguma vez na vida você tomou uma dose de bebida alcoólica (uma dose equivale a uma
+lata de cerveja ou uma taça de vinho ou uma dose de cachaça ou uísque etc.)?
+83. Que idade você tinha quando tomou a primeira dose de bebida alcoólica (uma dose equivale a uma lata de cerveja ou uma taça de vinho ou uma dose de cachaça ou uísque etc.)?
+84. Nos últimos 30 dias, em quantos dias você tomou pelo menos um copo ou uma dose de bebida alcoólica (uma dose equivale a uma lata de cerveja ou uma taça de vinho ou uma dose de cachaça ou uísque etc.)?
+85. Nos últimos 30 dias, nos dias em que você tomou alguma bebida alcoólica, quantos copos ou doses você tomou por dia?
+86. Nos últimos 30 dias, na maioria das vezes, como você conseguiu a bebida que tomou?
+87. Na sua vida, quantas vezes você bebeu tanto que ficou realmente bêbado(a)?
+88. Na sua vida, quantas vezes você teve problemas com sua família ou amigos, perdeu aulas ou brigou por que tinha bebido?
+89. Quantos amigos seus consomem bebida alcoólica?
+90. Alguma vez na vida, você já usou alguma droga como: maconha, cocaína, crack, cola, loló, lança-perfume, ecstasy, oxy etc.?
+91. Que idade você tinha quando usou alguma droga como: maconha, cocaína, crack, cola, loló, lança-perfume, ecstasy, oxy ou outra pela primeira vez?
+92. Nos ultimos 30 dias, quantos dias você usou droga como maconha, cocaína, crack, cola, loló, lança-perfume, ecstasy, oxy etc.?
+93. Nos últimos 30 dias, quantos dias você usou maconha?
+94. Nos últimos 30 dias, quantos dias você usou crack?
+95. Quantos amigos seus usam drogas?
+96. Nos últimos 30 dias, em quantos dias você faltou às aulas ou à escola sem permissão dos seus pais ou responsáveis?
+97. Nos últimos 30 dias, com que frequência seus pais ou responsáveis sabiam realmente o que você estava fazendo em seu tempo livre?
+98. Nos últimos 30 dias, com que frequência seus pais ou responsáveis verificaram se os seus deveres de casa (lição de casa) foram feitos?
+99. Nos últimos 30 dias, com que frequência seus pais ou responsáveis entenderam seus problemas e preocupações?
+100. Nos últimos 30 dias, com que frequência seus pais ou responsáveis mexeram em suas coisas sem a sua concordância?
+101. Nos últimos 30 dias, com que frequência os colegas de sua escola trataram você bem e/ou foram prestativos com você?
+102. Nos últimos 30 dias, com que frequência algum dos seus colegas de escola lhe esculacharam, zoaram, mangaram, intimidaram ou caçoaram tanto que você ficou magoado, incomodado, aborrecido, ofendido ou humilhado?
+103. Nos últimos 30 dias, qual o motivo ou causa de seus colegas terem lhe esculachado, zombado, zoado, caçoado, mangado, intimidado ou humilhado?
+104. Nos últimos 30 dias, você esculachou, zombou, mangou, intimidou ou caçoou algum de seus colegas da escola tanto que ele ficou magoado, aborrecido, ofendido ou humilhado?
+105. Você já sofreu bullying?
+106. Nos ultimos 12 meses, com que frequência você não conseguiu dormir à noite porque algo o(a) preocupava muito?
+107. Quantos amigos(as) próximos você tem?
+108. Nos últimos 30 dias, com que frequência você lavou as mãos antes de comer?
+109. Nos últimos 30 dias, com que frequência você lavou as mãos após usar o banheiro ou o vaso sanitário?
+110. Nos últimos 30 dias, com que frequência você usou sabão ou sabonete quando lavou suas mãos?
+111. Nos últimos 30 dias, quantas vezes por dia você usualmente escovou os dentes?
+112. Nos últimos 06 meses, você teve dor de dente? (Não vale aquela dor de dente causada por uso de aparelho para correção dos dentes, isto é, aparelhos ortodônticos).)
+113. Nos últimos 12 meses, quantas vezes você foi ao dentista?
+114. Nos últimos 30 dias, em quantos dias você deixou de ir à escola porque não se sentia seguro no caminho de casa para a escola ou da escola para casa?
+115. Nos últimos 30 dias, em quantos dias você não foi à escola porque não se sentia seguro na escola?
+116. Nos últimos 30 dias, com que frequência você usou cinto de segurança enquanto andava como passageiro(a) no banco da frente de carro/automóvel, van ou táxi?
+117. Nos últimos 30 dias, com que frequência você usou capacete ao andar de motocicleta?
+118. Nos últimos 30 dias, quantas vezes você dirigiu um veículo motorizado de transporte? (carro, motocicleta, voadeira, barco, etc.)
+119. Nos últimos 30 dias, quantas vezes você andou em carro ou outro veículo motorizado dirigido por alguém que tinha consumido alguma bebida alcoólica?
+120. Nos últimos 30 dias, quantas vezes você foi agredido(a) fisicamente por um adulto da sua família?
+121. Nos últimos 30 dias, você esteve envolvido(a) em alguma briga em que alguma pessoa usou arma de fogo, como revólver ou espingarda?
+122. Nos últimos 30 dias, você esteve envolvido(a) em alguma briga em que alguma pessoa usou alguma outra arma como faca, canivete, peixeira, pedra, pedaço de pau ou garrafa?
+123. Nos últimos 12 meses, quantas vezes você foi agredido(a) fisicamente?
+124. Nos últimos 12 meses, quantas vezes você se envolveu em briga (uma luta física)?
+125. Nos últimos 12 meses, quantas vezes você foi seriamente ferido(a) em uma briga?
+126. Nos últimos 12 meses, qual foi o ferimento ou a lesão mais séria que aconteceu com você?
+127. Nos últimos 12 meses, qual foi a principal causa do ferimento ou da lesão mais séria que aconteceu com você?
+128. Nos últimos 12 meses, você sofreu algum acidente de bicicleta (caiu e se machucou)?
+129. Alguma vez na vida você foi forçado(a) a ter relação sexual?
+130. Quem forçou você a ter relação sexual?
+131. Como você classificaria seu estado de saúde?
+132. Nos últimos 12 meses, quantos dias você faltou a escola por motivo(s) relacionado(s) à sua saúde?
+133. Nos últimos 12 meses você procurou algum serviço ou profissional de saúde para atendimento relacionado à própria saúde?
+134. Nos últimos 12 meses, qual foi o serviço de saúde que você procurou com mais frequência?
+135. Você foi atendido(a) na última vez que procurou alguma Unidade Básica de Saúde (Centro ou Posto de saúde ou Unidade de Saúde da Família/PSF), nestes últimos 12 meses?
+136. Qual foi o principal motivo da sua procura na Unidade Básica de Saúde (Centro ou Posto de saúde ou Unidade de Saúde da Família/PSF) nesta última vez?
+137. Você conhece/ouviu falar sobre a campanha de vacinação contra o vírus HPV?
+138. Você foi vacinada contra o vírus HPV?
+139. Você considera sua imagem corporal como sendo algo:
+140. Como você se sente em relação ao seu corpo?
+141. Quanto ao seu corpo, você se considera:
+142. O que você está fazendo em relação a seu peso?
+143. Nos últimos 30 dias, você vomitou ou tomou laxantes para perder peso ou evitar ganhar peso?
+144. Nos últimos 30 dias, você tomou algum remédio, fórmula ou outro produto para perder peso, sem acompanhamento médico?
+145. Nos últimos 30 dias, você tomou algum remédio, fórmula ou outro produto para ganhar peso ou massa muscular sem acompanhamento médico?
+146. O que você achou deste questionário?
