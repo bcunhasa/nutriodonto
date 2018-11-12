@@ -110,6 +110,66 @@ class CampanhasView(LoginRequired, View):
         return render(self.request, 'administracao/campanhas.html', context)
 
 
+class DetalhesCampanhaView(LoginRequired, View):
+    """Página com as informações sobre uma campanha"""
+    
+    def get(self, request, campanha_id):
+        campanha = Campanha.objects.get(id=campanha_id)
+        form = CampanhaForm(instance=campanha)
+        context = {'pagina_campanhas': True, 'campanha': campanha, 'form': form}
+        return render(self.request, 'administracao/campanha.html', context)
+
+
+class CriaCampanhaView(LoginRequired, View):
+    """Cadastra as informações de uma nova campanha"""
+    
+    def get(self, request):
+        form = CampanhaForm()
+        context = {'pagina_campanhas': True, 'form': form}
+        return render(self.request, 'administracao/novo_elemento.html', context)
+    
+    def post(self, request):
+        form = CampanhaForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('administracao:campanhas'))
+        context = {'pagina_campanhas': True, 'form': form}
+        return render(self.request, 'administracao/novo_elemento.html', context)
+
+
+class EditaCampanhaView(LoginRequired, View):
+    """Altera as informações de uma campanha"""
+    
+    def get(self, request, campanha_id):
+        campanha = Campanha.objects.get(id=campanha_id)
+        form = CampanhaForm(instance=campanha)
+        context = {'pagina_campanhas': True, 'campanha': campanha, 'form': form}
+        return render(self.request, 'administracao/edita_elemento.html', context)
+    
+    def post(self, request, campanha_id):
+        campanha = Campanha.objects.get(id=campanha_id)
+        form = CampanhaForm(request.POST, request.FILES, instance=campanha)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('administracao:campanhas'))
+        context = {'pagina_campanhas': True, 'campanha': campanha, 'form': form}
+        return render(self.request, 'administracao/edita_elemento.html', context)
+
+
+class RemoveCampanhaView(LoginRequired, View):
+    """Remove uma campanha"""
+    
+    def get(self, request, campanha_id):
+        campanha = Campanha.objects.get(id=campanha_id)
+        context = {'pagina_campanhas': True, 'campanha': campanha}
+        return render(self.request, 'administracao/remove_elemento.html', context)
+        
+    def post(self, request, campanha_id):
+        campanha = Campanha.objects.get(id=campanha_id)
+        campanha.delete()
+        return HttpResponseRedirect(reverse('administracao:campanhas'))
+
+
 class AcoesView(LoginRequired, View):
     """Página que lista as ações cadastradas no sistema"""
     
@@ -117,6 +177,66 @@ class AcoesView(LoginRequired, View):
         acoes = Acao.objects.order_by('-id')
         context = {'pagina_acoes': True, 'acoes': acoes}
         return render(self.request, 'administracao/acoes.html', context)
+
+
+class DetalhesAcaoView(LoginRequired, View):
+    """Página com as informações sobre uma ação"""
+    
+    def get(self, request, acao_id):
+        acao = Acao.objects.get(id=acao_id)
+        form = AcaoForm(instance=acao)
+        context = {'pagina_acao': True, 'acao': acao, 'form': form}
+        return render(self.request, 'administracao/acao.html', context)
+
+
+class CriaAcaoView(LoginRequired, View):
+    """Cadastra as informações de uma nova ação"""
+    
+    def get(self, request):
+        form = AcaoForm()
+        context = {'pagina_acao': True, 'form': form}
+        return render(self.request, 'administracao/novo_elemento.html', context)
+    
+    def post(self, request):
+        form = AcaoForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('administracao:acoes'))
+        context = {'pagina_acao': True, 'form': form}
+        return render(self.request, 'administracao/novo_elemento.html', context)
+
+
+class EditaAcaoView(LoginRequired, View):
+    """Altera as informações de uma ação"""
+    
+    def get(self, request, acao_id):
+        acao = Acao.objects.get(id=acao_id)
+        form = AcaoForm(instance=acao)
+        context = {'pagina_acao': True, 'acao': acao, 'form': form}
+        return render(self.request, 'administracao/edita_elemento.html', context)
+    
+    def post(self, request, acao_id):
+        acao = Acao.objects.get(id=acao_id)
+        form = AcaoForm(request.POST, request.FILES, instance=acao)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('administracao:acoes'))
+        context = {'pagina_acao': True, 'acao': acao, 'form': form}
+        return render(self.request, 'administracao/edita_elemento.html', context)
+
+
+class RemoveAcaoView(LoginRequired, View):
+    """Remove uma ação"""
+    
+    def get(self, request, acao_id):
+        acao = Acao.objects.get(id=acao_id)
+        context = {'pagina_acao': True, 'acao': acao}
+        return render(self.request, 'administracao/remove_elemento.html', context)
+        
+    def post(self, request, acao_id):
+        acao = Acao.objects.get(id=acao_id)
+        acao.delete()
+        return HttpResponseRedirect(reverse('administracao:acoes'))
 
 
 class EscolasView(LoginRequired, View):
@@ -128,6 +248,66 @@ class EscolasView(LoginRequired, View):
         return render(self.request, 'administracao/escolas.html', context)
 
 
+class DetalhesEscolaView(LoginRequired, View):
+    """Página com as informações sobre uma escola"""
+    
+    def get(self, request, escola_id):
+        escola = Escola.objects.get(id=escola_id)
+        form = EscolaForm(instance=escola)
+        context = {'pagina_escola': True, 'escola': escola, 'form': form}
+        return render(self.request, 'administracao/escola.html', context)
+
+
+class CriaEscolaView(LoginRequired, View):
+    """Cadastra as informações de uma nova escola"""
+    
+    def get(self, request):
+        form = EscolaForm()
+        context = {'pagina_escola': True, 'form': form}
+        return render(self.request, 'administracao/novo_elemento.html', context)
+    
+    def post(self, request):
+        form = EscolaForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('administracao:escolas'))
+        context = {'pagina_escola': True, 'form': form}
+        return render(self.request, 'administracao/novo_elemento.html', context)
+
+
+class EditaEscolaView(LoginRequired, View):
+    """Altera as informações de uma escola"""
+    
+    def get(self, request, escola_id):
+        escola = Escola.objects.get(id=escola_id)
+        form = EscolaForm(instance=escola)
+        context = {'pagina_escola': True, 'escola': escola, 'form': form}
+        return render(self.request, 'administracao/edita_elemento.html', context)
+    
+    def post(self, request, escola_id):
+        escola = Escola.objects.get(id=escola_id)
+        form = EscolaForm(request.POST, request.FILES, instance=escola)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('administracao:escolas'))
+        context = {'pagina_escola': True, 'escola': escola, 'form': form}
+        return render(self.request, 'administracao/edita_elemento.html', context)
+
+
+class RemoveEscolaView(LoginRequired, View):
+    """Remove uma escola"""
+    
+    def get(self, request, escola_id):
+        escola = Escola.objects.get(id=escola_id)
+        context = {'pagina_escola': True, 'escola': escola}
+        return render(self.request, 'administracao/remove_elemento.html', context)
+        
+    def post(self, request, escola_id):
+        escola = Escola.objects.get(id=escola_id)
+        escola.delete()
+        return HttpResponseRedirect(reverse('administracao:escolas'))
+
+
 class AlunosView(LoginRequired, View):
     """Página que lista os alunos cadastrados no sistema"""
     
@@ -135,6 +315,66 @@ class AlunosView(LoginRequired, View):
         alunos = Aluno.objects.order_by('-id')
         context = {'pagina_alunos': True, 'alunos': alunos}
         return render(self.request, 'administracao/alunos.html', context)
+
+
+class DetalhesAlunoView(LoginRequired, View):
+    """Página com as informações sobre um aluno"""
+    
+    def get(self, request, aluno_id):
+        aluno = Aluno.objects.get(id=aluno_id)
+        form = AlunoForm(instance=aluno)
+        context = {'pagina_alunos': True, 'aluno': aluno, 'form': form}
+        return render(self.request, 'administracao/aluno.html', context)
+
+
+class CriaAlunoView(LoginRequired, View):
+    """Cadastra as informações de um novo aluno"""
+    
+    def get(self, request):
+        form = AlunoForm()
+        context = {'pagina_alunos': True, 'form': form}
+        return render(self.request, 'administracao/novo_elemento.html', context)
+    
+    def post(self, request):
+        form = AlunoForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('administracao:alunos'))
+        context = {'pagina_alunos': True, 'form': form}
+        return render(self.request, 'administracao/novo_elemento.html', context)
+
+
+class EditaAlunoView(LoginRequired, View):
+    """Altera as informações de um aluno"""
+    
+    def get(self, request, aluno_id):
+        aluno = Aluno.objects.get(id=aluno_id)
+        form = AlunoForm(instance=aluno)
+        context = {'pagina_alunos': True, 'aluno': aluno, 'form': form}
+        return render(self.request, 'administracao/edita_elemento.html', context)
+    
+    def post(self, request, aluno_id):
+        aluno = Aluno.objects.get(id=aluno_id)
+        form = AlunoForm(request.POST, request.FILES, instance=aluno)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('administracao:alunos'))
+        context = {'pagina_alunos': True, 'aluno': aluno, 'form': form}
+        return render(self.request, 'administracao/edita_elemento.html', context)
+
+
+class RemoveAlunoView(LoginRequired, View):
+    """Remove um aluno"""
+    
+    def get(self, request, aluno_id):
+        aluno = Aluno.objects.get(id=aluno_id)
+        context = {'pagina_alunos': True, 'aluno': aluno}
+        return render(self.request, 'administracao/remove_elemento.html', context)
+        
+    def post(self, request, aluno_id):
+        aluno = Aluno.objects.get(id=aluno_id)
+        aluno.delete()
+        return HttpResponseRedirect(reverse('administracao:alunos'))
 
 
 class QuestionariosView(LoginRequired, View):
@@ -146,6 +386,66 @@ class QuestionariosView(LoginRequired, View):
         return render(self.request, 'administracao/questionarios.html', context)
 
 
+class DetalhesQuestionarioView(LoginRequired, View):
+    """Página com as informações sobre um questionário"""
+    
+    def get(self, request, questionario_id):
+        questionario = Questionario.objects.get(id=questionario_id)
+        form = QuestionarioForm(instance=questionario)
+        context = {'pagina_questionario': True, 'questionario': questionario, 'form': form}
+        return render(self.request, 'administracao/questionario.html', context)
+
+
+class CriaQuestionarioView(LoginRequired, View):
+    """Cadastra as informações de um novo questionário"""
+    
+    def get(self, request):
+        form = QuestionarioForm()
+        context = {'pagina_questionario': True, 'form': form}
+        return render(self.request, 'administracao/novo_elemento.html', context)
+    
+    def post(self, request):
+        form = QuestionarioForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('administracao:questionarios'))
+        context = {'pagina_questionario': True, 'form': form}
+        return render(self.request, 'administracao/novo_elemento.html', context)
+
+
+class EditaQuestionarioView(LoginRequired, View):
+    """Altera as informações de um questionário"""
+    
+    def get(self, request, questionario_id):
+        questionario = Questionario.objects.get(id=questionario_id)
+        form = QuestionarioForm(instance=questionario)
+        context = {'pagina_questionario': True, 'questionario': questionario, 'form': form}
+        return render(self.request, 'administracao/edita_elemento.html', context)
+    
+    def post(self, request, questionario_id):
+        questionario = Questionario.objects.get(id=questionario_id)
+        form = QuestionarioForm(request.POST, request.FILES, instance=questionario)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('administracao:questionarios'))
+        context = {'pagina_questionario': True, 'questionario': questionario, 'form': form}
+        return render(self.request, 'administracao/edita_elemento.html', context)
+
+
+class RemoveQuestionarioView(LoginRequired, View):
+    """Remove um questionário"""
+    
+    def get(self, request, questionario_id):
+        questionario = Questionario.objects.get(id=questionario_id)
+        context = {'pagina_questionario': True, 'questionario': questionario}
+        return render(self.request, 'administracao/remove_elemento.html', context)
+        
+    def post(self, request, questionario_id):
+        questionario = Questionario.objects.get(id=questionario_id)
+        questionario.delete()
+        return HttpResponseRedirect(reverse('administracao:questionarios'))
+
+
 class ExamesView(LoginRequired, View):
     """Página que lista os exames cadastrados no sistema"""
     
@@ -153,3 +453,63 @@ class ExamesView(LoginRequired, View):
         exames = Exame.objects.order_by('-id')
         context = {'pagina_exames': True, 'exames': exames}
         return render(self.request, 'administracao/exames.html', context)
+
+
+class DetalhesExameView(LoginRequired, View):
+    """Página com as informações sobre um exame"""
+    
+    def get(self, request, exame_id):
+        exame = Exame.objects.get(id=exame_id)
+        form = ExameForm(instance=exame)
+        context = {'pagina_exames': True, 'exame': exame, 'form': form}
+        return render(self.request, 'administracao/exame.html', context)
+
+
+class CriaExameView(LoginRequired, View):
+    """Cadastra as informações de um novo exame"""
+    
+    def get(self, request):
+        form = ExameForm()
+        context = {'pagina_exames': True, 'form': form}
+        return render(self.request, 'administracao/novo_elemento.html', context)
+    
+    def post(self, request):
+        form = ExameForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('administracao:exames'))
+        context = {'pagina_exames': True, 'form': form}
+        return render(self.request, 'administracao/novo_elemento.html', context)
+
+
+class EditaExameView(LoginRequired, View):
+    """Altera as informações de um exame"""
+    
+    def get(self, request, exame_id):
+        exame = Exame.objects.get(id=exame_id)
+        form = ExameForm(instance=exame)
+        context = {'pagina_exames': True, 'exame': exame, 'form': form}
+        return render(self.request, 'administracao/edita_elemento.html', context)
+    
+    def post(self, request, exame_id):
+        exame = Exame.objects.get(id=exame_id)
+        form = ExameForm(request.POST, request.FILES, instance=exame)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('administracao:exames'))
+        context = {'pagina_exames': True, 'exame': exame, 'form': form}
+        return render(self.request, 'administracao/edita_elemento.html', context)
+
+
+class RemoveExameView(LoginRequired, View):
+    """Remove um exame"""
+    
+    def get(self, request, exame_id):
+        exame = Exame.objects.get(id=exame_id)
+        context = {'pagina_exames': True, 'exame': exame}
+        return render(self.request, 'administracao/remove_elemento.html', context)
+        
+    def post(self, request, exame_id):
+        exame = Exame.objects.get(id=exame_id)
+        exame.delete()
+        return HttpResponseRedirect(reverse('administracao:exames'))

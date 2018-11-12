@@ -5,29 +5,18 @@
 {% endblock head %}
 
 {% block header %}
-  Remoção - 
-  {% if pagina_administrador %}
-    {{ administrador.usuario.username }}
-  {% elif pagina_cliente %}
-    {{ cliente.nome }}
-  {% elif pagina_prestadora %}
-    {{ prestadora.nome_fantasia }}
-  {% elif pagina_servico %}
-    {{ servico.titulo }}
-  {% elif pagina_categoria %}
-    {{ categoria.titulo }}
-  {% elif pagina_atividade %}
-    {{ atividade.prestadora.nome_fantasia }}
-  {% elif pagina_atendimento %}
-    {{ atendimento.estado.descricao }}
-  {% elif pagina_estado %}
-    {{ estado.descricao }}
-  {% elif pagina_duvida %}
-    {{ duvida.pergunta }}
-  {% elif pagina_mensagem %}
-    {{ mensagem.pergunta }}
-  {% elif pagina_suporte %}
-    {{ suporte.pergunta }}
+  {% if pagina_campanhas %}
+    Remoção da campanha {{ campanha.nome }}
+  {% elif pagina_acoes %}
+    Remoção da ação {{ acao.nome }}
+  {% elif pagina_escolas %}
+    Remoção da escola {{ escola.nome }}
+  {% elif pagina_alunos %}
+    Remoção do aluno {{ aluno.id }}
+  {% elif pagina_questionarios %}
+    Remoção do questionário do aluno {{ questionario.aluno.id }}
+  {% elif pagina_exames %}
+    Remoção do exame do aluno {{ exame.aluno.id }}
   {% endif %}
 {% endblock header %}
 

@@ -41,7 +41,7 @@ class Escola(models.Model):
 
 class Aluno(models.Model):
     """Modelo que representa um aluno"""
-    numero_identificacao = models.CharField(max_length=TAMANHO_NOMES, verbose_name='Número de identificação')
+    # numero_identificacao = models.CharField(max_length=TAMANHO_NOMES, verbose_name='Número de identificação')
     escola = models.ForeignKey('Escola', related_name='alunos', on_delete=models.CASCADE)
 
     periodo = models.CharField(choices=PERIODO, max_length=TAMANHO_OPCOES, verbose_name='Período')
@@ -52,7 +52,7 @@ class Aluno(models.Model):
 
     def __str__(self):
         """Devolve a representação do modelo em string"""
-        return self.numero_identificacao
+        return str(self.id)
 
 
 class Questionario(models.Model):
@@ -405,7 +405,7 @@ class Exame(models.Model):
     
     def __str__(self):
         """Devolve a representação do modelo em string"""
-        return self.aluno.nome
+        return str(self.aluno.id)
 
 
 class Diretor(models.Model):
@@ -504,4 +504,4 @@ class Diretor(models.Model):
     
     def __str__(self):
         """Devolve a representação do modelo em string"""
-        return self.escola.nome
+        return str(self.escola.id)

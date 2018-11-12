@@ -9,6 +9,13 @@
 
 {% block header %}
   Escolas
+  <div class="pull-right">
+    <form action="{% url 'administracao:cria_escola' %}">
+      <button class="btn btn-labeled btn-success" type="submit">
+        <span class="btn-label"><i class="fa fa-plus"></i></span>Novo
+      </button>
+    </form>
+  </div>
 {% endblock header %}
 
 {% block content %}
@@ -27,6 +34,8 @@
                   <tr>
                     <th>Nome</th>
                     <th>Ação relacionada</th>
+                    <th></th>
+                    <th></th>
                   </tr>
                 </thead>
                 <tbody>
@@ -34,6 +43,20 @@
                     <tr>
                       <td>{{ escola.nome }}</td>
                       <td>{{ escola.acao.nome }}</td>
+                      <td class="text-right">
+                        <form action="{% url 'administracao:edita_escola' escola.id %}">
+                          <button class="btn btn-labeled btn-info" type="submit">
+                            <span class="btn-label"><i class="fa fa-edit"></i></span>Editar
+                          </button>
+                        </form>
+                      </td>
+                      <td class="text-right">
+                        <form action="{% url 'administracao:remove_escola' escola.id %}">
+                          <button class="btn btn-labeled btn-danger" type="submit">
+                            <span class="btn-label"><i class="fa fa-remove"></i></span>Excluir
+                          </button>
+                        </form>
+                      </td>
                     </tr>
                   {% endfor %}
                 </tbody>
@@ -57,6 +80,6 @@
   <script src="{% static 'administracao/vendor/datatables-responsive/js/dataTables.responsive.js' %}"></script>
   <script src="{% static 'administracao/vendor/datatables-responsive/js/responsive.bootstrap.js' %}"></script>
   
-  <script src="{% static 'common/js/datatable.js' %}"></script>
+  <script src="{% static 'administracao/js/datatable.js' %}"></script>
   
 {% endblock content %}
