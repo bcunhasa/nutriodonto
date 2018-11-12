@@ -15,11 +15,11 @@
   {% elif pagina_escolas %}
     Edição da escola {{ escola.nome }}
   {% elif pagina_alunos %}
-    Edição do aluno {{ aluno.id }}
+    Edição do aluno {{ aluno.numero_identificacao }}
   {% elif pagina_questionarios %}
-    Edição do questionário do aluno {{ questionario.aluno.id }}
+    Edição do questionário do aluno {{ questionario.aluno.numero_identificacao }}
   {% elif pagina_exames %}
-    Edição do exame do aluno {{ exame.aluno.id }}
+    Edição do exame do aluno {{ exame.aluno.numero_identificacao }}
   {% endif %}
 {% endblock header %}
 

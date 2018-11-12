@@ -12,11 +12,11 @@
   {% elif pagina_escolas %}
     Remoção da escola {{ escola.nome }}
   {% elif pagina_alunos %}
-    Remoção do aluno {{ aluno.id }}
+    Remoção do aluno {{ aluno.numero_identificacao }}
   {% elif pagina_questionarios %}
-    Remoção do questionário do aluno {{ questionario.aluno.id }}
+    Remoção do questionário do aluno {{ questionario.aluno.numero_identificacao }}
   {% elif pagina_exames %}
-    Remoção do exame do aluno {{ exame.aluno.id }}
+    Remoção do exame do aluno {{ exame.aluno.numero_identificacao }}
   {% endif %}
 {% endblock header %}
 

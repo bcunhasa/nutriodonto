@@ -185,7 +185,7 @@ class DetalhesAcaoView(LoginRequired, View):
     def get(self, request, acao_id):
         acao = Acao.objects.get(id=acao_id)
         form = AcaoForm(instance=acao)
-        context = {'pagina_acao': True, 'acao': acao, 'form': form}
+        context = {'pagina_acoes': True, 'acao': acao, 'form': form}
         return render(self.request, 'administracao/acao.html', context)
 
 
@@ -194,7 +194,7 @@ class CriaAcaoView(LoginRequired, View):
     
     def get(self, request):
         form = AcaoForm()
-        context = {'pagina_acao': True, 'form': form}
+        context = {'pagina_acoes': True, 'form': form}
         return render(self.request, 'administracao/novo_elemento.html', context)
     
     def post(self, request):
@@ -202,7 +202,7 @@ class CriaAcaoView(LoginRequired, View):
         if form.is_valid():
             form.save()
             return HttpResponseRedirect(reverse('administracao:acoes'))
-        context = {'pagina_acao': True, 'form': form}
+        context = {'pagina_acoes': True, 'form': form}
         return render(self.request, 'administracao/novo_elemento.html', context)
 
 
@@ -212,7 +212,7 @@ class EditaAcaoView(LoginRequired, View):
     def get(self, request, acao_id):
         acao = Acao.objects.get(id=acao_id)
         form = AcaoForm(instance=acao)
-        context = {'pagina_acao': True, 'acao': acao, 'form': form}
+        context = {'pagina_acoes': True, 'acao': acao, 'form': form}
         return render(self.request, 'administracao/edita_elemento.html', context)
     
     def post(self, request, acao_id):
@@ -221,7 +221,7 @@ class EditaAcaoView(LoginRequired, View):
         if form.is_valid():
             form.save()
             return HttpResponseRedirect(reverse('administracao:acoes'))
-        context = {'pagina_acao': True, 'acao': acao, 'form': form}
+        context = {'pagina_acoes': True, 'acao': acao, 'form': form}
         return render(self.request, 'administracao/edita_elemento.html', context)
 
 
@@ -230,7 +230,7 @@ class RemoveAcaoView(LoginRequired, View):
     
     def get(self, request, acao_id):
         acao = Acao.objects.get(id=acao_id)
-        context = {'pagina_acao': True, 'acao': acao}
+        context = {'pagina_acoes': True, 'acao': acao}
         return render(self.request, 'administracao/remove_elemento.html', context)
         
     def post(self, request, acao_id):
@@ -254,7 +254,7 @@ class DetalhesEscolaView(LoginRequired, View):
     def get(self, request, escola_id):
         escola = Escola.objects.get(id=escola_id)
         form = EscolaForm(instance=escola)
-        context = {'pagina_escola': True, 'escola': escola, 'form': form}
+        context = {'pagina_escolas': True, 'escola': escola, 'form': form}
         return render(self.request, 'administracao/escola.html', context)
 
 
@@ -263,7 +263,7 @@ class CriaEscolaView(LoginRequired, View):
     
     def get(self, request):
         form = EscolaForm()
-        context = {'pagina_escola': True, 'form': form}
+        context = {'pagina_escolas': True, 'form': form}
         return render(self.request, 'administracao/novo_elemento.html', context)
     
     def post(self, request):
@@ -271,7 +271,7 @@ class CriaEscolaView(LoginRequired, View):
         if form.is_valid():
             form.save()
             return HttpResponseRedirect(reverse('administracao:escolas'))
-        context = {'pagina_escola': True, 'form': form}
+        context = {'pagina_escolas': True, 'form': form}
         return render(self.request, 'administracao/novo_elemento.html', context)
 
 
@@ -281,7 +281,7 @@ class EditaEscolaView(LoginRequired, View):
     def get(self, request, escola_id):
         escola = Escola.objects.get(id=escola_id)
         form = EscolaForm(instance=escola)
-        context = {'pagina_escola': True, 'escola': escola, 'form': form}
+        context = {'pagina_escolas': True, 'escola': escola, 'form': form}
         return render(self.request, 'administracao/edita_elemento.html', context)
     
     def post(self, request, escola_id):
@@ -290,7 +290,7 @@ class EditaEscolaView(LoginRequired, View):
         if form.is_valid():
             form.save()
             return HttpResponseRedirect(reverse('administracao:escolas'))
-        context = {'pagina_escola': True, 'escola': escola, 'form': form}
+        context = {'pagina_escolas': True, 'escola': escola, 'form': form}
         return render(self.request, 'administracao/edita_elemento.html', context)
 
 
@@ -299,7 +299,7 @@ class RemoveEscolaView(LoginRequired, View):
     
     def get(self, request, escola_id):
         escola = Escola.objects.get(id=escola_id)
-        context = {'pagina_escola': True, 'escola': escola}
+        context = {'pagina_escolas': True, 'escola': escola}
         return render(self.request, 'administracao/remove_elemento.html', context)
         
     def post(self, request, escola_id):
@@ -392,7 +392,7 @@ class DetalhesQuestionarioView(LoginRequired, View):
     def get(self, request, questionario_id):
         questionario = Questionario.objects.get(id=questionario_id)
         form = QuestionarioForm(instance=questionario)
-        context = {'pagina_questionario': True, 'questionario': questionario, 'form': form}
+        context = {'pagina_questionarios': True, 'questionario': questionario, 'form': form}
         return render(self.request, 'administracao/questionario.html', context)
 
 
@@ -401,7 +401,7 @@ class CriaQuestionarioView(LoginRequired, View):
     
     def get(self, request):
         form = QuestionarioForm()
-        context = {'pagina_questionario': True, 'form': form}
+        context = {'pagina_questionarios': True, 'form': form}
         return render(self.request, 'administracao/novo_elemento.html', context)
     
     def post(self, request):
@@ -409,7 +409,7 @@ class CriaQuestionarioView(LoginRequired, View):
         if form.is_valid():
             form.save()
             return HttpResponseRedirect(reverse('administracao:questionarios'))
-        context = {'pagina_questionario': True, 'form': form}
+        context = {'pagina_questionarios': True, 'form': form}
         return render(self.request, 'administracao/novo_elemento.html', context)
 
 
@@ -419,7 +419,7 @@ class EditaQuestionarioView(LoginRequired, View):
     def get(self, request, questionario_id):
         questionario = Questionario.objects.get(id=questionario_id)
         form = QuestionarioForm(instance=questionario)
-        context = {'pagina_questionario': True, 'questionario': questionario, 'form': form}
+        context = {'pagina_questionarios': True, 'questionario': questionario, 'form': form}
         return render(self.request, 'administracao/edita_elemento.html', context)
     
     def post(self, request, questionario_id):
@@ -428,7 +428,7 @@ class EditaQuestionarioView(LoginRequired, View):
         if form.is_valid():
             form.save()
             return HttpResponseRedirect(reverse('administracao:questionarios'))
-        context = {'pagina_questionario': True, 'questionario': questionario, 'form': form}
+        context = {'pagina_questionarios': True, 'questionario': questionario, 'form': form}
         return render(self.request, 'administracao/edita_elemento.html', context)
 
 
@@ -437,7 +437,7 @@ class RemoveQuestionarioView(LoginRequired, View):
     
     def get(self, request, questionario_id):
         questionario = Questionario.objects.get(id=questionario_id)
-        context = {'pagina_questionario': True, 'questionario': questionario}
+        context = {'pagina_questionarios': True, 'questionario': questionario}
         return render(self.request, 'administracao/remove_elemento.html', context)
         
     def post(self, request, questionario_id):

@@ -40,7 +40,7 @@
                 <tbody>
                   {% for questionario in questionarios %}
                     <tr>
-                      <td>{{ questionario.aluno.nome }}</td>
+                      <td>{{ questionario.aluno.numero_identificacao }}</td>
                       <td class="text-right">
                         <form action="{% url 'administracao:edita_questionario' questionario.id %}">
                           <button class="btn btn-labeled btn-info" type="submit">
