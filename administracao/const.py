@@ -50,7 +50,7 @@ ESCOLA = (
     ('Escola municipal de T.I. Luiz Nunes de Oliveira', 'Escola municipal de T.I. Luiz Nunes de Oliveira'),
     ('Escola municipal de T.I. Sueli Pereira A. Reche', 'Escola municipal de T.I. Sueli Pereira A. Reche'),
     
-    ('Escola Silverio Ribeiro Matos', 'Escola Silverio Ribeiro Matos'),
+    ('Escola Silverio Ribeiro Matos', 'Escola Silverio Ribeiro Matos (Mumbuca)'),
     ('Escola de teste', 'Escola de teste'),
 )
 

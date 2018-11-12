@@ -1,0 +1,54 @@
+{% extends "administracao/base.html" %}
+
+{% block head %}
+  <!-- Cabeçalho local -->
+{% endblock head %}
+
+{% block header %}
+  Remoção - 
+  {% if pagina_administrador %}
+    {{ administrador.usuario.username }}
+  {% elif pagina_cliente %}
+    {{ cliente.nome }}
+  {% elif pagina_prestadora %}
+    {{ prestadora.nome_fantasia }}
+  {% elif pagina_servico %}
+    {{ servico.titulo }}
+  {% elif pagina_categoria %}
+    {{ categoria.titulo }}
+  {% elif pagina_atividade %}
+    {{ atividade.prestadora.nome_fantasia }}
+  {% elif pagina_atendimento %}
+    {{ atendimento.estado.descricao }}
+  {% elif pagina_estado %}
+    {{ estado.descricao }}
+  {% elif pagina_duvida %}
+    {{ duvida.pergunta }}
+  {% elif pagina_mensagem %}
+    {{ mensagem.pergunta }}
+  {% elif pagina_suporte %}
+    {{ suporte.pergunta }}
+  {% endif %}
+{% endblock header %}
+
+{% block content %}
+  <div class="col-xs-12 text-center">
+    <div class="panel panel-danger">
+      <div class="panel-heading">Confirmação de remoção</div>
+      <div class="panel-body">
+        <form method="post">
+          {% csrf_token %}
+          
+          <div class="form-group">
+            <p>A remoção desta entrada resulta em perda permanente dos dados.</p>
+            <p>Deseja remover a entrada?</p>
+          </div>
+          
+          <div class="form-group">
+            <button class="btn btn-sm btn-default" type="submit" name="submit">Confirmar remoção</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+{% endblock content %}

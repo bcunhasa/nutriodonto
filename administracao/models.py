@@ -67,7 +67,7 @@ class Questionario(models.Model):
     questao_4 = models.CharField(choices=ALUNO_4, max_length=TAMANHO_OPCOES, blank=True, null=True, verbose_name='04. Você mora com seu pai?')
     questao_5 = models.CharField(choices=ALUNO_5, max_length=TAMANHO_OPCOES, blank=True, null=True, verbose_name='05. Contando com você, quantas pessoas moram na sua casa ou apartamento?')
     questao_6 = models.CharField(choices=ALUNO_6, max_length=TAMANHO_OPCOES, blank=True, null=True, verbose_name='06. Na sua casa tem telefone fixo (convencional)?')
-    questao_7 = ArrayField(models.CharField(choices=ALUNO_7, max_length=TAMANHO_OPCOES), blank=True, null=True, verbose_name='07. Você tem celular?')
+    questao_7 = models.CharField(choices=ALUNO_7, max_length=TAMANHO_OPCOES, blank=True, null=True, verbose_name='07. Você tem celular?')
     questao_8 = models.CharField(choices=ALUNO_8, max_length=TAMANHO_OPCOES, blank=True, null=True, verbose_name='08. Na sua casa tem computador (de mesa, notbook, laptop etc.)?')
     questao_9 = models.CharField(choices=ALUNO_9, max_length=TAMANHO_OPCOES, blank=True, null=True, verbose_name='09. Você tem acesso à internet em sua casa?')
     questao_10 = models.CharField(choices=ALUNO_10, max_length=TAMANHO_OPCOES, blank=True, null=True, verbose_name='10. Alguém que mora na sua casa tem carro?')
@@ -120,7 +120,7 @@ class Questionario(models.Model):
     questao_57 = models.CharField(choices=ALUNO_57, max_length=TAMANHO_OPCOES, blank=True, null=True, verbose_name='57. Se seu filho ou sua filha mamou até seis meses ou mais, até quantos meses ele (a) mamou no peito (mesmo que tenha se alimentado com outras comidas ou bebidas) Meu (minha) Filho (filha) mamou no peito até:')
     questao_58 = models.CharField(choices=ALUNO_58, max_length=TAMANHO_OPCOES, blank=True, null=True, verbose_name='58. Antes de completar dois anos de idade, seu filho (a) foi alimentado (a) com leite industrial? (aquele leite comprado nas farmácias ou supermercados)')
     questao_59 = models.CharField(choices=ALUNO_59, max_length=TAMANHO_OPCOES, blank=True, null=True, verbose_name='59. Caso sua resposta tenha sido SIM, até quantos meses ele se alimentou de leite industrial, isto é, aquele leite que é comprado nas farmácias e supermercados?')
-    questao_60 = models.CharField(choices=ALUNO_60, max_length=TAMANHO_OPCOES, blank=True, null=True, verbose_name='60. Até dois anos de idade, seu filho ou sua filha recebeu alimentação mista, isto é:')
+    questao_60 = ArrayField(models.CharField(choices=ALUNO_60, max_length=TAMANHO_OPCOES), blank=True, null=True, verbose_name='60. Até dois anos de idade, seu filho ou sua filha recebeu alimentação mista, isto é:')
     questao_61 = models.CharField(choices=ALUNO_61, max_length=TAMANHO_OPCOES, blank=True, null=True, verbose_name='61. Até dois anos de idade, seu filho ou sua filha tomou leite de vaca?')
     questao_62 = models.CharField(choices=ALUNO_62, max_length=TAMANHO_OPCOES, blank=True, null=True, verbose_name='62. Caso sua resposta tenha sido sim, com que idade (em meses) ele começou a tomar leite de vaca?')
     questao_63 = models.CharField(choices=ALUNO_63, max_length=TAMANHO_OPCOES, blank=True, null=True, verbose_name='63. Nos últimos dias, em quantos deles você foi a pé ou de bicicleta para a escola?')
@@ -189,7 +189,7 @@ class Questionario(models.Model):
     questao_126 = models.CharField(choices=ALUNO_126, max_length=TAMANHO_OPCOES, blank=True, null=True, verbose_name='126. Nos últimos 12 meses, qual foi o ferimento ou a lesão mais séria que aconteceu com você?')
     questao_127 = models.CharField(choices=ALUNO_127, max_length=TAMANHO_OPCOES, blank=True, null=True, verbose_name='127. Nos últimos 12 meses, qual foi a principal causa do ferimento ou da lesão mais séria que aconteceu com você?')
     questao_128 = models.CharField(choices=ALUNO_128, max_length=TAMANHO_OPCOES, blank=True, null=True, verbose_name='128. Nos últimos 12 meses, você sofreu algum acidente de bicicleta (caiu e se machucou)?')
-    questao_129 = ArrayField(models.CharField(choices=ALUNO_129, max_length=TAMANHO_OPCOES), blank=True, null=True, verbose_name='129. Alguma vez na vida você foi forçado(a) a ter relação sexual?')
+    questao_129 = models.CharField(choices=ALUNO_129, max_length=TAMANHO_OPCOES, blank=True, null=True, verbose_name='129. Alguma vez na vida você foi forçado(a) a ter relação sexual?')
     questao_130 = models.CharField(choices=ALUNO_130, max_length=TAMANHO_OPCOES, blank=True, null=True, verbose_name='130. Quem forçou você a ter relação sexual?')
     questao_131 = models.CharField(choices=ALUNO_131, max_length=TAMANHO_OPCOES, blank=True, null=True, verbose_name='131. Como você classificaria seu estado de saúde?')
     questao_132 = models.CharField(choices=ALUNO_132, max_length=TAMANHO_OPCOES, blank=True, null=True, verbose_name='132. Nos últimos 12 meses, quantos dias você faltou a escola por motivo(s) relacionado(s) à sua saúde?')
@@ -206,7 +206,7 @@ class Questionario(models.Model):
     questao_143 = models.CharField(choices=ALUNO_143, max_length=TAMANHO_OPCOES, blank=True, null=True, verbose_name='143. Nos últimos 30 dias, você vomitou ou tomou laxantes para perder peso ou evitar ganhar peso?')
     questao_144 = models.CharField(choices=ALUNO_144, max_length=TAMANHO_OPCOES, blank=True, null=True, verbose_name='144. Nos últimos 30 dias, você tomou algum remédio, fórmula ou outro produto para perder peso, sem acompanhamento médico?')
     questao_145 = models.CharField(choices=ALUNO_145, max_length=TAMANHO_OPCOES, blank=True, null=True, verbose_name='145. Nos últimos 30 dias, você tomou algum remédio, fórmula ou outro produto para ganhar peso ou massa muscular sem acompanhamento médico?')
-    questao_146 = models.CharField(choices=ALUNO_146, max_length=TAMANHO_OPCOES, blank=True, null=True, verbose_name='146. O que você achou deste questionário?')
+    questao_146 = ArrayField(models.CharField(choices=ALUNO_146, max_length=TAMANHO_OPCOES), blank=True, null=True, verbose_name='146. O que você achou deste questionário?')
 
     class Meta:
         verbose_name = 'Questionário'
@@ -497,6 +497,10 @@ class Diretor(models.Model):
     questao_82 = models.CharField(choices=DIRETOR_82, max_length=TAMANHO_OPCOES, null=True, verbose_name='82. ')
     questao_83 = models.CharField(choices=DIRETOR_83, max_length=TAMANHO_OPCOES, null=True, verbose_name='83. ')
     questao_84 = models.CharField(choices=DIRETOR_84, max_length=TAMANHO_OPCOES, null=True, verbose_name='84. ')
+    
+    class Meta:
+        verbose_name = 'Questionário para diretores'
+        verbose_name_plural = 'Questionários para diretores'
     
     def __str__(self):
         """Devolve a representação do modelo em string"""

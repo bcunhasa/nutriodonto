@@ -1,0 +1,474 @@
+{% extends "administracao/base.html" %}
+
+{% load staticfiles %}
+{% load widget_tweaks %}
+
+{% block head %}
+  <link rel="stylesheet" href="{% static 'administracao/vendor/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css' %}">
+{% endblock head %}
+
+{% block header %}
+  Edição - 
+  {% if pagina_administrador %}
+    {{ administrador.usuario.username }}
+  {% elif pagina_cliente %}
+    {{ cliente.nome }}
+  {% elif pagina_prestadora %}
+    {{ prestadora.nome }}
+  {% elif pagina_servico %}
+    {{ servico.titulo }}
+  {% elif pagina_categoria %}
+    {{ categoria.titulo }}
+  {% elif pagina_atividade %}
+    {{ atividade.prestadora.nome }}
+  {% elif pagina_atendimento %}
+    {{ atendimento.estado.descricao }}
+  {% elif pagina_estado %}
+    {{ estado.descricao }}
+  {% endif %}
+{% endblock header %}
+
+{% block content %}
+  <div class="panel panel-default">
+    <div class="panel-body">
+      {% if pagina_administrador %}
+        <form action="{% url 'administracao:edita_administrador' administrador.id %}" method="post" class="form-horizontal">
+      {% elif pagina_cliente %}
+        <form action="{% url 'administracao:edita_cliente' cliente.id %}" method="post" class="form-horizontal">
+      {% elif pagina_prestadora %}
+        <form action="{% url 'administracao:edita_prestadora' prestadora.id %}" method="post" class="form-horizontal"  enctype="multipart/form-data">
+      {% elif pagina_servico %}
+        <form action="{% url 'administracao:edita_servico' servico.id %}" method="post" class="form-horizontal">
+      {% elif pagina_categoria %}
+        <form action="{% url 'administracao:edita_categoria' categoria.id %}" method="post" class="form-horizontal"  enctype="multipart/form-data">
+      {% elif pagina_atividade %}
+        <form action="{% url 'administracao:edita_atividade' atividade.id %}" method="post" class="form-horizontal">
+      {% elif pagina_atendimento %}
+        <form action="{% url 'administracao:edita_atendimento' atendimento.id %}" method="post" class="form-horizontal">
+      {% elif pagina_estado %}
+        <form action="{% url 'administracao:edita_estado' estado.id %}" method="post" class="form-horizontal">
+      {% endif %}
+      
+        {% csrf_token %}
+        
+        {% if pagina_administrador or pagina_cliente or pagina_prestadora %}
+          
+          <!-- Formulário para cadastro de informações de conta -->
+          <div class="form-group has-feedback">
+            <label class="col-lg-2 control-label">Nome de usuário</label>
+            {{ usuario_form.username.errors }}
+            <div class="col-lg-10">
+              {% render_field usuario_form.username class='form-control' type='text' placeholder='Nome de usuário' %}
+              <span class="fa fa-user form-control-feedback text-muted"></span>
+            </div>
+            {% if usuario_form.username.help_text %}
+              <p class="help">{{ field.help_text|safe }}</p>
+            {% endif %}
+          </div>
+          
+          <div class="form-group has-feedback">
+            <label class="col-lg-2 control-label">Email</label>
+            {{ usuario_form.email.errors }}
+            <div class="col-lg-10">
+              {% render_field usuario_form.email class='form-control' type='email' placeholder='E-mail' %}
+              <span class="fa fa-envelope form-control-feedback text-muted"></span>
+            </div>
+            {% if usuario_form.email.help_text %}
+              <p class="help">{{ field.help_text|safe }}</p>
+            {% endif %}
+          </div>
+          
+          <div class="form-group has-feedback">
+            <label class="col-lg-2 control-label">Senha</label>
+            {{ usuario_form.password.errors }}
+            <div class="col-lg-10">
+              {% render_field usuario_form.password class='form-control' type='password' placeholder='Senha' %}
+              <span class="fa fa-lock form-control-feedback text-muted"></span>
+            </div>
+            {% if usuario_form.password.help_text %}
+              <p class="help">{{ field.help_text|safe }}</p>
+            {% endif %}
+          </div>
+          
+          {% if pagina_administrador %}
+          
+            <!-- Formulário para cadastro de informações do perfil do administrador -->
+            
+            <div class="form-group has-feedback">
+              <label class="col-lg-2 control-label">Nome</label>
+              {{ perfil_form.nome.errors }}
+              <div class="col-lg-10">
+                {% render_field perfil_form.nome class='form-control' type='text' placeholder='Nome' %}
+              </div>
+              {% if perfil_form.nome.help_text %}
+                <p class="help">{{ field.help_text|safe }}</p>
+              {% endif %}
+            </div>
+          
+          {% elif pagina_cliente %}
+            
+            <!-- Formulário para cadastro de informações do perfil do cliente -->
+            
+            <div class="form-group has-feedback">
+              <label class="col-lg-2 control-label">Nome</label>
+              {{ perfil_form.nome.errors }}
+              <div class="col-lg-10">
+                {% render_field perfil_form.nome class='form-control' type='text' placeholder='Nome' %}
+              </div>
+              {% if perfil_form.nome.help_text %}
+                <p class="help">{{ field.help_text|safe }}</p>
+              {% endif %}
+            </div>
+            
+            <div class="form-group has-feedback">
+              <label class="col-lg-2 control-label">Telefone</label>
+              {{ perfil_form.telefone.errors }}
+              <div class="col-lg-10">
+                {% render_field perfil_form.telefone class='form-control' type='text' placeholder='Telefone' %}
+              </div>
+              {% if perfil_form.telefone.help_text %}
+                <p class="help">{{ field.help_text|safe }}</p>
+              {% endif %}
+            </div>
+            
+            <div class="form-group has-feedback">
+              <label class="col-lg-2 control-label">CEP</label>
+              {{ perfil_form.cep.errors }}
+              <div class="col-lg-10">
+                {% render_field perfil_form.cep class='form-control' type='text' placeholder='Cep' %}
+              </div>
+              {% if perfil_form.cep.help_text %}
+                <p class="help">{{ field.help_text|safe }}</p>
+              {% endif %}
+            </div>
+            
+            <div class="form-group has-feedback">
+              <label class="col-lg-2 control-label">Endereço</label>
+              {{ perfil_form.endereco.errors }}
+              <div class="col-lg-10">
+                {% render_field perfil_form.endereco class='form-control' type='text' placeholder='Endereço' %}
+              </div>
+              {% if perfil_form.endereco.help_text %}
+                <p class="help">{{ field.help_text|safe }}</p>
+              {% endif %}
+            </div>
+            
+            <div class="form-group has-feedback">
+              <label class="col-lg-2 control-label">Estado</label>
+              {{ perfil_form.estado.errors }}
+              <div class="col-lg-10">
+                {% render_field perfil_form.estado class='form-control' type='number' placeholder='Estado' %}
+              </div>
+              {% if perfil_form.estado.help_text %}
+                <p class="help">{{ field.help_text|safe }}</p>
+              {% endif %}
+            </div>
+            
+            <div class="form-group has-feedback">
+              <label class="col-lg-2 control-label">Cidade</label>
+              {{ perfil_form.cidade.errors }}
+              <div class="col-lg-10">
+                {% render_field perfil_form.cidade class='form-control' type='number' placeholder='Cidade' %}
+              </div>
+              {% if perfil_form.cidade.help_text %}
+                <p class="help">{{ field.help_text|safe }}</p>
+              {% endif %}
+            </div>
+            
+            <div class="form-group has-feedback">
+              <label class="col-lg-2 control-label">Sexo</label>
+              {{ perfil_form.sexo.errors }}
+              <div class="col-lg-10">
+                {% render_field perfil_form.sexo class='form-control' type='number' placeholder='Sexo' %}
+              </div>
+              {% if perfil_form.sexo.help_text %}
+                <p class="help">{{ field.help_text|safe }}</p>
+              {% endif %}
+            </div>
+            
+            <div class="form-group has-feedback">
+              <label class="col-lg-2 control-label">Data de nascimento</label>
+              {{ perfil_form.data_nascimento.errors }}
+              <div class="col-lg-10">
+                {% render_field perfil_form.data_nascimento class='form-control' type='date' placeholder='Data de nascimento' %}
+              </div>
+              {% if perfil_form.data_nascimento.help_text %}
+                <p class="help">{{ field.help_text|safe }}</p>
+              {% endif %}
+            </div>
+            
+          {% else %}
+            
+            <!-- Formulário para cadastro de informações do perfil da prestadora de serviços -->
+            
+            <div class="form-group has-feedback">
+              <label class="col-lg-2 control-label">Nome</label>
+              {{ perfil_form.nome.errors }}
+              <div class="col-lg-10">
+                {% render_field perfil_form.nome class='form-control' type='text' placeholder='Nome' %}
+              </div>
+              {% if perfil_form.nome.help_text %}
+                <p class="help">{{ field.help_text|safe }}</p>
+              {% endif %}
+            </div>
+            
+            <div class="form-group has-feedback">
+              <label class="col-lg-2 control-label">Telefone</label>
+              {{ perfil_form.telefone.errors }}
+              <div class="col-lg-10">
+                {% render_field perfil_form.telefone class='form-control' type='text' placeholder='Telefone' %}
+              </div>
+              {% if perfil_form.telefone.help_text %}
+                <p class="help">{{ field.help_text|safe }}</p>
+              {% endif %}
+            </div>
+            
+            <div class="form-group has-feedback">
+              <label class="col-lg-2 control-label">CEP</label>
+              {{ perfil_form.cep.errors }}
+              <div class="col-lg-10">
+                {% render_field perfil_form.cep class='form-control' type='text' placeholder='Cep' %}
+              </div>
+              {% if perfil_form.cep.help_text %}
+                <p class="help">{{ field.help_text|safe }}</p>
+              {% endif %}
+            </div>
+            
+            <div class="form-group has-feedback">
+              <label class="col-lg-2 control-label">Endereço</label>
+              {{ perfil_form.endereco.errors }}
+              <div class="col-lg-10">
+                {% render_field perfil_form.endereco class='form-control' type='text' placeholder='Endereço' %}
+              </div>
+              {% if perfil_form.endereco.help_text %}
+                <p class="help">{{ field.help_text|safe }}</p>
+              {% endif %}
+            </div>
+            
+            <div class="form-group has-feedback">
+              <label class="col-lg-2 control-label">Estado</label>
+              {{ perfil_form.estado.errors }}
+              <div class="col-lg-10">
+                {% render_field perfil_form.estado class='form-control' type='number' placeholder='Estado' %}
+              </div>
+              {% if perfil_form.estado.help_text %}
+                <p class="help">{{ field.help_text|safe }}</p>
+              {% endif %}
+            </div>
+            
+            <div class="form-group has-feedback">
+              <label class="col-lg-2 control-label">Cidade</label>
+              {{ perfil_form.cidade.errors }}
+              <div class="col-lg-10">
+                {% render_field perfil_form.cidade class='form-control' type='number' placeholder='Cidade' %}
+              </div>
+              {% if perfil_form.cidade.help_text %}
+                <p class="help">{{ field.help_text|safe }}</p>
+              {% endif %}
+            </div>
+            
+            <div class="form-group has-feedback">
+              <label class="col-lg-2 control-label">Imagem</label>
+              {{ perfil_form.imagem.errors }}
+              <div class="col-lg-10">
+                {% render_field perfil_form.imagem class='form-control' type='file' placeholder='Imagem' %}
+              </div>
+              {% if perfil_form.imagem.help_text %}
+                <p class="help">{{ field.help_text|safe }}</p>
+              {% endif %}
+            </div>
+            
+            <div class="form-group has-feedback">
+              <label class="col-lg-2 control-label">CNPJ</label>
+              {{ perfil_form.cnpj.errors }}
+              <div class="col-lg-10">
+                {% render_field perfil_form.cnpj class='form-control' type='text' placeholder='CNPJ' %}
+              </div>
+              {% if perfil_form.cnpj.help_text %}
+                <p class="help">{{ field.help_text|safe }}</p>
+              {% endif %}
+            </div>
+            
+          {% endif %}
+          
+        {% elif pagina_atividade %}
+        
+          <div class="form-group has-feedback">
+            <label class="col-lg-2 control-label">Prestadora</label>
+            {{ form.prestadora.errors }}
+            <div class="col-lg-10">
+              {% render_field form.prestadora class='form-control' type='number' placeholder='Prestadora' %}
+            </div>
+            {% if form.prestadora.help_text %}
+              <p class="help">{{ field.help_text|safe }}</p>
+            {% endif %}
+          </div>
+          
+          <div class="form-group has-feedback">
+            <label class="col-lg-2 control-label">Categoria</label>
+            {{ form.categoria.errors }}
+            <div class="col-lg-10">
+              {% render_field form.categoria class='form-control' type='number' placeholder='Categoria' %}
+            </div>
+            {% if form.categoria.help_text %}
+              <p class="help">{{ field.help_text|safe }}</p>
+            {% endif %}
+          </div>
+          
+          <div class="form-group has-feedback">
+            <label class="col-lg-2 control-label">Preço</label>
+            {{ form.preco.errors }}
+            <div class="col-lg-10">
+              {% render_field form.preco class='form-control' type='number' placeholder='Preço' %}
+            </div>
+            {% if form.preco.help_text %}
+              <p class="help">{{ field.help_text|safe }}</p>
+            {% endif %}
+          </div>
+          
+          <div class="form-group has-feedback">
+            <label class="col-lg-2 control-label">Tempo</label>
+            {{ form.tempo.errors }}
+            <div class="col-lg-10">
+              {% render_field form.tempo class='form-control' type='number' placeholder='Tempo' %}
+            </div>
+            {% if form.tempo.help_text %}
+              <p class="help">{{ field.help_text|safe }}</p>
+            {% endif %}
+          </div>
+          
+          <div class="form-group has-feedback">
+            <label class="col-lg-2 control-label">Dias</label>
+            {{ form.dias.errors }}
+            <div class="col-lg-10">
+              {% render_field form.dias class='form-control' type='number' placeholder='Dias' %}
+            </div>
+            {% if form.dias.help_text %}
+              <p class="help">{{ field.help_text|safe }}</p>
+            {% endif %}
+          </div>
+          
+          <div class="form-group has-feedback">
+            <label class="col-lg-2 control-label">Dias excluídos</label>
+            {{ form.dias_excluidos.errors }}
+            <div class="col-lg-10">
+              {% render_field form.dias_excluidos class='form-control' type='number' placeholder='Dias excluídos' %}
+            </div>
+            {% if form.dias_excluidos.help_text %}
+              <p class="help">{{ field.help_text|safe }}</p>
+            {% endif %}
+          </div>
+          
+          <div class="form-group has-feedback">
+            <label class="col-lg-2 control-label">Horas</label>
+            {{ form.horas.errors }}
+            <div class="col-lg-10">
+              {% render_field form.horas class='form-control' type='number' placeholder='Horas' %}
+            </div>
+            {% if form.horas.help_text %}
+              <p class="help">{{ field.help_text|safe }}</p>
+            {% endif %}
+          </div>
+          
+          <div class="form-group has-feedback">
+            <label class="col-lg-2 control-label">Horas excluídas</label>
+            {{ form.horas_excluidas.errors }}
+            <div class="col-lg-10">
+              {% render_field form.horas_excluidas class='form-control' type='number' placeholder='Horas excluídas' %}
+            </div>
+            {% if form.horas_excluidas.help_text %}
+              <p class="help">{{ field.help_text|safe }}</p>
+            {% endif %}
+          </div>
+          
+          <div class="form-group has-feedback">
+            <label class="col-lg-2 control-label">Latitude</label>
+            {{ form.latitude.errors }}
+            <div class="col-lg-10">
+              {% render_field form.latitude class='form-control' type='number' placeholder='Latitude' %}
+            </div>
+            {% if form.latitude.help_text %}
+              <p class="help">{{ field.help_text|safe }}</p>
+            {% endif %}
+          </div>
+          
+          <div class="form-group has-feedback">
+            <label class="col-lg-2 control-label">Longitude</label>
+            {{ form.longitude.errors }}
+            <div class="col-lg-10">
+              {% render_field form.longitude class='form-control' type='number' placeholder='Longitude' %}
+            </div>
+            {% if form.longitude.help_text %}
+              <p class="help">{{ field.help_text|safe }}</p>
+            {% endif %}
+          </div>
+          
+          {% if pagina_atividade %}
+            <div id="map"></div>
+          {% endif %}
+          
+        {% else %}
+        
+          {% for field in form %}
+            <div class="form-group">
+              {{ field.errors }}
+              
+              <label class="col-lg-2 control-label" for="{{ field.name }}">{{ field.label }}</label>
+              <div class="col-lg-10">
+                {% if field|field_type == "datefield" %}
+                  <div class="input-group date date-picker">
+                    {{ field|add_class:'form-control' }}
+                    <span class="input-group-addon">
+                      <span class="fa fa-calendar"></span>
+                    </span>
+                  </div>
+                  <script type="text/javascript">
+                    $(function () {
+                      $('.date-picker').datetimepicker({
+                        format: 'L',
+                        locale: 'pt-br',
+                      });
+                    });
+                  </script>
+                {% elif field|field_type == "timefield" %}
+                  <div class="input-group date time-picker">
+                    {{ field|add_class:'form-control' }}
+                    <span class="input-group-addon">
+                      <span class="fa fa-clock-o"></span>
+                    </span>
+                  </div>
+                  <script type="text/javascript">
+                    $(function () {
+                      $('.time-picker').datetimepicker({
+                        format: 'HH:mm',
+                        locale: 'LT',
+                      });
+                    });
+                  </script>
+                {% else %}
+                  {{ field|add_class:'form-control' }}
+                {% endif %}
+              </div>
+              
+              {% if field.help_text %}
+                <p class="help">{{ field.help_text|safe }}</p>
+              {% endif %}
+            </div>
+          {% endfor %}
+        {% endif %}
+        
+        <div class="form-group">
+          <div class="col-lg-offset-2 col-lg-10">
+            <button class="btn btn-sm btn-default" type="submit" name="submit">Salvar</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  
+  <script src="{% static 'administracao/js/mapa.js' %}"></script>
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAQRfJ7wBG9wZtLc6Gno2zG4q_L641XDRs&callback=initMap"></script>
+  
+  <script src="{% static 'administracao/vendor/moment/min/moment-with-locales.min.js' %}"></script>
+  <script src="{% static 'administracao/vendor/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js' %}"></script>
+{% endblock content %}
