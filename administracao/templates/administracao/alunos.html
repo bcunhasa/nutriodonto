@@ -44,7 +44,7 @@
                 <tbody>
                   {% for aluno in alunos %}
                     <tr>
-                      <td>{{ aluno.id }}</td>
+                      <td>{{ aluno.numero_identificacao }}</td>
                       <td>{{ aluno.escola.nome }}</td>
                       <td>{{ aluno.get_sexo_display }}</td>
                       <td>{{ aluno.nascimento }}</td>
