@@ -45,7 +45,7 @@ class Aluno(models.Model):
     escola = models.ForeignKey('Escola', related_name='alunos', on_delete=models.CASCADE)
 
     periodo = models.CharField(choices=PERIODO, max_length=TAMANHO_OPCOES, verbose_name='Período')
-    turma = models.CharField(max_length=TAMANHO_OPCOES, verbose_name='Turma')
+    turma = models.CharField(max_length=TAMANHO_NOMES, verbose_name='Turma')
     nascimento = models.DateField(verbose_name="Data de nascimento")
     sexo = models.CharField(choices=SEXO, max_length=TAMANHO_OPCOES, verbose_name='Sexo')
     raca = models.CharField(choices=RACA, max_length=TAMANHO_OPCOES, verbose_name='Raça')   
