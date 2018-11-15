@@ -42,52 +42,156 @@
       
         {% csrf_token %}
         
-        {% for field in form %}
-          <div class="form-group">
-            {{ field.errors }}
+        {% if pagina_alunos %}
             
-            <label class="col-lg-2 control-label" for="{{ field.name }}">{{ field.label }}</label>
+          <div class="form-group has-feedback">
+            <label class="col-lg-2 control-label">Número de identificação</label>
+            {{ form.numero_identificacao.errors }}
             <div class="col-lg-10">
-              {% if field|field_type == "datefield" %}
-                <div class="input-group date date-picker">
-                  {{ field|add_class:'form-control' }}
-                  <span class="input-group-addon">
-                    <span class="fa fa-calendar"></span>
-                  </span>
-                </div>
-                <script type="text/javascript">
-                  $(function () {
-                    $('.date-picker').datetimepicker({
-                      format: 'L',
-                      locale: 'pt-br',
-                    });
-                  });
-                </script>
-              {% elif field|field_type == "timefield" %}
-                <div class="input-group date time-picker">
-                  {{ field|add_class:'form-control' }}
-                  <span class="input-group-addon">
-                    <span class="fa fa-clock-o"></span>
-                  </span>
-                </div>
-                <script type="text/javascript">
-                  $(function () {
-                    $('.time-picker').datetimepicker({
-                      format: 'HH:mm',
-                      locale: 'LT',
-                    });
-                  });
-                </script>
-              {% else %}
-                {{ field|add_class:'form-control' }}
-              {% endif %}
+              {% render_field form.numero_identificacao class='form-control' type='text' placeholder='' %}
             </div>
-            
-            {% if field.help_text %}
+            {% if form.numero_identificacao.help_text %}
               <p class="help">{{ field.help_text|safe }}</p>
             {% endif %}
           </div>
-        {% endfor %}
+          
+          <div class="form-group has-feedback">
+            <label class="col-lg-2 control-label">Escola</label>
+            {{ form.escola.errors }}
+            <div class="col-lg-10">
+              {% render_field form.escola class='form-control' type='text' placeholder='' %}
+            </div>
+            {% if form.escola.help_text %}
+              <p class="help">{{ field.help_text|safe }}</p>
+            {% endif %}
+          </div>
+          
+          <div class="form-group has-feedback">
+            <label class="col-lg-2 control-label">Período</label>
+            {{ form.periodo.errors }}
+            <div class="col-lg-10">
+              {% render_field form.periodo class='form-control' type='text' placeholder='' %}
+            </div>
+            {% if form.periodo.help_text %}
+              <p class="help">{{ field.help_text|safe }}</p>
+            {% endif %}
+          </div>
+          
+          <div class="form-group has-feedback">
+            <label class="col-lg-2 control-label">Turma</label>
+            {{ form.turma.errors }}
+            <div class="col-lg-10">
+              {% render_field form.turma class='form-control' type='text' placeholder='' %}
+            </div>
+            {% if form.turma.help_text %}
+              <p class="help">{{ field.help_text|safe }}</p>
+            {% endif %}
+          </div>
+          
+          <div class="form-group has-feedback">
+            <label class="col-lg-2 control-label">Data de nascimento</label>
+            {{ form.nascimento.errors }}
+            <div class="col-lg-10">
+              {% render_field form.nascimento class='form-control' type='date' placeholder='' %}
+            </div>
+            {% if form.nascimento.help_text %}
+              <p class="help">{{ field.help_text|safe }}</p>
+            {% endif %}
+          </div>
+          
+          <div class="form-group has-feedback">
+            <label class="col-lg-2 control-label">Sexo</label>
+            {{ form.sexo.errors }}
+            <div class="col-lg-10">
+              {% render_field form.sexo class='form-control' type='text' placeholder='' %}
+            </div>
+            {% if form.sexo.help_text %}
+              <p class="help">{{ field.help_text|safe }}</p>
+            {% endif %}
+          </div>
+          
+          <div class="form-group has-feedback">
+            <label class="col-lg-2 control-label">Raça</label>
+            {{ form.raca.errors }}
+            <div class="col-lg-10">
+              {% render_field form.raca class='form-control' type='text' placeholder='' %}
+            </div>
+            {% if form.raca.help_text %}
+              <p class="help">{{ field.help_text|safe }}</p>
+            {% endif %}
+          </div>
+          
+        {% else %}
+        
+          {% for field in form %}
+          
+            {% if field.label == '60. Até dois anos de idade, seu filho ou sua filha recebeu alimentação mista, isto é:' %}
+              
+              {% render_field field class='form-control' type='text' placeholder='' %}
+              
+              <div class="form-group has-feedback">
+                <label class="col-lg-2 control-label">{{ field.label }}</label>
+                <div class="col-lg-10">
+                  <select name="select_questao_60" class="form-control" id="select_questao_60" size="5" multiple="multiple">
+                    <option value="0">Não. Meu filho ou filha não recebeu alimentação mista até os dois anos de idade</option>
+                    <option value="1">Sim. Leite + papinhas</option>
+                    <option value="2">Sim. Leite + sopas</option>
+                    <option value="3">Sim. Leite + frutas</option>
+                  </select>
+                </div>
+              </div>
+              
+            {% elif field.label == '146. O que você achou deste questionário?' %}
+            
+              {% render_field field class='form-control' type='text' placeholder='' %}
+              
+              <div class="form-group has-feedback">
+                <label class="col-lg-2 control-label">{{ field.label }}</label>
+                <div class="col-lg-10">
+                  <select name="select_questao_146" class="form-control" id="select_questao_146" size="8" multiple="multiple">
+                    <option value="0">Fácil</option>
+                    <option value="1">Difícil</option>
+                    <option value="2">Chato</option>
+                    <option value="3">Legal</option>
+                    <option value="4">Interessante</option>
+                    <option value="5">Informativo</option>
+                    <option value="6">Cansativo</option>
+                    <option value="7">Constrangedor</option>
+                  </select>
+                </div>
+              </div>
+            
+            {% elif field.label == 'Data' %}
+            
+              <div class="form-group has-feedback">
+                <label class="col-lg-2 control-label">{{ field.label}}</label>
+                {{ field.errors }}
+                <div class="col-lg-10">
+                  {% render_field field class='form-control' type='date' placeholder='' %}
+                </div>
+                {% if field.help_text %}
+                  <p class="help">{{ field.help_text|safe }}</p>
+                {% endif %}
+              </div>
+              
+            {% else %}
+          
+              <div class="form-group has-feedback">
+                <label class="col-lg-2 control-label">{{ field.label}}</label>
+                {{ field.errors }}
+                <div class="col-lg-10">
+                  {% render_field field class='form-control' type='text' placeholder='' %}
+                </div>
+                {% if field.help_text %}
+                  <p class="help">{{ field.help_text|safe }}</p>
+                {% endif %}
+              </div>
+            
+            {% endif %}
+          
+          {% endfor %}
+        
+        {% endif %}
         
         <div class="form-group">
           <div class="col-lg-offset-2 col-lg-10">

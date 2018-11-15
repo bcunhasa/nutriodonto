@@ -50,7 +50,7 @@ ESCOLA = (
     ('Escola municipal de T.I. Luiz Nunes de Oliveira', 'Escola municipal de T.I. Luiz Nunes de Oliveira'),
     ('Escola municipal de T.I. Sueli Pereira A. Reche', 'Escola municipal de T.I. Sueli Pereira A. Reche'),
     
-    ('Escola Silverio Ribeiro Matos', 'Escola Silverio Ribeiro Matos (Mumbuca)'),
+    ('Escola Silverio Ribeiro Matos (Mumbuca)', 'Escola Silverio Ribeiro Matos (Mumbuca)'),
     ('Escola de teste', 'Escola de teste'),
 )
 
@@ -116,25 +116,25 @@ NECESSIDADE_PROTESE = (
 
 # Constantes relacionadas ao exame periodontal
 CPI_SANGRAMENTO = (
-    ('0', 'Ausência'),
-    ('1', 'Presença'),
-    ('X', 'Sextante excluído'),
-    ('9', 'Não examinado')
+    ('0', '0 - Ausência'),
+    ('1', '1 - Presença'),
+    ('X', 'X - Sextante excluído'),
+    ('9', '9 - Não examinado')
 )
 
 CPI_CALCULO = (
-    ('0', 'Ausência'),
-    ('1', 'Presença'),
-    ('X', 'Sextante excluído'),
-    ('9', 'Não examinado')
+    ('0', '0 - Ausência'),
+    ('1', '1 - Presença'),
+    ('X', 'X - Sextante excluído'),
+    ('9', '9 - Não examinado')
 )
 
 CPI_BOLSA = (
-    ('0', 'Ausência'),
-    ('1', 'Presença de bolsa rasa'),
-    ('2', 'Presença de bolsa profunda'),
-    ('X', 'Sextante excluído'),
-    ('9', 'Não examinado')
+    ('0', '0 - Ausência'),
+    ('1', '1 - Presença de bolsa rasa'),
+    ('2', '2 - Presença de bolsa profunda'),
+    ('X', 'X - Sextante excluído'),
+    ('9', '9 - Não examinado')
 )
 
 PIP = (
@@ -151,30 +151,30 @@ PIP = (
 
 CARIE_COROA = (
     # Códigos para dentes decíduos
-    ('A', 'Hígido'),
-    ('B', 'Cariado'),
-    ('C', 'Restaurado mas com cárie'),
-    ('D', 'Restaurado e sem cárie'),
-    ('E', 'Perdido devido à cárie'),
-    ('F', 'Perdido por outras razões'),
-    ('G', 'Apresenta selante'),
-    ('H', 'Apoio de ponte ou coroa'),
-    ('K', 'Não erupcionado - raiz não exposta'),
-    ('T', 'Trauma (fratura)'),
-    ('L', 'Dente excluído'),
+    ('A', 'A - Hígido'),
+    ('B', 'B - Cariado'),
+    ('C', 'C - Restaurado mas com cárie'),
+    ('D', 'D - Restaurado e sem cárie'),
+    ('E', 'E - Perdido devido à cárie'),
+    ('F', 'F - Perdido por outras razões'),
+    ('G', 'G - Apresenta selante'),
+    ('H', 'H - Apoio de ponte ou coroa'),
+    ('K', 'K - Não erupcionado - raiz não exposta'),
+    ('T', 'T - Trauma (fratura)'),
+    ('L', 'L - Dente excluído'),
     
     # Códigos para dentes permanentes
-    ('0', 'Hígido'),
-    ('1', 'Cariado'),
-    ('2', 'Restaurado mas com cárie'),
-    ('3', 'Restaurado e sem cárie'),
-    ('4', 'Perdido devido à cárie'),
-    ('5', 'Perdido por outras razões'),
-    ('6', 'Apresenta selante'),
-    ('7', 'Apoio de ponte ou coroa'),
-    ('8', 'Não erupcionado - raiz não exposta'),
-    ('T', 'Trauma (fratura)'),
-    ('9', 'Dente excluído')
+    ('0', '0 - Hígido'),
+    ('1', '1 - Cariado'),
+    ('2', '2 - Restaurado mas com cárie'),
+    ('3', '3 - Restaurado e sem cárie'),
+    ('4', '4 - Perdido devido à cárie'),
+    ('5', '5 - Perdido por outras razões'),
+    ('6', '6 - Apresenta selante'),
+    ('7', '7 - Apoio de ponte ou coroa'),
+    ('8', '8 - Não erupcionado - raiz não exposta'),
+    ('T', 'T - Trauma (fratura)'),
+    ('9', '9 - Dente excluído')
 )
 
 CARIE_RAIZ = (
@@ -188,22 +188,20 @@ CARIE_RAIZ = (
 )
 
 CARIE_TRATAMENTO = (
-    ('0', 'Nenhum'),
-    ('1', 'Restauração de 1 superfície'),
-    ('2', 'Restauração de 2 ou mais superfícies'),
-    ('3', 'Coroa por qualquer razão'),
-    ('4', 'Faceta estética'),
-    ('5', 'Tratamento pulpar e restauração'),
-    ('6', 'Extração'),
-    ('7', 'Remineralização de mancha branca'),
-    ('8', 'Selante'),
-    ('9', 'Sem informação')
+    ('0', '0 - Nenhum'),
+    ('1', '1 - Restauração de 1 superfície'),
+    ('2', '2 - Restauração de 2 ou mais superfícies'),
+    ('3', '3 - Coroa por qualquer razão'),
+    ('4', '4 - Faceta estética'),
+    ('5', '5 - Tratamento pulpar e restauração'),
+    ('6', '6 - Extração'),
+    ('7', '7 - Remineralização de mancha branca'),
+    ('8', '8 - Selante'),
+    ('9', '9 - Sem informação')
 )
 
 
 # Constantes do modelo Questionário
-
-# Informações pessoais
 
 ALUNO_1 = (
     ('0', 'Ensino Fundamental'),
@@ -730,30 +728,29 @@ ALUNO_54 = (
 
 ALUNO_55 = (
     ('0', 'Sim'),
-    ('1', 'Não'),
+    ('1', 'Não (neste caso, pule para a questão 58)'),
 )
 
 ALUNO_56 = (
-    ('0', 'Não. Meu filho nunca foi alimentado apenas de leite materno'),
-    ('1', 'Sim. Meu filho foi alimentado apenas de leite materno:'),
-    ('2', 'Até um mês ou menos;'),
-    ('3', 'Até 2 meses;'),
-    ('4', 'Até 3 meses;'),
-    ('5', 'Até 4 meses;'),
-    ('6', 'Até 5 meses;'),
-    ('7', 'Até 6 meses ou mais.'),
+    ('0', 'Até um mês ou menos'),
+    ('1', 'Até 2 meses;'),
+    ('2', 'Até 3 meses;'),
+    ('3', 'Até 4 meses;'),
+    ('4', 'Até 5 meses;'),
+    ('5', 'Até 6 meses ou mais.'),
 )
 
 ALUNO_57 = (
-    ('0', 'Até 6 meses de idade;'),
-    ('1', 'Até 7 meses de idade;'),
-    ('2', 'Até 8 meses de idade;'),
-    ('3', 'Até 9 meses de idade;'),
-    ('4', 'Até 10 meses de idade;'),
-    ('5', 'Até 11 meses de idade;'),
-    ('6', 'Até 12 meses de idade;'),
-    ('7', 'Mais de 12 meses até 18 meses de idade;'),
-    ('8', 'Mais de 18 meses até 24 meses de idade.'),
+    ('0', 'Não. Meu filho ou filha não mamou até 6 meses ou mais'),
+    ('1', 'Até 6 meses de idade;'),
+    ('2', 'Até 7 meses de idade;'),
+    ('3', 'Até 8 meses de idade;'),
+    ('4', 'Até 9 meses de idade;'),
+    ('5', 'Até 10 meses de idade;'),
+    ('6', 'Até 11 meses de idade;'),
+    ('7', 'Até 12 meses de idade;'),
+    ('8', 'Mais de 12 meses até 18 meses de idade;'),
+    ('9', 'Mais de 18 meses até 24 meses de idade.'),
 )
 
 ALUNO_58 = (
@@ -779,9 +776,10 @@ ALUNO_59 = (
 )
 
 ALUNO_60 = (
-    ('0', 'Leite + papinhas'),
-    ('1', 'Leite + sopas'),
-    ('2', 'Leite + frutas'),
+    ('0', 'Não. Meu filho ou filha não recebeu alimentação mista até os dois anos de idade'),
+    ('1', 'Sim. Leite + papinhas'),
+    ('2', 'Sim. Leite + sopas'),
+    ('3', 'Sim. Leite + frutas'),
 )
 
 ALUNO_61 = (
@@ -790,20 +788,20 @@ ALUNO_61 = (
 )
 
 ALUNO_62 = (
-    ('1', 'Menos de 1 mês'),
-    ('2', '1 e menos de 2 meses;'),
-    ('3', '2 e menos de 3 meses'),
-    ('4', '3 e menos de 4 meses;'),
-    ('5', '4 e menos de 5 meses;'),
-    ('6', '5 e menos de 6 meses'),
-    ('7', '6 e menos de 7 meses;'),
-    ('8', '7 e menos de 8 meses;'),
-    ('9', '8 e menos de 9 meses;'),
-    ('10', '9 e menos de 10 meses'),
-    ('11', '10 e menos de 11 meses;'),
-    ('12', '11 e menos de 12 meses;'),
-    ('13', '12 e menos de 18 meses de idade;'),
-    ('14', '18 e menos 24 meses de idade.'),
+    ('0', 'Menos de 1 mês'),
+    ('1', '1 e menos de 2 meses;'),
+    ('2', '2 e menos de 3 meses'),
+    ('3', '3 e menos de 4 meses;'),
+    ('4', '4 e menos de 5 meses;'),
+    ('5', '5 e menos de 6 meses'),
+    ('6', '6 e menos de 7 meses;'),
+    ('7', '7 e menos de 8 meses;'),
+    ('8', '8 e menos de 9 meses;'),
+    ('9', '9 e menos de 10 meses'),
+    ('10', '10 e menos de 11 meses;'),
+    ('11', '11 e menos de 12 meses;'),
+    ('12', '12 e menos de 18 meses de idade;'),
+    ('13', '18 e menos 24 meses de idade.'),
 )
 
 ALUNO_63 = (
