@@ -33,6 +33,8 @@
                 <thead>
                   <tr>
                     <th>Aluno</th>
+                    <th>Escola</th>
+                    <th>Data</th>
                     <th></th>
                     <th></th>
                   </tr>
@@ -41,6 +43,8 @@
                   {% for exame in exames %}
                     <tr>
                       <td>{{ exame.aluno.numero_identificacao }}</td>
+                      <td>{{ exame.aluno.escola.nome }}</td>
+                      <td>{{ exame.data }}</td>
                       <td class="text-right">
                         <form action="{% url 'administracao:edita_exame' exame.id %}">
                           <button class="btn btn-labeled btn-info" type="submit">
