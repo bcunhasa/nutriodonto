@@ -44,11 +44,11 @@ class Aluno(models.Model):
     numero_identificacao = models.CharField(max_length=TAMANHO_NOMES, verbose_name='Número de identificação')
     escola = models.ForeignKey('Escola', related_name='alunos', on_delete=models.CASCADE)
 
-    periodo = models.CharField(choices=PERIODO, null=True, max_length=TAMANHO_OPCOES, verbose_name='Período')
-    turma = models.CharField(max_length=TAMANHO_NOMES, null=True, verbose_name='Turma')
+    periodo = models.CharField(choices=PERIODO, blank=True, null=True, max_length=TAMANHO_OPCOES, verbose_name='Período')
+    turma = models.CharField(max_length=TAMANHO_NOMES, blank=True, null=True, verbose_name='Turma')
     nascimento = models.DateField(null=True,verbose_name="Data de nascimento")
-    sexo = models.CharField(choices=SEXO, null=True, max_length=TAMANHO_OPCOES, verbose_name='Sexo')
-    raca = models.CharField(choices=RACA, null=True, max_length=TAMANHO_OPCOES, verbose_name='Raça')   
+    sexo = models.CharField(choices=SEXO, blank=True, null=True, max_length=TAMANHO_OPCOES, verbose_name='Sexo')
+    raca = models.CharField(choices=RACA, blank=True, null=True, max_length=TAMANHO_OPCOES, verbose_name='Raça')   
 
     def __str__(self):
         """Devolve a representação do modelo em string"""
