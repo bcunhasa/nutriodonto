@@ -10,28 +10,17 @@ function salvaQuestoes() {
 }
 
 function carregaQuestoes() {
-    var id_questao_60 = $('#id_questao_60').val();
-    var id_questao_146 = $('#id_questao_146').val();
+    var id_questao_146 = document.getElementById("id_questao_146").value;
+    var select_questao_146 = document.getElementById("select_questao_146");
     
-    for (var i = 0; i < id_questao_146.length; i++) {
-        if ($("#select_questao_146").options[0].text == id_questao_146[i])
-            $("#select_questao_146").options[0].selected = true;
-        if ($("#select_questao_146").options[1].text == id_questao_146[i])
-            $("#select_questao_146").options[1].selected = true;
-        if ($("#select_questao_146").options[2].text == id_questao_146[i])
-            $("#select_questao_146").options[2].selected = true;
-        if ($("#select_questao_146").options[3].text == id_questao_146[i])
-            $("#select_questao_146").options[3].selected = true;
-        if ($("#select_questao_146").options[4].text == id_questao_146[i])
-            $("#select_questao_146").options[4].selected = true;
-        if ($("#select_questao_146").options[5].text == id_questao_146[i])
-            $("#select_questao_146").options[5].selected = true;
-        if ($("#select_questao_146").options[6].text == id_questao_146[i])
-            $("#select_questao_146").options[6].selected = true;
-        if ($("#select_questao_146").options[7].text == id_questao_146[i])
-            $("#select_questao_146").options[7].selected = true;
+    console.log(id_questao_146);
+    console.log(id_questao_146.length);
+    
+    for (var j = 0; j < id_questao_146.length; j++) {
+        for (var i = 0; i < select_questao_146.length; i++) {
+            if (select_questao_146[i].innerHTML == id_questao_146[j]) {
+                select_questao_146[i].selected = true;
+            }
+        }
     }
-    
-    console.log($("#select_questao_60").val());
-    console.log($("#select_questao_146").val());
 }
