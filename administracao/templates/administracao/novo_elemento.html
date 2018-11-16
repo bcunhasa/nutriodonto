@@ -5,6 +5,7 @@
 
 {% block head %}
   <link rel="stylesheet" href="{% static 'administracao/vendor/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css' %}">
+  <link rel="stylesheet" href="{% static 'administracao/css/exame.css' %}">
 {% endblock head %}
 
 {% block header %}
@@ -20,6 +21,15 @@
     Novo questionário
   {% elif pagina_exames %}
     Novo exame
+    <div class="pull-right">
+      <button class="btn btn-labeled btn-warning" type="submit" onclick="valoresPadrao()">
+        <span class="btn-label"><i class="fa fa-clipboard"></i></span>Valores padrão
+      </button>
+      
+      <button class="btn btn-labeled btn-warning" type="submit" onclick="limpaCampos()">
+        <span class="btn-label"><i class="fa fa-eraser"></i></span>Limpar campos
+      </button>
+    </div>
   {% endif %}
 {% endblock header %}
 
@@ -121,6 +131,367 @@
                 <p class="help">{{ field.help_text|safe }}</p>
               {% endif %}
             </div>
+          
+          {% elif pagina_exames %}
+            
+            <div class="form-group has-feedback">
+              <label class="col-lg-2 control-label">Aluno</label>
+              {{ form.aluno.errors }}
+              <div class="col-lg-10">
+                {% render_field form.aluno class='form-control' type='text' placeholder='' %}
+              </div>
+              {% if form.aluno.help_text %}
+                <p class="help">{{ field.help_text|safe }}</p>
+              {% endif %}
+            </div>
+            
+            <div class="form-group has-feedback">
+              <label class="col-lg-2 control-label">Data</label>
+              {{ form.data.errors }}
+              <div class="col-lg-10">
+                {% render_field form.data class='form-control' type='date' placeholder='' %}
+              </div>
+              {% if form.data.help_text %}
+                <p class="help">{{ field.help_text|safe }}</p>
+              {% endif %}
+            </div>
+            
+            <div class="form-group has-feedback">
+              <label class="col-lg-2 control-label">Examinador</label>
+              {{ form.examinador.errors }}
+              <div class="col-lg-10">
+                {% render_field form.examinador class='form-control' type='text' placeholder='' %}
+              </div>
+              {% if form.examinador.help_text %}
+                <p class="help">{{ field.help_text|safe }}</p>
+              {% endif %}
+            </div>
+            
+            <div class="form-group has-feedback">
+              <label class="col-lg-2 control-label">Anotador</label>
+              {{ form.anotador.errors }}
+              <div class="col-lg-10">
+                {% render_field form.anotador class='form-control' type='text' placeholder='' %}
+              </div>
+              {% if form.anotador.help_text %}
+                <p class="help">{{ field.help_text|safe }}</p>
+              {% endif %}
+            </div>
+            
+            <!-- Exame de cárie dentária -->
+            
+            <div class="form-group has-feedback ">
+              <label class="col-lg-2 control-label">Exame de cárie dentária e necessidade de tratamento</label>
+              <div class="col-lg-8 container">
+                <div class="row"> <!-- Essa linha engloba todo o exame de cárie dentária -->
+                  
+                  <div class="col-lg-6"> <!-- Metade esquerda do exame -->
+                    
+                    <div class="row">
+                      <div class="col-md-1"></div>
+                      <div class="col-md-1"></div>
+                      <div class="col-md-1"></div>
+                      <div class="col-md-1"></div>
+                      <div class="col-md-1">55</div>
+                      <div class="col-md-1">54</div>
+                      <div class="col-md-1">53</div>
+                      <div class="col-md-1">52</div>
+                      <div class="col-md-1">51</div>
+                    </div>
+                    
+                    <div class="row">
+                      <div class="col-md-1"></div>
+                      <div class="col-md-1">18</div>
+                      <div class="col-md-1">17</div>
+                      <div class="col-md-1">16</div>
+                      <div class="col-md-1">15</div>
+                      <div class="col-md-1">14</div>
+                      <div class="col-md-1">13</div>
+                      <div class="col-md-1">12</div>
+                      <div class="col-md-1">11</div>
+                    </div>
+                    
+                    <div class="row">
+                      <div class="col-md-1">Cor.</div>
+                      <div class="col-md-1">{% render_field form.carie_coroa_18 class='input-carie' type='text' placeholder='' %}</div>
+                      <div class="col-md-1">{% render_field form.carie_coroa_17 class='input-carie' type='text' placeholder='' %}</div>
+                      <div class="col-md-1">{% render_field form.carie_coroa_16 class='input-carie' type='text' placeholder='' %}</div>
+                      <div class="col-md-1">{% render_field form.carie_coroa_15 class='input-carie' type='text' placeholder='' %}</div>
+                      <div class="col-md-1">{% render_field form.carie_coroa_14 class='input-carie' type='text' placeholder='' %}</div>
+                      <div class="col-md-1">{% render_field form.carie_coroa_13 class='input-carie' type='text' placeholder='' %}</div>
+                      <div class="col-md-1">{% render_field form.carie_coroa_12 class='input-carie' type='text' placeholder='' %}</div>
+                      <div class="col-md-1">{% render_field form.carie_coroa_11 class='input-carie' type='text' placeholder='' %}</div>
+                    </div>
+                    
+                    <div class="row">
+                      <div class="col-md-1">Trat.</div>
+                      <div class="col-md-1">{% render_field form.carie_tratamento_18 class='input-carie' type='text' placeholder='' %}</div>
+                      <div class="col-md-1">{% render_field form.carie_tratamento_17 class='input-carie' type='text' placeholder='' %}</div>
+                      <div class="col-md-1">{% render_field form.carie_tratamento_16 class='input-carie' type='text' placeholder='' %}</div>
+                      <div class="col-md-1">{% render_field form.carie_tratamento_15 class='input-carie' type='text' placeholder='' %}</div>
+                      <div class="col-md-1">{% render_field form.carie_tratamento_14 class='input-carie' type='text' placeholder='' %}</div>
+                      <div class="col-md-1">{% render_field form.carie_tratamento_13 class='input-carie' type='text' placeholder='' %}</div>
+                      <div class="col-md-1">{% render_field form.carie_tratamento_12 class='input-carie' type='text' placeholder='' %}</div>
+                      <div class="col-md-1">{% render_field form.carie_tratamento_11 class='input-carie' type='text' placeholder='' %}</div>
+                    </div>
+                    
+                    <div class="row">
+                      <div class="col-md-1"></div>
+                      <div class="col-md-1"></div>
+                      <div class="col-md-1"></div>
+                      <div class="col-md-1"></div>
+                      <div class="col-md-1">85</div>
+                      <div class="col-md-1">84</div>
+                      <div class="col-md-1">83</div>
+                      <div class="col-md-1">82</div>
+                      <div class="col-md-1">81</div>
+                    </div>
+                  
+                    <div class="row">
+                      <div class="col-md-1"></div>
+                      <div class="col-md-1">48</div>
+                      <div class="col-md-1">47</div>
+                      <div class="col-md-1">46</div>
+                      <div class="col-md-1">45</div>
+                      <div class="col-md-1">44</div>
+                      <div class="col-md-1">43</div>
+                      <div class="col-md-1">42</div>
+                      <div class="col-md-1">41</div>
+                    </div>
+                    
+                    <div class="row">
+                      <div class="col-md-1">Cor.</div>
+                      <div class="col-md-1">{% render_field form.carie_coroa_48 class='input-carie' type='text' placeholder='' %}</div>
+                      <div class="col-md-1">{% render_field form.carie_coroa_47 class='input-carie' type='text' placeholder='' %}</div>
+                      <div class="col-md-1">{% render_field form.carie_coroa_46 class='input-carie' type='text' placeholder='' %}</div>
+                      <div class="col-md-1">{% render_field form.carie_coroa_45 class='input-carie' type='text' placeholder='' %}</div>
+                      <div class="col-md-1">{% render_field form.carie_coroa_44 class='input-carie' type='text' placeholder='' %}</div>
+                      <div class="col-md-1">{% render_field form.carie_coroa_43 class='input-carie' type='text' placeholder='' %}</div>
+                      <div class="col-md-1">{% render_field form.carie_coroa_42 class='input-carie' type='text' placeholder='' %}</div>
+                      <div class="col-md-1">{% render_field form.carie_coroa_41 class='input-carie' type='text' placeholder='' %}</div>
+                    </div>
+                    
+                    <div class="row">
+                      <div class="col-md-1">Trat.</div>
+                      <div class="col-md-1">{% render_field form.carie_tratamento_48 class='input-carie' type='text' placeholder='' %}</div>
+                      <div class="col-md-1">{% render_field form.carie_tratamento_47 class='input-carie' type='text' placeholder='' %}</div>
+                      <div class="col-md-1">{% render_field form.carie_tratamento_46 class='input-carie' type='text' placeholder='' %}</div>
+                      <div class="col-md-1">{% render_field form.carie_tratamento_45 class='input-carie' type='text' placeholder='' %}</div>
+                      <div class="col-md-1">{% render_field form.carie_tratamento_44 class='input-carie' type='text' placeholder='' %}</div>
+                      <div class="col-md-1">{% render_field form.carie_tratamento_43 class='input-carie' type='text' placeholder='' %}</div>
+                      <div class="col-md-1">{% render_field form.carie_tratamento_42 class='input-carie' type='text' placeholder='' %}</div>
+                      <div class="col-md-1">{% render_field form.carie_tratamento_41 class='input-carie' type='text' placeholder='' %}</div>
+                    </div>
+                    
+                  </div>
+                  
+                  <div class="col-lg-6"> <!-- Metade direita do exame -->
+                    
+                    <div class="row">
+                      <div class="col-md-1">61</div>
+                      <div class="col-md-1">62</div>
+                      <div class="col-md-1">63</div>
+                      <div class="col-md-1">64</div>
+                      <div class="col-md-1">65</div>
+                      <div class="col-md-1"></div>
+                      <div class="col-md-1"></div>
+                      <div class="col-md-1"></div>
+                    </div>
+                    
+                    <div class="row">
+                      <div class="col-md-1">21</div>
+                      <div class="col-md-1">22</div>
+                      <div class="col-md-1">23</div>
+                      <div class="col-md-1">24</div>
+                      <div class="col-md-1">25</div>
+                      <div class="col-md-1">26</div>
+                      <div class="col-md-1">27</div>
+                      <div class="col-md-1">28</div>
+                    </div>
+                    
+                    <div class="row">
+                      <div class="col-md-1">{% render_field form.carie_coroa_21 class='input-carie' type='text' placeholder='' %}</div>
+                      <div class="col-md-1">{% render_field form.carie_coroa_22 class='input-carie' type='text' placeholder='' %}</div>
+                      <div class="col-md-1">{% render_field form.carie_coroa_23 class='input-carie' type='text' placeholder='' %}</div>
+                      <div class="col-md-1">{% render_field form.carie_coroa_24 class='input-carie' type='text' placeholder='' %}</div>
+                      <div class="col-md-1">{% render_field form.carie_coroa_25 class='input-carie' type='text' placeholder='' %}</div>
+                      <div class="col-md-1">{% render_field form.carie_coroa_26 class='input-carie' type='text' placeholder='' %}</div>
+                      <div class="col-md-1">{% render_field form.carie_coroa_27 class='input-carie' type='text' placeholder='' %}</div>
+                      <div class="col-md-1">{% render_field form.carie_coroa_28 class='input-carie' type='text' placeholder='' %}</div>
+                    </div>
+                    
+                    <div class="row">
+                      <div class="col-md-1">{% render_field form.carie_tratamento_21 class='input-carie' type='text' placeholder='' %}</div>
+                      <div class="col-md-1">{% render_field form.carie_tratamento_22 class='input-carie' type='text' placeholder='' %}</div>
+                      <div class="col-md-1">{% render_field form.carie_tratamento_23 class='input-carie' type='text' placeholder='' %}</div>
+                      <div class="col-md-1">{% render_field form.carie_tratamento_24 class='input-carie' type='text' placeholder='' %}</div>
+                      <div class="col-md-1">{% render_field form.carie_tratamento_25 class='input-carie' type='text' placeholder='' %}</div>
+                      <div class="col-md-1">{% render_field form.carie_tratamento_26 class='input-carie' type='text' placeholder='' %}</div>
+                      <div class="col-md-1">{% render_field form.carie_tratamento_27 class='input-carie' type='text' placeholder='' %}</div>
+                      <div class="col-md-1">{% render_field form.carie_tratamento_28 class='input-carie' type='text' placeholder='' %}</div>
+                    </div>
+                    
+                    <div class="row">
+                      <div class="col-md-1">71</div>
+                      <div class="col-md-1">72</div>
+                      <div class="col-md-1">73</div>
+                      <div class="col-md-1">74</div>
+                      <div class="col-md-1">75</div>
+                      <div class="col-md-1"></div>
+                      <div class="col-md-1"></div>
+                      <div class="col-md-1"></div>
+                    </div>
+                  
+                    <div class="row">
+                      <div class="col-md-1">31</div>
+                      <div class="col-md-1">32</div>
+                      <div class="col-md-1">33</div>
+                      <div class="col-md-1">34</div>
+                      <div class="col-md-1">35</div>
+                      <div class="col-md-1">36</div>
+                      <div class="col-md-1">37</div>
+                      <div class="col-md-1">38</div>
+                    </div>
+                    
+                    <div class="row">
+                      <div class="col-md-1">{% render_field form.carie_coroa_31 class='input-carie' type='text' placeholder='' %}</div>
+                      <div class="col-md-1">{% render_field form.carie_coroa_32 class='input-carie' type='text' placeholder='' %}</div>
+                      <div class="col-md-1">{% render_field form.carie_coroa_33 class='input-carie' type='text' placeholder='' %}</div>
+                      <div class="col-md-1">{% render_field form.carie_coroa_34 class='input-carie' type='text' placeholder='' %}</div>
+                      <div class="col-md-1">{% render_field form.carie_coroa_35 class='input-carie' type='text' placeholder='' %}</div>
+                      <div class="col-md-1">{% render_field form.carie_coroa_36 class='input-carie' type='text' placeholder='' %}</div>
+                      <div class="col-md-1">{% render_field form.carie_coroa_37 class='input-carie' type='text' placeholder='' %}</div>
+                      <div class="col-md-1">{% render_field form.carie_coroa_38 class='input-carie' type='text' placeholder='' %}</div>
+                    </div>
+                    
+                    <div class="row">
+                      <div class="col-md-1">{% render_field form.carie_tratamento_31 class='input-carie' type='text' placeholder='' %}</div>
+                      <div class="col-md-1">{% render_field form.carie_tratamento_32 class='input-carie' type='text' placeholder='' %}</div>
+                      <div class="col-md-1">{% render_field form.carie_tratamento_33 class='input-carie' type='text' placeholder='' %}</div>
+                      <div class="col-md-1">{% render_field form.carie_tratamento_34 class='input-carie' type='text' placeholder='' %}</div>
+                      <div class="col-md-1">{% render_field form.carie_tratamento_35 class='input-carie' type='text' placeholder='' %}</div>
+                      <div class="col-md-1">{% render_field form.carie_tratamento_36 class='input-carie' type='text' placeholder='' %}</div>
+                      <div class="col-md-1">{% render_field form.carie_tratamento_37 class='input-carie' type='text' placeholder='' %}</div>
+                      <div class="col-md-1">{% render_field form.carie_tratamento_38 class='input-carie' type='text' placeholder='' %}</div>
+                    </div>
+                    
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+            
+            <!-- Exame de condição periodontal -->
+            
+            <div class="form-group has-feedback ">
+              <label class="col-lg-2 control-label">Exame de condição periodontal</label>
+              <div class="col-lg-3 container">
+                <div class="row">
+                  <div class="col-md-3">
+                    17/16
+                  </div>
+                  <div class="col-md-3">
+                    {% render_field form.periodontal_sangramento_1716 class='input-pip' type='text' placeholder='' %}
+                  </div>
+                  <div class="col-md-3">
+                    {% render_field form.periodontal_calculo_1716 class='input-pip' type='text' placeholder='' %}
+                  </div>
+                  <div class="col-md-3">
+                    {% render_field form.periodontal_bolsa_1716 class='input-pip' type='text' placeholder='' %}
+                  </div>
+                </div>
+                
+                <div class="row">
+                  <div class="col-md-3">
+                    11
+                  </div>
+                  <div class="col-md-3">
+                    {% render_field form.periodontal_sangramento_11 class='input-pip' type='text' placeholder='' %}
+                  </div>
+                  <div class="col-md-3">
+                    {% render_field form.periodontal_calculo_11 class='input-pip' type='text' placeholder='' %}
+                  </div>
+                  <div class="col-md-3">
+                    {% render_field form.periodontal_bolsa_11 class='input-pip' type='text' placeholder='' %}
+                  </div>
+                </div>
+                
+                <div class="row">
+                  <div class="col-md-3">
+                    26/27
+                  </div>
+                  <div class="col-md-3">
+                    {% render_field form.periodontal_sangramento_2627 class='input-pip' type='text' placeholder='' %}
+                  </div>
+                  <div class="col-md-3">
+                    {% render_field form.periodontal_calculo_2627 class='input-pip' type='text' placeholder='' %}
+                  </div>
+                  <div class="col-md-3">
+                    {% render_field form.periodontal_bolsa_2627 class='input-pip' type='text' placeholder='' %}
+                  </div>
+                </div>
+                
+                <div class="row">
+                  <div class="col-md-3">
+                    37/36
+                  </div>
+                  <div class="col-md-3">
+                    {% render_field form.periodontal_sangramento_3736 class='input-pip' type='text' placeholder='' %}
+                  </div>
+                  <div class="col-md-3">
+                    {% render_field form.periodontal_calculo_3736 class='input-pip' type='text' placeholder='' %}
+                  </div>
+                  <div class="col-md-3">
+                    {% render_field form.periodontal_bolsa_3736 class='input-pip' type='text' placeholder='' %}
+                  </div>
+                </div>
+                
+                <div class="row">
+                  <div class="col-md-3">
+                    31
+                  </div>
+                  <div class="col-md-3">
+                    {% render_field form.periodontal_sangramento_31 class='input-pip' type='text' placeholder='' %}
+                  </div>
+                  <div class="col-md-3">
+                    {% render_field form.periodontal_calculo_31 class='input-pip' type='text' placeholder='' %}
+                  </div>
+                  <div class="col-md-3">
+                    {% render_field form.periodontal_bolsa_31 class='input-pip' type='text' placeholder='' %}
+                  </div>
+                </div>
+                
+                <div class="row">
+                  <div class="col-md-3">
+                    46/47
+                  </div>
+                  <div class="col-md-3">
+                    {% render_field form.periodontal_sangramento_4647 class='input-pip' type='text' placeholder='' %}
+                  </div>
+                  <div class="col-md-3">
+                    {% render_field form.periodontal_calculo_4647 class='input-pip' type='text' placeholder='' %}
+                  </div>
+                  <div class="col-md-3">
+                    {% render_field form.periodontal_bolsa_4647 class='input-pip' type='text' placeholder='' %}
+                  </div>
+                </div>
+                
+                <div class="row">
+                  <div class="col-md-3">
+                  </div>
+                  <div class="col-md-3">
+                    S.G.
+                  </div>
+                  <div class="col-md-3">
+                    C.D.
+                  </div>
+                  <div class="col-md-3">
+                    B.P.
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-5"></div>
+            </div>
             
           {% else %}
           
@@ -204,6 +575,7 @@
     <!-- </div> -->
   </div>
   
+  <script src="{% static 'administracao/js/exame.js' %}"></script>
   <script src="{% static 'administracao/js/administracao.js' %}"></script>
   <script src="{% static 'administracao/vendor/moment/min/moment-with-locales.min.js' %}"></script>
   <script src="{% static 'administracao/vendor/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js' %}"></script>

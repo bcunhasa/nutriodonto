@@ -220,131 +220,131 @@ class Questionario(models.Model):
 class Exame(models.Model):
     """Modelo que representa um exame completo"""
     aluno = models.OneToOneField('Aluno', on_delete=models.CASCADE)
-    data = models.DateField(null=True, verbose_name='Data')
-    examinador = models.CharField(max_length=TAMANHO_NOMES, null=True, verbose_name='Examinador')
-    anotador = models.CharField(max_length=TAMANHO_NOMES, null=True, verbose_name='Anotador')
+    data = models.DateField(blank=True, null=True, verbose_name='Data')
+    examinador = models.CharField(max_length=TAMANHO_NOMES, blank=True, null=True, verbose_name='Examinador')
+    anotador = models.CharField(max_length=TAMANHO_NOMES, blank=True, null=True, verbose_name='Anotador')
     
     # Cárie
-    carie_coroa_18 = models.CharField(choices=CARIE_COROA, max_length=TAMANHO_OPCOES, null=True, verbose_name='Coroa 18')
-    carie_tratamento_18 = models.CharField(choices=CARIE_TRATAMENTO, max_length=TAMANHO_OPCOES, null=True, verbose_name='Tratamento 18')
+    carie_coroa_18 = models.CharField(max_length=TAMANHO_OPCOES, blank=True, null=True, verbose_name='Coroa 18')
+    carie_tratamento_18 = models.CharField(max_length=TAMANHO_OPCOES, blank=True, null=True, verbose_name='Tratamento 18')
     
-    carie_coroa_17 = models.CharField(choices=CARIE_COROA, max_length=TAMANHO_OPCOES, null=True, verbose_name='Coroa 17')
-    carie_tratamento_17 = models.CharField(choices=CARIE_TRATAMENTO, max_length=TAMANHO_OPCOES, null=True, verbose_name='Tratamento 17')
+    carie_coroa_17 = models.CharField(max_length=TAMANHO_OPCOES, blank=True, null=True, verbose_name='Coroa 17')
+    carie_tratamento_17 = models.CharField(max_length=TAMANHO_OPCOES, blank=True, null=True, verbose_name='Tratamento 17')
 
-    carie_coroa_16 = models.CharField(choices=CARIE_COROA, max_length=TAMANHO_OPCOES, null=True, verbose_name='Coroa 16')
-    carie_tratamento_16 = models.CharField(choices=CARIE_TRATAMENTO, max_length=TAMANHO_OPCOES, null=True, verbose_name='Tratamento 16')
+    carie_coroa_16 = models.CharField(max_length=TAMANHO_OPCOES, blank=True, null=True, verbose_name='Coroa 16')
+    carie_tratamento_16 = models.CharField(max_length=TAMANHO_OPCOES, blank=True, null=True, verbose_name='Tratamento 16')
 
-    carie_coroa_15 = models.CharField(choices=CARIE_COROA, max_length=TAMANHO_OPCOES, null=True, verbose_name='Coroa 15')
-    carie_tratamento_15 = models.CharField(choices=CARIE_TRATAMENTO, max_length=TAMANHO_OPCOES, null=True, verbose_name='Tratamento 15')
+    carie_coroa_15 = models.CharField(max_length=TAMANHO_OPCOES, blank=True, null=True, verbose_name='Coroa 15')
+    carie_tratamento_15 = models.CharField(max_length=TAMANHO_OPCOES, blank=True, null=True, verbose_name='Tratamento 15')
 
-    carie_coroa_14 = models.CharField(choices=CARIE_COROA, max_length=TAMANHO_OPCOES, null=True, verbose_name='Coroa 14')
-    carie_tratamento_14 = models.CharField(choices=CARIE_TRATAMENTO, max_length=TAMANHO_OPCOES, null=True, verbose_name='Tratamento 14')
+    carie_coroa_14 = models.CharField(max_length=TAMANHO_OPCOES, blank=True, null=True, verbose_name='Coroa 14')
+    carie_tratamento_14 = models.CharField(max_length=TAMANHO_OPCOES, blank=True, null=True, verbose_name='Tratamento 14')
 
-    carie_coroa_13 = models.CharField(choices=CARIE_COROA, max_length=TAMANHO_OPCOES, null=True, verbose_name='Coroa 13')
-    carie_tratamento_13 = models.CharField(choices=CARIE_TRATAMENTO, max_length=TAMANHO_OPCOES, null=True, verbose_name='Tratamento 13')
+    carie_coroa_13 = models.CharField(max_length=TAMANHO_OPCOES, blank=True, null=True, verbose_name='Coroa 13')
+    carie_tratamento_13 = models.CharField(max_length=TAMANHO_OPCOES, blank=True, null=True, verbose_name='Tratamento 13')
 
-    carie_coroa_12 = models.CharField(choices=CARIE_COROA, max_length=TAMANHO_OPCOES, null=True, verbose_name='Coroa 12')
-    carie_tratamento_12 = models.CharField(choices=CARIE_TRATAMENTO, max_length=TAMANHO_OPCOES, null=True, verbose_name='Tratamento 12')
+    carie_coroa_12 = models.CharField(max_length=TAMANHO_OPCOES, blank=True, null=True, verbose_name='Coroa 12')
+    carie_tratamento_12 = models.CharField(max_length=TAMANHO_OPCOES, blank=True, null=True, verbose_name='Tratamento 12')
 
-    carie_coroa_11 = models.CharField(choices=CARIE_COROA, max_length=TAMANHO_OPCOES, null=True, verbose_name='Coroa 11')
-    carie_tratamento_11 = models.CharField(choices=CARIE_TRATAMENTO, max_length=TAMANHO_OPCOES, null=True, verbose_name='Tratamento 11')
+    carie_coroa_11 = models.CharField(max_length=TAMANHO_OPCOES, blank=True, null=True, verbose_name='Coroa 11')
+    carie_tratamento_11 = models.CharField(max_length=TAMANHO_OPCOES, blank=True, null=True, verbose_name='Tratamento 11')
     
-    carie_coroa_21 = models.CharField(choices=CARIE_COROA, max_length=TAMANHO_OPCOES, null=True, verbose_name='Coroa 21')
-    carie_tratamento_21 = models.CharField(choices=CARIE_TRATAMENTO, max_length=TAMANHO_OPCOES, null=True, verbose_name='Tratamento 21')
+    carie_coroa_21 = models.CharField(max_length=TAMANHO_OPCOES, blank=True, null=True, verbose_name='Coroa 21')
+    carie_tratamento_21 = models.CharField(max_length=TAMANHO_OPCOES, blank=True, null=True, verbose_name='Tratamento 21')
 
-    carie_coroa_22 = models.CharField(choices=CARIE_COROA, max_length=TAMANHO_OPCOES, null=True, verbose_name='Coroa 22')
-    carie_tratamento_22 = models.CharField(choices=CARIE_TRATAMENTO, max_length=TAMANHO_OPCOES, null=True, verbose_name='Tratamento 22')
+    carie_coroa_22 = models.CharField(max_length=TAMANHO_OPCOES, blank=True, null=True, verbose_name='Coroa 22')
+    carie_tratamento_22 = models.CharField(max_length=TAMANHO_OPCOES, blank=True, null=True, verbose_name='Tratamento 22')
 
-    carie_coroa_23 = models.CharField(choices=CARIE_COROA, max_length=TAMANHO_OPCOES, null=True, verbose_name='Coroa 23')
-    carie_tratamento_23 = models.CharField(choices=CARIE_TRATAMENTO, max_length=TAMANHO_OPCOES, null=True, verbose_name='Tratamento 23')
+    carie_coroa_23 = models.CharField(max_length=TAMANHO_OPCOES, blank=True, null=True, verbose_name='Coroa 23')
+    carie_tratamento_23 = models.CharField(max_length=TAMANHO_OPCOES, blank=True, null=True, verbose_name='Tratamento 23')
 
-    carie_coroa_24 = models.CharField(choices=CARIE_COROA, max_length=TAMANHO_OPCOES, null=True, verbose_name='Coroa 24')
-    carie_tratamento_24 = models.CharField(choices=CARIE_TRATAMENTO, max_length=TAMANHO_OPCOES, null=True, verbose_name='Tratamento 24')
+    carie_coroa_24 = models.CharField(max_length=TAMANHO_OPCOES, blank=True, null=True, verbose_name='Coroa 24')
+    carie_tratamento_24 = models.CharField(max_length=TAMANHO_OPCOES, blank=True, null=True, verbose_name='Tratamento 24')
 
-    carie_coroa_25 = models.CharField(choices=CARIE_COROA, max_length=TAMANHO_OPCOES, null=True, verbose_name='Coroa 25')
-    carie_tratamento_25 = models.CharField(choices=CARIE_TRATAMENTO, max_length=TAMANHO_OPCOES, null=True, verbose_name='Tratamento 25')
+    carie_coroa_25 = models.CharField(max_length=TAMANHO_OPCOES, blank=True, null=True, verbose_name='Coroa 25')
+    carie_tratamento_25 = models.CharField(max_length=TAMANHO_OPCOES, blank=True, null=True, verbose_name='Tratamento 25')
 
-    carie_coroa_26 = models.CharField(choices=CARIE_COROA, max_length=TAMANHO_OPCOES, null=True, verbose_name='Coroa 26')
-    carie_tratamento_26 = models.CharField(choices=CARIE_TRATAMENTO, max_length=TAMANHO_OPCOES, null=True, verbose_name='Tratamento 26')
+    carie_coroa_26 = models.CharField(max_length=TAMANHO_OPCOES, blank=True, null=True, verbose_name='Coroa 26')
+    carie_tratamento_26 = models.CharField(max_length=TAMANHO_OPCOES, blank=True, null=True, verbose_name='Tratamento 26')
 
-    carie_coroa_27 = models.CharField(choices=CARIE_COROA, max_length=TAMANHO_OPCOES, null=True, verbose_name='Coroa 27')
-    carie_tratamento_27 = models.CharField(choices=CARIE_TRATAMENTO, max_length=TAMANHO_OPCOES, null=True, verbose_name='Tratamento 27')
+    carie_coroa_27 = models.CharField(max_length=TAMANHO_OPCOES, blank=True, null=True, verbose_name='Coroa 27')
+    carie_tratamento_27 = models.CharField(max_length=TAMANHO_OPCOES, blank=True, null=True, verbose_name='Tratamento 27')
 
-    carie_coroa_28 = models.CharField(choices=CARIE_COROA, max_length=TAMANHO_OPCOES, null=True, verbose_name='Coroa 28')
-    carie_tratamento_28 = models.CharField(choices=CARIE_TRATAMENTO, max_length=TAMANHO_OPCOES, null=True, verbose_name='Tratamento 28')
+    carie_coroa_28 = models.CharField(max_length=TAMANHO_OPCOES, blank=True, null=True, verbose_name='Coroa 28')
+    carie_tratamento_28 = models.CharField(max_length=TAMANHO_OPCOES, blank=True, null=True, verbose_name='Tratamento 28')
 
-    carie_coroa_38 = models.CharField(choices=CARIE_COROA, max_length=TAMANHO_OPCOES, null=True, verbose_name='Coroa 38')
-    carie_tratamento_38 = models.CharField(choices=CARIE_TRATAMENTO, max_length=TAMANHO_OPCOES, null=True, verbose_name='Tratamento 38')
+    carie_coroa_38 = models.CharField(max_length=TAMANHO_OPCOES, blank=True, null=True, verbose_name='Coroa 38')
+    carie_tratamento_38 = models.CharField(max_length=TAMANHO_OPCOES, blank=True, null=True, verbose_name='Tratamento 38')
 
-    carie_coroa_37 = models.CharField(choices=CARIE_COROA, max_length=TAMANHO_OPCOES, null=True, verbose_name='Coroa 37')
-    carie_tratamento_37 = models.CharField(choices=CARIE_TRATAMENTO, max_length=TAMANHO_OPCOES, null=True, verbose_name='Tratamento 37')
+    carie_coroa_37 = models.CharField(max_length=TAMANHO_OPCOES, blank=True, null=True, verbose_name='Coroa 37')
+    carie_tratamento_37 = models.CharField(max_length=TAMANHO_OPCOES, blank=True, null=True, verbose_name='Tratamento 37')
 
-    carie_coroa_36 = models.CharField(choices=CARIE_COROA, max_length=TAMANHO_OPCOES, null=True, verbose_name='Coroa 36')
-    carie_tratamento_36 = models.CharField(choices=CARIE_TRATAMENTO, max_length=TAMANHO_OPCOES, null=True, verbose_name='Tratamento 36')
+    carie_coroa_36 = models.CharField(max_length=TAMANHO_OPCOES, blank=True, null=True, verbose_name='Coroa 36')
+    carie_tratamento_36 = models.CharField(max_length=TAMANHO_OPCOES, blank=True, null=True, verbose_name='Tratamento 36')
 
-    carie_coroa_35 = models.CharField(choices=CARIE_COROA, max_length=TAMANHO_OPCOES, null=True, verbose_name='Coroa 35')
-    carie_tratamento_35 = models.CharField(choices=CARIE_TRATAMENTO, max_length=TAMANHO_OPCOES, null=True, verbose_name='Tratamento 35')
+    carie_coroa_35 = models.CharField(max_length=TAMANHO_OPCOES, blank=True, null=True, verbose_name='Coroa 35')
+    carie_tratamento_35 = models.CharField(max_length=TAMANHO_OPCOES, blank=True, null=True, verbose_name='Tratamento 35')
 
-    carie_coroa_34 = models.CharField(choices=CARIE_COROA, max_length=TAMANHO_OPCOES, null=True, verbose_name='Coroa 34')
-    carie_tratamento_34 = models.CharField(choices=CARIE_TRATAMENTO, max_length=TAMANHO_OPCOES, null=True, verbose_name='Tratamento 34')
+    carie_coroa_34 = models.CharField(max_length=TAMANHO_OPCOES, blank=True, null=True, verbose_name='Coroa 34')
+    carie_tratamento_34 = models.CharField(max_length=TAMANHO_OPCOES, blank=True, null=True, verbose_name='Tratamento 34')
 
-    carie_coroa_33 = models.CharField(choices=CARIE_COROA, max_length=TAMANHO_OPCOES, null=True, verbose_name='Coroa 33')
-    carie_tratamento_33 = models.CharField(choices=CARIE_TRATAMENTO, max_length=TAMANHO_OPCOES, null=True, verbose_name='Tratamento 33')
+    carie_coroa_33 = models.CharField(max_length=TAMANHO_OPCOES, blank=True, null=True, verbose_name='Coroa 33')
+    carie_tratamento_33 = models.CharField(max_length=TAMANHO_OPCOES, blank=True, null=True, verbose_name='Tratamento 33')
 
-    carie_coroa_32 = models.CharField(choices=CARIE_COROA, max_length=TAMANHO_OPCOES, null=True, verbose_name='Coroa 32')
-    carie_tratamento_32 = models.CharField(choices=CARIE_TRATAMENTO, max_length=TAMANHO_OPCOES, null=True, verbose_name='Tratamento 32')
+    carie_coroa_32 = models.CharField(max_length=TAMANHO_OPCOES, blank=True, null=True, verbose_name='Coroa 32')
+    carie_tratamento_32 = models.CharField(max_length=TAMANHO_OPCOES, blank=True, null=True, verbose_name='Tratamento 32')
 
-    carie_coroa_31 = models.CharField(choices=CARIE_COROA, max_length=TAMANHO_OPCOES, null=True, verbose_name='Coroa 31')
-    carie_tratamento_31 = models.CharField(choices=CARIE_TRATAMENTO, max_length=TAMANHO_OPCOES, null=True, verbose_name='Tratamento 31')
+    carie_coroa_31 = models.CharField(max_length=TAMANHO_OPCOES, blank=True, null=True, verbose_name='Coroa 31')
+    carie_tratamento_31 = models.CharField(max_length=TAMANHO_OPCOES, blank=True, null=True, verbose_name='Tratamento 31')
 
-    carie_coroa_41 = models.CharField(choices=CARIE_COROA, max_length=TAMANHO_OPCOES, null=True, verbose_name='Coroa 41')
-    carie_tratamento_41 = models.CharField(choices=CARIE_TRATAMENTO, max_length=TAMANHO_OPCOES, null=True, verbose_name='Tratamento 41')
+    carie_coroa_41 = models.CharField(max_length=TAMANHO_OPCOES, blank=True, null=True, verbose_name='Coroa 41')
+    carie_tratamento_41 = models.CharField(max_length=TAMANHO_OPCOES, blank=True, null=True, verbose_name='Tratamento 41')
 
-    carie_coroa_42 = models.CharField(choices=CARIE_COROA, max_length=TAMANHO_OPCOES, null=True, verbose_name='Coroa 42')
-    carie_tratamento_42 = models.CharField(choices=CARIE_TRATAMENTO, max_length=TAMANHO_OPCOES, null=True, verbose_name='Tratamento 42')
+    carie_coroa_42 = models.CharField(max_length=TAMANHO_OPCOES, blank=True, null=True, verbose_name='Coroa 42')
+    carie_tratamento_42 = models.CharField(max_length=TAMANHO_OPCOES, blank=True, null=True, verbose_name='Tratamento 42')
 
-    carie_coroa_43 = models.CharField(choices=CARIE_COROA, max_length=TAMANHO_OPCOES, null=True, verbose_name='Coroa 43')
-    carie_tratamento_43 = models.CharField(choices=CARIE_TRATAMENTO, max_length=TAMANHO_OPCOES, null=True, verbose_name='Tratamento 43')
+    carie_coroa_43 = models.CharField(max_length=TAMANHO_OPCOES, blank=True, null=True, verbose_name='Coroa 43')
+    carie_tratamento_43 = models.CharField(max_length=TAMANHO_OPCOES, blank=True, null=True, verbose_name='Tratamento 43')
 
-    carie_coroa_44 = models.CharField(choices=CARIE_COROA, max_length=TAMANHO_OPCOES, null=True, verbose_name='Coroa 44')
-    carie_tratamento_44 = models.CharField(choices=CARIE_TRATAMENTO, max_length=TAMANHO_OPCOES, null=True, verbose_name='Tratamento 44')
+    carie_coroa_44 = models.CharField(max_length=TAMANHO_OPCOES, blank=True, null=True, verbose_name='Coroa 44')
+    carie_tratamento_44 = models.CharField(max_length=TAMANHO_OPCOES, blank=True, null=True, verbose_name='Tratamento 44')
 
-    carie_coroa_45 = models.CharField(choices=CARIE_COROA, max_length=TAMANHO_OPCOES, null=True, verbose_name='Coroa 45')
-    carie_tratamento_45 = models.CharField(choices=CARIE_TRATAMENTO, max_length=TAMANHO_OPCOES, null=True, verbose_name='Tratamento 45')
+    carie_coroa_45 = models.CharField(max_length=TAMANHO_OPCOES, blank=True, null=True, verbose_name='Coroa 45')
+    carie_tratamento_45 = models.CharField(max_length=TAMANHO_OPCOES, blank=True, null=True, verbose_name='Tratamento 45')
 
-    carie_coroa_46 = models.CharField(choices=CARIE_COROA, max_length=TAMANHO_OPCOES, null=True, verbose_name='Coroa 46')
-    carie_tratamento_46 = models.CharField(choices=CARIE_TRATAMENTO, max_length=TAMANHO_OPCOES, null=True, verbose_name='Tratamento 46')
+    carie_coroa_46 = models.CharField(max_length=TAMANHO_OPCOES, blank=True, null=True, verbose_name='Coroa 46')
+    carie_tratamento_46 = models.CharField(max_length=TAMANHO_OPCOES, blank=True, null=True, verbose_name='Tratamento 46')
 
-    carie_coroa_47 = models.CharField(choices=CARIE_COROA, max_length=TAMANHO_OPCOES, null=True, verbose_name='Coroa 47')
-    carie_tratamento_47 = models.CharField(choices=CARIE_TRATAMENTO, max_length=TAMANHO_OPCOES, null=True, verbose_name='Tratamento 47')
+    carie_coroa_47 = models.CharField(max_length=TAMANHO_OPCOES, blank=True, null=True, verbose_name='Coroa 47')
+    carie_tratamento_47 = models.CharField(max_length=TAMANHO_OPCOES, blank=True, null=True, verbose_name='Tratamento 47')
 
-    carie_coroa_48 = models.CharField(choices=CARIE_COROA, max_length=TAMANHO_OPCOES, null=True, verbose_name='Coroa 48')
-    carie_tratamento_48 = models.CharField(choices=CARIE_TRATAMENTO, max_length=TAMANHO_OPCOES, null=True, verbose_name='Tratamento 48')
+    carie_coroa_48 = models.CharField(max_length=TAMANHO_OPCOES, blank=True, null=True, verbose_name='Coroa 48')
+    carie_tratamento_48 = models.CharField(max_length=TAMANHO_OPCOES, blank=True, null=True, verbose_name='Tratamento 48')
     
     # Periodontal
-    periodontal_sangramento_1716 = models.CharField(choices=CPI_SANGRAMENTO, max_length=TAMANHO_OPCOES, null=True, verbose_name='Sangramento 17/16')
-    periodontal_calculo_1716 = models.CharField(choices=CPI_CALCULO, max_length=TAMANHO_OPCOES, null=True, verbose_name='Cálculo dentário 17/16')
-    periodontal_bolsa_1716 = models.CharField(choices=CPI_BOLSA, max_length=TAMANHO_OPCOES, null=True, verbose_name='Bolsa periodontal 17/16')
+    periodontal_sangramento_1716 = models.CharField(max_length=TAMANHO_OPCOES, blank=True, null=True, verbose_name='Sangramento 17/16')
+    periodontal_calculo_1716 = models.CharField(max_length=TAMANHO_OPCOES, blank=True, null=True, verbose_name='Cálculo dentário 17/16')
+    periodontal_bolsa_1716 = models.CharField(max_length=TAMANHO_OPCOES, blank=True, null=True, verbose_name='Bolsa periodontal 17/16')
     
-    periodontal_sangramento_11 = models.CharField(choices=CPI_SANGRAMENTO, max_length=TAMANHO_OPCOES, null=True, verbose_name='Sangramento 11')
-    periodontal_calculo_11 = models.CharField(choices=CPI_CALCULO, max_length=TAMANHO_OPCOES, null=True, verbose_name='Cálculo dentário 11')
-    periodontal_bolsa_11 = models.CharField(choices=CPI_BOLSA, max_length=TAMANHO_OPCOES, null=True, verbose_name='Bolsa periodontal 11')
+    periodontal_sangramento_11 = models.CharField(max_length=TAMANHO_OPCOES, blank=True, null=True, verbose_name='Sangramento 11')
+    periodontal_calculo_11 = models.CharField(max_length=TAMANHO_OPCOES, blank=True, null=True, verbose_name='Cálculo dentário 11')
+    periodontal_bolsa_11 = models.CharField(max_length=TAMANHO_OPCOES, blank=True, null=True, verbose_name='Bolsa periodontal 11')
 
-    periodontal_sangramento_2627 = models.CharField(choices=CPI_SANGRAMENTO, max_length=TAMANHO_OPCOES, null=True, verbose_name='Sangramento 26/27')
-    periodontal_calculo_2627 = models.CharField(choices=CPI_CALCULO, max_length=TAMANHO_OPCOES, null=True, verbose_name='Cálculo dentário 26/27')
-    periodontal_bolsa_2627 = models.CharField(choices=CPI_BOLSA, max_length=TAMANHO_OPCOES, null=True, verbose_name='Bolsa periodontal 26/27')
+    periodontal_sangramento_2627 = models.CharField(max_length=TAMANHO_OPCOES, blank=True, null=True, verbose_name='Sangramento 26/27')
+    periodontal_calculo_2627 = models.CharField(max_length=TAMANHO_OPCOES, blank=True, null=True, verbose_name='Cálculo dentário 26/27')
+    periodontal_bolsa_2627 = models.CharField(max_length=TAMANHO_OPCOES, blank=True, null=True, verbose_name='Bolsa periodontal 26/27')
 
-    periodontal_sangramento_3736 = models.CharField(choices=CPI_SANGRAMENTO, max_length=TAMANHO_OPCOES, null=True, verbose_name='Sangramento 37/36')
-    periodontal_calculo_3736 = models.CharField(choices=CPI_CALCULO, max_length=TAMANHO_OPCOES, null=True, verbose_name='Cálculo dentário 37/36')
-    periodontal_bolsa_3736 = models.CharField(choices=CPI_BOLSA, max_length=TAMANHO_OPCOES, null=True, verbose_name='Bolsa periodontal 37/36')
+    periodontal_sangramento_3736 = models.CharField(max_length=TAMANHO_OPCOES, blank=True, null=True, verbose_name='Sangramento 37/36')
+    periodontal_calculo_3736 = models.CharField(max_length=TAMANHO_OPCOES, blank=True, null=True, verbose_name='Cálculo dentário 37/36')
+    periodontal_bolsa_3736 = models.CharField(max_length=TAMANHO_OPCOES, blank=True, null=True, verbose_name='Bolsa periodontal 37/36')
 
-    periodontal_sangramento_31 = models.CharField(choices=CPI_SANGRAMENTO, max_length=TAMANHO_OPCOES, null=True, verbose_name='Sangramento 31')
-    periodontal_calculo_31 = models.CharField(choices=CPI_CALCULO, max_length=TAMANHO_OPCOES, null=True, verbose_name='Cálculo dentário 31')
-    periodontal_bolsa_31 = models.CharField(choices=CPI_BOLSA, max_length=TAMANHO_OPCOES, null=True, verbose_name='Bolsa periodontal 31')
+    periodontal_sangramento_31 = models.CharField(max_length=TAMANHO_OPCOES, blank=True, null=True, verbose_name='Sangramento 31')
+    periodontal_calculo_31 = models.CharField(max_length=TAMANHO_OPCOES, blank=True, null=True, verbose_name='Cálculo dentário 31')
+    periodontal_bolsa_31 = models.CharField(max_length=TAMANHO_OPCOES, blank=True, null=True, verbose_name='Bolsa periodontal 31')
 
-    periodontal_sangramento_4647 = models.CharField(choices=CPI_SANGRAMENTO, max_length=TAMANHO_OPCOES, null=True, verbose_name='Sangramento 46/47')
-    periodontal_calculo_4647 = models.CharField(choices=CPI_CALCULO, max_length=TAMANHO_OPCOES, null=True, verbose_name='Cálculo dentário 46/47')
-    periodontal_bolsa_4647 = models.CharField(choices=CPI_BOLSA, max_length=TAMANHO_OPCOES, null=True, verbose_name='Bolsa periodontal 46/47')
+    periodontal_sangramento_4647 = models.CharField(max_length=TAMANHO_OPCOES, blank=True, null=True, verbose_name='Sangramento 46/47')
+    periodontal_calculo_4647 = models.CharField(max_length=TAMANHO_OPCOES, blank=True, null=True, verbose_name='Cálculo dentário 46/47')
+    periodontal_bolsa_4647 = models.CharField(max_length=TAMANHO_OPCOES, blank=True, null=True, verbose_name='Bolsa periodontal 46/47')
     
     def __str__(self):
         """Devolve a representação do modelo em string"""
