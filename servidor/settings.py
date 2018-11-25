@@ -30,6 +30,7 @@ INSTALLED_APPS = [
     
     # Minhas aplicações
     'administracao',
+    'questionarios',
     'api',
     
     # Aplicações de terceiros

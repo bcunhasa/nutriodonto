@@ -133,6 +133,12 @@
                   <span data-localize="sidebar.nav.SINGLEVIEW">Escolas</span>
                 </a>
               </li>
+              <li class="{% if pagina_diretores %} active {% endif %}">
+                <a href="{% url 'administracao:diretores' %}" title="Questionários para os diretores">
+                  <em class="fa fa-book"></em>
+                  <span data-localize="sidebar.nav.SINGLEVIEW">Diretores</span>
+                </a>
+              </li>
               <li class="{% if pagina_alunos %} active {% endif %}">
                 <a href="{% url 'administracao:alunos' %}" title="Alunos">
                   <em class="fa fa-users"></em>

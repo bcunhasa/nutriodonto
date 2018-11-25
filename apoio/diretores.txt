@@ -1,0 +1,84 @@
+1. A escola funciona em quais turnos? (múltipla resposta)
+2. A escola funciona em regime integral?
+3. A escola atende a quais etapas de ensino? (múltipla resposta)
+4. Qual é o TOTAL de alunos matriculados?
+5. Qual é a quantidade TOTAL de salas de aula da escola?
+6. A escola tem biblioteca EM CONDIÇÕES DE USO?
+7. A escola tem sala ou laboratório de informática EM CONDIÇÕES DE USO para os alunos?
+8. Quantos computadores (desktops, laptops, notebooks, netbooks, tablets) da escola EM CONDIÇÕES DE USO estão disponíveis para os alunos em sala de aula e/ou salas específicas de informática?
+9. Os alunos têm acesso à internet através de equipamentos da escola?
+10. A escola tem sala de recursos de mídia/comunicação EM CONDIÇÕES DE USO? (Exemplos: televisão, videocassete, dvd, projetor etc)
+11. A escola tem conselho escolar?
+12. Com que frequência o conselho escolar se reúne?
+13. A escola fica aberta nos finais de semana para uso da comunidade?
+14. As ações desenvolvidas na escola, no final de semana, são pactuadas com a comunidade?
+15. A escola tem quadra de esportes EM CONDIÇÕES DE USO?
+16. Quantas quadras de esporte EM CONDIÇÕES DE USO a escola tem?
+17. Quantas das quadras de esporte EM CONDIÇÕES DE USO da escola são cobertas?
+18. A escola tem pista para corrida/atletismo EM CONDIÇÕES DE USO?
+19. A escola tem piscina EM CONDIÇÕES DE USO?
+20. O pátio da escola é utilizado para prática regular de atividade física com instrutor?
+21. A escola tem material esportivo ou para jogos e brincadeiras EM CONDIÇÕES DE USO?
+22. A escola tem vestiário EM CONDIÇÕES DE USO para os alunos?
+23. A escola tem vestiários separados para alunos e alunas EM CONDIÇÕES DE USO?
+24. A escola oferece atividades esportivas para os alunos fora do horário regular de aula?
+25. A escola participa de jogos entre escolas?
+26. A escola realiza jogos entre as classes, turmas ou turnos?
+27. A escola possui alunos com deficiência ou com transtorno global do desenvolvimento?
+28. Qual(is) tipo(s) de deficiência? (múltipla resposta)
+29. A escola oferece atividade física adaptada para alunos com deficiência?
+30. A escola possui estrutura para assegurar a acessibilidade dos alunos com necessidades especiais?
+31. Quais estruturas existem na escola para assegurar a acessibilidade dos alunos com necessidades especiais? (múltipla resposta)
+32. A escola oferece comida (merenda escolar / almoço) para os estudantes?
+33. A escola oferece comida (merenda escolar / almoço) para alunos de quais turnos e níveis de ensino? (múltipla resposta)
+34. A escola tem cozinha EM CONDIÇÕES DE USO?
+35. A escola tem refeitório EM CONDIÇÕES DE USO? (espaço exclusivo para servir alimentação)
+36. A escola tem cantina?
+37. Que tipos de bebidas e produtos alimentícios são vendidos na cantina? (múltipla resposta)láctea)
+38. Existe algum ponto alternativo de venda de produtos alimentícios dentro ou na entrada da escola? (ex: ambulante/carrocinha)
+39. Que tipos de bebidas e produtos alimentícios são vendidos no ponto alternativo de vendas? (múltipla resposta)láctea)
+40. A escola tem horta?
+41. A escola tem água potável (adequada para beber) para uso dos alunos?
+42. NOS ÚLTIMOS 12 MESES, alguma vez a água da escola foi testada quanto a sua potabilidade (se é adequada para beber)?
+43. Qual é a principal fonte de água potável (adequada para beber) da escola?
+44. A escola tem banheiros EM CONDIÇÕES DE USO?
+45. A escola tem banheiros separados para alunos e alunas EM CONDIÇÕES DE USO?
+46. A escola oferece papel higiênico para uso nos banheiros da escola?
+47. A escola tem pia ou lavatório EM CONDIÇÕES DE USO onde os estudantes possam lavar as mãos depois de ir ao banheiro e/ou antes das refeições?
+48. A escola oferece sabão para que os alunos lavem as mãos após usar o banheiro e/ou antes das refeições?
+49. Normalmente, com que frequência a remoção do lixo é feita pela escola?
+50. A escola tem escovódromo?
+51. A escola realiza alguma Ação de Saúde Bucal?
+52. Escovação dental supervisionada
+53. Caso positivo, com qual frequência?
+54. Aplicação Tópica de Flúor
+55. Caso positivo, com qual frequência?
+56. Bochechos fluorados
+57. Caso positivo, com qual frequência?
+58. A escola realiza ação de Educação em Saúde Bucal?
+59. Estas ações estão incluídas no currículo escolar?
+60. Sua escola já realizou Levantamento Epidemiológico sobre cárie dentária?
+61. Caso positivo você conhece (eu) os resultados?
+62. Sua escola disponibiliza escovas dentais para os estudantes?
+63. Caso positivo, com qual frequência?
+64. Sua escola disponibiliza creme dental para os estudantes?
+65. Sua escola disponibiliza fio dental para os estudantes?
+66. NOS ÚLTIMOS 12 MESES, com que frequência, a localidade onde a escola está situada foi considerada área de risco em termos de violência (roubos, furtos, assaltos, troca de tiros, consumo de drogas, homicídios etc)?
+67. NOS ÚLTIMOS 12 MESES, a escola teve que suspender ou interromper suas aulas por motivo de segurança em termos de violência?
+68. A escola tem algum grupo ou comitê responsável por orientar ou coordenar ações e/ou atividades relacionadas à saúde?
+69. A escola aderiu ao Programa Saúde da Escola (PSE)?
+70. Caso positivo, qual o ano da adesão da escola ao Programa Saúde na Escola (PSE)?
+71. A escola implementa ações do Programa Saúde da Escola (PSE)?
+72. A escola implementa ações do Programa Mais Educação?
+73. A escola realiza ações conjuntas com Unidade Básica de Saúde ou Equipe de Saúde da Família ou Equipe de Atenção Básica?
+74. A escola mantém registros sobre a caderneta de vacinação dos escolares?
+75. A escola mantém outros registros sobre a saúde dos escolares? (histórico clínico,ocorrência de alergias, acidentes, tipo sanguíneo, doenças etc)
+76. A escola tem material e/ou medicamentos de Primeiros Socorros mantidos em local adequado?
+77. A escola tem conhecimento de consumo de cigarro por professores nas suas dependências?
+78. A escola tem conhecimento de consumo de cigarro por alunos nas suas dependências?
+79. A escola tem alguma política, norma ou regra escrita que proíba o uso do tabaco nas suas dependências?
+80. A escola tem alguma política, norma ou regra escrita que proíba o uso de drogas ilícitas nas suas dependências?
+81. A escola tem alguma política, norma ou regra escrita que proíba bullying nas suas dependências?
+82. A escola tem alguma política, norma ou regra escrita que proíba brigas nas suas dependências?
+83. A escola tem alguma política, norma ou regra escrita que proíba punição física dos estudantes pelos professores ou funcionários nas suas dependências?
+84. A escola está situada em área de vulnerabilidade social?

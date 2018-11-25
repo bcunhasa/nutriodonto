@@ -513,3 +513,72 @@ class RemoveExameView(LoginRequired, View):
         exame = Exame.objects.get(id=exame_id)
         exame.delete()
         return HttpResponseRedirect(reverse('administracao:exames'))
+
+
+class DiretoresView(LoginRequired, View):
+    """Página que lista as os questionários para os diretores cadastradas no sistema"""
+    
+    def get(self, request):
+        diretores = Diretor.objects.order_by('-id')
+        context = {'pagina_diretores': True, 'diretores': diretores}
+        return render(self.request, 'administracao/diretores.html', context)
+
+
+class DetalhesDiretorView(LoginRequired, View):
+    """Página com as informações sobre um questionário para diretores"""
+    
+    def get(self, request, diretor_id):
+        diretor = Diretor.objects.get(id=diretor_id)
+        form = DiretorForm(instance=diretor)
+        context = {'pagina_diretores': True, 'diretor': diretor, 'form': form}
+        return render(self.request, 'administracao/diretor.html', context)
+
+
+class CriaDiretorView(LoginRequired, View):
+    """Cadastra as informações de um novo questionário para diretores"""
+    
+    def get(self, request):
+        form = DiretorForm()
+        context = {'pagina_diretores': True, 'form': form}
+        return render(self.request, 'administracao/novo_elemento.html', context)
+    
+    def post(self, request):
+        form = DiretorForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('administracao:diretores'))
+        context = {'pagina_diretores': True, 'form': form}
+        return render(self.request, 'administracao/novo_elemento.html', context)
+
+
+class EditaDiretorView(LoginRequired, View):
+    """Altera as informações de um questionário para diretores"""
+    
+    def get(self, request, diretor_id):
+        diretor = Diretor.objects.get(id=diretor_id)
+        form = DiretorForm(instance=diretor)
+        context = {'pagina_diretores': True, 'diretor': diretor, 'form': form}
+        return render(self.request, 'administracao/edita_elemento.html', context)
+    
+    def post(self, request, diretor_id):
+        diretor = Diretor.objects.get(id=diretor_id)
+        form = DiretorForm(request.POST, request.FILES, instance=diretor)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('administracao:diretores'))
+        context = {'pagina_diretores': True, 'diretor': diretor, 'form': form}
+        return render(self.request, 'administracao/edita_elemento.html', context)
+
+
+class RemoveDiretorView(LoginRequired, View):
+    """Remove um questionário para diretores"""
+    
+    def get(self, request, diretor_id):
+        diretor = Diretor.objects.get(id=diretor_id)
+        context = {'pagina_diretores': True, 'diretor': diretor}
+        return render(self.request, 'administracao/remove_elemento.html', context)
+        
+    def post(self, request, diretor_id):
+        diretor = Diretor.objects.get(id=diretor_id)
+        diretor.delete()
+        return HttpResponseRedirect(reverse('administracao:diretores'))

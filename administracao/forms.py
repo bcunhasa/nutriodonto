@@ -51,3 +51,10 @@ class ExameForm(forms.ModelForm):
     class Meta:
         model = Exame
         fields = '__all__'
+
+
+class DiretorForm(forms.ModelForm):
+    
+    class Meta:
+        model = Diretor
+        fields = '__all__'

@@ -66,4 +66,11 @@ urlpatterns = [
     url(r'^administracao/cria_exame/$', views.CriaExameView.as_view(), name='cria_exame'),
     url(r'^administracao/edita_exame/(?P<exame_id>\d+)/$', views.EditaExameView.as_view(), name='edita_exame'),
     url(r'^administracao/remove_exame/(?P<exame_id>\d+)/$', views.RemoveExameView.as_view(), name='remove_exame'),
+    
+    # Páginas que lidam com as informações dos questionários dos diretores
+    url(r'^administracao/diretores/$', views.DiretoresView.as_view(), name='diretores'),
+    url(r'^administracao/diretor/(?P<diretor_id>\d+)/$', views.DetalhesDiretorView.as_view(), name='diretor'),
+    url(r'^administracao/cria_diretor/$', views.CriaDiretorView.as_view(), name='cria_diretor'),
+    url(r'^administracao/edita_diretor/(?P<diretor_id>\d+)/$', views.EditaDiretorView.as_view(), name='edita_diretor'),
+    url(r'^administracao/remove_diretor/(?P<diretor_id>\d+)/$', views.RemoveDiretorView.as_view(), name='remove_diretor'),
 ]

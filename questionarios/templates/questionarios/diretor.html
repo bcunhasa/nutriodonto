@@ -1,0 +1,55 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+  <head>
+    <meta charset="utf-8">
+    <link rel="icon" href="{% static 'index/img/favicon.ico' %}">
+    
+    {% if pagina_margarida_goncalves %}
+      <title>Questionário para o diretor da escola de T.I. Margarida Gonçalves</title>
+    {% elif pagina_carlos_jobim %}
+      <title>Questionário para o diretor da escola Antônio Carlos Jobim</title>
+    {% elif pagina_henrique_talone %}
+      <title>Questionário para o diretor da escola Henrique Talone Pinheiro</title>
+    {% elif pagina_anne_frank %}
+      <title>Questionário para o diretor da escola Anne Frank</title>
+    {% elif pagina_padre_josimo %}
+      <title>Questionário para o diretor da escola de T.I. Padre Josimo M. Tavares</title>
+    {% elif pagina_beatriz_rodrigues %}
+      <title>Questionário para o diretor da escola Beatriz Rodrigues da Silva</title>
+    {% elif pagina_mestre_pacifico %}
+      <title>Questionário para o diretor da escola Mestre Pacífico S. Campos</title>
+    {% elif pagina_luiz_gonzaga %}
+      <title>Questionário para o diretor da escola Luiz Gonzaga</title>
+    {% endif %}
+  </head>
+
+  <body class="layout-fixed">
+    {% if pagina_margarida_goncalves %}
+      <form action="{% url 'questionarios:margarida_goncalves' %}" method="post">
+    {% elif pagina_carlos_jobim %}
+      <form action="{% url 'questionarios:carlos_jobim' %}" method="post">
+    {% elif pagina_henrique_talone %}
+      <form action="{% url 'questionarios:henrique_talone' %}" method="post">
+    {% elif pagina_anne_frank %}
+      <form action="{% url 'questionarios:anne_frank' %}" method="post">
+    {% elif pagina_padre_josimo %}
+      <form action="{% url 'questionarios:padre_josimo' %}" method="post">
+    {% elif pagina_beatriz_rodrigues %}
+      <form action="{% url 'questionarios:beatriz_rodrigues' %}" method="post">
+    {% elif pagina_mestre_pacifico %}
+      <form action="{% url 'questionarios:mestre_pacifico' %}" method="post">
+    {% elif pagina_luiz_gonzaga %}
+      <form action="{% url 'questionarios:luiz_gonzaga' %}" method="post">
+    {% endif %}
+    
+      {% csrf_token %}
+      {{ form.as_p }}
+      
+      <input type="submit" value="Submeter formulário">
+    </form>
+  </body>
+
+</html>

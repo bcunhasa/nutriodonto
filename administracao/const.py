@@ -1545,337 +1545,541 @@ ALUNO_146 = (
 
 
 DIRETOR_1 = (
-
+    ('0', 'Manhã'),
+    ('1', 'Intermediário'),
+    ('2', 'Tarde'),
+    ('3', 'Noite'),
 )
 
 DIRETOR_2 = (
-
+    ('0', 'Sim'),
+    ('1', 'Não'),
 )
 
 DIRETOR_3 = (
-
+    ('0', 'Educação Infantil (creche, pré-escola)'),
+    ('1', 'Ensino Fundamental (8 anos, 9 anos)'),
+    ('2', 'Ensino Médio (médio, integrado, normal/magistério, educação profissional)'),
+    ('3', 'Educação de Jovens e Adultos (fundamental, projovem urbano, médio)'),
 )
 
 DIRETOR_4 = (
-
+    ('0', 'Até 50 alunos'),
+    ('1', 'De 51 a 100 alunos'),
+    ('2', 'De 101 a 200 alunos'),
+    ('3', 'De 201 a 500 alunos'),
+    ('4', 'De 501 a 1.000 alunos'),
+    ('5', 'Mais de 1.000 alunos'),
 )
 
 DIRETOR_5 = (
-
+    ('0', 'Até 10 salas'),
+    ('1', 'De 11 a 20 salas'),
+    ('2', 'De 21 a 30 salas'),
+    ('3', 'De 31 a 40 salas'),
+    ('4', 'De 41 a 50 salas'),
+    ('5', 'Mais de 50 salas'),
 )
 
 DIRETOR_6 = (
-
+    ('0', 'Sim'),
+    ('1', 'Não está em condições de uso'),
+    ('2', 'Não tem biblioteca'),
 )
 
 DIRETOR_7 = (
-
+    ('0', 'Sim'),
+    ('1', 'Não está em condições de uso'),
+    ('2', 'Não tem sala ou laboratório de informática'),
 )
 
 DIRETOR_8 = (
-
+    ('0', 'Não existem computadores em condições de uso para os alunos'),
+    ('1', 'Até 10 computadores'),
+    ('2', 'De 11 a 20 computadores'),
+    ('3', 'De 21 a 30 computadores'),
+    ('4', 'De 31 a 40 computadores'),
+    ('5', 'De 41 a 50 computadores'),
+    ('6', 'Mais de 50 computadores'),
 )
 
 DIRETOR_9 = (
-
+    ('0', 'Sim'),
+    ('1', 'Não'),
 )
 
 DIRETOR_10 = (
-
+    ('0', 'Sim'),
+    ('1', 'Não está em condições de uso'),
+    ('2', 'Não tem sala de recursos de mídia/comunicação'),
 )
 
 DIRETOR_11 = (
-
+    ('0', 'Sim'),
+    ('1', 'Não'),
 )
 
 DIRETOR_12 = (
-
+    ('0', 'Não se reúne com frequência'),
+    ('1', '1 a 3 vezes por ano'),
+    ('2', '4 a 6 vezes por ano'),
+    ('3', '7 a 9 vezes por ano'),
+    ('4', '10 a 12 vezes por ano'),
+    ('5', 'Mais de 12 vezes por ano'),
 )
 
 DIRETOR_13 = (
-
+    ('0', 'Sim'),
+    ('1', 'Não'),
 )
 
 DIRETOR_14 = (
-
+    ('0', 'Sim'),
+    ('1', 'Não'),
 )
 
 DIRETOR_15 = (
-
+    ('0', 'Sim'),
+    ('1', 'Não está em condições de uso'),
+    ('2', 'Não tem quadra de esportes'),
 )
 
 DIRETOR_16 = (
-
+    ('0', '1'),
+    ('1', '2'),
+    ('2', '3 ou mais'),
 )
 
 DIRETOR_17 = (
-
+    ('0', 'Nenhuma'),
+    ('1', '1'),
+    ('2', '2'),
+    ('3', '3 ou mais'),
+    ('4', 'Todas'),
 )
 
 DIRETOR_18 = (
-
+    ('0', 'Sim'),
+    ('1', 'Não está em condições de uso'),
+    ('2', 'Não tem pista de atletismo'),
 )
 
 DIRETOR_19 = (
-
+    ('0', 'Sim'),
+    ('1', 'Não está em condições de uso'),
+    ('2', 'Não tem piscina'),
 )
 
 DIRETOR_20 = (
-
+    ('0', 'Sim'),
+    ('1', 'Não é utilizado para prática regular de atividade física com instrutor'),
+    ('2', 'Não tem pátio'),
 )
 
 DIRETOR_21 = (
-
+    ('0', 'Sim'),
+    ('1', 'Não está em condições de uso'),
+    ('2', 'Não tem material esportivo para jogos e brincadeiras'),
 )
 
 DIRETOR_22 = (
-
+    ('0', 'Sim'),
+    ('1', 'Não está em condições de uso'),
+    ('2', 'Não tem vestiário'),
 )
 
 DIRETOR_23 = (
-
+    ('0', 'Sim'),
+    ('1', 'Não estão em condições de uso'),
+    ('2', 'Não tem vestiários separados'),
 )
 
 DIRETOR_24 = (
-
+    ('0', 'Sim, gratuito'),
+    ('1', 'Sim, pago'),
+    ('2', 'Sim, pago e gratuito'),
+    ('3', 'Não'),
 )
 
 DIRETOR_25 = (
-
+    ('0', 'Sim'),
+    ('1', 'Não'),
 )
 
 DIRETOR_26 = (
-
+    ('0', 'Sim'),
+    ('1', 'Não'),
 )
 
 DIRETOR_27 = (
-
+    ('0', 'Sim'),
+    ('1', 'Não'),
 )
 
 DIRETOR_28 = (
-
+    ('0', 'Deficiência intelectual'),
+    ('1', 'Transtornos do espectro do autismo'),
+    ('2', 'Transtornos mentais e de comportamento'),
+    ('3', 'Deficiência física'),
+    ('4', 'Deficiência auditiva'),
+    ('5', 'Deficiência visual'),
+    ('6', 'Deficiência múltipla (2 ou mais deficiências simultâneas)'),
+    ('7', 'Outros'),
 )
 
 DIRETOR_29 = (
-
+    ('0', 'Sim'),
+    ('1', 'Não'),
 )
 
 DIRETOR_30 = (
-
+    ('0', 'Sim'),
+    ('1', 'Não'),
 )
 
 DIRETOR_31 = (
-
+    ('0', 'Rampas de acesso'),
+    ('1', 'Interior adequado para locomoção'),
+    ('2', 'Móveis adequados para alunos com necessidades especiais'),
+    ('3', 'Sanitário adequado para alunos com necessidades especiais'),
 )
 
 DIRETOR_32 = (
-
+    ('0', 'Sim'),
+    ('1', 'Não'),
 )
 
 DIRETOR_33 = (
-
+    ('0', 'Manhã'),
+    ('1', 'Intermediário'),
+    ('2', 'Tarde'),
+    ('3', 'Noite'),
+    ('4', 'Integral'),
+    ('5', 'Internato'),
+    ('6', 'Educação Infantil'),
+    ('7', '1o a 5o ano do Ensino Fundamental'),
+    ('8', '6o a 9o ano do Ensino Fundamental'),
+    ('9', 'Ensino Médio'),
+    ('10', 'Educação de Jovens e Adultos'),
 )
 
 DIRETOR_34 = (
-
+    ('0', 'Sim'),
+    ('1', 'Não está em condições de uso'),
+    ('2', 'Não tem cozinha'),
 )
 
 DIRETOR_35 = (
-
+    ('0', 'Sim'),
+    ('1', 'Não está em condições de uso'),
+    ('2', 'Não tem refeitório'),
 )
 
 DIRETOR_36 = (
-
+    ('0', 'Sim'),
+    ('1', 'Não'),
 )
 
 DIRETOR_37 = (
-
+    ('0', 'Refrigerante'),
+    ('1', 'Suco ou refresco natural de frutas'),
+    ('2', 'Bebidas açucaradas (suco artificial, chá gelado, isotônicos, águas com sabor, energéticos, leite de soja etc. Não contar bebida láctea)'),
+    ('3', 'Leite ou bebida a base de leite (excluir leite de soja)'),
+    ('4', 'Salgados fritos (coxinha, pastel, quibe, batata frita etc)'),
+    ('5', 'Salgados assados (pastel, empada, esfirra etc)'),
+    ('6', 'Salgadinhos industrializados vendidos em pacotes, tipo “chips” e outros (incluindo batata frita de pacote)'),
+    ('7', 'Biscoitos ou bolachas salgadas ou doces, balas, confeitos, doces, chocolates, sorvetes, dim-dim, sacolé, chupe-chupe e outros'),
+    ('8', 'Sanduíches (cachorro quente, misto quente, hambúrguer etc)'),
+    ('9', 'Frutas frescas ou salada de frutas'),
 )
 
 DIRETOR_38 = (
-
+    ('0', 'Sim'),
+    ('1', 'Não'),
 )
 
 DIRETOR_39 = (
-
+    ('0', 'Refrigerante'),
+    ('1', 'Suco ou refresco natural de frutas'),
+    ('2', 'Bebidas açucaradas (suco artificial, chá gelado, isotônicos, águas com sabor, energéticos, leite de soja etc. Não contar bebida láctea)'),
+    ('3', 'Leite ou bebida a base de leite (excluir leite de soja)'),
+    ('4', 'Salgados fritos (coxinha, pastel, quibe, batata frita etc)'),
+    ('5', 'Salgados assados (pastel, empada, esfirra etc)'),
+    ('6', 'Salgadinhos industrializados vendidos em pacotes, tipo “chips” e outros (incluindo batata frita de pacote)'),
+    ('7', 'Biscoitos ou bolachas salgadas ou doces'),
+    ('8', 'Balas, confeitos, doces, chocolates, sorvetes, dim-dim, sacolé, chupe-chupe e outros'),
+    ('9', 'Sanduíches (cachorro quente, misto quente, hambúrguer etc)'),
+    ('10', 'Frutas frescas ou salada de frutas'),
 )
 
 DIRETOR_40 = (
-
+    ('0', 'Sim'),
+    ('1', 'Não'),
 )
 
 DIRETOR_41 = (
-
+    ('0', 'Sim'),
+    ('1', 'Não'),
+    ('2', 'Não tem água'),
 )
 
 DIRETOR_42 = (
-
+    ('0', 'Sim'),
+    ('1', 'Não'),
+    ('2', 'Não sabe'),
 )
 
 DIRETOR_43 = (
-
+    ('0', 'Rede de abastecimento de água'),
+    ('1', 'Poço ou nascente'),
+    ('2', 'Água de chuva (cisterna)'),
+    ('3', 'Açude, lago ou rio'),
+    ('4', 'Outra fonte'),
 )
 
 DIRETOR_44 = (
-
+    ('0', 'Sim'),
+    ('1', 'Não está em condições de uso'),
+    ('2', 'Não tem banheiro'),
 )
 
 DIRETOR_45 = (
-
+    ('0', 'Sim'),
+    ('1', 'Não estão em condições de uso'),
+    ('2', 'Não tem banheiros separados'),
 )
 
 DIRETOR_46 = (
-
+    ('0', 'Sim'),
+    ('1', 'Não'),
 )
 
 DIRETOR_47 = (
-
+    ('0', 'Sim'),
+    ('1', 'Não está em condições de uso'),
+    ('2', 'Não tem pia ou lavatório'),
 )
 
 DIRETOR_48 = (
-
+    ('0', 'Sim'),
+    ('1', 'Não'),
 )
 
 DIRETOR_49 = (
-
+    ('0', 'Nenhum dia por semana'),
+    ('1', '1 a 2 dias por semana'),
+    ('2', '3 a 4 dias por semana'),
+    ('3', '5 a 6 dias por semana'),
+    ('4', 'Todos os dias da semana'),
 )
 
 DIRETOR_50 = (
-
+    ('0', 'Sim'),
+    ('1', 'Não'),
 )
 
 DIRETOR_51 = (
-
+    ('0', 'Sim'),
+    ('1', 'Não (pular para a questão X)'),
 )
 
 DIRETOR_52 = (
-
+    ('0', 'Sim'),
+    ('1', 'Não'),
 )
 
 DIRETOR_53 = (
-
+    ('0', 'Todos os dias letivos'),
+    ('1', 'Uma vez por semana'),
+    ('2', 'Duas vezes por semana'),
+    ('3', 'Três ou mais vezes por semana'),
+    ('4', 'Uma vez por mês'),
+    ('5', 'Duas vezes por mês'),
+    ('6', 'Uma vez a cada dois meses'),
+    ('7', 'Uma vez a cada três meses'),
+    ('8', 'Uma vez por semestre'),
+    ('9', 'Uma vez por ano'),
 )
 
 DIRETOR_54 = (
-
+    ('0', 'Sim'),
+    ('1', 'Não'),
 )
 
 DIRETOR_55 = (
-
+    ('0', 'Todos os dias letivos'),
+    ('1', 'Uma vez por semana'),
+    ('2', 'Duas vezes por semana'),
+    ('3', 'Três ou mais vezes por semana'),
+    ('4', 'Uma vez por mês'),
+    ('5', 'Duas vezes por mês'),
+    ('6', 'Uma vez a cada dois meses'),
+    ('7', 'Uma vez a cada três meses'),
+    ('8', 'Uma vez por semestre'),
+    ('9', 'Uma vez por ano'),
 )
 
 DIRETOR_56 = (
-
+    ('0', 'Sim'),
+    ('1', 'Não'),
 )
 
 DIRETOR_57 = (
-
+    ('0', 'Todos os dias letivos'),
+    ('1', 'Uma vez por semana'),
+    ('2', 'Duas vezes por semana'),
+    ('3', 'Três ou mais vezes por semana'),
+    ('4', 'Uma vez por mês'),
+    ('5', 'Duas vezes por mês'),
+    ('6', 'Uma vez a cada dois meses'),
+    ('7', 'Uma vez a cada três meses'),
+    ('8', 'Uma vez por semestre'),
+    ('9', 'Uma vez por ano'),
 )
 
 DIRETOR_58 = (
-
+    ('0', 'Sim'),
+    ('1', 'Não'),
 )
 
 DIRETOR_59 = (
-
+    ('0', 'Sim'),
+    ('1', 'Não'),
 )
 
 DIRETOR_60 = (
-
+    ('0', 'Sim'),
+    ('1', 'Não'),
 )
 
 DIRETOR_61 = (
-
+    ('0', 'Sim'),
+    ('1', 'Não'),
 )
 
 DIRETOR_62 = (
-
+    ('0', 'Sim'),
+    ('1', 'Não'),
 )
 
 DIRETOR_63 = (
-
+    ('0', 'Mensalmente'),
+    ('1', 'Bimestralmente'),
+    ('2', 'Trimestralmente'),
+    ('3', 'Uma vez por ano'),
 )
 
 DIRETOR_64 = (
-
+    ('0', 'Sim'),
+    ('1', 'Não'),
 )
 
 DIRETOR_65 = (
-
+    ('0', 'Sim'),
+    ('1', 'Não'),
 )
 
 DIRETOR_66 = (
-
+    ('0', 'Nenhuma vez'),
+    ('1', 'Raramente'),
+    ('2', 'Às vezes'),
+    ('3', 'Na maior parte do tempo'),
+    ('4', 'Em todo período'),
 )
 
 DIRETOR_67 = (
-
+    ('0', 'Nenhuma vez'),
+    ('1', '1 vez'),
+    ('2', '2 a 4 vezes'),
+    ('3', '5 ou mais vezes'),
 )
 
 DIRETOR_68 = (
-
+    ('0', 'Sim'),
+    ('1', 'Não'),
 )
 
 DIRETOR_69 = (
-
+    ('0', 'Sim'),
+    ('1', 'Não'),
 )
 
 DIRETOR_70 = (
-
+    ('0', '2013'),
+    ('1', '2014'),
+    ('2', '2015'),
+    ('3', '2016'),
+    ('4', '2017'),
+    ('5', '2018'),
+    ('6', 'Não sei.'),
 )
 
 DIRETOR_71 = (
-
+    ('0', 'Sim'),
+    ('1', 'Não'),
 )
 
 DIRETOR_72 = (
-
+    ('0', 'Sim'),
+    ('1', 'Não'),
 )
 
 DIRETOR_73 = (
-
+    ('0', 'Sim'),
+    ('1', 'Não'),
 )
 
 DIRETOR_74 = (
-
+    ('0', 'Sim'),
+    ('1', 'Não'),
 )
 
 DIRETOR_75 = (
-
+    ('0', 'Sim'),
+    ('1', 'Não'),
 )
 
 DIRETOR_76 = (
-
+    ('0', 'Sim'),
+    ('1', 'Não'),
 )
 
 DIRETOR_77 = (
-
+    ('0', 'Sim'),
+    ('1', 'Não'),
 )
 
 DIRETOR_78 = (
-
+    ('0', 'Sim'),
+    ('1', 'Não'),
 )
 
 DIRETOR_79 = (
-
+    ('0', 'Sim'),
+    ('1', 'Não'),
 )
 
 DIRETOR_80 = (
-
+    ('0', 'Sim'),
+    ('1', 'Não'),
 )
 
 DIRETOR_81 = (
-
+    ('0', 'Sim'),
+    ('1', 'Não'),
 )
 
 DIRETOR_82 = (
-
+    ('0', 'Sim'),
+    ('1', 'Não'),
 )
 
 DIRETOR_83 = (
-
+    ('0', 'Sim'),
+    ('1', 'Não'),
 )
 
 DIRETOR_84 = (
-
+    ('0', 'Sim'),
+    ('1', 'Não'),
 )
