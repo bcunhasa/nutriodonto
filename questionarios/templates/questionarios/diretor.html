@@ -1,4 +1,5 @@
 {% load staticfiles %}
+{% load widget_tweaks %}
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -6,50 +7,1044 @@
   <head>
     <meta charset="utf-8">
     <link rel="icon" href="{% static 'index/img/favicon.ico' %}">
-    
-    {% if pagina_margarida_goncalves %}
-      <title>Questionário para o diretor da escola de T.I. Margarida Gonçalves</title>
-    {% elif pagina_carlos_jobim %}
-      <title>Questionário para o diretor da escola Antônio Carlos Jobim</title>
-    {% elif pagina_henrique_talone %}
-      <title>Questionário para o diretor da escola Henrique Talone Pinheiro</title>
-    {% elif pagina_anne_frank %}
-      <title>Questionário para o diretor da escola Anne Frank</title>
-    {% elif pagina_padre_josimo %}
-      <title>Questionário para o diretor da escola de T.I. Padre Josimo M. Tavares</title>
-    {% elif pagina_beatriz_rodrigues %}
-      <title>Questionário para o diretor da escola Beatriz Rodrigues da Silva</title>
-    {% elif pagina_mestre_pacifico %}
-      <title>Questionário para o diretor da escola Mestre Pacífico S. Campos</title>
-    {% elif pagina_luiz_gonzaga %}
-      <title>Questionário para o diretor da escola Luiz Gonzaga</title>
-    {% endif %}
+    <title>Questionário para o diretor de escola</title>
+    <link rel="stylesheet" href="{% static 'administracao/css/bootstrap.css' %}" id="bscss">
+    <link rel="stylesheet" type="text/css" href="{% static 'administracao/css/questionarios.css' %}">
+    <script src="{% static 'administracao/vendor/jquery/dist/jquery.js' %}"></script>
   </head>
 
   <body class="layout-fixed">
-    {% if pagina_margarida_goncalves %}
-      <form action="{% url 'questionarios:margarida_goncalves' %}" method="post">
-    {% elif pagina_carlos_jobim %}
-      <form action="{% url 'questionarios:carlos_jobim' %}" method="post">
-    {% elif pagina_henrique_talone %}
-      <form action="{% url 'questionarios:henrique_talone' %}" method="post">
-    {% elif pagina_anne_frank %}
-      <form action="{% url 'questionarios:anne_frank' %}" method="post">
-    {% elif pagina_padre_josimo %}
-      <form action="{% url 'questionarios:padre_josimo' %}" method="post">
-    {% elif pagina_beatriz_rodrigues %}
-      <form action="{% url 'questionarios:beatriz_rodrigues' %}" method="post">
-    {% elif pagina_mestre_pacifico %}
-      <form action="{% url 'questionarios:mestre_pacifico' %}" method="post">
-    {% elif pagina_luiz_gonzaga %}
-      <form action="{% url 'questionarios:luiz_gonzaga' %}" method="post">
-    {% endif %}
+    <div class="container panel-content">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <form action="{% url 'questionarios:diretor' %}" method="post">
+            
+            {% csrf_token %}
+            
+            <img src="{% static 'administracao/img/logo_ufv.png' %}" alt="Logo" class="center">
+            <h4>UNIVERSIDADE FEDERAL DE VIÇOSA</h4>
+            <h4>CENTRO DE CIÊNCIAS BIOLÓGICAS E DA SAÚDE</h4>
+            <h4>PROGRAMA DE PÓS-GRADUAÇÃO EM CIÊNCIA DA NUTRIÇÃO</h4>
+            
+            <p>
+              As perguntas a seguir referem-se ao ambiente escolar. Deverão ser preenchidas a partir de
+              entrevista realizada com o Diretor da Escola. Na sua falta poderá ser respondido pelo Vice-
+              Diretor ou outro indicado.
+            </p>
+            
+            <div class="form-group has-feedback">
+              <label class="control-label">Selecione a sua escola:</label>
+              {{ form.escola.errors }}
+              <div class="">
+                {% render_field form.escola class='form-control' type='text' placeholder='' %}
+              </div>
+              {% if form.escola.help_text %}
+                <p class="help">{{ field.help_text|safe }}</p>
+              {% endif %}
+            </div>
+            
+            {% render_field form.questao_1 class='form-control invisible' type='hidden' placeholder='' %}
+            
+            <div class="form-group has-feedback">
+              <label class="control-label">{{ form.questao_1.label }}</label>
+              <p class="dica">Clique enquanto mantém a tecla ctrl pressionada para selecionar mais de uma opção</p>
+              <div class="">
+                <select name="select_questao_1" class="form-control" id="select_questao_1" size="4" multiple="multiple">
+                  <option value="0">Manhã</option>
+                  <option value="1">Intermediário</option>
+                  <option value="2">Tarde</option>
+                  <option value="3">Noite</option>
+                </select>
+              </div>
+            </div>
+            
+            <div class="form-group has-feedback">
+              <label class="control-label">2. A escola funciona em regime integral?</label>
+              {{ form.questao_2.errors }}
+              <div class="">
+                {% render_field form.questao_2 class='form-control' type='text' placeholder='' %}
+              </div>
+              {% if form.questao_2.help_text %}
+                <p class="help">{{ field.help_text|safe }}</p>
+              {% endif %}
+            </div>
+            
+            {% render_field form.questao_3 class='form-control invisible' type='hidden' placeholder='' %}
+            
+            <div class="form-group has-feedback">
+              <label class="control-label">{{ form.questao_3.label }}</label>
+              <p class="dica">Clique enquanto mantém a tecla ctrl pressionada para selecionar mais de uma opção</p>
+              <div class="">
+                <select name="select_questao_3" class="form-control" id="select_questao_3" size="4" multiple="multiple">
+                  <option value="0">Educação Infantil (creche, pré-escola)</option>
+                  <option value="1">Ensino Fundamental (8 anos, 9 anos)</option>
+                  <option value="2">Ensino Médio (médio, integrado, normal/magistério, educação profissional)</option>
+                  <option value="3">Educação de Jovens e Adultos (fundamental, projovem urbano, médio)</option>
+                </select>
+              </div>
+            </div>
+            
+            <div class="form-group has-feedback">
+              <label class="control-label">4. Qual é o TOTAL de alunos matriculados?</label>
+              {{ form.questao_4.errors }}
+              <div class="">
+                {% render_field form.questao_4 class='form-control' type='text' placeholder='' %}
+              </div>
+              {% if form.questao_4.help_text %}
+                <p class="help">{{ field.help_text|safe }}</p>
+              {% endif %}
+            </div>
+            
+            <div class="form-group has-feedback">
+              <label class="control-label">5. Qual é a quantidade TOTAL de salas de aula da escola?</label>
+              {{ form.questao_5.errors }}
+              <div class="">
+                {% render_field form.questao_5 class='form-control' type='text' placeholder='' %}
+              </div>
+              {% if form.questao_5.help_text %}
+                <p class="help">{{ field.help_text|safe }}</p>
+              {% endif %}
+            </div>
+            
+            <div class="form-group has-feedback">
+              <label class="control-label">6. A escola tem biblioteca EM CONDIÇÕES DE USO?</label>
+              {{ form.questao_6.errors }}
+              <div class="">
+                {% render_field form.questao_6 class='form-control' type='text' placeholder='' %}
+              </div>
+              {% if form.questao_6.help_text %}
+                <p class="help">{{ field.help_text|safe }}</p>
+              {% endif %}
+            </div>
+            
+            <div class="form-group has-feedback">
+              <label class="control-label">7. A escola tem sala ou laboratório de informática EM CONDIÇÕES DE USO para os alunos?</label>
+              {{ form.questao_7.errors }}
+              <div class="">
+                {% render_field form.questao_7 class='form-control' type='text' placeholder='' %}
+              </div>
+              {% if form.questao_7.help_text %}
+                <p class="help">{{ field.help_text|safe }}</p>
+              {% endif %}
+            </div>
+            
+            <div class="form-group has-feedback">
+              <label class="control-label">8. Quantos computadores (desktops, laptops, notebooks, netbooks, tablets) da escola EM CONDIÇÕES DE USO estão disponíveis para os alunos em sala de aula e/ou salas específicas de informática?</label>
+              {{ form.questao_8.errors }}
+              <div class="">
+                {% render_field form.questao_8 class='form-control' type='text' placeholder='' %}
+              </div>
+              {% if form.questao_8.help_text %}
+                <p class="help">{{ field.help_text|safe }}</p>
+              {% endif %}
+            </div>
+            
+            <div class="form-group has-feedback">
+              <label class="control-label">9. Os alunos têm acesso à internet através de equipamentos da escola?</label>
+              {{ form.questao_9.errors }}
+              <div class="">
+                {% render_field form.questao_9 class='form-control' type='text' placeholder='' %}
+              </div>
+              {% if form.questao_9.help_text %}
+                <p class="help">{{ field.help_text|safe }}</p>
+              {% endif %}
+            </div>
+            
+            <div class="form-group has-feedback">
+              <label class="control-label">10. A escola tem sala de recursos de mídia/comunicação EM CONDIÇÕES DE USO? (Exemplos: televisão, videocassete, dvd, projetor etc)</label>
+              {{ form.questao_10.errors }}
+              <div class="">
+                {% render_field form.questao_10 class='form-control' type='text' placeholder='' %}
+              </div>
+              {% if form.questao_10.help_text %}
+                <p class="help">{{ field.help_text|safe }}</p>
+              {% endif %}
+            </div>
+            
+            <div class="form-group has-feedback">
+              <label class="control-label">11. A escola tem conselho escolar?</label>
+              {{ form.questao_11.errors }}
+              <div class="">
+                {% render_field form.questao_11 class='form-control' type='text' placeholder='' %}
+              </div>
+              {% if form.questao_11.help_text %}
+                <p class="help">{{ field.help_text|safe }}</p>
+              {% endif %}
+            </div>
+            
+            <div class="form-group has-feedback">
+              <label class="control-label">12. Com que frequência o conselho escolar se reúne?</label>
+              {{ form.questao_12.errors }}
+              <div class="">
+                {% render_field form.questao_12 class='form-control' type='text' placeholder='' %}
+              </div>
+              {% if form.questao_12.help_text %}
+                <p class="help">{{ field.help_text|safe }}</p>
+              {% endif %}
+            </div>
+            
+            <div class="form-group has-feedback">
+              <label class="control-label">13. A escola fica aberta nos finais de semana para uso da comunidade?</label>
+              {{ form.questao_13.errors }}
+              <div class="">
+                {% render_field form.questao_13 class='form-control' type='text' placeholder='' %}
+              </div>
+              {% if form.questao_13.help_text %}
+                <p class="help">{{ field.help_text|safe }}</p>
+              {% endif %}
+            </div>
+            
+            <div class="form-group has-feedback">
+              <label class="control-label">14. As ações desenvolvidas na escola, no final de semana, são pactuadas com a comunidade?</label>
+              {{ form.questao_14.errors }}
+              <div class="">
+                {% render_field form.questao_14 class='form-control' type='text' placeholder='' %}
+              </div>
+              {% if form.questao_14.help_text %}
+                <p class="help">{{ field.help_text|safe }}</p>
+              {% endif %}
+            </div>
+            
+            <h4 class="topico">PRÁTICA DE ESPORTES</h4>
+            
+            <div class="form-group has-feedback">
+              <label class="control-label">15. A escola tem quadra de esportes EM CONDIÇÕES DE USO?</label>
+              {{ form.questao_15.errors }}
+              <div class="">
+                {% render_field form.questao_15 class='form-control' type='text' placeholder='' %}
+              </div>
+              {% if form.questao_15.help_text %}
+                <p class="help">{{ field.help_text|safe }}</p>
+              {% endif %}
+            </div>
+            
+            <div class="form-group has-feedback">
+              <label class="control-label">16. Quantas quadras de esporte EM CONDIÇÕES DE USO a escola tem?</label>
+              {{ form.questao_16.errors }}
+              <div class="">
+                {% render_field form.questao_16 class='form-control' type='text' placeholder='' %}
+              </div>
+              {% if form.questao_16.help_text %}
+                <p class="help">{{ field.help_text|safe }}</p>
+              {% endif %}
+            </div>
+            
+            <div class="form-group has-feedback">
+              <label class="control-label">17. Quantas das quadras de esporte EM CONDIÇÕES DE USO da escola são cobertas?</label>
+              {{ form.questao_17.errors }}
+              <div class="">
+                {% render_field form.questao_17 class='form-control' type='text' placeholder='' %}
+              </div>
+              {% if form.questao_17.help_text %}
+                <p class="help">{{ field.help_text|safe }}</p>
+              {% endif %}
+            </div>
+            
+            <div class="form-group has-feedback">
+              <label class="control-label">18. A escola tem pista para corrida/atletismo EM CONDIÇÕES DE USO?</label>
+              {{ form.questao_18.errors }}
+              <div class="">
+                {% render_field form.questao_18 class='form-control' type='text' placeholder='' %}
+              </div>
+              {% if form.questao_18.help_text %}
+                <p class="help">{{ field.help_text|safe }}</p>
+              {% endif %}
+            </div>
+            
+            <div class="form-group has-feedback">
+              <label class="control-label">19. A escola tem piscina EM CONDIÇÕES DE USO?</label>
+              {{ form.questao_19.errors }}
+              <div class="">
+                {% render_field form.questao_19 class='form-control' type='text' placeholder='' %}
+              </div>
+              {% if form.questao_19.help_text %}
+                <p class="help">{{ field.help_text|safe }}</p>
+              {% endif %}
+            </div>
+            
+            <div class="form-group has-feedback">
+              <label class="control-label">20. O pátio da escola é utilizado para prática regular de atividade física com instrutor?</label>
+              {{ form.questao_20.errors }}
+              <div class="">
+                {% render_field form.questao_20 class='form-control' type='text' placeholder='' %}
+              </div>
+              {% if form.questao_20.help_text %}
+                <p class="help">{{ field.help_text|safe }}</p>
+              {% endif %}
+            </div>
+            
+            <div class="form-group has-feedback">
+              <label class="control-label">21. A escola tem material esportivo ou para jogos e brincadeiras EM CONDIÇÕES DE USO?</label>
+              {{ form.questao_21.errors }}
+              <div class="">
+                {% render_field form.questao_21 class='form-control' type='text' placeholder='' %}
+              </div>
+              {% if form.questao_21.help_text %}
+                <p class="help">{{ field.help_text|safe }}</p>
+              {% endif %}
+            </div>
+            
+            <div class="form-group has-feedback">
+              <label class="control-label">22. A escola tem vestiário EM CONDIÇÕES DE USO para os alunos?</label>
+              {{ form.questao_22.errors }}
+              <div class="">
+                {% render_field form.questao_22 class='form-control' type='text' placeholder='' %}
+              </div>
+              {% if form.questao_22.help_text %}
+                <p class="help">{{ field.help_text|safe }}</p>
+              {% endif %}
+            </div>
+            
+            <div class="form-group has-feedback">
+              <label class="control-label">23. A escola tem vestiários separados para alunos e alunas EM CONDIÇÕES DE USO?</label>
+              {{ form.questao_23.errors }}
+              <div class="">
+                {% render_field form.questao_23 class='form-control' type='text' placeholder='' %}
+              </div>
+              {% if form.questao_23.help_text %}
+                <p class="help">{{ field.help_text|safe }}</p>
+              {% endif %}
+            </div>
+            
+            <div class="form-group has-feedback">
+              <label class="control-label">24. A escola oferece atividades esportivas para os alunos fora do horário regular de aula?</label>
+              {{ form.questao_24.errors }}
+              <div class="">
+                {% render_field form.questao_24 class='form-control' type='text' placeholder='' %}
+              </div>
+              {% if form.questao_24.help_text %}
+                <p class="help">{{ field.help_text|safe }}</p>
+              {% endif %}
+            </div>
+            
+            <div class="form-group has-feedback">
+              <label class="control-label">25. A escola participa de jogos entre escolas?</label>
+              {{ form.questao_25.errors }}
+              <div class="">
+                {% render_field form.questao_25 class='form-control' type='text' placeholder='' %}
+              </div>
+              {% if form.questao_25.help_text %}
+                <p class="help">{{ field.help_text|safe }}</p>
+              {% endif %}
+            </div>
+            
+            <div class="form-group has-feedback">
+              <label class="control-label">26. A escola realiza jogos entre as classes, turmas ou turnos?</label>
+              {{ form.questao_26.errors }}
+              <div class="">
+                {% render_field form.questao_26 class='form-control' type='text' placeholder='' %}
+              </div>
+              {% if form.questao_26.help_text %}
+                <p class="help">{{ field.help_text|safe }}</p>
+              {% endif %}
+            </div>
+            
+            <h4 class="topico">ACESSIBILIDADE</h4>
+            
+            <div class="form-group has-feedback">
+              <label class="control-label">27. A escola possui alunos com deficiência ou com transtorno global do desenvolvimento?</label>
+              {{ form.questao_27.errors }}
+              <div class="">
+                {% render_field form.questao_27 class='form-control' type='text' placeholder='' %}
+              </div>
+              {% if form.questao_27.help_text %}
+                <p class="help">{{ field.help_text|safe }}</p>
+              {% endif %}
+            </div>
+            
+            {% render_field form.questao_28 class='form-control invisible' type='hidden' placeholder='' %}
+            
+            <div class="form-group has-feedback">
+              <label class="control-label">{{ form.questao_28.label }}</label>
+              <p class="dica">Clique enquanto mantém a tecla ctrl pressionada para selecionar mais de uma opção</p>
+              <div class="">
+                <select name="select_questao_28" class="form-control" id="select_questao_28" size="8" multiple="multiple">
+                  <option value="0">Deficiência intelectual</option>
+                  <option value="1">Transtornos do espectro do autismo</option>
+                  <option value="2">Transtornos mentais e de comportamento</option>
+                  <option value="3">Deficiência física</option>
+                  <option value="4">Deficiência auditiva</option>
+                  <option value="5">Deficiência visual</option>
+                  <option value="6">Deficiência múltipla (2 ou mais deficiências simultâneas)</option>
+                  <option value="7">Outros</option>
+                </select>
+              </div>
+            </div>
+            
+            <div class="form-group has-feedback">
+              <label class="control-label">29. A escola oferece atividade física adaptada para alunos com deficiência?</label>
+              {{ form.questao_29.errors }}
+              <div class="">
+                {% render_field form.questao_29 class='form-control' type='text' placeholder='' %}
+              </div>
+              {% if form.questao_29.help_text %}
+                <p class="help">{{ field.help_text|safe }}</p>
+              {% endif %}
+            </div>
+            
+            <div class="form-group has-feedback">
+              <label class="control-label">30. A escola possui estrutura para assegurar a acessibilidade dos alunos com necessidades especiais?</label>
+              {{ form.questao_30.errors }}
+              <div class="">
+                {% render_field form.questao_30 class='form-control' type='text' placeholder='' %}
+              </div>
+              {% if form.questao_30.help_text %}
+                <p class="help">{{ field.help_text|safe }}</p>
+              {% endif %}
+            </div>
+            
+            {% render_field form.questao_31 class='form-control invisible' type='hidden' placeholder='' %}
+            
+            <div class="form-group has-feedback">
+              <label class="control-label">{{ form.questao_31.label }}</label>
+              <p class="dica">Clique enquanto mantém a tecla ctrl pressionada para selecionar mais de uma opção</p>
+              <div class="">
+                <select name="select_questao_31" class="form-control" id="select_questao_31" size="4" multiple="multiple">
+                  <option value="0">Rampas de acesso</option>
+                  <option value="1">Interior adequado para locomoção</option>
+                  <option value="2">Móveis adequados para alunos com necessidades especiais</option>
+                  <option value="3">Sanitário adequado para alunos com necessidades especiais</option>
+                </select>
+              </div>
+            </div>
+            
+            <h4 class="topico">ALIMENTAÇÃO</h4>
+            
+            <div class="form-group has-feedback">
+              <label class="control-label">32. A escola oferece comida (merenda escolar / almoço) para os estudantes?</label>
+              {{ form.questao_32.errors }}
+              <div class="">
+                {% render_field form.questao_32 class='form-control' type='text' placeholder='' %}
+              </div>
+              {% if form.questao_32.help_text %}
+                <p class="help">{{ field.help_text|safe }}</p>
+              {% endif %}
+            </div>
+            
+            {% render_field form.questao_33 class='form-control invisible' type='hidden' placeholder='' %}
+            
+            <div class="form-group has-feedback">
+              <label class="control-label">{{ form.questao_33.label }}</label>
+              <p class="dica">Clique enquanto mantém a tecla ctrl pressionada para selecionar mais de uma opção</p>
+              <div class="">
+                <select name="select_questao_33" class="form-control" id="select_questao_33" size="11" multiple="multiple">
+                  <option value="0">Manhã</option>
+                  <option value="1">Intermediário</option>
+                  <option value="2">Tarde</option>
+                  <option value="3">Noite</option>
+                  <option value="4">Integral</option>
+                  <option value="5">Internato</option>
+                  <option value="6">Educação Infantil</option>
+                  <option value="7">1o a 5o ano do Ensino Fundamental</option>
+                  <option value="8">6o a 9o ano do Ensino Fundamental</option>
+                  <option value="9">Ensino Médio</option>
+                  <option value="10">Educação de Jovens e Adultos</option>
+                </select>
+              </div>
+            </div>
+            
+            <div class="form-group has-feedback">
+              <label class="control-label">34. A escola tem cozinha EM CONDIÇÕES DE USO?</label>
+              {{ form.questao_34.errors }}
+              <div class="">
+                {% render_field form.questao_34 class='form-control' type='text' placeholder='' %}
+              </div>
+              {% if form.questao_34.help_text %}
+                <p class="help">{{ field.help_text|safe }}</p>
+              {% endif %}
+            </div>
+            
+            <div class="form-group has-feedback">
+              <label class="control-label">35. A escola tem refeitório EM CONDIÇÕES DE USO? (espaço exclusivo para servir alimentação)</label>
+              {{ form.questao_35.errors }}
+              <div class="">
+                {% render_field form.questao_35 class='form-control' type='text' placeholder='' %}
+              </div>
+              {% if form.questao_35.help_text %}
+                <p class="help">{{ field.help_text|safe }}</p>
+              {% endif %}
+            </div>
+            
+            <div class="form-group has-feedback">
+              <label class="control-label">36. A escola tem cantina?</label>
+              {{ form.questao_36.errors }}
+              <div class="">
+                {% render_field form.questao_36 class='form-control' type='text' placeholder='' %}
+              </div>
+              {% if form.questao_36.help_text %}
+                <p class="help">{{ field.help_text|safe }}</p>
+              {% endif %}
+            </div>
+            
+            {% render_field form.questao_37 class='form-control invisible' type='hidden' placeholder='' %}
+            
+            <div class="form-group has-feedback">
+              <label class="control-label">{{ form.questao_37.label }}</label>
+              <p class="dica">Clique enquanto mantém a tecla ctrl pressionada para selecionar mais de uma opção</p>
+              <div class="">
+                <select name="select_questao_37" class="form-control" id="select_questao_37" size="10" multiple="multiple">
+                  <option value="0">Refrigerante</option>
+                  <option value="1">Suco ou refresco natural de frutas</option>
+                  <option value="2">Bebidas açucaradas (suco artificial, chá gelado, isotônicos, águas com sabor, energéticos, leite de soja etc. Não contar bebida láctea)</option>
+                  <option value="3">Leite ou bebida a base de leite (excluir leite de soja)</option>
+                  <option value="4">Salgados fritos (coxinha, pastel, quibe, batata frita etc)</option>
+                  <option value="5">Salgados assados (pastel, empada, esfirra etc)</option>
+                  <option value="6">Salgadinhos industrializados vendidos em pacotes, tipo “chips” e outros (incluindo batata frita de pacote)</option>
+                  <option value="7">Biscoitos ou bolachas salgadas ou doces, balas, confeitos, doces, chocolates, sorvetes, dim-dim, sacolé, chupe-chupe e outros</option>
+                  <option value="8">Sanduíches (cachorro quente, misto quente, hambúrguer etc)</option>
+                  <option value="9">Frutas frescas ou salada de frutas</option>
+                </select>
+              </div>
+            </div>
+            
+            <div class="form-group has-feedback">
+              <label class="control-label">38. Existe algum ponto alternativo de venda de produtos alimentícios dentro ou na entrada da escola? (ex: ambulante/carrocinha)</label>
+              {{ form.questao_38.errors }}
+              <div class="">
+                {% render_field form.questao_38 class='form-control' type='text' placeholder='' %}
+              </div>
+              {% if form.questao_38.help_text %}
+                <p class="help">{{ field.help_text|safe }}</p>
+              {% endif %}
+            </div>
+            
+            {% render_field form.questao_39 class='form-control invisible' type='hidden' placeholder='' %}
+            
+            <div class="form-group has-feedback">
+              <label class="control-label">{{ form.questao_39.label }}</label>
+              <p class="dica">Clique enquanto mantém a tecla ctrl pressionada para selecionar mais de uma opção</p>
+              <div class="">
+                <select name="select_questao_39" class="form-control" id="select_questao_39" size="11" multiple="multiple">
+                  <option value="0">Refrigerante</option>
+                  <option value="1">Suco ou refresco natural de frutas</option>
+                  <option value="2">Bebidas açucaradas (suco artificial, chá gelado, isotônicos, águas com sabor, energéticos, leite de soja etc. Não contar bebida láctea)</option>
+                  <option value="3">Leite ou bebida a base de leite (excluir leite de soja)</option>
+                  <option value="4">Salgados fritos (coxinha, pastel, quibe, batata frita etc)</option>
+                  <option value="5">Salgados assados (pastel, empada, esfirra etc)</option>
+                  <option value="6">Salgadinhos industrializados vendidos em pacotes, tipo “chips” e outros (incluindo batata frita de pacote)</option>
+                  <option value="7">Biscoitos ou bolachas salgadas ou doces</option>
+                  <option value="8">Balas, confeitos, doces, chocolates, sorvetes, dim-dim, sacolé, chupe-chupe e outros</option>
+                  <option value="9">Sanduíches (cachorro quente, misto quente, hambúrguer etc)</option>
+                  <option value="10">Frutas frescas ou salada de frutas</option>
+                </select>
+              </div>
+            </div>
+            
+            <div class="form-group has-feedback">
+              <label class="control-label">40. A escola tem horta?</label>
+              {{ form.questao_40.errors }}
+              <div class="">
+                {% render_field form.questao_40 class='form-control' type='text' placeholder='' %}
+              </div>
+              {% if form.questao_40.help_text %}
+                <p class="help">{{ field.help_text|safe }}</p>
+              {% endif %}
+            </div>
+            
+            <h4 class="topico">SANEAMENTO BÁSICO E HIGIENE</h4>
+            
+            <div class="form-group has-feedback">
+              <label class="control-label">41. A escola tem água potável (adequada para beber) para uso dos alunos?</label>
+              {{ form.questao_41.errors }}
+              <div class="">
+                {% render_field form.questao_41 class='form-control' type='text' placeholder='' %}
+              </div>
+              {% if form.questao_41.help_text %}
+                <p class="help">{{ field.help_text|safe }}</p>
+              {% endif %}
+            </div>
+            
+            <div class="form-group has-feedback">
+              <label class="control-label">42. NOS ÚLTIMOS 12 MESES, alguma vez a água da escola foi testada quanto a sua potabilidade (se é adequada para beber)?</label>
+              {{ form.questao_42.errors }}
+              <div class="">
+                {% render_field form.questao_42 class='form-control' type='text' placeholder='' %}
+              </div>
+              {% if form.questao_42.help_text %}
+                <p class="help">{{ field.help_text|safe }}</p>
+              {% endif %}
+            </div>
+            
+            <div class="form-group has-feedback">
+              <label class="control-label">43. Qual é a principal fonte de água potável (adequada para beber) da escola?</label>
+              {{ form.questao_43.errors }}
+              <div class="">
+                {% render_field form.questao_43 class='form-control' type='text' placeholder='' %}
+              </div>
+              {% if form.questao_43.help_text %}
+                <p class="help">{{ field.help_text|safe }}</p>
+              {% endif %}
+            </div>
+            
+            <div class="form-group has-feedback">
+              <label class="control-label">44. A escola tem banheiros EM CONDIÇÕES DE USO?</label>
+              {{ form.questao_44.errors }}
+              <div class="">
+                {% render_field form.questao_44 class='form-control' type='text' placeholder='' %}
+              </div>
+              {% if form.questao_44.help_text %}
+                <p class="help">{{ field.help_text|safe }}</p>
+              {% endif %}
+            </div>
+            
+            <div class="form-group has-feedback">
+              <label class="control-label">45. A escola tem banheiros separados para alunos e alunas EM CONDIÇÕES DE USO?</label>
+              {{ form.questao_45.errors }}
+              <div class="">
+                {% render_field form.questao_45 class='form-control' type='text' placeholder='' %}
+              </div>
+              {% if form.questao_45.help_text %}
+                <p class="help">{{ field.help_text|safe }}</p>
+              {% endif %}
+            </div>
+            
+            <div class="form-group has-feedback">
+              <label class="control-label">46. A escola oferece papel higiênico para uso nos banheiros da escola?</label>
+              {{ form.questao_46.errors }}
+              <div class="">
+                {% render_field form.questao_46 class='form-control' type='text' placeholder='' %}
+              </div>
+              {% if form.questao_46.help_text %}
+                <p class="help">{{ field.help_text|safe }}</p>
+              {% endif %}
+            </div>
+            
+            <div class="form-group has-feedback">
+              <label class="control-label">47. A escola tem pia ou lavatório EM CONDIÇÕES DE USO onde os estudantes possam lavar as mãos depois de ir ao banheiro e/ou antes das refeições?</label>
+              {{ form.questao_47.errors }}
+              <div class="">
+                {% render_field form.questao_47 class='form-control' type='text' placeholder='' %}
+              </div>
+              {% if form.questao_47.help_text %}
+                <p class="help">{{ field.help_text|safe }}</p>
+              {% endif %}
+            </div>
+            
+            <div class="form-group has-feedback">
+              <label class="control-label">48. A escola oferece sabão para que os alunos lavem as mãos após usar o banheiro e/ou antes das refeições?</label>
+              {{ form.questao_48.errors }}
+              <div class="">
+                {% render_field form.questao_48 class='form-control' type='text' placeholder='' %}
+              </div>
+              {% if form.questao_48.help_text %}
+                <p class="help">{{ field.help_text|safe }}</p>
+              {% endif %}
+            </div>
+            
+            <div class="form-group has-feedback">
+              <label class="control-label">49. Normalmente, com que frequência a remoção do lixo é feita pela escola?</label>
+              {{ form.questao_49.errors }}
+              <div class="">
+                {% render_field form.questao_49 class='form-control' type='text' placeholder='' %}
+              </div>
+              {% if form.questao_49.help_text %}
+                <p class="help">{{ field.help_text|safe }}</p>
+              {% endif %}
+            </div>
+            
+            <div class="form-group has-feedback">
+              <label class="control-label">50. A escola tem escovódromo?</label>
+              {{ form.questao_50.errors }}
+              <div class="">
+                {% render_field form.questao_50 class='form-control' type='text' placeholder='' %}
+              </div>
+              {% if form.questao_50.help_text %}
+                <p class="help">{{ field.help_text|safe }}</p>
+              {% endif %}
+            </div>
+            
+            <h4 class="topico">SAÚDE BUCAL NA ESCOLA</h4>
+            
+            <div class="form-group has-feedback">
+              <label class="control-label">51. A escola realiza alguma Ação de Saúde Bucal?</label>
+              {{ form.questao_51.errors }}
+              <div class="">
+                {% render_field form.questao_51 class='form-control' type='text' placeholder='' %}
+              </div>
+              {% if form.questao_51.help_text %}
+                <p class="help">{{ field.help_text|safe }}</p>
+              {% endif %}
+            </div>
+            
+            <div class="form-group has-feedback">
+              <label class="control-label">52. Escovação dental supervisionada</label>
+              {{ form.questao_52.errors }}
+              <div class="">
+                {% render_field form.questao_52 class='form-control' type='text' placeholder='' %}
+              </div>
+              {% if form.questao_52.help_text %}
+                <p class="help">{{ field.help_text|safe }}</p>
+              {% endif %}
+            </div>
+            
+            <div class="form-group has-feedback">
+              <label class="control-label">53. Caso positivo, com qual frequência?</label>
+              {{ form.questao_53.errors }}
+              <div class="">
+                {% render_field form.questao_53 class='form-control' type='text' placeholder='' %}
+              </div>
+              {% if form.questao_53.help_text %}
+                <p class="help">{{ field.help_text|safe }}</p>
+              {% endif %}
+            </div>
+            
+            <div class="form-group has-feedback">
+              <label class="control-label">54. Aplicação Tópica de Flúor</label>
+              {{ form.questao_54.errors }}
+              <div class="">
+                {% render_field form.questao_54 class='form-control' type='text' placeholder='' %}
+              </div>
+              {% if form.questao_54.help_text %}
+                <p class="help">{{ field.help_text|safe }}</p>
+              {% endif %}
+            </div>
+            
+            <div class="form-group has-feedback">
+              <label class="control-label">55. Caso positivo, com qual frequência?</label>
+              {{ form.questao_55.errors }}
+              <div class="">
+                {% render_field form.questao_55 class='form-control' type='text' placeholder='' %}
+              </div>
+              {% if form.questao_55.help_text %}
+                <p class="help">{{ field.help_text|safe }}</p>
+              {% endif %}
+            </div>
+            
+            <div class="form-group has-feedback">
+              <label class="control-label">56. Bochechos fluorados</label>
+              {{ form.questao_56.errors }}
+              <div class="">
+                {% render_field form.questao_56 class='form-control' type='text' placeholder='' %}
+              </div>
+              {% if form.questao_56.help_text %}
+                <p class="help">{{ field.help_text|safe }}</p>
+              {% endif %}
+            </div>
+            
+            <div class="form-group has-feedback">
+              <label class="control-label">57. Caso positivo, com qual frequência?</label>
+              {{ form.questao_57.errors }}
+              <div class="">
+                {% render_field form.questao_57 class='form-control' type='text' placeholder='' %}
+              </div>
+              {% if form.questao_57.help_text %}
+                <p class="help">{{ field.help_text|safe }}</p>
+              {% endif %}
+            </div>
+            
+            <div class="form-group has-feedback">
+              <label class="control-label">58. A escola realiza ação de Educação em Saúde Bucal?</label>
+              {{ form.questao_58.errors }}
+              <div class="">
+                {% render_field form.questao_58 class='form-control' type='text' placeholder='' %}
+              </div>
+              {% if form.questao_58.help_text %}
+                <p class="help">{{ field.help_text|safe }}</p>
+              {% endif %}
+            </div>
+            
+            <div class="form-group has-feedback">
+              <label class="control-label">59. Estas ações estão incluídas no currículo escolar?</label>
+              {{ form.questao_59.errors }}
+              <div class="">
+                {% render_field form.questao_59 class='form-control' type='text' placeholder='' %}
+              </div>
+              {% if form.questao_59.help_text %}
+                <p class="help">{{ field.help_text|safe }}</p>
+              {% endif %}
+            </div>
+            
+            <div class="form-group has-feedback">
+              <label class="control-label">60. Sua escola já realizou Levantamento Epidemiológico sobre cárie dentária?</label>
+              {{ form.questao_60.errors }}
+              <div class="">
+                {% render_field form.questao_60 class='form-control' type='text' placeholder='' %}
+              </div>
+              {% if form.questao_60.help_text %}
+                <p class="help">{{ field.help_text|safe }}</p>
+              {% endif %}
+            </div>
+            
+            <div class="form-group has-feedback">
+              <label class="control-label">61. Caso positivo você conhece (eu) os resultados?</label>
+              {{ form.questao_61.errors }}
+              <div class="">
+                {% render_field form.questao_61 class='form-control' type='text' placeholder='' %}
+              </div>
+              {% if form.questao_61.help_text %}
+                <p class="help">{{ field.help_text|safe }}</p>
+              {% endif %}
+            </div>
+            
+            <div class="form-group has-feedback">
+              <label class="control-label">62. Sua escola disponibiliza escovas dentais para os estudantes?</label>
+              {{ form.questao_62.errors }}
+              <div class="">
+                {% render_field form.questao_62 class='form-control' type='text' placeholder='' %}
+              </div>
+              {% if form.questao_62.help_text %}
+                <p class="help">{{ field.help_text|safe }}</p>
+              {% endif %}
+            </div>
+            
+            <div class="form-group has-feedback">
+              <label class="control-label">63. Caso positivo, com qual frequência?</label>
+              {{ form.questao_63.errors }}
+              <div class="">
+                {% render_field form.questao_63 class='form-control' type='text' placeholder='' %}
+              </div>
+              {% if form.questao_63.help_text %}
+                <p class="help">{{ field.help_text|safe }}</p>
+              {% endif %}
+            </div>
+            
+            <div class="form-group has-feedback">
+              <label class="control-label">64. Sua escola disponibiliza creme dental para os estudantes?</label>
+              {{ form.questao_64.errors }}
+              <div class="">
+                {% render_field form.questao_64 class='form-control' type='text' placeholder='' %}
+              </div>
+              {% if form.questao_64.help_text %}
+                <p class="help">{{ field.help_text|safe }}</p>
+              {% endif %}
+            </div>
+            
+            <div class="form-group has-feedback">
+              <label class="control-label">65. Sua escola disponibiliza fio dental para os estudantes?</label>
+              {{ form.questao_65.errors }}
+              <div class="">
+                {% render_field form.questao_65 class='form-control' type='text' placeholder='' %}
+              </div>
+              {% if form.questao_65.help_text %}
+                <p class="help">{{ field.help_text|safe }}</p>
+              {% endif %}
+            </div>
+            
+            <h4 class="topico">SEGURANÇA</h4>
+            
+            <div class="form-group has-feedback">
+              <label class="control-label">66. NOS ÚLTIMOS 12 MESES, com que frequência, a localidade onde a escola está situada foi considerada área de risco em termos de violência (roubos, furtos, assaltos, troca de tiros, consumo de drogas, homicídios etc)?</label>
+              {{ form.questao_66.errors }}
+              <div class="">
+                {% render_field form.questao_66 class='form-control' type='text' placeholder='' %}
+              </div>
+              {% if form.questao_66.help_text %}
+                <p class="help">{{ field.help_text|safe }}</p>
+              {% endif %}
+            </div>
+            
+            <div class="form-group has-feedback">
+              <label class="control-label">67. NOS ÚLTIMOS 12 MESES, a escola teve que suspender ou interromper suas aulas por motivo de segurança em termos de violência?</label>
+              {{ form.questao_67.errors }}
+              <div class="">
+                {% render_field form.questao_67 class='form-control' type='text' placeholder='' %}
+              </div>
+              {% if form.questao_67.help_text %}
+                <p class="help">{{ field.help_text|safe }}</p>
+              {% endif %}
+            </div>
+            
+            <h4 class="topico">POLÍTICAS DE SAÚDE</h4>
+            
+            <div class="form-group has-feedback">
+              <label class="control-label">68. A escola tem algum grupo ou comitê responsável por orientar ou coordenar ações e/ou atividades relacionadas à saúde?</label>
+              {{ form.questao_68.errors }}
+              <div class="">
+                {% render_field form.questao_68 class='form-control' type='text' placeholder='' %}
+              </div>
+              {% if form.questao_68.help_text %}
+                <p class="help">{{ field.help_text|safe }}</p>
+              {% endif %}
+            </div>
+            
+            <div class="form-group has-feedback">
+              <label class="control-label">69. A escola aderiu ao Programa Saúde da Escola (PSE)?</label>
+              {{ form.questao_69.errors }}
+              <div class="">
+                {% render_field form.questao_69 class='form-control' type='text' placeholder='' %}
+              </div>
+              {% if form.questao_69.help_text %}
+                <p class="help">{{ field.help_text|safe }}</p>
+              {% endif %}
+            </div>
+            
+            <div class="form-group has-feedback">
+              <label class="control-label">70. Caso positivo, qual o ano da adesão da escola ao Programa Saúde na Escola (PSE)?</label>
+              {{ form.questao_70.errors }}
+              <div class="">
+                {% render_field form.questao_70 class='form-control' type='text' placeholder='' %}
+              </div>
+              {% if form.questao_70.help_text %}
+                <p class="help">{{ field.help_text|safe }}</p>
+              {% endif %}
+            </div>
+            
+            <div class="form-group has-feedback">
+              <label class="control-label">71. A escola implementa ações do Programa Saúde da Escola (PSE)?</label>
+              {{ form.questao_71.errors }}
+              <div class="">
+                {% render_field form.questao_71 class='form-control' type='text' placeholder='' %}
+              </div>
+              {% if form.questao_71.help_text %}
+                <p class="help">{{ field.help_text|safe }}</p>
+              {% endif %}
+            </div>
+            
+            <div class="form-group has-feedback">
+              <label class="control-label">72. A escola implementa ações do Programa Mais Educação?</label>
+              {{ form.questao_72.errors }}
+              <div class="">
+                {% render_field form.questao_72 class='form-control' type='text' placeholder='' %}
+              </div>
+              {% if form.questao_72.help_text %}
+                <p class="help">{{ field.help_text|safe }}</p>
+              {% endif %}
+            </div>
+            
+            <div class="form-group has-feedback">
+              <label class="control-label">73. A escola realiza ações conjuntas com Unidade Básica de Saúde ou Equipe de Saúde da Família ou Equipe de Atenção Básica?</label>
+              {{ form.questao_73.errors }}
+              <div class="">
+                {% render_field form.questao_73 class='form-control' type='text' placeholder='' %}
+              </div>
+              {% if form.questao_73.help_text %}
+                <p class="help">{{ field.help_text|safe }}</p>
+              {% endif %}
+            </div>
+            
+            <div class="form-group has-feedback">
+              <label class="control-label">74. A escola mantém registros sobre a caderneta de vacinação dos escolares?</label>
+              {{ form.questao_74.errors }}
+              <div class="">
+                {% render_field form.questao_74 class='form-control' type='text' placeholder='' %}
+              </div>
+              {% if form.questao_74.help_text %}
+                <p class="help">{{ field.help_text|safe }}</p>
+              {% endif %}
+            </div>
+            
+            <div class="form-group has-feedback">
+              <label class="control-label">75. A escola mantém outros registros sobre a saúde dos escolares? (histórico clínico,ocorrência de alergias, acidentes, tipo sanguíneo, doenças etc)</label>
+              {{ form.questao_75.errors }}
+              <div class="">
+                {% render_field form.questao_75 class='form-control' type='text' placeholder='' %}
+              </div>
+              {% if form.questao_75.help_text %}
+                <p class="help">{{ field.help_text|safe }}</p>
+              {% endif %}
+            </div>
+            
+            <div class="form-group has-feedback">
+              <label class="control-label">76. A escola tem material e/ou medicamentos de Primeiros Socorros mantidos em local adequado?</label>
+              {{ form.questao_76.errors }}
+              <div class="">
+                {% render_field form.questao_76 class='form-control' type='text' placeholder='' %}
+              </div>
+              {% if form.questao_76.help_text %}
+                <p class="help">{{ field.help_text|safe }}</p>
+              {% endif %}
+            </div>
+            
+            <div class="form-group has-feedback">
+              <label class="control-label">77. A escola tem conhecimento de consumo de cigarro por professores nas suas dependências?</label>
+              {{ form.questao_77.errors }}
+              <div class="">
+                {% render_field form.questao_77 class='form-control' type='text' placeholder='' %}
+              </div>
+              {% if form.questao_77.help_text %}
+                <p class="help">{{ field.help_text|safe }}</p>
+              {% endif %}
+            </div>
+            
+            <div class="form-group has-feedback">
+              <label class="control-label">78. A escola tem conhecimento de consumo de cigarro por alunos nas suas dependências?</label>
+              {{ form.questao_78.errors }}
+              <div class="">
+                {% render_field form.questao_78 class='form-control' type='text' placeholder='' %}
+              </div>
+              {% if form.questao_78.help_text %}
+                <p class="help">{{ field.help_text|safe }}</p>
+              {% endif %}
+            </div>
+            
+            <div class="form-group has-feedback">
+              <label class="control-label">79. A escola tem alguma política, norma ou regra escrita que proíba o uso do tabaco nas suas dependências?</label>
+              {{ form.questao_79.errors }}
+              <div class="">
+                {% render_field form.questao_79 class='form-control' type='text' placeholder='' %}
+              </div>
+              {% if form.questao_79.help_text %}
+                <p class="help">{{ field.help_text|safe }}</p>
+              {% endif %}
+            </div>
+            
+            <div class="form-group has-feedback">
+              <label class="control-label">80. A escola tem alguma política, norma ou regra escrita que proíba o uso de drogas ilícitas nas suas dependências?</label>
+              {{ form.questao_80.errors }}
+              <div class="">
+                {% render_field form.questao_80 class='form-control' type='text' placeholder='' %}
+              </div>
+              {% if form.questao_80.help_text %}
+                <p class="help">{{ field.help_text|safe }}</p>
+              {% endif %}
+            </div>
+            
+            <div class="form-group has-feedback">
+              <label class="control-label">81. A escola tem alguma política, norma ou regra escrita que proíba bullying nas suas dependências?</label>
+              {{ form.questao_81.errors }}
+              <div class="">
+                {% render_field form.questao_81 class='form-control' type='text' placeholder='' %}
+              </div>
+              {% if form.questao_81.help_text %}
+                <p class="help">{{ field.help_text|safe }}</p>
+              {% endif %}
+            </div>
+            
+            <div class="form-group has-feedback">
+              <label class="control-label">82. A escola tem alguma política, norma ou regra escrita que proíba brigas nas suas dependências?</label>
+              {{ form.questao_82.errors }}
+              <div class="">
+                {% render_field form.questao_82 class='form-control' type='text' placeholder='' %}
+              </div>
+              {% if form.questao_82.help_text %}
+                <p class="help">{{ field.help_text|safe }}</p>
+              {% endif %}
+            </div>
+            
+            <div class="form-group has-feedback">
+              <label class="control-label">83. A escola tem alguma política, norma ou regra escrita que proíba punição física dos estudantes pelos professores ou funcionários nas suas dependências?</label>
+              {{ form.questao_83.errors }}
+              <div class="">
+                {% render_field form.questao_83 class='form-control' type='text' placeholder='' %}
+              </div>
+              {% if form.questao_83.help_text %}
+                <p class="help">{{ field.help_text|safe }}</p>
+              {% endif %}
+            </div>
+            
+            <div class="form-group has-feedback">
+              <label class="control-label">84. A escola está situada em área de vulnerabilidade social?</label>
+              {{ form.questao_84.errors }}
+              <div class="">
+                {% render_field form.questao_84 class='form-control' type='text' placeholder='' %}
+              </div>
+              {% if form.questao_84.help_text %}
+                <p class="help">{{ field.help_text|safe }}</p>
+              {% endif %}
+            </div>
+            
+            <div class="form-group">
+              <div class="">
+                <button class="btn btn-sm btn-primary" type="submit" name="submit" onclick="salvaQuestoes()">Submeter</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
     
-      {% csrf_token %}
-      {{ form.as_p }}
-      
-      <input type="submit" value="Submeter formulário">
-    </form>
+    <script src="{% static 'administracao/js/questionarios.js' %}"></script>
+    <script src="{% static 'administracao/vendor/bootstrap/dist/js/bootstrap.js' %}"></script>
   </body>
 
 </html>

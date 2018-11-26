@@ -5,12 +5,23 @@
 
   <head>
     <meta charset="utf-8">
+    <link rel="icon" href="{% static 'index/img/favicon.ico' %}">
     <title>Confirmação de envio</title>
+    <link rel="stylesheet" href="{% static 'administracao/css/bootstrap.css' %}" id="bscss">
+    <link rel="stylesheet" type="text/css" href="{% static 'administracao/css/questionarios.css' %}">
+    <script src="{% static 'administracao/vendor/jquery/dist/jquery.js' %}"></script>
   </head>
 
   <body class="layout-fixed">
-    <p>O formulário foi enviado com sucesso!</p>
-    <p>Obrigado por participar da pesquisa.</p>
+    <div class="container panel-content">
+      <div class="panel panel-default">
+        <img src="{% static 'administracao/img/logo_ufv.png' %}" alt="Logo" class="center espacamento-img">
+        <p class="paragrafo-confirmacao">O formulário foi enviado com sucesso!</p>
+        <p class="paragrafo-confirmacao espacamento-p">Obrigado por participar da pesquisa.</p>
+      </div>
+    </div>
+    
+    <script src="{% static 'administracao/vendor/bootstrap/dist/js/bootstrap.js' %}"></script>
   </body>
 
 </html>

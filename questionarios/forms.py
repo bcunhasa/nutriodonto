@@ -8,4 +8,4 @@ class DiretorForm(forms.ModelForm):
     
     class Meta:
         model = Diretor
-        fields = '__all__'
+        exclude = ('data',)
