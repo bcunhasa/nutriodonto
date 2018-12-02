@@ -214,7 +214,7 @@ class Questionario(models.Model):
 
     def __str__(self):
         """Devolve a representação do modelo em string"""
-        return self.nome
+        return self.aluno.numero_identificacao
 
 
 class Exame(models.Model):
