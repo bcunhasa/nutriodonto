@@ -33,10 +33,10 @@
           <div class="navbar-header">
             <a class="navbar-brand" href="{% url 'administracao:index' %}">
               <div class="brand-logo">
-                <img width="42" class="img-responsive" src="{% static 'administracao/img/logo.jpg' %}" alt="App Logo">
+                <img width="42" class="img-responsive block-center img-rounded" src="{% static 'administracao/img/logo.jpg' %}" alt="App Logo">
               </div>
               <div class="brand-logo-collapsed">
-                <img width="42" class="img-responsive" src="{% static 'administracao/img/logo.jpg' %}" alt="App Logo">
+                <img width="42" class="img-responsive block-center img-rounded" src="{% static 'administracao/img/logo.jpg' %}" alt="App Logo">
               </div>
             </a>
           </div>
@@ -96,10 +96,33 @@
                 </a>
               </li>
               <li class="{% if pagina_graficos %} active {% endif %}">
-                <a href="{% url 'administracao:graficos' %}" title="Gráficos">
+                <a href="#graficos" title="Gráficos" data-toggle="collapse">
                   <em class="fa fa-pie-chart"></em>
-                  <span data-localize="sidebar.nav.SINGLEVIEW">Gráficos</span>
+                  <span data-localize="sidebar.nav.menu.MENU">Gráficos</span>
                 </a>
+                <ul class="nav sidebar-subnav {% if not pagina_graficos %} collapse {% endif %}" id="graficos">
+                  <li class="sidebar-subnav-header">Gráficos</li>
+                  <li class="{% if pagina_graficos_alunos %} active {% endif %}">
+                    <a href="{% url 'administracao:graficos_alunos' %}" title="Alunos">
+                      <span data-localize="sidebar.nav.menu.SUBMENU">Alunos</span>
+                    </a>
+                  </li>
+                  <li class="{% if pagina_graficos_questionarios %} active {% endif %}">
+                    <a href="{% url 'administracao:graficos_questionarios' %}" title="Questionários">
+                      <span data-localize="sidebar.nav.menu.SUBMENU">Questionários</span>
+                    </a>
+                  </li>
+                  <li class="{% if pagina_graficos_exames %} active {% endif %}">
+                    <a href="{% url 'administracao:graficos_exames' %}" title="Exames">
+                      <span data-localize="sidebar.nav.menu.SUBMENU">Exames</span>
+                    </a>
+                  </li>
+                  <li class="{% if pagina_graficos_diretores %} active {% endif %}">
+                    <a href="{% url 'administracao:graficos_diretores' %}" title="Diretores">
+                      <span data-localize="sidebar.nav.menu.SUBMENU">Diretores</span>
+                    </a>
+                  </li>
+                </ul>
               </li>
               
               <li class="nav-heading ">

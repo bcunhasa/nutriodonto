@@ -19,8 +19,11 @@ urlpatterns = [
     # Visão geral
     url(r'^administracao$', views.VisaoGeralView.as_view(), name='visao_geral'),
     
-    # Página que exibe gráficos baseados nos dados já coletados
-    url(r'^administracao/graficos/$', views.GraficosView.as_view(), name='graficos'),
+    # Páginas que exibem gráficos baseados nos dados já coletados
+    url(r'^administracao/graficos_alunos/$', views.GraficosAlunosView.as_view(), name='graficos_alunos'),
+    url(r'^administracao/graficos_questionarios/$', views.GraficosQuestionariosView.as_view(), name='graficos_questionarios'),
+    url(r'^administracao/graficos_exames/$', views.GraficosExamesView.as_view(), name='graficos_exames'),
+    url(r'^administracao/graficos_diretores/$', views.GraficosDiretoresView.as_view(), name='graficos_diretores'),
     
     # Página que lista os usuários cadastrados no sistema
     url(r'^administracao/usuarios/$', views.UsuariosView.as_view(), name='usuarios'),

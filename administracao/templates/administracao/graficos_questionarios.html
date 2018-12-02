@@ -1,0 +1,46 @@
+{% extends "administracao/base.html" %}
+{% load staticfiles %}
+
+{% block head %}
+  <link rel="stylesheet" type="text/css" href="{% static 'administracao/css/graficos.css' %}">
+{% endblock head %}
+
+{% block header %}
+  Gráficos
+{% endblock header %}
+
+{% block content %}
+  
+  <div class="row">
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="panel-title">01. Qual o grau de escolaridade mais elevado que você pretende concluir?</div>
+        </div>
+        <div class="panel-body">
+          <div id="questao1" class="grafico"></div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="panel-title">02. Quando terminar o ciclo/curso que você está frequentando atualmente, você pretende?</div>
+        </div>
+        <div class="panel-body">
+          <div id="questao2" class="grafico"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <script>
+    var questao_1 = {{ questao_1 }};
+    var questao_2 = {{ questao_2 }};
+  </script>
+  
+  <script src="{% static 'administracao/vendor/flot/jquery.flot.js' %}"></script>
+  <script src="{% static 'administracao/vendor/flot/jquery.flot.pie.js' %}"></script>
+  <script src="{% static 'administracao/js/graficos_questionarios.js' %}"></script>
+  
+{% endblock content %}

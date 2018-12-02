@@ -83,13 +83,73 @@ class VisaoGeralView(LoginRequired, View):
         return render(self.request, 'administracao/visao_geral.html', context)
 
 
-class GraficosView(LoginRequired, View):
-    """Página que exibe gráficos baseados nos dados já coletados"""
+class GraficosAlunosView(LoginRequired, View):
+    """Página que exibe gráficos baseados nos dados dos alunos"""
+    
+    def get(self, request):
+        alunos = Aluno.objects.order_by('-id')
+        
+        context = {
+            'pagina_graficos': True,
+            'pagina_graficos_alunos': True,
+            'alunos': alunos,
+        }
+        
+        return render(self.request, 'administracao/graficos_alunos.html', context)
+
+
+class GraficosQuestionariosView(LoginRequired, View):
+    """Página que exibe gráficos baseados nos dados dos questionários"""
     
     def get(self, request):
         questionarios = Questionario.objects.order_by('-id')
-        context = {'pagina_graficos': True, 'questionarios': questionarios}
-        return render(self.request, 'administracao/graficos.html', context)
+        
+        questao_1 = [0, 0, 0, 0, 0, 0]
+        questao_2 = [0, 0, 0, 0, 0]
+        
+        for questionario in questionarios:
+            questao_1[int(questionario.questao_1)] = questao_1[int(questionario.questao_1)] + 1
+            questao_2[int(questionario.questao_2)] = questao_2[int(questionario.questao_2)] + 1
+        
+        context = {
+            'pagina_graficos': True,
+            'pagina_graficos_questionarios': True,
+            'questionarios': questionarios,
+            'questao_1': questao_1,
+            'questao_2': questao_2,
+        }
+        
+        return render(self.request, 'administracao/graficos_questionarios.html', context)
+
+
+class GraficosExamesView(LoginRequired, View):
+    """Página que exibe gráficos baseados nos dados dos exames"""
+    
+    def get(self, request):
+        exames = Exame.objects.order_by('-id')
+        
+        context = {
+            'pagina_graficos': True,
+            'pagina_graficos_exames': True,
+            'exames': exames,
+        }
+        
+        return render(self.request, 'administracao/graficos_exames.html', context)
+
+
+class GraficosDiretoresView(LoginRequired, View):
+    """Página que exibe gráficos baseados nos dados dos questionários dos diretores"""
+    
+    def get(self, request):
+        diretores = Diretor.objects.order_by('-id')
+        
+        context = {
+            'pagina_graficos': True,
+            'pagina_graficos_diretores': True,
+            'diretores': diretores,
+        }
+        
+        return render(self.request, 'administracao/graficos_diretores.html', context)
 
 
 class UsuariosView(LoginRequired, View):
