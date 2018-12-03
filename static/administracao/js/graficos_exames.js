@@ -38,10 +38,12 @@ function criaGrafico(questao, dados, label) {
                 content: function (label, x, y) { return 'Ocorrências: ' + y; }
             },
             xaxis: {
-                ticks: ticks
+                ticks: ticks,
             },
             yaxis: {
-                tickColor: '#eee'
+                tickColor: '#eee',
+                minTickSize: 0,
+                tickDecimals: 0,
             },
         }
     );
