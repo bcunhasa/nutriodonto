@@ -1100,103 +1100,103 @@ class GraficosExamesView(LoginRequired, View):
             tem_problema_coroa = [False, False, False, False, False, False, False, False, False, False]
             
             if exame.carie_coroa_18 != None and exame.carie_coroa_18 == 'T': tem_problema_coroa[9] = True; sem_problemas_coroa = False
-            if exame.carie_coroa_18 != None and exame.carie_coroa_18 != '0' and exame.carie_coroa_18 != 'T' and exame.carie_coroa_18 != '9': tem_problema_coroa[int(exame.carie_coroa_18)] = True; sem_problemas_coroa = False
+            if exame.carie_coroa_18 != None and exame.carie_coroa_18 != '0' and exame.carie_coroa_18 != 'A' and exame.carie_coroa_18 != 'T' and exame.carie_coroa_18 != '9': tem_problema_coroa[int(self.letra_para_numero(exame.carie_coroa_18))] = True; sem_problemas_coroa = False
             
             if exame.carie_coroa_17 != None and exame.carie_coroa_17 == 'T': tem_problema_coroa[9] = True; sem_problemas_coroa = False
-            if exame.carie_coroa_17 != None and exame.carie_coroa_17 != '0' and exame.carie_coroa_17 != 'T' and exame.carie_coroa_17 != '9': tem_problema_coroa[int(exame.carie_coroa_17)] = True; sem_problemas_coroa = False
+            if exame.carie_coroa_17 != None and exame.carie_coroa_17 != '0' and exame.carie_coroa_17 != 'A' and exame.carie_coroa_17 != 'T' and exame.carie_coroa_17 != '9': tem_problema_coroa[int(self.letra_para_numero(exame.carie_coroa_17))] = True; sem_problemas_coroa = False
             
             if exame.carie_coroa_16 != None and exame.carie_coroa_16 == 'T': tem_problema_coroa[9] = True; sem_problemas_coroa = False
-            if exame.carie_coroa_16 != None and exame.carie_coroa_16 != '0' and exame.carie_coroa_16 != 'T' and exame.carie_coroa_16 != '9': tem_problema_coroa[int(exame.carie_coroa_16)] = True; sem_problemas_coroa = False
+            if exame.carie_coroa_16 != None and exame.carie_coroa_16 != '0' and exame.carie_coroa_16 != 'A' and exame.carie_coroa_16 != 'T' and exame.carie_coroa_16 != '9': tem_problema_coroa[int(self.letra_para_numero(exame.carie_coroa_16))] = True; sem_problemas_coroa = False
             
             if exame.carie_coroa_15 != None and exame.carie_coroa_15 == 'T': tem_problema_coroa[9] = True; sem_problemas_coroa = False
-            if exame.carie_coroa_15 != None and exame.carie_coroa_15 != '0' and exame.carie_coroa_15 != 'T' and exame.carie_coroa_15 != '9': tem_problema_coroa[int(exame.carie_coroa_15)] = True; sem_problemas_coroa = False
+            if exame.carie_coroa_15 != None and exame.carie_coroa_15 != '0' and exame.carie_coroa_15 != 'A' and exame.carie_coroa_15 != 'T' and exame.carie_coroa_15 != '9': tem_problema_coroa[int(self.letra_para_numero(exame.carie_coroa_15))] = True; sem_problemas_coroa = False
             
             if exame.carie_coroa_14 != None and exame.carie_coroa_14 == 'T': tem_problema_coroa[9] = True; sem_problemas_coroa = False
-            if exame.carie_coroa_14 != None and exame.carie_coroa_14 != '0' and exame.carie_coroa_14 != 'T' and exame.carie_coroa_14 != '9': tem_problema_coroa[int(exame.carie_coroa_14)] = True; sem_problemas_coroa = False
+            if exame.carie_coroa_14 != None and exame.carie_coroa_14 != '0' and exame.carie_coroa_14 != 'A' and exame.carie_coroa_14 != 'T' and exame.carie_coroa_14 != '9': tem_problema_coroa[int(self.letra_para_numero(exame.carie_coroa_14))] = True; sem_problemas_coroa = False
             
             if exame.carie_coroa_13 != None and exame.carie_coroa_13 == 'T': tem_problema_coroa[9] = True; sem_problemas_coroa = False
-            if exame.carie_coroa_13 != None and exame.carie_coroa_13 != '0' and exame.carie_coroa_13 != 'T' and exame.carie_coroa_13 != '9': tem_problema_coroa[int(exame.carie_coroa_13)] = True; sem_problemas_coroa = False
+            if exame.carie_coroa_13 != None and exame.carie_coroa_13 != '0' and exame.carie_coroa_13 != 'A' and exame.carie_coroa_13 != 'T' and exame.carie_coroa_13 != '9': tem_problema_coroa[int(self.letra_para_numero(exame.carie_coroa_13))] = True; sem_problemas_coroa = False
             
             if exame.carie_coroa_12 != None and exame.carie_coroa_12 == 'T': tem_problema_coroa[9] = True; sem_problemas_coroa = False
-            if exame.carie_coroa_12 != None and exame.carie_coroa_12 != '0' and exame.carie_coroa_12 != 'T' and exame.carie_coroa_12 != '9': tem_problema_coroa[int(exame.carie_coroa_12)] = True; sem_problemas_coroa = False
+            if exame.carie_coroa_12 != None and exame.carie_coroa_12 != '0' and exame.carie_coroa_12 != 'A' and exame.carie_coroa_12 != 'T' and exame.carie_coroa_12 != '9': tem_problema_coroa[int(self.letra_para_numero(exame.carie_coroa_12))] = True; sem_problemas_coroa = False
             
             if exame.carie_coroa_11 != None and exame.carie_coroa_11 == 'T': tem_problema_coroa[9] = True; sem_problemas_coroa = False
-            if exame.carie_coroa_11 != None and exame.carie_coroa_11 != '0' and exame.carie_coroa_11 != 'T' and exame.carie_coroa_11 != '9': tem_problema_coroa[int(exame.carie_coroa_11)] = True; sem_problemas_coroa = False
+            if exame.carie_coroa_11 != None and exame.carie_coroa_11 != '0' and exame.carie_coroa_11 != 'A' and exame.carie_coroa_11 != 'T' and exame.carie_coroa_11 != '9': tem_problema_coroa[int(self.letra_para_numero(exame.carie_coroa_11))] = True; sem_problemas_coroa = False
             
             
             if exame.carie_coroa_21 != None and exame.carie_coroa_21 == 'T': tem_problema_coroa[9] = True; sem_problemas_coroa = False
-            if exame.carie_coroa_21 != None and exame.carie_coroa_21 != '0' and exame.carie_coroa_21 != 'T' and exame.carie_coroa_21 != '9': tem_problema_coroa[int(exame.carie_coroa_21)] = True; sem_problemas_coroa = False
+            if exame.carie_coroa_21 != None and exame.carie_coroa_21 != '0' and exame.carie_coroa_21 != 'A' and exame.carie_coroa_21 != 'T' and exame.carie_coroa_21 != '9': tem_problema_coroa[int(self.letra_para_numero(exame.carie_coroa_21))] = True; sem_problemas_coroa = False
             
             if exame.carie_coroa_22 != None and exame.carie_coroa_22 == 'T': tem_problema_coroa[9] = True; sem_problemas_coroa = False
-            if exame.carie_coroa_22 != None and exame.carie_coroa_22 != '0' and exame.carie_coroa_22 != 'T' and exame.carie_coroa_22 != '9': tem_problema_coroa[int(exame.carie_coroa_22)] = True; sem_problemas_coroa = False
+            if exame.carie_coroa_22 != None and exame.carie_coroa_22 != '0' and exame.carie_coroa_22 != 'A' and exame.carie_coroa_22 != 'T' and exame.carie_coroa_22 != '9': tem_problema_coroa[int(self.letra_para_numero(exame.carie_coroa_22))] = True; sem_problemas_coroa = False
             
             if exame.carie_coroa_23 != None and exame.carie_coroa_23 == 'T': tem_problema_coroa[9] = True; sem_problemas_coroa = False
-            if exame.carie_coroa_23 != None and exame.carie_coroa_23 != '0' and exame.carie_coroa_23 != 'T' and exame.carie_coroa_23 != '9': tem_problema_coroa[int(exame.carie_coroa_23)] = True; sem_problemas_coroa = False
+            if exame.carie_coroa_23 != None and exame.carie_coroa_23 != '0' and exame.carie_coroa_23 != 'A' and exame.carie_coroa_23 != 'T' and exame.carie_coroa_23 != '9': tem_problema_coroa[int(self.letra_para_numero(exame.carie_coroa_23))] = True; sem_problemas_coroa = False
             
             if exame.carie_coroa_24 != None and exame.carie_coroa_24 == 'T': tem_problema_coroa[9] = True; sem_problemas_coroa = False
-            if exame.carie_coroa_24 != None and exame.carie_coroa_24 != '0' and exame.carie_coroa_24 != 'T' and exame.carie_coroa_24 != '9': tem_problema_coroa[int(exame.carie_coroa_24)] = True; sem_problemas_coroa = False
+            if exame.carie_coroa_24 != None and exame.carie_coroa_24 != '0' and exame.carie_coroa_24 != 'A' and exame.carie_coroa_24 != 'T' and exame.carie_coroa_24 != '9': tem_problema_coroa[int(self.letra_para_numero(exame.carie_coroa_24))] = True; sem_problemas_coroa = False
             
             if exame.carie_coroa_25 != None and exame.carie_coroa_25 == 'T': tem_problema_coroa[9] = True; sem_problemas_coroa = False
-            if exame.carie_coroa_25 != None and exame.carie_coroa_25 != '0' and exame.carie_coroa_25 != 'T' and exame.carie_coroa_25 != '9': tem_problema_coroa[int(exame.carie_coroa_25)] = True; sem_problemas_coroa = False
+            if exame.carie_coroa_25 != None and exame.carie_coroa_25 != '0' and exame.carie_coroa_25 != 'A' and exame.carie_coroa_25 != 'T' and exame.carie_coroa_25 != '9': tem_problema_coroa[int(self.letra_para_numero(exame.carie_coroa_25))] = True; sem_problemas_coroa = False
             
             if exame.carie_coroa_26 != None and exame.carie_coroa_26 == 'T': tem_problema_coroa[9] = True; sem_problemas_coroa = False
-            if exame.carie_coroa_26 != None and exame.carie_coroa_26 != '0' and exame.carie_coroa_26 != 'T' and exame.carie_coroa_26 != '9': tem_problema_coroa[int(exame.carie_coroa_26)] = True; sem_problemas_coroa = False
+            if exame.carie_coroa_26 != None and exame.carie_coroa_26 != '0' and exame.carie_coroa_26 != 'A' and exame.carie_coroa_26 != 'T' and exame.carie_coroa_26 != '9': tem_problema_coroa[int(self.letra_para_numero(exame.carie_coroa_26))] = True; sem_problemas_coroa = False
             
             if exame.carie_coroa_27 != None and exame.carie_coroa_27 == 'T': tem_problema_coroa[9] = True; sem_problemas_coroa = False
-            if exame.carie_coroa_27 != None and exame.carie_coroa_27 != '0' and exame.carie_coroa_27 != 'T' and exame.carie_coroa_27 != '9': tem_problema_coroa[int(exame.carie_coroa_27)] = True; sem_problemas_coroa = False
+            if exame.carie_coroa_27 != None and exame.carie_coroa_27 != '0' and exame.carie_coroa_27 != 'A' and exame.carie_coroa_27 != 'T' and exame.carie_coroa_27 != '9': tem_problema_coroa[int(self.letra_para_numero(exame.carie_coroa_27))] = True; sem_problemas_coroa = False
             
             if exame.carie_coroa_28 != None and exame.carie_coroa_28 == 'T': tem_problema_coroa[9] = True; sem_problemas_coroa = False
-            if exame.carie_coroa_28 != None and exame.carie_coroa_28 != '0' and exame.carie_coroa_28 != 'T' and exame.carie_coroa_28 != '9': tem_problema_coroa[int(exame.carie_coroa_28)] = True; sem_problemas_coroa = False
+            if exame.carie_coroa_28 != None and exame.carie_coroa_28 != '0' and exame.carie_coroa_28 != 'A' and exame.carie_coroa_28 != 'T' and exame.carie_coroa_28 != '9': tem_problema_coroa[int(self.letra_para_numero(exame.carie_coroa_28))] = True; sem_problemas_coroa = False
             
             
             if exame.carie_coroa_38 != None and exame.carie_coroa_38 == 'T': tem_problema_coroa[9] = True; sem_problemas_coroa = False
-            if exame.carie_coroa_38 != None and exame.carie_coroa_38 != '0' and exame.carie_coroa_38 != 'T' and exame.carie_coroa_38 != '9': tem_problema_coroa[int(exame.carie_coroa_38)] = True; sem_problemas_coroa = False
+            if exame.carie_coroa_38 != None and exame.carie_coroa_38 != '0' and exame.carie_coroa_38 != 'A' and exame.carie_coroa_38 != 'T' and exame.carie_coroa_38 != '9': tem_problema_coroa[int(self.letra_para_numero(exame.carie_coroa_38))] = True; sem_problemas_coroa = False
             
             if exame.carie_coroa_37 != None and exame.carie_coroa_37 == 'T': tem_problema_coroa[9] = True; sem_problemas_coroa = False
-            if exame.carie_coroa_37 != None and exame.carie_coroa_37 != '0' and exame.carie_coroa_37 != 'T' and exame.carie_coroa_37 != '9': tem_problema_coroa[int(exame.carie_coroa_37)] = True; sem_problemas_coroa = False
+            if exame.carie_coroa_37 != None and exame.carie_coroa_37 != '0' and exame.carie_coroa_37 != 'A' and exame.carie_coroa_37 != 'T' and exame.carie_coroa_37 != '9': tem_problema_coroa[int(self.letra_para_numero(exame.carie_coroa_37))] = True; sem_problemas_coroa = False
             
             if exame.carie_coroa_36 != None and exame.carie_coroa_36 == 'T': tem_problema_coroa[9] = True; sem_problemas_coroa = False
-            if exame.carie_coroa_36 != None and exame.carie_coroa_36 != '0' and exame.carie_coroa_36 != 'T' and exame.carie_coroa_36 != '9': tem_problema_coroa[int(exame.carie_coroa_36)] = True; sem_problemas_coroa = False
+            if exame.carie_coroa_36 != None and exame.carie_coroa_36 != '0' and exame.carie_coroa_36 != 'A' and exame.carie_coroa_36 != 'T' and exame.carie_coroa_36 != '9': tem_problema_coroa[int(self.letra_para_numero(exame.carie_coroa_36))] = True; sem_problemas_coroa = False
             
             if exame.carie_coroa_35 != None and exame.carie_coroa_35 == 'T': tem_problema_coroa[9] = True; sem_problemas_coroa = False
-            if exame.carie_coroa_35 != None and exame.carie_coroa_35 != '0' and exame.carie_coroa_35 != 'T' and exame.carie_coroa_35 != '9': tem_problema_coroa[int(exame.carie_coroa_35)] = True; sem_problemas_coroa = False
+            if exame.carie_coroa_35 != None and exame.carie_coroa_35 != '0' and exame.carie_coroa_35 != 'A' and exame.carie_coroa_35 != 'T' and exame.carie_coroa_35 != '9': tem_problema_coroa[int(self.letra_para_numero(exame.carie_coroa_35))] = True; sem_problemas_coroa = False
             
             if exame.carie_coroa_34 != None and exame.carie_coroa_34 == 'T': tem_problema_coroa[9] = True; sem_problemas_coroa = False
-            if exame.carie_coroa_34 != None and exame.carie_coroa_34 != '0' and exame.carie_coroa_34 != 'T' and exame.carie_coroa_34 != '9': tem_problema_coroa[int(exame.carie_coroa_34)] = True; sem_problemas_coroa = False
+            if exame.carie_coroa_34 != None and exame.carie_coroa_34 != '0' and exame.carie_coroa_34 != 'A' and exame.carie_coroa_34 != 'T' and exame.carie_coroa_34 != '9': tem_problema_coroa[int(self.letra_para_numero(exame.carie_coroa_34))] = True; sem_problemas_coroa = False
             
             if exame.carie_coroa_33 != None and exame.carie_coroa_33 == 'T': tem_problema_coroa[9] = True; sem_problemas_coroa = False
-            if exame.carie_coroa_33 != None and exame.carie_coroa_33 != '0' and exame.carie_coroa_33 != 'T' and exame.carie_coroa_33 != '9': tem_problema_coroa[int(exame.carie_coroa_33)] = True; sem_problemas_coroa = False
+            if exame.carie_coroa_33 != None and exame.carie_coroa_33 != '0' and exame.carie_coroa_33 != 'A' and exame.carie_coroa_33 != 'T' and exame.carie_coroa_33 != '9': tem_problema_coroa[int(self.letra_para_numero(exame.carie_coroa_33))] = True; sem_problemas_coroa = False
             
             if exame.carie_coroa_32 != None and exame.carie_coroa_32 == 'T': tem_problema_coroa[9] = True; sem_problemas_coroa = False
-            if exame.carie_coroa_32 != None and exame.carie_coroa_32 != '0' and exame.carie_coroa_32 != 'T' and exame.carie_coroa_32 != '9': tem_problema_coroa[int(exame.carie_coroa_32)] = True; sem_problemas_coroa = False
+            if exame.carie_coroa_32 != None and exame.carie_coroa_32 != '0' and exame.carie_coroa_32 != 'A' and exame.carie_coroa_32 != 'T' and exame.carie_coroa_32 != '9': tem_problema_coroa[int(self.letra_para_numero(exame.carie_coroa_32))] = True; sem_problemas_coroa = False
             
             if exame.carie_coroa_31 != None and exame.carie_coroa_31 == 'T': tem_problema_coroa[9] = True; sem_problemas_coroa = False
-            if exame.carie_coroa_31 != None and exame.carie_coroa_31 != '0' and exame.carie_coroa_31 != 'T' and exame.carie_coroa_31 != '9': tem_problema_coroa[int(exame.carie_coroa_31)] = True; sem_problemas_coroa = False
+            if exame.carie_coroa_31 != None and exame.carie_coroa_31 != '0' and exame.carie_coroa_31 != 'A' and exame.carie_coroa_31 != 'T' and exame.carie_coroa_31 != '9': tem_problema_coroa[int(self.letra_para_numero(exame.carie_coroa_31))] = True; sem_problemas_coroa = False
             
             
             if exame.carie_coroa_41 != None and exame.carie_coroa_41 == 'T': tem_problema_coroa[9] = True; sem_problemas_coroa = False
-            if exame.carie_coroa_41 != None and exame.carie_coroa_41 != '0' and exame.carie_coroa_41 != 'T' and exame.carie_coroa_41 != '9': tem_problema_coroa[int(exame.carie_coroa_41)] = True; sem_problemas_coroa = False
+            if exame.carie_coroa_41 != None and exame.carie_coroa_41 != '0' and exame.carie_coroa_41 != 'A' and exame.carie_coroa_41 != 'T' and exame.carie_coroa_41 != '9': tem_problema_coroa[int(self.letra_para_numero(exame.carie_coroa_41))] = True; sem_problemas_coroa = False
             
             if exame.carie_coroa_42 != None and exame.carie_coroa_42 == 'T': tem_problema_coroa[9] = True; sem_problemas_coroa = False
-            if exame.carie_coroa_42 != None and exame.carie_coroa_42 != '0' and exame.carie_coroa_42 != 'T' and exame.carie_coroa_42 != '9': tem_problema_coroa[int(exame.carie_coroa_42)] = True; sem_problemas_coroa = False
+            if exame.carie_coroa_42 != None and exame.carie_coroa_42 != '0' and exame.carie_coroa_42 != 'A' and exame.carie_coroa_42 != 'T' and exame.carie_coroa_42 != '9': tem_problema_coroa[int(self.letra_para_numero(exame.carie_coroa_42))] = True; sem_problemas_coroa = False
             
             if exame.carie_coroa_43 != None and exame.carie_coroa_43 == 'T': tem_problema_coroa[9] = True; sem_problemas_coroa = False
-            if exame.carie_coroa_43 != None and exame.carie_coroa_43 != '0' and exame.carie_coroa_43 != 'T' and exame.carie_coroa_43 != '9': tem_problema_coroa[int(exame.carie_coroa_43)] = True; sem_problemas_coroa = False
+            if exame.carie_coroa_43 != None and exame.carie_coroa_43 != '0' and exame.carie_coroa_43 != 'A' and exame.carie_coroa_43 != 'T' and exame.carie_coroa_43 != '9': tem_problema_coroa[int(self.letra_para_numero(exame.carie_coroa_43))] = True; sem_problemas_coroa = False
             
             if exame.carie_coroa_44 != None and exame.carie_coroa_44 == 'T': tem_problema_coroa[9] = True; sem_problemas_coroa = False
-            if exame.carie_coroa_44 != None and exame.carie_coroa_44 != '0' and exame.carie_coroa_44 != 'T' and exame.carie_coroa_44 != '9': tem_problema_coroa[int(exame.carie_coroa_44)] = True; sem_problemas_coroa = False
+            if exame.carie_coroa_44 != None and exame.carie_coroa_44 != '0' and exame.carie_coroa_44 != 'A' and exame.carie_coroa_44 != 'T' and exame.carie_coroa_44 != '9': tem_problema_coroa[int(self.letra_para_numero(exame.carie_coroa_44))] = True; sem_problemas_coroa = False
             
             if exame.carie_coroa_45 != None and exame.carie_coroa_45 == 'T': tem_problema_coroa[9] = True; sem_problemas_coroa = False
-            if exame.carie_coroa_45 != None and exame.carie_coroa_45 != '0' and exame.carie_coroa_45 != 'T' and exame.carie_coroa_45 != '9': tem_problema_coroa[int(exame.carie_coroa_45)] = True; sem_problemas_coroa = False
+            if exame.carie_coroa_45 != None and exame.carie_coroa_45 != '0' and exame.carie_coroa_45 != 'A' and exame.carie_coroa_45 != 'T' and exame.carie_coroa_45 != '9': tem_problema_coroa[int(self.letra_para_numero(exame.carie_coroa_45))] = True; sem_problemas_coroa = False
             
             if exame.carie_coroa_46 != None and exame.carie_coroa_46 == 'T': tem_problema_coroa[9] = True; sem_problemas_coroa = False
-            if exame.carie_coroa_46 != None and exame.carie_coroa_46 != '0' and exame.carie_coroa_46 != 'T' and exame.carie_coroa_46 != '9': tem_problema_coroa[int(exame.carie_coroa_46)] = True; sem_problemas_coroa = False
+            if exame.carie_coroa_46 != None and exame.carie_coroa_46 != '0' and exame.carie_coroa_46 != 'A' and exame.carie_coroa_46 != 'T' and exame.carie_coroa_46 != '9': tem_problema_coroa[int(self.letra_para_numero(exame.carie_coroa_46))] = True; sem_problemas_coroa = False
             
             if exame.carie_coroa_47 != None and exame.carie_coroa_47 == 'T': tem_problema_coroa[9] = True; sem_problemas_coroa = False
-            if exame.carie_coroa_47 != None and exame.carie_coroa_47 != '0' and exame.carie_coroa_47 != 'T' and exame.carie_coroa_47 != '9': tem_problema_coroa[int(exame.carie_coroa_47)] = True; sem_problemas_coroa = False
+            if exame.carie_coroa_47 != None and exame.carie_coroa_47 != '0' and exame.carie_coroa_47 != 'A' and exame.carie_coroa_47 != 'T' and exame.carie_coroa_47 != '9': tem_problema_coroa[int(self.letra_para_numero(exame.carie_coroa_47))] = True; sem_problemas_coroa = False
             
             if exame.carie_coroa_48 != None and exame.carie_coroa_48 == 'T': tem_problema_coroa[9] = True; sem_problemas_coroa = False
-            if exame.carie_coroa_48 != None and exame.carie_coroa_48 != '0' and exame.carie_coroa_48 != 'T' and exame.carie_coroa_48 != '9': tem_problema_coroa[int(exame.carie_coroa_48)] = True; sem_problemas_coroa = False
+            if exame.carie_coroa_48 != None and exame.carie_coroa_48 != '0' and exame.carie_coroa_48 != 'A' and exame.carie_coroa_48 != 'T' and exame.carie_coroa_48 != '9': tem_problema_coroa[int(self.letra_para_numero(exame.carie_coroa_48))] = True; sem_problemas_coroa = False
             
             if sem_problemas_coroa: tem_problema_coroa[0] = True
             else: sem_problemas_coroa = True
@@ -1328,6 +1328,30 @@ class GraficosExamesView(LoginRequired, View):
         }
         
         return render(self.request, 'administracao/graficos_exames.html', context)
+    
+    def letra_para_numero(self, letra):
+        if letra == 'B' or letra == 'b':
+            return '1'
+        elif letra == 'C' or letra == 'c':
+            return '2'
+        elif letra == 'D' or letra == 'd':
+            return '3'
+        elif letra == 'E' or letra == 'e':
+            return '4'
+        elif letra == 'F' or letra == 'f':
+            return '5'
+        elif letra == 'G' or letra == 'g':
+            return '6'
+        elif letra == 'H' or letra == 'h':
+            return '7'
+        elif letra == 'K' or letra == 'k':
+            return '8'
+        elif letra == 'T' or letra == 't':
+            return 'T'
+        elif letra == 'L' or letra == 'l':
+            return '9'
+        else:
+            return letra
 
 
 class GraficosDiretoresView(LoginRequired, View):
