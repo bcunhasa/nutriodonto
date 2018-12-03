@@ -1094,10 +1094,17 @@ class GraficosExamesView(LoginRequired, View):
     def get(self, request):
         exames = Exame.objects.order_by('-id')
         
+        situacao_coroa = [0, 1, 0, 0, 0, 1, 2, 0, 0, 0]
+        tratamento_necessario = [0, 0, 3, 0, 1, 0, 2, 2, 2]
+        condicao_periodontal = [0, 2, 0, 1]
+        
         context = {
             'pagina_graficos': True,
             'pagina_graficos_exames': True,
             'exames': exames,
+            'situacao_coroa': situacao_coroa,
+            'tratamento_necessario': tratamento_necessario,
+            'condicao_periodontal': condicao_periodontal,
         }
         
         return render(self.request, 'administracao/graficos_exames.html', context)

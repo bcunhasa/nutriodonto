@@ -2,7 +2,7 @@
 {% load staticfiles %}
 
 {% block head %}
-  <!-- Cabeçalho local -->
+  <link rel="stylesheet" type="text/css" href="{% static 'administracao/css/graficos.css' %}">
 {% endblock head %}
 
 {% block header %}
@@ -11,19 +11,51 @@
 
 {% block content %}
   
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-lg-12">
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            Gráficos sobre as informações de exames
-          </div>
-          <div class="panel-body">
-            <p>Em desenvolvimento.</p>
-          </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="panel-title">01. Ocorrência de problemas na coroa</div>
+        </div>
+        <div class="panel-body">
+          <div id="situacao_coroa" class="grafico-grande"></div>
         </div>
       </div>
     </div>
   </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="panel-title">02. Ocorrência de indicação de tratamento</div>
+        </div>
+        <div class="panel-body">
+          <div id="tratamento_necessario" class="grafico-grande"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="panel-title">03. Ocorrência de problemas periodontais</div>
+        </div>
+        <div class="panel-body">
+          <div id="condicao_periodontal" class="grafico-grande"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <script>
+    var situacao_coroa = {{ situacao_coroa }};
+    var tratamento_necessario = {{ tratamento_necessario }};
+    var condicao_periodontal = {{ condicao_periodontal }};
+  </script>
+  
+  <script src="{% static 'administracao/vendor/flot/jquery.flot.js' %}"></script>
+  <script src="{% static 'administracao/vendor/flot/jquery.flot.pie.js' %}"></script>
+  <script src="{% static 'administracao/js/graficos_exames.js' %}"></script>
   
 {% endblock content %}
