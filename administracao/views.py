@@ -1099,104 +1099,104 @@ class GraficosExamesView(LoginRequired, View):
         for exame in exames:
             tem_problema_coroa = [False, False, False, False, False, False, False, False, False, False]
             
-            if exame.carie_coroa_18 == 'T': tem_problema_coroa[9] = True; sem_problemas_coroa = False
-            if exame.carie_coroa_18 != '0' and exame.carie_coroa_18 != 'T' and exame.carie_coroa_18 != '9': tem_problema_coroa[int(exame.carie_coroa_18)] = True; sem_problemas_coroa = False
+            if exame.carie_coroa_18 != None and exame.carie_coroa_18 == 'T': tem_problema_coroa[9] = True; sem_problemas_coroa = False
+            if exame.carie_coroa_18 != None and exame.carie_coroa_18 != '0' and exame.carie_coroa_18 != 'T' and exame.carie_coroa_18 != '9': tem_problema_coroa[int(exame.carie_coroa_18)] = True; sem_problemas_coroa = False
             
-            if exame.carie_coroa_17 == 'T': tem_problema_coroa[9] = True; sem_problemas_coroa = False
-            if exame.carie_coroa_17 != '0' and exame.carie_coroa_17 != 'T' and exame.carie_coroa_17 != '9': tem_problema_coroa[int(exame.carie_coroa_17)] = True; sem_problemas_coroa = False
+            if exame.carie_coroa_17 != None and exame.carie_coroa_17 == 'T': tem_problema_coroa[9] = True; sem_problemas_coroa = False
+            if exame.carie_coroa_17 != None and exame.carie_coroa_17 != '0' and exame.carie_coroa_17 != 'T' and exame.carie_coroa_17 != '9': tem_problema_coroa[int(exame.carie_coroa_17)] = True; sem_problemas_coroa = False
             
-            if exame.carie_coroa_16 == 'T': tem_problema_coroa[9] = True; sem_problemas_coroa = False
-            if exame.carie_coroa_16 != '0' and exame.carie_coroa_16 != 'T' and exame.carie_coroa_16 != '9': tem_problema_coroa[int(exame.carie_coroa_16)] = True; sem_problemas_coroa = False
+            if exame.carie_coroa_16 != None and exame.carie_coroa_16 == 'T': tem_problema_coroa[9] = True; sem_problemas_coroa = False
+            if exame.carie_coroa_16 != None and exame.carie_coroa_16 != '0' and exame.carie_coroa_16 != 'T' and exame.carie_coroa_16 != '9': tem_problema_coroa[int(exame.carie_coroa_16)] = True; sem_problemas_coroa = False
             
-            if exame.carie_coroa_15 == 'T': tem_problema_coroa[9] = True; sem_problemas_coroa = False
-            if exame.carie_coroa_15 != '0' and exame.carie_coroa_15 != 'T' and exame.carie_coroa_15 != '9': tem_problema_coroa[int(exame.carie_coroa_15)] = True; sem_problemas_coroa = False
+            if exame.carie_coroa_15 != None and exame.carie_coroa_15 == 'T': tem_problema_coroa[9] = True; sem_problemas_coroa = False
+            if exame.carie_coroa_15 != None and exame.carie_coroa_15 != '0' and exame.carie_coroa_15 != 'T' and exame.carie_coroa_15 != '9': tem_problema_coroa[int(exame.carie_coroa_15)] = True; sem_problemas_coroa = False
             
-            if exame.carie_coroa_14 == 'T': tem_problema_coroa[9] = True; sem_problemas_coroa = False
-            if exame.carie_coroa_14 != '0' and exame.carie_coroa_14 != 'T' and exame.carie_coroa_14 != '9': tem_problema_coroa[int(exame.carie_coroa_14)] = True; sem_problemas_coroa = False
+            if exame.carie_coroa_14 != None and exame.carie_coroa_14 == 'T': tem_problema_coroa[9] = True; sem_problemas_coroa = False
+            if exame.carie_coroa_14 != None and exame.carie_coroa_14 != '0' and exame.carie_coroa_14 != 'T' and exame.carie_coroa_14 != '9': tem_problema_coroa[int(exame.carie_coroa_14)] = True; sem_problemas_coroa = False
             
-            if exame.carie_coroa_13 == 'T': tem_problema_coroa[9] = True; sem_problemas_coroa = False
-            if exame.carie_coroa_13 != '0' and exame.carie_coroa_13 != 'T' and exame.carie_coroa_13 != '9': tem_problema_coroa[int(exame.carie_coroa_13)] = True; sem_problemas_coroa = False
+            if exame.carie_coroa_13 != None and exame.carie_coroa_13 == 'T': tem_problema_coroa[9] = True; sem_problemas_coroa = False
+            if exame.carie_coroa_13 != None and exame.carie_coroa_13 != '0' and exame.carie_coroa_13 != 'T' and exame.carie_coroa_13 != '9': tem_problema_coroa[int(exame.carie_coroa_13)] = True; sem_problemas_coroa = False
             
-            if exame.carie_coroa_12 == 'T': tem_problema_coroa[9] = True; sem_problemas_coroa = False
-            if exame.carie_coroa_12 != '0' and exame.carie_coroa_12 != 'T' and exame.carie_coroa_12 != '9': tem_problema_coroa[int(exame.carie_coroa_12)] = True; sem_problemas_coroa = False
+            if exame.carie_coroa_12 != None and exame.carie_coroa_12 == 'T': tem_problema_coroa[9] = True; sem_problemas_coroa = False
+            if exame.carie_coroa_12 != None and exame.carie_coroa_12 != '0' and exame.carie_coroa_12 != 'T' and exame.carie_coroa_12 != '9': tem_problema_coroa[int(exame.carie_coroa_12)] = True; sem_problemas_coroa = False
             
-            if exame.carie_coroa_11 == 'T': tem_problema_coroa[9] = True; sem_problemas_coroa = False
-            if exame.carie_coroa_11 != '0' and exame.carie_coroa_11 != 'T' and exame.carie_coroa_11 != '9': tem_problema_coroa[int(exame.carie_coroa_11)] = True; sem_problemas_coroa = False
-            
-            
-            if exame.carie_coroa_21 == 'T': tem_problema_coroa[9] = True; sem_problemas_coroa = False
-            if exame.carie_coroa_21 != '0' and exame.carie_coroa_21 != 'T' and exame.carie_coroa_21 != '9': tem_problema_coroa[int(exame.carie_coroa_21)] = True; sem_problemas_coroa = False
-            
-            if exame.carie_coroa_22 == 'T': tem_problema_coroa[9] = True; sem_problemas_coroa = False
-            if exame.carie_coroa_22 != '0' and exame.carie_coroa_22 != 'T' and exame.carie_coroa_22 != '9': tem_problema_coroa[int(exame.carie_coroa_22)] = True; sem_problemas_coroa = False
-            
-            if exame.carie_coroa_23 == 'T': tem_problema_coroa[9] = True; sem_problemas_coroa = False
-            if exame.carie_coroa_23 != '0' and exame.carie_coroa_23 != 'T' and exame.carie_coroa_23 != '9': tem_problema_coroa[int(exame.carie_coroa_23)] = True; sem_problemas_coroa = False
-            
-            if exame.carie_coroa_24 == 'T': tem_problema_coroa[9] = True; sem_problemas_coroa = False
-            if exame.carie_coroa_24 != '0' and exame.carie_coroa_24 != 'T' and exame.carie_coroa_24 != '9': tem_problema_coroa[int(exame.carie_coroa_24)] = True; sem_problemas_coroa = False
-            
-            if exame.carie_coroa_25 == 'T': tem_problema_coroa[9] = True; sem_problemas_coroa = False
-            if exame.carie_coroa_25 != '0' and exame.carie_coroa_25 != 'T' and exame.carie_coroa_25 != '9': tem_problema_coroa[int(exame.carie_coroa_25)] = True; sem_problemas_coroa = False
-            
-            if exame.carie_coroa_26 == 'T': tem_problema_coroa[9] = True; sem_problemas_coroa = False
-            if exame.carie_coroa_26 != '0' and exame.carie_coroa_26 != 'T' and exame.carie_coroa_26 != '9': tem_problema_coroa[int(exame.carie_coroa_26)] = True; sem_problemas_coroa = False
-            
-            if exame.carie_coroa_27 == 'T': tem_problema_coroa[9] = True; sem_problemas_coroa = False
-            if exame.carie_coroa_27 != '0' and exame.carie_coroa_27 != 'T' and exame.carie_coroa_27 != '9': tem_problema_coroa[int(exame.carie_coroa_27)] = True; sem_problemas_coroa = False
-            
-            if exame.carie_coroa_28 == 'T': tem_problema_coroa[9] = True; sem_problemas_coroa = False
-            if exame.carie_coroa_28 != '0' and exame.carie_coroa_28 != 'T' and exame.carie_coroa_28 != '9': tem_problema_coroa[int(exame.carie_coroa_28)] = True; sem_problemas_coroa = False
+            if exame.carie_coroa_11 != None and exame.carie_coroa_11 == 'T': tem_problema_coroa[9] = True; sem_problemas_coroa = False
+            if exame.carie_coroa_11 != None and exame.carie_coroa_11 != '0' and exame.carie_coroa_11 != 'T' and exame.carie_coroa_11 != '9': tem_problema_coroa[int(exame.carie_coroa_11)] = True; sem_problemas_coroa = False
             
             
-            if exame.carie_coroa_38 == 'T': tem_problema_coroa[9] = True; sem_problemas_coroa = False
-            if exame.carie_coroa_38 != '0' and exame.carie_coroa_38 != 'T' and exame.carie_coroa_38 != '9': tem_problema_coroa[int(exame.carie_coroa_38)] = True; sem_problemas_coroa = False
+            if exame.carie_coroa_21 != None and exame.carie_coroa_21 == 'T': tem_problema_coroa[9] = True; sem_problemas_coroa = False
+            if exame.carie_coroa_21 != None and exame.carie_coroa_21 != '0' and exame.carie_coroa_21 != 'T' and exame.carie_coroa_21 != '9': tem_problema_coroa[int(exame.carie_coroa_21)] = True; sem_problemas_coroa = False
             
-            if exame.carie_coroa_37 == 'T': tem_problema_coroa[9] = True; sem_problemas_coroa = False
-            if exame.carie_coroa_37 != '0' and exame.carie_coroa_37 != 'T' and exame.carie_coroa_37 != '9': tem_problema_coroa[int(exame.carie_coroa_37)] = True; sem_problemas_coroa = False
+            if exame.carie_coroa_22 != None and exame.carie_coroa_22 == 'T': tem_problema_coroa[9] = True; sem_problemas_coroa = False
+            if exame.carie_coroa_22 != None and exame.carie_coroa_22 != '0' and exame.carie_coroa_22 != 'T' and exame.carie_coroa_22 != '9': tem_problema_coroa[int(exame.carie_coroa_22)] = True; sem_problemas_coroa = False
             
-            if exame.carie_coroa_36 == 'T': tem_problema_coroa[9] = True; sem_problemas_coroa = False
-            if exame.carie_coroa_36 != '0' and exame.carie_coroa_36 != 'T' and exame.carie_coroa_36 != '9': tem_problema_coroa[int(exame.carie_coroa_36)] = True; sem_problemas_coroa = False
+            if exame.carie_coroa_23 != None and exame.carie_coroa_23 == 'T': tem_problema_coroa[9] = True; sem_problemas_coroa = False
+            if exame.carie_coroa_23 != None and exame.carie_coroa_23 != '0' and exame.carie_coroa_23 != 'T' and exame.carie_coroa_23 != '9': tem_problema_coroa[int(exame.carie_coroa_23)] = True; sem_problemas_coroa = False
             
-            if exame.carie_coroa_35 == 'T': tem_problema_coroa[9] = True; sem_problemas_coroa = False
-            if exame.carie_coroa_35 != '0' and exame.carie_coroa_35 != 'T' and exame.carie_coroa_35 != '9': tem_problema_coroa[int(exame.carie_coroa_35)] = True; sem_problemas_coroa = False
+            if exame.carie_coroa_24 != None and exame.carie_coroa_24 == 'T': tem_problema_coroa[9] = True; sem_problemas_coroa = False
+            if exame.carie_coroa_24 != None and exame.carie_coroa_24 != '0' and exame.carie_coroa_24 != 'T' and exame.carie_coroa_24 != '9': tem_problema_coroa[int(exame.carie_coroa_24)] = True; sem_problemas_coroa = False
             
-            if exame.carie_coroa_34 == 'T': tem_problema_coroa[9] = True; sem_problemas_coroa = False
-            if exame.carie_coroa_34 != '0' and exame.carie_coroa_34 != 'T' and exame.carie_coroa_34 != '9': tem_problema_coroa[int(exame.carie_coroa_34)] = True; sem_problemas_coroa = False
+            if exame.carie_coroa_25 != None and exame.carie_coroa_25 == 'T': tem_problema_coroa[9] = True; sem_problemas_coroa = False
+            if exame.carie_coroa_25 != None and exame.carie_coroa_25 != '0' and exame.carie_coroa_25 != 'T' and exame.carie_coroa_25 != '9': tem_problema_coroa[int(exame.carie_coroa_25)] = True; sem_problemas_coroa = False
             
-            if exame.carie_coroa_33 == 'T': tem_problema_coroa[9] = True; sem_problemas_coroa = False
-            if exame.carie_coroa_33 != '0' and exame.carie_coroa_33 != 'T' and exame.carie_coroa_33 != '9': tem_problema_coroa[int(exame.carie_coroa_33)] = True; sem_problemas_coroa = False
+            if exame.carie_coroa_26 != None and exame.carie_coroa_26 == 'T': tem_problema_coroa[9] = True; sem_problemas_coroa = False
+            if exame.carie_coroa_26 != None and exame.carie_coroa_26 != '0' and exame.carie_coroa_26 != 'T' and exame.carie_coroa_26 != '9': tem_problema_coroa[int(exame.carie_coroa_26)] = True; sem_problemas_coroa = False
             
-            if exame.carie_coroa_32 == 'T': tem_problema_coroa[9] = True; sem_problemas_coroa = False
-            if exame.carie_coroa_32 != '0' and exame.carie_coroa_32 != 'T' and exame.carie_coroa_32 != '9': tem_problema_coroa[int(exame.carie_coroa_32)] = True; sem_problemas_coroa = False
+            if exame.carie_coroa_27 != None and exame.carie_coroa_27 == 'T': tem_problema_coroa[9] = True; sem_problemas_coroa = False
+            if exame.carie_coroa_27 != None and exame.carie_coroa_27 != '0' and exame.carie_coroa_27 != 'T' and exame.carie_coroa_27 != '9': tem_problema_coroa[int(exame.carie_coroa_27)] = True; sem_problemas_coroa = False
             
-            if exame.carie_coroa_31 == 'T': tem_problema_coroa[9] = True; sem_problemas_coroa = False
-            if exame.carie_coroa_31 != '0' and exame.carie_coroa_31 != 'T' and exame.carie_coroa_31 != '9': tem_problema_coroa[int(exame.carie_coroa_31)] = True; sem_problemas_coroa = False
+            if exame.carie_coroa_28 != None and exame.carie_coroa_28 == 'T': tem_problema_coroa[9] = True; sem_problemas_coroa = False
+            if exame.carie_coroa_28 != None and exame.carie_coroa_28 != '0' and exame.carie_coroa_28 != 'T' and exame.carie_coroa_28 != '9': tem_problema_coroa[int(exame.carie_coroa_28)] = True; sem_problemas_coroa = False
             
             
-            if exame.carie_coroa_41 == 'T': tem_problema_coroa[9] = True; sem_problemas_coroa = False
-            if exame.carie_coroa_41 != '0' and exame.carie_coroa_41 != 'T' and exame.carie_coroa_41 != '9': tem_problema_coroa[int(exame.carie_coroa_41)] = True; sem_problemas_coroa = False
+            if exame.carie_coroa_38 != None and exame.carie_coroa_38 == 'T': tem_problema_coroa[9] = True; sem_problemas_coroa = False
+            if exame.carie_coroa_38 != None and exame.carie_coroa_38 != '0' and exame.carie_coroa_38 != 'T' and exame.carie_coroa_38 != '9': tem_problema_coroa[int(exame.carie_coroa_38)] = True; sem_problemas_coroa = False
             
-            if exame.carie_coroa_42 == 'T': tem_problema_coroa[9] = True; sem_problemas_coroa = False
-            if exame.carie_coroa_42 != '0' and exame.carie_coroa_42 != 'T' and exame.carie_coroa_42 != '9': tem_problema_coroa[int(exame.carie_coroa_42)] = True; sem_problemas_coroa = False
+            if exame.carie_coroa_37 != None and exame.carie_coroa_37 == 'T': tem_problema_coroa[9] = True; sem_problemas_coroa = False
+            if exame.carie_coroa_37 != None and exame.carie_coroa_37 != '0' and exame.carie_coroa_37 != 'T' and exame.carie_coroa_37 != '9': tem_problema_coroa[int(exame.carie_coroa_37)] = True; sem_problemas_coroa = False
             
-            if exame.carie_coroa_43 == 'T': tem_problema_coroa[9] = True; sem_problemas_coroa = False
-            if exame.carie_coroa_43 != '0' and exame.carie_coroa_43 != 'T' and exame.carie_coroa_43 != '9': tem_problema_coroa[int(exame.carie_coroa_43)] = True; sem_problemas_coroa = False
+            if exame.carie_coroa_36 != None and exame.carie_coroa_36 == 'T': tem_problema_coroa[9] = True; sem_problemas_coroa = False
+            if exame.carie_coroa_36 != None and exame.carie_coroa_36 != '0' and exame.carie_coroa_36 != 'T' and exame.carie_coroa_36 != '9': tem_problema_coroa[int(exame.carie_coroa_36)] = True; sem_problemas_coroa = False
             
-            if exame.carie_coroa_44 == 'T': tem_problema_coroa[9] = True; sem_problemas_coroa = False
-            if exame.carie_coroa_44 != '0' and exame.carie_coroa_44 != 'T' and exame.carie_coroa_44 != '9': tem_problema_coroa[int(exame.carie_coroa_44)] = True; sem_problemas_coroa = False
+            if exame.carie_coroa_35 != None and exame.carie_coroa_35 == 'T': tem_problema_coroa[9] = True; sem_problemas_coroa = False
+            if exame.carie_coroa_35 != None and exame.carie_coroa_35 != '0' and exame.carie_coroa_35 != 'T' and exame.carie_coroa_35 != '9': tem_problema_coroa[int(exame.carie_coroa_35)] = True; sem_problemas_coroa = False
             
-            if exame.carie_coroa_45 == 'T': tem_problema_coroa[9] = True; sem_problemas_coroa = False
-            if exame.carie_coroa_45 != '0' and exame.carie_coroa_45 != 'T' and exame.carie_coroa_45 != '9': tem_problema_coroa[int(exame.carie_coroa_45)] = True; sem_problemas_coroa = False
+            if exame.carie_coroa_34 != None and exame.carie_coroa_34 == 'T': tem_problema_coroa[9] = True; sem_problemas_coroa = False
+            if exame.carie_coroa_34 != None and exame.carie_coroa_34 != '0' and exame.carie_coroa_34 != 'T' and exame.carie_coroa_34 != '9': tem_problema_coroa[int(exame.carie_coroa_34)] = True; sem_problemas_coroa = False
             
-            if exame.carie_coroa_46 == 'T': tem_problema_coroa[9] = True; sem_problemas_coroa = False
-            if exame.carie_coroa_46 != '0' and exame.carie_coroa_46 != 'T' and exame.carie_coroa_46 != '9': tem_problema_coroa[int(exame.carie_coroa_46)] = True; sem_problemas_coroa = False
+            if exame.carie_coroa_33 != None and exame.carie_coroa_33 == 'T': tem_problema_coroa[9] = True; sem_problemas_coroa = False
+            if exame.carie_coroa_33 != None and exame.carie_coroa_33 != '0' and exame.carie_coroa_33 != 'T' and exame.carie_coroa_33 != '9': tem_problema_coroa[int(exame.carie_coroa_33)] = True; sem_problemas_coroa = False
             
-            if exame.carie_coroa_47 == 'T': tem_problema_coroa[9] = True; sem_problemas_coroa = False
-            if exame.carie_coroa_47 != '0' and exame.carie_coroa_47 != 'T' and exame.carie_coroa_47 != '9': tem_problema_coroa[int(exame.carie_coroa_47)] = True; sem_problemas_coroa = False
+            if exame.carie_coroa_32 != None and exame.carie_coroa_32 == 'T': tem_problema_coroa[9] = True; sem_problemas_coroa = False
+            if exame.carie_coroa_32 != None and exame.carie_coroa_32 != '0' and exame.carie_coroa_32 != 'T' and exame.carie_coroa_32 != '9': tem_problema_coroa[int(exame.carie_coroa_32)] = True; sem_problemas_coroa = False
             
-            if exame.carie_coroa_48 == 'T': tem_problema_coroa[9] = True; sem_problemas_coroa = False
-            if exame.carie_coroa_48 != '0' and exame.carie_coroa_48 != 'T' and exame.carie_coroa_48 != '9': tem_problema_coroa[int(exame.carie_coroa_48)] = True; sem_problemas_coroa = False
+            if exame.carie_coroa_31 != None and exame.carie_coroa_31 == 'T': tem_problema_coroa[9] = True; sem_problemas_coroa = False
+            if exame.carie_coroa_31 != None and exame.carie_coroa_31 != '0' and exame.carie_coroa_31 != 'T' and exame.carie_coroa_31 != '9': tem_problema_coroa[int(exame.carie_coroa_31)] = True; sem_problemas_coroa = False
+            
+            
+            if exame.carie_coroa_41 != None and exame.carie_coroa_41 == 'T': tem_problema_coroa[9] = True; sem_problemas_coroa = False
+            if exame.carie_coroa_41 != None and exame.carie_coroa_41 != '0' and exame.carie_coroa_41 != 'T' and exame.carie_coroa_41 != '9': tem_problema_coroa[int(exame.carie_coroa_41)] = True; sem_problemas_coroa = False
+            
+            if exame.carie_coroa_42 != None and exame.carie_coroa_42 == 'T': tem_problema_coroa[9] = True; sem_problemas_coroa = False
+            if exame.carie_coroa_42 != None and exame.carie_coroa_42 != '0' and exame.carie_coroa_42 != 'T' and exame.carie_coroa_42 != '9': tem_problema_coroa[int(exame.carie_coroa_42)] = True; sem_problemas_coroa = False
+            
+            if exame.carie_coroa_43 != None and exame.carie_coroa_43 == 'T': tem_problema_coroa[9] = True; sem_problemas_coroa = False
+            if exame.carie_coroa_43 != None and exame.carie_coroa_43 != '0' and exame.carie_coroa_43 != 'T' and exame.carie_coroa_43 != '9': tem_problema_coroa[int(exame.carie_coroa_43)] = True; sem_problemas_coroa = False
+            
+            if exame.carie_coroa_44 != None and exame.carie_coroa_44 == 'T': tem_problema_coroa[9] = True; sem_problemas_coroa = False
+            if exame.carie_coroa_44 != None and exame.carie_coroa_44 != '0' and exame.carie_coroa_44 != 'T' and exame.carie_coroa_44 != '9': tem_problema_coroa[int(exame.carie_coroa_44)] = True; sem_problemas_coroa = False
+            
+            if exame.carie_coroa_45 != None and exame.carie_coroa_45 == 'T': tem_problema_coroa[9] = True; sem_problemas_coroa = False
+            if exame.carie_coroa_45 != None and exame.carie_coroa_45 != '0' and exame.carie_coroa_45 != 'T' and exame.carie_coroa_45 != '9': tem_problema_coroa[int(exame.carie_coroa_45)] = True; sem_problemas_coroa = False
+            
+            if exame.carie_coroa_46 != None and exame.carie_coroa_46 == 'T': tem_problema_coroa[9] = True; sem_problemas_coroa = False
+            if exame.carie_coroa_46 != None and exame.carie_coroa_46 != '0' and exame.carie_coroa_46 != 'T' and exame.carie_coroa_46 != '9': tem_problema_coroa[int(exame.carie_coroa_46)] = True; sem_problemas_coroa = False
+            
+            if exame.carie_coroa_47 != None and exame.carie_coroa_47 == 'T': tem_problema_coroa[9] = True; sem_problemas_coroa = False
+            if exame.carie_coroa_47 != None and exame.carie_coroa_47 != '0' and exame.carie_coroa_47 != 'T' and exame.carie_coroa_47 != '9': tem_problema_coroa[int(exame.carie_coroa_47)] = True; sem_problemas_coroa = False
+            
+            if exame.carie_coroa_48 != None and exame.carie_coroa_48 == 'T': tem_problema_coroa[9] = True; sem_problemas_coroa = False
+            if exame.carie_coroa_48 != None and exame.carie_coroa_48 != '0' and exame.carie_coroa_48 != 'T' and exame.carie_coroa_48 != '9': tem_problema_coroa[int(exame.carie_coroa_48)] = True; sem_problemas_coroa = False
             
             if sem_problemas_coroa: tem_problema_coroa[0] = True
             else: sem_problemas_coroa = True
@@ -1217,41 +1217,41 @@ class GraficosExamesView(LoginRequired, View):
         for exame in exames:
             tratamento_foi_indicado = [False, False, False, False, False, False, False, False, False]
             
-            if exame.carie_tratamento_18 != '0' and exame.carie_tratamento_18 != '9': tratamento_foi_indicado[int(exame.carie_tratamento_18)] = True; sem_tratamento_indicado = False
-            if exame.carie_tratamento_17 != '0' and exame.carie_tratamento_17 != '9': tratamento_foi_indicado[int(exame.carie_tratamento_17)] = True; sem_tratamento_indicado = False
-            if exame.carie_tratamento_16 != '0' and exame.carie_tratamento_16 != '9': tratamento_foi_indicado[int(exame.carie_tratamento_16)] = True; sem_tratamento_indicado = False
-            if exame.carie_tratamento_15 != '0' and exame.carie_tratamento_15 != '9': tratamento_foi_indicado[int(exame.carie_tratamento_15)] = True; sem_tratamento_indicado = False
-            if exame.carie_tratamento_14 != '0' and exame.carie_tratamento_14 != '9': tratamento_foi_indicado[int(exame.carie_tratamento_14)] = True; sem_tratamento_indicado = False
-            if exame.carie_tratamento_13 != '0' and exame.carie_tratamento_13 != '9': tratamento_foi_indicado[int(exame.carie_tratamento_13)] = True; sem_tratamento_indicado = False
-            if exame.carie_tratamento_12 != '0' and exame.carie_tratamento_12 != '9': tratamento_foi_indicado[int(exame.carie_tratamento_12)] = True; sem_tratamento_indicado = False
-            if exame.carie_tratamento_11 != '0' and exame.carie_tratamento_11 != '9': tratamento_foi_indicado[int(exame.carie_tratamento_11)] = True; sem_tratamento_indicado = False
+            if exame.carie_tratamento_18 != None and exame.carie_tratamento_18 != '0' and exame.carie_tratamento_18 != '9': tratamento_foi_indicado[int(exame.carie_tratamento_18)] = True; sem_tratamento_indicado = False
+            if exame.carie_tratamento_17 != None and exame.carie_tratamento_17 != '0' and exame.carie_tratamento_17 != '9': tratamento_foi_indicado[int(exame.carie_tratamento_17)] = True; sem_tratamento_indicado = False
+            if exame.carie_tratamento_16 != None and exame.carie_tratamento_16 != '0' and exame.carie_tratamento_16 != '9': tratamento_foi_indicado[int(exame.carie_tratamento_16)] = True; sem_tratamento_indicado = False
+            if exame.carie_tratamento_15 != None and exame.carie_tratamento_15 != '0' and exame.carie_tratamento_15 != '9': tratamento_foi_indicado[int(exame.carie_tratamento_15)] = True; sem_tratamento_indicado = False
+            if exame.carie_tratamento_14 != None and exame.carie_tratamento_14 != '0' and exame.carie_tratamento_14 != '9': tratamento_foi_indicado[int(exame.carie_tratamento_14)] = True; sem_tratamento_indicado = False
+            if exame.carie_tratamento_13 != None and exame.carie_tratamento_13 != '0' and exame.carie_tratamento_13 != '9': tratamento_foi_indicado[int(exame.carie_tratamento_13)] = True; sem_tratamento_indicado = False
+            if exame.carie_tratamento_12 != None and exame.carie_tratamento_12 != '0' and exame.carie_tratamento_12 != '9': tratamento_foi_indicado[int(exame.carie_tratamento_12)] = True; sem_tratamento_indicado = False
+            if exame.carie_tratamento_11 != None and exame.carie_tratamento_11 != '0' and exame.carie_tratamento_11 != '9': tratamento_foi_indicado[int(exame.carie_tratamento_11)] = True; sem_tratamento_indicado = False
             
-            if exame.carie_tratamento_21 != '0' and exame.carie_tratamento_21 != '9': tratamento_foi_indicado[int(exame.carie_tratamento_21)] = True; sem_tratamento_indicado = False
-            if exame.carie_tratamento_22 != '0' and exame.carie_tratamento_22 != '9': tratamento_foi_indicado[int(exame.carie_tratamento_22)] = True; sem_tratamento_indicado = False
-            if exame.carie_tratamento_23 != '0' and exame.carie_tratamento_23 != '9': tratamento_foi_indicado[int(exame.carie_tratamento_23)] = True; sem_tratamento_indicado = False
-            if exame.carie_tratamento_24 != '0' and exame.carie_tratamento_24 != '9': tratamento_foi_indicado[int(exame.carie_tratamento_24)] = True; sem_tratamento_indicado = False
-            if exame.carie_tratamento_25 != '0' and exame.carie_tratamento_25 != '9': tratamento_foi_indicado[int(exame.carie_tratamento_25)] = True; sem_tratamento_indicado = False
-            if exame.carie_tratamento_26 != '0' and exame.carie_tratamento_26 != '9': tratamento_foi_indicado[int(exame.carie_tratamento_26)] = True; sem_tratamento_indicado = False
-            if exame.carie_tratamento_27 != '0' and exame.carie_tratamento_27 != '9': tratamento_foi_indicado[int(exame.carie_tratamento_27)] = True; sem_tratamento_indicado = False
-            if exame.carie_tratamento_28 != '0' and exame.carie_tratamento_28 != '9': tratamento_foi_indicado[int(exame.carie_tratamento_28)] = True; sem_tratamento_indicado = False
+            if exame.carie_tratamento_21 != None and exame.carie_tratamento_21 != '0' and exame.carie_tratamento_21 != '9': tratamento_foi_indicado[int(exame.carie_tratamento_21)] = True; sem_tratamento_indicado = False
+            if exame.carie_tratamento_22 != None and exame.carie_tratamento_22 != '0' and exame.carie_tratamento_22 != '9': tratamento_foi_indicado[int(exame.carie_tratamento_22)] = True; sem_tratamento_indicado = False
+            if exame.carie_tratamento_23 != None and exame.carie_tratamento_23 != '0' and exame.carie_tratamento_23 != '9': tratamento_foi_indicado[int(exame.carie_tratamento_23)] = True; sem_tratamento_indicado = False
+            if exame.carie_tratamento_24 != None and exame.carie_tratamento_24 != '0' and exame.carie_tratamento_24 != '9': tratamento_foi_indicado[int(exame.carie_tratamento_24)] = True; sem_tratamento_indicado = False
+            if exame.carie_tratamento_25 != None and exame.carie_tratamento_25 != '0' and exame.carie_tratamento_25 != '9': tratamento_foi_indicado[int(exame.carie_tratamento_25)] = True; sem_tratamento_indicado = False
+            if exame.carie_tratamento_26 != None and exame.carie_tratamento_26 != '0' and exame.carie_tratamento_26 != '9': tratamento_foi_indicado[int(exame.carie_tratamento_26)] = True; sem_tratamento_indicado = False
+            if exame.carie_tratamento_27 != None and exame.carie_tratamento_27 != '0' and exame.carie_tratamento_27 != '9': tratamento_foi_indicado[int(exame.carie_tratamento_27)] = True; sem_tratamento_indicado = False
+            if exame.carie_tratamento_28 != None and exame.carie_tratamento_28 != '0' and exame.carie_tratamento_28 != '9': tratamento_foi_indicado[int(exame.carie_tratamento_28)] = True; sem_tratamento_indicado = False
             
-            if exame.carie_tratamento_38 != '0' and exame.carie_tratamento_38 != '9': tratamento_foi_indicado[int(exame.carie_tratamento_38)] = True; sem_tratamento_indicado = False
-            if exame.carie_tratamento_37 != '0' and exame.carie_tratamento_37 != '9': tratamento_foi_indicado[int(exame.carie_tratamento_37)] = True; sem_tratamento_indicado = False
-            if exame.carie_tratamento_36 != '0' and exame.carie_tratamento_36 != '9': tratamento_foi_indicado[int(exame.carie_tratamento_36)] = True; sem_tratamento_indicado = False
-            if exame.carie_tratamento_35 != '0' and exame.carie_tratamento_35 != '9': tratamento_foi_indicado[int(exame.carie_tratamento_35)] = True; sem_tratamento_indicado = False
-            if exame.carie_tratamento_34 != '0' and exame.carie_tratamento_34 != '9': tratamento_foi_indicado[int(exame.carie_tratamento_34)] = True; sem_tratamento_indicado = False
-            if exame.carie_tratamento_33 != '0' and exame.carie_tratamento_33 != '9': tratamento_foi_indicado[int(exame.carie_tratamento_33)] = True; sem_tratamento_indicado = False
-            if exame.carie_tratamento_32 != '0' and exame.carie_tratamento_32 != '9': tratamento_foi_indicado[int(exame.carie_tratamento_32)] = True; sem_tratamento_indicado = False
-            if exame.carie_tratamento_31 != '0' and exame.carie_tratamento_31 != '9': tratamento_foi_indicado[int(exame.carie_tratamento_31)] = True; sem_tratamento_indicado = False
+            if exame.carie_tratamento_38 != None and exame.carie_tratamento_38 != '0' and exame.carie_tratamento_38 != '9': tratamento_foi_indicado[int(exame.carie_tratamento_38)] = True; sem_tratamento_indicado = False
+            if exame.carie_tratamento_37 != None and exame.carie_tratamento_37 != '0' and exame.carie_tratamento_37 != '9': tratamento_foi_indicado[int(exame.carie_tratamento_37)] = True; sem_tratamento_indicado = False
+            if exame.carie_tratamento_36 != None and exame.carie_tratamento_36 != '0' and exame.carie_tratamento_36 != '9': tratamento_foi_indicado[int(exame.carie_tratamento_36)] = True; sem_tratamento_indicado = False
+            if exame.carie_tratamento_35 != None and exame.carie_tratamento_35 != '0' and exame.carie_tratamento_35 != '9': tratamento_foi_indicado[int(exame.carie_tratamento_35)] = True; sem_tratamento_indicado = False
+            if exame.carie_tratamento_34 != None and exame.carie_tratamento_34 != '0' and exame.carie_tratamento_34 != '9': tratamento_foi_indicado[int(exame.carie_tratamento_34)] = True; sem_tratamento_indicado = False
+            if exame.carie_tratamento_33 != None and exame.carie_tratamento_33 != '0' and exame.carie_tratamento_33 != '9': tratamento_foi_indicado[int(exame.carie_tratamento_33)] = True; sem_tratamento_indicado = False
+            if exame.carie_tratamento_32 != None and exame.carie_tratamento_32 != '0' and exame.carie_tratamento_32 != '9': tratamento_foi_indicado[int(exame.carie_tratamento_32)] = True; sem_tratamento_indicado = False
+            if exame.carie_tratamento_31 != None and exame.carie_tratamento_31 != '0' and exame.carie_tratamento_31 != '9': tratamento_foi_indicado[int(exame.carie_tratamento_31)] = True; sem_tratamento_indicado = False
             
-            if exame.carie_tratamento_41 != '0' and exame.carie_tratamento_41 != '9': tratamento_foi_indicado[int(exame.carie_tratamento_41)] = True; sem_tratamento_indicado = False
-            if exame.carie_tratamento_42 != '0' and exame.carie_tratamento_42 != '9': tratamento_foi_indicado[int(exame.carie_tratamento_42)] = True; sem_tratamento_indicado = False
-            if exame.carie_tratamento_43 != '0' and exame.carie_tratamento_43 != '9': tratamento_foi_indicado[int(exame.carie_tratamento_43)] = True; sem_tratamento_indicado = False
-            if exame.carie_tratamento_44 != '0' and exame.carie_tratamento_44 != '9': tratamento_foi_indicado[int(exame.carie_tratamento_44)] = True; sem_tratamento_indicado = False
-            if exame.carie_tratamento_45 != '0' and exame.carie_tratamento_45 != '9': tratamento_foi_indicado[int(exame.carie_tratamento_45)] = True; sem_tratamento_indicado = False
-            if exame.carie_tratamento_46 != '0' and exame.carie_tratamento_46 != '9': tratamento_foi_indicado[int(exame.carie_tratamento_46)] = True; sem_tratamento_indicado = False
-            if exame.carie_tratamento_47 != '0' and exame.carie_tratamento_47 != '9': tratamento_foi_indicado[int(exame.carie_tratamento_47)] = True; sem_tratamento_indicado = False
-            if exame.carie_tratamento_48 != '0' and exame.carie_tratamento_48 != '9': tratamento_foi_indicado[int(exame.carie_tratamento_48)] = True; sem_tratamento_indicado = False
+            if exame.carie_tratamento_41 != None and exame.carie_tratamento_41 != '0' and exame.carie_tratamento_41 != '9': tratamento_foi_indicado[int(exame.carie_tratamento_41)] = True; sem_tratamento_indicado = False
+            if exame.carie_tratamento_42 != None and exame.carie_tratamento_42 != '0' and exame.carie_tratamento_42 != '9': tratamento_foi_indicado[int(exame.carie_tratamento_42)] = True; sem_tratamento_indicado = False
+            if exame.carie_tratamento_43 != None and exame.carie_tratamento_43 != '0' and exame.carie_tratamento_43 != '9': tratamento_foi_indicado[int(exame.carie_tratamento_43)] = True; sem_tratamento_indicado = False
+            if exame.carie_tratamento_44 != None and exame.carie_tratamento_44 != '0' and exame.carie_tratamento_44 != '9': tratamento_foi_indicado[int(exame.carie_tratamento_44)] = True; sem_tratamento_indicado = False
+            if exame.carie_tratamento_45 != None and exame.carie_tratamento_45 != '0' and exame.carie_tratamento_45 != '9': tratamento_foi_indicado[int(exame.carie_tratamento_45)] = True; sem_tratamento_indicado = False
+            if exame.carie_tratamento_46 != None and exame.carie_tratamento_46 != '0' and exame.carie_tratamento_46 != '9': tratamento_foi_indicado[int(exame.carie_tratamento_46)] = True; sem_tratamento_indicado = False
+            if exame.carie_tratamento_47 != None and exame.carie_tratamento_47 != '0' and exame.carie_tratamento_47 != '9': tratamento_foi_indicado[int(exame.carie_tratamento_47)] = True; sem_tratamento_indicado = False
+            if exame.carie_tratamento_48 != None and exame.carie_tratamento_48 != '0' and exame.carie_tratamento_48 != '9': tratamento_foi_indicado[int(exame.carie_tratamento_48)] = True; sem_tratamento_indicado = False
             
             if sem_tratamento_indicado: tratamento_foi_indicado[0] = True
             else: sem_tratamento_indicado = True
@@ -1271,26 +1271,44 @@ class GraficosExamesView(LoginRequired, View):
         for exame in exames:
             tem_problema_periodontal = [False, False, False, False]
             
-            if exame.periodontal_sangramento_1716 != '0' and exame.periodontal_sangramento_1716 != '9' and exame.periodontal_sangramento_1716 != 'X': tem_problema_periodontal[1] = True; sem_problema_periodontal = False
-            if exame.periodontal_sangramento_11 != '0' and exame.periodontal_sangramento_11 != '9' and exame.periodontal_sangramento_11 != 'X': tem_problema_periodontal[1] = True; sem_problema_periodontal = False
-            if exame.periodontal_sangramento_2627 != '0' and exame.periodontal_sangramento_2627 != '9' and exame.periodontal_sangramento_2627 != 'X': tem_problema_periodontal[1] = True; sem_problema_periodontal = False
-            if exame.periodontal_sangramento_3736 != '0' and exame.periodontal_sangramento_3736 != '9' and exame.periodontal_sangramento_3736 != 'X': tem_problema_periodontal[1] = True; sem_problema_periodontal = False
-            if exame.periodontal_sangramento_31 != '0' and exame.periodontal_sangramento_31 != '9' and exame.periodontal_sangramento_31 != 'X': tem_problema_periodontal[1] = True; sem_problema_periodontal = False
-            if exame.periodontal_sangramento_4647 != '0' and exame.periodontal_sangramento_4647 != '9' and exame.periodontal_sangramento_4647 != 'X': tem_problema_periodontal[1] = True; sem_problema_periodontal = False
+            if exame.periodontal_sangramento_1716 != None:
+                if exame.periodontal_sangramento_1716 != '0' and exame.periodontal_sangramento_1716 != '9' and exame.periodontal_sangramento_1716 != 'X': tem_problema_periodontal[1] = True; sem_problema_periodontal = False
+            if exame.periodontal_sangramento_11 != None:
+                if exame.periodontal_sangramento_11 != '0' and exame.periodontal_sangramento_11 != '9' and exame.periodontal_sangramento_11 != 'X': tem_problema_periodontal[1] = True; sem_problema_periodontal = False
+            if exame.periodontal_sangramento_2627 != None:
+                if exame.periodontal_sangramento_2627 != '0' and exame.periodontal_sangramento_2627 != '9' and exame.periodontal_sangramento_2627 != 'X': tem_problema_periodontal[1] = True; sem_problema_periodontal = False
+            if exame.periodontal_sangramento_3736 != None:
+                if exame.periodontal_sangramento_3736 != '0' and exame.periodontal_sangramento_3736 != '9' and exame.periodontal_sangramento_3736 != 'X': tem_problema_periodontal[1] = True; sem_problema_periodontal = False
+            if exame.periodontal_sangramento_31 != None:
+                if exame.periodontal_sangramento_31 != '0' and exame.periodontal_sangramento_31 != '9' and exame.periodontal_sangramento_31 != 'X': tem_problema_periodontal[1] = True; sem_problema_periodontal = False
+            if exame.periodontal_sangramento_4647 != None:
+                if exame.periodontal_sangramento_4647 != '0' and exame.periodontal_sangramento_4647 != '9' and exame.periodontal_sangramento_4647 != 'X': tem_problema_periodontal[1] = True; sem_problema_periodontal = False
             
-            if exame.periodontal_calculo_1716 != '0' and exame.periodontal_calculo_1716 != '9' and exame.periodontal_calculo_1716 != 'X': tem_problema_periodontal[2] = True; sem_problema_periodontal = False
-            if exame.periodontal_calculo_11 != '0' and exame.periodontal_calculo_11 != '9' and exame.periodontal_calculo_11 != 'X': tem_problema_periodontal[2] = True; sem_problema_periodontal = False
-            if exame.periodontal_calculo_2627 != '0' and exame.periodontal_calculo_2627 != '9' and exame.periodontal_calculo_2627 != 'X': tem_problema_periodontal[2] = True; sem_problema_periodontal = False
-            if exame.periodontal_calculo_3736 != '0' and exame.periodontal_calculo_3736 != '9' and exame.periodontal_calculo_3736 != 'X': tem_problema_periodontal[2] = True; sem_problema_periodontal = False
-            if exame.periodontal_calculo_31 != '0' and exame.periodontal_calculo_31 != '9' and exame.periodontal_calculo_31 != 'X': tem_problema_periodontal[2] = True; sem_problema_periodontal = False
-            if exame.periodontal_calculo_4647 != '0' and exame.periodontal_calculo_4647 != '9' and exame.periodontal_calculo_4647 != 'X': tem_problema_periodontal[2] = True; sem_problema_periodontal = False
-
-            if exame.periodontal_bolsa_1716 != '0' and exame.periodontal_bolsa_1716 != '9' and exame.periodontal_bolsa_1716 != 'X': tem_problema_periodontal[3] = True; sem_problema_periodontal = False
-            if exame.periodontal_bolsa_11 != '0' and exame.periodontal_bolsa_11 != '9' and exame.periodontal_bolsa_11 != 'X': tem_problema_periodontal[3] = True; sem_problema_periodontal = False
-            if exame.periodontal_bolsa_2627 != '0' and exame.periodontal_bolsa_2627 != '9' and exame.periodontal_bolsa_2627 != 'X': tem_problema_periodontal[3] = True; sem_problema_periodontal = False
-            if exame.periodontal_bolsa_3736 != '0' and exame.periodontal_bolsa_3736 != '9' and exame.periodontal_bolsa_3736 != 'X': tem_problema_periodontal[3] = True; sem_problema_periodontal = False
-            if exame.periodontal_bolsa_31 != '0' and exame.periodontal_bolsa_31 != '9' and exame.periodontal_bolsa_31 != 'X': tem_problema_periodontal[3] = True; sem_problema_periodontal = False
-            if exame.periodontal_bolsa_4647 != '0' and exame.periodontal_bolsa_4647 != '9' and exame.periodontal_bolsa_4647 != 'X': tem_problema_periodontal[3] = True; sem_problema_periodontal = False
+            if exame.periodontal_calculo_1716 != None:
+                if exame.periodontal_calculo_1716 != '0' and exame.periodontal_calculo_1716 != '9' and exame.periodontal_calculo_1716 != 'X': tem_problema_periodontal[2] = True; sem_problema_periodontal = False
+            if exame.periodontal_calculo_11 != None:
+                if exame.periodontal_calculo_11 != '0' and exame.periodontal_calculo_11 != '9' and exame.periodontal_calculo_11 != 'X': tem_problema_periodontal[2] = True; sem_problema_periodontal = False
+            if exame.periodontal_calculo_2627 != None:
+                if exame.periodontal_calculo_2627 != '0' and exame.periodontal_calculo_2627 != '9' and exame.periodontal_calculo_2627 != 'X': tem_problema_periodontal[2] = True; sem_problema_periodontal = False
+            if exame.periodontal_calculo_3736 != None:
+                if exame.periodontal_calculo_3736 != '0' and exame.periodontal_calculo_3736 != '9' and exame.periodontal_calculo_3736 != 'X': tem_problema_periodontal[2] = True; sem_problema_periodontal = False
+            if exame.periodontal_calculo_31 != None:
+                if exame.periodontal_calculo_31 != '0' and exame.periodontal_calculo_31 != '9' and exame.periodontal_calculo_31 != 'X': tem_problema_periodontal[2] = True; sem_problema_periodontal = False
+            if exame.periodontal_calculo_4647 != None:
+                if exame.periodontal_calculo_4647 != '0' and exame.periodontal_calculo_4647 != '9' and exame.periodontal_calculo_4647 != 'X': tem_problema_periodontal[2] = True; sem_problema_periodontal = False
+            
+            if exame.periodontal_bolsa_1716 != None:
+                if exame.periodontal_bolsa_1716 != '0' and exame.periodontal_bolsa_1716 != '9' and exame.periodontal_bolsa_1716 != 'X': tem_problema_periodontal[3] = True; sem_problema_periodontal = False
+            if exame.periodontal_bolsa_11 != None:
+                if exame.periodontal_bolsa_11 != '0' and exame.periodontal_bolsa_11 != '9' and exame.periodontal_bolsa_11 != 'X': tem_problema_periodontal[3] = True; sem_problema_periodontal = False
+            if exame.periodontal_bolsa_2627 != None:
+                if exame.periodontal_bolsa_2627 != '0' and exame.periodontal_bolsa_2627 != '9' and exame.periodontal_bolsa_2627 != 'X': tem_problema_periodontal[3] = True; sem_problema_periodontal = False
+            if exame.periodontal_bolsa_3736 != None:
+                if exame.periodontal_bolsa_3736 != '0' and exame.periodontal_bolsa_3736 != '9' and exame.periodontal_bolsa_3736 != 'X': tem_problema_periodontal[3] = True; sem_problema_periodontal = False
+            if exame.periodontal_bolsa_31 != None:
+                if exame.periodontal_bolsa_31 != '0' and exame.periodontal_bolsa_31 != '9' and exame.periodontal_bolsa_31 != 'X': tem_problema_periodontal[3] = True; sem_problema_periodontal = False
+            if exame.periodontal_bolsa_4647 != None:
+                if exame.periodontal_bolsa_4647 != '0' and exame.periodontal_bolsa_4647 != '9' and exame.periodontal_bolsa_4647 != 'X': tem_problema_periodontal[3] = True; sem_problema_periodontal = False
             
             if sem_problema_periodontal: tem_problema_periodontal[0] = True
             else: sem_problema_periodontal = True
