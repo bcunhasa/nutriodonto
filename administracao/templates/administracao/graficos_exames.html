@@ -18,7 +18,7 @@
           <div class="panel-title">01. Ocorrência de problemas na coroa</div>
         </div>
         <div class="panel-body">
-          <div id="situacao_coroa" class="grafico-grande"></div>
+          <div id="situacao_coroa" class="grafico"></div>
         </div>
       </div>
     </div>
@@ -30,7 +30,7 @@
           <div class="panel-title">02. Ocorrência de indicação de tratamento</div>
         </div>
         <div class="panel-body">
-          <div id="tratamento_necessario" class="grafico-grande"></div>
+          <div id="tratamento_necessario" class="grafico"></div>
         </div>
       </div>
     </div>
@@ -42,7 +42,7 @@
           <div class="panel-title">03. Ocorrência de problemas periodontais</div>
         </div>
         <div class="panel-body">
-          <div id="condicao_periodontal" class="grafico-grande"></div>
+          <div id="condicao_periodontal" class="grafico"></div>
         </div>
       </div>
     </div>
@@ -55,7 +55,8 @@
   </script>
   
   <script src="{% static 'administracao/vendor/flot/jquery.flot.js' %}"></script>
-  <script src="{% static 'administracao/vendor/flot/jquery.flot.pie.js' %}"></script>
+  <script src="{% static 'administracao/vendor/flot.tooltip/js/jquery.flot.tooltip.min.js' %}"></script>
+  <script src="{% static 'administracao/vendor/flot/jquery.flot.categories.js' %}"></script>
   <script src="{% static 'administracao/js/graficos_exames.js' %}"></script>
   
 {% endblock content %}

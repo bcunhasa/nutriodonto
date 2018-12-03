@@ -169,7 +169,14 @@ function criaGraficoQuestao(questao, dados) {
                     }
                 }
             }
-        }
+        },
+        grid: {
+            hoverable: true
+        },
+        tooltip: true,
+        tooltipOpts: {
+            content: "%s: %p.0% (%y.0)",
+        },
     });
 }
 
