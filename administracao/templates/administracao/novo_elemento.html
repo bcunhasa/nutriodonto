@@ -492,6 +492,57 @@
               </div>
               <div class="col-lg-5"></div>
             </div>
+          
+          {% elif pagina_escolas %}
+          
+            <div class="form-group has-feedback">
+              <label class="col-lg-2 control-label">Ação</label>
+              {{ form.acao.errors }}
+              <div class="col-lg-10">
+                {% render_field form.acao class='form-control' type='number' placeholder='Ação' %}
+              </div>
+              {% if form.acao.help_text %}
+                <p class="help">{{ field.help_text|safe }}</p>
+              {% endif %}
+            </div>
+            
+            <div class="form-group has-feedback">
+              <label class="col-lg-2 control-label">Nome</label>
+              {{ form.nome.errors }}
+              <div class="col-lg-10">
+                {% render_field form.nome class='form-control' type='number' placeholder='Nome' %}
+              </div>
+              {% if form.nome.help_text %}
+                <p class="help">{{ field.help_text|safe }}</p>
+              {% endif %}
+            </div>
+            
+            <div class="form-group has-feedback">
+              <label class="col-lg-2 control-label">Latitude</label>
+              {{ form.latitude.errors }}
+              <div class="col-lg-10">
+                {% render_field form.latitude class='form-control' type='number' placeholder='Latitude' %}
+              </div>
+              {% if form.latitude.help_text %}
+                <p class="help">{{ field.help_text|safe }}</p>
+              {% endif %}
+            </div>
+            
+            <div class="form-group has-feedback">
+              <label class="col-lg-2 control-label">Longitude</label>
+              {{ form.longitude.errors }}
+              <div class="col-lg-10">
+                {% render_field form.longitude class='form-control' type='number' placeholder='Longitude' %}
+              </div>
+              {% if form.longitude.help_text %}
+                <p class="help">{{ field.help_text|safe }}</p>
+              {% endif %}
+            </div>
+            
+            <label class="col-lg-2 control-label"></label>
+            <div class="col-lg-10">
+              <div id="map"></div>
+            </div>
             
           {% else %}
           
@@ -575,6 +626,8 @@
     <!-- </div> -->
   </div>
   
+  <script src="{% static 'administracao/js/mapa.js' %}"></script>
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDu4apCMOsjMRElTJPCPgiO0ccKq2i9EcQ&callback=initMap"></script>
   <script src="{% static 'administracao/js/exame.js' %}"></script>
   <script src="{% static 'administracao/js/administracao.js' %}"></script>
   <script src="{% static 'administracao/vendor/moment/min/moment-with-locales.min.js' %}"></script>

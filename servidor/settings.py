@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     
     # Minhas aplicações
+    'portal',
     'administracao',
     'questionarios',
     'api',

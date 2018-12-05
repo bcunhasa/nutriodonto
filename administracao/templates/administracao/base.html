@@ -31,7 +31,7 @@
         <nav class="navbar topnavbar" role="navigation">
           <!-- START navbar header-->
           <div class="navbar-header">
-            <a class="navbar-brand" href="{% url 'administracao:index' %}">
+            <a class="navbar-brand" href="{% url 'portal:index' %}">
               <div class="brand-logo">
                 <img width="42" class="img-responsive block-center img-rounded" src="{% static 'administracao/img/logo.jpg' %}" alt="App Logo">
               </div>
@@ -117,9 +117,9 @@
                       <span data-localize="sidebar.nav.menu.SUBMENU">Exames</span>
                     </a>
                   </li>
-                  <li class="{% if pagina_graficos_relacoes %} active {% endif %}">
-                    <a href="#" title="Relações">
-                      <span data-localize="sidebar.nav.menu.SUBMENU">Relações</span>
+                  <li class="{% if pagina_graficos_diretores %} active {% endif %}">
+                    <a href="{% url 'administracao:graficos_diretores' %}" title="Diretores">
+                      <span data-localize="sidebar.nav.menu.SUBMENU">Diretores</span>
                     </a>
                   </li>
                 </ul>

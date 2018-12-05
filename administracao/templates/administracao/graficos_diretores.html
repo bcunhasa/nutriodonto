@@ -2,7 +2,7 @@
 {% load staticfiles %}
 
 {% block head %}
-  <!-- Cabeçalho local -->
+  <link rel="stylesheet" type="text/css" href="{% static 'administracao/css/graficos.css' %}">
 {% endblock head %}
 
 {% block header %}
@@ -11,19 +11,1080 @@
 
 {% block content %}
   
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-lg-12">
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            Gráficos sobre as informações de diretores
-          </div>
-          <div class="panel-body">
-            <p>Em desenvolvimento.</p>
-          </div>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="panel-title">1. A escola funciona em quais turnos? (múltipla resposta)</div>
+        </div>
+        <div class="panel-body">
+          <div id="questao1" class="grafico"></div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="panel-title">2. A escola funciona em regime integral?</div>
+        </div>
+        <div class="panel-body">
+          <div id="questao2" class="grafico"></div>
         </div>
       </div>
     </div>
   </div>
+  
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="panel-title">3. A escola atende a quais etapas de ensino? (múltipla resposta)</div>
+        </div>
+        <div class="panel-body">
+          <div id="questao3" class="grafico"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="panel-title">4. Qual é o TOTAL de alunos matriculados?</div>
+        </div>
+        <div class="panel-body">
+          <div id="questao4" class="grafico"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="panel-title">5. Qual é a quantidade TOTAL de salas de aula da escola?</div>
+        </div>
+        <div class="panel-body">
+          <div id="questao5" class="grafico"></div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="panel-title">6. A escola tem biblioteca EM CONDIÇÕES DE USO?</div>
+        </div>
+        <div class="panel-body">
+          <div id="questao6" class="grafico"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="panel-title">7. A escola tem sala ou laboratório de informática EM CONDIÇÕES DE USO para os alunos?</div>
+        </div>
+        <div clas7="panel-body">
+          <div id="questao7" class="grafico"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="panel-title">8. Quantos computadores (desktops, laptops, notebooks, netbooks, tablets) da escola EM CONDIÇÕES DE USO estão disponíveis para os alunos em sala de aula e/ou salas específicas de informática?</div>
+        </div>
+        <div class="panel-body">
+          <div id="questao8" class="grafico"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="panel-title">9. Os alunos têm acesso à internet através de equipamentos da escola?</div>
+        </div>
+        <div class="panel-body">
+          <div id="questao9" class="grafico"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="panel-title">10. A escola tem sala de recursos de mídia/comunicação EM CONDIÇÕES DE USO? (Exemplos: televisão, videocassete, dvd, projetor etc)</div>
+        </div>
+        <div class="panel-body">
+          <div id="questao10" class="grafico"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="panel-title">11. A escola tem conselho escolar?</div>
+        </div>
+        <div class="panel-body">
+          <div id="questao11" class="grafico"></div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="panel-title">12. Com que frequência o conselho escolar se reúne?</div>
+        </div>
+        <div class="panel-body">
+          <div id="questao12" class="grafico"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="panel-title">13. A escola fica aberta nos finais de semana para uso da comunidade?</div>
+        </div>
+        <div class="panel-body">
+          <div id="questao13" class="grafico"></div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="panel-title">14. As ações desenvolvidas na escola, no final de semana, são pactuadas com a comunidade?</div>
+        </div>
+        <div clas14="panel-body">
+          <div id="questao14" class="grafico"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="panel-title">15. A escola tem quadra de esportes EM CONDIÇÕES DE USO?</div>
+        </div>
+        <div class="panel-body">
+          <div id="questao15" class="grafico"></div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="panel-title">16. Quantas quadras de esporte EM CONDIÇÕES DE USO a escola tem?</div>
+        </div>
+        <div class="panel-body">
+          <div id="questao16" class="grafico"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="panel-title">17. Quantas das quadras de esporte EM CONDIÇÕES DE USO da escola são cobertas?</div>
+        </div>
+        <div class="panel-body">
+          <div id="questao17" class="grafico"></div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="panel-title">18. A escola tem pista para corrida/atletismo EM CONDIÇÕES DE USO?</div>
+        </div>
+        <div class="panel-body">
+          <div id="questao18" class="grafico"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="panel-title">19. A escola tem piscina EM CONDIÇÕES DE USO?</div>
+        </div>
+        <div class="panel-body">
+          <div id="questao19" class="grafico"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="panel-title">20. O pátio da escola é utilizado para prática regular de atividade física com instrutor?</div>
+        </div>
+        <div clas20="panel-body">
+          <div id="questao20" class="grafico"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="panel-title">21. A escola tem material esportivo ou para jogos e brincadeiras EM CONDIÇÕES DE USO?</div>
+        </div>
+        <div clas21="panel-body">
+          <div id="questao21" class="grafico"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="panel-title">22. A escola tem vestiário EM CONDIÇÕES DE USO para os alunos?</div>
+        </div>
+        <div class="panel-body">
+          <div id="questao22" class="grafico"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="panel-title">23. A escola tem vestiários separados para alunos e alunas EM CONDIÇÕES DE USO?</div>
+        </div>
+        <div class="panel-body">
+          <div id="questao23" class="grafico"></div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="panel-title">24. A escola oferece atividades esportivas para os alunos fora do horário regular de aula?</div>
+        </div>
+        <div clas24="panel-body">
+          <div id="questao24" class="grafico"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="panel-title">25. A escola participa de jogos entre escolas?</div>
+        </div>
+        <div class="panel-body">
+          <div id="questao25" class="grafico"></div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="panel-title">26. A escola realiza jogos entre as classes, turmas ou turnos?</div>
+        </div>
+        <div class="panel-body">
+          <div id="questao26" class="grafico"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="panel-title">27. A escola possui alunos com deficiência ou com transtorno global do desenvolvimento?</div>
+        </div>
+        <div clas27="panel-body">
+          <div id="questao27" class="grafico"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="panel-title">28. Qual(is) tipo(s) de deficiência? (múltipla resposta)</div>
+        </div>
+        <div class="panel-body">
+          <div id="questao28" class="grafico"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="panel-title">29. A escola oferece atividade física adaptada para alunos com deficiência?</div>
+        </div>
+        <div class="panel-body">
+          <div id="questao29" class="grafico"></div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="panel-title">30. A escola possui estrutura para assegurar a acessibilidade dos alunos com necessidades especiais?</div>
+        </div>
+        <div class="panel-body">
+          <div id="questao30" class="grafico"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="panel-title">31. Quais estruturas existem na escola para assegurar a acessibilidade dos alunos com necessidades especiais? (múltipla resposta)</div>
+        </div>
+        <div class="panel-body">
+          <div id="questao31" class="grafico"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="panel-title">32. A escola oferece comida (merenda escolar / almoço) para os estudantes?</div>
+        </div>
+        <div class="panel-body">
+          <div id="questao32" class="grafico"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="panel-title">33. A escola oferece comida (merenda escolar / almoço) para alunos de quais turnos e níveis de ensino? (múltipla resposta)</div>
+        </div>
+        <div class="panel-body">
+          <div id="questao33" class="grafico"></div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="panel-title">34. A escola tem cozinha EM CONDIÇÕES DE USO?</div>
+        </div>
+        <div class="panel-body">
+          <div id="questao34" class="grafico"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="panel-title">35. A escola tem refeitório EM CONDIÇÕES DE USO? (espaço exclusivo para servir alimentação)</div>
+        </div>
+        <div class="panel-body">
+          <div id="questao35" class="grafico"></div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="panel-title">36. A escola tem cantina?</div>
+        </div>
+        <div class="panel-body">
+          <div id="questao36" class="grafico"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="panel-title">37. Que tipos de bebidas e produtos alimentícios são vendidos na cantina? (múltipla resposta)</div>
+        </div>
+        <div class="panel-body">
+          <div id="questao37" class="grafico"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="panel-title">38. Existe algum ponto alternativo de venda de produtos alimentícios dentro ou na entrada da escola? (ex: ambulante/carrocinha)</div>
+        </div>
+        <div class="panel-body">
+          <div id="questao38" class="grafico"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="panel-title">39. Que tipos de bebidas e produtos alimentícios são vendidos no ponto alternativo de vendas? (múltipla resposta)</div>
+        </div>
+        <div class="panel-body">
+          <div id="questao39" class="grafico"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="panel-title">40. A escola tem horta?</div>
+        </div>
+        <div class="panel-body">
+          <div id="questao40" class="grafico"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="panel-title">41. A escola tem água potável (adequada para beber) para uso dos alunos?</div>
+        </div>
+        <div class="panel-body">
+          <div id="questao41" class="grafico"></div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="panel-title">42. NOS ÚLTIMOS 12 MESES, alguma vez a água da escola foi testada quanto a sua potabilidade (se é adequada para beber)?</div>
+        </div>
+        <div class="panel-body">
+          <div id="questao42" class="grafico"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="panel-title">43. Qual é a principal fonte de água potável (adequada para beber) da escola?</div>
+        </div>
+        <div class="panel-body">
+          <div id="questao43" class="grafico"></div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="panel-title">44. A escola tem banheiros EM CONDIÇÕES DE USO?</div>
+        </div>
+        <div class="panel-body">
+          <div id="questao44" class="grafico"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="panel-title">45. A escola tem banheiros separados para alunos e alunas EM CONDIÇÕES DE USO?</div>
+        </div>
+        <div class="panel-body">
+          <div id="questao45" class="grafico"></div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="panel-title">46. A escola oferece papel higiênico para uso nos banheiros da escola?</div>
+        </div>
+        <div class="panel-body">
+          <div id="questao46" class="grafico"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="panel-title">47. A escola tem pia ou lavatório EM CONDIÇÕES DE USO onde os estudantes possam lavar as mãos depois de ir ao banheiro e/ou antes das refeições?</div>
+        </div>
+        <div class="panel-body">
+          <div id="questao47" class="grafico"></div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="panel-title">48. A escola oferece sabão para que os alunos lavem as mãos após usar o banheiro e/ou antes das refeições?</div>
+        </div>
+        <div class="panel-body">
+          <div id="questao48" class="grafico"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="panel-title">49. Normalmente, com que frequência a remoção do lixo é feita pela escola?</div>
+        </div>
+        <div class="panel-body">
+          <div id="questao49" class="grafico"></div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="panel-title">50. A escola tem escovódromo?</div>
+        </div>
+        <div class="panel-body">
+          <div id="questao50" class="grafico"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="panel-title">51. A escola realiza alguma Ação de Saúde Bucal?</div>
+        </div>
+        <div class="panel-body">
+          <div id="questao51" class="grafico"></div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="panel-title">52. Escovação dental supervisionada</div>
+        </div>
+        <div class="panel-body">
+          <div id="questao52" class="grafico"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="panel-title">53. Caso positivo, com qual frequência?</div>
+        </div>
+        <div class="panel-body">
+          <div id="questao53" class="grafico"></div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="panel-title">54. Aplicação Tópica de Flúor</div>
+        </div>
+        <div class="panel-body">
+          <div id="questao54" class="grafico"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="panel-title">55. Caso positivo, com qual frequência?</div>
+        </div>
+        <div class="panel-body">
+          <div id="questao55" class="grafico"></div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="panel-title">56. Bochechos fluorados</div>
+        </div>
+        <div class="panel-body">
+          <div id="questao56" class="grafico"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="panel-title">57. Caso positivo, com qual frequência?</div>
+        </div>
+        <div class="panel-body">
+          <div id="questao57" class="grafico"></div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="panel-title">58. A escola realiza ação de Educação em Saúde Bucal?</div>
+        </div>
+        <div class="panel-body">
+          <div id="questao58" class="grafico"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="panel-title">59. Estas ações estão incluídas no currículo escolar?</div>
+        </div>
+        <div class="panel-body">
+          <div id="questao59" class="grafico"></div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="panel-title">60. Sua escola já realizou Levantamento Epidemiológico sobre cárie dentária?</div>
+        </div>
+        <div class="panel-body">
+          <div id="questao60" class="grafico"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="panel-title">61. Caso positivo você conhece (eu) os resultados?</div>
+        </div>
+        <div class="panel-body">
+          <div id="questao61" class="grafico"></div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="panel-title">62. Sua escola disponibiliza escovas dentais para os estudantes?</div>
+        </div>
+        <div class="panel-body">
+          <div id="questao62" class="grafico"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="panel-title">63. Caso positivo, com qual frequência?</div>
+        </div>
+        <div class="panel-body">
+          <div id="questao63" class="grafico"></div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="panel-title">64. Sua escola disponibiliza creme dental para os estudantes?</div>
+        </div>
+        <div class="panel-body">
+          <div id="questao64" class="grafico"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="panel-title">65. Sua escola disponibiliza fio dental para os estudantes?</div>
+        </div>
+        <div class="panel-body">
+          <div id="questao65" class="grafico"></div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="panel-title">66. NOS ÚLTIMOS 12 MESES, com que frequência, a localidade onde a escola está situada foi considerada área de risco em termos de violência (roubos, furtos, assaltos, troca de tiros, consumo de drogas, homicídios etc)?</div>
+        </div>
+        <div class="panel-body">
+          <div id="questao66" class="grafico"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="panel-title">67. NOS ÚLTIMOS 12 MESES, a escola teve que suspender ou interromper suas aulas por motivo de segurança em termos de violência?</div>
+        </div>
+        <div class="panel-body">
+          <div id="questao67" class="grafico"></div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="panel-title">68. A escola tem algum grupo ou comitê responsável por orientar ou coordenar ações e/ou atividades relacionadas à saúde?</div>
+        </div>
+        <div class="panel-body">
+          <div id="questao68" class="grafico"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="panel-title">69. A escola aderiu ao Programa Saúde da Escola (PSE)?</div>
+        </div>
+        <div class="panel-body">
+          <div id="questao69" class="grafico"></div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="panel-title">70. Caso positivo, qual o ano da adesão da escola ao Programa Saúde na Escola (PSE)?</div>
+        </div>
+        <div class="panel-body">
+          <div id="questao70" class="grafico"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="panel-title">71. A escola implementa ações do Programa Saúde da Escola (PSE)?</div>
+        </div>
+        <div class="panel-body">
+          <div id="questao71" class="grafico"></div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="panel-title">72. A escola implementa ações do Programa Mais Educação?</div>
+        </div>
+        <div class="panel-body">
+          <div id="questao72" class="grafico"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="panel-title">73. A escola realiza ações conjuntas com Unidade Básica de Saúde ou Equipe de Saúde da Família ou Equipe de Atenção Básica?</div>
+        </div>
+        <div class="panel-body">
+          <div id="questao73" class="grafico"></div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="panel-title">74. A escola mantém registros sobre a caderneta de vacinação dos escolares?</div>
+        </div>
+        <div class="panel-body">
+          <div id="questao74" class="grafico"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="panel-title">75. A escola mantém outros registros sobre a saúde dos escolares? (histórico clínico,ocorrência de alergias, acidentes, tipo sanguíneo, doenças etc)</div>
+        </div>
+        <div class="panel-body">
+          <div id="questao75" class="grafico"></div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="panel-title">76. A escola tem material e/ou medicamentos de Primeiros Socorros mantidos em local adequado?</div>
+        </div>
+        <div class="panel-body">
+          <div id="questao76" class="grafico"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="panel-title">77. A escola tem conhecimento de consumo de cigarro por professores nas suas dependências?</div>
+        </div>
+        <div clas77="panel-body">
+          <div id="questao77" class="grafico"></div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="panel-title">78. A escola tem conhecimento de consumo de cigarro por alunos nas suas dependências?</div>
+        </div>
+        <div clas78="panel-body">
+          <div id="questao78" class="grafico"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="panel-title">79. A escola tem alguma política, norma ou regra escrita que proíba o uso do tabaco nas suas dependências?</div>
+        </div>
+        <div class="panel-body">
+          <div id="questao79" class="grafico"></div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="panel-title">80. A escola tem alguma política, norma ou regra escrita que proíba o uso de drogas ilícitas nas suas dependências?</div>
+        </div>
+        <div class="panel-body">
+          <div id="questao80" class="grafico"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="panel-title">81. A escola tem alguma política, norma ou regra escrita que proíba bullying nas suas dependências?</div>
+        </div>
+        <div class="panel-body">
+          <div id="questao81" class="grafico"></div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="panel-title">82. A escola tem alguma política, norma ou regra escrita que proíba brigas nas suas dependências?</div>
+        </div>
+        <div class="panel-body">
+          <div id="questao82" class="grafico"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="panel-title">83. A escola tem alguma política, norma ou regra escrita que proíba punição física dos estudantes pelos professores ou funcionários nas suas dependências?</div>
+        </div>
+        <div class="panel-body">
+          <div id="questao83" class="grafico"></div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="panel-title">84. A escola está situada em área de vulnerabilidade social?</div>
+        </div>
+        <div class="panel-body">
+          <div id="questao84" class="grafico"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <script>
+    var questao_1 = {{ questao_1 }};
+    var questao_2 = {{ questao_2 }};
+    var questao_3 = {{ questao_3 }};
+    var questao_4 = {{ questao_4 }};
+    var questao_5 = {{ questao_5 }};
+    var questao_6 = {{ questao_6 }};
+    var questao_7 = {{ questao_7 }};
+    var questao_8 = {{ questao_8 }};
+    var questao_9 = {{ questao_9 }};
+    var questao_10 = {{ questao_10 }};
+    var questao_11 = {{ questao_11 }};
+    var questao_12 = {{ questao_12 }};
+    var questao_13 = {{ questao_13 }};
+    var questao_14 = {{ questao_14 }};
+    var questao_15 = {{ questao_15 }};
+    var questao_16 = {{ questao_16 }};
+    var questao_17 = {{ questao_17 }};
+    var questao_18 = {{ questao_18 }};
+    var questao_19 = {{ questao_19 }};
+    var questao_20 = {{ questao_20 }};
+    var questao_21 = {{ questao_21 }};
+    var questao_22 = {{ questao_22 }};
+    var questao_23 = {{ questao_23 }};
+    var questao_24 = {{ questao_24 }};
+    var questao_25 = {{ questao_25 }};
+    var questao_26 = {{ questao_26 }};
+    var questao_27 = {{ questao_27 }};
+    var questao_28 = {{ questao_28 }};
+    var questao_29 = {{ questao_29 }};
+    var questao_30 = {{ questao_30 }};
+    var questao_31 = {{ questao_31 }};
+    var questao_32 = {{ questao_32 }};
+    var questao_33 = {{ questao_33 }};
+    var questao_34 = {{ questao_34 }};
+    var questao_35 = {{ questao_35 }};
+    var questao_36 = {{ questao_36 }};
+    var questao_37 = {{ questao_37 }};
+    var questao_38 = {{ questao_38 }};
+    var questao_39 = {{ questao_39 }};
+    var questao_40 = {{ questao_40 }};
+    var questao_41 = {{ questao_41 }};
+    var questao_42 = {{ questao_42 }};
+    var questao_43 = {{ questao_43 }};
+    var questao_44 = {{ questao_44 }};
+    var questao_45 = {{ questao_45 }};
+    var questao_46 = {{ questao_46 }};
+    var questao_47 = {{ questao_47 }};
+    var questao_48 = {{ questao_48 }};
+    var questao_49 = {{ questao_49 }};
+    var questao_50 = {{ questao_50 }};
+    var questao_51 = {{ questao_51 }};
+    var questao_52 = {{ questao_52 }};
+    var questao_53 = {{ questao_53 }};
+    var questao_54 = {{ questao_54 }};
+    var questao_55 = {{ questao_55 }};
+    var questao_56 = {{ questao_56 }};
+    var questao_57 = {{ questao_57 }};
+    var questao_58 = {{ questao_58 }};
+    var questao_59 = {{ questao_59 }};
+    var questao_60 = {{ questao_60 }};
+    var questao_61 = {{ questao_61 }};
+    var questao_62 = {{ questao_62 }};
+    var questao_63 = {{ questao_63 }};
+    var questao_64 = {{ questao_64 }};
+    var questao_65 = {{ questao_65 }};
+    var questao_66 = {{ questao_66 }};
+    var questao_67 = {{ questao_67 }};
+    var questao_68 = {{ questao_68 }};
+    var questao_69 = {{ questao_69 }};
+    var questao_70 = {{ questao_70 }};
+    var questao_71 = {{ questao_71 }};
+    var questao_72 = {{ questao_72 }};
+    var questao_73 = {{ questao_73 }};
+    var questao_74 = {{ questao_74 }};
+    var questao_75 = {{ questao_75 }};
+    var questao_76 = {{ questao_76 }};
+    var questao_77 = {{ questao_77 }};
+    var questao_78 = {{ questao_78 }};
+    var questao_79 = {{ questao_79 }};
+    var questao_80 = {{ questao_80 }};
+    var questao_81 = {{ questao_81 }};
+    var questao_82 = {{ questao_82 }};
+    var questao_83 = {{ questao_83 }};
+    var questao_84 = {{ questao_84 }};
+  </script>
+  
+  <script src="{% static 'administracao/vendor/flot/jquery.flot.js' %}"></script>
+  <script src="{% static 'administracao/vendor/flot/jquery.flot.pie.js' %}"></script>
+  <script src="{% static 'administracao/vendor/flot.tooltip/js/jquery.flot.tooltip.min.js' %}"></script>
+  <script src="{% static 'administracao/js/graficos_diretores.js' %}"></script>
   
 {% endblock content %}

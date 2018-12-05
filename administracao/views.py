@@ -11,13 +11,6 @@ from .forms import *
 from .const import *
 
 
-class IndexView(View):
-    """Página inicial do site"""
-    
-    def get(self, request):
-        return render(self.request, 'administracao/index.html')
-
-
 class LoginRequired(LoginRequiredMixin):
     """Configurações para o login"""
     login_url = 'administracao/login/'
@@ -58,7 +51,7 @@ class LogoutView(View):
     
     def get(self, request):
         logout(request)
-        return HttpResponseRedirect(reverse('administracao:index'))
+        return HttpResponseRedirect(reverse('portal:index'))
 
 
 class VisaoGeralView(LoginRequired, View):
@@ -1360,13 +1353,540 @@ class GraficosDiretoresView(LoginRequired, View):
     def get(self, request):
         diretores = Diretor.objects.order_by('-id')
         
+        questao_1 = self.iniciaQuestao(len(DIRETOR_1) + 1)
+        questao_2 = self.iniciaQuestao(len(DIRETOR_2) + 1)
+        questao_3 = self.iniciaQuestao(len(DIRETOR_3) + 1)
+        questao_4 = self.iniciaQuestao(len(DIRETOR_4) + 1)
+        questao_5 = self.iniciaQuestao(len(DIRETOR_5) + 1)
+        questao_6 = self.iniciaQuestao(len(DIRETOR_6) + 1)
+        questao_7 = self.iniciaQuestao(len(DIRETOR_7) + 1)
+        questao_8 = self.iniciaQuestao(len(DIRETOR_8) + 1)
+        questao_9 = self.iniciaQuestao(len(DIRETOR_9) + 1)
+        questao_10 = self.iniciaQuestao(len(DIRETOR_10) + 1)
+        questao_11 = self.iniciaQuestao(len(DIRETOR_11) + 1)
+        questao_12 = self.iniciaQuestao(len(DIRETOR_12) + 1)
+        questao_13 = self.iniciaQuestao(len(DIRETOR_13) + 1)
+        questao_14 = self.iniciaQuestao(len(DIRETOR_14) + 1)
+        questao_15 = self.iniciaQuestao(len(DIRETOR_15) + 1)
+        questao_16 = self.iniciaQuestao(len(DIRETOR_16) + 1)
+        questao_17 = self.iniciaQuestao(len(DIRETOR_17) + 1)
+        questao_18 = self.iniciaQuestao(len(DIRETOR_18) + 1)
+        questao_19 = self.iniciaQuestao(len(DIRETOR_19) + 1)
+        questao_20 = self.iniciaQuestao(len(DIRETOR_20) + 1)
+        questao_21 = self.iniciaQuestao(len(DIRETOR_21) + 1)
+        questao_22 = self.iniciaQuestao(len(DIRETOR_22) + 1)
+        questao_23 = self.iniciaQuestao(len(DIRETOR_23) + 1)
+        questao_24 = self.iniciaQuestao(len(DIRETOR_24) + 1)
+        questao_25 = self.iniciaQuestao(len(DIRETOR_25) + 1)
+        questao_26 = self.iniciaQuestao(len(DIRETOR_26) + 1)
+        questao_27 = self.iniciaQuestao(len(DIRETOR_27) + 1)
+        questao_28 = self.iniciaQuestao(len(DIRETOR_28) + 1)
+        questao_29 = self.iniciaQuestao(len(DIRETOR_29) + 1)
+        questao_30 = self.iniciaQuestao(len(DIRETOR_30) + 1)
+        questao_31 = self.iniciaQuestao(len(DIRETOR_31) + 1)
+        questao_32 = self.iniciaQuestao(len(DIRETOR_32) + 1)
+        questao_33 = self.iniciaQuestao(len(DIRETOR_33) + 1)
+        questao_34 = self.iniciaQuestao(len(DIRETOR_34) + 1)
+        questao_35 = self.iniciaQuestao(len(DIRETOR_35) + 1)
+        questao_36 = self.iniciaQuestao(len(DIRETOR_36) + 1)
+        questao_37 = self.iniciaQuestao(len(DIRETOR_37) + 1)
+        questao_38 = self.iniciaQuestao(len(DIRETOR_38) + 1)
+        questao_39 = self.iniciaQuestao(len(DIRETOR_39) + 1)
+        questao_40 = self.iniciaQuestao(len(DIRETOR_40) + 1)
+        questao_41 = self.iniciaQuestao(len(DIRETOR_41) + 1)
+        questao_42 = self.iniciaQuestao(len(DIRETOR_42) + 1)
+        questao_43 = self.iniciaQuestao(len(DIRETOR_43) + 1)
+        questao_44 = self.iniciaQuestao(len(DIRETOR_44) + 1)
+        questao_45 = self.iniciaQuestao(len(DIRETOR_45) + 1)
+        questao_46 = self.iniciaQuestao(len(DIRETOR_46) + 1)
+        questao_47 = self.iniciaQuestao(len(DIRETOR_47) + 1)
+        questao_48 = self.iniciaQuestao(len(DIRETOR_48) + 1)
+        questao_49 = self.iniciaQuestao(len(DIRETOR_49) + 1)
+        questao_50 = self.iniciaQuestao(len(DIRETOR_50) + 1)
+        questao_51 = self.iniciaQuestao(len(DIRETOR_51) + 1)
+        questao_52 = self.iniciaQuestao(len(DIRETOR_52) + 1)
+        questao_53 = self.iniciaQuestao(len(DIRETOR_53) + 1)
+        questao_54 = self.iniciaQuestao(len(DIRETOR_54) + 1)
+        questao_55 = self.iniciaQuestao(len(DIRETOR_55) + 1)
+        questao_56 = self.iniciaQuestao(len(DIRETOR_56) + 1)
+        questao_57 = self.iniciaQuestao(len(DIRETOR_57) + 1)
+        questao_58 = self.iniciaQuestao(len(DIRETOR_58) + 1)
+        questao_59 = self.iniciaQuestao(len(DIRETOR_59) + 1)
+        questao_60 = self.iniciaQuestao(len(DIRETOR_60) + 1)
+        questao_61 = self.iniciaQuestao(len(DIRETOR_61) + 1)
+        questao_62 = self.iniciaQuestao(len(DIRETOR_62) + 1)
+        questao_63 = self.iniciaQuestao(len(DIRETOR_63) + 1)
+        questao_64 = self.iniciaQuestao(len(DIRETOR_64) + 1)
+        questao_65 = self.iniciaQuestao(len(DIRETOR_65) + 1)
+        questao_66 = self.iniciaQuestao(len(DIRETOR_66) + 1)
+        questao_67 = self.iniciaQuestao(len(DIRETOR_67) + 1)
+        questao_68 = self.iniciaQuestao(len(DIRETOR_68) + 1)
+        questao_69 = self.iniciaQuestao(len(DIRETOR_69) + 1)
+        questao_70 = self.iniciaQuestao(len(DIRETOR_70) + 1)
+        questao_71 = self.iniciaQuestao(len(DIRETOR_71) + 1)
+        questao_72 = self.iniciaQuestao(len(DIRETOR_72) + 1)
+        questao_73 = self.iniciaQuestao(len(DIRETOR_73) + 1)
+        questao_74 = self.iniciaQuestao(len(DIRETOR_74) + 1)
+        questao_75 = self.iniciaQuestao(len(DIRETOR_75) + 1)
+        questao_76 = self.iniciaQuestao(len(DIRETOR_76) + 1)
+        questao_77 = self.iniciaQuestao(len(DIRETOR_77) + 1)
+        questao_78 = self.iniciaQuestao(len(DIRETOR_78) + 1)
+        questao_79 = self.iniciaQuestao(len(DIRETOR_79) + 1)
+        questao_80 = self.iniciaQuestao(len(DIRETOR_80) + 1)
+        questao_81 = self.iniciaQuestao(len(DIRETOR_81) + 1)
+        questao_82 = self.iniciaQuestao(len(DIRETOR_82) + 1)
+        questao_83 = self.iniciaQuestao(len(DIRETOR_83) + 1)
+        questao_84 = self.iniciaQuestao(len(DIRETOR_84) + 1)
+        
+        for diretor in diretores:
+            if diretor.questao_1 == None:
+                questao_1[len(DIRETOR_1)] = questao_1[len(DIRETOR_1)] + 1
+            else:
+                for escolhas in diretor.questao_1:
+                    for escolha in escolhas:
+                        questao_1[int(escolha)] = questao_1[int(escolha)] + 1
+            if diretor.questao_2 == None:
+                questao_2[len(DIRETOR_2)] = questao_2[len(DIRETOR_2)] + 1
+            else:
+                questao_2[int(diretor.questao_2)] = questao_2[int(diretor.questao_2)] + 1
+            if diretor.questao_3 == None:
+                questao_3[len(DIRETOR_3)] = questao_3[len(DIRETOR_3)] + 1
+            else:
+                for escolhas in diretor.questao_3:
+                    for escolha in escolhas:
+                        questao_3[int(escolha)] = questao_3[int(escolha)] + 1
+            if diretor.questao_4 == None:
+                questao_4[len(DIRETOR_4)] = questao_4[len(DIRETOR_4)] + 1
+            else:
+                questao_4[int(diretor.questao_4)] = questao_4[int(diretor.questao_4)] + 1
+            if diretor.questao_5 == None:
+                questao_5[len(DIRETOR_5)] = questao_5[len(DIRETOR_5)] + 1
+            else:
+                questao_5[int(diretor.questao_5)] = questao_5[int(diretor.questao_5)] + 1
+            if diretor.questao_6 == None:
+                questao_6[len(DIRETOR_6)] = questao_6[len(DIRETOR_6)] + 1
+            else:
+                questao_6[int(diretor.questao_6)] = questao_6[int(diretor.questao_6)] + 1
+            if diretor.questao_7 == None:
+                questao_7[len(DIRETOR_7)] = questao_7[len(DIRETOR_7)] + 1
+            else:
+                questao_7[int(diretor.questao_7)] = questao_7[int(diretor.questao_7)] + 1
+            if diretor.questao_8 == None:
+                questao_8[len(DIRETOR_8)] = questao_8[len(DIRETOR_8)] + 1
+            else:
+                questao_8[int(diretor.questao_8)] = questao_8[int(diretor.questao_8)] + 1
+            if diretor.questao_9 == None:
+                questao_9[len(DIRETOR_9)] = questao_9[len(DIRETOR_9)] + 1
+            else:
+                questao_9[int(diretor.questao_9)] = questao_9[int(diretor.questao_9)] + 1
+            if diretor.questao_10 == None:
+                questao_10[len(DIRETOR_10)] = questao_10[len(DIRETOR_10)] + 1
+            else:
+                questao_10[int(diretor.questao_10)] = questao_10[int(diretor.questao_10)] + 1
+            if diretor.questao_11 == None:
+                questao_11[len(DIRETOR_11)] = questao_11[len(DIRETOR_11)] + 1
+            else:
+                questao_11[int(diretor.questao_11)] = questao_11[int(diretor.questao_11)] + 1
+            if diretor.questao_12 == None:
+                questao_12[len(DIRETOR_12)] = questao_12[len(DIRETOR_12)] + 1
+            else:
+                questao_12[int(diretor.questao_12)] = questao_12[int(diretor.questao_12)] + 1
+            if diretor.questao_13 == None:
+                questao_13[len(DIRETOR_13)] = questao_13[len(DIRETOR_13)] + 1
+            else:
+                questao_13[int(diretor.questao_13)] = questao_13[int(diretor.questao_13)] + 1
+            if diretor.questao_14 == None:
+                questao_14[len(DIRETOR_14)] = questao_14[len(DIRETOR_14)] + 1
+            else:
+                questao_14[int(diretor.questao_14)] = questao_14[int(diretor.questao_14)] + 1
+            if diretor.questao_15 == None:
+                questao_15[len(DIRETOR_15)] = questao_15[len(DIRETOR_15)] + 1
+            else:
+                questao_15[int(diretor.questao_15)] = questao_15[int(diretor.questao_15)] + 1
+            if diretor.questao_16 == None:
+                questao_16[len(DIRETOR_16)] = questao_16[len(DIRETOR_16)] + 1
+            else:
+                questao_16[int(diretor.questao_16)] = questao_16[int(diretor.questao_16)] + 1
+            if diretor.questao_17 == None:
+                questao_17[len(DIRETOR_17)] = questao_17[len(DIRETOR_17)] + 1
+            else:
+                questao_17[int(diretor.questao_17)] = questao_17[int(diretor.questao_17)] + 1
+            if diretor.questao_18 == None:
+                questao_18[len(DIRETOR_18)] = questao_18[len(DIRETOR_18)] + 1
+            else:
+                questao_18[int(diretor.questao_18)] = questao_18[int(diretor.questao_18)] + 1
+            if diretor.questao_19 == None:
+                questao_19[len(DIRETOR_19)] = questao_19[len(DIRETOR_19)] + 1
+            else:
+                questao_19[int(diretor.questao_19)] = questao_19[int(diretor.questao_19)] + 1
+            if diretor.questao_20 == None:
+                questao_20[len(DIRETOR_20)] = questao_20[len(DIRETOR_20)] + 1
+            else:
+                questao_20[int(diretor.questao_20)] = questao_20[int(diretor.questao_20)] + 1
+            if diretor.questao_21 == None:
+                questao_21[len(DIRETOR_21)] = questao_21[len(DIRETOR_21)] + 1
+            else:
+                questao_21[int(diretor.questao_21)] = questao_21[int(diretor.questao_21)] + 1
+            if diretor.questao_22 == None:
+                questao_22[len(DIRETOR_22)] = questao_22[len(DIRETOR_22)] + 1
+            else:
+                questao_22[int(diretor.questao_22)] = questao_22[int(diretor.questao_22)] + 1
+            if diretor.questao_23 == None:
+                questao_23[len(DIRETOR_23)] = questao_23[len(DIRETOR_23)] + 1
+            else:
+                questao_23[int(diretor.questao_23)] = questao_23[int(diretor.questao_23)] + 1
+            if diretor.questao_24 == None:
+                questao_24[len(DIRETOR_24)] = questao_24[len(DIRETOR_24)] + 1
+            else:
+                questao_24[int(diretor.questao_24)] = questao_24[int(diretor.questao_24)] + 1
+            if diretor.questao_25 == None:
+                questao_25[len(DIRETOR_25)] = questao_25[len(DIRETOR_25)] + 1
+            else:
+                questao_25[int(diretor.questao_25)] = questao_25[int(diretor.questao_25)] + 1
+            if diretor.questao_26 == None:
+                questao_26[len(DIRETOR_26)] = questao_26[len(DIRETOR_26)] + 1
+            else:
+                questao_26[int(diretor.questao_26)] = questao_26[int(diretor.questao_26)] + 1
+            if diretor.questao_27 == None:
+                questao_27[len(DIRETOR_27)] = questao_27[len(DIRETOR_27)] + 1
+            else:
+                questao_27[int(diretor.questao_27)] = questao_27[int(diretor.questao_27)] + 1
+            if diretor.questao_28 == None:
+                questao_28[len(DIRETOR_28)] = questao_28[len(DIRETOR_28)] + 1
+            else:
+                for escolhas in diretor.questao_28:
+                    for escolha in escolhas:
+                        questao_28[int(escolha)] = questao_28[int(escolha)] + 1
+            if diretor.questao_29 == None:
+                questao_29[len(DIRETOR_29)] = questao_29[len(DIRETOR_29)] + 1
+            else:
+                questao_29[int(diretor.questao_29)] = questao_29[int(diretor.questao_29)] + 1
+            if diretor.questao_30 == None:
+                questao_30[len(DIRETOR_30)] = questao_30[len(DIRETOR_30)] + 1
+            else:
+                questao_30[int(diretor.questao_30)] = questao_30[int(diretor.questao_30)] + 1
+            if diretor.questao_31 == None:
+                questao_31[len(DIRETOR_31)] = questao_31[len(DIRETOR_31)] + 1
+            else:
+                for escolhas in diretor.questao_31:
+                    for escolha in escolhas:
+                        questao_31[int(escolha)] = questao_31[int(escolha)] + 1
+            if diretor.questao_32 == None:
+                questao_32[len(DIRETOR_32)] = questao_32[len(DIRETOR_32)] + 1
+            else:
+                questao_32[int(diretor.questao_32)] = questao_32[int(diretor.questao_32)] + 1
+            if diretor.questao_33 == None:
+                questao_33[len(DIRETOR_33)] = questao_33[len(DIRETOR_33)] + 1
+            else:
+                for escolhas in diretor.questao_33:
+                    for escolha in escolhas:
+                        questao_33[int(escolha)] = questao_33[int(escolha)] + 1
+            if diretor.questao_34 == None:
+                questao_34[len(DIRETOR_34)] = questao_34[len(DIRETOR_34)] + 1
+            else:
+                questao_34[int(diretor.questao_34)] = questao_34[int(diretor.questao_34)] + 1
+            if diretor.questao_35 == None:
+                questao_35[len(DIRETOR_35)] = questao_35[len(DIRETOR_35)] + 1
+            else:
+                questao_35[int(diretor.questao_35)] = questao_35[int(diretor.questao_35)] + 1
+            if diretor.questao_36 == None:
+                questao_36[len(DIRETOR_36)] = questao_36[len(DIRETOR_36)] + 1
+            else:
+                questao_36[int(diretor.questao_36)] = questao_36[int(diretor.questao_36)] + 1
+            if diretor.questao_37 == None:
+                questao_37[len(DIRETOR_37)] = questao_37[len(DIRETOR_37)] + 1
+            else:
+                for escolhas in diretor.questao_37:
+                    for escolha in escolhas:
+                        questao_37[int(escolha)] = questao_37[int(escolha)] + 1
+            if diretor.questao_38 == None:
+                questao_38[len(DIRETOR_38)] = questao_38[len(DIRETOR_38)] + 1
+            else:
+                questao_38[int(diretor.questao_38)] = questao_38[int(diretor.questao_38)] + 1
+            if diretor.questao_39 == None:
+                questao_39[len(DIRETOR_39)] = questao_39[len(DIRETOR_39)] + 1
+            else:
+                for escolhas in diretor.questao_39:
+                    for escolha in escolhas:
+                        questao_39[int(escolha)] = questao_39[int(escolha)] + 1
+            if diretor.questao_40 == None:
+                questao_40[len(DIRETOR_40)] = questao_40[len(DIRETOR_40)] + 1
+            else:
+                questao_40[int(diretor.questao_40)] = questao_40[int(diretor.questao_40)] + 1
+            if diretor.questao_41 == None:
+                questao_41[len(DIRETOR_41)] = questao_41[len(DIRETOR_41)] + 1
+            else:
+                questao_41[int(diretor.questao_41)] = questao_41[int(diretor.questao_41)] + 1
+            if diretor.questao_42 == None:
+                questao_42[len(DIRETOR_42)] = questao_42[len(DIRETOR_42)] + 1
+            else:
+                questao_42[int(diretor.questao_42)] = questao_42[int(diretor.questao_42)] + 1
+            if diretor.questao_43 == None:
+                questao_43[len(DIRETOR_43)] = questao_43[len(DIRETOR_43)] + 1
+            else:
+                questao_43[int(diretor.questao_43)] = questao_43[int(diretor.questao_43)] + 1
+            if diretor.questao_44 == None:
+                questao_44[len(DIRETOR_44)] = questao_44[len(DIRETOR_44)] + 1
+            else:
+                questao_44[int(diretor.questao_44)] = questao_44[int(diretor.questao_44)] + 1
+            if diretor.questao_45 == None:
+                questao_45[len(DIRETOR_45)] = questao_45[len(DIRETOR_45)] + 1
+            else:
+                questao_45[int(diretor.questao_45)] = questao_45[int(diretor.questao_45)] + 1
+            if diretor.questao_46 == None:
+                questao_46[len(DIRETOR_46)] = questao_46[len(DIRETOR_46)] + 1
+            else:
+                questao_46[int(diretor.questao_46)] = questao_46[int(diretor.questao_46)] + 1
+            if diretor.questao_47 == None:
+                questao_47[len(DIRETOR_47)] = questao_47[len(DIRETOR_47)] + 1
+            else:
+                questao_47[int(diretor.questao_47)] = questao_47[int(diretor.questao_47)] + 1
+            if diretor.questao_48 == None:
+                questao_48[len(DIRETOR_48)] = questao_48[len(DIRETOR_48)] + 1
+            else:
+                questao_48[int(diretor.questao_48)] = questao_48[int(diretor.questao_48)] + 1
+            if diretor.questao_49 == None:
+                questao_49[len(DIRETOR_49)] = questao_49[len(DIRETOR_49)] + 1
+            else:
+                questao_49[int(diretor.questao_49)] = questao_49[int(diretor.questao_49)] + 1
+            if diretor.questao_50 == None:
+                questao_50[len(DIRETOR_50)] = questao_50[len(DIRETOR_50)] + 1
+            else:
+                questao_50[int(diretor.questao_50)] = questao_50[int(diretor.questao_50)] + 1
+            if diretor.questao_51 == None:
+                questao_51[len(DIRETOR_51)] = questao_51[len(DIRETOR_51)] + 1
+            else:
+                questao_51[int(diretor.questao_51)] = questao_51[int(diretor.questao_51)] + 1
+            if diretor.questao_52 == None:
+                questao_52[len(DIRETOR_52)] = questao_52[len(DIRETOR_52)] + 1
+            else:
+                questao_52[int(diretor.questao_52)] = questao_52[int(diretor.questao_52)] + 1
+            if diretor.questao_53 == None:
+                questao_53[len(DIRETOR_53)] = questao_53[len(DIRETOR_53)] + 1
+            else:
+                questao_53[int(diretor.questao_53)] = questao_53[int(diretor.questao_53)] + 1
+            if diretor.questao_54 == None:
+                questao_54[len(DIRETOR_54)] = questao_54[len(DIRETOR_54)] + 1
+            else:
+                questao_54[int(diretor.questao_54)] = questao_54[int(diretor.questao_54)] + 1
+            if diretor.questao_55 == None:
+                questao_55[len(DIRETOR_55)] = questao_55[len(DIRETOR_55)] + 1
+            else:
+                questao_55[int(diretor.questao_55)] = questao_55[int(diretor.questao_55)] + 1
+            if diretor.questao_56 == None:
+                questao_56[len(DIRETOR_56)] = questao_56[len(DIRETOR_56)] + 1
+            else:
+                questao_56[int(diretor.questao_56)] = questao_56[int(diretor.questao_56)] + 1
+            if diretor.questao_57 == None:
+                questao_57[len(DIRETOR_57)] = questao_57[len(DIRETOR_57)] + 1
+            else:
+                questao_57[int(diretor.questao_57)] = questao_57[int(diretor.questao_57)] + 1
+            if diretor.questao_58 == None:
+                questao_58[len(DIRETOR_58)] = questao_58[len(DIRETOR_58)] + 1
+            else:
+                questao_58[int(diretor.questao_58)] = questao_58[int(diretor.questao_58)] + 1
+            if diretor.questao_59 == None:
+                questao_59[len(DIRETOR_59)] = questao_59[len(DIRETOR_59)] + 1
+            else:
+                questao_59[int(diretor.questao_59)] = questao_59[int(diretor.questao_59)] + 1
+            if diretor.questao_60 == None:
+                questao_60[len(DIRETOR_60)] = questao_60[len(DIRETOR_60)] + 1
+            else:
+                questao_60[int(diretor.questao_60)] = questao_60[int(diretor.questao_60)] + 1
+            if diretor.questao_61 == None:
+                questao_61[len(DIRETOR_61)] = questao_61[len(DIRETOR_61)] + 1
+            else:
+                questao_61[int(diretor.questao_61)] = questao_61[int(diretor.questao_61)] + 1
+            if diretor.questao_62 == None:
+                questao_62[len(DIRETOR_62)] = questao_62[len(DIRETOR_62)] + 1
+            else:
+                questao_62[int(diretor.questao_62)] = questao_62[int(diretor.questao_62)] + 1
+            if diretor.questao_63 == None:
+                questao_63[len(DIRETOR_63)] = questao_63[len(DIRETOR_63)] + 1
+            else:
+                questao_63[int(diretor.questao_63)] = questao_63[int(diretor.questao_63)] + 1
+            if diretor.questao_64 == None:
+                questao_64[len(DIRETOR_64)] = questao_64[len(DIRETOR_64)] + 1
+            else:
+                questao_64[int(diretor.questao_64)] = questao_64[int(diretor.questao_64)] + 1
+            if diretor.questao_65 == None:
+                questao_65[len(DIRETOR_65)] = questao_65[len(DIRETOR_65)] + 1
+            else:
+                questao_65[int(diretor.questao_65)] = questao_65[int(diretor.questao_65)] + 1
+            if diretor.questao_66 == None:
+                questao_66[len(DIRETOR_66)] = questao_66[len(DIRETOR_66)] + 1
+            else:
+                questao_66[int(diretor.questao_66)] = questao_66[int(diretor.questao_66)] + 1
+            if diretor.questao_67 == None:
+                questao_67[len(DIRETOR_67)] = questao_67[len(DIRETOR_67)] + 1
+            else:
+                questao_67[int(diretor.questao_67)] = questao_67[int(diretor.questao_67)] + 1
+            if diretor.questao_68 == None:
+                questao_68[len(DIRETOR_68)] = questao_68[len(DIRETOR_68)] + 1
+            else:
+                questao_68[int(diretor.questao_68)] = questao_68[int(diretor.questao_68)] + 1
+            if diretor.questao_69 == None:
+                questao_69[len(DIRETOR_69)] = questao_69[len(DIRETOR_69)] + 1
+            else:
+                questao_69[int(diretor.questao_69)] = questao_69[int(diretor.questao_69)] + 1
+            if diretor.questao_70 == None:
+                questao_70[len(DIRETOR_70)] = questao_70[len(DIRETOR_70)] + 1
+            else:
+                questao_70[int(diretor.questao_70)] = questao_70[int(diretor.questao_70)] + 1
+            if diretor.questao_71 == None:
+                questao_71[len(DIRETOR_71)] = questao_71[len(DIRETOR_71)] + 1
+            else:
+                questao_71[int(diretor.questao_71)] = questao_71[int(diretor.questao_71)] + 1
+            if diretor.questao_72 == None:
+                questao_72[len(DIRETOR_72)] = questao_72[len(DIRETOR_72)] + 1
+            else:
+                questao_72[int(diretor.questao_72)] = questao_72[int(diretor.questao_72)] + 1
+            if diretor.questao_73 == None:
+                questao_73[len(DIRETOR_73)] = questao_73[len(DIRETOR_73)] + 1
+            else:
+                questao_73[int(diretor.questao_73)] = questao_73[int(diretor.questao_73)] + 1
+            if diretor.questao_74 == None:
+                questao_74[len(DIRETOR_74)] = questao_74[len(DIRETOR_74)] + 1
+            else:
+                questao_74[int(diretor.questao_74)] = questao_74[int(diretor.questao_74)] + 1
+            if diretor.questao_75 == None:
+                questao_75[len(DIRETOR_75)] = questao_75[len(DIRETOR_75)] + 1
+            else:
+                questao_75[int(diretor.questao_75)] = questao_75[int(diretor.questao_75)] + 1
+            if diretor.questao_76 == None:
+                questao_76[len(DIRETOR_76)] = questao_76[len(DIRETOR_76)] + 1
+            else:
+                questao_76[int(diretor.questao_76)] = questao_76[int(diretor.questao_76)] + 1
+            if diretor.questao_77 == None:
+                questao_77[len(DIRETOR_77)] = questao_77[len(DIRETOR_77)] + 1
+            else:
+                questao_77[int(diretor.questao_77)] = questao_77[int(diretor.questao_77)] + 1
+            if diretor.questao_78 == None:
+                questao_78[len(DIRETOR_78)] = questao_78[len(DIRETOR_78)] + 1
+            else:
+                questao_78[int(diretor.questao_78)] = questao_78[int(diretor.questao_78)] + 1
+            if diretor.questao_79 == None:
+                questao_79[len(DIRETOR_79)] = questao_79[len(DIRETOR_79)] + 1
+            else:
+                questao_79[int(diretor.questao_79)] = questao_79[int(diretor.questao_79)] + 1
+            if diretor.questao_80 == None:
+                questao_80[len(DIRETOR_80)] = questao_80[len(DIRETOR_80)] + 1
+            else:
+                questao_80[int(diretor.questao_80)] = questao_80[int(diretor.questao_80)] + 1
+            if diretor.questao_81 == None:
+                questao_81[len(DIRETOR_81)] = questao_81[len(DIRETOR_81)] + 1
+            else:
+                questao_81[int(diretor.questao_81)] = questao_81[int(diretor.questao_81)] + 1
+            if diretor.questao_82 == None:
+                questao_82[len(DIRETOR_82)] = questao_82[len(DIRETOR_82)] + 1
+            else:
+                questao_82[int(diretor.questao_82)] = questao_82[int(diretor.questao_82)] + 1
+            if diretor.questao_83 == None:
+                questao_83[len(DIRETOR_83)] = questao_83[len(DIRETOR_83)] + 1
+            else:
+                questao_83[int(diretor.questao_83)] = questao_83[int(diretor.questao_83)] + 1
+            if diretor.questao_84 == None:
+                questao_84[len(DIRETOR_84)] = questao_84[len(DIRETOR_84)] + 1
+            else:
+                questao_84[int(diretor.questao_84)] = questao_84[int(diretor.questao_84)] + 1
+        
         context = {
             'pagina_graficos': True,
             'pagina_graficos_diretores': True,
             'diretores': diretores,
+            'questao_1': questao_1,
+            'questao_2': questao_2,
+            'questao_3': questao_3,
+            'questao_4': questao_4,
+            'questao_5': questao_5,
+            'questao_6': questao_6,
+            'questao_7': questao_7,
+            'questao_8': questao_8,
+            'questao_9': questao_9,
+            'questao_10': questao_10,
+            'questao_11': questao_11,
+            'questao_12': questao_12,
+            'questao_13': questao_13,
+            'questao_14': questao_14,
+            'questao_15': questao_15,
+            'questao_16': questao_16,
+            'questao_17': questao_17,
+            'questao_18': questao_18,
+            'questao_19': questao_19,
+            'questao_20': questao_20,
+            'questao_21': questao_21,
+            'questao_22': questao_22,
+            'questao_23': questao_23,
+            'questao_24': questao_24,
+            'questao_25': questao_25,
+            'questao_26': questao_26,
+            'questao_27': questao_27,
+            'questao_28': questao_28,
+            'questao_29': questao_29,
+            'questao_30': questao_30,
+            'questao_31': questao_31,
+            'questao_32': questao_32,
+            'questao_33': questao_33,
+            'questao_34': questao_34,
+            'questao_35': questao_35,
+            'questao_36': questao_36,
+            'questao_37': questao_37,
+            'questao_38': questao_38,
+            'questao_39': questao_39,
+            'questao_40': questao_40,
+            'questao_41': questao_41,
+            'questao_42': questao_42,
+            'questao_43': questao_43,
+            'questao_44': questao_44,
+            'questao_45': questao_45,
+            'questao_46': questao_46,
+            'questao_47': questao_47,
+            'questao_48': questao_48,
+            'questao_49': questao_49,
+            'questao_50': questao_50,
+            'questao_51': questao_51,
+            'questao_52': questao_52,
+            'questao_53': questao_53,
+            'questao_54': questao_54,
+            'questao_55': questao_55,
+            'questao_56': questao_56,
+            'questao_57': questao_57,
+            'questao_58': questao_58,
+            'questao_59': questao_59,
+            'questao_60': questao_60,
+            'questao_61': questao_61,
+            'questao_62': questao_62,
+            'questao_63': questao_63,
+            'questao_64': questao_64,
+            'questao_65': questao_65,
+            'questao_66': questao_66,
+            'questao_67': questao_67,
+            'questao_68': questao_68,
+            'questao_69': questao_69,
+            'questao_70': questao_70,
+            'questao_71': questao_71,
+            'questao_72': questao_72,
+            'questao_73': questao_73,
+            'questao_74': questao_74,
+            'questao_75': questao_75,
+            'questao_76': questao_76,
+            'questao_77': questao_77,
+            'questao_78': questao_78,
+            'questao_79': questao_79,
+            'questao_80': questao_80,
+            'questao_81': questao_81,
+            'questao_82': questao_82,
+            'questao_83': questao_83,
+            'questao_84': questao_84,
         }
         
         return render(self.request, 'administracao/graficos_diretores.html', context)
+    
+    def iniciaQuestao(self, maximo):
+        questao = []
+        for i in range(maximo):
+            questao.append(0)
+        return questao
 
 
 class UsuariosView(LoginRequired, View):
