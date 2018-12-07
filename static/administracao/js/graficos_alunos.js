@@ -2,6 +2,7 @@
 
 document.addEventListener("DOMContentLoaded", function() {
     criaGraficoQuestao("#aluno_por_escola", carregaDados("#aluno_por_escola"));
+    criaGraficoQuestao("#sexo", carregaDados("#sexo"));
     criaGraficoQuestao("#participacao", carregaDados("#participacao"));
 });
 
@@ -65,6 +66,14 @@ function carregaDados(questao) {
             { label: "Escola municipal de T.I. João Beltrão", data: aluno_por_escola[23] },
             { label: "Escola municipal de T.I. Luiz Nunes de Oliveira", data: aluno_por_escola[24] },
             { label: "Escola municipal de T.I. Sueli Pereira A. Reche", data: aluno_por_escola[25] },
+        ];
+    } else if (questao == "#sexo") {
+        return [
+            { label: "Masculino", data: sexo[0] },
+            { label: "Feminino", data: sexo[1] },
+            { label: "Outro", data: sexo[2] },
+            { label: "Prefiro não responder", data: sexo[3] },
+            { label: "Sem resposta", data: sexo[4] },
         ];
     } else if (questao == "#participacao") {
         return [

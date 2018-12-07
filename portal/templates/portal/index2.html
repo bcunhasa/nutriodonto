@@ -1,0 +1,16 @@
+{% extends "portal/base.html" %}
+{% load staticfiles %}
+
+{% block head %}
+  <!-- Os arquivo locais vão aqui -->
+{% endblock head %}
+
+{% block content %}
+  
+  <p>A página inicial está em processo de modificação para se tornar um portal com todas as informações sobre o projeto.</p>
+  <p>Ainda é possível acessar a área de administração pelo link abaixo:</p>
+  <a class="nav-link js-scroll-trigger" href="{% url 'administracao:login' %}">
+    Autenticar <span class="fa fa-sign-in-alt"></span>
+  </a>
+  
+{% endblock content %}

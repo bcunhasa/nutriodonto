@@ -1,0 +1,16 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+  <head>
+    <meta charset="utf-8">
+    <title>OdontoNutri</title>
+    <link rel="icon" href="{% static 'index/img/favicon.ico' %}">
+    {% block head %}{% endblock head %}
+  </head>
+
+  <body>
+    {% block content %}{% endblock content %}
+  </body>
+</html>

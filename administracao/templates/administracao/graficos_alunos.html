@@ -18,27 +18,39 @@
           <div class="panel-title">01. Alunos por escola participante</div>
         </div>
         <div class="panel-body">
-          <div id="aluno_por_escola" class="grafico"></div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-12">
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <div class="panel-title">02. Participação</div>
-        </div>
-        <div class="panel-body">
-          <div id="participacao" class="grafico"></div>
+          <div id="aluno_por_escola" class="grafico-grande"></div>
         </div>
       </div>
     </div>
   </div>
   
+  <div class="row">
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="panel-title">02. Sexo</div>
+        </div>
+        <div class="panel-body">
+          <div id="sexo" class="grafico"></div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="panel-title">03. Participação</div>
+        </div>
+        <div class="panel-body">
+          <div id="participacao" class="grafico"></div>
+        </div>
+      </div>
+    </div>5
+  </div>
+  
   <script>
     var aluno_por_escola = {{ aluno_por_escola }};
     var participacao = {{ participacao }};
+    var sexo = {{ sexo }};
   </script>
   
   <script src="{% static 'administracao/vendor/flot/jquery.flot.js' %}"></script>

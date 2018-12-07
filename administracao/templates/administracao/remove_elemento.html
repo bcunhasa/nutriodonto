@@ -15,6 +15,8 @@
     Remoção do aluno {{ aluno.numero_identificacao }}
   {% elif pagina_questionarios %}
     Remoção do questionário do aluno {{ questionario.aluno.numero_identificacao }}
+  {% elif pagina_diretores %}
+    Remoção do questionário para diretor da {{ diretor.escola.nome }}
   {% elif pagina_exames %}
     Remoção do exame do aluno {{ exame.aluno.numero_identificacao }}
   {% endif %}

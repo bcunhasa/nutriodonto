@@ -138,6 +138,19 @@ class GraficosAlunosView(LoginRequired, View):
             elif aluno.escola.nome == "Escola municipal de T.I. Sueli Pereira A. Reche":
                 aluno_por_escola[25] = aluno_por_escola[25] + 1
         
+        sexo = [0, 0, 0, 0, 0]
+        for aluno in alunos:
+            if aluno.sexo == '0':
+                sexo[0] += 1
+            elif aluno.sexo == '1':
+                sexo[1] += 1
+            elif aluno.sexo == '2':
+                sexo[2] += 1
+            elif aluno.sexo == '3':
+                sexo[3] += 1
+            else:
+                sexo[4] += 1
+        
         participacao = [0, 0, 0, 0]
         tem_questionario = False
         tem_exame = False
@@ -171,6 +184,7 @@ class GraficosAlunosView(LoginRequired, View):
             'pagina_graficos_alunos': True,
             'alunos': alunos,
             'aluno_por_escola': aluno_por_escola,
+            'sexo': sexo,
             'participacao': participacao,
         }
         

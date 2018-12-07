@@ -19,6 +19,8 @@
     Edição do aluno {{ aluno.numero_identificacao }}
   {% elif pagina_questionarios %}
     Edição do questionário do aluno {{ questionario.aluno.numero_identificacao }}
+  {% elif pagina_diretores %}
+    Edição do questionário para diretor da {{ diretor.escola.nome }}
   {% elif pagina_exames %}
     Edição do exame do aluno {{ exame.aluno.numero_identificacao }}
     <div class="pull-right">
