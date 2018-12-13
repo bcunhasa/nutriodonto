@@ -1,6 +1,13 @@
 // Funções para o funcionamento dos mapas de seleção de localização
 
 function initMap() {
+  var uft = {lat: -10.1771255, lng: -48.3617526};
+  map = new google.maps.Map(document.getElementById('uft'), {
+    zoom: 15,
+    center: uft
+  });
+  setMarker(-10.1771255, -48.3617526, 'Fábrica de Software');
+  
   var palmas = {lat: -10.1846246, lng: -48.3336719};
   map = new google.maps.Map(document.getElementById('map'), {
     zoom: 13,

@@ -14,7 +14,7 @@ urlpatterns = [
     url(r'^logout/$', views.LogoutView.as_view(), name='logout'),
     
     # Visão geral
-    url(r'^visao_geral$', views.VisaoGeralView.as_view(), name='visao_geral'),
+    url(r'^visao_geral/$', views.VisaoGeralView.as_view(), name='visao_geral'),
     
     # Páginas que exibem gráficos baseados nos dados já coletados
     url(r'^graficos_alunos/$', views.GraficosAlunosView.as_view(), name='graficos_alunos'),

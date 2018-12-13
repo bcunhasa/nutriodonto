@@ -1,124 +1,44 @@
+{% extends "portal/base.html" %}
 {% load staticfiles %}
 
-<!doctype html>
-<html lang="pt-br">
-  <head>
-    <meta charset="utf-8">
-    <title>Sistema para Análise de Dados Odontológicos</title>
-    <link rel="icon" href="{% static 'index/img/favicon.ico' %}">
-    <link rel="stylesheet" href="{% static 'index/css/bootstrap.min.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'index/css/index.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'index/css/fontawesome-all.css' %}">
-    <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
-  </head>
+{% block head %}
+  <!-- Os arquivo locais vão aqui -->
+{% endblock head %}
 
-  <body id="topo">
-    <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top" id="mainNav">
-      <div class="container">
-        <a class="navbar-brand js-scroll-trigger" href="#topo">
-          <img class="logomarca-pequena img-fadein" src="{% static 'index/img/logo.jpg' %}" alt="Logomarca">
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#cronograma">Cronograma</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#escolas">Escolas</a>
-            </li>
-          </ul>
-          <ul class="navbar-nav navbar-right ml-auto">
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="{% url 'administracao:login' %}">
-                Autenticar <span class="fa fa-sign-in-alt"></span>
-              </a>
-            </li>
-          </ul>
-        </div>
+{% block content %}
+  
+  <h2>Realização</h2>
+  
+  <div class="row">
+    <div class="col-md-3 offset-md-2">
+      <div class="panel panel-default">
+         <div class="panel-heading">
+            <a class="pull-right text-muted" href="#">
+               <em class="fa"></em>
+            </a>
+         </div>
+         <div class="panel-body text-center">
+            <img class="center-block img-responsive img-circle img-uni" src="{% static 'administracao/img/logo_uft.jpg' %}" alt="Contact">
+            <h4>UFT</h4>
+            <a href="http://ww2.uft.edu.br/">Universidade Federal do Tocantins</a>
+         </div>
       </div>
-    </nav>
-    
-    <header id="cabecalho">
-      <div class="container">
-        <div class="row">
-          <div class="offset-md-3 col-6">
-            <img id="logomarca" class="img-fadein rounded-circle" src="{% static 'index/img/logo.jpg' %}" alt="Agende">
-          </div>
-        </div>
-        <div class="row">
-          <div class="offset-md-3 col-6">
-            <p>
-              O Sistema para Análise de Dados Odontológicos foi desenvolvido pela
-              Fábrica de Software do Curso de Ciência da Computação da Universidade Federal do Tocantins.
-            </p>
-          </div>
-        </div>
+    </div>
+    <div class="col-md-3 offset-md-2">
+      <div class="panel panel-default">
+         <div class="panel-heading">
+            <a class="pull-right text-muted" href="#">
+               <em class="fa"></em>
+            </a>
+         </div>
+         <div class="panel-body text-center">
+            <img class="center-block img-responsive img-circle img-uni" src="{% static 'administracao/img/logo_ufv.png' %}" alt="Contact">
+            <h4>UFV</h4>
+            <a href="https://www.ufv.br/">Universidade Federal de Viçosa</a>
+         </div>
       </div>
-    </header>
-    
-    <section id="cronograma">
-      <div class="container">
-        <div class="row">
-          <h3 class="titulo">Cronograma</h3>
-          <div class="col-12">
-            <ul class="list-group">
-              <li class="list-group-item">Sem data - Escola municipal Antônio Carlos Jobim</li>
-              <li class="list-group-item">Sem data - Escola municipal Antônio G. de Carvalho Filho</li>
-              <li class="list-group-item">Sem data - Escola municipal Anne Frank</li>
-              <li class="list-group-item">Sem data - Escola municipal Darcy Ribeiro</li>
-              <li class="list-group-item">Sem data - Escola municipal Henrique Talone Pinheiro</li>
-              <li class="list-group-item">Sem data - Escola municipal de T.I. Vinícius de Moraes</li>
-              <li class="list-group-item">Sem data - Escola municipal Beatriz Rodrigues da Silva</li>
-              <li class="list-group-item">Sem data - Escola municipal Mestre Pacífico S. Campos</li>
-              <li class="list-group-item">Sem data - Escola municipal Luiz Gonzaga</li>
-              <li class="list-group-item">Sem data - Escola municipal de T.I. Padre Josimo M. Tavares</li>
-              <li class="list-group-item">Sem data - Escola municipal de T.I. Daniel Batista</li>
-              <li class="list-group-item">Sem data - Escola municipal de T.I. Monsenhor Pedro P. Piagem</li>
-              <li class="list-group-item">Sem data - Escola municipal Jorge Amado</li>
-              <li class="list-group-item">Sem data - Escola municipal Maria Rosa de Castro Sales</li>
-              <li class="list-group-item">Sem data - Escola municipal Professor Sávia F. Jacome</li>
-              <li class="list-group-item">Sem data - Escola municipal de T.I. Caroline C. C. da Silva</li>
-              <li class="list-group-item">Sem data - Escola municipal Aurélio Buarque de Holanda</li>
-              <li class="list-group-item">Sem data - Escola municipal Maria Júlia Amorim Rodrigues</li>
-              <li class="list-group-item">Sem data - Escola municipal Thiago Barbosa</li>
-              <li class="list-group-item">Sem data - Escola municipal de T.I. Euridice F. de Mello</li>
-              <li class="list-group-item">Sem data - Escola municipal de T.I. Margarida Gonçalves</li>
-              <li class="list-group-item">Sem data - Escola municipal Crispim Pereira de Alencar</li>
-              <li class="list-group-item">Sem data - Escola municipal de T.I. Aprigio T. de Matos</li>
-              <li class="list-group-item">Sem data - Escola municipal de T.I. João Beltrão</li>
-              <li class="list-group-item">Sem data - Escola municipal de T.I. Luiz Nunes de Oliveira</li>
-              <li class="list-group-item">Sem data - Escola municipal de T.I. Sueli Pereira A. Reche</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-    
-    <section id="escolas">
-      <div class="container">
-        <div class="row">
-          <h3 class="titulo">Escolas participantes da pesquisa</h3>
-          <div class="col-12">
-            <div id="map"></div>
-          </div>
-        </div>
-      </div>
-    </section>
-    
-    <footer class="container-fluid text-center">
-      <p>&copy; 2018 - Universidade Federal do Tocantins</p>
-    </footer>
-    
-    <script src="{% static 'index/js/jquery-3.3.1.min.js' %}"></script>
-    <script src="{% static 'index/js/popper.min.js' %}"></script>
-    <script src="{% static 'index/js/bootstrap.min.js' %}"></script>
-    <script src="{% static 'index/js/jquery.easing.min.js' %}"></script>
-    
-    <script src="{% static 'index/js/index.js' %}"></script>
-    <script src="{% static 'index/js/mapa.js' %}"></script>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDu4apCMOsjMRElTJPCPgiO0ccKq2i9EcQ&callback=initMap"></script>
-  </body>
-</html>
+    </div>
+  </div>
+
+  
+{% endblock content %}

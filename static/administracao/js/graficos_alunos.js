@@ -6,37 +6,6 @@ document.addEventListener("DOMContentLoaded", function() {
     criaGraficoQuestao("#participacao", carregaDados("#participacao"));
 });
 
-function criaGraficoQuestao(questao, dados) {
-    var data = dados;
-    
-    $.plot($(questao), data, { 
-        series: {
-            pie: {
-                show: true,
-                radius: 1,
-                label: {
-                    show: true,
-                    radius: 0.9,
-                    formatter: function (label, series) {
-                        return '<div class="flot-pie-label">' + Math.round(series.percent) +'% (' + series.data[0][1] + ')</div>';
-                    },
-                    background: { 
-                        opacity: 0.5,
-                        color: '#000000'
-                    }
-                }
-            }
-        },
-        grid: {
-            hoverable: true
-        },
-        tooltip: true,
-        tooltipOpts: {
-            content: "%s: %p.0% (%y.0)",
-        },
-    });
-}
-
 function carregaDados(questao) {
     if (questao == "#aluno_por_escola") {
         return [
@@ -83,4 +52,70 @@ function carregaDados(questao) {
             { label: "Não participou de nenhum dos dois", data: participacao[3] },
         ];
     }
+}
+
+document.getElementById("baixa-grafico-1").addEventListener("click", function() {
+    html2canvas(document.querySelector('#aluno_por_escola')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-2").addEventListener("click", function() {
+    html2canvas(document.querySelector('#sexo')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-3").addEventListener("click", function() {
+    html2canvas(document.querySelector('#participacao')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+function baixaImagem(uri, filename) {
+    var link = document.createElement('a');
+    
+    if (typeof link.download === 'string') {
+        link.href = uri;
+        link.download = filename;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    } else {
+        window.open(uri);
+    }
+}
+
+function criaGraficoQuestao(questao, dados) {
+    var data = dados;
+    
+    $.plot($(questao), data, { 
+        series: {
+            pie: {
+                show: true,
+                radius: 1,
+                label: {
+                    show: true,
+                    radius: 0.9,
+                    formatter: function (label, series) {
+                        return '<div class="flot-pie-label">' + Math.round(series.percent) +'% (' + series.data[0][1] + ')</div>';
+                    },
+                    background: { 
+                        opacity: 0.5,
+                        color: '#000000'
+                    }
+                }
+            }
+        },
+        grid: {
+            hoverable: true
+        },
+        tooltip: true,
+        tooltipOpts: {
+            content: "%s: %p.0% (%y.0)",
+        },
+    });
 }

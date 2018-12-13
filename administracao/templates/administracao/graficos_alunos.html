@@ -15,7 +15,7 @@
     <div class="col-md-12">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">01. Alunos por escola participante</div>
+          <div class="panel-title">01. Alunos por escola participante <button id="baixa-grafico-1" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
         </div>
         <div class="panel-body">
           <div id="aluno_por_escola" class="grafico-grande"></div>
@@ -28,7 +28,7 @@
     <div class="col-md-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">02. Sexo</div>
+          <div class="panel-title">02. Sexo <button id="baixa-grafico-2" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
         </div>
         <div class="panel-body">
           <div id="sexo" class="grafico"></div>
@@ -38,7 +38,7 @@
     <div class="col-md-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">03. Participação</div>
+          <div class="panel-title">03. Participação <button id="baixa-grafico-3" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
         </div>
         <div class="panel-body">
           <div id="participacao" class="grafico"></div>
@@ -56,6 +56,7 @@
   <script src="{% static 'administracao/vendor/flot/jquery.flot.js' %}"></script>
   <script src="{% static 'administracao/vendor/flot/jquery.flot.pie.js' %}"></script>
   <script src="{% static 'administracao/vendor/flot.tooltip/js/jquery.flot.tooltip.min.js' %}"></script>
+  <script src="{% static 'administracao/js/html2canvas.min.js' %}"></script>
   <script src="{% static 'administracao/js/graficos_alunos.js' %}"></script>
   
 {% endblock content %}

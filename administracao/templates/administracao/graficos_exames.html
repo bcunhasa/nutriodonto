@@ -15,7 +15,7 @@
     <div class="col-md-12">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">01. Ocorrência de problemas na coroa</div>
+          <div class="panel-title">01. Ocorrência de problemas na coroa<button id="baixa-grafico-1" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
         </div>
         <div class="panel-body">
           <div id="situacao_coroa" class="grafico"></div>
@@ -27,7 +27,7 @@
     <div class="col-md-12">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">02. Ocorrência de indicação de tratamento</div>
+          <div class="panel-title">02. Ocorrência de indicação de tratamento<button id="baixa-grafico-2" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
         </div>
         <div class="panel-body">
           <div id="tratamento_necessario" class="grafico"></div>
@@ -39,7 +39,7 @@
     <div class="col-md-12">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">03. Ocorrência de problemas periodontais</div>
+          <div class="panel-title">03. Ocorrência de problemas periodontais<button id="baixa-grafico-3" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
         </div>
         <div class="panel-body">
           <div id="condicao_periodontal" class="grafico"></div>
@@ -57,6 +57,7 @@
   <script src="{% static 'administracao/vendor/flot/jquery.flot.js' %}"></script>
   <script src="{% static 'administracao/vendor/flot.tooltip/js/jquery.flot.tooltip.min.js' %}"></script>
   <script src="{% static 'administracao/vendor/flot/jquery.flot.categories.js' %}"></script>
+  <script src="{% static 'administracao/js/html2canvas.min.js' %}"></script>
   <script src="{% static 'administracao/js/graficos_exames.js' %}"></script>
   
 {% endblock content %}

@@ -6,7 +6,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>SADO - Site de Administração</title>
+    <title>OdontoNutri - Área de Administração</title>
     <link rel="stylesheet" href="{% static 'administracao/vendor/fontawesome/css/font-awesome.min.css' %}">
     <link rel="stylesheet" href="{% static 'administracao/vendor/simple-line-icons/css/simple-line-icons.css' %}">
     <link rel="stylesheet" href="{% static 'administracao/vendor/animate.css/animate.min.css' %}">
@@ -178,6 +178,34 @@
                 <a href="{% url 'administracao:exames' %}" title="Exames">
                   <em class="fa fa-user-md"></em>
                   <span data-localize="sidebar.nav.SINGLEVIEW">Exames</span>
+                </a>
+              </li>
+              
+              <li class="nav-heading ">
+                <span data-localize="sidebar.heading.HEADER">Portal</span>
+              </li>
+              <li class="{% if pagina_noticias %} active {% endif %}">
+                <a href="#" title="Notícias">
+                  <em class="fa fa-newspaper-o"></em>
+                  <span data-localize="sidebar.nav.SINGLEVIEW">Notícias</span>
+                </a>
+              </li>
+              <li class="{% if pagina_documentos %} active {% endif %}">
+                <a href="#" title="Documentos">
+                  <em class="fa fa-file-pdf-o"></em>
+                  <span data-localize="sidebar.nav.SINGLEVIEW">Documentos</span>
+                </a>
+              </li>
+              <li class="{% if pagina_fotos %} active {% endif %}">
+                <a href="#" title="Fotos">
+                  <em class="fa fa-file-image-o"></em>
+                  <span data-localize="sidebar.nav.SINGLEVIEW">Fotos</span>
+                </a>
+              </li>
+              <li class="{% if pagina_videos %} active {% endif %}">
+                <a href="#" title="Vídeos">
+                  <em class="fa fa-file-movie-o"></em>
+                  <span data-localize="sidebar.nav.SINGLEVIEW">Vídeos</span>
                 </a>
               </li>
             </ul>

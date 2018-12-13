@@ -84,3 +84,38 @@ function carregaDados(questao) {
         ];
     }
 }
+
+document.getElementById("baixa-grafico-1").addEventListener("click", function() {
+    html2canvas(document.querySelector('#situacao_coroa')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-2").addEventListener("click", function() {
+    html2canvas(document.querySelector('#tratamento_necessario')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-3").addEventListener("click", function() {
+    html2canvas(document.querySelector('#condicao_periodontal')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+function baixaImagem(uri, filename) {
+    var link = document.createElement('a');
+    
+    if (typeof link.download === 'string') {
+        link.href = uri;
+        link.download = filename;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    } else {
+        window.open(uri);
+    }
+}

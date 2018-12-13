@@ -1667,3 +1667,1039 @@ function carregaDados(questao) {
         ];
     }
 }
+
+document.getElementById("baixa-grafico-1").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao1')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-2").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao2')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-3").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao3')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-4").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao4')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-5").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao5')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-6").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao6')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-7").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao7')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-8").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao8')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-9").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao9')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-10").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao10')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-11").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao11')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-12").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao12')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-13").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao13')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-14").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao14')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-15").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao15')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-16").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao16')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-17").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao17')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-18").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao18')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-19").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao19')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-20").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao20')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-21").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao21')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-22").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao22')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-23").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao23')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-24").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao24')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-25").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao25')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-26").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao26')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-27").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao27')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-28").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao28')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-29").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao29')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-30").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao30')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-31").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao31')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-32").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao32')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-33").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao33')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-34").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao34')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-35").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao35')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-36").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao36')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-37").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao37')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-38").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao38')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-39").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao39')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-40").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao40')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-41").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao41')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-42").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao42')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-43").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao43')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-44").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao44')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-45").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao45')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-46").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao46')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-47").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao47')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-48").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao48')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-49").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao49')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-50").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao50')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-51").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao51')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-52").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao52')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-53").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao53')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-54").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao54')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-55").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao55')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-56").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao56')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-57").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao57')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-58").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao58')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-59").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao59')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-60").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao60')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-61").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao61')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-62").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao62')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-63").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao63')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-64").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao64')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-65").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao65')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-66").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao66')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-67").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao67')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-68").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao68')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-69").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao69')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-70").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao70')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-71").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao71')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-72").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao72')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-73").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao73')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-74").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao74')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-75").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao75')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-76").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao76')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-77").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao77')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-78").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao78')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-79").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao79')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-80").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao80')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-81").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao81')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-82").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao82')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-83").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao83')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-84").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao84')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-85").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao85')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-86").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao86')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-87").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao87')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-88").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao88')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-89").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao89')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-90").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao90')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-91").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao91')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-92").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao92')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-93").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao93')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-94").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao94')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-95").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao95')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-96").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao96')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-97").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao97')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-98").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao98')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-99").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao99')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-100").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao100')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-101").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao101')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-102").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao102')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-103").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao103')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-104").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao104')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-105").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao105')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-106").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao106')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-107").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao107')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-108").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao108')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-109").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao109')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-110").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao110')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-111").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao111')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-112").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao112')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-113").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao113')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-114").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao114')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-115").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao115')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-116").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao116')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-117").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao117')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-118").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao118')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-119").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao119')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-120").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao120')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-121").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao121')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-122").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao122')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-123").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao123')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-124").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao124')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-125").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao125')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-126").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao126')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-127").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao127')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-128").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao128')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-129").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao129')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-130").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao130')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-131").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao131')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-132").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao132')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-133").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao133')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-134").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao134')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-135").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao135')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-136").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao136')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-137").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao137')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-138").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao138')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-139").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao139')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-140").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao140')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-141").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao141')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-142").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao142')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-143").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao143')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-144").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao144')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-145").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao145')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-146").addEventListener("click", function() {
+    html2canvas(document.querySelector('#questao146')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+function baixaImagem(uri, filename) {
+    var link = document.createElement('a');
+    
+    if (typeof link.download === 'string') {
+        link.href = uri;
+        link.download = filename;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    } else {
+        window.open(uri);
+    }
+}

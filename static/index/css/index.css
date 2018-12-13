@@ -1,6 +1,36 @@
 /* Definição de fontes */
 body {
     font-family: Quicksand;
+    margin-top: 60px;
+}
+
+iframe {
+    width: 200;
+    height: 200;
+    margin: 10px;
+}
+
+h2 {
+    padding: 30px;
+}
+
+.img-uni {
+    width: auto;
+    height: 150px;
+}
+
+.tamanho-minimo {
+    min-height: 500px;
+}
+
+.painel-arquivo {
+    padding: 10px;
+    margin-bottom: 15px;
+}
+
+.carousel-imgs {
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 /* Header */
@@ -17,7 +47,7 @@ header {
 /* Mídia */
 #logomarca {
     height: auto;
-    width: 270px;
+    width: 190px;
 }
 
 .logomarca-pequena {
@@ -31,6 +61,8 @@ header {
     color: #ffffff;
     font-size: 30px;
     text-align: center;
+    padding: 20px;
+    margin-bottom: 40px;
 }
 
 #cronograma {
@@ -66,6 +98,12 @@ footer a {
 #map {
     width: 100%;
     height: 500px;
+}
+
+#uft {
+    width: 500px;
+    height: 400px;
+    margin-bottom: 50px;
 }
 
 /* Efeito de fadein para imagens */

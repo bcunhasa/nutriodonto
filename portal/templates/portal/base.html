@@ -5,12 +5,79 @@
 
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>OdontoNutri</title>
     <link rel="icon" href="{% static 'index/img/favicon.ico' %}">
+    <link rel="stylesheet" href="{% static 'index/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'index/css/index.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'index/css/fontawesome-all.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
     {% block head %}{% endblock head %}
   </head>
 
   <body>
-    {% block content %}{% endblock content %}
+    <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top border-bottom" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand js-scroll-trigger" href="{% url 'portal:index' %}">
+          <img class="logomarca-pequena" src="{% static 'index/img/logo_transparencia.png' %}" alt="Logomarca">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="{% url 'portal:projeto' %}">Projeto</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="{% url 'portal:documentos' %}">Documentos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="{% url 'portal:midia' %}">Mídia</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="{% url 'portal:contatos' %}">Contatos</a>
+            </li>
+          </ul>
+          <ul class="navbar-nav navbar-right ml-auto">
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="{% url 'administracao:login' %}">
+                Autenticar <span class="fa fa-sign-in-alt"></span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    
+    <header id="cabecalho">
+      <div class="row">
+        <div class="div-md-2 offset-md-1">
+          <img id="logomarca" class="rounded-circle" src="{% static 'index/img/logo.jpg' %}" alt="Agende">
+        </div>
+        <div class="div-md-4 offset-md-4">
+          <p class="text-right">
+            OdontoNutri
+          </p>
+        </div>
+      </div>
+    </header>
+    
+    <div class="container tamanho-minimo">
+      {% block content %}{% endblock content %}
+    </div>
+    
+    <footer class="container-fluid text-center">
+      <p>&copy; 2018 - Universidade Federal do Tocantins</p>
+    </footer>
+    
+    <script src="{% static 'index/js/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'index/js/jquery.easing.min.js' %}"></script>
+    <script src="{% static 'index/js/popper.min.js' %}"></script>
+    <script src="{% static 'index/js/bootstrap.min.js' %}"></script>
+    
+    <script src="{% static 'index/js/index.js' %}"></script>
+    <script src="{% static 'index/js/mapa.js' %}"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDu4apCMOsjMRElTJPCPgiO0ccKq2i9EcQ&callback=initMap"></script>
   </body>
 </html>
