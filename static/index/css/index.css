@@ -96,13 +96,16 @@ header {
     padding-top: 70px;
     margin-bottom: 40px;
 }
+#cabecalho a {
+    color: #ffffff;
+    text-decoration: none;
+}
 
 footer {
     background-color: #00838f;
     color: #ffffff;
     padding: 40px 0;
 }
-
 footer a {
     color: #ffffff;
 }
