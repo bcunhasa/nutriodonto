@@ -1,38 +1,14 @@
-(function($) {
-  "use strict";
-
-  // Scroll suave
-  $('a.js-scroll-trigger[href*="#"]:not([href="#"])').click(function() {
-    if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
-      var target = $(this.hash);
-      target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-      if (target.length) {
-        $('html, body').animate({
-          scrollTop: (target.offset().top - 54)
-        }, 1000, "easeInOutExpo");
-        return false;
-      }
-    }
+/* Muda a cor da navbar quando houver scroll do mouse */
+$(function () {
+  $(document).scroll(function () {
+    var $nav = $(".navbar");
+    $nav.toggleClass('white-nav', $(this).scrollTop() > $nav.height());
+    $nav.toggleClass('border-bottom', $(this).scrollTop() > $nav.height());
+    
+    var $link = $(".nav-link");
+    $link.toggleClass('black-link', $(this).scrollTop() > $link.height());
+    
+    $link.toggleClass('white-link', $(this).scrollTop() < $link.height());
+    $link.removeClass('white-link', $(this).scrollTop() > $link.eight());
   });
-
-  // Fecha o menu responsivo quando o scroll for ativado
-  $('.js-scroll-trigger').click(function() {
-    $('.navbar-collapse').collapse('hide');
-  });
-
-  $('body').scrollspy({
-    target: '#mainNav',
-    offset: 54
-  });
-
-})(jQuery);
-
-$(document).ready(function() {
-        $(window).scroll(function() {
-          if($(this).scrollTop() > 500) { 
-              $('.navbar').addClass('solid');
-          } else {
-              $('.navbar').removeClass('solid');
-          }
-        });
 });

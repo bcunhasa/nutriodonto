@@ -16,7 +16,7 @@
   </head>
 
   <body>
-    <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top border-bottom" id="mainNav">
+    <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top transparent-nav" id="mainNav">
       <div class="container">
         <a class="navbar-brand js-scroll-trigger" href="{% url 'portal:index' %}">
           <img class="logomarca-pequena" src="{% static 'index/img/logo_transparencia.png' %}" alt="Logomarca">
@@ -27,21 +27,21 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="{% url 'portal:projeto' %}">Projeto</a>
+              <a class="nav-link js-scroll-trigger white-link" href="{% url 'portal:projeto' %}">Projeto</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="{% url 'portal:documentos' %}">Documentos</a>
+              <a class="nav-link js-scroll-trigger white-link" href="{% url 'portal:documentos' %}">Documentos</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="{% url 'portal:midia' %}">Mídia</a>
+              <a class="nav-link js-scroll-trigger white-link" href="{% url 'portal:midia' %}">Mídia</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="{% url 'portal:contatos' %}">Contatos</a>
+              <a class="nav-link js-scroll-trigger white-link" href="{% url 'portal:contatos' %}">Contatos</a>
             </li>
           </ul>
           <ul class="navbar-nav navbar-right ml-auto">
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="{% url 'administracao:login' %}">
+              <a class="nav-link js-scroll-trigger white-link" href="{% url 'administracao:login' %}">
                 Autenticar <span class="fa fa-sign-in-alt"></span>
               </a>
             </li>
@@ -51,19 +51,12 @@
     </nav>
     
     <header id="cabecalho">
-      <div class="row">
-        <div class="div-md-2 offset-md-1">
-          <img id="logomarca" class="rounded-circle" src="{% static 'index/img/logo.jpg' %}" alt="Agende">
-        </div>
-        <div class="div-md-4 offset-md-4">
-          <p class="text-right">
-            OdontoNutri
-          </p>
-        </div>
-      </div>
+      <h2 class="text-center">
+        OdontoNutri
+      </h2>      
     </header>
     
-    <div class="container tamanho-minimo">
+    <div class="container content-div">
       {% block content %}{% endblock content %}
     </div>
     
