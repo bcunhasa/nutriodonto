@@ -62,8 +62,54 @@
       {% block content %}{% endblock content %}
     </div>
     
-    <footer class="container-fluid text-center">
-      <p>&copy; 2018 - Universidade Federal do Tocantins</p>
+    <footer class="container-fluid">
+      <div class="container">
+        <div class="row row-30">
+          <div class="col-md-4 col-xl-5">
+            <div class="pr-xl-4">
+              <h5>Sobre</h5>
+              <p>A Fábrica de Software é um projeto de extensão do curso de Ciência da Computação
+                 da Universidade Federal do Tocantins.</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <h5>Contato</h5>
+            <dl class="contact-list">
+              <dt>Endereço:</dt>
+              <dd>Av. NS 15, ALCNO 14, Campus Palmas, Bloco III, Sala 05, Plano Diretor Norte, Palmas, Tocantins, CEP 77.001-090</dd>
+            </dl>
+            <dl class="contact-list">
+              <dt>E-mail:</dt>
+              <dd><a href="mailto:fabricadesoftware@uft.edu.br">fabricadesoftware@uft.edu.br</a></dd>
+            </dl>
+            <dl class="contact-list">
+              <dt>Telefone:</dt>
+              <dd><a href="tel:(63) 3229-4527">(63) 3229-4527</a> <span>or</span> <a href="tel:(63) 3229-4906">3229-4906</a>
+              </dd>
+            </dl>
+          </div>
+          <div class="col-md-4 col-xl-3">
+            <h5>Links</h5>
+            <ul class="nav-list">
+              <li><a href="{% url 'portal:index' %}">Home</a></li>
+              <li><a href="{% url 'portal:projeto' %}">Projeto</a></li>
+              <li><a href="{% url 'portal:documentos' %}">Documentos</a></li>
+              <li><a href="{% url 'portal:midia' %}">Mídia</a></li>
+              <li><a href="{% url 'portal:contatos' %}">Contato</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5">
+          <ul class="list-unstyled list-inline social text-center">
+            <li class="list-inline-item"><a href="https://www.facebook.com/fabricadesoftwareuft"><i class="fa fa-facebook"></i></a></li>
+            <li class="list-inline-item"><a href="https://www.instagram.com/fabricadesoftwareuft/"><i class="fa fa-instagram"></i></a></li>
+            <li class="list-inline-item"><a href="mailto:fabricadesoftware@uft.edu.br" target="_blank"><i class="fa fa-envelope"></i></a></li>
+          </ul>
+        </div>
+      </div>
+      <p class="text-center">&copy; 2018 - Universidade Federal do Tocantins</p>
     </footer>
     
     <script src="{% static 'index/js/jquery-3.3.1.min.js' %}"></script>
