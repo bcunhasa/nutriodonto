@@ -1,4 +1,6 @@
 /* Muda a cor da navbar quando houver scroll do mouse */
+
+/*
 $(function () {
   $(document).scroll(function () {
     var $nav = $(".navbar");
@@ -12,3 +14,4 @@ $(function () {
     $link.removeClass('white-link', $(this).scrollTop() > $link.eight());
   });
 });
+*/
