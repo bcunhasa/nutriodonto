@@ -122,6 +122,12 @@ footer ul, footer ol {
     margin: 0px auto;
 }
 
+/* Contatos */
+h4 {
+    text-align: left;
+    color: #00695c;
+}
+
 /* Personalização das notícias */
 .div-noticia {
     padding-bottom: 30px;
@@ -153,7 +159,7 @@ footer ul, footer ol {
 
 #uft {
     width: 500px;
-    height: 400px;
+    height: 500px;
     margin-bottom: 50px;
 }
 
