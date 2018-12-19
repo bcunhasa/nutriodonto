@@ -92,15 +92,17 @@ header {
     background-color: #00695c;
     background-image: linear-gradient(to bottom right, #00695c, #009885);
     color: #ffffff;
-    font-size: 30px;
-    text-align: center;
-    padding: 20px;
-    padding-top: 70px;
-    /* margin-bottom: 40px; */
+    padding: 30px;
 }
 #cabecalho a {
     color: #ffffff;
     text-decoration: none;
+}
+#cabecalho h2 {
+    font-size: 30px;
+}
+#cabecalho p {
+    font-size: 15px;
 }
 
 footer {
