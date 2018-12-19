@@ -157,6 +157,12 @@ footer ul, footer ol {
     margin-bottom: 50px;
 }
 
+#acoes {
+    width: 100%;
+    height: 600px;
+    margin-bottom: 40px;
+}
+
 /* Efeito de fadein para imagens */
 
 .img-fadein {
