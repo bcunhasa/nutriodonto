@@ -16,7 +16,7 @@
         <h2 class="titulo-noticia">{{ noticia.titulo }}</h2>
         <p class="small data-noticia">{{ noticia.data }}</p>
         <p class="texto-noticia">{{ noticia.texto|slice:":230" }}...</p>
-        <button type="button" class="btn btn-link" data-toggle="modal" data-target="#modal-{{ noticia.id }}">Ver mais</button>
+        <button type="button" class="btn btn-link botao-ver-mais" data-toggle="modal" data-target="#modal-{{ noticia.id }}">Ver mais</button>
       </div>
     </div>
     
@@ -31,7 +31,7 @@
           </div>
           <div class="modal-body">
             <p class="text-right small data-noticia">{{ noticia.data }}</p>
-            <img class="img-noticia" src="https://i.imgur.com/X7x4XJw.jpg">
+            <img class="img-noticia img-noticia-modal" src="{{ noticia.imagem }}">
             <p class="texto-noticia">{{ noticia.texto }}</p>
           </div>
           <div class="modal-footer">

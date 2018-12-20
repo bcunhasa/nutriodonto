@@ -186,6 +186,14 @@ h4 {
     height: 190px;
     width: auto;
 }
+.img-noticia-modal {
+    height: 280px;
+    width: auto;
+    padding-bottom: 30px;
+}
+.botao-ver-mais {
+    padding-left: 0px;
+}
 
 /* Persocalização da página de projeto */
 .list-group-item.active {
