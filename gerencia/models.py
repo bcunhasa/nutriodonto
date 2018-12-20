@@ -6,7 +6,7 @@ from .const import *
 class Noticia(models.Model):
     """Modelo que representa uma notícia do portal"""
     titulo = models.CharField(max_length=TAMANHO_TITULO, verbose_name='Título')
-    data = models.DateTimeField(auto_now_add=True, verbose_name='Data de criação')
+    data = models.CharField(max_length=TAMANHO_TITULO, verbose_name='Data de criação')
     texto = models.TextField(verbose_name='Texto')
     imagem = models.CharField(max_length=TAMANHO_TITULO, verbose_name='URL da imagem')
 
