@@ -32,6 +32,7 @@ INSTALLED_APPS = [
     'portal',
     'administracao',
     'questionarios',
+    'gerencia',
     'api',
     
     # Aplicações de terceiros

@@ -24,8 +24,8 @@ class FotoForm(forms.ModelForm):
         fields = '__all__'
 
 
-class VídeoForm(forms.ModelForm):
+class VideoForm(forms.ModelForm):
     
     class Meta:
-        model = Vídeo
+        model = Video
         fields = '__all__'

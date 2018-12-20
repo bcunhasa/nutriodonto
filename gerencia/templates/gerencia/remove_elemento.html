@@ -1,0 +1,39 @@
+{% extends "administracao/base.html" %}
+
+{% block head %}
+  <!-- Cabeçalho local -->
+{% endblock head %}
+
+{% block header %}
+  {% if pagina_noticias %}
+    Remoção da notícia {{ noticia.titulo }}
+  {% elif pagina_documentos %}
+    Remoção do documento {{ documento.titulo }}
+  {% elif pagina_fotos %}
+    Remoção da foto {{ foto.titulo }}
+  {% elif pagina_videos %}
+    Remoção do vídeo {{ video.titulo }}
+  {% endif %}
+{% endblock header %}
+
+{% block content %}
+  <div class="col-xs-12 text-center">
+    <div class="panel panel-danger">
+      <div class="panel-heading">Confirmação de remoção</div>
+      <div class="panel-body">
+        <form method="post">
+          {% csrf_token %}
+          
+          <div class="form-group">
+            <p>A remoção desta entrada resulta em perda permanente dos dados.</p>
+            <p>Deseja remover a entrada?</p>
+          </div>
+          
+          <div class="form-group">
+            <button class="btn btn-sm btn-default" type="submit" name="submit">Confirmar remoção</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+{% endblock content %}

@@ -185,25 +185,25 @@
                 <span data-localize="sidebar.heading.HEADER">Portal</span>
               </li>
               <li class="{% if pagina_noticias %} active {% endif %}">
-                <a href="#" title="Notícias">
+                <a href="{% url 'gerencia:noticias' %}" title="Notícias">
                   <em class="fa fa-newspaper-o"></em>
                   <span data-localize="sidebar.nav.SINGLEVIEW">Notícias</span>
                 </a>
               </li>
               <li class="{% if pagina_documentos %} active {% endif %}">
-                <a href="#" title="Documentos">
+                <a href="{% url 'gerencia:documentos' %}" title="Documentos">
                   <em class="fa fa-file-pdf-o"></em>
                   <span data-localize="sidebar.nav.SINGLEVIEW">Documentos</span>
                 </a>
               </li>
               <li class="{% if pagina_fotos %} active {% endif %}">
-                <a href="#" title="Fotos">
+                <a href="{% url 'gerencia:fotos' %}" title="Fotos">
                   <em class="fa fa-file-image-o"></em>
                   <span data-localize="sidebar.nav.SINGLEVIEW">Fotos</span>
                 </a>
               </li>
               <li class="{% if pagina_videos %} active {% endif %}">
-                <a href="#" title="Vídeos">
+                <a href="{% url 'gerencia:videos' %}" title="Vídeos">
                   <em class="fa fa-file-movie-o"></em>
                   <span data-localize="sidebar.nav.SINGLEVIEW">Vídeos</span>
                 </a>

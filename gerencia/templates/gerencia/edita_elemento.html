@@ -1,0 +1,59 @@
+{% extends "administracao/base.html" %}
+
+{% load staticfiles %}
+{% load widget_tweaks %}
+
+{% block head %}
+  <link rel="stylesheet" href="{% static 'administracao/vendor/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css' %}">
+{% endblock head %}
+
+{% block header %}
+  {% if pagina_noticias %}
+    Edição da notícia {{ noticia.titulo }}
+  {% elif pagina_documentos %}
+    Edição da documento {{ documento.titulo }}
+  {% elif pagina_fotos %}
+    Edição da foto {{ foto.titulo }}
+  {% elif pagina_videos %}
+    Edição do vídeo {{ video.titulo }}
+  {% endif %}
+{% endblock header %}
+
+{% block content %}
+  <div class="panel panel-default">
+    <div class="panel-body">
+      {% if pagina_noticias %}
+        <form action="{% url 'gerencia:edita_noticia' noticia.id %}" method="post" class="form-horizontal">
+      {% elif pagina_documentos %}
+        <form action="{% url 'gerencia:edita_documento' documento.id %}" method="post" class="form-horizontal">
+      {% elif pagina_fotos %}
+        <form action="{% url 'gerencia:edita_foto' foto.id %}" method="post" class="form-horizontal">
+      {% elif pagina_videos %}
+        <form action="{% url 'gerencia:edita_video' video.id %}" method="post" class="form-horizontal">
+      {% endif %}
+        {% csrf_token %}
+        {% for field in form %}
+          <div class="form-group has-feedback">
+            <label class="col-lg-2 control-label">{{ field.label}}</label>
+            {{ field.errors }}
+            <div class="col-lg-10">
+              {% render_field field class='form-control' type='text' placeholder='' %}
+            </div>
+            {% if field.help_text %}
+              <p class="help">{{ field.help_text|safe }}</p>
+            {% endif %}
+          </div>
+        {% endfor %}
+        <div class="form-group">
+          <div class="col-lg-offset-2 col-lg-10">
+            <button class="btn btn-sm btn-default" type="submit" name="submit">Salvar</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  
+  <script src="{% static 'administracao/js/administracao.js' %}"></script>
+  <script src="{% static 'administracao/vendor/moment/min/moment-with-locales.min.js' %}"></script>
+  <script src="{% static 'administracao/vendor/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js' %}"></script>
+{% endblock content %}
