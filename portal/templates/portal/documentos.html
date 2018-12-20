@@ -6,131 +6,31 @@
 {% endblock head %}
 
 {% block content %}
-  
-  <!--
   <div class="row">
-    <div class="col-md-3">
-      <div class="panel discoverer border rounded painel-arquivo" data-filter-group="archive">
-        <div class="panel-body text-center">
-          <div class="clearfix discover">
-            <div class="pull-right">
-              <a class="text-muted mr-sm" href="#" title="Download">
-                <em class="fa fa-download fa-fw"></em>
-              </a>
+    {% for documento in documentos %}
+      <div class="col-md-4">
+        <div class="panel discoverer border rounded painel-arquivo" data-filter-group="archive">
+          <div class="panel-body text-center">
+            <div class="clearfix discover">
+              <div class="pull-right">
+                <a class="text-muted mr-sm" href="{{ documento.url }}" title="Download">
+                  <em class="fa fa-download fa-fw"></em>
+                </a>
+              </div>
             </div>
-          </div>
-          <a class="file-icon ph-lg" href="#">
-            <em class="fa fa-5x fa-file-pdf-o text-danger"></em>
-          </a>
-          <p>
-            <small class="text-dark">arquivo.pdf</small>
-          </p>
-          <div class="clearfix m0 text-muted">
-            <small class="pull-right">1MB</small>
-            <small class="pull-left">12/12/2018</small>
+            <a class="file-icon ph-lg" href="{{ documento.url }}">
+              <em class="fa fa-5x fa-file-pdf-o text-danger"></em>
+            </a>
+            <p>
+              <small class="text-dark">{{ documento.titulo }}</small>
+            </p>
+            <div class="clearfix m0 text-muted">
+              <small class="pull-right">Google Drive</small>
+              <small class="pull-left">{{ documento.data }}</small>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    
-    <div class="col-md-3">
-      <div class="panel discoverer border rounded painel-arquivo" data-filter-group="archive">
-        <div class="panel-body text-center">
-          <div class="clearfix discover">
-            <div class="pull-right">
-              <a class="text-muted mr-sm" href="#" title="Download">
-                <em class="fa fa-download fa-fw"></em>
-              </a>
-            </div>
-          </div>
-          <a class="file-icon ph-lg" href="#">
-            <em class="fa fa-5x fa-file-word-o text-info"></em>
-          </a>
-          <p>
-            <small class="text-dark">arquivo.docx</small>
-          </p>
-          <div class="clearfix m0 text-muted">
-            <small class="pull-right">1MB</small>
-            <small class="pull-left">12/12/2018</small>
-          </div>
-        </div>
-      </div>
-    </div>
-    
-    <div class="col-md-3">
-      <div class="panel discoverer border rounded painel-arquivo" data-filter-group="archive">
-        <div class="panel-body text-center">
-          <div class="clearfix discover">
-            <div class="pull-right">
-              <a class="text-muted mr-sm" href="#" title="Download">
-                <em class="fa fa-download fa-fw"></em>
-              </a>
-            </div>
-          </div>
-          <a class="file-icon ph-lg" href="#">
-            <em class="fa fa-5x fa-file-pdf-o text-danger"></em>
-          </a>
-          <p>
-            <small class="text-dark">arquivo.pdf</small>
-          </p>
-          <div class="clearfix m0 text-muted">
-            <small class="pull-right">1MB</small>
-            <small class="pull-left">12/12/2018</small>
-          </div>
-        </div>
-      </div>
-    </div>
-    
-    <div class="col-md-3">
-      <div class="panel discoverer border rounded painel-arquivo" data-filter-group="archive">
-        <div class="panel-body text-center">
-          <div class="clearfix discover">
-            <div class="pull-right">
-              <a class="text-muted mr-sm" href="#" title="Download">
-                <em class="fa fa-download fa-fw"></em>
-              </a>
-            </div>
-          </div>
-          <a class="file-icon ph-lg" href="#">
-            <em class="fa fa-5x fa-file-excel-o text-success"></em>
-          </a>
-          <p>
-            <small class="text-dark">arquivo.xlsm</small>
-          </p>
-          <div class="clearfix m0 text-muted">
-            <small class="pull-right">1MB</small>
-            <small class="pull-left">12/12/2018</small>
-          </div>
-        </div>
-      </div>
-    </div>
+    {% endfor %}
   </div>
-  
-  <div class="row">
-    <div class="col-md-3">
-      <div class="panel discoverer border rounded painel-arquivo" data-filter-group="archive">
-        <div class="panel-body text-center">
-          <div class="clearfix discover">
-            <div class="pull-right">
-              <a class="text-muted mr-sm" href="#" title="Download">
-                <em class="fa fa-download fa-fw"></em>
-              </a>
-            </div>
-          </div>
-          <a class="file-icon ph-lg" href="#">
-            <em class="fa fa-5x fa-file-pdf-o text-danger"></em>
-          </a>
-          <p>
-            <small class="text-dark">arquivo.pdf</small>
-          </p>
-          <div class="clearfix m0 text-muted">
-            <small class="pull-right">1MB</small>
-            <small class="pull-left">12/12/2018</small>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  -->
-  
 {% endblock content %}

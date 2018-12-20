@@ -105,6 +105,40 @@ header {
     font-size: 15px;
 }
 
+.img-cabecalho {
+    height: 130px;
+    width: auto;
+    border-radius: 10px;
+}
+
+/* Mídia */
+.img-midia {
+    height: 160px;
+    width: auto;
+    padding: 10px;
+}
+.titulo-midia {
+    color: #979797;
+}
+.borda-esquerda {
+    border-left: 1px solid #d2d2d2;
+}
+
+/* Div com as logos das instituições */
+.logos-div {
+    margin-top: 50px;
+    border-top: 1px solid #d2d2d2;
+    text-align: center;
+}
+.center-div {
+    display: inline-block;
+}
+.img-logos-div {
+    height: 95px;
+    padding: 20px;
+}
+
+/* Footer */
 footer {
     background-color: #2d3246;;
     color: #ffffff;
@@ -143,6 +177,14 @@ h4 {
 }
 .texto-noticia {
     color: #000000;
+}
+.img-noticia {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 5px;
+    height: 190px;
+    width: auto;
 }
 
 /* Persocalização da página de projeto */

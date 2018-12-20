@@ -30,16 +30,11 @@
     <header id="cabecalho">
       <div class="row">
         <div class="col-md-2">
-          <img src="http://placehold.jp/130x130.png">
+          <img class="img-cabecalho" src="{% static 'index/img/logo.jpg' %}">
         </div>
-        <div class="col-md-6">
-          <h2 class="text-left"><a href="{% url 'portal:projeto' %}">NutriOdonto</a></h2>
+        <div class="col-md-4">
+          <h2 class="text-left"><a href="{% url 'portal:index' %}">NutriOdonto</a></h2>
           <p>Uma parceria da Universidade Federal do Tocantins e da Universidade Federal de Viçosa</p>
-        </div>
-        <div align="right">
-          <img src="http://placehold.jp/130x130.png">
-          <img src="http://placehold.jp/130x130.png">
-          <img src="http://placehold.jp/130x130.png">
         </div>
       </div>
     </header>
@@ -80,6 +75,15 @@
     
     <div class="container content-div">
       {% block content %}{% endblock content %}
+    </div>
+    
+    <div class="logos-div">
+      <div class="center-div">
+        <img class="img-logos-div" src="{% static 'index/img/logo.jpg' %}">
+        <img class="img-logos-div" src="{% static 'index/img/uft.png' %}">
+        <img class="img-logos-div" src="{% static 'index/img/ufv.jpg' %}">
+        <img class="img-logos-div" src="{% static 'index/img/produs.png' %}">
+      </div>
     </div>
     
     <footer class="container-fluid">

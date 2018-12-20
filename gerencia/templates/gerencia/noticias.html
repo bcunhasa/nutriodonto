@@ -45,7 +45,7 @@
                     <tr>
                       <td>{{ noticia.titulo }}</td>
                       <td>{{ noticia.data }}</td>
-                      <td>{{ noticia.texto }}</td>
+                      <td>{{ noticia.texto|slice:":50" }}...</td>
                       <td>{{ noticia.imagem }}</td>
                       <td class="text-right">
                           <form action="{% url 'gerencia:edita_noticia' noticia.id %}">
