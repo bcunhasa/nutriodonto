@@ -55,7 +55,7 @@ class LogoutView(View):
 
 
 class VisaoGeralView(LoginRequired, View):
-    """Página de visão geral do site de administração"""
+    """Acompanhamento da coleta dos dados"""
     
     def get(self, request):
         campanhas = Campanha.objects.count()
@@ -75,6 +75,17 @@ class VisaoGeralView(LoginRequired, View):
             'exames': exames,
         }
         return render(self.request, 'administracao/visao_geral.html', context)
+
+
+class InferenciaView(LoginRequired, View):
+    """Exibe dados gerados após o processo de inferência estatística"""
+    
+    def get(self, request):
+        context = {
+            'pagina_inferencia': True,
+        }
+        
+        return render(self.request, 'administracao/inferencia.html', context)
 
 
 class GraficosAlunosView(LoginRequired, View):
@@ -179,12 +190,30 @@ class GraficosAlunosView(LoginRequired, View):
             else:
                 participacao[1] = participacao[1] + 1
         
+        raca = [0, 0, 0, 0, 0, 0]
+        for aluno in alunos:
+            if aluno.raca == '0':
+                raca[0] += 1
+            elif aluno.raca == '1':
+                raca[1] += 1
+            elif aluno.raca == '2':
+                raca[2] += 1
+            elif aluno.raca == '3':
+                raca[3] += 1
+            elif aluno.raca == '4':
+                raca[4] += 1
+            else:
+                raca[5] += 1
+        
+        print(raca)
+        
         context = {
             'pagina_graficos': True,
             'pagina_graficos_alunos': True,
             'alunos': alunos,
             'aluno_por_escola': aluno_por_escola,
             'sexo': sexo,
+            'raca': raca,
             'participacao': participacao,
         }
         

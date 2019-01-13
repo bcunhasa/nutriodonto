@@ -13,8 +13,11 @@ urlpatterns = [
     # Página de logout
     url(r'^logout/$', views.LogoutView.as_view(), name='logout'),
     
-    # Visão geral
+    # Acompanhamento da coleta dos dados
     url(r'^visao_geral/$', views.VisaoGeralView.as_view(), name='visao_geral'),
+    
+    # Exibe dados gerados após o processo de inferência estatística
+    url(r'^inferencia/$', views.InferenciaView.as_view(), name='inferencia'),
     
     # Páginas que exibem gráficos baseados nos dados já coletados
     url(r'^graficos_alunos/$', views.GraficosAlunosView.as_view(), name='graficos_alunos'),

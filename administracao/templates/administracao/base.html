@@ -124,6 +124,12 @@
                   </li>
                 </ul>
               </li>
+              <li class="{% if pagina_inferencia %} active {% endif %}">
+                <a href="{% url 'administracao:inferencia' %}" title="Inferência">
+                  <em class="fa fa-table"></em>
+                  <span data-localize="sidebar.nav.SINGLEVIEW">Inferência</span>
+                </a>
+              </li>
               
               <li class="nav-heading ">
                 <span data-localize="sidebar.heading.HEADER">Administração</span>

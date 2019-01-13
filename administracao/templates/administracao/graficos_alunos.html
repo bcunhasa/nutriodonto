@@ -44,13 +44,27 @@
           <div id="participacao" class="grafico"></div>
         </div>
       </div>
-    </div>5
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="panel-title">04. Alunos divididos por raça <button id="baixa-grafico-4" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+        </div>
+        <div class="panel-body">
+          <div id="raca" class="grafico-grande"></div>
+        </div>
+      </div>
+    </div>
   </div>
   
   <script>
     var aluno_por_escola = {{ aluno_por_escola }};
     var participacao = {{ participacao }};
     var sexo = {{ sexo }};
+    var raca = {{ raca }};
   </script>
   
   <script src="{% static 'administracao/vendor/flot/jquery.flot.js' %}"></script>

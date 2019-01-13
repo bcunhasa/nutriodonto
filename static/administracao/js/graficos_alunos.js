@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", function() {
     criaGraficoQuestao("#aluno_por_escola", carregaDados("#aluno_por_escola"));
     criaGraficoQuestao("#sexo", carregaDados("#sexo"));
     criaGraficoQuestao("#participacao", carregaDados("#participacao"));
+    criaGraficoQuestao("#raca", carregaDados("#raca"));
 });
 
 function carregaDados(questao) {
@@ -51,6 +52,15 @@ function carregaDados(questao) {
             { label: "Participou do questionário e do exame", data: participacao[2] },
             { label: "Não participou de nenhum dos dois", data: participacao[3] },
         ];
+    } else if (questao == "#raca") {
+        return [
+            { label: "Amarela", data: raca[0] },
+            { label: "Branca", data: raca[1] },
+            { label: "Indígena", data: raca[2] },
+            { label: "Parda", data: raca[3] },
+            { label: "Preta", data: raca[4] },
+            { label: "Sem resposta", data: raca[5] },
+        ];
     }
 }
 
@@ -70,6 +80,13 @@ document.getElementById("baixa-grafico-2").addEventListener("click", function() 
 
 document.getElementById("baixa-grafico-3").addEventListener("click", function() {
     html2canvas(document.querySelector('#participacao')).then(function(canvas) {
+        console.log(canvas);
+        baixaImagem(canvas.toDataURL(), 'grafico.png');
+    });
+});
+
+document.getElementById("baixa-grafico-4").addEventListener("click", function() {
+    html2canvas(document.querySelector('#raca')).then(function(canvas) {
         console.log(canvas);
         baixaImagem(canvas.toDataURL(), 'grafico.png');
     });
