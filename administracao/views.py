@@ -81,8 +81,111 @@ class InferenciaView(LoginRequired, View):
     """Exibe dados gerados após o processo de inferência estatística"""
     
     def get(self, request):
+        alunos = Aluno.objects.all()
+        
+        sexo = [[0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0]]
+        raca = [[0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0]]
+        
+        for aluno in alunos:
+            try:
+                exame = aluno.exame
+            except Exame.DoesNotExist:
+                pass
+            else:
+                if aluno.exame.carie_coroa_18 == 'B' or aluno.exame.carie_coroa_18 == '1' \
+                   or aluno.exame.carie_coroa_17 == 'B' or aluno.exame.carie_coroa_17 == '1' \
+                   or aluno.exame.carie_coroa_16 == 'B' or aluno.exame.carie_coroa_16 == '1' \
+                   or aluno.exame.carie_coroa_15 == 'B' or aluno.exame.carie_coroa_15 == '1' \
+                   or aluno.exame.carie_coroa_14 == 'B' or aluno.exame.carie_coroa_14 == '1' \
+                   or aluno.exame.carie_coroa_13 == 'B' or aluno.exame.carie_coroa_13 == '1' \
+                   or aluno.exame.carie_coroa_12 == 'B' or aluno.exame.carie_coroa_12 == '1' \
+                   or aluno.exame.carie_coroa_11 == 'B' or aluno.exame.carie_coroa_11 == '1' \
+                   or aluno.exame.carie_coroa_21 == 'B' or aluno.exame.carie_coroa_21 == '1' \
+                   or aluno.exame.carie_coroa_22 == 'B' or aluno.exame.carie_coroa_22 == '1' \
+                   or aluno.exame.carie_coroa_23 == 'B' or aluno.exame.carie_coroa_23 == '1' \
+                   or aluno.exame.carie_coroa_24 == 'B' or aluno.exame.carie_coroa_24 == '1' \
+                   or aluno.exame.carie_coroa_25 == 'B' or aluno.exame.carie_coroa_25 == '1' \
+                   or aluno.exame.carie_coroa_26 == 'B' or aluno.exame.carie_coroa_26 == '1' \
+                   or aluno.exame.carie_coroa_27 == 'B' or aluno.exame.carie_coroa_27 == '1' \
+                   or aluno.exame.carie_coroa_28 == 'B' or aluno.exame.carie_coroa_28 == '1' \
+                   or aluno.exame.carie_coroa_38 == 'B' or aluno.exame.carie_coroa_38 == '1' \
+                   or aluno.exame.carie_coroa_37 == 'B' or aluno.exame.carie_coroa_37 == '1' \
+                   or aluno.exame.carie_coroa_36 == 'B' or aluno.exame.carie_coroa_36 == '1' \
+                   or aluno.exame.carie_coroa_35 == 'B' or aluno.exame.carie_coroa_35 == '1' \
+                   or aluno.exame.carie_coroa_34 == 'B' or aluno.exame.carie_coroa_34 == '1' \
+                   or aluno.exame.carie_coroa_33 == 'B' or aluno.exame.carie_coroa_33 == '1' \
+                   or aluno.exame.carie_coroa_32 == 'B' or aluno.exame.carie_coroa_32 == '1' \
+                   or aluno.exame.carie_coroa_31 == 'B' or aluno.exame.carie_coroa_31 == '1' \
+                   or aluno.exame.carie_coroa_41 == 'B' or aluno.exame.carie_coroa_41 == '1' \
+                   or aluno.exame.carie_coroa_42 == 'B' or aluno.exame.carie_coroa_42 == '1' \
+                   or aluno.exame.carie_coroa_43 == 'B' or aluno.exame.carie_coroa_43 == '1' \
+                   or aluno.exame.carie_coroa_44 == 'B' or aluno.exame.carie_coroa_44 == '1' \
+                   or aluno.exame.carie_coroa_45 == 'B' or aluno.exame.carie_coroa_45 == '1' \
+                   or aluno.exame.carie_coroa_46 == 'B' or aluno.exame.carie_coroa_46 == '1' \
+                   or aluno.exame.carie_coroa_47 == 'B' or aluno.exame.carie_coroa_47 == '1' \
+                   or aluno.exame.carie_coroa_48 == 'B' or aluno.exame.carie_coroa_48 == '1':
+                    # Sexo
+                    if aluno.sexo == '0': # masculino
+                        sexo[0][0] += 1
+                    elif aluno.sexo == '1': # feminino
+                        sexo[1][0] += 1
+                    elif aluno.sexo == '2': # outro
+                        sexo[2][0] += 1
+                    
+                    # Raça
+                    if aluno.raca == '0': # amarela
+                        raca[0][0] += 1
+                    elif aluno.raca == '1': # branca
+                        raca[1][0] += 1
+                    elif aluno.raca == '2': # indigena
+                        raca[2][0] += 1
+                    elif aluno.raca == '3': # parda
+                        raca[3][0] += 1
+                    elif aluno.raca == '4': # preta
+                        raca[4][0] += 1
+                else:
+                    # Sexo
+                    if aluno.sexo == '0': # masculino
+                        sexo[0][1] += 1
+                    elif aluno.sexo == '1': # feminino
+                        sexo[1][1] += 1
+                    elif aluno.sexo == '2': # outro
+                        sexo[2][1] += 1
+                    
+                    # Raça
+                    if aluno.raca == '0': # amarela
+                        raca[0][1] += 1
+                    elif aluno.raca == '1': # branca
+                        raca[1][1] += 1
+                    elif aluno.raca == '2': # indigena
+                        raca[2][1] += 1
+                    elif aluno.raca == '3': # parda
+                        raca[3][1] += 1
+                    elif aluno.raca == '4': # preta
+                        raca[4][1] += 1
+            
+                # Totais da tabela sexo
+                sexo[3][0] = sexo[0][0] + sexo[1][0] + sexo[2][0] # total da coluna sim
+                sexo[3][1] = sexo[0][1] + sexo[1][1] + sexo[2][1] # total da coluna não
+                sexo[3][2] = sexo[3][0] + sexo[3][1] # total geral
+                sexo[0][2] = sexo[0][0] + sexo[0][1] # total da linha masculino
+                sexo[1][2] = sexo[1][0] + sexo[1][1] # total da linha feminino
+                sexo[2][2] = sexo[2][0] + sexo[2][1] # total da linha outro
+                
+                # Totais da tabela raça
+                raca[5][0] = raca[0][0] + raca[1][0] + raca[2][0] + raca[3][0] + raca[4][0] # total da coluna sim
+                raca[5][1] = raca[0][1] + raca[1][1] + raca[2][1] + raca[3][1] + raca[4][1] # total da coluna não
+                raca[5][2] = raca[5][0] + raca[5][1] # total geral
+                raca[0][2] = raca[0][0] + raca[0][1] # total da linha amarela
+                raca[1][2] = raca[1][0] + raca[1][1] # total da linha branca
+                raca[2][2] = raca[2][0] + raca[2][1] # total da linha indigena
+                raca[3][2] = raca[3][0] + raca[3][1] # total da linha parda
+                raca[4][2] = raca[4][0] + raca[4][1] # total da linha preta
+                
         context = {
             'pagina_inferencia': True,
+            'sexo': sexo,
+            'raca': raca,
         }
         
         return render(self.request, 'administracao/inferencia.html', context)

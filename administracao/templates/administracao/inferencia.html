@@ -13,7 +13,122 @@
 
 {% block content %}
   
-  To do.
+  <div class="row">
+    <!-- Sexo -->
+    <div class="col-lg-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          Sexo |
+          <small>Tabela de contigência</small>
+        </div>
+        <div class="panel-body">
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Sim</th>
+                  <th>Não</th>
+                  <th>Total</th>
+                </tr>
+              </thead>
+              
+              <tbody>
+                <tr>
+                  <td>Masculino</td>
+                  <td>{{ sexo.0.0 }}</td>
+                  <td>{{ sexo.0.1 }}</td>
+                  <td>{{ sexo.0.2 }}</td>
+                </tr>
+                <tr>
+                  <td>Feminino</td>
+                  <td>{{ sexo.1.0 }}</td>
+                  <td>{{ sexo.1.1 }}</td>
+                  <td>{{ sexo.1.2 }}</td>
+                </tr>
+                <tr>
+                  <td>Outro</td>
+                  <td>{{ sexo.2.0 }}</td>
+                  <td>{{ sexo.2.1 }}</td>
+                  <td>{{ sexo.2.2 }}</td>
+                </tr>
+                <tr>
+                  <td>Total</td>
+                  <td>{{ sexo.3.0 }}</td>
+                  <td>{{ sexo.3.1 }}</td>
+                  <td>{{ sexo.3.2 }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Raça -->
+    <div class="col-lg-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          Raça |
+          <small>Tabela de contigência</small>
+        </div>
+        <div class="panel-body">
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Sim</th>
+                  <th>Não</th>
+                  <th>Total</th>
+                </tr>
+              </thead>
+              
+              <tbody>
+                <tr>
+                  <td>Amarela</td>
+                  <td>{{ raca.0.0 }}</td>
+                  <td>{{ raca.0.1 }}</td>
+                  <td>{{ raca.0.2 }}</td>
+                </tr>
+                <tr>
+                  <td>Branca</td>
+                  <td>{{ raca.1.0 }}</td>
+                  <td>{{ raca.1.1 }}</td>
+                  <td>{{ raca.1.2 }}</td>
+                </tr>
+                <tr>
+                  <td>Indígena</td>
+                  <td>{{ raca.2.0 }}</td>
+                  <td>{{ raca.2.1 }}</td>
+                  <td>{{ raca.2.2 }}</td>
+                </tr>
+                <tr>
+                  <td>Parda</td>
+                  <td>{{ raca.3.0 }}</td>
+                  <td>{{ raca.3.1 }}</td>
+                  <td>{{ raca.3.2 }}</td>
+                </tr>
+                <tr>
+                  <td>Preta</td>
+                  <td>{{ raca.4.0 }}</td>
+                  <td>{{ raca.4.1 }}</td>
+                  <td>{{ raca.4.2 }}</td>
+                </tr>
+                <tr>
+                  <td>Total</td>
+                  <td>{{ raca.5.0 }}</td>
+                  <td>{{ raca.5.1 }}</td>
+                  <td>{{ raca.5.2 }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
   
   <script src="{% static 'administracao/datatables/js/jquery.dataTables.min.js' %}"></script>
   <script src="{% static 'administracao/vendor/datatables-colvis/js/dataTables.colVis.js' %}"></script>
