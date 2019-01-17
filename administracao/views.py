@@ -1877,7 +1877,8 @@ class InferenciaView(LoginRequired, View):
                 questao_54[7][2] = questao_54[7][0] + questao_54[7][1] # 4 a 6 vezes por dia
                 questao_54[8][2] = questao_54[8][0] + questao_54[8][1] # Mais de 8 vezes por dia
         
-        sexo_esperado = sexo
+        
+        # Montagem das tabelas de valores esperados
         sexo_esperado[0][0] = (sexo[0][2] / sexo[3][2]) * sexo[3][0] # masculino sim
         sexo_esperado[0][1] = (sexo[0][2] / sexo[3][2]) * sexo[3][1] # masculino não
         sexo_esperado[1][0] = (sexo[1][2] / sexo[3][2]) * sexo[3][0] # feminino sim
