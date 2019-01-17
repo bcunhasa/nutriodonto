@@ -63,6 +63,45 @@
         </div>
       </div>
     </div>
+    
+    <div class="col-lg-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          Incidência de cárie por sexo (valores esperados)
+        </div>
+        <div class="panel-body">
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Sexo</th>
+                  <th>Sim</th>
+                  <th>Não</th>
+                </tr>
+              </thead>
+              
+              <tbody>
+                <tr>
+                  <td>Masculino</td>
+                  <td>{{ sexo_esperado.0.0 }}</td>
+                  <td>{{ sexo_esperado.0.1 }}</td>
+                </tr>
+                <tr>
+                  <td>Feminino</td>
+                  <td>{{ sexo_esperado.1.0 }}</td>
+                  <td>{{ sexo_esperado.1.1 }}</td>
+                </tr>
+                <tr>
+                  <td>Outro</td>
+                  <td>{{ sexo_esperado.2.0 }}</td>
+                  <td>{{ sexo_esperado.2.1 }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
   
   <div class="row">
