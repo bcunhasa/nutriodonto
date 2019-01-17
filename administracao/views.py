@@ -174,605 +174,610 @@ class InferenciaView(LoginRequired, View):
                     elif aluno.raca == '4': # preta
                         raca[4][0] += 1
                     
-                    # Questão 25
-                    if aluno.questionario.questao_25 == '0': # Nunca ou menos de uma vez por mês
-                        questao_25[0][0] += 1
-                    elif aluno.questionario.questao_25 == '1': # 1 a 3 vezes por mês
-                        questao_25[1][0] += 1
-                    elif aluno.questionario.questao_25 == '2': # 1 vez por semana
-                        questao_25[2][0] += 1
-                    elif aluno.questionario.questao_25 == '3': # 2 a 4 vezes por semana
-                        questao_25[3][0] += 1
-                    elif aluno.questionario.questao_25 == '4': # 6 a 8 vezes por semana
-                        questao_25[4][0] += 1
-                    elif aluno.questionario.questao_25 == '5': # 1 vez por dia
-                        questao_25[5][0] += 1
-                    elif aluno.questionario.questao_25 == '6': # 2 a 3 vezes por dia
-                        questao_25[6][0] += 1
-                    elif aluno.questionario.questao_25 == '7': # 4 a 6 vezes por dia
-                        questao_25[7][0] += 1
-                    elif aluno.questionario.questao_25 == '8': # Mais de 8 vezes por dia
-                        questao_25[8][0] += 1
-                    
-                    # Questão 26
-                    if aluno.questionario.questao_26 == '0': # Nunca ou menos de uma vez por mês
-                        questao_26[0][0] += 1
-                    elif aluno.questionario.questao_26 == '1': # 1 a 3 vezes por mês
-                        questao_26[1][0] += 1
-                    elif aluno.questionario.questao_26 == '2': # 1 vez por semana
-                        questao_26[2][0] += 1
-                    elif aluno.questionario.questao_26 == '3': # 2 a 4 vezes por semana
-                        questao_26[3][0] += 1
-                    elif aluno.questionario.questao_26 == '4': # 6 a 8 vezes por semana
-                        questao_26[4][0] += 1
-                    elif aluno.questionario.questao_26 == '5': # 1 vez por dia
-                        questao_26[5][0] += 1
-                    elif aluno.questionario.questao_26 == '6': # 2 a 3 vezes por dia
-                        questao_26[6][0] += 1
-                    elif aluno.questionario.questao_26 == '7': # 4 a 6 vezes por dia
-                        questao_26[7][0] += 1
-                    elif aluno.questionario.questao_26 == '8': # Mais de 8 vezes por dia
-                        questao_26[8][0] += 1
-                    
-                    # Questão 27
-                    if aluno.questionario.questao_27 == '0': # Nunca ou menos de uma vez por mês
-                        questao_27[0][0] += 1
-                    elif aluno.questionario.questao_27 == '1': # 1 a 3 vezes por mês
-                        questao_27[1][0] += 1
-                    elif aluno.questionario.questao_27 == '2': # 1 vez por semana
-                        questao_27[2][0] += 1
-                    elif aluno.questionario.questao_27 == '3': # 2 a 4 vezes por semana
-                        questao_27[3][0] += 1
-                    elif aluno.questionario.questao_27 == '4': # 6 a 8 vezes por semana
-                        questao_27[4][0] += 1
-                    elif aluno.questionario.questao_27 == '5': # 1 vez por dia
-                        questao_27[5][0] += 1
-                    elif aluno.questionario.questao_27 == '6': # 2 a 3 vezes por dia
-                        questao_27[6][0] += 1
-                    elif aluno.questionario.questao_27 == '7': # 4 a 6 vezes por dia
-                        questao_27[7][0] += 1
-                    elif aluno.questionario.questao_27 == '8': # Mais de 8 vezes por dia
-                        questao_27[8][0] += 1
-                    
-                    # Questão 28
-                    if aluno.questionario.questao_28 == '0': # Nunca ou menos de uma vez por mês
-                        questao_28[0][0] += 1
-                    elif aluno.questionario.questao_28 == '1': # 1 a 3 vezes por mês
-                        questao_28[1][0] += 1
-                    elif aluno.questionario.questao_28 == '2': # 1 vez por semana
-                        questao_28[2][0] += 1
-                    elif aluno.questionario.questao_28 == '3': # 2 a 4 vezes por semana
-                        questao_28[3][0] += 1
-                    elif aluno.questionario.questao_28 == '4': # 6 a 8 vezes por semana
-                        questao_28[4][0] += 1
-                    elif aluno.questionario.questao_28 == '5': # 1 vez por dia
-                        questao_28[5][0] += 1
-                    elif aluno.questionario.questao_28 == '6': # 2 a 3 vezes por dia
-                        questao_28[6][0] += 1
-                    elif aluno.questionario.questao_28 == '7': # 4 a 6 vezes por dia
-                        questao_28[7][0] += 1
-                    elif aluno.questionario.questao_28 == '8': # Mais de 8 vezes por dia
-                        questao_28[8][0] += 1
-                    
-                    # Questão 29
-                    if aluno.questionario.questao_29 == '0': # Nunca ou menos de uma vez por mês
-                        questao_29[0][0] += 1
-                    elif aluno.questionario.questao_29 == '1': # 1 a 3 vezes por mês
-                        questao_29[1][0] += 1
-                    elif aluno.questionario.questao_29 == '2': # 1 vez por semana
-                        questao_29[2][0] += 1
-                    elif aluno.questionario.questao_29 == '3': # 2 a 4 vezes por semana
-                        questao_29[3][0] += 1
-                    elif aluno.questionario.questao_29 == '4': # 6 a 8 vezes por semana
-                        questao_29[4][0] += 1
-                    elif aluno.questionario.questao_29 == '5': # 1 vez por dia
-                        questao_29[5][0] += 1
-                    elif aluno.questionario.questao_29 == '6': # 2 a 3 vezes por dia
-                        questao_29[6][0] += 1
-                    elif aluno.questionario.questao_29 == '7': # 4 a 6 vezes por dia
-                        questao_29[7][0] += 1
-                    elif aluno.questionario.questao_29 == '8': # Mais de 8 vezes por dia
-                        questao_29[8][0] += 1
-                    
-                    # Questão 30
-                    if aluno.questionario.questao_30 == '0': # Nunca ou menos de uma vez por mês
-                        questao_30[0][0] += 1
-                    elif aluno.questionario.questao_30 == '1': # 1 a 3 vezes por mês
-                        questao_30[1][0] += 1
-                    elif aluno.questionario.questao_30 == '2': # 1 vez por semana
-                        questao_30[2][0] += 1
-                    elif aluno.questionario.questao_30 == '3': # 2 a 4 vezes por semana
-                        questao_30[3][0] += 1
-                    elif aluno.questionario.questao_30 == '4': # 6 a 8 vezes por semana
-                        questao_30[4][0] += 1
-                    elif aluno.questionario.questao_30 == '5': # 1 vez por dia
-                        questao_30[5][0] += 1
-                    elif aluno.questionario.questao_30 == '6': # 2 a 3 vezes por dia
-                        questao_30[6][0] += 1
-                    elif aluno.questionario.questao_30 == '7': # 4 a 6 vezes por dia
-                        questao_30[7][0] += 1
-                    elif aluno.questionario.questao_30 == '8': # Mais de 8 vezes por dia
-                        questao_30[8][0] += 1
-                    
-                    # Questão 31
-                    if aluno.questionario.questao_31 == '0': # Nunca ou menos de uma vez por mês
-                        questao_31[0][0] += 1
-                    elif aluno.questionario.questao_31 == '1': # 1 a 3 vezes por mês
-                        questao_31[1][0] += 1
-                    elif aluno.questionario.questao_31 == '2': # 1 vez por semana
-                        questao_31[2][0] += 1
-                    elif aluno.questionario.questao_31 == '3': # 2 a 4 vezes por semana
-                        questao_31[3][0] += 1
-                    elif aluno.questionario.questao_31 == '4': # 6 a 8 vezes por semana
-                        questao_31[4][0] += 1
-                    elif aluno.questionario.questao_31 == '5': # 1 vez por dia
-                        questao_31[5][0] += 1
-                    elif aluno.questionario.questao_31 == '6': # 2 a 3 vezes por dia
-                        questao_31[6][0] += 1
-                    elif aluno.questionario.questao_31 == '7': # 4 a 6 vezes por dia
-                        questao_31[7][0] += 1
-                    elif aluno.questionario.questao_31 == '8': # Mais de 8 vezes por dia
-                        questao_31[8][0] += 1
-                    
-                    # Questão 32
-                    if aluno.questionario.questao_32 == '0': # Nunca ou menos de uma vez por mês
-                        questao_32[0][0] += 1
-                    elif aluno.questionario.questao_32 == '1': # 1 a 3 vezes por mês
-                        questao_32[1][0] += 1
-                    elif aluno.questionario.questao_32 == '2': # 1 vez por semana
-                        questao_32[2][0] += 1
-                    elif aluno.questionario.questao_32 == '3': # 2 a 4 vezes por semana
-                        questao_32[3][0] += 1
-                    elif aluno.questionario.questao_32 == '4': # 6 a 8 vezes por semana
-                        questao_32[4][0] += 1
-                    elif aluno.questionario.questao_32 == '5': # 1 vez por dia
-                        questao_32[5][0] += 1
-                    elif aluno.questionario.questao_32 == '6': # 2 a 3 vezes por dia
-                        questao_32[6][0] += 1
-                    elif aluno.questionario.questao_32 == '7': # 4 a 6 vezes por dia
-                        questao_32[7][0] += 1
-                    elif aluno.questionario.questao_32 == '8': # Mais de 8 vezes por dia
-                        questao_32[8][0] += 1
-                    
-                    # Questão 33
-                    if aluno.questionario.questao_33 == '0': # Nunca ou menos de uma vez por mês
-                        questao_33[0][0] += 1
-                    elif aluno.questionario.questao_33 == '1': # 1 a 3 vezes por mês
-                        questao_33[1][0] += 1
-                    elif aluno.questionario.questao_33 == '2': # 1 vez por semana
-                        questao_33[2][0] += 1
-                    elif aluno.questionario.questao_33 == '3': # 2 a 4 vezes por semana
-                        questao_33[3][0] += 1
-                    elif aluno.questionario.questao_33 == '4': # 6 a 8 vezes por semana
-                        questao_33[4][0] += 1
-                    elif aluno.questionario.questao_33 == '5': # 1 vez por dia
-                        questao_33[5][0] += 1
-                    elif aluno.questionario.questao_33 == '6': # 2 a 3 vezes por dia
-                        questao_33[6][0] += 1
-                    elif aluno.questionario.questao_33 == '7': # 4 a 6 vezes por dia
-                        questao_33[7][0] += 1
-                    elif aluno.questionario.questao_33 == '8': # Mais de 8 vezes por dia
-                        questao_33[8][0] += 1
-                    
-                    # Questão 34
-                    if aluno.questionario.questao_34 == '0': # Nunca ou menos de uma vez por mês
-                        questao_34[0][0] += 1
-                    elif aluno.questionario.questao_34 == '1': # 1 a 3 vezes por mês
-                        questao_34[1][0] += 1
-                    elif aluno.questionario.questao_34 == '2': # 1 vez por semana
-                        questao_34[2][0] += 1
-                    elif aluno.questionario.questao_34 == '3': # 2 a 4 vezes por semana
-                        questao_34[3][0] += 1
-                    elif aluno.questionario.questao_34 == '4': # 6 a 8 vezes por semana
-                        questao_34[4][0] += 1
-                    elif aluno.questionario.questao_34 == '5': # 1 vez por dia
-                        questao_34[5][0] += 1
-                    elif aluno.questionario.questao_34 == '6': # 2 a 3 vezes por dia
-                        questao_34[6][0] += 1
-                    elif aluno.questionario.questao_34 == '7': # 4 a 6 vezes por dia
-                        questao_34[7][0] += 1
-                    elif aluno.questionario.questao_34 == '8': # Mais de 8 vezes por dia
-                        questao_34[8][0] += 1
-                    
-                    # Questão 35
-                    if aluno.questionario.questao_35 == '0': # Nunca ou menos de uma vez por mês
-                        questao_35[0][0] += 1
-                    elif aluno.questionario.questao_35 == '1': # 1 a 3 vezes por mês
-                        questao_35[1][0] += 1
-                    elif aluno.questionario.questao_35 == '2': # 1 vez por semana
-                        questao_35[2][0] += 1
-                    elif aluno.questionario.questao_35 == '3': # 2 a 4 vezes por semana
-                        questao_35[3][0] += 1
-                    elif aluno.questionario.questao_35 == '4': # 6 a 8 vezes por semana
-                        questao_35[4][0] += 1
-                    elif aluno.questionario.questao_35 == '5': # 1 vez por dia
-                        questao_35[5][0] += 1
-                    elif aluno.questionario.questao_35 == '6': # 2 a 3 vezes por dia
-                        questao_35[6][0] += 1
-                    elif aluno.questionario.questao_35 == '7': # 4 a 6 vezes por dia
-                        questao_35[7][0] += 1
-                    elif aluno.questionario.questao_35 == '8': # Mais de 8 vezes por dia
-                        questao_35[8][0] += 1
-                    
-                    # Questão 36
-                    if aluno.questionario.questao_36 == '0': # Nunca ou menos de uma vez por mês
-                        questao_36[0][0] += 1
-                    elif aluno.questionario.questao_36 == '1': # 1 a 3 vezes por mês
-                        questao_36[1][0] += 1
-                    elif aluno.questionario.questao_36 == '2': # 1 vez por semana
-                        questao_36[2][0] += 1
-                    elif aluno.questionario.questao_36 == '3': # 2 a 4 vezes por semana
-                        questao_36[3][0] += 1
-                    elif aluno.questionario.questao_36 == '4': # 6 a 8 vezes por semana
-                        questao_36[4][0] += 1
-                    elif aluno.questionario.questao_36 == '5': # 1 vez por dia
-                        questao_36[5][0] += 1
-                    elif aluno.questionario.questao_36 == '6': # 2 a 3 vezes por dia
-                        questao_36[6][0] += 1
-                    elif aluno.questionario.questao_36 == '7': # 4 a 6 vezes por dia
-                        questao_36[7][0] += 1
-                    elif aluno.questionario.questao_36 == '8': # Mais de 8 vezes por dia
-                        questao_36[8][0] += 1
-                    
-                    # Questão 37
-                    if aluno.questionario.questao_37 == '0': # Nunca ou menos de uma vez por mês
-                        questao_37[0][0] += 1
-                    elif aluno.questionario.questao_37 == '1': # 1 a 3 vezes por mês
-                        questao_37[1][0] += 1
-                    elif aluno.questionario.questao_37 == '2': # 1 vez por semana
-                        questao_37[2][0] += 1
-                    elif aluno.questionario.questao_37 == '3': # 2 a 4 vezes por semana
-                        questao_37[3][0] += 1
-                    elif aluno.questionario.questao_37 == '4': # 6 a 8 vezes por semana
-                        questao_37[4][0] += 1
-                    elif aluno.questionario.questao_37 == '5': # 1 vez por dia
-                        questao_37[5][0] += 1
-                    elif aluno.questionario.questao_37 == '6': # 2 a 3 vezes por dia
-                        questao_37[6][0] += 1
-                    elif aluno.questionario.questao_37 == '7': # 4 a 6 vezes por dia
-                        questao_37[7][0] += 1
-                    elif aluno.questionario.questao_37 == '8': # Mais de 8 vezes por dia
-                        questao_37[8][0] += 1
-                    
-                    # Questão 38
-                    if aluno.questionario.questao_38 == '0': # Nunca ou menos de uma vez por mês
-                        questao_38[0][0] += 1
-                    elif aluno.questionario.questao_38 == '1': # 1 a 3 vezes por mês
-                        questao_38[1][0] += 1
-                    elif aluno.questionario.questao_38 == '2': # 1 vez por semana
-                        questao_38[2][0] += 1
-                    elif aluno.questionario.questao_38 == '3': # 2 a 4 vezes por semana
-                        questao_38[3][0] += 1
-                    elif aluno.questionario.questao_38 == '4': # 6 a 8 vezes por semana
-                        questao_38[4][0] += 1
-                    elif aluno.questionario.questao_38 == '5': # 1 vez por dia
-                        questao_38[5][0] += 1
-                    elif aluno.questionario.questao_38 == '6': # 2 a 3 vezes por dia
-                        questao_38[6][0] += 1
-                    elif aluno.questionario.questao_38 == '7': # 4 a 6 vezes por dia
-                        questao_38[7][0] += 1
-                    elif aluno.questionario.questao_38 == '8': # Mais de 8 vezes por dia
-                        questao_38[8][0] += 1
-                    
-                    # Questão 39
-                    if aluno.questionario.questao_39 == '0': # Nunca ou menos de uma vez por mês
-                        questao_39[0][0] += 1
-                    elif aluno.questionario.questao_39 == '1': # 1 a 3 vezes por mês
-                        questao_39[1][0] += 1
-                    elif aluno.questionario.questao_39 == '2': # 1 vez por semana
-                        questao_39[2][0] += 1
-                    elif aluno.questionario.questao_39 == '3': # 2 a 4 vezes por semana
-                        questao_39[3][0] += 1
-                    elif aluno.questionario.questao_39 == '4': # 6 a 8 vezes por semana
-                        questao_39[4][0] += 1
-                    elif aluno.questionario.questao_39 == '5': # 1 vez por dia
-                        questao_39[5][0] += 1
-                    elif aluno.questionario.questao_39 == '6': # 2 a 3 vezes por dia
-                        questao_39[6][0] += 1
-                    elif aluno.questionario.questao_39 == '7': # 4 a 6 vezes por dia
-                        questao_39[7][0] += 1
-                    elif aluno.questionario.questao_39 == '8': # Mais de 8 vezes por dia
-                        questao_39[8][0] += 1
-                    
-                    # Questão 40
-                    if aluno.questionario.questao_40 == '0': # Nunca ou menos de uma vez por mês
-                        questao_40[0][0] += 1
-                    elif aluno.questionario.questao_40 == '1': # 1 a 3 vezes por mês
-                        questao_40[1][0] += 1
-                    elif aluno.questionario.questao_40 == '2': # 1 vez por semana
-                        questao_40[2][0] += 1
-                    elif aluno.questionario.questao_40 == '3': # 2 a 4 vezes por semana
-                        questao_40[3][0] += 1
-                    elif aluno.questionario.questao_40 == '4': # 6 a 8 vezes por semana
-                        questao_40[4][0] += 1
-                    elif aluno.questionario.questao_40 == '5': # 1 vez por dia
-                        questao_40[5][0] += 1
-                    elif aluno.questionario.questao_40 == '6': # 2 a 3 vezes por dia
-                        questao_40[6][0] += 1
-                    elif aluno.questionario.questao_40 == '7': # 4 a 6 vezes por dia
-                        questao_40[7][0] += 1
-                    elif aluno.questionario.questao_40 == '8': # Mais de 8 vezes por dia
-                        questao_40[8][0] += 1
-                    
-                    # Questão 41
-                    if aluno.questionario.questao_41 == '0': # Nunca ou menos de uma vez por mês
-                        questao_41[0][0] += 1
-                    elif aluno.questionario.questao_41 == '1': # 1 a 3 vezes por mês
-                        questao_41[1][0] += 1
-                    elif aluno.questionario.questao_41 == '2': # 1 vez por semana
-                        questao_41[2][0] += 1
-                    elif aluno.questionario.questao_41 == '3': # 2 a 4 vezes por semana
-                        questao_41[3][0] += 1
-                    elif aluno.questionario.questao_41 == '4': # 6 a 8 vezes por semana
-                        questao_41[4][0] += 1
-                    elif aluno.questionario.questao_41 == '5': # 1 vez por dia
-                        questao_41[5][0] += 1
-                    elif aluno.questionario.questao_41 == '6': # 2 a 3 vezes por dia
-                        questao_41[6][0] += 1
-                    elif aluno.questionario.questao_41 == '7': # 4 a 6 vezes por dia
-                        questao_41[7][0] += 1
-                    elif aluno.questionario.questao_41 == '8': # Mais de 8 vezes por dia
-                        questao_41[8][0] += 1
-                    
-                    # Questão 42
-                    if aluno.questionario.questao_42 == '0': # Nunca ou menos de uma vez por mês
-                        questao_42[0][0] += 1
-                    elif aluno.questionario.questao_42 == '1': # 1 a 3 vezes por mês
-                        questao_42[1][0] += 1
-                    elif aluno.questionario.questao_42 == '2': # 1 vez por semana
-                        questao_42[2][0] += 1
-                    elif aluno.questionario.questao_42 == '3': # 2 a 4 vezes por semana
-                        questao_42[3][0] += 1
-                    elif aluno.questionario.questao_42 == '4': # 6 a 8 vezes por semana
-                        questao_42[4][0] += 1
-                    elif aluno.questionario.questao_42 == '5': # 1 vez por dia
-                        questao_42[5][0] += 1
-                    elif aluno.questionario.questao_42 == '6': # 2 a 3 vezes por dia
-                        questao_42[6][0] += 1
-                    elif aluno.questionario.questao_42 == '7': # 4 a 6 vezes por dia
-                        questao_42[7][0] += 1
-                    elif aluno.questionario.questao_42 == '8': # Mais de 8 vezes por dia
-                        questao_42[8][0] += 1
-                    
-                    # Questão 43
-                    if aluno.questionario.questao_43 == '0': # Nunca ou menos de uma vez por mês
-                        questao_43[0][0] += 1
-                    elif aluno.questionario.questao_43 == '1': # 1 a 3 vezes por mês
-                        questao_43[1][0] += 1
-                    elif aluno.questionario.questao_43 == '2': # 1 vez por semana
-                        questao_43[2][0] += 1
-                    elif aluno.questionario.questao_43 == '3': # 2 a 4 vezes por semana
-                        questao_43[3][0] += 1
-                    elif aluno.questionario.questao_43 == '4': # 6 a 8 vezes por semana
-                        questao_43[4][0] += 1
-                    elif aluno.questionario.questao_43 == '5': # 1 vez por dia
-                        questao_43[5][0] += 1
-                    elif aluno.questionario.questao_43 == '6': # 2 a 3 vezes por dia
-                        questao_43[6][0] += 1
-                    elif aluno.questionario.questao_43 == '7': # 4 a 6 vezes por dia
-                        questao_43[7][0] += 1
-                    elif aluno.questionario.questao_43 == '8': # Mais de 8 vezes por dia
-                        questao_43[8][0] += 1
-                    
-                    # Questão 44
-                    if aluno.questionario.questao_44 == '0': # Nunca ou menos de uma vez por mês
-                        questao_44[0][0] += 1
-                    elif aluno.questionario.questao_44 == '1': # 1 a 3 vezes por mês
-                        questao_44[1][0] += 1
-                    elif aluno.questionario.questao_44 == '2': # 1 vez por semana
-                        questao_44[2][0] += 1
-                    elif aluno.questionario.questao_44 == '3': # 2 a 4 vezes por semana
-                        questao_44[3][0] += 1
-                    elif aluno.questionario.questao_44 == '4': # 6 a 8 vezes por semana
-                        questao_44[4][0] += 1
-                    elif aluno.questionario.questao_44 == '5': # 1 vez por dia
-                        questao_44[5][0] += 1
-                    elif aluno.questionario.questao_44 == '6': # 2 a 3 vezes por dia
-                        questao_44[6][0] += 1
-                    elif aluno.questionario.questao_44 == '7': # 4 a 6 vezes por dia
-                        questao_44[7][0] += 1
-                    elif aluno.questionario.questao_44 == '8': # Mais de 8 vezes por dia
-                        questao_44[8][0] += 1
-                    
-                    # Questão 45
-                    if aluno.questionario.questao_45 == '0': # Nunca ou menos de uma vez por mês
-                        questao_45[0][0] += 1
-                    elif aluno.questionario.questao_45 == '1': # 1 a 3 vezes por mês
-                        questao_45[1][0] += 1
-                    elif aluno.questionario.questao_45 == '2': # 1 vez por semana
-                        questao_45[2][0] += 1
-                    elif aluno.questionario.questao_45 == '3': # 2 a 4 vezes por semana
-                        questao_45[3][0] += 1
-                    elif aluno.questionario.questao_45 == '4': # 6 a 8 vezes por semana
-                        questao_45[4][0] += 1
-                    elif aluno.questionario.questao_45 == '5': # 1 vez por dia
-                        questao_45[5][0] += 1
-                    elif aluno.questionario.questao_45 == '6': # 2 a 3 vezes por dia
-                        questao_45[6][0] += 1
-                    elif aluno.questionario.questao_45 == '7': # 4 a 6 vezes por dia
-                        questao_45[7][0] += 1
-                    elif aluno.questionario.questao_45 == '8': # Mais de 8 vezes por dia
-                        questao_45[8][0] += 1
-                    
-                    # Questão 46
-                    if aluno.questionario.questao_46 == '0': # Nunca ou menos de uma vez por mês
-                        questao_46[0][0] += 1
-                    elif aluno.questionario.questao_46 == '1': # 1 a 3 vezes por mês
-                        questao_46[1][0] += 1
-                    elif aluno.questionario.questao_46 == '2': # 1 vez por semana
-                        questao_46[2][0] += 1
-                    elif aluno.questionario.questao_46 == '3': # 2 a 4 vezes por semana
-                        questao_46[3][0] += 1
-                    elif aluno.questionario.questao_46 == '4': # 6 a 8 vezes por semana
-                        questao_46[4][0] += 1
-                    elif aluno.questionario.questao_46 == '5': # 1 vez por dia
-                        questao_46[5][0] += 1
-                    elif aluno.questionario.questao_46 == '6': # 2 a 3 vezes por dia
-                        questao_46[6][0] += 1
-                    elif aluno.questionario.questao_46 == '7': # 4 a 6 vezes por dia
-                        questao_46[7][0] += 1
-                    elif aluno.questionario.questao_46 == '8': # Mais de 8 vezes por dia
-                        questao_46[8][0] += 1
-                    
-                    # Questão 47
-                    if aluno.questionario.questao_47 == '0': # Nunca ou menos de uma vez por mês
-                        questao_47[0][0] += 1
-                    elif aluno.questionario.questao_47 == '1': # 1 a 3 vezes por mês
-                        questao_47[1][0] += 1
-                    elif aluno.questionario.questao_47 == '2': # 1 vez por semana
-                        questao_47[2][0] += 1
-                    elif aluno.questionario.questao_47 == '3': # 2 a 4 vezes por semana
-                        questao_47[3][0] += 1
-                    elif aluno.questionario.questao_47 == '4': # 6 a 8 vezes por semana
-                        questao_47[4][0] += 1
-                    elif aluno.questionario.questao_47 == '5': # 1 vez por dia
-                        questao_47[5][0] += 1
-                    elif aluno.questionario.questao_47 == '6': # 2 a 3 vezes por dia
-                        questao_47[6][0] += 1
-                    elif aluno.questionario.questao_47 == '7': # 4 a 6 vezes por dia
-                        questao_47[7][0] += 1
-                    elif aluno.questionario.questao_47 == '8': # Mais de 8 vezes por dia
-                        questao_47[8][0] += 1
-                    
-                    # Questão 48
-                    if aluno.questionario.questao_48 == '0': # Nunca ou menos de uma vez por mês
-                        questao_48[0][0] += 1
-                    elif aluno.questionario.questao_48 == '1': # 1 a 3 vezes por mês
-                        questao_48[1][0] += 1
-                    elif aluno.questionario.questao_48 == '2': # 1 vez por semana
-                        questao_48[2][0] += 1
-                    elif aluno.questionario.questao_48 == '3': # 2 a 4 vezes por semana
-                        questao_48[3][0] += 1
-                    elif aluno.questionario.questao_48 == '4': # 6 a 8 vezes por semana
-                        questao_48[4][0] += 1
-                    elif aluno.questionario.questao_48 == '5': # 1 vez por dia
-                        questao_48[5][0] += 1
-                    elif aluno.questionario.questao_48 == '6': # 2 a 3 vezes por dia
-                        questao_48[6][0] += 1
-                    elif aluno.questionario.questao_48 == '7': # 4 a 6 vezes por dia
-                        questao_48[7][0] += 1
-                    elif aluno.questionario.questao_48 == '8': # Mais de 8 vezes por dia
-                        questao_48[8][0] += 1
-                    
-                    # Questão 49
-                    if aluno.questionario.questao_49 == '0': # Nunca ou menos de uma vez por mês
-                        questao_49[0][0] += 1
-                    elif aluno.questionario.questao_49 == '1': # 1 a 3 vezes por mês
-                        questao_49[1][0] += 1
-                    elif aluno.questionario.questao_49 == '2': # 1 vez por semana
-                        questao_49[2][0] += 1
-                    elif aluno.questionario.questao_49 == '3': # 2 a 4 vezes por semana
-                        questao_49[3][0] += 1
-                    elif aluno.questionario.questao_49 == '4': # 6 a 8 vezes por semana
-                        questao_49[4][0] += 1
-                    elif aluno.questionario.questao_49 == '5': # 1 vez por dia
-                        questao_49[5][0] += 1
-                    elif aluno.questionario.questao_49 == '6': # 2 a 3 vezes por dia
-                        questao_49[6][0] += 1
-                    elif aluno.questionario.questao_49 == '7': # 4 a 6 vezes por dia
-                        questao_49[7][0] += 1
-                    elif aluno.questionario.questao_49 == '8': # Mais de 8 vezes por dia
-                        questao_49[8][0] += 1
-                    
-                    # Questão 50
-                    if aluno.questionario.questao_50 == '0': # Nunca ou menos de uma vez por mês
-                        questao_50[0][0] += 1
-                    elif aluno.questionario.questao_50 == '1': # 1 a 3 vezes por mês
-                        questao_50[1][0] += 1
-                    elif aluno.questionario.questao_50 == '2': # 1 vez por semana
-                        questao_50[2][0] += 1
-                    elif aluno.questionario.questao_50 == '3': # 2 a 4 vezes por semana
-                        questao_50[3][0] += 1
-                    elif aluno.questionario.questao_50 == '4': # 6 a 8 vezes por semana
-                        questao_50[4][0] += 1
-                    elif aluno.questionario.questao_50 == '5': # 1 vez por dia
-                        questao_50[5][0] += 1
-                    elif aluno.questionario.questao_50 == '6': # 2 a 3 vezes por dia
-                        questao_50[6][0] += 1
-                    elif aluno.questionario.questao_50 == '7': # 4 a 6 vezes por dia
-                        questao_50[7][0] += 1
-                    elif aluno.questionario.questao_50 == '8': # Mais de 8 vezes por dia
-                        questao_50[8][0] += 1
-                    
-                    # Questão 51
-                    if aluno.questionario.questao_51 == '0': # Nunca ou menos de uma vez por mês
-                        questao_51[0][0] += 1
-                    elif aluno.questionario.questao_51 == '1': # 1 a 3 vezes por mês
-                        questao_51[1][0] += 1
-                    elif aluno.questionario.questao_51 == '2': # 1 vez por semana
-                        questao_51[2][0] += 1
-                    elif aluno.questionario.questao_51 == '3': # 2 a 4 vezes por semana
-                        questao_51[3][0] += 1
-                    elif aluno.questionario.questao_51 == '4': # 6 a 8 vezes por semana
-                        questao_51[4][0] += 1
-                    elif aluno.questionario.questao_51 == '5': # 1 vez por dia
-                        questao_51[5][0] += 1
-                    elif aluno.questionario.questao_51 == '6': # 2 a 3 vezes por dia
-                        questao_51[6][0] += 1
-                    elif aluno.questionario.questao_51 == '7': # 4 a 6 vezes por dia
-                        questao_51[7][0] += 1
-                    elif aluno.questionario.questao_51 == '8': # Mais de 8 vezes por dia
-                        questao_51[8][0] += 1
-                    
-                    # Questão 52
-                    if aluno.questionario.questao_52 == '0': # Nunca ou menos de uma vez por mês
-                        questao_52[0][0] += 1
-                    elif aluno.questionario.questao_52 == '1': # 1 a 3 vezes por mês
-                        questao_52[1][0] += 1
-                    elif aluno.questionario.questao_52 == '2': # 1 vez por semana
-                        questao_52[2][0] += 1
-                    elif aluno.questionario.questao_52 == '3': # 2 a 4 vezes por semana
-                        questao_52[3][0] += 1
-                    elif aluno.questionario.questao_52 == '4': # 6 a 8 vezes por semana
-                        questao_52[4][0] += 1
-                    elif aluno.questionario.questao_52 == '5': # 1 vez por dia
-                        questao_52[5][0] += 1
-                    elif aluno.questionario.questao_52 == '6': # 2 a 3 vezes por dia
-                        questao_52[6][0] += 1
-                    elif aluno.questionario.questao_52 == '7': # 4 a 6 vezes por dia
-                        questao_52[7][0] += 1
-                    elif aluno.questionario.questao_52 == '8': # Mais de 8 vezes por dia
-                        questao_52[8][0] += 1
-                    
-                    # Questão 53
-                    if aluno.questionario.questao_53 == '0': # Nunca ou menos de uma vez por mês
-                        questao_53[0][0] += 1
-                    elif aluno.questionario.questao_53 == '1': # 1 a 3 vezes por mês
-                        questao_53[1][0] += 1
-                    elif aluno.questionario.questao_53 == '2': # 1 vez por semana
-                        questao_53[2][0] += 1
-                    elif aluno.questionario.questao_53 == '3': # 2 a 4 vezes por semana
-                        questao_53[3][0] += 1
-                    elif aluno.questionario.questao_53 == '4': # 6 a 8 vezes por semana
-                        questao_53[4][0] += 1
-                    elif aluno.questionario.questao_53 == '5': # 1 vez por dia
-                        questao_53[5][0] += 1
-                    elif aluno.questionario.questao_53 == '6': # 2 a 3 vezes por dia
-                        questao_53[6][0] += 1
-                    elif aluno.questionario.questao_53 == '7': # 4 a 6 vezes por dia
-                        questao_53[7][0] += 1
-                    elif aluno.questionario.questao_53 == '8': # Mais de 8 vezes por dia
-                        questao_53[8][0] += 1
-                    
-                    # Questão 54
-                    if aluno.questionario.questao_54 == '0': # Nunca ou menos de uma vez por mês
-                        questao_54[0][0] += 1
-                    elif aluno.questionario.questao_54 == '1': # 1 a 3 vezes por mês
-                        questao_54[1][0] += 1
-                    elif aluno.questionario.questao_54 == '2': # 1 vez por semana
-                        questao_54[2][0] += 1
-                    elif aluno.questionario.questao_54 == '3': # 2 a 4 vezes por semana
-                        questao_54[3][0] += 1
-                    elif aluno.questionario.questao_54 == '4': # 6 a 8 vezes por semana
-                        questao_54[4][0] += 1
-                    elif aluno.questionario.questao_54 == '5': # 1 vez por dia
-                        questao_54[5][0] += 1
-                    elif aluno.questionario.questao_54 == '6': # 2 a 3 vezes por dia
-                        questao_54[6][0] += 1
-                    elif aluno.questionario.questao_54 == '7': # 4 a 6 vezes por dia
-                        questao_54[7][0] += 1
-                    elif aluno.questionario.questao_54 == '8': # Mais de 8 vezes por dia
-                        questao_54[8][0] += 1
+                    try:
+                        questionario = aluno.questionario
+                    except Questionario.DoesNotExist:
+                        pass
+                    else:
+                        # Questão 25
+                        if aluno.questionario.questao_25 == '0': # Nunca ou menos de uma vez por mês
+                            questao_25[0][0] += 1
+                        elif aluno.questionario.questao_25 == '1': # 1 a 3 vezes por mês
+                            questao_25[1][0] += 1
+                        elif aluno.questionario.questao_25 == '2': # 1 vez por semana
+                            questao_25[2][0] += 1
+                        elif aluno.questionario.questao_25 == '3': # 2 a 4 vezes por semana
+                            questao_25[3][0] += 1
+                        elif aluno.questionario.questao_25 == '4': # 6 a 8 vezes por semana
+                            questao_25[4][0] += 1
+                        elif aluno.questionario.questao_25 == '5': # 1 vez por dia
+                            questao_25[5][0] += 1
+                        elif aluno.questionario.questao_25 == '6': # 2 a 3 vezes por dia
+                            questao_25[6][0] += 1
+                        elif aluno.questionario.questao_25 == '7': # 4 a 6 vezes por dia
+                            questao_25[7][0] += 1
+                        elif aluno.questionario.questao_25 == '8': # Mais de 8 vezes por dia
+                            questao_25[8][0] += 1
+                        
+                        # Questão 26
+                        if aluno.questionario.questao_26 == '0': # Nunca ou menos de uma vez por mês
+                            questao_26[0][0] += 1
+                        elif aluno.questionario.questao_26 == '1': # 1 a 3 vezes por mês
+                            questao_26[1][0] += 1
+                        elif aluno.questionario.questao_26 == '2': # 1 vez por semana
+                            questao_26[2][0] += 1
+                        elif aluno.questionario.questao_26 == '3': # 2 a 4 vezes por semana
+                            questao_26[3][0] += 1
+                        elif aluno.questionario.questao_26 == '4': # 6 a 8 vezes por semana
+                            questao_26[4][0] += 1
+                        elif aluno.questionario.questao_26 == '5': # 1 vez por dia
+                            questao_26[5][0] += 1
+                        elif aluno.questionario.questao_26 == '6': # 2 a 3 vezes por dia
+                            questao_26[6][0] += 1
+                        elif aluno.questionario.questao_26 == '7': # 4 a 6 vezes por dia
+                            questao_26[7][0] += 1
+                        elif aluno.questionario.questao_26 == '8': # Mais de 8 vezes por dia
+                            questao_26[8][0] += 1
+                        
+                        # Questão 27
+                        if aluno.questionario.questao_27 == '0': # Nunca ou menos de uma vez por mês
+                            questao_27[0][0] += 1
+                        elif aluno.questionario.questao_27 == '1': # 1 a 3 vezes por mês
+                            questao_27[1][0] += 1
+                        elif aluno.questionario.questao_27 == '2': # 1 vez por semana
+                            questao_27[2][0] += 1
+                        elif aluno.questionario.questao_27 == '3': # 2 a 4 vezes por semana
+                            questao_27[3][0] += 1
+                        elif aluno.questionario.questao_27 == '4': # 6 a 8 vezes por semana
+                            questao_27[4][0] += 1
+                        elif aluno.questionario.questao_27 == '5': # 1 vez por dia
+                            questao_27[5][0] += 1
+                        elif aluno.questionario.questao_27 == '6': # 2 a 3 vezes por dia
+                            questao_27[6][0] += 1
+                        elif aluno.questionario.questao_27 == '7': # 4 a 6 vezes por dia
+                            questao_27[7][0] += 1
+                        elif aluno.questionario.questao_27 == '8': # Mais de 8 vezes por dia
+                            questao_27[8][0] += 1
+                        
+                        # Questão 28
+                        if aluno.questionario.questao_28 == '0': # Nunca ou menos de uma vez por mês
+                            questao_28[0][0] += 1
+                        elif aluno.questionario.questao_28 == '1': # 1 a 3 vezes por mês
+                            questao_28[1][0] += 1
+                        elif aluno.questionario.questao_28 == '2': # 1 vez por semana
+                            questao_28[2][0] += 1
+                        elif aluno.questionario.questao_28 == '3': # 2 a 4 vezes por semana
+                            questao_28[3][0] += 1
+                        elif aluno.questionario.questao_28 == '4': # 6 a 8 vezes por semana
+                            questao_28[4][0] += 1
+                        elif aluno.questionario.questao_28 == '5': # 1 vez por dia
+                            questao_28[5][0] += 1
+                        elif aluno.questionario.questao_28 == '6': # 2 a 3 vezes por dia
+                            questao_28[6][0] += 1
+                        elif aluno.questionario.questao_28 == '7': # 4 a 6 vezes por dia
+                            questao_28[7][0] += 1
+                        elif aluno.questionario.questao_28 == '8': # Mais de 8 vezes por dia
+                            questao_28[8][0] += 1
+                        
+                        # Questão 29
+                        if aluno.questionario.questao_29 == '0': # Nunca ou menos de uma vez por mês
+                            questao_29[0][0] += 1
+                        elif aluno.questionario.questao_29 == '1': # 1 a 3 vezes por mês
+                            questao_29[1][0] += 1
+                        elif aluno.questionario.questao_29 == '2': # 1 vez por semana
+                            questao_29[2][0] += 1
+                        elif aluno.questionario.questao_29 == '3': # 2 a 4 vezes por semana
+                            questao_29[3][0] += 1
+                        elif aluno.questionario.questao_29 == '4': # 6 a 8 vezes por semana
+                            questao_29[4][0] += 1
+                        elif aluno.questionario.questao_29 == '5': # 1 vez por dia
+                            questao_29[5][0] += 1
+                        elif aluno.questionario.questao_29 == '6': # 2 a 3 vezes por dia
+                            questao_29[6][0] += 1
+                        elif aluno.questionario.questao_29 == '7': # 4 a 6 vezes por dia
+                            questao_29[7][0] += 1
+                        elif aluno.questionario.questao_29 == '8': # Mais de 8 vezes por dia
+                            questao_29[8][0] += 1
+                        
+                        # Questão 30
+                        if aluno.questionario.questao_30 == '0': # Nunca ou menos de uma vez por mês
+                            questao_30[0][0] += 1
+                        elif aluno.questionario.questao_30 == '1': # 1 a 3 vezes por mês
+                            questao_30[1][0] += 1
+                        elif aluno.questionario.questao_30 == '2': # 1 vez por semana
+                            questao_30[2][0] += 1
+                        elif aluno.questionario.questao_30 == '3': # 2 a 4 vezes por semana
+                            questao_30[3][0] += 1
+                        elif aluno.questionario.questao_30 == '4': # 6 a 8 vezes por semana
+                            questao_30[4][0] += 1
+                        elif aluno.questionario.questao_30 == '5': # 1 vez por dia
+                            questao_30[5][0] += 1
+                        elif aluno.questionario.questao_30 == '6': # 2 a 3 vezes por dia
+                            questao_30[6][0] += 1
+                        elif aluno.questionario.questao_30 == '7': # 4 a 6 vezes por dia
+                            questao_30[7][0] += 1
+                        elif aluno.questionario.questao_30 == '8': # Mais de 8 vezes por dia
+                            questao_30[8][0] += 1
+                        
+                        # Questão 31
+                        if aluno.questionario.questao_31 == '0': # Nunca ou menos de uma vez por mês
+                            questao_31[0][0] += 1
+                        elif aluno.questionario.questao_31 == '1': # 1 a 3 vezes por mês
+                            questao_31[1][0] += 1
+                        elif aluno.questionario.questao_31 == '2': # 1 vez por semana
+                            questao_31[2][0] += 1
+                        elif aluno.questionario.questao_31 == '3': # 2 a 4 vezes por semana
+                            questao_31[3][0] += 1
+                        elif aluno.questionario.questao_31 == '4': # 6 a 8 vezes por semana
+                            questao_31[4][0] += 1
+                        elif aluno.questionario.questao_31 == '5': # 1 vez por dia
+                            questao_31[5][0] += 1
+                        elif aluno.questionario.questao_31 == '6': # 2 a 3 vezes por dia
+                            questao_31[6][0] += 1
+                        elif aluno.questionario.questao_31 == '7': # 4 a 6 vezes por dia
+                            questao_31[7][0] += 1
+                        elif aluno.questionario.questao_31 == '8': # Mais de 8 vezes por dia
+                            questao_31[8][0] += 1
+                        
+                        # Questão 32
+                        if aluno.questionario.questao_32 == '0': # Nunca ou menos de uma vez por mês
+                            questao_32[0][0] += 1
+                        elif aluno.questionario.questao_32 == '1': # 1 a 3 vezes por mês
+                            questao_32[1][0] += 1
+                        elif aluno.questionario.questao_32 == '2': # 1 vez por semana
+                            questao_32[2][0] += 1
+                        elif aluno.questionario.questao_32 == '3': # 2 a 4 vezes por semana
+                            questao_32[3][0] += 1
+                        elif aluno.questionario.questao_32 == '4': # 6 a 8 vezes por semana
+                            questao_32[4][0] += 1
+                        elif aluno.questionario.questao_32 == '5': # 1 vez por dia
+                            questao_32[5][0] += 1
+                        elif aluno.questionario.questao_32 == '6': # 2 a 3 vezes por dia
+                            questao_32[6][0] += 1
+                        elif aluno.questionario.questao_32 == '7': # 4 a 6 vezes por dia
+                            questao_32[7][0] += 1
+                        elif aluno.questionario.questao_32 == '8': # Mais de 8 vezes por dia
+                            questao_32[8][0] += 1
+                        
+                        # Questão 33
+                        if aluno.questionario.questao_33 == '0': # Nunca ou menos de uma vez por mês
+                            questao_33[0][0] += 1
+                        elif aluno.questionario.questao_33 == '1': # 1 a 3 vezes por mês
+                            questao_33[1][0] += 1
+                        elif aluno.questionario.questao_33 == '2': # 1 vez por semana
+                            questao_33[2][0] += 1
+                        elif aluno.questionario.questao_33 == '3': # 2 a 4 vezes por semana
+                            questao_33[3][0] += 1
+                        elif aluno.questionario.questao_33 == '4': # 6 a 8 vezes por semana
+                            questao_33[4][0] += 1
+                        elif aluno.questionario.questao_33 == '5': # 1 vez por dia
+                            questao_33[5][0] += 1
+                        elif aluno.questionario.questao_33 == '6': # 2 a 3 vezes por dia
+                            questao_33[6][0] += 1
+                        elif aluno.questionario.questao_33 == '7': # 4 a 6 vezes por dia
+                            questao_33[7][0] += 1
+                        elif aluno.questionario.questao_33 == '8': # Mais de 8 vezes por dia
+                            questao_33[8][0] += 1
+                        
+                        # Questão 34
+                        if aluno.questionario.questao_34 == '0': # Nunca ou menos de uma vez por mês
+                            questao_34[0][0] += 1
+                        elif aluno.questionario.questao_34 == '1': # 1 a 3 vezes por mês
+                            questao_34[1][0] += 1
+                        elif aluno.questionario.questao_34 == '2': # 1 vez por semana
+                            questao_34[2][0] += 1
+                        elif aluno.questionario.questao_34 == '3': # 2 a 4 vezes por semana
+                            questao_34[3][0] += 1
+                        elif aluno.questionario.questao_34 == '4': # 6 a 8 vezes por semana
+                            questao_34[4][0] += 1
+                        elif aluno.questionario.questao_34 == '5': # 1 vez por dia
+                            questao_34[5][0] += 1
+                        elif aluno.questionario.questao_34 == '6': # 2 a 3 vezes por dia
+                            questao_34[6][0] += 1
+                        elif aluno.questionario.questao_34 == '7': # 4 a 6 vezes por dia
+                            questao_34[7][0] += 1
+                        elif aluno.questionario.questao_34 == '8': # Mais de 8 vezes por dia
+                            questao_34[8][0] += 1
+                        
+                        # Questão 35
+                        if aluno.questionario.questao_35 == '0': # Nunca ou menos de uma vez por mês
+                            questao_35[0][0] += 1
+                        elif aluno.questionario.questao_35 == '1': # 1 a 3 vezes por mês
+                            questao_35[1][0] += 1
+                        elif aluno.questionario.questao_35 == '2': # 1 vez por semana
+                            questao_35[2][0] += 1
+                        elif aluno.questionario.questao_35 == '3': # 2 a 4 vezes por semana
+                            questao_35[3][0] += 1
+                        elif aluno.questionario.questao_35 == '4': # 6 a 8 vezes por semana
+                            questao_35[4][0] += 1
+                        elif aluno.questionario.questao_35 == '5': # 1 vez por dia
+                            questao_35[5][0] += 1
+                        elif aluno.questionario.questao_35 == '6': # 2 a 3 vezes por dia
+                            questao_35[6][0] += 1
+                        elif aluno.questionario.questao_35 == '7': # 4 a 6 vezes por dia
+                            questao_35[7][0] += 1
+                        elif aluno.questionario.questao_35 == '8': # Mais de 8 vezes por dia
+                            questao_35[8][0] += 1
+                        
+                        # Questão 36
+                        if aluno.questionario.questao_36 == '0': # Nunca ou menos de uma vez por mês
+                            questao_36[0][0] += 1
+                        elif aluno.questionario.questao_36 == '1': # 1 a 3 vezes por mês
+                            questao_36[1][0] += 1
+                        elif aluno.questionario.questao_36 == '2': # 1 vez por semana
+                            questao_36[2][0] += 1
+                        elif aluno.questionario.questao_36 == '3': # 2 a 4 vezes por semana
+                            questao_36[3][0] += 1
+                        elif aluno.questionario.questao_36 == '4': # 6 a 8 vezes por semana
+                            questao_36[4][0] += 1
+                        elif aluno.questionario.questao_36 == '5': # 1 vez por dia
+                            questao_36[5][0] += 1
+                        elif aluno.questionario.questao_36 == '6': # 2 a 3 vezes por dia
+                            questao_36[6][0] += 1
+                        elif aluno.questionario.questao_36 == '7': # 4 a 6 vezes por dia
+                            questao_36[7][0] += 1
+                        elif aluno.questionario.questao_36 == '8': # Mais de 8 vezes por dia
+                            questao_36[8][0] += 1
+                        
+                        # Questão 37
+                        if aluno.questionario.questao_37 == '0': # Nunca ou menos de uma vez por mês
+                            questao_37[0][0] += 1
+                        elif aluno.questionario.questao_37 == '1': # 1 a 3 vezes por mês
+                            questao_37[1][0] += 1
+                        elif aluno.questionario.questao_37 == '2': # 1 vez por semana
+                            questao_37[2][0] += 1
+                        elif aluno.questionario.questao_37 == '3': # 2 a 4 vezes por semana
+                            questao_37[3][0] += 1
+                        elif aluno.questionario.questao_37 == '4': # 6 a 8 vezes por semana
+                            questao_37[4][0] += 1
+                        elif aluno.questionario.questao_37 == '5': # 1 vez por dia
+                            questao_37[5][0] += 1
+                        elif aluno.questionario.questao_37 == '6': # 2 a 3 vezes por dia
+                            questao_37[6][0] += 1
+                        elif aluno.questionario.questao_37 == '7': # 4 a 6 vezes por dia
+                            questao_37[7][0] += 1
+                        elif aluno.questionario.questao_37 == '8': # Mais de 8 vezes por dia
+                            questao_37[8][0] += 1
+                        
+                        # Questão 38
+                        if aluno.questionario.questao_38 == '0': # Nunca ou menos de uma vez por mês
+                            questao_38[0][0] += 1
+                        elif aluno.questionario.questao_38 == '1': # 1 a 3 vezes por mês
+                            questao_38[1][0] += 1
+                        elif aluno.questionario.questao_38 == '2': # 1 vez por semana
+                            questao_38[2][0] += 1
+                        elif aluno.questionario.questao_38 == '3': # 2 a 4 vezes por semana
+                            questao_38[3][0] += 1
+                        elif aluno.questionario.questao_38 == '4': # 6 a 8 vezes por semana
+                            questao_38[4][0] += 1
+                        elif aluno.questionario.questao_38 == '5': # 1 vez por dia
+                            questao_38[5][0] += 1
+                        elif aluno.questionario.questao_38 == '6': # 2 a 3 vezes por dia
+                            questao_38[6][0] += 1
+                        elif aluno.questionario.questao_38 == '7': # 4 a 6 vezes por dia
+                            questao_38[7][0] += 1
+                        elif aluno.questionario.questao_38 == '8': # Mais de 8 vezes por dia
+                            questao_38[8][0] += 1
+                        
+                        # Questão 39
+                        if aluno.questionario.questao_39 == '0': # Nunca ou menos de uma vez por mês
+                            questao_39[0][0] += 1
+                        elif aluno.questionario.questao_39 == '1': # 1 a 3 vezes por mês
+                            questao_39[1][0] += 1
+                        elif aluno.questionario.questao_39 == '2': # 1 vez por semana
+                            questao_39[2][0] += 1
+                        elif aluno.questionario.questao_39 == '3': # 2 a 4 vezes por semana
+                            questao_39[3][0] += 1
+                        elif aluno.questionario.questao_39 == '4': # 6 a 8 vezes por semana
+                            questao_39[4][0] += 1
+                        elif aluno.questionario.questao_39 == '5': # 1 vez por dia
+                            questao_39[5][0] += 1
+                        elif aluno.questionario.questao_39 == '6': # 2 a 3 vezes por dia
+                            questao_39[6][0] += 1
+                        elif aluno.questionario.questao_39 == '7': # 4 a 6 vezes por dia
+                            questao_39[7][0] += 1
+                        elif aluno.questionario.questao_39 == '8': # Mais de 8 vezes por dia
+                            questao_39[8][0] += 1
+                        
+                        # Questão 40
+                        if aluno.questionario.questao_40 == '0': # Nunca ou menos de uma vez por mês
+                            questao_40[0][0] += 1
+                        elif aluno.questionario.questao_40 == '1': # 1 a 3 vezes por mês
+                            questao_40[1][0] += 1
+                        elif aluno.questionario.questao_40 == '2': # 1 vez por semana
+                            questao_40[2][0] += 1
+                        elif aluno.questionario.questao_40 == '3': # 2 a 4 vezes por semana
+                            questao_40[3][0] += 1
+                        elif aluno.questionario.questao_40 == '4': # 6 a 8 vezes por semana
+                            questao_40[4][0] += 1
+                        elif aluno.questionario.questao_40 == '5': # 1 vez por dia
+                            questao_40[5][0] += 1
+                        elif aluno.questionario.questao_40 == '6': # 2 a 3 vezes por dia
+                            questao_40[6][0] += 1
+                        elif aluno.questionario.questao_40 == '7': # 4 a 6 vezes por dia
+                            questao_40[7][0] += 1
+                        elif aluno.questionario.questao_40 == '8': # Mais de 8 vezes por dia
+                            questao_40[8][0] += 1
+                        
+                        # Questão 41
+                        if aluno.questionario.questao_41 == '0': # Nunca ou menos de uma vez por mês
+                            questao_41[0][0] += 1
+                        elif aluno.questionario.questao_41 == '1': # 1 a 3 vezes por mês
+                            questao_41[1][0] += 1
+                        elif aluno.questionario.questao_41 == '2': # 1 vez por semana
+                            questao_41[2][0] += 1
+                        elif aluno.questionario.questao_41 == '3': # 2 a 4 vezes por semana
+                            questao_41[3][0] += 1
+                        elif aluno.questionario.questao_41 == '4': # 6 a 8 vezes por semana
+                            questao_41[4][0] += 1
+                        elif aluno.questionario.questao_41 == '5': # 1 vez por dia
+                            questao_41[5][0] += 1
+                        elif aluno.questionario.questao_41 == '6': # 2 a 3 vezes por dia
+                            questao_41[6][0] += 1
+                        elif aluno.questionario.questao_41 == '7': # 4 a 6 vezes por dia
+                            questao_41[7][0] += 1
+                        elif aluno.questionario.questao_41 == '8': # Mais de 8 vezes por dia
+                            questao_41[8][0] += 1
+                        
+                        # Questão 42
+                        if aluno.questionario.questao_42 == '0': # Nunca ou menos de uma vez por mês
+                            questao_42[0][0] += 1
+                        elif aluno.questionario.questao_42 == '1': # 1 a 3 vezes por mês
+                            questao_42[1][0] += 1
+                        elif aluno.questionario.questao_42 == '2': # 1 vez por semana
+                            questao_42[2][0] += 1
+                        elif aluno.questionario.questao_42 == '3': # 2 a 4 vezes por semana
+                            questao_42[3][0] += 1
+                        elif aluno.questionario.questao_42 == '4': # 6 a 8 vezes por semana
+                            questao_42[4][0] += 1
+                        elif aluno.questionario.questao_42 == '5': # 1 vez por dia
+                            questao_42[5][0] += 1
+                        elif aluno.questionario.questao_42 == '6': # 2 a 3 vezes por dia
+                            questao_42[6][0] += 1
+                        elif aluno.questionario.questao_42 == '7': # 4 a 6 vezes por dia
+                            questao_42[7][0] += 1
+                        elif aluno.questionario.questao_42 == '8': # Mais de 8 vezes por dia
+                            questao_42[8][0] += 1
+                        
+                        # Questão 43
+                        if aluno.questionario.questao_43 == '0': # Nunca ou menos de uma vez por mês
+                            questao_43[0][0] += 1
+                        elif aluno.questionario.questao_43 == '1': # 1 a 3 vezes por mês
+                            questao_43[1][0] += 1
+                        elif aluno.questionario.questao_43 == '2': # 1 vez por semana
+                            questao_43[2][0] += 1
+                        elif aluno.questionario.questao_43 == '3': # 2 a 4 vezes por semana
+                            questao_43[3][0] += 1
+                        elif aluno.questionario.questao_43 == '4': # 6 a 8 vezes por semana
+                            questao_43[4][0] += 1
+                        elif aluno.questionario.questao_43 == '5': # 1 vez por dia
+                            questao_43[5][0] += 1
+                        elif aluno.questionario.questao_43 == '6': # 2 a 3 vezes por dia
+                            questao_43[6][0] += 1
+                        elif aluno.questionario.questao_43 == '7': # 4 a 6 vezes por dia
+                            questao_43[7][0] += 1
+                        elif aluno.questionario.questao_43 == '8': # Mais de 8 vezes por dia
+                            questao_43[8][0] += 1
+                        
+                        # Questão 44
+                        if aluno.questionario.questao_44 == '0': # Nunca ou menos de uma vez por mês
+                            questao_44[0][0] += 1
+                        elif aluno.questionario.questao_44 == '1': # 1 a 3 vezes por mês
+                            questao_44[1][0] += 1
+                        elif aluno.questionario.questao_44 == '2': # 1 vez por semana
+                            questao_44[2][0] += 1
+                        elif aluno.questionario.questao_44 == '3': # 2 a 4 vezes por semana
+                            questao_44[3][0] += 1
+                        elif aluno.questionario.questao_44 == '4': # 6 a 8 vezes por semana
+                            questao_44[4][0] += 1
+                        elif aluno.questionario.questao_44 == '5': # 1 vez por dia
+                            questao_44[5][0] += 1
+                        elif aluno.questionario.questao_44 == '6': # 2 a 3 vezes por dia
+                            questao_44[6][0] += 1
+                        elif aluno.questionario.questao_44 == '7': # 4 a 6 vezes por dia
+                            questao_44[7][0] += 1
+                        elif aluno.questionario.questao_44 == '8': # Mais de 8 vezes por dia
+                            questao_44[8][0] += 1
+                        
+                        # Questão 45
+                        if aluno.questionario.questao_45 == '0': # Nunca ou menos de uma vez por mês
+                            questao_45[0][0] += 1
+                        elif aluno.questionario.questao_45 == '1': # 1 a 3 vezes por mês
+                            questao_45[1][0] += 1
+                        elif aluno.questionario.questao_45 == '2': # 1 vez por semana
+                            questao_45[2][0] += 1
+                        elif aluno.questionario.questao_45 == '3': # 2 a 4 vezes por semana
+                            questao_45[3][0] += 1
+                        elif aluno.questionario.questao_45 == '4': # 6 a 8 vezes por semana
+                            questao_45[4][0] += 1
+                        elif aluno.questionario.questao_45 == '5': # 1 vez por dia
+                            questao_45[5][0] += 1
+                        elif aluno.questionario.questao_45 == '6': # 2 a 3 vezes por dia
+                            questao_45[6][0] += 1
+                        elif aluno.questionario.questao_45 == '7': # 4 a 6 vezes por dia
+                            questao_45[7][0] += 1
+                        elif aluno.questionario.questao_45 == '8': # Mais de 8 vezes por dia
+                            questao_45[8][0] += 1
+                        
+                        # Questão 46
+                        if aluno.questionario.questao_46 == '0': # Nunca ou menos de uma vez por mês
+                            questao_46[0][0] += 1
+                        elif aluno.questionario.questao_46 == '1': # 1 a 3 vezes por mês
+                            questao_46[1][0] += 1
+                        elif aluno.questionario.questao_46 == '2': # 1 vez por semana
+                            questao_46[2][0] += 1
+                        elif aluno.questionario.questao_46 == '3': # 2 a 4 vezes por semana
+                            questao_46[3][0] += 1
+                        elif aluno.questionario.questao_46 == '4': # 6 a 8 vezes por semana
+                            questao_46[4][0] += 1
+                        elif aluno.questionario.questao_46 == '5': # 1 vez por dia
+                            questao_46[5][0] += 1
+                        elif aluno.questionario.questao_46 == '6': # 2 a 3 vezes por dia
+                            questao_46[6][0] += 1
+                        elif aluno.questionario.questao_46 == '7': # 4 a 6 vezes por dia
+                            questao_46[7][0] += 1
+                        elif aluno.questionario.questao_46 == '8': # Mais de 8 vezes por dia
+                            questao_46[8][0] += 1
+                        
+                        # Questão 47
+                        if aluno.questionario.questao_47 == '0': # Nunca ou menos de uma vez por mês
+                            questao_47[0][0] += 1
+                        elif aluno.questionario.questao_47 == '1': # 1 a 3 vezes por mês
+                            questao_47[1][0] += 1
+                        elif aluno.questionario.questao_47 == '2': # 1 vez por semana
+                            questao_47[2][0] += 1
+                        elif aluno.questionario.questao_47 == '3': # 2 a 4 vezes por semana
+                            questao_47[3][0] += 1
+                        elif aluno.questionario.questao_47 == '4': # 6 a 8 vezes por semana
+                            questao_47[4][0] += 1
+                        elif aluno.questionario.questao_47 == '5': # 1 vez por dia
+                            questao_47[5][0] += 1
+                        elif aluno.questionario.questao_47 == '6': # 2 a 3 vezes por dia
+                            questao_47[6][0] += 1
+                        elif aluno.questionario.questao_47 == '7': # 4 a 6 vezes por dia
+                            questao_47[7][0] += 1
+                        elif aluno.questionario.questao_47 == '8': # Mais de 8 vezes por dia
+                            questao_47[8][0] += 1
+                        
+                        # Questão 48
+                        if aluno.questionario.questao_48 == '0': # Nunca ou menos de uma vez por mês
+                            questao_48[0][0] += 1
+                        elif aluno.questionario.questao_48 == '1': # 1 a 3 vezes por mês
+                            questao_48[1][0] += 1
+                        elif aluno.questionario.questao_48 == '2': # 1 vez por semana
+                            questao_48[2][0] += 1
+                        elif aluno.questionario.questao_48 == '3': # 2 a 4 vezes por semana
+                            questao_48[3][0] += 1
+                        elif aluno.questionario.questao_48 == '4': # 6 a 8 vezes por semana
+                            questao_48[4][0] += 1
+                        elif aluno.questionario.questao_48 == '5': # 1 vez por dia
+                            questao_48[5][0] += 1
+                        elif aluno.questionario.questao_48 == '6': # 2 a 3 vezes por dia
+                            questao_48[6][0] += 1
+                        elif aluno.questionario.questao_48 == '7': # 4 a 6 vezes por dia
+                            questao_48[7][0] += 1
+                        elif aluno.questionario.questao_48 == '8': # Mais de 8 vezes por dia
+                            questao_48[8][0] += 1
+                        
+                        # Questão 49
+                        if aluno.questionario.questao_49 == '0': # Nunca ou menos de uma vez por mês
+                            questao_49[0][0] += 1
+                        elif aluno.questionario.questao_49 == '1': # 1 a 3 vezes por mês
+                            questao_49[1][0] += 1
+                        elif aluno.questionario.questao_49 == '2': # 1 vez por semana
+                            questao_49[2][0] += 1
+                        elif aluno.questionario.questao_49 == '3': # 2 a 4 vezes por semana
+                            questao_49[3][0] += 1
+                        elif aluno.questionario.questao_49 == '4': # 6 a 8 vezes por semana
+                            questao_49[4][0] += 1
+                        elif aluno.questionario.questao_49 == '5': # 1 vez por dia
+                            questao_49[5][0] += 1
+                        elif aluno.questionario.questao_49 == '6': # 2 a 3 vezes por dia
+                            questao_49[6][0] += 1
+                        elif aluno.questionario.questao_49 == '7': # 4 a 6 vezes por dia
+                            questao_49[7][0] += 1
+                        elif aluno.questionario.questao_49 == '8': # Mais de 8 vezes por dia
+                            questao_49[8][0] += 1
+                        
+                        # Questão 50
+                        if aluno.questionario.questao_50 == '0': # Nunca ou menos de uma vez por mês
+                            questao_50[0][0] += 1
+                        elif aluno.questionario.questao_50 == '1': # 1 a 3 vezes por mês
+                            questao_50[1][0] += 1
+                        elif aluno.questionario.questao_50 == '2': # 1 vez por semana
+                            questao_50[2][0] += 1
+                        elif aluno.questionario.questao_50 == '3': # 2 a 4 vezes por semana
+                            questao_50[3][0] += 1
+                        elif aluno.questionario.questao_50 == '4': # 6 a 8 vezes por semana
+                            questao_50[4][0] += 1
+                        elif aluno.questionario.questao_50 == '5': # 1 vez por dia
+                            questao_50[5][0] += 1
+                        elif aluno.questionario.questao_50 == '6': # 2 a 3 vezes por dia
+                            questao_50[6][0] += 1
+                        elif aluno.questionario.questao_50 == '7': # 4 a 6 vezes por dia
+                            questao_50[7][0] += 1
+                        elif aluno.questionario.questao_50 == '8': # Mais de 8 vezes por dia
+                            questao_50[8][0] += 1
+                        
+                        # Questão 51
+                        if aluno.questionario.questao_51 == '0': # Nunca ou menos de uma vez por mês
+                            questao_51[0][0] += 1
+                        elif aluno.questionario.questao_51 == '1': # 1 a 3 vezes por mês
+                            questao_51[1][0] += 1
+                        elif aluno.questionario.questao_51 == '2': # 1 vez por semana
+                            questao_51[2][0] += 1
+                        elif aluno.questionario.questao_51 == '3': # 2 a 4 vezes por semana
+                            questao_51[3][0] += 1
+                        elif aluno.questionario.questao_51 == '4': # 6 a 8 vezes por semana
+                            questao_51[4][0] += 1
+                        elif aluno.questionario.questao_51 == '5': # 1 vez por dia
+                            questao_51[5][0] += 1
+                        elif aluno.questionario.questao_51 == '6': # 2 a 3 vezes por dia
+                            questao_51[6][0] += 1
+                        elif aluno.questionario.questao_51 == '7': # 4 a 6 vezes por dia
+                            questao_51[7][0] += 1
+                        elif aluno.questionario.questao_51 == '8': # Mais de 8 vezes por dia
+                            questao_51[8][0] += 1
+                        
+                        # Questão 52
+                        if aluno.questionario.questao_52 == '0': # Nunca ou menos de uma vez por mês
+                            questao_52[0][0] += 1
+                        elif aluno.questionario.questao_52 == '1': # 1 a 3 vezes por mês
+                            questao_52[1][0] += 1
+                        elif aluno.questionario.questao_52 == '2': # 1 vez por semana
+                            questao_52[2][0] += 1
+                        elif aluno.questionario.questao_52 == '3': # 2 a 4 vezes por semana
+                            questao_52[3][0] += 1
+                        elif aluno.questionario.questao_52 == '4': # 6 a 8 vezes por semana
+                            questao_52[4][0] += 1
+                        elif aluno.questionario.questao_52 == '5': # 1 vez por dia
+                            questao_52[5][0] += 1
+                        elif aluno.questionario.questao_52 == '6': # 2 a 3 vezes por dia
+                            questao_52[6][0] += 1
+                        elif aluno.questionario.questao_52 == '7': # 4 a 6 vezes por dia
+                            questao_52[7][0] += 1
+                        elif aluno.questionario.questao_52 == '8': # Mais de 8 vezes por dia
+                            questao_52[8][0] += 1
+                        
+                        # Questão 53
+                        if aluno.questionario.questao_53 == '0': # Nunca ou menos de uma vez por mês
+                            questao_53[0][0] += 1
+                        elif aluno.questionario.questao_53 == '1': # 1 a 3 vezes por mês
+                            questao_53[1][0] += 1
+                        elif aluno.questionario.questao_53 == '2': # 1 vez por semana
+                            questao_53[2][0] += 1
+                        elif aluno.questionario.questao_53 == '3': # 2 a 4 vezes por semana
+                            questao_53[3][0] += 1
+                        elif aluno.questionario.questao_53 == '4': # 6 a 8 vezes por semana
+                            questao_53[4][0] += 1
+                        elif aluno.questionario.questao_53 == '5': # 1 vez por dia
+                            questao_53[5][0] += 1
+                        elif aluno.questionario.questao_53 == '6': # 2 a 3 vezes por dia
+                            questao_53[6][0] += 1
+                        elif aluno.questionario.questao_53 == '7': # 4 a 6 vezes por dia
+                            questao_53[7][0] += 1
+                        elif aluno.questionario.questao_53 == '8': # Mais de 8 vezes por dia
+                            questao_53[8][0] += 1
+                        
+                        # Questão 54
+                        if aluno.questionario.questao_54 == '0': # Nunca ou menos de uma vez por mês
+                            questao_54[0][0] += 1
+                        elif aluno.questionario.questao_54 == '1': # 1 a 3 vezes por mês
+                            questao_54[1][0] += 1
+                        elif aluno.questionario.questao_54 == '2': # 1 vez por semana
+                            questao_54[2][0] += 1
+                        elif aluno.questionario.questao_54 == '3': # 2 a 4 vezes por semana
+                            questao_54[3][0] += 1
+                        elif aluno.questionario.questao_54 == '4': # 6 a 8 vezes por semana
+                            questao_54[4][0] += 1
+                        elif aluno.questionario.questao_54 == '5': # 1 vez por dia
+                            questao_54[5][0] += 1
+                        elif aluno.questionario.questao_54 == '6': # 2 a 3 vezes por dia
+                            questao_54[6][0] += 1
+                        elif aluno.questionario.questao_54 == '7': # 4 a 6 vezes por dia
+                            questao_54[7][0] += 1
+                        elif aluno.questionario.questao_54 == '8': # Mais de 8 vezes por dia
+                            questao_54[8][0] += 1
                 else:
                     # Sexo
                     if aluno.sexo == '0': # masculino
@@ -794,605 +799,610 @@ class InferenciaView(LoginRequired, View):
                     elif aluno.raca == '4': # preta
                         raca[4][1] += 1
                     
-                    # Questão 25
-                    if aluno.questionario.questao_25 == '0': # Nunca ou menos de uma vez por mês
-                        questao_25[0][1] += 1
-                    elif aluno.questionario.questao_25 == '1': # 1 a 3 vezes por mês
-                        questao_25[1][1] += 1
-                    elif aluno.questionario.questao_25 == '2': # 1 vez por semana
-                        questao_25[2][1] += 1
-                    elif aluno.questionario.questao_25 == '3': # 2 a 4 vezes por semana
-                        questao_25[3][1] += 1
-                    elif aluno.questionario.questao_25 == '4': # 6 a 8 vezes por semana
-                        questao_25[4][1] += 1
-                    elif aluno.questionario.questao_25 == '5': # 1 vez por dia
-                        questao_25[5][1] += 1
-                    elif aluno.questionario.questao_25 == '6': # 2 a 3 vezes por dia
-                        questao_25[6][1] += 1
-                    elif aluno.questionario.questao_25 == '7': # 4 a 6 vezes por dia
-                        questao_25[7][1] += 1
-                    elif aluno.questionario.questao_25 == '8': # Mais de 8 vezes por dia
-                        questao_25[8][1] += 1
-                    
-                    # Questão 26
-                    if aluno.questionario.questao_26 == '0': # Nunca ou menos de uma vez por mês
-                        questao_26[0][1] += 1
-                    elif aluno.questionario.questao_26 == '1': # 1 a 3 vezes por mês
-                        questao_26[1][1] += 1
-                    elif aluno.questionario.questao_26 == '2': # 1 vez por semana
-                        questao_26[2][1] += 1
-                    elif aluno.questionario.questao_26 == '3': # 2 a 4 vezes por semana
-                        questao_26[3][1] += 1
-                    elif aluno.questionario.questao_26 == '4': # 6 a 8 vezes por semana
-                        questao_26[4][1] += 1
-                    elif aluno.questionario.questao_26 == '5': # 1 vez por dia
-                        questao_26[5][1] += 1
-                    elif aluno.questionario.questao_26 == '6': # 2 a 3 vezes por dia
-                        questao_26[6][1] += 1
-                    elif aluno.questionario.questao_26 == '7': # 4 a 6 vezes por dia
-                        questao_26[7][1] += 1
-                    elif aluno.questionario.questao_26 == '8': # Mais de 8 vezes por dia
-                        questao_26[8][1] += 1
-                    
-                    # Questão 27
-                    if aluno.questionario.questao_27 == '0': # Nunca ou menos de uma vez por mês
-                        questao_27[0][1] += 1
-                    elif aluno.questionario.questao_27 == '1': # 1 a 3 vezes por mês
-                        questao_27[1][1] += 1
-                    elif aluno.questionario.questao_27 == '2': # 1 vez por semana
-                        questao_27[2][1] += 1
-                    elif aluno.questionario.questao_27 == '3': # 2 a 4 vezes por semana
-                        questao_27[3][1] += 1
-                    elif aluno.questionario.questao_27 == '4': # 6 a 8 vezes por semana
-                        questao_27[4][1] += 1
-                    elif aluno.questionario.questao_27 == '5': # 1 vez por dia
-                        questao_27[5][1] += 1
-                    elif aluno.questionario.questao_27 == '6': # 2 a 3 vezes por dia
-                        questao_27[6][1] += 1
-                    elif aluno.questionario.questao_27 == '7': # 4 a 6 vezes por dia
-                        questao_27[7][1] += 1
-                    elif aluno.questionario.questao_27 == '8': # Mais de 8 vezes por dia
-                        questao_27[8][1] += 1
-                    
-                    # Questão 28
-                    if aluno.questionario.questao_28 == '0': # Nunca ou menos de uma vez por mês
-                        questao_28[0][1] += 1
-                    elif aluno.questionario.questao_28 == '1': # 1 a 3 vezes por mês
-                        questao_28[1][1] += 1
-                    elif aluno.questionario.questao_28 == '2': # 1 vez por semana
-                        questao_28[2][1] += 1
-                    elif aluno.questionario.questao_28 == '3': # 2 a 4 vezes por semana
-                        questao_28[3][1] += 1
-                    elif aluno.questionario.questao_28 == '4': # 6 a 8 vezes por semana
-                        questao_28[4][1] += 1
-                    elif aluno.questionario.questao_28 == '5': # 1 vez por dia
-                        questao_28[5][1] += 1
-                    elif aluno.questionario.questao_28 == '6': # 2 a 3 vezes por dia
-                        questao_28[6][1] += 1
-                    elif aluno.questionario.questao_28 == '7': # 4 a 6 vezes por dia
-                        questao_28[7][1] += 1
-                    elif aluno.questionario.questao_28 == '8': # Mais de 8 vezes por dia
-                        questao_28[8][1] += 1
-                    
-                    # Questão 29
-                    if aluno.questionario.questao_29 == '0': # Nunca ou menos de uma vez por mês
-                        questao_29[0][1] += 1
-                    elif aluno.questionario.questao_29 == '1': # 1 a 3 vezes por mês
-                        questao_29[1][1] += 1
-                    elif aluno.questionario.questao_29 == '2': # 1 vez por semana
-                        questao_29[2][1] += 1
-                    elif aluno.questionario.questao_29 == '3': # 2 a 4 vezes por semana
-                        questao_29[3][1] += 1
-                    elif aluno.questionario.questao_29 == '4': # 6 a 8 vezes por semana
-                        questao_29[4][1] += 1
-                    elif aluno.questionario.questao_29 == '5': # 1 vez por dia
-                        questao_29[5][1] += 1
-                    elif aluno.questionario.questao_29 == '6': # 2 a 3 vezes por dia
-                        questao_29[6][1] += 1
-                    elif aluno.questionario.questao_29 == '7': # 4 a 6 vezes por dia
-                        questao_29[7][1] += 1
-                    elif aluno.questionario.questao_29 == '8': # Mais de 8 vezes por dia
-                        questao_29[8][1] += 1
-                    
-                    # Questão 30
-                    if aluno.questionario.questao_30 == '0': # Nunca ou menos de uma vez por mês
-                        questao_30[0][1] += 1
-                    elif aluno.questionario.questao_30 == '1': # 1 a 3 vezes por mês
-                        questao_30[1][1] += 1
-                    elif aluno.questionario.questao_30 == '2': # 1 vez por semana
-                        questao_30[2][1] += 1
-                    elif aluno.questionario.questao_30 == '3': # 2 a 4 vezes por semana
-                        questao_30[3][1] += 1
-                    elif aluno.questionario.questao_30 == '4': # 6 a 8 vezes por semana
-                        questao_30[4][1] += 1
-                    elif aluno.questionario.questao_30 == '5': # 1 vez por dia
-                        questao_30[5][1] += 1
-                    elif aluno.questionario.questao_30 == '6': # 2 a 3 vezes por dia
-                        questao_30[6][1] += 1
-                    elif aluno.questionario.questao_30 == '7': # 4 a 6 vezes por dia
-                        questao_30[7][1] += 1
-                    elif aluno.questionario.questao_30 == '8': # Mais de 8 vezes por dia
-                        questao_30[8][1] += 1
-                    
-                    # Questão 31
-                    if aluno.questionario.questao_31 == '0': # Nunca ou menos de uma vez por mês
-                        questao_31[0][1] += 1
-                    elif aluno.questionario.questao_31 == '1': # 1 a 3 vezes por mês
-                        questao_31[1][1] += 1
-                    elif aluno.questionario.questao_31 == '2': # 1 vez por semana
-                        questao_31[2][1] += 1
-                    elif aluno.questionario.questao_31 == '3': # 2 a 4 vezes por semana
-                        questao_31[3][1] += 1
-                    elif aluno.questionario.questao_31 == '4': # 6 a 8 vezes por semana
-                        questao_31[4][1] += 1
-                    elif aluno.questionario.questao_31 == '5': # 1 vez por dia
-                        questao_31[5][1] += 1
-                    elif aluno.questionario.questao_31 == '6': # 2 a 3 vezes por dia
-                        questao_31[6][1] += 1
-                    elif aluno.questionario.questao_31 == '7': # 4 a 6 vezes por dia
-                        questao_31[7][1] += 1
-                    elif aluno.questionario.questao_31 == '8': # Mais de 8 vezes por dia
-                        questao_31[8][1] += 1
-                    
-                    # Questão 32
-                    if aluno.questionario.questao_32 == '0': # Nunca ou menos de uma vez por mês
-                        questao_32[0][1] += 1
-                    elif aluno.questionario.questao_32 == '1': # 1 a 3 vezes por mês
-                        questao_32[1][1] += 1
-                    elif aluno.questionario.questao_32 == '2': # 1 vez por semana
-                        questao_32[2][1] += 1
-                    elif aluno.questionario.questao_32 == '3': # 2 a 4 vezes por semana
-                        questao_32[3][1] += 1
-                    elif aluno.questionario.questao_32 == '4': # 6 a 8 vezes por semana
-                        questao_32[4][1] += 1
-                    elif aluno.questionario.questao_32 == '5': # 1 vez por dia
-                        questao_32[5][1] += 1
-                    elif aluno.questionario.questao_32 == '6': # 2 a 3 vezes por dia
-                        questao_32[6][1] += 1
-                    elif aluno.questionario.questao_32 == '7': # 4 a 6 vezes por dia
-                        questao_32[7][1] += 1
-                    elif aluno.questionario.questao_32 == '8': # Mais de 8 vezes por dia
-                        questao_32[8][1] += 1
-                    
-                    # Questão 33
-                    if aluno.questionario.questao_33 == '0': # Nunca ou menos de uma vez por mês
-                        questao_33[0][1] += 1
-                    elif aluno.questionario.questao_33 == '1': # 1 a 3 vezes por mês
-                        questao_33[1][1] += 1
-                    elif aluno.questionario.questao_33 == '2': # 1 vez por semana
-                        questao_33[2][1] += 1
-                    elif aluno.questionario.questao_33 == '3': # 2 a 4 vezes por semana
-                        questao_33[3][1] += 1
-                    elif aluno.questionario.questao_33 == '4': # 6 a 8 vezes por semana
-                        questao_33[4][1] += 1
-                    elif aluno.questionario.questao_33 == '5': # 1 vez por dia
-                        questao_33[5][1] += 1
-                    elif aluno.questionario.questao_33 == '6': # 2 a 3 vezes por dia
-                        questao_33[6][1] += 1
-                    elif aluno.questionario.questao_33 == '7': # 4 a 6 vezes por dia
-                        questao_33[7][1] += 1
-                    elif aluno.questionario.questao_33 == '8': # Mais de 8 vezes por dia
-                        questao_33[8][1] += 1
-                    
-                    # Questão 34
-                    if aluno.questionario.questao_34 == '0': # Nunca ou menos de uma vez por mês
-                        questao_34[0][1] += 1
-                    elif aluno.questionario.questao_34 == '1': # 1 a 3 vezes por mês
-                        questao_34[1][1] += 1
-                    elif aluno.questionario.questao_34 == '2': # 1 vez por semana
-                        questao_34[2][1] += 1
-                    elif aluno.questionario.questao_34 == '3': # 2 a 4 vezes por semana
-                        questao_34[3][1] += 1
-                    elif aluno.questionario.questao_34 == '4': # 6 a 8 vezes por semana
-                        questao_34[4][1] += 1
-                    elif aluno.questionario.questao_34 == '5': # 1 vez por dia
-                        questao_34[5][1] += 1
-                    elif aluno.questionario.questao_34 == '6': # 2 a 3 vezes por dia
-                        questao_34[6][1] += 1
-                    elif aluno.questionario.questao_34 == '7': # 4 a 6 vezes por dia
-                        questao_34[7][1] += 1
-                    elif aluno.questionario.questao_34 == '8': # Mais de 8 vezes por dia
-                        questao_34[8][1] += 1
-                    
-                    # Questão 35
-                    if aluno.questionario.questao_35 == '0': # Nunca ou menos de uma vez por mês
-                        questao_35[0][1] += 1
-                    elif aluno.questionario.questao_35 == '1': # 1 a 3 vezes por mês
-                        questao_35[1][1] += 1
-                    elif aluno.questionario.questao_35 == '2': # 1 vez por semana
-                        questao_35[2][1] += 1
-                    elif aluno.questionario.questao_35 == '3': # 2 a 4 vezes por semana
-                        questao_35[3][1] += 1
-                    elif aluno.questionario.questao_35 == '4': # 6 a 8 vezes por semana
-                        questao_35[4][1] += 1
-                    elif aluno.questionario.questao_35 == '5': # 1 vez por dia
-                        questao_35[5][1] += 1
-                    elif aluno.questionario.questao_35 == '6': # 2 a 3 vezes por dia
-                        questao_35[6][1] += 1
-                    elif aluno.questionario.questao_35 == '7': # 4 a 6 vezes por dia
-                        questao_35[7][1] += 1
-                    elif aluno.questionario.questao_35 == '8': # Mais de 8 vezes por dia
-                        questao_35[8][1] += 1
-                    
-                    # Questão 36
-                    if aluno.questionario.questao_36 == '0': # Nunca ou menos de uma vez por mês
-                        questao_36[0][1] += 1
-                    elif aluno.questionario.questao_36 == '1': # 1 a 3 vezes por mês
-                        questao_36[1][1] += 1
-                    elif aluno.questionario.questao_36 == '2': # 1 vez por semana
-                        questao_36[2][1] += 1
-                    elif aluno.questionario.questao_36 == '3': # 2 a 4 vezes por semana
-                        questao_36[3][1] += 1
-                    elif aluno.questionario.questao_36 == '4': # 6 a 8 vezes por semana
-                        questao_36[4][1] += 1
-                    elif aluno.questionario.questao_36 == '5': # 1 vez por dia
-                        questao_36[5][1] += 1
-                    elif aluno.questionario.questao_36 == '6': # 2 a 3 vezes por dia
-                        questao_36[6][1] += 1
-                    elif aluno.questionario.questao_36 == '7': # 4 a 6 vezes por dia
-                        questao_36[7][1] += 1
-                    elif aluno.questionario.questao_36 == '8': # Mais de 8 vezes por dia
-                        questao_36[8][1] += 1
-                    
-                    # Questão 37
-                    if aluno.questionario.questao_37 == '0': # Nunca ou menos de uma vez por mês
-                        questao_37[0][1] += 1
-                    elif aluno.questionario.questao_37 == '1': # 1 a 3 vezes por mês
-                        questao_37[1][1] += 1
-                    elif aluno.questionario.questao_37 == '2': # 1 vez por semana
-                        questao_37[2][1] += 1
-                    elif aluno.questionario.questao_37 == '3': # 2 a 4 vezes por semana
-                        questao_37[3][1] += 1
-                    elif aluno.questionario.questao_37 == '4': # 6 a 8 vezes por semana
-                        questao_37[4][1] += 1
-                    elif aluno.questionario.questao_37 == '5': # 1 vez por dia
-                        questao_37[5][1] += 1
-                    elif aluno.questionario.questao_37 == '6': # 2 a 3 vezes por dia
-                        questao_37[6][1] += 1
-                    elif aluno.questionario.questao_37 == '7': # 4 a 6 vezes por dia
-                        questao_37[7][1] += 1
-                    elif aluno.questionario.questao_37 == '8': # Mais de 8 vezes por dia
-                        questao_37[8][1] += 1
-                    
-                    # Questão 38
-                    if aluno.questionario.questao_38 == '0': # Nunca ou menos de uma vez por mês
-                        questao_38[0][1] += 1
-                    elif aluno.questionario.questao_38 == '1': # 1 a 3 vezes por mês
-                        questao_38[1][1] += 1
-                    elif aluno.questionario.questao_38 == '2': # 1 vez por semana
-                        questao_38[2][1] += 1
-                    elif aluno.questionario.questao_38 == '3': # 2 a 4 vezes por semana
-                        questao_38[3][1] += 1
-                    elif aluno.questionario.questao_38 == '4': # 6 a 8 vezes por semana
-                        questao_38[4][1] += 1
-                    elif aluno.questionario.questao_38 == '5': # 1 vez por dia
-                        questao_38[5][1] += 1
-                    elif aluno.questionario.questao_38 == '6': # 2 a 3 vezes por dia
-                        questao_38[6][1] += 1
-                    elif aluno.questionario.questao_38 == '7': # 4 a 6 vezes por dia
-                        questao_38[7][1] += 1
-                    elif aluno.questionario.questao_38 == '8': # Mais de 8 vezes por dia
-                        questao_38[8][1] += 1
-                    
-                    # Questão 39
-                    if aluno.questionario.questao_39 == '0': # Nunca ou menos de uma vez por mês
-                        questao_39[0][1] += 1
-                    elif aluno.questionario.questao_39 == '1': # 1 a 3 vezes por mês
-                        questao_39[1][1] += 1
-                    elif aluno.questionario.questao_39 == '2': # 1 vez por semana
-                        questao_39[2][1] += 1
-                    elif aluno.questionario.questao_39 == '3': # 2 a 4 vezes por semana
-                        questao_39[3][1] += 1
-                    elif aluno.questionario.questao_39 == '4': # 6 a 8 vezes por semana
-                        questao_39[4][1] += 1
-                    elif aluno.questionario.questao_39 == '5': # 1 vez por dia
-                        questao_39[5][1] += 1
-                    elif aluno.questionario.questao_39 == '6': # 2 a 3 vezes por dia
-                        questao_39[6][1] += 1
-                    elif aluno.questionario.questao_39 == '7': # 4 a 6 vezes por dia
-                        questao_39[7][1] += 1
-                    elif aluno.questionario.questao_39 == '8': # Mais de 8 vezes por dia
-                        questao_39[8][1] += 1
-                    
-                    # Questão 40
-                    if aluno.questionario.questao_40 == '0': # Nunca ou menos de uma vez por mês
-                        questao_40[0][1] += 1
-                    elif aluno.questionario.questao_40 == '1': # 1 a 3 vezes por mês
-                        questao_40[1][1] += 1
-                    elif aluno.questionario.questao_40 == '2': # 1 vez por semana
-                        questao_40[2][1] += 1
-                    elif aluno.questionario.questao_40 == '3': # 2 a 4 vezes por semana
-                        questao_40[3][1] += 1
-                    elif aluno.questionario.questao_40 == '4': # 6 a 8 vezes por semana
-                        questao_40[4][1] += 1
-                    elif aluno.questionario.questao_40 == '5': # 1 vez por dia
-                        questao_40[5][1] += 1
-                    elif aluno.questionario.questao_40 == '6': # 2 a 3 vezes por dia
-                        questao_40[6][1] += 1
-                    elif aluno.questionario.questao_40 == '7': # 4 a 6 vezes por dia
-                        questao_40[7][1] += 1
-                    elif aluno.questionario.questao_40 == '8': # Mais de 8 vezes por dia
-                        questao_40[8][1] += 1
-                    
-                    # Questão 41
-                    if aluno.questionario.questao_41 == '0': # Nunca ou menos de uma vez por mês
-                        questao_41[0][1] += 1
-                    elif aluno.questionario.questao_41 == '1': # 1 a 3 vezes por mês
-                        questao_41[1][1] += 1
-                    elif aluno.questionario.questao_41 == '2': # 1 vez por semana
-                        questao_41[2][1] += 1
-                    elif aluno.questionario.questao_41 == '3': # 2 a 4 vezes por semana
-                        questao_41[3][1] += 1
-                    elif aluno.questionario.questao_41 == '4': # 6 a 8 vezes por semana
-                        questao_41[4][1] += 1
-                    elif aluno.questionario.questao_41 == '5': # 1 vez por dia
-                        questao_41[5][1] += 1
-                    elif aluno.questionario.questao_41 == '6': # 2 a 3 vezes por dia
-                        questao_41[6][1] += 1
-                    elif aluno.questionario.questao_41 == '7': # 4 a 6 vezes por dia
-                        questao_41[7][1] += 1
-                    elif aluno.questionario.questao_41 == '8': # Mais de 8 vezes por dia
-                        questao_41[8][1] += 1
-                    
-                    # Questão 42
-                    if aluno.questionario.questao_42 == '0': # Nunca ou menos de uma vez por mês
-                        questao_42[0][1] += 1
-                    elif aluno.questionario.questao_42 == '1': # 1 a 3 vezes por mês
-                        questao_42[1][1] += 1
-                    elif aluno.questionario.questao_42 == '2': # 1 vez por semana
-                        questao_42[2][1] += 1
-                    elif aluno.questionario.questao_42 == '3': # 2 a 4 vezes por semana
-                        questao_42[3][1] += 1
-                    elif aluno.questionario.questao_42 == '4': # 6 a 8 vezes por semana
-                        questao_42[4][1] += 1
-                    elif aluno.questionario.questao_42 == '5': # 1 vez por dia
-                        questao_42[5][1] += 1
-                    elif aluno.questionario.questao_42 == '6': # 2 a 3 vezes por dia
-                        questao_42[6][1] += 1
-                    elif aluno.questionario.questao_42 == '7': # 4 a 6 vezes por dia
-                        questao_42[7][1] += 1
-                    elif aluno.questionario.questao_42 == '8': # Mais de 8 vezes por dia
-                        questao_42[8][1] += 1
-                    
-                    # Questão 43
-                    if aluno.questionario.questao_43 == '0': # Nunca ou menos de uma vez por mês
-                        questao_43[0][1] += 1
-                    elif aluno.questionario.questao_43 == '1': # 1 a 3 vezes por mês
-                        questao_43[1][1] += 1
-                    elif aluno.questionario.questao_43 == '2': # 1 vez por semana
-                        questao_43[2][1] += 1
-                    elif aluno.questionario.questao_43 == '3': # 2 a 4 vezes por semana
-                        questao_43[3][1] += 1
-                    elif aluno.questionario.questao_43 == '4': # 6 a 8 vezes por semana
-                        questao_43[4][1] += 1
-                    elif aluno.questionario.questao_43 == '5': # 1 vez por dia
-                        questao_43[5][1] += 1
-                    elif aluno.questionario.questao_43 == '6': # 2 a 3 vezes por dia
-                        questao_43[6][1] += 1
-                    elif aluno.questionario.questao_43 == '7': # 4 a 6 vezes por dia
-                        questao_43[7][1] += 1
-                    elif aluno.questionario.questao_43 == '8': # Mais de 8 vezes por dia
-                        questao_43[8][1] += 1
-                    
-                    # Questão 44
-                    if aluno.questionario.questao_44 == '0': # Nunca ou menos de uma vez por mês
-                        questao_44[0][1] += 1
-                    elif aluno.questionario.questao_44 == '1': # 1 a 3 vezes por mês
-                        questao_44[1][1] += 1
-                    elif aluno.questionario.questao_44 == '2': # 1 vez por semana
-                        questao_44[2][1] += 1
-                    elif aluno.questionario.questao_44 == '3': # 2 a 4 vezes por semana
-                        questao_44[3][1] += 1
-                    elif aluno.questionario.questao_44 == '4': # 6 a 8 vezes por semana
-                        questao_44[4][1] += 1
-                    elif aluno.questionario.questao_44 == '5': # 1 vez por dia
-                        questao_44[5][1] += 1
-                    elif aluno.questionario.questao_44 == '6': # 2 a 3 vezes por dia
-                        questao_44[6][1] += 1
-                    elif aluno.questionario.questao_44 == '7': # 4 a 6 vezes por dia
-                        questao_44[7][1] += 1
-                    elif aluno.questionario.questao_44 == '8': # Mais de 8 vezes por dia
-                        questao_44[8][1] += 1
-                    
-                    # Questão 45
-                    if aluno.questionario.questao_45 == '0': # Nunca ou menos de uma vez por mês
-                        questao_45[0][1] += 1
-                    elif aluno.questionario.questao_45 == '1': # 1 a 3 vezes por mês
-                        questao_45[1][1] += 1
-                    elif aluno.questionario.questao_45 == '2': # 1 vez por semana
-                        questao_45[2][1] += 1
-                    elif aluno.questionario.questao_45 == '3': # 2 a 4 vezes por semana
-                        questao_45[3][1] += 1
-                    elif aluno.questionario.questao_45 == '4': # 6 a 8 vezes por semana
-                        questao_45[4][1] += 1
-                    elif aluno.questionario.questao_45 == '5': # 1 vez por dia
-                        questao_45[5][1] += 1
-                    elif aluno.questionario.questao_45 == '6': # 2 a 3 vezes por dia
-                        questao_45[6][1] += 1
-                    elif aluno.questionario.questao_45 == '7': # 4 a 6 vezes por dia
-                        questao_45[7][1] += 1
-                    elif aluno.questionario.questao_45 == '8': # Mais de 8 vezes por dia
-                        questao_45[8][1] += 1
-                    
-                    # Questão 46
-                    if aluno.questionario.questao_46 == '0': # Nunca ou menos de uma vez por mês
-                        questao_46[0][1] += 1
-                    elif aluno.questionario.questao_46 == '1': # 1 a 3 vezes por mês
-                        questao_46[1][1] += 1
-                    elif aluno.questionario.questao_46 == '2': # 1 vez por semana
-                        questao_46[2][1] += 1
-                    elif aluno.questionario.questao_46 == '3': # 2 a 4 vezes por semana
-                        questao_46[3][1] += 1
-                    elif aluno.questionario.questao_46 == '4': # 6 a 8 vezes por semana
-                        questao_46[4][1] += 1
-                    elif aluno.questionario.questao_46 == '5': # 1 vez por dia
-                        questao_46[5][1] += 1
-                    elif aluno.questionario.questao_46 == '6': # 2 a 3 vezes por dia
-                        questao_46[6][1] += 1
-                    elif aluno.questionario.questao_46 == '7': # 4 a 6 vezes por dia
-                        questao_46[7][1] += 1
-                    elif aluno.questionario.questao_46 == '8': # Mais de 8 vezes por dia
-                        questao_46[8][1] += 1
-                    
-                    # Questão 47
-                    if aluno.questionario.questao_47 == '0': # Nunca ou menos de uma vez por mês
-                        questao_47[0][1] += 1
-                    elif aluno.questionario.questao_47 == '1': # 1 a 3 vezes por mês
-                        questao_47[1][1] += 1
-                    elif aluno.questionario.questao_47 == '2': # 1 vez por semana
-                        questao_47[2][1] += 1
-                    elif aluno.questionario.questao_47 == '3': # 2 a 4 vezes por semana
-                        questao_47[3][1] += 1
-                    elif aluno.questionario.questao_47 == '4': # 6 a 8 vezes por semana
-                        questao_47[4][1] += 1
-                    elif aluno.questionario.questao_47 == '5': # 1 vez por dia
-                        questao_47[5][1] += 1
-                    elif aluno.questionario.questao_47 == '6': # 2 a 3 vezes por dia
-                        questao_47[6][1] += 1
-                    elif aluno.questionario.questao_47 == '7': # 4 a 6 vezes por dia
-                        questao_47[7][1] += 1
-                    elif aluno.questionario.questao_47 == '8': # Mais de 8 vezes por dia
-                        questao_47[8][1] += 1
-                    
-                    # Questão 48
-                    if aluno.questionario.questao_48 == '0': # Nunca ou menos de uma vez por mês
-                        questao_48[0][1] += 1
-                    elif aluno.questionario.questao_48 == '1': # 1 a 3 vezes por mês
-                        questao_48[1][1] += 1
-                    elif aluno.questionario.questao_48 == '2': # 1 vez por semana
-                        questao_48[2][1] += 1
-                    elif aluno.questionario.questao_48 == '3': # 2 a 4 vezes por semana
-                        questao_48[3][1] += 1
-                    elif aluno.questionario.questao_48 == '4': # 6 a 8 vezes por semana
-                        questao_48[4][1] += 1
-                    elif aluno.questionario.questao_48 == '5': # 1 vez por dia
-                        questao_48[5][1] += 1
-                    elif aluno.questionario.questao_48 == '6': # 2 a 3 vezes por dia
-                        questao_48[6][1] += 1
-                    elif aluno.questionario.questao_48 == '7': # 4 a 6 vezes por dia
-                        questao_48[7][1] += 1
-                    elif aluno.questionario.questao_48 == '8': # Mais de 8 vezes por dia
-                        questao_48[8][1] += 1
-                    
-                    # Questão 49
-                    if aluno.questionario.questao_49 == '0': # Nunca ou menos de uma vez por mês
-                        questao_49[0][1] += 1
-                    elif aluno.questionario.questao_49 == '1': # 1 a 3 vezes por mês
-                        questao_49[1][1] += 1
-                    elif aluno.questionario.questao_49 == '2': # 1 vez por semana
-                        questao_49[2][1] += 1
-                    elif aluno.questionario.questao_49 == '3': # 2 a 4 vezes por semana
-                        questao_49[3][1] += 1
-                    elif aluno.questionario.questao_49 == '4': # 6 a 8 vezes por semana
-                        questao_49[4][1] += 1
-                    elif aluno.questionario.questao_49 == '5': # 1 vez por dia
-                        questao_49[5][1] += 1
-                    elif aluno.questionario.questao_49 == '6': # 2 a 3 vezes por dia
-                        questao_49[6][1] += 1
-                    elif aluno.questionario.questao_49 == '7': # 4 a 6 vezes por dia
-                        questao_49[7][1] += 1
-                    elif aluno.questionario.questao_49 == '8': # Mais de 8 vezes por dia
-                        questao_49[8][1] += 1
-                    
-                    # Questão 50
-                    if aluno.questionario.questao_50 == '0': # Nunca ou menos de uma vez por mês
-                        questao_50[0][1] += 1
-                    elif aluno.questionario.questao_50 == '1': # 1 a 3 vezes por mês
-                        questao_50[1][1] += 1
-                    elif aluno.questionario.questao_50 == '2': # 1 vez por semana
-                        questao_50[2][1] += 1
-                    elif aluno.questionario.questao_50 == '3': # 2 a 4 vezes por semana
-                        questao_50[3][1] += 1
-                    elif aluno.questionario.questao_50 == '4': # 6 a 8 vezes por semana
-                        questao_50[4][1] += 1
-                    elif aluno.questionario.questao_50 == '5': # 1 vez por dia
-                        questao_50[5][1] += 1
-                    elif aluno.questionario.questao_50 == '6': # 2 a 3 vezes por dia
-                        questao_50[6][1] += 1
-                    elif aluno.questionario.questao_50 == '7': # 4 a 6 vezes por dia
-                        questao_50[7][1] += 1
-                    elif aluno.questionario.questao_50 == '8': # Mais de 8 vezes por dia
-                        questao_50[8][1] += 1
-                    
-                    # Questão 51
-                    if aluno.questionario.questao_51 == '0': # Nunca ou menos de uma vez por mês
-                        questao_51[0][1] += 1
-                    elif aluno.questionario.questao_51 == '1': # 1 a 3 vezes por mês
-                        questao_51[1][1] += 1
-                    elif aluno.questionario.questao_51 == '2': # 1 vez por semana
-                        questao_51[2][1] += 1
-                    elif aluno.questionario.questao_51 == '3': # 2 a 4 vezes por semana
-                        questao_51[3][1] += 1
-                    elif aluno.questionario.questao_51 == '4': # 6 a 8 vezes por semana
-                        questao_51[4][1] += 1
-                    elif aluno.questionario.questao_51 == '5': # 1 vez por dia
-                        questao_51[5][1] += 1
-                    elif aluno.questionario.questao_51 == '6': # 2 a 3 vezes por dia
-                        questao_51[6][1] += 1
-                    elif aluno.questionario.questao_51 == '7': # 4 a 6 vezes por dia
-                        questao_51[7][1] += 1
-                    elif aluno.questionario.questao_51 == '8': # Mais de 8 vezes por dia
-                        questao_51[8][1] += 1
-                    
-                    # Questão 52
-                    if aluno.questionario.questao_52 == '0': # Nunca ou menos de uma vez por mês
-                        questao_52[0][1] += 1
-                    elif aluno.questionario.questao_52 == '1': # 1 a 3 vezes por mês
-                        questao_52[1][1] += 1
-                    elif aluno.questionario.questao_52 == '2': # 1 vez por semana
-                        questao_52[2][1] += 1
-                    elif aluno.questionario.questao_52 == '3': # 2 a 4 vezes por semana
-                        questao_52[3][1] += 1
-                    elif aluno.questionario.questao_52 == '4': # 6 a 8 vezes por semana
-                        questao_52[4][1] += 1
-                    elif aluno.questionario.questao_52 == '5': # 1 vez por dia
-                        questao_52[5][1] += 1
-                    elif aluno.questionario.questao_52 == '6': # 2 a 3 vezes por dia
-                        questao_52[6][1] += 1
-                    elif aluno.questionario.questao_52 == '7': # 4 a 6 vezes por dia
-                        questao_52[7][1] += 1
-                    elif aluno.questionario.questao_52 == '8': # Mais de 8 vezes por dia
-                        questao_52[8][1] += 1
-                    
-                    # Questão 53
-                    if aluno.questionario.questao_53 == '0': # Nunca ou menos de uma vez por mês
-                        questao_53[0][1] += 1
-                    elif aluno.questionario.questao_53 == '1': # 1 a 3 vezes por mês
-                        questao_53[1][1] += 1
-                    elif aluno.questionario.questao_53 == '2': # 1 vez por semana
-                        questao_53[2][1] += 1
-                    elif aluno.questionario.questao_53 == '3': # 2 a 4 vezes por semana
-                        questao_53[3][1] += 1
-                    elif aluno.questionario.questao_53 == '4': # 6 a 8 vezes por semana
-                        questao_53[4][1] += 1
-                    elif aluno.questionario.questao_53 == '5': # 1 vez por dia
-                        questao_53[5][1] += 1
-                    elif aluno.questionario.questao_53 == '6': # 2 a 3 vezes por dia
-                        questao_53[6][1] += 1
-                    elif aluno.questionario.questao_53 == '7': # 4 a 6 vezes por dia
-                        questao_53[7][1] += 1
-                    elif aluno.questionario.questao_53 == '8': # Mais de 8 vezes por dia
-                        questao_53[8][1] += 1
-                    
-                    # Questão 54
-                    if aluno.questionario.questao_54 == '0': # Nunca ou menos de uma vez por mês
-                        questao_54[0][1] += 1
-                    elif aluno.questionario.questao_54 == '1': # 1 a 3 vezes por mês
-                        questao_54[1][1] += 1
-                    elif aluno.questionario.questao_54 == '2': # 1 vez por semana
-                        questao_54[2][1] += 1
-                    elif aluno.questionario.questao_54 == '3': # 2 a 4 vezes por semana
-                        questao_54[3][1] += 1
-                    elif aluno.questionario.questao_54 == '4': # 6 a 8 vezes por semana
-                        questao_54[4][1] += 1
-                    elif aluno.questionario.questao_54 == '5': # 1 vez por dia
-                        questao_54[5][1] += 1
-                    elif aluno.questionario.questao_54 == '6': # 2 a 3 vezes por dia
-                        questao_54[6][1] += 1
-                    elif aluno.questionario.questao_54 == '7': # 4 a 6 vezes por dia
-                        questao_54[7][1] += 1
-                    elif aluno.questionario.questao_54 == '8': # Mais de 8 vezes por dia
-                        questao_54[8][1] += 1
+                    try:
+                        questionario = aluno.questionario
+                    except Questionario.DoesNotExist:
+                        pass
+                    else:
+                        # Questão 25
+                        if aluno.questionario.questao_25 == '0': # Nunca ou menos de uma vez por mês
+                            questao_25[0][1] += 1
+                        elif aluno.questionario.questao_25 == '1': # 1 a 3 vezes por mês
+                            questao_25[1][1] += 1
+                        elif aluno.questionario.questao_25 == '2': # 1 vez por semana
+                            questao_25[2][1] += 1
+                        elif aluno.questionario.questao_25 == '3': # 2 a 4 vezes por semana
+                            questao_25[3][1] += 1
+                        elif aluno.questionario.questao_25 == '4': # 6 a 8 vezes por semana
+                            questao_25[4][1] += 1
+                        elif aluno.questionario.questao_25 == '5': # 1 vez por dia
+                            questao_25[5][1] += 1
+                        elif aluno.questionario.questao_25 == '6': # 2 a 3 vezes por dia
+                            questao_25[6][1] += 1
+                        elif aluno.questionario.questao_25 == '7': # 4 a 6 vezes por dia
+                            questao_25[7][1] += 1
+                        elif aluno.questionario.questao_25 == '8': # Mais de 8 vezes por dia
+                            questao_25[8][1] += 1
+                        
+                        # Questão 26
+                        if aluno.questionario.questao_26 == '0': # Nunca ou menos de uma vez por mês
+                            questao_26[0][1] += 1
+                        elif aluno.questionario.questao_26 == '1': # 1 a 3 vezes por mês
+                            questao_26[1][1] += 1
+                        elif aluno.questionario.questao_26 == '2': # 1 vez por semana
+                            questao_26[2][1] += 1
+                        elif aluno.questionario.questao_26 == '3': # 2 a 4 vezes por semana
+                            questao_26[3][1] += 1
+                        elif aluno.questionario.questao_26 == '4': # 6 a 8 vezes por semana
+                            questao_26[4][1] += 1
+                        elif aluno.questionario.questao_26 == '5': # 1 vez por dia
+                            questao_26[5][1] += 1
+                        elif aluno.questionario.questao_26 == '6': # 2 a 3 vezes por dia
+                            questao_26[6][1] += 1
+                        elif aluno.questionario.questao_26 == '7': # 4 a 6 vezes por dia
+                            questao_26[7][1] += 1
+                        elif aluno.questionario.questao_26 == '8': # Mais de 8 vezes por dia
+                            questao_26[8][1] += 1
+                        
+                        # Questão 27
+                        if aluno.questionario.questao_27 == '0': # Nunca ou menos de uma vez por mês
+                            questao_27[0][1] += 1
+                        elif aluno.questionario.questao_27 == '1': # 1 a 3 vezes por mês
+                            questao_27[1][1] += 1
+                        elif aluno.questionario.questao_27 == '2': # 1 vez por semana
+                            questao_27[2][1] += 1
+                        elif aluno.questionario.questao_27 == '3': # 2 a 4 vezes por semana
+                            questao_27[3][1] += 1
+                        elif aluno.questionario.questao_27 == '4': # 6 a 8 vezes por semana
+                            questao_27[4][1] += 1
+                        elif aluno.questionario.questao_27 == '5': # 1 vez por dia
+                            questao_27[5][1] += 1
+                        elif aluno.questionario.questao_27 == '6': # 2 a 3 vezes por dia
+                            questao_27[6][1] += 1
+                        elif aluno.questionario.questao_27 == '7': # 4 a 6 vezes por dia
+                            questao_27[7][1] += 1
+                        elif aluno.questionario.questao_27 == '8': # Mais de 8 vezes por dia
+                            questao_27[8][1] += 1
+                        
+                        # Questão 28
+                        if aluno.questionario.questao_28 == '0': # Nunca ou menos de uma vez por mês
+                            questao_28[0][1] += 1
+                        elif aluno.questionario.questao_28 == '1': # 1 a 3 vezes por mês
+                            questao_28[1][1] += 1
+                        elif aluno.questionario.questao_28 == '2': # 1 vez por semana
+                            questao_28[2][1] += 1
+                        elif aluno.questionario.questao_28 == '3': # 2 a 4 vezes por semana
+                            questao_28[3][1] += 1
+                        elif aluno.questionario.questao_28 == '4': # 6 a 8 vezes por semana
+                            questao_28[4][1] += 1
+                        elif aluno.questionario.questao_28 == '5': # 1 vez por dia
+                            questao_28[5][1] += 1
+                        elif aluno.questionario.questao_28 == '6': # 2 a 3 vezes por dia
+                            questao_28[6][1] += 1
+                        elif aluno.questionario.questao_28 == '7': # 4 a 6 vezes por dia
+                            questao_28[7][1] += 1
+                        elif aluno.questionario.questao_28 == '8': # Mais de 8 vezes por dia
+                            questao_28[8][1] += 1
+                        
+                        # Questão 29
+                        if aluno.questionario.questao_29 == '0': # Nunca ou menos de uma vez por mês
+                            questao_29[0][1] += 1
+                        elif aluno.questionario.questao_29 == '1': # 1 a 3 vezes por mês
+                            questao_29[1][1] += 1
+                        elif aluno.questionario.questao_29 == '2': # 1 vez por semana
+                            questao_29[2][1] += 1
+                        elif aluno.questionario.questao_29 == '3': # 2 a 4 vezes por semana
+                            questao_29[3][1] += 1
+                        elif aluno.questionario.questao_29 == '4': # 6 a 8 vezes por semana
+                            questao_29[4][1] += 1
+                        elif aluno.questionario.questao_29 == '5': # 1 vez por dia
+                            questao_29[5][1] += 1
+                        elif aluno.questionario.questao_29 == '6': # 2 a 3 vezes por dia
+                            questao_29[6][1] += 1
+                        elif aluno.questionario.questao_29 == '7': # 4 a 6 vezes por dia
+                            questao_29[7][1] += 1
+                        elif aluno.questionario.questao_29 == '8': # Mais de 8 vezes por dia
+                            questao_29[8][1] += 1
+                        
+                        # Questão 30
+                        if aluno.questionario.questao_30 == '0': # Nunca ou menos de uma vez por mês
+                            questao_30[0][1] += 1
+                        elif aluno.questionario.questao_30 == '1': # 1 a 3 vezes por mês
+                            questao_30[1][1] += 1
+                        elif aluno.questionario.questao_30 == '2': # 1 vez por semana
+                            questao_30[2][1] += 1
+                        elif aluno.questionario.questao_30 == '3': # 2 a 4 vezes por semana
+                            questao_30[3][1] += 1
+                        elif aluno.questionario.questao_30 == '4': # 6 a 8 vezes por semana
+                            questao_30[4][1] += 1
+                        elif aluno.questionario.questao_30 == '5': # 1 vez por dia
+                            questao_30[5][1] += 1
+                        elif aluno.questionario.questao_30 == '6': # 2 a 3 vezes por dia
+                            questao_30[6][1] += 1
+                        elif aluno.questionario.questao_30 == '7': # 4 a 6 vezes por dia
+                            questao_30[7][1] += 1
+                        elif aluno.questionario.questao_30 == '8': # Mais de 8 vezes por dia
+                            questao_30[8][1] += 1
+                        
+                        # Questão 31
+                        if aluno.questionario.questao_31 == '0': # Nunca ou menos de uma vez por mês
+                            questao_31[0][1] += 1
+                        elif aluno.questionario.questao_31 == '1': # 1 a 3 vezes por mês
+                            questao_31[1][1] += 1
+                        elif aluno.questionario.questao_31 == '2': # 1 vez por semana
+                            questao_31[2][1] += 1
+                        elif aluno.questionario.questao_31 == '3': # 2 a 4 vezes por semana
+                            questao_31[3][1] += 1
+                        elif aluno.questionario.questao_31 == '4': # 6 a 8 vezes por semana
+                            questao_31[4][1] += 1
+                        elif aluno.questionario.questao_31 == '5': # 1 vez por dia
+                            questao_31[5][1] += 1
+                        elif aluno.questionario.questao_31 == '6': # 2 a 3 vezes por dia
+                            questao_31[6][1] += 1
+                        elif aluno.questionario.questao_31 == '7': # 4 a 6 vezes por dia
+                            questao_31[7][1] += 1
+                        elif aluno.questionario.questao_31 == '8': # Mais de 8 vezes por dia
+                            questao_31[8][1] += 1
+                        
+                        # Questão 32
+                        if aluno.questionario.questao_32 == '0': # Nunca ou menos de uma vez por mês
+                            questao_32[0][1] += 1
+                        elif aluno.questionario.questao_32 == '1': # 1 a 3 vezes por mês
+                            questao_32[1][1] += 1
+                        elif aluno.questionario.questao_32 == '2': # 1 vez por semana
+                            questao_32[2][1] += 1
+                        elif aluno.questionario.questao_32 == '3': # 2 a 4 vezes por semana
+                            questao_32[3][1] += 1
+                        elif aluno.questionario.questao_32 == '4': # 6 a 8 vezes por semana
+                            questao_32[4][1] += 1
+                        elif aluno.questionario.questao_32 == '5': # 1 vez por dia
+                            questao_32[5][1] += 1
+                        elif aluno.questionario.questao_32 == '6': # 2 a 3 vezes por dia
+                            questao_32[6][1] += 1
+                        elif aluno.questionario.questao_32 == '7': # 4 a 6 vezes por dia
+                            questao_32[7][1] += 1
+                        elif aluno.questionario.questao_32 == '8': # Mais de 8 vezes por dia
+                            questao_32[8][1] += 1
+                        
+                        # Questão 33
+                        if aluno.questionario.questao_33 == '0': # Nunca ou menos de uma vez por mês
+                            questao_33[0][1] += 1
+                        elif aluno.questionario.questao_33 == '1': # 1 a 3 vezes por mês
+                            questao_33[1][1] += 1
+                        elif aluno.questionario.questao_33 == '2': # 1 vez por semana
+                            questao_33[2][1] += 1
+                        elif aluno.questionario.questao_33 == '3': # 2 a 4 vezes por semana
+                            questao_33[3][1] += 1
+                        elif aluno.questionario.questao_33 == '4': # 6 a 8 vezes por semana
+                            questao_33[4][1] += 1
+                        elif aluno.questionario.questao_33 == '5': # 1 vez por dia
+                            questao_33[5][1] += 1
+                        elif aluno.questionario.questao_33 == '6': # 2 a 3 vezes por dia
+                            questao_33[6][1] += 1
+                        elif aluno.questionario.questao_33 == '7': # 4 a 6 vezes por dia
+                            questao_33[7][1] += 1
+                        elif aluno.questionario.questao_33 == '8': # Mais de 8 vezes por dia
+                            questao_33[8][1] += 1
+                        
+                        # Questão 34
+                        if aluno.questionario.questao_34 == '0': # Nunca ou menos de uma vez por mês
+                            questao_34[0][1] += 1
+                        elif aluno.questionario.questao_34 == '1': # 1 a 3 vezes por mês
+                            questao_34[1][1] += 1
+                        elif aluno.questionario.questao_34 == '2': # 1 vez por semana
+                            questao_34[2][1] += 1
+                        elif aluno.questionario.questao_34 == '3': # 2 a 4 vezes por semana
+                            questao_34[3][1] += 1
+                        elif aluno.questionario.questao_34 == '4': # 6 a 8 vezes por semana
+                            questao_34[4][1] += 1
+                        elif aluno.questionario.questao_34 == '5': # 1 vez por dia
+                            questao_34[5][1] += 1
+                        elif aluno.questionario.questao_34 == '6': # 2 a 3 vezes por dia
+                            questao_34[6][1] += 1
+                        elif aluno.questionario.questao_34 == '7': # 4 a 6 vezes por dia
+                            questao_34[7][1] += 1
+                        elif aluno.questionario.questao_34 == '8': # Mais de 8 vezes por dia
+                            questao_34[8][1] += 1
+                        
+                        # Questão 35
+                        if aluno.questionario.questao_35 == '0': # Nunca ou menos de uma vez por mês
+                            questao_35[0][1] += 1
+                        elif aluno.questionario.questao_35 == '1': # 1 a 3 vezes por mês
+                            questao_35[1][1] += 1
+                        elif aluno.questionario.questao_35 == '2': # 1 vez por semana
+                            questao_35[2][1] += 1
+                        elif aluno.questionario.questao_35 == '3': # 2 a 4 vezes por semana
+                            questao_35[3][1] += 1
+                        elif aluno.questionario.questao_35 == '4': # 6 a 8 vezes por semana
+                            questao_35[4][1] += 1
+                        elif aluno.questionario.questao_35 == '5': # 1 vez por dia
+                            questao_35[5][1] += 1
+                        elif aluno.questionario.questao_35 == '6': # 2 a 3 vezes por dia
+                            questao_35[6][1] += 1
+                        elif aluno.questionario.questao_35 == '7': # 4 a 6 vezes por dia
+                            questao_35[7][1] += 1
+                        elif aluno.questionario.questao_35 == '8': # Mais de 8 vezes por dia
+                            questao_35[8][1] += 1
+                        
+                        # Questão 36
+                        if aluno.questionario.questao_36 == '0': # Nunca ou menos de uma vez por mês
+                            questao_36[0][1] += 1
+                        elif aluno.questionario.questao_36 == '1': # 1 a 3 vezes por mês
+                            questao_36[1][1] += 1
+                        elif aluno.questionario.questao_36 == '2': # 1 vez por semana
+                            questao_36[2][1] += 1
+                        elif aluno.questionario.questao_36 == '3': # 2 a 4 vezes por semana
+                            questao_36[3][1] += 1
+                        elif aluno.questionario.questao_36 == '4': # 6 a 8 vezes por semana
+                            questao_36[4][1] += 1
+                        elif aluno.questionario.questao_36 == '5': # 1 vez por dia
+                            questao_36[5][1] += 1
+                        elif aluno.questionario.questao_36 == '6': # 2 a 3 vezes por dia
+                            questao_36[6][1] += 1
+                        elif aluno.questionario.questao_36 == '7': # 4 a 6 vezes por dia
+                            questao_36[7][1] += 1
+                        elif aluno.questionario.questao_36 == '8': # Mais de 8 vezes por dia
+                            questao_36[8][1] += 1
+                        
+                        # Questão 37
+                        if aluno.questionario.questao_37 == '0': # Nunca ou menos de uma vez por mês
+                            questao_37[0][1] += 1
+                        elif aluno.questionario.questao_37 == '1': # 1 a 3 vezes por mês
+                            questao_37[1][1] += 1
+                        elif aluno.questionario.questao_37 == '2': # 1 vez por semana
+                            questao_37[2][1] += 1
+                        elif aluno.questionario.questao_37 == '3': # 2 a 4 vezes por semana
+                            questao_37[3][1] += 1
+                        elif aluno.questionario.questao_37 == '4': # 6 a 8 vezes por semana
+                            questao_37[4][1] += 1
+                        elif aluno.questionario.questao_37 == '5': # 1 vez por dia
+                            questao_37[5][1] += 1
+                        elif aluno.questionario.questao_37 == '6': # 2 a 3 vezes por dia
+                            questao_37[6][1] += 1
+                        elif aluno.questionario.questao_37 == '7': # 4 a 6 vezes por dia
+                            questao_37[7][1] += 1
+                        elif aluno.questionario.questao_37 == '8': # Mais de 8 vezes por dia
+                            questao_37[8][1] += 1
+                        
+                        # Questão 38
+                        if aluno.questionario.questao_38 == '0': # Nunca ou menos de uma vez por mês
+                            questao_38[0][1] += 1
+                        elif aluno.questionario.questao_38 == '1': # 1 a 3 vezes por mês
+                            questao_38[1][1] += 1
+                        elif aluno.questionario.questao_38 == '2': # 1 vez por semana
+                            questao_38[2][1] += 1
+                        elif aluno.questionario.questao_38 == '3': # 2 a 4 vezes por semana
+                            questao_38[3][1] += 1
+                        elif aluno.questionario.questao_38 == '4': # 6 a 8 vezes por semana
+                            questao_38[4][1] += 1
+                        elif aluno.questionario.questao_38 == '5': # 1 vez por dia
+                            questao_38[5][1] += 1
+                        elif aluno.questionario.questao_38 == '6': # 2 a 3 vezes por dia
+                            questao_38[6][1] += 1
+                        elif aluno.questionario.questao_38 == '7': # 4 a 6 vezes por dia
+                            questao_38[7][1] += 1
+                        elif aluno.questionario.questao_38 == '8': # Mais de 8 vezes por dia
+                            questao_38[8][1] += 1
+                        
+                        # Questão 39
+                        if aluno.questionario.questao_39 == '0': # Nunca ou menos de uma vez por mês
+                            questao_39[0][1] += 1
+                        elif aluno.questionario.questao_39 == '1': # 1 a 3 vezes por mês
+                            questao_39[1][1] += 1
+                        elif aluno.questionario.questao_39 == '2': # 1 vez por semana
+                            questao_39[2][1] += 1
+                        elif aluno.questionario.questao_39 == '3': # 2 a 4 vezes por semana
+                            questao_39[3][1] += 1
+                        elif aluno.questionario.questao_39 == '4': # 6 a 8 vezes por semana
+                            questao_39[4][1] += 1
+                        elif aluno.questionario.questao_39 == '5': # 1 vez por dia
+                            questao_39[5][1] += 1
+                        elif aluno.questionario.questao_39 == '6': # 2 a 3 vezes por dia
+                            questao_39[6][1] += 1
+                        elif aluno.questionario.questao_39 == '7': # 4 a 6 vezes por dia
+                            questao_39[7][1] += 1
+                        elif aluno.questionario.questao_39 == '8': # Mais de 8 vezes por dia
+                            questao_39[8][1] += 1
+                        
+                        # Questão 40
+                        if aluno.questionario.questao_40 == '0': # Nunca ou menos de uma vez por mês
+                            questao_40[0][1] += 1
+                        elif aluno.questionario.questao_40 == '1': # 1 a 3 vezes por mês
+                            questao_40[1][1] += 1
+                        elif aluno.questionario.questao_40 == '2': # 1 vez por semana
+                            questao_40[2][1] += 1
+                        elif aluno.questionario.questao_40 == '3': # 2 a 4 vezes por semana
+                            questao_40[3][1] += 1
+                        elif aluno.questionario.questao_40 == '4': # 6 a 8 vezes por semana
+                            questao_40[4][1] += 1
+                        elif aluno.questionario.questao_40 == '5': # 1 vez por dia
+                            questao_40[5][1] += 1
+                        elif aluno.questionario.questao_40 == '6': # 2 a 3 vezes por dia
+                            questao_40[6][1] += 1
+                        elif aluno.questionario.questao_40 == '7': # 4 a 6 vezes por dia
+                            questao_40[7][1] += 1
+                        elif aluno.questionario.questao_40 == '8': # Mais de 8 vezes por dia
+                            questao_40[8][1] += 1
+                        
+                        # Questão 41
+                        if aluno.questionario.questao_41 == '0': # Nunca ou menos de uma vez por mês
+                            questao_41[0][1] += 1
+                        elif aluno.questionario.questao_41 == '1': # 1 a 3 vezes por mês
+                            questao_41[1][1] += 1
+                        elif aluno.questionario.questao_41 == '2': # 1 vez por semana
+                            questao_41[2][1] += 1
+                        elif aluno.questionario.questao_41 == '3': # 2 a 4 vezes por semana
+                            questao_41[3][1] += 1
+                        elif aluno.questionario.questao_41 == '4': # 6 a 8 vezes por semana
+                            questao_41[4][1] += 1
+                        elif aluno.questionario.questao_41 == '5': # 1 vez por dia
+                            questao_41[5][1] += 1
+                        elif aluno.questionario.questao_41 == '6': # 2 a 3 vezes por dia
+                            questao_41[6][1] += 1
+                        elif aluno.questionario.questao_41 == '7': # 4 a 6 vezes por dia
+                            questao_41[7][1] += 1
+                        elif aluno.questionario.questao_41 == '8': # Mais de 8 vezes por dia
+                            questao_41[8][1] += 1
+                        
+                        # Questão 42
+                        if aluno.questionario.questao_42 == '0': # Nunca ou menos de uma vez por mês
+                            questao_42[0][1] += 1
+                        elif aluno.questionario.questao_42 == '1': # 1 a 3 vezes por mês
+                            questao_42[1][1] += 1
+                        elif aluno.questionario.questao_42 == '2': # 1 vez por semana
+                            questao_42[2][1] += 1
+                        elif aluno.questionario.questao_42 == '3': # 2 a 4 vezes por semana
+                            questao_42[3][1] += 1
+                        elif aluno.questionario.questao_42 == '4': # 6 a 8 vezes por semana
+                            questao_42[4][1] += 1
+                        elif aluno.questionario.questao_42 == '5': # 1 vez por dia
+                            questao_42[5][1] += 1
+                        elif aluno.questionario.questao_42 == '6': # 2 a 3 vezes por dia
+                            questao_42[6][1] += 1
+                        elif aluno.questionario.questao_42 == '7': # 4 a 6 vezes por dia
+                            questao_42[7][1] += 1
+                        elif aluno.questionario.questao_42 == '8': # Mais de 8 vezes por dia
+                            questao_42[8][1] += 1
+                        
+                        # Questão 43
+                        if aluno.questionario.questao_43 == '0': # Nunca ou menos de uma vez por mês
+                            questao_43[0][1] += 1
+                        elif aluno.questionario.questao_43 == '1': # 1 a 3 vezes por mês
+                            questao_43[1][1] += 1
+                        elif aluno.questionario.questao_43 == '2': # 1 vez por semana
+                            questao_43[2][1] += 1
+                        elif aluno.questionario.questao_43 == '3': # 2 a 4 vezes por semana
+                            questao_43[3][1] += 1
+                        elif aluno.questionario.questao_43 == '4': # 6 a 8 vezes por semana
+                            questao_43[4][1] += 1
+                        elif aluno.questionario.questao_43 == '5': # 1 vez por dia
+                            questao_43[5][1] += 1
+                        elif aluno.questionario.questao_43 == '6': # 2 a 3 vezes por dia
+                            questao_43[6][1] += 1
+                        elif aluno.questionario.questao_43 == '7': # 4 a 6 vezes por dia
+                            questao_43[7][1] += 1
+                        elif aluno.questionario.questao_43 == '8': # Mais de 8 vezes por dia
+                            questao_43[8][1] += 1
+                        
+                        # Questão 44
+                        if aluno.questionario.questao_44 == '0': # Nunca ou menos de uma vez por mês
+                            questao_44[0][1] += 1
+                        elif aluno.questionario.questao_44 == '1': # 1 a 3 vezes por mês
+                            questao_44[1][1] += 1
+                        elif aluno.questionario.questao_44 == '2': # 1 vez por semana
+                            questao_44[2][1] += 1
+                        elif aluno.questionario.questao_44 == '3': # 2 a 4 vezes por semana
+                            questao_44[3][1] += 1
+                        elif aluno.questionario.questao_44 == '4': # 6 a 8 vezes por semana
+                            questao_44[4][1] += 1
+                        elif aluno.questionario.questao_44 == '5': # 1 vez por dia
+                            questao_44[5][1] += 1
+                        elif aluno.questionario.questao_44 == '6': # 2 a 3 vezes por dia
+                            questao_44[6][1] += 1
+                        elif aluno.questionario.questao_44 == '7': # 4 a 6 vezes por dia
+                            questao_44[7][1] += 1
+                        elif aluno.questionario.questao_44 == '8': # Mais de 8 vezes por dia
+                            questao_44[8][1] += 1
+                        
+                        # Questão 45
+                        if aluno.questionario.questao_45 == '0': # Nunca ou menos de uma vez por mês
+                            questao_45[0][1] += 1
+                        elif aluno.questionario.questao_45 == '1': # 1 a 3 vezes por mês
+                            questao_45[1][1] += 1
+                        elif aluno.questionario.questao_45 == '2': # 1 vez por semana
+                            questao_45[2][1] += 1
+                        elif aluno.questionario.questao_45 == '3': # 2 a 4 vezes por semana
+                            questao_45[3][1] += 1
+                        elif aluno.questionario.questao_45 == '4': # 6 a 8 vezes por semana
+                            questao_45[4][1] += 1
+                        elif aluno.questionario.questao_45 == '5': # 1 vez por dia
+                            questao_45[5][1] += 1
+                        elif aluno.questionario.questao_45 == '6': # 2 a 3 vezes por dia
+                            questao_45[6][1] += 1
+                        elif aluno.questionario.questao_45 == '7': # 4 a 6 vezes por dia
+                            questao_45[7][1] += 1
+                        elif aluno.questionario.questao_45 == '8': # Mais de 8 vezes por dia
+                            questao_45[8][1] += 1
+                        
+                        # Questão 46
+                        if aluno.questionario.questao_46 == '0': # Nunca ou menos de uma vez por mês
+                            questao_46[0][1] += 1
+                        elif aluno.questionario.questao_46 == '1': # 1 a 3 vezes por mês
+                            questao_46[1][1] += 1
+                        elif aluno.questionario.questao_46 == '2': # 1 vez por semana
+                            questao_46[2][1] += 1
+                        elif aluno.questionario.questao_46 == '3': # 2 a 4 vezes por semana
+                            questao_46[3][1] += 1
+                        elif aluno.questionario.questao_46 == '4': # 6 a 8 vezes por semana
+                            questao_46[4][1] += 1
+                        elif aluno.questionario.questao_46 == '5': # 1 vez por dia
+                            questao_46[5][1] += 1
+                        elif aluno.questionario.questao_46 == '6': # 2 a 3 vezes por dia
+                            questao_46[6][1] += 1
+                        elif aluno.questionario.questao_46 == '7': # 4 a 6 vezes por dia
+                            questao_46[7][1] += 1
+                        elif aluno.questionario.questao_46 == '8': # Mais de 8 vezes por dia
+                            questao_46[8][1] += 1
+                        
+                        # Questão 47
+                        if aluno.questionario.questao_47 == '0': # Nunca ou menos de uma vez por mês
+                            questao_47[0][1] += 1
+                        elif aluno.questionario.questao_47 == '1': # 1 a 3 vezes por mês
+                            questao_47[1][1] += 1
+                        elif aluno.questionario.questao_47 == '2': # 1 vez por semana
+                            questao_47[2][1] += 1
+                        elif aluno.questionario.questao_47 == '3': # 2 a 4 vezes por semana
+                            questao_47[3][1] += 1
+                        elif aluno.questionario.questao_47 == '4': # 6 a 8 vezes por semana
+                            questao_47[4][1] += 1
+                        elif aluno.questionario.questao_47 == '5': # 1 vez por dia
+                            questao_47[5][1] += 1
+                        elif aluno.questionario.questao_47 == '6': # 2 a 3 vezes por dia
+                            questao_47[6][1] += 1
+                        elif aluno.questionario.questao_47 == '7': # 4 a 6 vezes por dia
+                            questao_47[7][1] += 1
+                        elif aluno.questionario.questao_47 == '8': # Mais de 8 vezes por dia
+                            questao_47[8][1] += 1
+                        
+                        # Questão 48
+                        if aluno.questionario.questao_48 == '0': # Nunca ou menos de uma vez por mês
+                            questao_48[0][1] += 1
+                        elif aluno.questionario.questao_48 == '1': # 1 a 3 vezes por mês
+                            questao_48[1][1] += 1
+                        elif aluno.questionario.questao_48 == '2': # 1 vez por semana
+                            questao_48[2][1] += 1
+                        elif aluno.questionario.questao_48 == '3': # 2 a 4 vezes por semana
+                            questao_48[3][1] += 1
+                        elif aluno.questionario.questao_48 == '4': # 6 a 8 vezes por semana
+                            questao_48[4][1] += 1
+                        elif aluno.questionario.questao_48 == '5': # 1 vez por dia
+                            questao_48[5][1] += 1
+                        elif aluno.questionario.questao_48 == '6': # 2 a 3 vezes por dia
+                            questao_48[6][1] += 1
+                        elif aluno.questionario.questao_48 == '7': # 4 a 6 vezes por dia
+                            questao_48[7][1] += 1
+                        elif aluno.questionario.questao_48 == '8': # Mais de 8 vezes por dia
+                            questao_48[8][1] += 1
+                        
+                        # Questão 49
+                        if aluno.questionario.questao_49 == '0': # Nunca ou menos de uma vez por mês
+                            questao_49[0][1] += 1
+                        elif aluno.questionario.questao_49 == '1': # 1 a 3 vezes por mês
+                            questao_49[1][1] += 1
+                        elif aluno.questionario.questao_49 == '2': # 1 vez por semana
+                            questao_49[2][1] += 1
+                        elif aluno.questionario.questao_49 == '3': # 2 a 4 vezes por semana
+                            questao_49[3][1] += 1
+                        elif aluno.questionario.questao_49 == '4': # 6 a 8 vezes por semana
+                            questao_49[4][1] += 1
+                        elif aluno.questionario.questao_49 == '5': # 1 vez por dia
+                            questao_49[5][1] += 1
+                        elif aluno.questionario.questao_49 == '6': # 2 a 3 vezes por dia
+                            questao_49[6][1] += 1
+                        elif aluno.questionario.questao_49 == '7': # 4 a 6 vezes por dia
+                            questao_49[7][1] += 1
+                        elif aluno.questionario.questao_49 == '8': # Mais de 8 vezes por dia
+                            questao_49[8][1] += 1
+                        
+                        # Questão 50
+                        if aluno.questionario.questao_50 == '0': # Nunca ou menos de uma vez por mês
+                            questao_50[0][1] += 1
+                        elif aluno.questionario.questao_50 == '1': # 1 a 3 vezes por mês
+                            questao_50[1][1] += 1
+                        elif aluno.questionario.questao_50 == '2': # 1 vez por semana
+                            questao_50[2][1] += 1
+                        elif aluno.questionario.questao_50 == '3': # 2 a 4 vezes por semana
+                            questao_50[3][1] += 1
+                        elif aluno.questionario.questao_50 == '4': # 6 a 8 vezes por semana
+                            questao_50[4][1] += 1
+                        elif aluno.questionario.questao_50 == '5': # 1 vez por dia
+                            questao_50[5][1] += 1
+                        elif aluno.questionario.questao_50 == '6': # 2 a 3 vezes por dia
+                            questao_50[6][1] += 1
+                        elif aluno.questionario.questao_50 == '7': # 4 a 6 vezes por dia
+                            questao_50[7][1] += 1
+                        elif aluno.questionario.questao_50 == '8': # Mais de 8 vezes por dia
+                            questao_50[8][1] += 1
+                        
+                        # Questão 51
+                        if aluno.questionario.questao_51 == '0': # Nunca ou menos de uma vez por mês
+                            questao_51[0][1] += 1
+                        elif aluno.questionario.questao_51 == '1': # 1 a 3 vezes por mês
+                            questao_51[1][1] += 1
+                        elif aluno.questionario.questao_51 == '2': # 1 vez por semana
+                            questao_51[2][1] += 1
+                        elif aluno.questionario.questao_51 == '3': # 2 a 4 vezes por semana
+                            questao_51[3][1] += 1
+                        elif aluno.questionario.questao_51 == '4': # 6 a 8 vezes por semana
+                            questao_51[4][1] += 1
+                        elif aluno.questionario.questao_51 == '5': # 1 vez por dia
+                            questao_51[5][1] += 1
+                        elif aluno.questionario.questao_51 == '6': # 2 a 3 vezes por dia
+                            questao_51[6][1] += 1
+                        elif aluno.questionario.questao_51 == '7': # 4 a 6 vezes por dia
+                            questao_51[7][1] += 1
+                        elif aluno.questionario.questao_51 == '8': # Mais de 8 vezes por dia
+                            questao_51[8][1] += 1
+                        
+                        # Questão 52
+                        if aluno.questionario.questao_52 == '0': # Nunca ou menos de uma vez por mês
+                            questao_52[0][1] += 1
+                        elif aluno.questionario.questao_52 == '1': # 1 a 3 vezes por mês
+                            questao_52[1][1] += 1
+                        elif aluno.questionario.questao_52 == '2': # 1 vez por semana
+                            questao_52[2][1] += 1
+                        elif aluno.questionario.questao_52 == '3': # 2 a 4 vezes por semana
+                            questao_52[3][1] += 1
+                        elif aluno.questionario.questao_52 == '4': # 6 a 8 vezes por semana
+                            questao_52[4][1] += 1
+                        elif aluno.questionario.questao_52 == '5': # 1 vez por dia
+                            questao_52[5][1] += 1
+                        elif aluno.questionario.questao_52 == '6': # 2 a 3 vezes por dia
+                            questao_52[6][1] += 1
+                        elif aluno.questionario.questao_52 == '7': # 4 a 6 vezes por dia
+                            questao_52[7][1] += 1
+                        elif aluno.questionario.questao_52 == '8': # Mais de 8 vezes por dia
+                            questao_52[8][1] += 1
+                        
+                        # Questão 53
+                        if aluno.questionario.questao_53 == '0': # Nunca ou menos de uma vez por mês
+                            questao_53[0][1] += 1
+                        elif aluno.questionario.questao_53 == '1': # 1 a 3 vezes por mês
+                            questao_53[1][1] += 1
+                        elif aluno.questionario.questao_53 == '2': # 1 vez por semana
+                            questao_53[2][1] += 1
+                        elif aluno.questionario.questao_53 == '3': # 2 a 4 vezes por semana
+                            questao_53[3][1] += 1
+                        elif aluno.questionario.questao_53 == '4': # 6 a 8 vezes por semana
+                            questao_53[4][1] += 1
+                        elif aluno.questionario.questao_53 == '5': # 1 vez por dia
+                            questao_53[5][1] += 1
+                        elif aluno.questionario.questao_53 == '6': # 2 a 3 vezes por dia
+                            questao_53[6][1] += 1
+                        elif aluno.questionario.questao_53 == '7': # 4 a 6 vezes por dia
+                            questao_53[7][1] += 1
+                        elif aluno.questionario.questao_53 == '8': # Mais de 8 vezes por dia
+                            questao_53[8][1] += 1
+                        
+                        # Questão 54
+                        if aluno.questionario.questao_54 == '0': # Nunca ou menos de uma vez por mês
+                            questao_54[0][1] += 1
+                        elif aluno.questionario.questao_54 == '1': # 1 a 3 vezes por mês
+                            questao_54[1][1] += 1
+                        elif aluno.questionario.questao_54 == '2': # 1 vez por semana
+                            questao_54[2][1] += 1
+                        elif aluno.questionario.questao_54 == '3': # 2 a 4 vezes por semana
+                            questao_54[3][1] += 1
+                        elif aluno.questionario.questao_54 == '4': # 6 a 8 vezes por semana
+                            questao_54[4][1] += 1
+                        elif aluno.questionario.questao_54 == '5': # 1 vez por dia
+                            questao_54[5][1] += 1
+                        elif aluno.questionario.questao_54 == '6': # 2 a 3 vezes por dia
+                            questao_54[6][1] += 1
+                        elif aluno.questionario.questao_54 == '7': # 4 a 6 vezes por dia
+                            questao_54[7][1] += 1
+                        elif aluno.questionario.questao_54 == '8': # Mais de 8 vezes por dia
+                            questao_54[8][1] += 1
             
                 # Totais da tabela sexo
                 sexo[3][0] = sexo[0][0] + sexo[1][0] + sexo[2][0] # total da coluna sim
