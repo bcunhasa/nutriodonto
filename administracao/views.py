@@ -6,6 +6,7 @@ from django.contrib.auth.models import User
 from django.shortcuts import render
 from django.views import View
 
+from itertools import chain
 from scipy.stats import chisquare
 
 from .models import *
@@ -86,94 +87,94 @@ class InferenciaView(LoginRequired, View):
         alunos = Aluno.objects.all()
         
         # Dados sociais
-        sexo = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
-        sexo_esperado = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1]]
-        raca = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
-        raca_esperado = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1]]
+        sexo = [[1, 1, 1], [1, 1, 1], [1, 1, 1], [2, 2, 2]]
+        sexo_esperado = [[1, 1, 1], [1, 1, 1], [1, 1, 1], [2, 2, 2]]
+        raca = [[1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [2, 2, 2]]
+        raca_esperado = [[1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [2, 2, 2]]
         
         # Uso de cigarro
-        questao_73 = [[0, 0, 1], [0, 0, 1], [1, 1, 1]]
-        questao_73_esperado = [[0, 0, 1], [0, 0, 1], [1, 1, 1]]
-        questao_75 = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
-        questao_75_esperado = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
-        questao_79 = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
-        questao_79_esperado = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
+        questao_73 = [[1, 1, 1], [1, 1, 1], [2, 2, 2]]
+        questao_73_esperado = [[1, 1, 1], [1, 1, 1], [2, 2, 2]]
+        questao_75 = [[1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [2, 2, 2]]
+        questao_75_esperado = [[1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [2, 2, 2]]
+        questao_79 = [[1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [2, 2, 2]]
+        questao_79_esperado = [[1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [2, 2, 2]]
         
         # Consumo de bebida alcoólica
-        questao_84 = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
-        questao_84_esperado = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
+        questao_84 = [[1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [2, 2, 2]]
+        questao_84_esperado = [[1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [2, 2, 2]]
         
         # Drogas ilícitas
-        questao_92 = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
-        questao_92_esperado = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
+        questao_92 = [[1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [2, 2, 2]]
+        questao_92_esperado = [[1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [2, 2, 2]]
         
         # Saúde bucal
-        questao_111 = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
-        questao_111_esperado = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
-        questao_113 = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
-        questao_113_esperado = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
+        questao_111 = [[1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [2, 2, 2]]
+        questao_111_esperado = [[1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [2, 2, 2]]
+        questao_113 = [[1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [2, 2, 2]]
+        questao_113_esperado = [[1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [2, 2, 2]]
         
         # Frequência alimentar
-        questao_25 = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
-        questao_25_esperado = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
-        questao_26 = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
-        questao_26_esperado = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
-        questao_27 = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
-        questao_27_esperado = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
-        questao_28 = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
-        questao_28_esperado = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
-        questao_29 = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
-        questao_29_esperado = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
-        questao_30 = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
-        questao_30_esperado = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
-        questao_31 = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
-        questao_31_esperado = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
-        questao_32 = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
-        questao_32_esperado = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
-        questao_33 = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
-        questao_33_esperado = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
-        questao_34 = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
-        questao_34_esperado = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
-        questao_35 = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
-        questao_35_esperado = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
-        questao_36 = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
-        questao_36_esperado = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
-        questao_37 = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
-        questao_37_esperado = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
-        questao_38 = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
-        questao_38_esperado = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
-        questao_39 = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
-        questao_39_esperado = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
-        questao_40 = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
-        questao_40_esperado = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
-        questao_41 = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
-        questao_41_esperado = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
-        questao_42 = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
-        questao_42_esperado = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
-        questao_43 = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
-        questao_43_esperado = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
-        questao_44 = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
-        questao_44_esperado = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
-        questao_45 = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
-        questao_45_esperado = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
-        questao_46 = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
-        questao_46_esperado = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
-        questao_47 = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
-        questao_47_esperado = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
-        questao_48 = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
-        questao_48_esperado = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
-        questao_49 = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
-        questao_49_esperado = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
-        questao_50 = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
-        questao_50_esperado = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
-        questao_51 = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
-        questao_51_esperado = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
-        questao_52 = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
-        questao_52_esperado = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
-        questao_53 = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
-        questao_53_esperado = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
-        questao_54 = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
-        questao_54_esperado = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
+        questao_25 = [[1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [2, 2, 2]]
+        questao_25_esperado = [[1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [2, 2, 2]]
+        questao_26 = [[1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [2, 2, 2]]
+        questao_26_esperado = [[1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [2, 2, 2]]
+        questao_27 = [[1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [2, 2, 2]]
+        questao_27_esperado = [[1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [2, 2, 2]]
+        questao_28 = [[1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [2, 2, 2]]
+        questao_28_esperado = [[1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [2, 2, 2]]
+        questao_29 = [[1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [2, 2, 2]]
+        questao_29_esperado = [[1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [2, 2, 2]]
+        questao_30 = [[1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [2, 2, 2]]
+        questao_30_esperado = [[1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [2, 2, 2]]
+        questao_31 = [[1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [2, 2, 2]]
+        questao_31_esperado = [[1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [2, 2, 2]]
+        questao_32 = [[1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [2, 2, 2]]
+        questao_32_esperado = [[1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [2, 2, 2]]
+        questao_33 = [[1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [2, 2, 2]]
+        questao_33_esperado = [[1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [2, 2, 2]]
+        questao_34 = [[1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [2, 2, 2]]
+        questao_34_esperado = [[1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [2, 2, 2]]
+        questao_35 = [[1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [2, 2, 2]]
+        questao_35_esperado = [[1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [2, 2, 2]]
+        questao_36 = [[1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [2, 2, 2]]
+        questao_36_esperado = [[1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [2, 2, 2]]
+        questao_37 = [[1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [2, 2, 2]]
+        questao_37_esperado = [[1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [2, 2, 2]]
+        questao_38 = [[1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [2, 2, 2]]
+        questao_38_esperado = [[1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [2, 2, 2]]
+        questao_39 = [[1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [2, 2, 2]]
+        questao_39_esperado = [[1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [2, 2, 2]]
+        questao_40 = [[1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [2, 2, 2]]
+        questao_40_esperado = [[1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [2, 2, 2]]
+        questao_41 = [[1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [2, 2, 2]]
+        questao_41_esperado = [[1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [2, 2, 2]]
+        questao_42 = [[1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [2, 2, 2]]
+        questao_42_esperado = [[1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [2, 2, 2]]
+        questao_43 = [[1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [2, 2, 2]]
+        questao_43_esperado = [[1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [2, 2, 2]]
+        questao_44 = [[1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [2, 2, 2]]
+        questao_44_esperado = [[1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [2, 2, 2]]
+        questao_45 = [[1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [2, 2, 2]]
+        questao_45_esperado = [[1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [2, 2, 2]]
+        questao_46 = [[1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [2, 2, 2]]
+        questao_46_esperado = [[1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [2, 2, 2]]
+        questao_47 = [[1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [2, 2, 2]]
+        questao_47_esperado = [[1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [2, 2, 2]]
+        questao_48 = [[1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [2, 2, 2]]
+        questao_48_esperado = [[1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [2, 2, 2]]
+        questao_49 = [[1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [2, 2, 2]]
+        questao_49_esperado = [[1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [2, 2, 2]]
+        questao_50 = [[1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [2, 2, 2]]
+        questao_50_esperado = [[1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [2, 2, 2]]
+        questao_51 = [[1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [2, 2, 2]]
+        questao_51_esperado = [[1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [2, 2, 2]]
+        questao_52 = [[1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [2, 2, 2]]
+        questao_52_esperado = [[1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [2, 2, 2]]
+        questao_53 = [[1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [2, 2, 2]]
+        questao_53_esperado = [[1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [2, 2, 2]]
+        questao_54 = [[1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [2, 2, 2]]
+        questao_54_esperado = [[1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [2, 2, 2]]
         
         sexo_pvalor = 0
         raca_pvalor = 0
@@ -2889,46 +2890,47 @@ class InferenciaView(LoginRequired, View):
         questao_54_esperado[8][1] = (questao_54[8][2] / questao_54[9][2]) * questao_54[9][1]
         
         print(questao_73_esperado)
+        print(list(chain.from_iterable([linha[:-1] for linha in questao_73_esperado if linha != questao_73_esperado[-1]])))
         
-        sexo_pvalor = chisquare([linha[:-1] for linha in sexo if linha != sexo[-1]], [linha[:-1] for linha in sexo_esperado if linha != sexo_esperado[-1]])
-        raca_pvalor = chisquare([linha[:-1] for linha in raca if linha != raca[-1]], [linha[:-1] for linha in raca_esperado if linha != raca_esperado[-1]])
-        questao_73_pvalor = chisquare([linha[:-1] for linha in questao_73 if linha != questao_73[-1]], [linha[:-1] for linha in questao_73_esperado if linha != questao_73_esperado[-1]])
-        questao_75_pvalor = chisquare([linha[:-1] for linha in questao_75 if linha != questao_75[-1]], [linha[:-1] for linha in questao_75_esperado if linha != questao_75_esperado[-1]])
-        questao_79_pvalor = chisquare([linha[:-1] for linha in questao_79 if linha != questao_79[-1]], [linha[:-1] for linha in questao_79_esperado if linha != questao_79_esperado[-1]])
-        questao_84_pvalor = chisquare([linha[:-1] for linha in questao_84 if linha != questao_84[-1]], [linha[:-1] for linha in questao_84_esperado if linha != questao_84_esperado[-1]])
-        questao_92_pvalor = chisquare([linha[:-1] for linha in questao_92 if linha != questao_92[-1]], [linha[:-1] for linha in questao_92_esperado if linha != questao_92_esperado[-1]])
-        questao_111_pvalor = chisquare([linha[:-1] for linha in questao_111 if linha != questao_111[-1]], [linha[:-1] for linha in questao_111_esperado if linha != questao_111_esperado[-1]])
-        questao_113_pvalor = chisquare([linha[:-1] for linha in questao_113 if linha != questao_113[-1]], [linha[:-1] for linha in questao_113_esperado if linha != questao_113_esperado[-1]])
-        questao_25_pvalor = chisquare([linha[:-1] for linha in questao_25 if linha != questao_25[-1]], [linha[:-1] for linha in questao_25_esperado if linha != questao_25_esperado[-1]])
-        questao_26_pvalor = chisquare([linha[:-1] for linha in questao_26 if linha != questao_26[-1]], [linha[:-1] for linha in questao_26_esperado if linha != questao_26_esperado[-1]])
-        questao_27_pvalor = chisquare([linha[:-1] for linha in questao_27 if linha != questao_27[-1]], [linha[:-1] for linha in questao_27_esperado if linha != questao_27_esperado[-1]])
-        questao_28_pvalor = chisquare([linha[:-1] for linha in questao_28 if linha != questao_28[-1]], [linha[:-1] for linha in questao_28_esperado if linha != questao_28_esperado[-1]])
-        questao_29_pvalor = chisquare([linha[:-1] for linha in questao_29 if linha != questao_29[-1]], [linha[:-1] for linha in questao_29_esperado if linha != questao_29_esperado[-1]])
-        questao_30_pvalor = chisquare([linha[:-1] for linha in questao_30 if linha != questao_30[-1]], [linha[:-1] for linha in questao_30_esperado if linha != questao_30_esperado[-1]])
-        questao_31_pvalor = chisquare([linha[:-1] for linha in questao_31 if linha != questao_31[-1]], [linha[:-1] for linha in questao_31_esperado if linha != questao_31_esperado[-1]])
-        questao_32_pvalor = chisquare([linha[:-1] for linha in questao_32 if linha != questao_32[-1]], [linha[:-1] for linha in questao_32_esperado if linha != questao_32_esperado[-1]])
-        questao_33_pvalor = chisquare([linha[:-1] for linha in questao_33 if linha != questao_33[-1]], [linha[:-1] for linha in questao_33_esperado if linha != questao_33_esperado[-1]])
-        questao_34_pvalor = chisquare([linha[:-1] for linha in questao_34 if linha != questao_34[-1]], [linha[:-1] for linha in questao_34_esperado if linha != questao_34_esperado[-1]])
-        questao_35_pvalor = chisquare([linha[:-1] for linha in questao_35 if linha != questao_35[-1]], [linha[:-1] for linha in questao_35_esperado if linha != questao_35_esperado[-1]])
-        questao_36_pvalor = chisquare([linha[:-1] for linha in questao_36 if linha != questao_36[-1]], [linha[:-1] for linha in questao_36_esperado if linha != questao_36_esperado[-1]])
-        questao_37_pvalor = chisquare([linha[:-1] for linha in questao_37 if linha != questao_37[-1]], [linha[:-1] for linha in questao_37_esperado if linha != questao_37_esperado[-1]])
-        questao_38_pvalor = chisquare([linha[:-1] for linha in questao_38 if linha != questao_38[-1]], [linha[:-1] for linha in questao_38_esperado if linha != questao_38_esperado[-1]])
-        questao_39_pvalor = chisquare([linha[:-1] for linha in questao_39 if linha != questao_39[-1]], [linha[:-1] for linha in questao_39_esperado if linha != questao_39_esperado[-1]])
-        questao_40_pvalor = chisquare([linha[:-1] for linha in questao_40 if linha != questao_40[-1]], [linha[:-1] for linha in questao_40_esperado if linha != questao_40_esperado[-1]])
-        questao_41_pvalor = chisquare([linha[:-1] for linha in questao_41 if linha != questao_41[-1]], [linha[:-1] for linha in questao_41_esperado if linha != questao_41_esperado[-1]])
-        questao_42_pvalor = chisquare([linha[:-1] for linha in questao_42 if linha != questao_42[-1]], [linha[:-1] for linha in questao_42_esperado if linha != questao_42_esperado[-1]])
-        questao_43_pvalor = chisquare([linha[:-1] for linha in questao_43 if linha != questao_43[-1]], [linha[:-1] for linha in questao_43_esperado if linha != questao_43_esperado[-1]])
-        questao_44_pvalor = chisquare([linha[:-1] for linha in questao_44 if linha != questao_44[-1]], [linha[:-1] for linha in questao_44_esperado if linha != questao_44_esperado[-1]])
-        questao_45_pvalor = chisquare([linha[:-1] for linha in questao_45 if linha != questao_45[-1]], [linha[:-1] for linha in questao_45_esperado if linha != questao_45_esperado[-1]])
-        questao_46_pvalor = chisquare([linha[:-1] for linha in questao_46 if linha != questao_46[-1]], [linha[:-1] for linha in questao_46_esperado if linha != questao_46_esperado[-1]])
-        questao_47_pvalor = chisquare([linha[:-1] for linha in questao_47 if linha != questao_47[-1]], [linha[:-1] for linha in questao_47_esperado if linha != questao_47_esperado[-1]])
-        questao_48_pvalor = chisquare([linha[:-1] for linha in questao_48 if linha != questao_48[-1]], [linha[:-1] for linha in questao_48_esperado if linha != questao_48_esperado[-1]])
-        questao_49_pvalor = chisquare([linha[:-1] for linha in questao_49 if linha != questao_49[-1]], [linha[:-1] for linha in questao_49_esperado if linha != questao_49_esperado[-1]])
-        questao_50_pvalor = chisquare([linha[:-1] for linha in questao_50 if linha != questao_50[-1]], [linha[:-1] for linha in questao_50_esperado if linha != questao_50_esperado[-1]])
-        questao_51_pvalor = chisquare([linha[:-1] for linha in questao_51 if linha != questao_51[-1]], [linha[:-1] for linha in questao_51_esperado if linha != questao_51_esperado[-1]])
-        questao_52_pvalor = chisquare([linha[:-1] for linha in questao_52 if linha != questao_52[-1]], [linha[:-1] for linha in questao_52_esperado if linha != questao_52_esperado[-1]])
-        questao_53_pvalor = chisquare([linha[:-1] for linha in questao_53 if linha != questao_53[-1]], [linha[:-1] for linha in questao_53_esperado if linha != questao_53_esperado[-1]])
-        questao_54_pvalor = chisquare([linha[:-1] for linha in questao_54 if linha != questao_54[-1]], [linha[:-1] for linha in questao_54_esperado if linha != questao_54_esperado[-1]])
+        sexo_pvalor = chisquare(list(chain.from_iterable([linha[:-1] for linha in sexo if linha != sexo[-1]])), f_exp=list(chain.from_iterable([linha[:-1] for linha in sexo_esperado if linha != sexo_esperado[-1]])))
+        raca_pvalor = chisquare(list(chain.from_iterable([linha[:-1] for linha in raca if linha != raca[-1]])), f_exp=list(chain.from_iterable([linha[:-1] for linha in raca_esperado if linha != raca_esperado[-1]])))
+        questao_73_pvalor = chisquare(list(chain.from_iterable([linha[:-1] for linha in questao_73 if linha != questao_73[-1]])), f_exp=list(chain.from_iterable([linha[:-1] for linha in questao_73_esperado if linha != questao_73_esperado[-1]])))
+        questao_75_pvalor = chisquare(list(chain.from_iterable([linha[:-1] for linha in questao_75 if linha != questao_75[-1]])), f_exp=list(chain.from_iterable([linha[:-1] for linha in questao_75_esperado if linha != questao_75_esperado[-1]])))
+        questao_79_pvalor = chisquare(list(chain.from_iterable([linha[:-1] for linha in questao_79 if linha != questao_79[-1]])), f_exp=list(chain.from_iterable([linha[:-1] for linha in questao_79_esperado if linha != questao_79_esperado[-1]])))
+        questao_84_pvalor = chisquare(list(chain.from_iterable([linha[:-1] for linha in questao_84 if linha != questao_84[-1]])), f_exp=list(chain.from_iterable([linha[:-1] for linha in questao_84_esperado if linha != questao_84_esperado[-1]])))
+        questao_92_pvalor = chisquare(list(chain.from_iterable([linha[:-1] for linha in questao_92 if linha != questao_92[-1]])), f_exp=list(chain.from_iterable([linha[:-1] for linha in questao_92_esperado if linha != questao_92_esperado[-1]])))
+        questao_111_pvalor = chisquare(list(chain.from_iterable([linha[:-1] for linha in questao_111 if linha != questao_111[-1]])), f_exp=list(chain.from_iterable([linha[:-1] for linha in questao_111_esperado if linha != questao_111_esperado[-1]])))
+        questao_113_pvalor = chisquare(list(chain.from_iterable([linha[:-1] for linha in questao_113 if linha != questao_113[-1]])), f_exp=list(chain.from_iterable([linha[:-1] for linha in questao_113_esperado if linha != questao_113_esperado[-1]])))
+        questao_25_pvalor = chisquare(list(chain.from_iterable([linha[:-1] for linha in questao_25 if linha != questao_25[-1]])), f_exp=list(chain.from_iterable([linha[:-1] for linha in questao_25_esperado if linha != questao_25_esperado[-1]])))
+        questao_26_pvalor = chisquare(list(chain.from_iterable([linha[:-1] for linha in questao_26 if linha != questao_26[-1]])), f_exp=list(chain.from_iterable([linha[:-1] for linha in questao_26_esperado if linha != questao_26_esperado[-1]])))
+        questao_27_pvalor = chisquare(list(chain.from_iterable([linha[:-1] for linha in questao_27 if linha != questao_27[-1]])), f_exp=list(chain.from_iterable([linha[:-1] for linha in questao_27_esperado if linha != questao_27_esperado[-1]])))
+        questao_28_pvalor = chisquare(list(chain.from_iterable([linha[:-1] for linha in questao_28 if linha != questao_28[-1]])), f_exp=list(chain.from_iterable([linha[:-1] for linha in questao_28_esperado if linha != questao_28_esperado[-1]])))
+        questao_29_pvalor = chisquare(list(chain.from_iterable([linha[:-1] for linha in questao_29 if linha != questao_29[-1]])), f_exp=list(chain.from_iterable([linha[:-1] for linha in questao_29_esperado if linha != questao_29_esperado[-1]])))
+        questao_30_pvalor = chisquare(list(chain.from_iterable([linha[:-1] for linha in questao_30 if linha != questao_30[-1]])), f_exp=list(chain.from_iterable([linha[:-1] for linha in questao_30_esperado if linha != questao_30_esperado[-1]])))
+        questao_31_pvalor = chisquare(list(chain.from_iterable([linha[:-1] for linha in questao_31 if linha != questao_31[-1]])), f_exp=list(chain.from_iterable([linha[:-1] for linha in questao_31_esperado if linha != questao_31_esperado[-1]])))
+        questao_32_pvalor = chisquare(list(chain.from_iterable([linha[:-1] for linha in questao_32 if linha != questao_32[-1]])), f_exp=list(chain.from_iterable([linha[:-1] for linha in questao_32_esperado if linha != questao_32_esperado[-1]])))
+        questao_33_pvalor = chisquare(list(chain.from_iterable([linha[:-1] for linha in questao_33 if linha != questao_33[-1]])), f_exp=list(chain.from_iterable([linha[:-1] for linha in questao_33_esperado if linha != questao_33_esperado[-1]])))
+        questao_34_pvalor = chisquare(list(chain.from_iterable([linha[:-1] for linha in questao_34 if linha != questao_34[-1]])), f_exp=list(chain.from_iterable([linha[:-1] for linha in questao_34_esperado if linha != questao_34_esperado[-1]])))
+        questao_35_pvalor = chisquare(list(chain.from_iterable([linha[:-1] for linha in questao_35 if linha != questao_35[-1]])), f_exp=list(chain.from_iterable([linha[:-1] for linha in questao_35_esperado if linha != questao_35_esperado[-1]])))
+        questao_36_pvalor = chisquare(list(chain.from_iterable([linha[:-1] for linha in questao_36 if linha != questao_36[-1]])), f_exp=list(chain.from_iterable([linha[:-1] for linha in questao_36_esperado if linha != questao_36_esperado[-1]])))
+        questao_37_pvalor = chisquare(list(chain.from_iterable([linha[:-1] for linha in questao_37 if linha != questao_37[-1]])), f_exp=list(chain.from_iterable([linha[:-1] for linha in questao_37_esperado if linha != questao_37_esperado[-1]])))
+        questao_38_pvalor = chisquare(list(chain.from_iterable([linha[:-1] for linha in questao_38 if linha != questao_38[-1]])), f_exp=list(chain.from_iterable([linha[:-1] for linha in questao_38_esperado if linha != questao_38_esperado[-1]])))
+        questao_39_pvalor = chisquare(list(chain.from_iterable([linha[:-1] for linha in questao_39 if linha != questao_39[-1]])), f_exp=list(chain.from_iterable([linha[:-1] for linha in questao_39_esperado if linha != questao_39_esperado[-1]])))
+        questao_40_pvalor = chisquare(list(chain.from_iterable([linha[:-1] for linha in questao_40 if linha != questao_40[-1]])), f_exp=list(chain.from_iterable([linha[:-1] for linha in questao_40_esperado if linha != questao_40_esperado[-1]])))
+        questao_41_pvalor = chisquare(list(chain.from_iterable([linha[:-1] for linha in questao_41 if linha != questao_41[-1]])), f_exp=list(chain.from_iterable([linha[:-1] for linha in questao_41_esperado if linha != questao_41_esperado[-1]])))
+        questao_42_pvalor = chisquare(list(chain.from_iterable([linha[:-1] for linha in questao_42 if linha != questao_42[-1]])), f_exp=list(chain.from_iterable([linha[:-1] for linha in questao_42_esperado if linha != questao_42_esperado[-1]])))
+        questao_43_pvalor = chisquare(list(chain.from_iterable([linha[:-1] for linha in questao_43 if linha != questao_43[-1]])), f_exp=list(chain.from_iterable([linha[:-1] for linha in questao_43_esperado if linha != questao_43_esperado[-1]])))
+        questao_44_pvalor = chisquare(list(chain.from_iterable([linha[:-1] for linha in questao_44 if linha != questao_44[-1]])), f_exp=list(chain.from_iterable([linha[:-1] for linha in questao_44_esperado if linha != questao_44_esperado[-1]])))
+        questao_45_pvalor = chisquare(list(chain.from_iterable([linha[:-1] for linha in questao_45 if linha != questao_45[-1]])), f_exp=list(chain.from_iterable([linha[:-1] for linha in questao_45_esperado if linha != questao_45_esperado[-1]])))
+        questao_46_pvalor = chisquare(list(chain.from_iterable([linha[:-1] for linha in questao_46 if linha != questao_46[-1]])), f_exp=list(chain.from_iterable([linha[:-1] for linha in questao_46_esperado if linha != questao_46_esperado[-1]])))
+        questao_47_pvalor = chisquare(list(chain.from_iterable([linha[:-1] for linha in questao_47 if linha != questao_47[-1]])), f_exp=list(chain.from_iterable([linha[:-1] for linha in questao_47_esperado if linha != questao_47_esperado[-1]])))
+        questao_48_pvalor = chisquare(list(chain.from_iterable([linha[:-1] for linha in questao_48 if linha != questao_48[-1]])), f_exp=list(chain.from_iterable([linha[:-1] for linha in questao_48_esperado if linha != questao_48_esperado[-1]])))
+        questao_49_pvalor = chisquare(list(chain.from_iterable([linha[:-1] for linha in questao_49 if linha != questao_49[-1]])), f_exp=list(chain.from_iterable([linha[:-1] for linha in questao_49_esperado if linha != questao_49_esperado[-1]])))
+        questao_50_pvalor = chisquare(list(chain.from_iterable([linha[:-1] for linha in questao_50 if linha != questao_50[-1]])), f_exp=list(chain.from_iterable([linha[:-1] for linha in questao_50_esperado if linha != questao_50_esperado[-1]])))
+        questao_51_pvalor = chisquare(list(chain.from_iterable([linha[:-1] for linha in questao_51 if linha != questao_51[-1]])), f_exp=list(chain.from_iterable([linha[:-1] for linha in questao_51_esperado if linha != questao_51_esperado[-1]])))
+        questao_52_pvalor = chisquare(list(chain.from_iterable([linha[:-1] for linha in questao_52 if linha != questao_52[-1]])), f_exp=list(chain.from_iterable([linha[:-1] for linha in questao_52_esperado if linha != questao_52_esperado[-1]])))
+        questao_53_pvalor = chisquare(list(chain.from_iterable([linha[:-1] for linha in questao_53 if linha != questao_53[-1]])), f_exp=list(chain.from_iterable([linha[:-1] for linha in questao_53_esperado if linha != questao_53_esperado[-1]])))
+        questao_54_pvalor = chisquare(list(chain.from_iterable([linha[:-1] for linha in questao_54 if linha != questao_54[-1]])), f_exp=list(chain.from_iterable([linha[:-1] for linha in questao_54_esperado if linha != questao_54_esperado[-1]])))
         
         context = {
             'pagina_inferencia': True,
