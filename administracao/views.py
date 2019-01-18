@@ -89,6 +89,28 @@ class InferenciaView(LoginRequired, View):
         raca = [[0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0]]
         raca_esperado = [[0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0]]
         
+        # Uso de cigarro
+        questao_73 = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
+        questao_73_esperado = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
+        questao_75 = [[0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0]]
+        questao_75_esperado = [[0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0]]
+        questao_79 = [[0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0]]
+        questao_79_esperado = [[0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0]]
+        
+        # Consumo de bebida alcoólica
+        questao_84 = [[0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0]]
+        questao_84_esperado = [[0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0]]
+        
+        # Drogas ilícitas
+        questao_92 = [[0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0]]
+        questao_92_esperado = [[0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0]]
+        
+        # Saúde bucal
+        questao_111 = [[0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0]]
+        questao_111_esperado = [[0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0]]
+        questao_113 = [[0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0]]
+        questao_113_esperado = [[0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0]]
+        
         # Frequência alimentar
         questao_25 = [[0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0]]
         questao_25_esperado = [[0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0]]
@@ -214,6 +236,102 @@ class InferenciaView(LoginRequired, View):
                     except Questionario.DoesNotExist:
                         pass
                     else:
+                        # Questão 73
+                        if aluno.questionario.questao_73 == '0': # Sim
+                            questao_73[0][0] += 1
+                        elif aluno.questionario.questao_73 == '1': # Não
+                            questao_73[1][0] += 1
+                        
+                        # Questão 75
+                        if aluno.questionario.questao_75 == '0': # Nenhum dia nos últimos 30 dias (0 dia)
+                            questao_75[0][0] += 1
+                        elif aluno.questionario.questao_75 == '1': # 1 ou 2 dias nos últimos 30 dias
+                            questao_75[1][0] += 1
+                        elif aluno.questionario.questao_75 == '2': # 3 a 5 dias nos últimos 30 dias
+                            questao_75[2][0] += 1
+                        elif aluno.questionario.questao_75 == '3': # 6 a 9 dias nos últimos 30 dias
+                            questao_75[3][0] += 1
+                        elif aluno.questionario.questao_75 == '4': # 10 a 19 dias nos últimos 30 dias
+                            questao_75[4][0] += 1
+                        elif aluno.questionario.questao_75 == '5': # 20 a 29 dias nos últimos 30 dias
+                            questao_75[5][0] += 1
+                        elif aluno.questionario.questao_75 == '6': # Todos os dias nos últimos 30 dias
+                            questao_75[6][0] += 1
+                        
+                        # Questão 79
+                        if aluno.questionario.questao_79 == '0': # Não usei nenhum produto do tabaco (os produtos do tabaco estão abaixo relacionados)
+                            questao_79[0][0] += 1
+                        elif aluno.questionario.questao_79 == '1': # Cigarros de cravo (conhecidos como cigarros de Bali).
+                            questao_79[1][0] += 1
+                        elif aluno.questionario.questao_79 == '2': # Cigarros enrolados à mão (conhecidos como cigarros de palha ou papel)
+                            questao_79[2][0] += 1
+                        elif aluno.questionario.questao_79 == '3': # Cigarrilhas
+                            questao_79[3][0] += 1
+                        elif aluno.questionario.questao_79 == '4': # Charutos, charutos pequenos.
+                            questao_79[4][0] += 1
+                        elif aluno.questionario.questao_79 == '5': # Fumo para mascar
+                            questao_79[5][0] += 1
+                        elif aluno.questionario.questao_79 == '6': # Narguilé (cachimbo de água)
+                            questao_79[6][0] += 1
+                        elif aluno.questionario.questao_79 == '7': # Cigarros indianos (bidis)
+                            questao_79[7][0] += 1
+                        elif aluno.questionario.questao_79 == '8': # Cigarro eletrônico (e-cigarette)
+                            questao_79[8][0] += 1
+                        elif aluno.questionario.questao_79 == '9': # Outros
+                            questao_79[9][0] += 1
+                        
+                        # Questao_84
+                        if aluno.questionario.questao_84 == '0': # Nenhum dia nos últimos 30 dias (0 dia)
+                            questao_84[0][0] += 1
+                        elif aluno.questionario.questao_84 == '1': # 1 ou 2 dias nos últimos 30 dias
+                            questao_84[1][0] += 1
+                        elif aluno.questionario.questao_84 == '2': # 3 a 5 dias nos últimos 30 dias
+                            questao_84[2][0] += 1
+                        elif aluno.questionario.questao_84 == '3': # 6 a 9 dias nos últimos 30 dias
+                            questao_84[3][0] += 1
+                        elif aluno.questionario.questao_84 == '4': # 10 a 19 dias nos últimos 30 dias
+                            questao_84[4][0] += 1
+                        elif aluno.questionario.questao_84 == '5': # 20 a 29 dias nos últimos 30 dias
+                            questao_84[5][0] += 1
+                        elif aluno.questionario.questao_84 == '6': # Todos os dias nos últimos 30 dias
+                            questao_84[6][0] += 1
+                        
+                        # Questao_92
+                        if aluno.questionario.questao_92 == '0': # Nenhum dia nos últimos 30 dias (0 dia)
+                            questao_92[0][0] += 1
+                        elif aluno.questionario.questao_92 == '1': # 1 ou 2 dias nos últimos 30 dias
+                            questao_92[1][0] += 1
+                        elif aluno.questionario.questao_92 == '2': # 3 a 5 dias nos últimos 30 dias
+                            questao_92[2][0] += 1
+                        elif aluno.questionario.questao_92 == '3': # 6 a 9 dias nos últimos 30 dias
+                            questao_92[3][0] += 1
+                        elif aluno.questionario.questao_92 == '4': # 10 ou mais dias nos últimos 30 dias
+                            questao_92[4][0] += 1
+                        
+                        # Questao_111
+                        if aluno.questionario.questao_111 == '0': # Não escovei meus dentes nos últimos 30 dias
+                            questao_111[0][0] += 1
+                        elif aluno.questionario.questao_111 == '1': # Não escovei meus dentes diariamente
+                            questao_111[1][0] += 1
+                        elif aluno.questionario.questao_111 == '2': # 1 vez por dia nos últimos 30 dias
+                            questao_111[2][0] += 1
+                        elif aluno.questionario.questao_111 == '3': # 2 vezes por dia nos últimos 30 dias
+                            questao_111[3][0] += 1
+                        elif aluno.questionario.questao_111 == '4': # 3 vezes por dia nos últimos 30 dias
+                            questao_111[4][0] += 1
+                        elif aluno.questionario.questao_111 == '5': # 4 ou mais vezes por dia nos últimos 30 dias
+                            questao_111[5][0] += 1
+                        
+                        # Questao_113
+                        if aluno.questionario.questao_113 == '0': # Nenhuma vez nos últimos 12 meses (0 vez)
+                            questao_113[0][0] += 1
+                        elif aluno.questionario.questao_113 == '1': # 1 vez nos últimos 12 meses
+                            questao_113[1][0] += 1
+                        elif aluno.questionario.questao_113 == '2': # 2 vezes nos últimos 12 meses
+                            questao_113[2][0] += 1
+                        elif aluno.questionario.questao_113 == '3': # 3 ou mais vezes nos últimos 12 meses
+                            questao_113[3][0] += 1
+                        
                         # Questão 25
                         if aluno.questionario.questao_25 == '0': # Nunca ou menos de uma vez por mês
                             questao_25[0][0] += 1
@@ -839,6 +957,102 @@ class InferenciaView(LoginRequired, View):
                     except Questionario.DoesNotExist:
                         pass
                     else:
+                        # Questão 73
+                        if aluno.questionario.questao_73 == '0': # Sim
+                            questao_73[0][1] += 1
+                        elif aluno.questionario.questao_73 == '1': # Não
+                            questao_73[1][1] += 1
+                        
+                        # Questão 75
+                        if aluno.questionario.questao_75 == '0': # Nenhum dia nos últimos 30 dias (0 dia)
+                            questao_75[0][1] += 1
+                        elif aluno.questionario.questao_75 == '1': # 1 ou 2 dias nos últimos 30 dias
+                            questao_75[1][1] += 1
+                        elif aluno.questionario.questao_75 == '2': # 3 a 5 dias nos últimos 30 dias
+                            questao_75[2][1] += 1
+                        elif aluno.questionario.questao_75 == '3': # 6 a 9 dias nos últimos 30 dias
+                            questao_75[3][1] += 1
+                        elif aluno.questionario.questao_75 == '4': # 10 a 19 dias nos últimos 30 dias
+                            questao_75[4][1] += 1
+                        elif aluno.questionario.questao_75 == '5': # 20 a 29 dias nos últimos 30 dias
+                            questao_75[5][1] += 1
+                        elif aluno.questionario.questao_75 == '6': # Todos os dias nos últimos 30 dias
+                            questao_75[6][1] += 1
+                        
+                        # Questão 79
+                        if aluno.questionario.questao_79 == '0': # Não usei nenhum produto do tabaco (os produtos do tabaco estão abaixo relacionados)
+                            questao_79[0][1] += 1
+                        elif aluno.questionario.questao_79 == '1': # Cigarros de cravo (conhecidos como cigarros de Bali).
+                            questao_79[1][1] += 1
+                        elif aluno.questionario.questao_79 == '2': # Cigarros enrolados à mão (conhecidos como cigarros de palha ou papel)
+                            questao_79[2][1] += 1
+                        elif aluno.questionario.questao_79 == '3': # Cigarrilhas
+                            questao_79[3][1] += 1
+                        elif aluno.questionario.questao_79 == '4': # Charutos, charutos pequenos.
+                            questao_79[4][1] += 1
+                        elif aluno.questionario.questao_79 == '5': # Fumo para mascar
+                            questao_79[5][1] += 1
+                        elif aluno.questionario.questao_79 == '6': # Narguilé (cachimbo de água)
+                            questao_79[6][1] += 1
+                        elif aluno.questionario.questao_79 == '7': # Cigarros indianos (bidis)
+                            questao_79[7][1] += 1
+                        elif aluno.questionario.questao_79 == '8': # Cigarro eletrônico (e-cigarette)
+                            questao_79[8][1] += 1
+                        elif aluno.questionario.questao_79 == '9': # Outros
+                            questao_79[9][1] += 1
+                        
+                        # Questao_84
+                        if aluno.questionario.questao_84 == '0': # Nenhum dia nos últimos 30 dias (0 dia)
+                            questao_84[0][1] += 1
+                        elif aluno.questionario.questao_84 == '1': # 1 ou 2 dias nos últimos 30 dias
+                            questao_84[1][1] += 1
+                        elif aluno.questionario.questao_84 == '2': # 3 a 5 dias nos últimos 30 dias
+                            questao_84[2][1] += 1
+                        elif aluno.questionario.questao_84 == '3': # 6 a 9 dias nos últimos 30 dias
+                            questao_84[3][1] += 1
+                        elif aluno.questionario.questao_84 == '4': # 10 a 19 dias nos últimos 30 dias
+                            questao_84[4][1] += 1
+                        elif aluno.questionario.questao_84 == '5': # 20 a 29 dias nos últimos 30 dias
+                            questao_84[5][1] += 1
+                        elif aluno.questionario.questao_84 == '6': # Todos os dias nos últimos 30 dias
+                            questao_84[6][1] += 1
+                        
+                        # Questao_92
+                        if aluno.questionario.questao_92 == '0': # Nenhum dia nos últimos 30 dias (0 dia)
+                            questao_92[0][1] += 1
+                        elif aluno.questionario.questao_92 == '1': # 1 ou 2 dias nos últimos 30 dias
+                            questao_92[1][1] += 1
+                        elif aluno.questionario.questao_92 == '2': # 3 a 5 dias nos últimos 30 dias
+                            questao_92[2][1] += 1
+                        elif aluno.questionario.questao_92 == '3': # 6 a 9 dias nos últimos 30 dias
+                            questao_92[3][1] += 1
+                        elif aluno.questionario.questao_92 == '4': # 10 ou mais dias nos últimos 30 dias
+                            questao_92[4][1] += 1
+                        
+                        # Questao_111
+                        if aluno.questionario.questao_111 == '0': # Não escovei meus dentes nos últimos 30 dias
+                            questao_111[0][1] += 1
+                        elif aluno.questionario.questao_111 == '1': # Não escovei meus dentes diariamente
+                            questao_111[1][1] += 1
+                        elif aluno.questionario.questao_111 == '2': # 1 vez por dia nos últimos 30 dias
+                            questao_111[2][1] += 1
+                        elif aluno.questionario.questao_111 == '3': # 2 vezes por dia nos últimos 30 dias
+                            questao_111[3][1] += 1
+                        elif aluno.questionario.questao_111 == '4': # 3 vezes por dia nos últimos 30 dias
+                            questao_111[4][1] += 1
+                        elif aluno.questionario.questao_111 == '5': # 4 ou mais vezes por dia nos últimos 30 dias
+                            questao_111[5][1] += 1
+                        
+                        # Questao_113
+                        if aluno.questionario.questao_113 == '0': # Nenhuma vez nos últimos 12 meses (0 vez)
+                            questao_113[0][1] += 1
+                        elif aluno.questionario.questao_113 == '1': # 1 vez nos últimos 12 meses
+                            questao_113[1][1] += 1
+                        elif aluno.questionario.questao_113 == '2': # 2 vezes nos últimos 12 meses
+                            questao_113[2][1] += 1
+                        elif aluno.questionario.questao_113 == '3': # 3 ou mais vezes nos últimos 12 meses
+                            questao_113[3][1] += 1
+                        
                         # Questão 25
                         if aluno.questionario.questao_25 == '0': # Nunca ou menos de uma vez por mês
                             questao_25[0][1] += 1
@@ -1440,22 +1654,98 @@ class InferenciaView(LoginRequired, View):
                             questao_54[8][1] += 1
             
                 # Totais da tabela sexo
-                sexo[3][0] = sexo[0][0] + sexo[1][0] + sexo[2][0] # total da coluna sim
-                sexo[3][1] = sexo[0][1] + sexo[1][1] + sexo[2][1] # total da coluna não
-                sexo[3][2] = sexo[3][0] + sexo[3][1] # total geral
-                sexo[0][2] = sexo[0][0] + sexo[0][1] # total da linha masculino
-                sexo[1][2] = sexo[1][0] + sexo[1][1] # total da linha feminino
-                sexo[2][2] = sexo[2][0] + sexo[2][1] # total da linha outro
+                sexo[3][0] = sexo[0][0] + sexo[1][0] + sexo[2][0] # Total da coluna sim
+                sexo[3][1] = sexo[0][1] + sexo[1][1] + sexo[2][1] # Total da coluna não
+                sexo[3][2] = sexo[3][0] + sexo[3][1] # Total geral
+                sexo[0][2] = sexo[0][0] + sexo[0][1] # Total da linha masculino
+                sexo[1][2] = sexo[1][0] + sexo[1][1] # Total da linha feminino
+                sexo[2][2] = sexo[2][0] + sexo[2][1] # Total da linha outro
                 
                 # Totais da tabela raça
-                raca[5][0] = raca[0][0] + raca[1][0] + raca[2][0] + raca[3][0] + raca[4][0] # total da coluna sim
-                raca[5][1] = raca[0][1] + raca[1][1] + raca[2][1] + raca[3][1] + raca[4][1] # total da coluna não
-                raca[5][2] = raca[5][0] + raca[5][1] # total geral
-                raca[0][2] = raca[0][0] + raca[0][1] # total da linha amarela
-                raca[1][2] = raca[1][0] + raca[1][1] # total da linha branca
-                raca[2][2] = raca[2][0] + raca[2][1] # total da linha indigena
-                raca[3][2] = raca[3][0] + raca[3][1] # total da linha parda
-                raca[4][2] = raca[4][0] + raca[4][1] # total da linha preta
+                raca[5][0] = raca[0][0] + raca[1][0] + raca[2][0] + raca[3][0] + raca[4][0] # Total da coluna sim
+                raca[5][1] = raca[0][1] + raca[1][1] + raca[2][1] + raca[3][1] + raca[4][1] # Total da coluna não
+                raca[5][2] = raca[5][0] + raca[5][1] # Total geral
+                raca[0][2] = raca[0][0] + raca[0][1] # Total da linha amarela
+                raca[1][2] = raca[1][0] + raca[1][1] # Total da linha branca
+                raca[2][2] = raca[2][0] + raca[2][1] # Total da linha indigena
+                raca[3][2] = raca[3][0] + raca[3][1] # Total da linha parda
+                raca[4][2] = raca[4][0] + raca[4][1] # Total da linha preta
+                
+                # Totais da tabela questão 73
+                questao_73[2][0] = questao_73[0][0] + questao_73[1][0] # Total da coluna sim
+                questao_73[2][1] = questao_73[0][1] + questao_73[1][1] # Total da coluna não
+                questao_73[2][2] = questao_73[2][0] + questao_73[2][1] # Total geral
+                questao_73[0][2] = questao_73[0][0] + questao_73[0][1] # Total da linha sim
+                questao_73[1][2] = questao_73[1][0] + questao_73[1][1] # Total da linha não
+                
+                # Totais da tabela questão 75
+                questao_75[7][0] = questao_75[0][0] + questao_75[1][0] + questao_75[2][0] + questao_75[3][0] + questao_75[4][0] + questao_75[5][0] + questao_75[6][0] # Total da coluna sim
+                questao_75[7][1] = questao_75[0][1] + questao_75[1][1] + questao_75[2][1] + questao_75[3][1] + questao_75[4][1] + questao_75[5][1] + questao_75[6][1] # Total da coluna não
+                questao_75[7][2] = questao_75[7][0] + questao_75[7][1] # Total geral
+                questao_75[0][2] = questao_75[0][0] + questao_75[0][1] # Nenhum dia nos últimos 30 dias (0 dia)
+                questao_75[1][2] = questao_75[1][0] + questao_75[1][1] # 1 ou 2 dias nos últimos 30 dias
+                questao_75[2][2] = questao_75[2][0] + questao_75[2][1] # 3 a 5 dias nos últimos 30 dias
+                questao_75[3][2] = questao_75[3][0] + questao_75[3][1] # 6 a 9 dias nos últimos 30 dias
+                questao_75[4][2] = questao_75[4][0] + questao_75[4][1] # 10 a 19 dias nos últimos 30 dias
+                questao_75[5][2] = questao_75[5][0] + questao_75[5][1] # 20 a 29 dias nos últimos 30 dias
+                questao_75[6][2] = questao_75[6][0] + questao_75[6][1] # Todos os dias nos últimos 30 dias
+                
+                # Totais da tabela questão 79
+                questao_79[10][0] = questao_79[0][0] + questao_79[1][0] + questao_79[2][0] + questao_79[3][0] + questao_79[4][0] + questao_79[5][0] + questao_79[6][0] + questao_79[7][0] + questao_79[8][0] + questao_79[9][0] # Total da coluna sim
+                questao_79[10][1] = questao_79[0][1] + questao_79[1][1] + questao_79[2][1] + questao_79[3][1] + questao_79[4][1] + questao_79[5][1] + questao_79[6][1] + questao_79[7][1] + questao_79[8][1] + questao_79[9][1] # Total da coluna não
+                questao_79[10][2] = questao_79[10][0] + questao_79[10][1] # Total geral
+                questao_79[0][2] = questao_79[0][0] + questao_79[0][1] # Não usei nenhum produto do tabaco (os produtos do tabaco estão abaixo relacionados)
+                questao_79[1][2] = questao_79[1][0] + questao_79[1][1] # Cigarros de cravo (conhecidos como cigarros de Bali).
+                questao_79[2][2] = questao_79[2][0] + questao_79[2][1] # Cigarros enrolados à mão (conhecidos como cigarros de palha ou papel)
+                questao_79[3][2] = questao_79[3][0] + questao_79[3][1] # Cigarrilhas
+                questao_79[4][2] = questao_79[4][0] + questao_79[4][1] # Charutos, charutos pequenos.
+                questao_79[5][2] = questao_79[5][0] + questao_79[5][1] # Fumo para mascar
+                questao_79[6][2] = questao_79[6][0] + questao_79[6][1] # Narguilé (cachimbo de água)
+                questao_79[7][2] = questao_79[7][0] + questao_79[7][1] # Cigarros indianos (bidis)
+                questao_79[8][2] = questao_79[8][0] + questao_79[8][1] # Cigarro eletrônico (e-cigarette)
+                questao_79[9][2] = questao_79[9][0] + questao_79[9][1] # Outros
+                
+                # Totais da tabela questão 84
+                questao_84[7][0] = questao_84[0][0] + questao_84[1][0] + questao_84[2][0] + questao_84[3][0] + questao_84[4][0] + questao_84[5][0] + questao_84[6][0] # Total da coluna sim
+                questao_84[7][1] = questao_84[0][1] + questao_84[1][1] + questao_84[2][1] + questao_84[3][1] + questao_84[4][1] + questao_84[5][1] + questao_84[6][1] # Total da coluna não
+                questao_84[7][2] = questao_84[7][0] + questao_84[7][1] # Total geral
+                questao_84[0][2] = questao_84[0][0] + questao_84[0][1] # Nenhum dia nos últimos 30 dias (0 dia)
+                questao_84[1][2] = questao_84[1][0] + questao_84[1][1] # 1 ou 2 dias nos últimos 30 dias
+                questao_84[2][2] = questao_84[2][0] + questao_84[2][1] # 3 a 5 dias nos últimos 30 dias
+                questao_84[3][2] = questao_84[3][0] + questao_84[3][1] # 6 a 9 dias nos últimos 30 dias
+                questao_84[4][2] = questao_84[4][0] + questao_84[4][1] # 10 a 19 dias nos últimos 30 dias
+                questao_84[5][2] = questao_84[5][0] + questao_84[5][1] # 20 a 29 dias nos últimos 30 dias
+                questao_84[6][2] = questao_84[6][0] + questao_84[6][1] # Todos os dias nos últimos 30 dias
+                
+                # Totais da tabela questão 92
+                questao_92[5][0] = questao_92[0][0] + questao_92[1][0] + questao_92[2][0] + questao_92[3][0] + questao_92[4][0] # Total da coluna sim
+                questao_92[5][1] = questao_92[0][1] + questao_92[1][1] + questao_92[2][1] + questao_92[3][1] + questao_92[4][1] # Total da coluna não
+                questao_92[5][2] = questao_92[5][0] + questao_92[5][1] # Total geral
+                questao_92[0][2] = questao_92[0][0] + questao_92[0][1] # Nenhum dia nos últimos 30 dias (0 dia)
+                questao_92[1][2] = questao_92[1][0] + questao_92[1][1] # 1 ou 2 dias nos últimos 30 dias
+                questao_92[2][2] = questao_92[2][0] + questao_92[2][1] # 3 a 5 dias nos últimos 30 dias
+                questao_92[3][2] = questao_92[3][0] + questao_92[3][1] # 6 a 9 dias nos últimos 30 dias
+                questao_92[4][2] = questao_92[4][0] + questao_92[4][1] # 10 ou mais dias nos últimos 30 dias
+                
+                # Totais da tabela questão 111
+                questao_111[6][0] = questao_111[0][0] + questao_111[1][0] + questao_111[2][0] + questao_111[3][0] + questao_111[4][0] + questao_111[5][0] # Total da coluna sim
+                questao_111[6][1] = questao_111[0][1] + questao_111[1][1] + questao_111[2][1] + questao_111[3][1] + questao_111[4][1] + questao_111[5][1] # Total da coluna não
+                questao_111[6][2] = questao_111[6][0] + questao_111[6][1] # Total geral
+                questao_111[0][2] = questao_111[0][0] + questao_111[0][1] # Não escovei meus dentes nos últimos 30 dias
+                questao_111[1][2] = questao_111[1][0] + questao_111[1][1] # Não escovei meus dentes diariamente
+                questao_111[2][2] = questao_111[2][0] + questao_111[2][1] # 1 vez por dia nos últimos 30 dias
+                questao_111[3][2] = questao_111[3][0] + questao_111[3][1] # 2 vezes por dia nos últimos 30 dias
+                questao_111[4][2] = questao_111[4][0] + questao_111[4][1] # 3 vezes por dia nos últimos 30 dias
+                questao_111[5][2] = questao_111[5][0] + questao_111[5][1] # 4 ou mais vezes por dia nos últimos 30 dias
+                
+                # Totais da tabela questão 113
+                questao_113[4][0] = questao_113[0][0] + questao_113[1][0] + questao_113[2][0] + questao_113[3][0] # Total da coluna sim
+                questao_113[4][1] = questao_113[0][1] + questao_113[1][1] + questao_113[2][1] + questao_113[3][1] # Total da coluna não
+                questao_113[4][2] = questao_113[4][0] + questao_113[4][1] # Total geral
+                questao_113[0][2] = questao_113[0][0] + questao_113[0][1] # Nenhuma vez nos últimos 12 meses (0 vez)
+                questao_113[1][2] = questao_113[1][0] + questao_113[1][1] # 1 vez nos últimos 12 meses
+                questao_113[2][2] = questao_113[2][0] + questao_113[2][1] # 2 vezes nos últimos 12 meses
+                questao_113[3][2] = questao_113[3][0] + questao_113[3][1] # 3 ou mais vezes nos últimos 12 meses
                 
                 # Totais da tabela questão 25
                 questao_25[9][0] = questao_25[0][0] + questao_25[1][0] + questao_25[2][0] + questao_25[3][0] + questao_25[4][0] + questao_25[5][0] + questao_25[6][0] + questao_25[7][0] + questao_25[8][0] # Total da coluna sim
@@ -1886,11 +2176,17 @@ class InferenciaView(LoginRequired, View):
         sexo_esperado[2][0] = (sexo[2][2] / sexo[3][2]) * sexo[3][0] # outro sim
         sexo_esperado[2][1] = (sexo[2][2] / sexo[3][2]) * sexo[3][1] # outro não
         
-        
-        
-        
-        
         raca_esperado = raca
+        
+        
+        questao_73_esperado = questao_73
+        questao_75_esperado = questao_75
+        questao_79_esperado = questao_79
+        questao_84_esperado = questao_84
+        questao_92_esperado = questao_92
+        questao_111_esperado = questao_111
+        questao_113_esperado = questao_113
+        
         questao_25_esperado = questao_25
         questao_26_esperado = questao_26
         questao_27_esperado = questao_27
@@ -1927,6 +2223,13 @@ class InferenciaView(LoginRequired, View):
             'sexo': sexo,
             'sexo_esperado': sexo_esperado,
             'raca': raca,
+            'questao_73': questao_73,
+            'questao_75': questao_75,
+            'questao_79': questao_79,
+            'questao_84': questao_84,
+            'questao_92': questao_92,
+            'questao_111': questao_111,
+            'questao_113': questao_113,
             'questao_25': questao_25,
             'questao_26': questao_26,
             'questao_27': questao_27,
