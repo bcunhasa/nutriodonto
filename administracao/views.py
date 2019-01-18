@@ -2176,52 +2176,679 @@ class InferenciaView(LoginRequired, View):
         sexo_esperado[2][0] = (sexo[2][2] / sexo[3][2]) * sexo[3][0] # outro sim
         sexo_esperado[2][1] = (sexo[2][2] / sexo[3][2]) * sexo[3][1] # outro não
         
-        raca_esperado = raca
+        raca_esperado[0][0] = (raca[0][2] / raca[5][2]) * raca[5][0] # Amarela sim
+        raca_esperado[0][1] = (raca[0][2] / raca[5][2]) * raca[5][1] # Amarela não
+        raca_esperado[1][0] = (raca[1][2] / raca[5][2]) * raca[5][0] # Branca sim
+        raca_esperado[1][1] = (raca[1][2] / raca[5][2]) * raca[5][1] # Branca não
+        raca_esperado[2][0] = (raca[2][2] / raca[5][2]) * raca[5][0] # Indígena sim
+        raca_esperado[2][1] = (raca[2][2] / raca[5][2]) * raca[5][1] # Indígena não
+        raca_esperado[3][0] = (raca[3][2] / raca[5][2]) * raca[5][0] # Parda sim
+        raca_esperado[3][1] = (raca[3][2] / raca[5][2]) * raca[5][1] # Parda não
+        raca_esperado[4][0] = (raca[4][2] / raca[5][2]) * raca[5][0] # Preta sim
+        raca_esperado[4][1] = (raca[4][2] / raca[5][2]) * raca[5][1] # Preta não
         
+        questao_73_esperado[0][0] = (questao_73[0][2] / questao_73[2][2]) * questao_73[2][0] # Sim sim
+        questao_73_esperado[0][1] = (questao_73[0][2] / questao_73[2][2]) * questao_73[2][1] # Não não
+        questao_73_esperado[1][0] = (questao_73[1][2] / questao_73[2][2]) * questao_73[2][0] # Sim sim
+        questao_73_esperado[1][1] = (questao_73[1][2] / questao_73[2][2]) * questao_73[2][1] # Não não
         
-        questao_73_esperado = questao_73
-        questao_75_esperado = questao_75
-        questao_79_esperado = questao_79
-        questao_84_esperado = questao_84
-        questao_92_esperado = questao_92
-        questao_111_esperado = questao_111
-        questao_113_esperado = questao_113
+        questao_75_esperado[0][0] = (questao_75[0][2] / questao_75[7][2]) * questao_75[7][0] # Nenhum dia nos últimos 30 dias (0 dia) sim
+        questao_75_esperado[0][1] = (questao_75[0][2] / questao_75[7][2]) * questao_75[7][1] # Nenhum dia nos últimos 30 dias (0 dia) não
+        questao_75_esperado[1][0] = (questao_75[1][2] / questao_75[7][2]) * questao_75[7][0] # 1 ou 2 dias nos últimos 30 dias sim
+        questao_75_esperado[1][1] = (questao_75[1][2] / questao_75[7][2]) * questao_75[7][1] # 1 ou 2 dias nos últimos 30 dias não
+        questao_75_esperado[2][0] = (questao_75[2][2] / questao_75[7][2]) * questao_75[7][0] # 3 a 5 dias nos últimos 30 dias sim
+        questao_75_esperado[2][1] = (questao_75[2][2] / questao_75[7][2]) * questao_75[7][1] # 3 a 5 dias nos últimos 30 dias não
+        questao_75_esperado[3][0] = (questao_75[3][2] / questao_75[7][2]) * questao_75[7][0] # 6 a 9 dias nos últimos 30 dias sim
+        questao_75_esperado[3][1] = (questao_75[3][2] / questao_75[7][2]) * questao_75[7][1] # 6 a 9 dias nos últimos 30 dias não
+        questao_75_esperado[4][0] = (questao_75[4][2] / questao_75[7][2]) * questao_75[7][0] # 10 a 19 dias nos últimos 30 dias sim
+        questao_75_esperado[4][1] = (questao_75[4][2] / questao_75[7][2]) * questao_75[7][1] # 10 a 19 dias nos últimos 30 dias não
+        questao_75_esperado[5][0] = (questao_75[5][2] / questao_75[7][2]) * questao_75[7][0] # 20 a 29 dias nos últimos 30 dias sim
+        questao_75_esperado[5][1] = (questao_75[5][2] / questao_75[7][2]) * questao_75[7][1] # 20 a 29 dias nos últimos 30 dias não
+        questao_75_esperado[6][0] = (questao_75[6][2] / questao_75[7][2]) * questao_75[7][0] # Todos os dias nos últimos 30 dias sim
+        questao_75_esperado[6][1] = (questao_75[6][2] / questao_75[7][2]) * questao_75[7][1] # Todos os dias nos últimos 30 dias não
         
-        questao_25_esperado = questao_25
-        questao_26_esperado = questao_26
-        questao_27_esperado = questao_27
-        questao_28_esperado = questao_28
-        questao_29_esperado = questao_29
-        questao_30_esperado = questao_30
-        questao_31_esperado = questao_31
-        questao_32_esperado = questao_32
-        questao_33_esperado = questao_33
-        questao_34_esperado = questao_34
-        questao_35_esperado = questao_35
-        questao_36_esperado = questao_36
-        questao_37_esperado = questao_37
-        questao_38_esperado = questao_38
-        questao_39_esperado = questao_39
-        questao_40_esperado = questao_40
-        questao_41_esperado = questao_41
-        questao_42_esperado = questao_42
-        questao_43_esperado = questao_43
-        questao_44_esperado = questao_44
-        questao_45_esperado = questao_45
-        questao_46_esperado = questao_46
-        questao_47_esperado = questao_47
-        questao_48_esperado = questao_48
-        questao_49_esperado = questao_49
-        questao_50_esperado = questao_50
-        questao_51_esperado = questao_51
-        questao_52_esperado = questao_52
-        questao_53_esperado = questao_53
-        questao_54_esperado = questao_54
+        questao_79_esperado[0][0] = (questao_79[0][2] / questao_79[10][2]) * questao_79[10][0]
+        questao_79_esperado[0][1] = (questao_79[0][2] / questao_79[10][2]) * questao_79[10][1]
+        questao_79_esperado[1][0] = (questao_79[1][2] / questao_79[10][2]) * questao_79[10][0]
+        questao_79_esperado[1][1] = (questao_79[1][2] / questao_79[10][2]) * questao_79[10][1]
+        questao_79_esperado[2][0] = (questao_79[2][2] / questao_79[10][2]) * questao_79[10][0]
+        questao_79_esperado[2][1] = (questao_79[2][2] / questao_79[10][2]) * questao_79[10][1]
+        questao_79_esperado[3][0] = (questao_79[3][2] / questao_79[10][2]) * questao_79[10][0]
+        questao_79_esperado[3][1] = (questao_79[3][2] / questao_79[10][2]) * questao_79[10][1]
+        questao_79_esperado[4][0] = (questao_79[4][2] / questao_79[10][2]) * questao_79[10][0]
+        questao_79_esperado[4][1] = (questao_79[4][2] / questao_79[10][2]) * questao_79[10][1]
+        questao_79_esperado[5][0] = (questao_79[5][2] / questao_79[10][2]) * questao_79[10][0]
+        questao_79_esperado[5][1] = (questao_79[5][2] / questao_79[10][2]) * questao_79[10][1]
+        questao_79_esperado[6][0] = (questao_79[6][2] / questao_79[10][2]) * questao_79[10][0]
+        questao_79_esperado[6][1] = (questao_79[6][2] / questao_79[10][2]) * questao_79[10][1]
+        questao_79_esperado[7][0] = (questao_79[7][2] / questao_79[10][2]) * questao_79[10][0]
+        questao_79_esperado[7][1] = (questao_79[7][2] / questao_79[10][2]) * questao_79[10][1]
+        questao_79_esperado[8][0] = (questao_79[8][2] / questao_79[10][2]) * questao_79[10][0]
+        questao_79_esperado[8][1] = (questao_79[8][2] / questao_79[10][2]) * questao_79[10][1]
+        questao_79_esperado[9][0] = (questao_79[9][2] / questao_79[10][2]) * questao_79[10][0]
+        questao_79_esperado[9][1] = (questao_79[9][2] / questao_79[10][2]) * questao_79[10][1]
+        
+        questao_84_esperado[0][0] = (questao_84[0][2] / questao_84[7][2]) * questao_84[7][0]
+        questao_84_esperado[0][1] = (questao_84[0][2] / questao_84[7][2]) * questao_84[7][1]
+        questao_84_esperado[1][0] = (questao_84[1][2] / questao_84[7][2]) * questao_84[7][0]
+        questao_84_esperado[1][1] = (questao_84[1][2] / questao_84[7][2]) * questao_84[7][1]
+        questao_84_esperado[2][0] = (questao_84[2][2] / questao_84[7][2]) * questao_84[7][0]
+        questao_84_esperado[2][1] = (questao_84[2][2] / questao_84[7][2]) * questao_84[7][1]
+        questao_84_esperado[3][0] = (questao_84[3][2] / questao_84[7][2]) * questao_84[7][0]
+        questao_84_esperado[3][1] = (questao_84[3][2] / questao_84[7][2]) * questao_84[7][1]
+        questao_84_esperado[4][0] = (questao_84[4][2] / questao_84[7][2]) * questao_84[7][0]
+        questao_84_esperado[4][1] = (questao_84[4][2] / questao_84[7][2]) * questao_84[7][1]
+        questao_84_esperado[5][0] = (questao_84[5][2] / questao_84[7][2]) * questao_84[7][0]
+        questao_84_esperado[5][1] = (questao_84[5][2] / questao_84[7][2]) * questao_84[7][1]
+        questao_84_esperado[6][0] = (questao_84[6][2] / questao_84[7][2]) * questao_84[7][0]
+        questao_84_esperado[6][1] = (questao_84[6][2] / questao_84[7][2]) * questao_84[7][1]
+        
+        questao_92_esperado[0][0] = (questao_92[0][2] / questao_92[5][2]) * questao_92[5][0]
+        questao_92_esperado[0][1] = (questao_92[0][2] / questao_92[5][2]) * questao_92[5][1]
+        questao_92_esperado[1][0] = (questao_92[1][2] / questao_92[5][2]) * questao_92[5][0]
+        questao_92_esperado[1][1] = (questao_92[1][2] / questao_92[5][2]) * questao_92[5][1]
+        questao_92_esperado[2][0] = (questao_92[2][2] / questao_92[5][2]) * questao_92[5][0]
+        questao_92_esperado[2][1] = (questao_92[2][2] / questao_92[5][2]) * questao_92[5][1]
+        questao_92_esperado[3][0] = (questao_92[3][2] / questao_92[5][2]) * questao_92[5][0]
+        questao_92_esperado[3][1] = (questao_92[3][2] / questao_92[5][2]) * questao_92[5][1]
+        questao_92_esperado[4][0] = (questao_92[4][2] / questao_92[5][2]) * questao_92[5][0]
+        questao_92_esperado[4][1] = (questao_92[4][2] / questao_92[5][2]) * questao_92[5][1]
+        
+        questao_111_esperado[0][0] = (questao_111[0][2] / questao_111[6][2]) * questao_111[6][0]
+        questao_111_esperado[0][1] = (questao_111[0][2] / questao_111[6][2]) * questao_111[6][1]
+        questao_111_esperado[1][0] = (questao_111[1][2] / questao_111[6][2]) * questao_111[6][0]
+        questao_111_esperado[1][1] = (questao_111[1][2] / questao_111[6][2]) * questao_111[6][1]
+        questao_111_esperado[2][0] = (questao_111[2][2] / questao_111[6][2]) * questao_111[6][0]
+        questao_111_esperado[2][1] = (questao_111[2][2] / questao_111[6][2]) * questao_111[6][1]
+        questao_111_esperado[3][0] = (questao_111[3][2] / questao_111[6][2]) * questao_111[6][0]
+        questao_111_esperado[3][1] = (questao_111[3][2] / questao_111[6][2]) * questao_111[6][1]
+        questao_111_esperado[4][0] = (questao_111[4][2] / questao_111[6][2]) * questao_111[6][0]
+        questao_111_esperado[4][1] = (questao_111[4][2] / questao_111[6][2]) * questao_111[6][1]
+        questao_111_esperado[5][0] = (questao_111[5][2] / questao_111[6][2]) * questao_111[6][0]
+        questao_111_esperado[5][1] = (questao_111[5][2] / questao_111[6][2]) * questao_111[6][1]
+        
+        questao_113_esperado[0][0] = (questao_113[0][2] / questao_113[4][2]) * questao_113[4][0]
+        questao_113_esperado[0][1] = (questao_113[0][2] / questao_113[4][2]) * questao_113[4][1]
+        questao_113_esperado[1][0] = (questao_113[1][2] / questao_113[4][2]) * questao_113[4][0]
+        questao_113_esperado[1][1] = (questao_113[1][2] / questao_113[4][2]) * questao_113[4][1]
+        questao_113_esperado[2][0] = (questao_113[2][2] / questao_113[4][2]) * questao_113[4][0]
+        questao_113_esperado[2][1] = (questao_113[2][2] / questao_113[4][2]) * questao_113[4][1]
+        questao_113_esperado[3][0] = (questao_113[3][2] / questao_113[4][2]) * questao_113[4][0]
+        questao_113_esperado[3][1] = (questao_113[3][2] / questao_113[4][2]) * questao_113[4][1]
+        
+        questao_25_esperado[0][0] = (questao_25[0][2] / questao_25[9][2]) * questao_25[9][0]
+        questao_25_esperado[0][1] = (questao_25[0][2] / questao_25[9][2]) * questao_25[9][1]
+        questao_25_esperado[1][0] = (questao_25[1][2] / questao_25[9][2]) * questao_25[9][0]
+        questao_25_esperado[1][1] = (questao_25[1][2] / questao_25[9][2]) * questao_25[9][1]
+        questao_25_esperado[2][0] = (questao_25[2][2] / questao_25[9][2]) * questao_25[9][0]
+        questao_25_esperado[2][1] = (questao_25[2][2] / questao_25[9][2]) * questao_25[9][1]
+        questao_25_esperado[3][0] = (questao_25[3][2] / questao_25[9][2]) * questao_25[9][0]
+        questao_25_esperado[3][1] = (questao_25[3][2] / questao_25[9][2]) * questao_25[9][1]
+        questao_25_esperado[4][0] = (questao_25[4][2] / questao_25[9][2]) * questao_25[9][0]
+        questao_25_esperado[4][1] = (questao_25[4][2] / questao_25[9][2]) * questao_25[9][1]
+        questao_25_esperado[5][0] = (questao_25[5][2] / questao_25[9][2]) * questao_25[9][0]
+        questao_25_esperado[5][1] = (questao_25[5][2] / questao_25[9][2]) * questao_25[9][1]
+        questao_25_esperado[6][0] = (questao_25[6][2] / questao_25[9][2]) * questao_25[9][0]
+        questao_25_esperado[6][1] = (questao_25[6][2] / questao_25[9][2]) * questao_25[9][1]
+        questao_25_esperado[7][0] = (questao_25[7][2] / questao_25[9][2]) * questao_25[9][0]
+        questao_25_esperado[7][1] = (questao_25[7][2] / questao_25[9][2]) * questao_25[9][1]
+        questao_25_esperado[8][0] = (questao_25[8][2] / questao_25[9][2]) * questao_25[9][0]
+        questao_25_esperado[8][1] = (questao_25[8][2] / questao_25[9][2]) * questao_25[9][1]
+        
+        questao_26_esperado[0][0] = (questao_26[0][2] / questao_26[9][2]) * questao_26[9][0]
+        questao_26_esperado[0][1] = (questao_26[0][2] / questao_26[9][2]) * questao_26[9][1]
+        questao_26_esperado[1][0] = (questao_26[1][2] / questao_26[9][2]) * questao_26[9][0]
+        questao_26_esperado[1][1] = (questao_26[1][2] / questao_26[9][2]) * questao_26[9][1]
+        questao_26_esperado[2][0] = (questao_26[2][2] / questao_26[9][2]) * questao_26[9][0]
+        questao_26_esperado[2][1] = (questao_26[2][2] / questao_26[9][2]) * questao_26[9][1]
+        questao_26_esperado[3][0] = (questao_26[3][2] / questao_26[9][2]) * questao_26[9][0]
+        questao_26_esperado[3][1] = (questao_26[3][2] / questao_26[9][2]) * questao_26[9][1]
+        questao_26_esperado[4][0] = (questao_26[4][2] / questao_26[9][2]) * questao_26[9][0]
+        questao_26_esperado[4][1] = (questao_26[4][2] / questao_26[9][2]) * questao_26[9][1]
+        questao_26_esperado[5][0] = (questao_26[5][2] / questao_26[9][2]) * questao_26[9][0]
+        questao_26_esperado[5][1] = (questao_26[5][2] / questao_26[9][2]) * questao_26[9][1]
+        questao_26_esperado[6][0] = (questao_26[6][2] / questao_26[9][2]) * questao_26[9][0]
+        questao_26_esperado[6][1] = (questao_26[6][2] / questao_26[9][2]) * questao_26[9][1]
+        questao_26_esperado[7][0] = (questao_26[7][2] / questao_26[9][2]) * questao_26[9][0]
+        questao_26_esperado[7][1] = (questao_26[7][2] / questao_26[9][2]) * questao_26[9][1]
+        questao_26_esperado[8][0] = (questao_26[8][2] / questao_26[9][2]) * questao_26[9][0]
+        questao_26_esperado[8][1] = (questao_26[8][2] / questao_26[9][2]) * questao_26[9][1]
+        
+        questao_27_esperado[0][0] = (questao_27[0][2] / questao_27[9][2]) * questao_27[9][0]
+        questao_27_esperado[0][1] = (questao_27[0][2] / questao_27[9][2]) * questao_27[9][1]
+        questao_27_esperado[1][0] = (questao_27[1][2] / questao_27[9][2]) * questao_27[9][0]
+        questao_27_esperado[1][1] = (questao_27[1][2] / questao_27[9][2]) * questao_27[9][1]
+        questao_27_esperado[2][0] = (questao_27[2][2] / questao_27[9][2]) * questao_27[9][0]
+        questao_27_esperado[2][1] = (questao_27[2][2] / questao_27[9][2]) * questao_27[9][1]
+        questao_27_esperado[3][0] = (questao_27[3][2] / questao_27[9][2]) * questao_27[9][0]
+        questao_27_esperado[3][1] = (questao_27[3][2] / questao_27[9][2]) * questao_27[9][1]
+        questao_27_esperado[4][0] = (questao_27[4][2] / questao_27[9][2]) * questao_27[9][0]
+        questao_27_esperado[4][1] = (questao_27[4][2] / questao_27[9][2]) * questao_27[9][1]
+        questao_27_esperado[5][0] = (questao_27[5][2] / questao_27[9][2]) * questao_27[9][0]
+        questao_27_esperado[5][1] = (questao_27[5][2] / questao_27[9][2]) * questao_27[9][1]
+        questao_27_esperado[6][0] = (questao_27[6][2] / questao_27[9][2]) * questao_27[9][0]
+        questao_27_esperado[6][1] = (questao_27[6][2] / questao_27[9][2]) * questao_27[9][1]
+        questao_27_esperado[7][0] = (questao_27[7][2] / questao_27[9][2]) * questao_27[9][0]
+        questao_27_esperado[7][1] = (questao_27[7][2] / questao_27[9][2]) * questao_27[9][1]
+        questao_27_esperado[8][0] = (questao_27[8][2] / questao_27[9][2]) * questao_27[9][0]
+        questao_27_esperado[8][1] = (questao_27[8][2] / questao_27[9][2]) * questao_27[9][1]
+        
+        questao_28_esperado[0][0] = (questao_28[0][2] / questao_28[9][2]) * questao_28[9][0]
+        questao_28_esperado[0][1] = (questao_28[0][2] / questao_28[9][2]) * questao_28[9][1]
+        questao_28_esperado[1][0] = (questao_28[1][2] / questao_28[9][2]) * questao_28[9][0]
+        questao_28_esperado[1][1] = (questao_28[1][2] / questao_28[9][2]) * questao_28[9][1]
+        questao_28_esperado[2][0] = (questao_28[2][2] / questao_28[9][2]) * questao_28[9][0]
+        questao_28_esperado[2][1] = (questao_28[2][2] / questao_28[9][2]) * questao_28[9][1]
+        questao_28_esperado[3][0] = (questao_28[3][2] / questao_28[9][2]) * questao_28[9][0]
+        questao_28_esperado[3][1] = (questao_28[3][2] / questao_28[9][2]) * questao_28[9][1]
+        questao_28_esperado[4][0] = (questao_28[4][2] / questao_28[9][2]) * questao_28[9][0]
+        questao_28_esperado[4][1] = (questao_28[4][2] / questao_28[9][2]) * questao_28[9][1]
+        questao_28_esperado[5][0] = (questao_28[5][2] / questao_28[9][2]) * questao_28[9][0]
+        questao_28_esperado[5][1] = (questao_28[5][2] / questao_28[9][2]) * questao_28[9][1]
+        questao_28_esperado[6][0] = (questao_28[6][2] / questao_28[9][2]) * questao_28[9][0]
+        questao_28_esperado[6][1] = (questao_28[6][2] / questao_28[9][2]) * questao_28[9][1]
+        questao_28_esperado[7][0] = (questao_28[7][2] / questao_28[9][2]) * questao_28[9][0]
+        questao_28_esperado[7][1] = (questao_28[7][2] / questao_28[9][2]) * questao_28[9][1]
+        questao_28_esperado[8][0] = (questao_28[8][2] / questao_28[9][2]) * questao_28[9][0]
+        questao_28_esperado[8][1] = (questao_28[8][2] / questao_28[9][2]) * questao_28[9][1]
+        
+        questao_29_esperado[0][0] = (questao_29[0][2] / questao_29[9][2]) * questao_29[9][0]
+        questao_29_esperado[0][1] = (questao_29[0][2] / questao_29[9][2]) * questao_29[9][1]
+        questao_29_esperado[1][0] = (questao_29[1][2] / questao_29[9][2]) * questao_29[9][0]
+        questao_29_esperado[1][1] = (questao_29[1][2] / questao_29[9][2]) * questao_29[9][1]
+        questao_29_esperado[2][0] = (questao_29[2][2] / questao_29[9][2]) * questao_29[9][0]
+        questao_29_esperado[2][1] = (questao_29[2][2] / questao_29[9][2]) * questao_29[9][1]
+        questao_29_esperado[3][0] = (questao_29[3][2] / questao_29[9][2]) * questao_29[9][0]
+        questao_29_esperado[3][1] = (questao_29[3][2] / questao_29[9][2]) * questao_29[9][1]
+        questao_29_esperado[4][0] = (questao_29[4][2] / questao_29[9][2]) * questao_29[9][0]
+        questao_29_esperado[4][1] = (questao_29[4][2] / questao_29[9][2]) * questao_29[9][1]
+        questao_29_esperado[5][0] = (questao_29[5][2] / questao_29[9][2]) * questao_29[9][0]
+        questao_29_esperado[5][1] = (questao_29[5][2] / questao_29[9][2]) * questao_29[9][1]
+        questao_29_esperado[6][0] = (questao_29[6][2] / questao_29[9][2]) * questao_29[9][0]
+        questao_29_esperado[6][1] = (questao_29[6][2] / questao_29[9][2]) * questao_29[9][1]
+        questao_29_esperado[7][0] = (questao_29[7][2] / questao_29[9][2]) * questao_29[9][0]
+        questao_29_esperado[7][1] = (questao_29[7][2] / questao_29[9][2]) * questao_29[9][1]
+        questao_29_esperado[8][0] = (questao_29[8][2] / questao_29[9][2]) * questao_29[9][0]
+        questao_29_esperado[8][1] = (questao_29[8][2] / questao_29[9][2]) * questao_29[9][1]
+        
+        questao_30_esperado[0][0] = (questao_30[0][2] / questao_30[9][2]) * questao_30[9][0]
+        questao_30_esperado[0][1] = (questao_30[0][2] / questao_30[9][2]) * questao_30[9][1]
+        questao_30_esperado[1][0] = (questao_30[1][2] / questao_30[9][2]) * questao_30[9][0]
+        questao_30_esperado[1][1] = (questao_30[1][2] / questao_30[9][2]) * questao_30[9][1]
+        questao_30_esperado[2][0] = (questao_30[2][2] / questao_30[9][2]) * questao_30[9][0]
+        questao_30_esperado[2][1] = (questao_30[2][2] / questao_30[9][2]) * questao_30[9][1]
+        questao_30_esperado[3][0] = (questao_30[3][2] / questao_30[9][2]) * questao_30[9][0]
+        questao_30_esperado[3][1] = (questao_30[3][2] / questao_30[9][2]) * questao_30[9][1]
+        questao_30_esperado[4][0] = (questao_30[4][2] / questao_30[9][2]) * questao_30[9][0]
+        questao_30_esperado[4][1] = (questao_30[4][2] / questao_30[9][2]) * questao_30[9][1]
+        questao_30_esperado[5][0] = (questao_30[5][2] / questao_30[9][2]) * questao_30[9][0]
+        questao_30_esperado[5][1] = (questao_30[5][2] / questao_30[9][2]) * questao_30[9][1]
+        questao_30_esperado[6][0] = (questao_30[6][2] / questao_30[9][2]) * questao_30[9][0]
+        questao_30_esperado[6][1] = (questao_30[6][2] / questao_30[9][2]) * questao_30[9][1]
+        questao_30_esperado[7][0] = (questao_30[7][2] / questao_30[9][2]) * questao_30[9][0]
+        questao_30_esperado[7][1] = (questao_30[7][2] / questao_30[9][2]) * questao_30[9][1]
+        questao_30_esperado[8][0] = (questao_30[8][2] / questao_30[9][2]) * questao_30[9][0]
+        questao_30_esperado[8][1] = (questao_30[8][2] / questao_30[9][2]) * questao_30[9][1]
+        
+        questao_31_esperado[0][0] = (questao_31[0][2] / questao_31[9][2]) * questao_31[9][0]
+        questao_31_esperado[0][1] = (questao_31[0][2] / questao_31[9][2]) * questao_31[9][1]
+        questao_31_esperado[1][0] = (questao_31[1][2] / questao_31[9][2]) * questao_31[9][0]
+        questao_31_esperado[1][1] = (questao_31[1][2] / questao_31[9][2]) * questao_31[9][1]
+        questao_31_esperado[2][0] = (questao_31[2][2] / questao_31[9][2]) * questao_31[9][0]
+        questao_31_esperado[2][1] = (questao_31[2][2] / questao_31[9][2]) * questao_31[9][1]
+        questao_31_esperado[3][0] = (questao_31[3][2] / questao_31[9][2]) * questao_31[9][0]
+        questao_31_esperado[3][1] = (questao_31[3][2] / questao_31[9][2]) * questao_31[9][1]
+        questao_31_esperado[4][0] = (questao_31[4][2] / questao_31[9][2]) * questao_31[9][0]
+        questao_31_esperado[4][1] = (questao_31[4][2] / questao_31[9][2]) * questao_31[9][1]
+        questao_31_esperado[5][0] = (questao_31[5][2] / questao_31[9][2]) * questao_31[9][0]
+        questao_31_esperado[5][1] = (questao_31[5][2] / questao_31[9][2]) * questao_31[9][1]
+        questao_31_esperado[6][0] = (questao_31[6][2] / questao_31[9][2]) * questao_31[9][0]
+        questao_31_esperado[6][1] = (questao_31[6][2] / questao_31[9][2]) * questao_31[9][1]
+        questao_31_esperado[7][0] = (questao_31[7][2] / questao_31[9][2]) * questao_31[9][0]
+        questao_31_esperado[7][1] = (questao_31[7][2] / questao_31[9][2]) * questao_31[9][1]
+        questao_31_esperado[8][0] = (questao_31[8][2] / questao_31[9][2]) * questao_31[9][0]
+        questao_31_esperado[8][1] = (questao_31[8][2] / questao_31[9][2]) * questao_31[9][1]
+        
+        questao_32_esperado[0][0] = (questao_32[0][2] / questao_32[9][2]) * questao_32[9][0]
+        questao_32_esperado[0][1] = (questao_32[0][2] / questao_32[9][2]) * questao_32[9][1]
+        questao_32_esperado[1][0] = (questao_32[1][2] / questao_32[9][2]) * questao_32[9][0]
+        questao_32_esperado[1][1] = (questao_32[1][2] / questao_32[9][2]) * questao_32[9][1]
+        questao_32_esperado[2][0] = (questao_32[2][2] / questao_32[9][2]) * questao_32[9][0]
+        questao_32_esperado[2][1] = (questao_32[2][2] / questao_32[9][2]) * questao_32[9][1]
+        questao_32_esperado[3][0] = (questao_32[3][2] / questao_32[9][2]) * questao_32[9][0]
+        questao_32_esperado[3][1] = (questao_32[3][2] / questao_32[9][2]) * questao_32[9][1]
+        questao_32_esperado[4][0] = (questao_32[4][2] / questao_32[9][2]) * questao_32[9][0]
+        questao_32_esperado[4][1] = (questao_32[4][2] / questao_32[9][2]) * questao_32[9][1]
+        questao_32_esperado[5][0] = (questao_32[5][2] / questao_32[9][2]) * questao_32[9][0]
+        questao_32_esperado[5][1] = (questao_32[5][2] / questao_32[9][2]) * questao_32[9][1]
+        questao_32_esperado[6][0] = (questao_32[6][2] / questao_32[9][2]) * questao_32[9][0]
+        questao_32_esperado[6][1] = (questao_32[6][2] / questao_32[9][2]) * questao_32[9][1]
+        questao_32_esperado[7][0] = (questao_32[7][2] / questao_32[9][2]) * questao_32[9][0]
+        questao_32_esperado[7][1] = (questao_32[7][2] / questao_32[9][2]) * questao_32[9][1]
+        questao_32_esperado[8][0] = (questao_32[8][2] / questao_32[9][2]) * questao_32[9][0]
+        questao_32_esperado[8][1] = (questao_32[8][2] / questao_32[9][2]) * questao_32[9][1]
+        
+        questao_33_esperado[0][0] = (questao_33[0][2] / questao_33[9][2]) * questao_33[9][0]
+        questao_33_esperado[0][1] = (questao_33[0][2] / questao_33[9][2]) * questao_33[9][1]
+        questao_33_esperado[1][0] = (questao_33[1][2] / questao_33[9][2]) * questao_33[9][0]
+        questao_33_esperado[1][1] = (questao_33[1][2] / questao_33[9][2]) * questao_33[9][1]
+        questao_33_esperado[2][0] = (questao_33[2][2] / questao_33[9][2]) * questao_33[9][0]
+        questao_33_esperado[2][1] = (questao_33[2][2] / questao_33[9][2]) * questao_33[9][1]
+        questao_33_esperado[3][0] = (questao_33[3][2] / questao_33[9][2]) * questao_33[9][0]
+        questao_33_esperado[3][1] = (questao_33[3][2] / questao_33[9][2]) * questao_33[9][1]
+        questao_33_esperado[4][0] = (questao_33[4][2] / questao_33[9][2]) * questao_33[9][0]
+        questao_33_esperado[4][1] = (questao_33[4][2] / questao_33[9][2]) * questao_33[9][1]
+        questao_33_esperado[5][0] = (questao_33[5][2] / questao_33[9][2]) * questao_33[9][0]
+        questao_33_esperado[5][1] = (questao_33[5][2] / questao_33[9][2]) * questao_33[9][1]
+        questao_33_esperado[6][0] = (questao_33[6][2] / questao_33[9][2]) * questao_33[9][0]
+        questao_33_esperado[6][1] = (questao_33[6][2] / questao_33[9][2]) * questao_33[9][1]
+        questao_33_esperado[7][0] = (questao_33[7][2] / questao_33[9][2]) * questao_33[9][0]
+        questao_33_esperado[7][1] = (questao_33[7][2] / questao_33[9][2]) * questao_33[9][1]
+        questao_33_esperado[8][0] = (questao_33[8][2] / questao_33[9][2]) * questao_33[9][0]
+        questao_33_esperado[8][1] = (questao_33[8][2] / questao_33[9][2]) * questao_33[9][1]
+        
+        questao_34_esperado[0][0] = (questao_34[0][2] / questao_34[9][2]) * questao_34[9][0]
+        questao_34_esperado[0][1] = (questao_34[0][2] / questao_34[9][2]) * questao_34[9][1]
+        questao_34_esperado[1][0] = (questao_34[1][2] / questao_34[9][2]) * questao_34[9][0]
+        questao_34_esperado[1][1] = (questao_34[1][2] / questao_34[9][2]) * questao_34[9][1]
+        questao_34_esperado[2][0] = (questao_34[2][2] / questao_34[9][2]) * questao_34[9][0]
+        questao_34_esperado[2][1] = (questao_34[2][2] / questao_34[9][2]) * questao_34[9][1]
+        questao_34_esperado[3][0] = (questao_34[3][2] / questao_34[9][2]) * questao_34[9][0]
+        questao_34_esperado[3][1] = (questao_34[3][2] / questao_34[9][2]) * questao_34[9][1]
+        questao_34_esperado[4][0] = (questao_34[4][2] / questao_34[9][2]) * questao_34[9][0]
+        questao_34_esperado[4][1] = (questao_34[4][2] / questao_34[9][2]) * questao_34[9][1]
+        questao_34_esperado[5][0] = (questao_34[5][2] / questao_34[9][2]) * questao_34[9][0]
+        questao_34_esperado[5][1] = (questao_34[5][2] / questao_34[9][2]) * questao_34[9][1]
+        questao_34_esperado[6][0] = (questao_34[6][2] / questao_34[9][2]) * questao_34[9][0]
+        questao_34_esperado[6][1] = (questao_34[6][2] / questao_34[9][2]) * questao_34[9][1]
+        questao_34_esperado[7][0] = (questao_34[7][2] / questao_34[9][2]) * questao_34[9][0]
+        questao_34_esperado[7][1] = (questao_34[7][2] / questao_34[9][2]) * questao_34[9][1]
+        questao_34_esperado[8][0] = (questao_34[8][2] / questao_34[9][2]) * questao_34[9][0]
+        questao_34_esperado[8][1] = (questao_34[8][2] / questao_34[9][2]) * questao_34[9][1]
+        
+        questao_35_esperado[0][0] = (questao_35[0][2] / questao_35[9][2]) * questao_35[9][0]
+        questao_35_esperado[0][1] = (questao_35[0][2] / questao_35[9][2]) * questao_35[9][1]
+        questao_35_esperado[1][0] = (questao_35[1][2] / questao_35[9][2]) * questao_35[9][0]
+        questao_35_esperado[1][1] = (questao_35[1][2] / questao_35[9][2]) * questao_35[9][1]
+        questao_35_esperado[2][0] = (questao_35[2][2] / questao_35[9][2]) * questao_35[9][0]
+        questao_35_esperado[2][1] = (questao_35[2][2] / questao_35[9][2]) * questao_35[9][1]
+        questao_35_esperado[3][0] = (questao_35[3][2] / questao_35[9][2]) * questao_35[9][0]
+        questao_35_esperado[3][1] = (questao_35[3][2] / questao_35[9][2]) * questao_35[9][1]
+        questao_35_esperado[4][0] = (questao_35[4][2] / questao_35[9][2]) * questao_35[9][0]
+        questao_35_esperado[4][1] = (questao_35[4][2] / questao_35[9][2]) * questao_35[9][1]
+        questao_35_esperado[5][0] = (questao_35[5][2] / questao_35[9][2]) * questao_35[9][0]
+        questao_35_esperado[5][1] = (questao_35[5][2] / questao_35[9][2]) * questao_35[9][1]
+        questao_35_esperado[6][0] = (questao_35[6][2] / questao_35[9][2]) * questao_35[9][0]
+        questao_35_esperado[6][1] = (questao_35[6][2] / questao_35[9][2]) * questao_35[9][1]
+        questao_35_esperado[7][0] = (questao_35[7][2] / questao_35[9][2]) * questao_35[9][0]
+        questao_35_esperado[7][1] = (questao_35[7][2] / questao_35[9][2]) * questao_35[9][1]
+        questao_35_esperado[8][0] = (questao_35[8][2] / questao_35[9][2]) * questao_35[9][0]
+        questao_35_esperado[8][1] = (questao_35[8][2] / questao_35[9][2]) * questao_35[9][1]
+        
+        questao_36_esperado[0][0] = (questao_36[0][2] / questao_36[9][2]) * questao_36[9][0]
+        questao_36_esperado[0][1] = (questao_36[0][2] / questao_36[9][2]) * questao_36[9][1]
+        questao_36_esperado[1][0] = (questao_36[1][2] / questao_36[9][2]) * questao_36[9][0]
+        questao_36_esperado[1][1] = (questao_36[1][2] / questao_36[9][2]) * questao_36[9][1]
+        questao_36_esperado[2][0] = (questao_36[2][2] / questao_36[9][2]) * questao_36[9][0]
+        questao_36_esperado[2][1] = (questao_36[2][2] / questao_36[9][2]) * questao_36[9][1]
+        questao_36_esperado[3][0] = (questao_36[3][2] / questao_36[9][2]) * questao_36[9][0]
+        questao_36_esperado[3][1] = (questao_36[3][2] / questao_36[9][2]) * questao_36[9][1]
+        questao_36_esperado[4][0] = (questao_36[4][2] / questao_36[9][2]) * questao_36[9][0]
+        questao_36_esperado[4][1] = (questao_36[4][2] / questao_36[9][2]) * questao_36[9][1]
+        questao_36_esperado[5][0] = (questao_36[5][2] / questao_36[9][2]) * questao_36[9][0]
+        questao_36_esperado[5][1] = (questao_36[5][2] / questao_36[9][2]) * questao_36[9][1]
+        questao_36_esperado[6][0] = (questao_36[6][2] / questao_36[9][2]) * questao_36[9][0]
+        questao_36_esperado[6][1] = (questao_36[6][2] / questao_36[9][2]) * questao_36[9][1]
+        questao_36_esperado[7][0] = (questao_36[7][2] / questao_36[9][2]) * questao_36[9][0]
+        questao_36_esperado[7][1] = (questao_36[7][2] / questao_36[9][2]) * questao_36[9][1]
+        questao_36_esperado[8][0] = (questao_36[8][2] / questao_36[9][2]) * questao_36[9][0]
+        questao_36_esperado[8][1] = (questao_36[8][2] / questao_36[9][2]) * questao_36[9][1]
+        
+        questao_37_esperado[0][0] = (questao_37[0][2] / questao_37[9][2]) * questao_37[9][0]
+        questao_37_esperado[0][1] = (questao_37[0][2] / questao_37[9][2]) * questao_37[9][1]
+        questao_37_esperado[1][0] = (questao_37[1][2] / questao_37[9][2]) * questao_37[9][0]
+        questao_37_esperado[1][1] = (questao_37[1][2] / questao_37[9][2]) * questao_37[9][1]
+        questao_37_esperado[2][0] = (questao_37[2][2] / questao_37[9][2]) * questao_37[9][0]
+        questao_37_esperado[2][1] = (questao_37[2][2] / questao_37[9][2]) * questao_37[9][1]
+        questao_37_esperado[3][0] = (questao_37[3][2] / questao_37[9][2]) * questao_37[9][0]
+        questao_37_esperado[3][1] = (questao_37[3][2] / questao_37[9][2]) * questao_37[9][1]
+        questao_37_esperado[4][0] = (questao_37[4][2] / questao_37[9][2]) * questao_37[9][0]
+        questao_37_esperado[4][1] = (questao_37[4][2] / questao_37[9][2]) * questao_37[9][1]
+        questao_37_esperado[5][0] = (questao_37[5][2] / questao_37[9][2]) * questao_37[9][0]
+        questao_37_esperado[5][1] = (questao_37[5][2] / questao_37[9][2]) * questao_37[9][1]
+        questao_37_esperado[6][0] = (questao_37[6][2] / questao_37[9][2]) * questao_37[9][0]
+        questao_37_esperado[6][1] = (questao_37[6][2] / questao_37[9][2]) * questao_37[9][1]
+        questao_37_esperado[7][0] = (questao_37[7][2] / questao_37[9][2]) * questao_37[9][0]
+        questao_37_esperado[7][1] = (questao_37[7][2] / questao_37[9][2]) * questao_37[9][1]
+        questao_37_esperado[8][0] = (questao_37[8][2] / questao_37[9][2]) * questao_37[9][0]
+        questao_37_esperado[8][1] = (questao_37[8][2] / questao_37[9][2]) * questao_37[9][1]
+        
+        questao_38_esperado[0][0] = (questao_38[0][2] / questao_38[9][2]) * questao_38[9][0]
+        questao_38_esperado[0][1] = (questao_38[0][2] / questao_38[9][2]) * questao_38[9][1]
+        questao_38_esperado[1][0] = (questao_38[1][2] / questao_38[9][2]) * questao_38[9][0]
+        questao_38_esperado[1][1] = (questao_38[1][2] / questao_38[9][2]) * questao_38[9][1]
+        questao_38_esperado[2][0] = (questao_38[2][2] / questao_38[9][2]) * questao_38[9][0]
+        questao_38_esperado[2][1] = (questao_38[2][2] / questao_38[9][2]) * questao_38[9][1]
+        questao_38_esperado[3][0] = (questao_38[3][2] / questao_38[9][2]) * questao_38[9][0]
+        questao_38_esperado[3][1] = (questao_38[3][2] / questao_38[9][2]) * questao_38[9][1]
+        questao_38_esperado[4][0] = (questao_38[4][2] / questao_38[9][2]) * questao_38[9][0]
+        questao_38_esperado[4][1] = (questao_38[4][2] / questao_38[9][2]) * questao_38[9][1]
+        questao_38_esperado[5][0] = (questao_38[5][2] / questao_38[9][2]) * questao_38[9][0]
+        questao_38_esperado[5][1] = (questao_38[5][2] / questao_38[9][2]) * questao_38[9][1]
+        questao_38_esperado[6][0] = (questao_38[6][2] / questao_38[9][2]) * questao_38[9][0]
+        questao_38_esperado[6][1] = (questao_38[6][2] / questao_38[9][2]) * questao_38[9][1]
+        questao_38_esperado[7][0] = (questao_38[7][2] / questao_38[9][2]) * questao_38[9][0]
+        questao_38_esperado[7][1] = (questao_38[7][2] / questao_38[9][2]) * questao_38[9][1]
+        questao_38_esperado[8][0] = (questao_38[8][2] / questao_38[9][2]) * questao_38[9][0]
+        questao_38_esperado[8][1] = (questao_38[8][2] / questao_38[9][2]) * questao_38[9][1]
+        
+        questao_39_esperado[0][0] = (questao_39[0][2] / questao_39[9][2]) * questao_39[9][0]
+        questao_39_esperado[0][1] = (questao_39[0][2] / questao_39[9][2]) * questao_39[9][1]
+        questao_39_esperado[1][0] = (questao_39[1][2] / questao_39[9][2]) * questao_39[9][0]
+        questao_39_esperado[1][1] = (questao_39[1][2] / questao_39[9][2]) * questao_39[9][1]
+        questao_39_esperado[2][0] = (questao_39[2][2] / questao_39[9][2]) * questao_39[9][0]
+        questao_39_esperado[2][1] = (questao_39[2][2] / questao_39[9][2]) * questao_39[9][1]
+        questao_39_esperado[3][0] = (questao_39[3][2] / questao_39[9][2]) * questao_39[9][0]
+        questao_39_esperado[3][1] = (questao_39[3][2] / questao_39[9][2]) * questao_39[9][1]
+        questao_39_esperado[4][0] = (questao_39[4][2] / questao_39[9][2]) * questao_39[9][0]
+        questao_39_esperado[4][1] = (questao_39[4][2] / questao_39[9][2]) * questao_39[9][1]
+        questao_39_esperado[5][0] = (questao_39[5][2] / questao_39[9][2]) * questao_39[9][0]
+        questao_39_esperado[5][1] = (questao_39[5][2] / questao_39[9][2]) * questao_39[9][1]
+        questao_39_esperado[6][0] = (questao_39[6][2] / questao_39[9][2]) * questao_39[9][0]
+        questao_39_esperado[6][1] = (questao_39[6][2] / questao_39[9][2]) * questao_39[9][1]
+        questao_39_esperado[7][0] = (questao_39[7][2] / questao_39[9][2]) * questao_39[9][0]
+        questao_39_esperado[7][1] = (questao_39[7][2] / questao_39[9][2]) * questao_39[9][1]
+        questao_39_esperado[8][0] = (questao_39[8][2] / questao_39[9][2]) * questao_39[9][0]
+        questao_39_esperado[8][1] = (questao_39[8][2] / questao_39[9][2]) * questao_39[9][1]
+        
+        questao_40_esperado[0][0] = (questao_40[0][2] / questao_40[9][2]) * questao_40[9][0]
+        questao_40_esperado[0][1] = (questao_40[0][2] / questao_40[9][2]) * questao_40[9][1]
+        questao_40_esperado[1][0] = (questao_40[1][2] / questao_40[9][2]) * questao_40[9][0]
+        questao_40_esperado[1][1] = (questao_40[1][2] / questao_40[9][2]) * questao_40[9][1]
+        questao_40_esperado[2][0] = (questao_40[2][2] / questao_40[9][2]) * questao_40[9][0]
+        questao_40_esperado[2][1] = (questao_40[2][2] / questao_40[9][2]) * questao_40[9][1]
+        questao_40_esperado[3][0] = (questao_40[3][2] / questao_40[9][2]) * questao_40[9][0]
+        questao_40_esperado[3][1] = (questao_40[3][2] / questao_40[9][2]) * questao_40[9][1]
+        questao_40_esperado[4][0] = (questao_40[4][2] / questao_40[9][2]) * questao_40[9][0]
+        questao_40_esperado[4][1] = (questao_40[4][2] / questao_40[9][2]) * questao_40[9][1]
+        questao_40_esperado[5][0] = (questao_40[5][2] / questao_40[9][2]) * questao_40[9][0]
+        questao_40_esperado[5][1] = (questao_40[5][2] / questao_40[9][2]) * questao_40[9][1]
+        questao_40_esperado[6][0] = (questao_40[6][2] / questao_40[9][2]) * questao_40[9][0]
+        questao_40_esperado[6][1] = (questao_40[6][2] / questao_40[9][2]) * questao_40[9][1]
+        questao_40_esperado[7][0] = (questao_40[7][2] / questao_40[9][2]) * questao_40[9][0]
+        questao_40_esperado[7][1] = (questao_40[7][2] / questao_40[9][2]) * questao_40[9][1]
+        questao_40_esperado[8][0] = (questao_40[8][2] / questao_40[9][2]) * questao_40[9][0]
+        questao_40_esperado[8][1] = (questao_40[8][2] / questao_40[9][2]) * questao_40[9][1]
+        
+        questao_41_esperado[0][0] = (questao_41[0][2] / questao_41[9][2]) * questao_41[9][0]
+        questao_41_esperado[0][1] = (questao_41[0][2] / questao_41[9][2]) * questao_41[9][1]
+        questao_41_esperado[1][0] = (questao_41[1][2] / questao_41[9][2]) * questao_41[9][0]
+        questao_41_esperado[1][1] = (questao_41[1][2] / questao_41[9][2]) * questao_41[9][1]
+        questao_41_esperado[2][0] = (questao_41[2][2] / questao_41[9][2]) * questao_41[9][0]
+        questao_41_esperado[2][1] = (questao_41[2][2] / questao_41[9][2]) * questao_41[9][1]
+        questao_41_esperado[3][0] = (questao_41[3][2] / questao_41[9][2]) * questao_41[9][0]
+        questao_41_esperado[3][1] = (questao_41[3][2] / questao_41[9][2]) * questao_41[9][1]
+        questao_41_esperado[4][0] = (questao_41[4][2] / questao_41[9][2]) * questao_41[9][0]
+        questao_41_esperado[4][1] = (questao_41[4][2] / questao_41[9][2]) * questao_41[9][1]
+        questao_41_esperado[5][0] = (questao_41[5][2] / questao_41[9][2]) * questao_41[9][0]
+        questao_41_esperado[5][1] = (questao_41[5][2] / questao_41[9][2]) * questao_41[9][1]
+        questao_41_esperado[6][0] = (questao_41[6][2] / questao_41[9][2]) * questao_41[9][0]
+        questao_41_esperado[6][1] = (questao_41[6][2] / questao_41[9][2]) * questao_41[9][1]
+        questao_41_esperado[7][0] = (questao_41[7][2] / questao_41[9][2]) * questao_41[9][0]
+        questao_41_esperado[7][1] = (questao_41[7][2] / questao_41[9][2]) * questao_41[9][1]
+        questao_41_esperado[8][0] = (questao_41[8][2] / questao_41[9][2]) * questao_41[9][0]
+        questao_41_esperado[8][1] = (questao_41[8][2] / questao_41[9][2]) * questao_41[9][1]
+        
+        questao_42_esperado[0][0] = (questao_42[0][2] / questao_42[9][2]) * questao_42[9][0]
+        questao_42_esperado[0][1] = (questao_42[0][2] / questao_42[9][2]) * questao_42[9][1]
+        questao_42_esperado[1][0] = (questao_42[1][2] / questao_42[9][2]) * questao_42[9][0]
+        questao_42_esperado[1][1] = (questao_42[1][2] / questao_42[9][2]) * questao_42[9][1]
+        questao_42_esperado[2][0] = (questao_42[2][2] / questao_42[9][2]) * questao_42[9][0]
+        questao_42_esperado[2][1] = (questao_42[2][2] / questao_42[9][2]) * questao_42[9][1]
+        questao_42_esperado[3][0] = (questao_42[3][2] / questao_42[9][2]) * questao_42[9][0]
+        questao_42_esperado[3][1] = (questao_42[3][2] / questao_42[9][2]) * questao_42[9][1]
+        questao_42_esperado[4][0] = (questao_42[4][2] / questao_42[9][2]) * questao_42[9][0]
+        questao_42_esperado[4][1] = (questao_42[4][2] / questao_42[9][2]) * questao_42[9][1]
+        questao_42_esperado[5][0] = (questao_42[5][2] / questao_42[9][2]) * questao_42[9][0]
+        questao_42_esperado[5][1] = (questao_42[5][2] / questao_42[9][2]) * questao_42[9][1]
+        questao_42_esperado[6][0] = (questao_42[6][2] / questao_42[9][2]) * questao_42[9][0]
+        questao_42_esperado[6][1] = (questao_42[6][2] / questao_42[9][2]) * questao_42[9][1]
+        questao_42_esperado[7][0] = (questao_42[7][2] / questao_42[9][2]) * questao_42[9][0]
+        questao_42_esperado[7][1] = (questao_42[7][2] / questao_42[9][2]) * questao_42[9][1]
+        questao_42_esperado[8][0] = (questao_42[8][2] / questao_42[9][2]) * questao_42[9][0]
+        questao_42_esperado[8][1] = (questao_42[8][2] / questao_42[9][2]) * questao_42[9][1]
+        
+        questao_43_esperado[0][0] = (questao_43[0][2] / questao_43[9][2]) * questao_43[9][0]
+        questao_43_esperado[0][1] = (questao_43[0][2] / questao_43[9][2]) * questao_43[9][1]
+        questao_43_esperado[1][0] = (questao_43[1][2] / questao_43[9][2]) * questao_43[9][0]
+        questao_43_esperado[1][1] = (questao_43[1][2] / questao_43[9][2]) * questao_43[9][1]
+        questao_43_esperado[2][0] = (questao_43[2][2] / questao_43[9][2]) * questao_43[9][0]
+        questao_43_esperado[2][1] = (questao_43[2][2] / questao_43[9][2]) * questao_43[9][1]
+        questao_43_esperado[3][0] = (questao_43[3][2] / questao_43[9][2]) * questao_43[9][0]
+        questao_43_esperado[3][1] = (questao_43[3][2] / questao_43[9][2]) * questao_43[9][1]
+        questao_43_esperado[4][0] = (questao_43[4][2] / questao_43[9][2]) * questao_43[9][0]
+        questao_43_esperado[4][1] = (questao_43[4][2] / questao_43[9][2]) * questao_43[9][1]
+        questao_43_esperado[5][0] = (questao_43[5][2] / questao_43[9][2]) * questao_43[9][0]
+        questao_43_esperado[5][1] = (questao_43[5][2] / questao_43[9][2]) * questao_43[9][1]
+        questao_43_esperado[6][0] = (questao_43[6][2] / questao_43[9][2]) * questao_43[9][0]
+        questao_43_esperado[6][1] = (questao_43[6][2] / questao_43[9][2]) * questao_43[9][1]
+        questao_43_esperado[7][0] = (questao_43[7][2] / questao_43[9][2]) * questao_43[9][0]
+        questao_43_esperado[7][1] = (questao_43[7][2] / questao_43[9][2]) * questao_43[9][1]
+        questao_43_esperado[8][0] = (questao_43[8][2] / questao_43[9][2]) * questao_43[9][0]
+        questao_43_esperado[8][1] = (questao_43[8][2] / questao_43[9][2]) * questao_43[9][1]
+        
+        questao_44_esperado[0][0] = (questao_44[0][2] / questao_44[9][2]) * questao_44[9][0]
+        questao_44_esperado[0][1] = (questao_44[0][2] / questao_44[9][2]) * questao_44[9][1]
+        questao_44_esperado[1][0] = (questao_44[1][2] / questao_44[9][2]) * questao_44[9][0]
+        questao_44_esperado[1][1] = (questao_44[1][2] / questao_44[9][2]) * questao_44[9][1]
+        questao_44_esperado[2][0] = (questao_44[2][2] / questao_44[9][2]) * questao_44[9][0]
+        questao_44_esperado[2][1] = (questao_44[2][2] / questao_44[9][2]) * questao_44[9][1]
+        questao_44_esperado[3][0] = (questao_44[3][2] / questao_44[9][2]) * questao_44[9][0]
+        questao_44_esperado[3][1] = (questao_44[3][2] / questao_44[9][2]) * questao_44[9][1]
+        questao_44_esperado[4][0] = (questao_44[4][2] / questao_44[9][2]) * questao_44[9][0]
+        questao_44_esperado[4][1] = (questao_44[4][2] / questao_44[9][2]) * questao_44[9][1]
+        questao_44_esperado[5][0] = (questao_44[5][2] / questao_44[9][2]) * questao_44[9][0]
+        questao_44_esperado[5][1] = (questao_44[5][2] / questao_44[9][2]) * questao_44[9][1]
+        questao_44_esperado[6][0] = (questao_44[6][2] / questao_44[9][2]) * questao_44[9][0]
+        questao_44_esperado[6][1] = (questao_44[6][2] / questao_44[9][2]) * questao_44[9][1]
+        questao_44_esperado[7][0] = (questao_44[7][2] / questao_44[9][2]) * questao_44[9][0]
+        questao_44_esperado[7][1] = (questao_44[7][2] / questao_44[9][2]) * questao_44[9][1]
+        questao_44_esperado[8][0] = (questao_44[8][2] / questao_44[9][2]) * questao_44[9][0]
+        questao_44_esperado[8][1] = (questao_44[8][2] / questao_44[9][2]) * questao_44[9][1]
+        
+        questao_45_esperado[0][0] = (questao_45[0][2] / questao_45[9][2]) * questao_45[9][0]
+        questao_45_esperado[0][1] = (questao_45[0][2] / questao_45[9][2]) * questao_45[9][1]
+        questao_45_esperado[1][0] = (questao_45[1][2] / questao_45[9][2]) * questao_45[9][0]
+        questao_45_esperado[1][1] = (questao_45[1][2] / questao_45[9][2]) * questao_45[9][1]
+        questao_45_esperado[2][0] = (questao_45[2][2] / questao_45[9][2]) * questao_45[9][0]
+        questao_45_esperado[2][1] = (questao_45[2][2] / questao_45[9][2]) * questao_45[9][1]
+        questao_45_esperado[3][0] = (questao_45[3][2] / questao_45[9][2]) * questao_45[9][0]
+        questao_45_esperado[3][1] = (questao_45[3][2] / questao_45[9][2]) * questao_45[9][1]
+        questao_45_esperado[4][0] = (questao_45[4][2] / questao_45[9][2]) * questao_45[9][0]
+        questao_45_esperado[4][1] = (questao_45[4][2] / questao_45[9][2]) * questao_45[9][1]
+        questao_45_esperado[5][0] = (questao_45[5][2] / questao_45[9][2]) * questao_45[9][0]
+        questao_45_esperado[5][1] = (questao_45[5][2] / questao_45[9][2]) * questao_45[9][1]
+        questao_45_esperado[6][0] = (questao_45[6][2] / questao_45[9][2]) * questao_45[9][0]
+        questao_45_esperado[6][1] = (questao_45[6][2] / questao_45[9][2]) * questao_45[9][1]
+        questao_45_esperado[7][0] = (questao_45[7][2] / questao_45[9][2]) * questao_45[9][0]
+        questao_45_esperado[7][1] = (questao_45[7][2] / questao_45[9][2]) * questao_45[9][1]
+        questao_45_esperado[8][0] = (questao_45[8][2] / questao_45[9][2]) * questao_45[9][0]
+        questao_45_esperado[8][1] = (questao_45[8][2] / questao_45[9][2]) * questao_45[9][1]
+        
+        questao_46_esperado[0][0] = (questao_46[0][2] / questao_46[9][2]) * questao_46[9][0]
+        questao_46_esperado[0][1] = (questao_46[0][2] / questao_46[9][2]) * questao_46[9][1]
+        questao_46_esperado[1][0] = (questao_46[1][2] / questao_46[9][2]) * questao_46[9][0]
+        questao_46_esperado[1][1] = (questao_46[1][2] / questao_46[9][2]) * questao_46[9][1]
+        questao_46_esperado[2][0] = (questao_46[2][2] / questao_46[9][2]) * questao_46[9][0]
+        questao_46_esperado[2][1] = (questao_46[2][2] / questao_46[9][2]) * questao_46[9][1]
+        questao_46_esperado[3][0] = (questao_46[3][2] / questao_46[9][2]) * questao_46[9][0]
+        questao_46_esperado[3][1] = (questao_46[3][2] / questao_46[9][2]) * questao_46[9][1]
+        questao_46_esperado[4][0] = (questao_46[4][2] / questao_46[9][2]) * questao_46[9][0]
+        questao_46_esperado[4][1] = (questao_46[4][2] / questao_46[9][2]) * questao_46[9][1]
+        questao_46_esperado[5][0] = (questao_46[5][2] / questao_46[9][2]) * questao_46[9][0]
+        questao_46_esperado[5][1] = (questao_46[5][2] / questao_46[9][2]) * questao_46[9][1]
+        questao_46_esperado[6][0] = (questao_46[6][2] / questao_46[9][2]) * questao_46[9][0]
+        questao_46_esperado[6][1] = (questao_46[6][2] / questao_46[9][2]) * questao_46[9][1]
+        questao_46_esperado[7][0] = (questao_46[7][2] / questao_46[9][2]) * questao_46[9][0]
+        questao_46_esperado[7][1] = (questao_46[7][2] / questao_46[9][2]) * questao_46[9][1]
+        questao_46_esperado[8][0] = (questao_46[8][2] / questao_46[9][2]) * questao_46[9][0]
+        questao_46_esperado[8][1] = (questao_46[8][2] / questao_46[9][2]) * questao_46[9][1]
+        
+        questao_47_esperado[0][0] = (questao_47[0][2] / questao_47[9][2]) * questao_47[9][0]
+        questao_47_esperado[0][1] = (questao_47[0][2] / questao_47[9][2]) * questao_47[9][1]
+        questao_47_esperado[1][0] = (questao_47[1][2] / questao_47[9][2]) * questao_47[9][0]
+        questao_47_esperado[1][1] = (questao_47[1][2] / questao_47[9][2]) * questao_47[9][1]
+        questao_47_esperado[2][0] = (questao_47[2][2] / questao_47[9][2]) * questao_47[9][0]
+        questao_47_esperado[2][1] = (questao_47[2][2] / questao_47[9][2]) * questao_47[9][1]
+        questao_47_esperado[3][0] = (questao_47[3][2] / questao_47[9][2]) * questao_47[9][0]
+        questao_47_esperado[3][1] = (questao_47[3][2] / questao_47[9][2]) * questao_47[9][1]
+        questao_47_esperado[4][0] = (questao_47[4][2] / questao_47[9][2]) * questao_47[9][0]
+        questao_47_esperado[4][1] = (questao_47[4][2] / questao_47[9][2]) * questao_47[9][1]
+        questao_47_esperado[5][0] = (questao_47[5][2] / questao_47[9][2]) * questao_47[9][0]
+        questao_47_esperado[5][1] = (questao_47[5][2] / questao_47[9][2]) * questao_47[9][1]
+        questao_47_esperado[6][0] = (questao_47[6][2] / questao_47[9][2]) * questao_47[9][0]
+        questao_47_esperado[6][1] = (questao_47[6][2] / questao_47[9][2]) * questao_47[9][1]
+        questao_47_esperado[7][0] = (questao_47[7][2] / questao_47[9][2]) * questao_47[9][0]
+        questao_47_esperado[7][1] = (questao_47[7][2] / questao_47[9][2]) * questao_47[9][1]
+        questao_47_esperado[8][0] = (questao_47[8][2] / questao_47[9][2]) * questao_47[9][0]
+        questao_47_esperado[8][1] = (questao_47[8][2] / questao_47[9][2]) * questao_47[9][1]
+        
+        questao_48_esperado[0][0] = (questao_48[0][2] / questao_48[9][2]) * questao_48[9][0]
+        questao_48_esperado[0][1] = (questao_48[0][2] / questao_48[9][2]) * questao_48[9][1]
+        questao_48_esperado[1][0] = (questao_48[1][2] / questao_48[9][2]) * questao_48[9][0]
+        questao_48_esperado[1][1] = (questao_48[1][2] / questao_48[9][2]) * questao_48[9][1]
+        questao_48_esperado[2][0] = (questao_48[2][2] / questao_48[9][2]) * questao_48[9][0]
+        questao_48_esperado[2][1] = (questao_48[2][2] / questao_48[9][2]) * questao_48[9][1]
+        questao_48_esperado[3][0] = (questao_48[3][2] / questao_48[9][2]) * questao_48[9][0]
+        questao_48_esperado[3][1] = (questao_48[3][2] / questao_48[9][2]) * questao_48[9][1]
+        questao_48_esperado[4][0] = (questao_48[4][2] / questao_48[9][2]) * questao_48[9][0]
+        questao_48_esperado[4][1] = (questao_48[4][2] / questao_48[9][2]) * questao_48[9][1]
+        questao_48_esperado[5][0] = (questao_48[5][2] / questao_48[9][2]) * questao_48[9][0]
+        questao_48_esperado[5][1] = (questao_48[5][2] / questao_48[9][2]) * questao_48[9][1]
+        questao_48_esperado[6][0] = (questao_48[6][2] / questao_48[9][2]) * questao_48[9][0]
+        questao_48_esperado[6][1] = (questao_48[6][2] / questao_48[9][2]) * questao_48[9][1]
+        questao_48_esperado[7][0] = (questao_48[7][2] / questao_48[9][2]) * questao_48[9][0]
+        questao_48_esperado[7][1] = (questao_48[7][2] / questao_48[9][2]) * questao_48[9][1]
+        questao_48_esperado[8][0] = (questao_48[8][2] / questao_48[9][2]) * questao_48[9][0]
+        questao_48_esperado[8][1] = (questao_48[8][2] / questao_48[9][2]) * questao_48[9][1]
+        
+        questao_49_esperado[0][0] = (questao_49[0][2] / questao_49[9][2]) * questao_49[9][0]
+        questao_49_esperado[0][1] = (questao_49[0][2] / questao_49[9][2]) * questao_49[9][1]
+        questao_49_esperado[1][0] = (questao_49[1][2] / questao_49[9][2]) * questao_49[9][0]
+        questao_49_esperado[1][1] = (questao_49[1][2] / questao_49[9][2]) * questao_49[9][1]
+        questao_49_esperado[2][0] = (questao_49[2][2] / questao_49[9][2]) * questao_49[9][0]
+        questao_49_esperado[2][1] = (questao_49[2][2] / questao_49[9][2]) * questao_49[9][1]
+        questao_49_esperado[3][0] = (questao_49[3][2] / questao_49[9][2]) * questao_49[9][0]
+        questao_49_esperado[3][1] = (questao_49[3][2] / questao_49[9][2]) * questao_49[9][1]
+        questao_49_esperado[4][0] = (questao_49[4][2] / questao_49[9][2]) * questao_49[9][0]
+        questao_49_esperado[4][1] = (questao_49[4][2] / questao_49[9][2]) * questao_49[9][1]
+        questao_49_esperado[5][0] = (questao_49[5][2] / questao_49[9][2]) * questao_49[9][0]
+        questao_49_esperado[5][1] = (questao_49[5][2] / questao_49[9][2]) * questao_49[9][1]
+        questao_49_esperado[6][0] = (questao_49[6][2] / questao_49[9][2]) * questao_49[9][0]
+        questao_49_esperado[6][1] = (questao_49[6][2] / questao_49[9][2]) * questao_49[9][1]
+        questao_49_esperado[7][0] = (questao_49[7][2] / questao_49[9][2]) * questao_49[9][0]
+        questao_49_esperado[7][1] = (questao_49[7][2] / questao_49[9][2]) * questao_49[9][1]
+        questao_49_esperado[8][0] = (questao_49[8][2] / questao_49[9][2]) * questao_49[9][0]
+        questao_49_esperado[8][1] = (questao_49[8][2] / questao_49[9][2]) * questao_49[9][1]
+        
+        questao_50_esperado[0][0] = (questao_50[0][2] / questao_50[9][2]) * questao_50[9][0]
+        questao_50_esperado[0][1] = (questao_50[0][2] / questao_50[9][2]) * questao_50[9][1]
+        questao_50_esperado[1][0] = (questao_50[1][2] / questao_50[9][2]) * questao_50[9][0]
+        questao_50_esperado[1][1] = (questao_50[1][2] / questao_50[9][2]) * questao_50[9][1]
+        questao_50_esperado[2][0] = (questao_50[2][2] / questao_50[9][2]) * questao_50[9][0]
+        questao_50_esperado[2][1] = (questao_50[2][2] / questao_50[9][2]) * questao_50[9][1]
+        questao_50_esperado[3][0] = (questao_50[3][2] / questao_50[9][2]) * questao_50[9][0]
+        questao_50_esperado[3][1] = (questao_50[3][2] / questao_50[9][2]) * questao_50[9][1]
+        questao_50_esperado[4][0] = (questao_50[4][2] / questao_50[9][2]) * questao_50[9][0]
+        questao_50_esperado[4][1] = (questao_50[4][2] / questao_50[9][2]) * questao_50[9][1]
+        questao_50_esperado[5][0] = (questao_50[5][2] / questao_50[9][2]) * questao_50[9][0]
+        questao_50_esperado[5][1] = (questao_50[5][2] / questao_50[9][2]) * questao_50[9][1]
+        questao_50_esperado[6][0] = (questao_50[6][2] / questao_50[9][2]) * questao_50[9][0]
+        questao_50_esperado[6][1] = (questao_50[6][2] / questao_50[9][2]) * questao_50[9][1]
+        questao_50_esperado[7][0] = (questao_50[7][2] / questao_50[9][2]) * questao_50[9][0]
+        questao_50_esperado[7][1] = (questao_50[7][2] / questao_50[9][2]) * questao_50[9][1]
+        questao_50_esperado[8][0] = (questao_50[8][2] / questao_50[9][2]) * questao_50[9][0]
+        questao_50_esperado[8][1] = (questao_50[8][2] / questao_50[9][2]) * questao_50[9][1]
+        
+        questao_51_esperado[0][0] = (questao_51[0][2] / questao_51[9][2]) * questao_51[9][0]
+        questao_51_esperado[0][1] = (questao_51[0][2] / questao_51[9][2]) * questao_51[9][1]
+        questao_51_esperado[1][0] = (questao_51[1][2] / questao_51[9][2]) * questao_51[9][0]
+        questao_51_esperado[1][1] = (questao_51[1][2] / questao_51[9][2]) * questao_51[9][1]
+        questao_51_esperado[2][0] = (questao_51[2][2] / questao_51[9][2]) * questao_51[9][0]
+        questao_51_esperado[2][1] = (questao_51[2][2] / questao_51[9][2]) * questao_51[9][1]
+        questao_51_esperado[3][0] = (questao_51[3][2] / questao_51[9][2]) * questao_51[9][0]
+        questao_51_esperado[3][1] = (questao_51[3][2] / questao_51[9][2]) * questao_51[9][1]
+        questao_51_esperado[4][0] = (questao_51[4][2] / questao_51[9][2]) * questao_51[9][0]
+        questao_51_esperado[4][1] = (questao_51[4][2] / questao_51[9][2]) * questao_51[9][1]
+        questao_51_esperado[5][0] = (questao_51[5][2] / questao_51[9][2]) * questao_51[9][0]
+        questao_51_esperado[5][1] = (questao_51[5][2] / questao_51[9][2]) * questao_51[9][1]
+        questao_51_esperado[6][0] = (questao_51[6][2] / questao_51[9][2]) * questao_51[9][0]
+        questao_51_esperado[6][1] = (questao_51[6][2] / questao_51[9][2]) * questao_51[9][1]
+        questao_51_esperado[7][0] = (questao_51[7][2] / questao_51[9][2]) * questao_51[9][0]
+        questao_51_esperado[7][1] = (questao_51[7][2] / questao_51[9][2]) * questao_51[9][1]
+        questao_51_esperado[8][0] = (questao_51[8][2] / questao_51[9][2]) * questao_51[9][0]
+        questao_51_esperado[8][1] = (questao_51[8][2] / questao_51[9][2]) * questao_51[9][1]
+        
+        questao_52_esperado[0][0] = (questao_52[0][2] / questao_52[9][2]) * questao_52[9][0]
+        questao_52_esperado[0][1] = (questao_52[0][2] / questao_52[9][2]) * questao_52[9][1]
+        questao_52_esperado[1][0] = (questao_52[1][2] / questao_52[9][2]) * questao_52[9][0]
+        questao_52_esperado[1][1] = (questao_52[1][2] / questao_52[9][2]) * questao_52[9][1]
+        questao_52_esperado[2][0] = (questao_52[2][2] / questao_52[9][2]) * questao_52[9][0]
+        questao_52_esperado[2][1] = (questao_52[2][2] / questao_52[9][2]) * questao_52[9][1]
+        questao_52_esperado[3][0] = (questao_52[3][2] / questao_52[9][2]) * questao_52[9][0]
+        questao_52_esperado[3][1] = (questao_52[3][2] / questao_52[9][2]) * questao_52[9][1]
+        questao_52_esperado[4][0] = (questao_52[4][2] / questao_52[9][2]) * questao_52[9][0]
+        questao_52_esperado[4][1] = (questao_52[4][2] / questao_52[9][2]) * questao_52[9][1]
+        questao_52_esperado[5][0] = (questao_52[5][2] / questao_52[9][2]) * questao_52[9][0]
+        questao_52_esperado[5][1] = (questao_52[5][2] / questao_52[9][2]) * questao_52[9][1]
+        questao_52_esperado[6][0] = (questao_52[6][2] / questao_52[9][2]) * questao_52[9][0]
+        questao_52_esperado[6][1] = (questao_52[6][2] / questao_52[9][2]) * questao_52[9][1]
+        questao_52_esperado[7][0] = (questao_52[7][2] / questao_52[9][2]) * questao_52[9][0]
+        questao_52_esperado[7][1] = (questao_52[7][2] / questao_52[9][2]) * questao_52[9][1]
+        questao_52_esperado[8][0] = (questao_52[8][2] / questao_52[9][2]) * questao_52[9][0]
+        questao_52_esperado[8][1] = (questao_52[8][2] / questao_52[9][2]) * questao_52[9][1]
+        
+        questao_53_esperado[0][0] = (questao_53[0][2] / questao_53[9][2]) * questao_53[9][0]
+        questao_53_esperado[0][1] = (questao_53[0][2] / questao_53[9][2]) * questao_53[9][1]
+        questao_53_esperado[1][0] = (questao_53[1][2] / questao_53[9][2]) * questao_53[9][0]
+        questao_53_esperado[1][1] = (questao_53[1][2] / questao_53[9][2]) * questao_53[9][1]
+        questao_53_esperado[2][0] = (questao_53[2][2] / questao_53[9][2]) * questao_53[9][0]
+        questao_53_esperado[2][1] = (questao_53[2][2] / questao_53[9][2]) * questao_53[9][1]
+        questao_53_esperado[3][0] = (questao_53[3][2] / questao_53[9][2]) * questao_53[9][0]
+        questao_53_esperado[3][1] = (questao_53[3][2] / questao_53[9][2]) * questao_53[9][1]
+        questao_53_esperado[4][0] = (questao_53[4][2] / questao_53[9][2]) * questao_53[9][0]
+        questao_53_esperado[4][1] = (questao_53[4][2] / questao_53[9][2]) * questao_53[9][1]
+        questao_53_esperado[5][0] = (questao_53[5][2] / questao_53[9][2]) * questao_53[9][0]
+        questao_53_esperado[5][1] = (questao_53[5][2] / questao_53[9][2]) * questao_53[9][1]
+        questao_53_esperado[6][0] = (questao_53[6][2] / questao_53[9][2]) * questao_53[9][0]
+        questao_53_esperado[6][1] = (questao_53[6][2] / questao_53[9][2]) * questao_53[9][1]
+        questao_53_esperado[7][0] = (questao_53[7][2] / questao_53[9][2]) * questao_53[9][0]
+        questao_53_esperado[7][1] = (questao_53[7][2] / questao_53[9][2]) * questao_53[9][1]
+        questao_53_esperado[8][0] = (questao_53[8][2] / questao_53[9][2]) * questao_53[9][0]
+        questao_53_esperado[8][1] = (questao_53[8][2] / questao_53[9][2]) * questao_53[9][1]
+        
+        questao_54_esperado[0][0] = (questao_54[0][2] / questao_54[9][2]) * questao_54[9][0]
+        questao_54_esperado[0][1] = (questao_54[0][2] / questao_54[9][2]) * questao_54[9][1]
+        questao_54_esperado[1][0] = (questao_54[1][2] / questao_54[9][2]) * questao_54[9][0]
+        questao_54_esperado[1][1] = (questao_54[1][2] / questao_54[9][2]) * questao_54[9][1]
+        questao_54_esperado[2][0] = (questao_54[2][2] / questao_54[9][2]) * questao_54[9][0]
+        questao_54_esperado[2][1] = (questao_54[2][2] / questao_54[9][2]) * questao_54[9][1]
+        questao_54_esperado[3][0] = (questao_54[3][2] / questao_54[9][2]) * questao_54[9][0]
+        questao_54_esperado[3][1] = (questao_54[3][2] / questao_54[9][2]) * questao_54[9][1]
+        questao_54_esperado[4][0] = (questao_54[4][2] / questao_54[9][2]) * questao_54[9][0]
+        questao_54_esperado[4][1] = (questao_54[4][2] / questao_54[9][2]) * questao_54[9][1]
+        questao_54_esperado[5][0] = (questao_54[5][2] / questao_54[9][2]) * questao_54[9][0]
+        questao_54_esperado[5][1] = (questao_54[5][2] / questao_54[9][2]) * questao_54[9][1]
+        questao_54_esperado[6][0] = (questao_54[6][2] / questao_54[9][2]) * questao_54[9][0]
+        questao_54_esperado[6][1] = (questao_54[6][2] / questao_54[9][2]) * questao_54[9][1]
+        questao_54_esperado[7][0] = (questao_54[7][2] / questao_54[9][2]) * questao_54[9][0]
+        questao_54_esperado[7][1] = (questao_54[7][2] / questao_54[9][2]) * questao_54[9][1]
+        questao_54_esperado[8][0] = (questao_54[8][2] / questao_54[9][2]) * questao_54[9][0]
+        questao_54_esperado[8][1] = (questao_54[8][2] / questao_54[9][2]) * questao_54[9][1]
         
         context = {
             'pagina_inferencia': True,
             'sexo': sexo,
-            'sexo_esperado': sexo_esperado,
             'raca': raca,
             'questao_73': questao_73,
             'questao_75': questao_75,
@@ -2260,6 +2887,46 @@ class InferenciaView(LoginRequired, View):
             'questao_52': questao_52,
             'questao_53': questao_53,
             'questao_54': questao_54,
+            
+            'sexo_esperado': sexo_esperado,
+            'raca_esperado': raca_esperado,
+            'questao_73_esperado': questao_73_esperado,
+            'questao_75_esperado': questao_75_esperado,
+            'questao_79_esperado': questao_79_esperado,
+            'questao_84_esperado': questao_84_esperado,
+            'questao_92_esperado': questao_92_esperado,
+            'questao_111_esperado': questao_111_esperado,
+            'questao_113_esperado': questao_113_esperado,
+            'questao_25_esperado': questao_25_esperado,
+            'questao_26_esperado': questao_26_esperado,
+            'questao_27_esperado': questao_27_esperado,
+            'questao_28_esperado': questao_28_esperado,
+            'questao_29_esperado': questao_29_esperado,
+            'questao_30_esperado': questao_30_esperado,
+            'questao_31_esperado': questao_31_esperado,
+            'questao_32_esperado': questao_32_esperado,
+            'questao_33_esperado': questao_33_esperado,
+            'questao_34_esperado': questao_34_esperado,
+            'questao_35_esperado': questao_35_esperado,
+            'questao_36_esperado': questao_36_esperado,
+            'questao_37_esperado': questao_37_esperado,
+            'questao_38_esperado': questao_38_esperado,
+            'questao_39_esperado': questao_39_esperado,
+            'questao_40_esperado': questao_40_esperado,
+            'questao_41_esperado': questao_41_esperado,
+            'questao_42_esperado': questao_42_esperado,
+            'questao_43_esperado': questao_43_esperado,
+            'questao_44_esperado': questao_44_esperado,
+            'questao_45_esperado': questao_45_esperado,
+            'questao_46_esperado': questao_46_esperado,
+            'questao_47_esperado': questao_47_esperado,
+            'questao_48_esperado': questao_48_esperado,
+            'questao_49_esperado': questao_49_esperado,
+            'questao_50_esperado': questao_50_esperado,
+            'questao_51_esperado': questao_51_esperado,
+            'questao_52_esperado': questao_52_esperado,
+            'questao_53_esperado': questao_53_esperado,
+            'questao_54_esperado': questao_54_esperado,
         }
         
         return render(self.request, 'administracao/inferencia.html', context)

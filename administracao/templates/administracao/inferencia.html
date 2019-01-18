@@ -99,6 +99,7 @@
               </tbody>
             </table>
           </div>
+          <p>P-valor: 0</p>
         </div>
       </div>
     </div>
@@ -166,6 +167,56 @@
         </div>
       </div>
     </div>
+    
+    <div class="col-lg-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          Incidência de cárie por raça (valores esperados)
+        </div>
+        <div class="panel-body">
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Raça</th>
+                  <th>Sim</th>
+                  <th>Não</th>
+                </tr>
+              </thead>
+              
+              <tbody>
+                <tr>
+                  <td>Amarela</td>
+                  <td>{{ raca_esperado.0.0 }}</td>
+                  <td>{{ raca_esperado.0.1 }}</td>
+                </tr>
+                <tr>
+                  <td>Branca</td>
+                  <td>{{ raca_esperado.1.0 }}</td>
+                  <td>{{ raca_esperado.1.1 }}</td>
+                </tr>
+                <tr>
+                  <td>Indígena</td>
+                  <td>{{ raca_esperado.2.0 }}</td>
+                  <td>{{ raca_esperado.2.1 }}</td>
+                </tr>
+                <tr>
+                  <td>Parda</td>
+                  <td>{{ raca_esperado.3.0 }}</td>
+                  <td>{{ raca_esperado.3.1 }}</td>
+                </tr>
+                <tr>
+                  <td>Preta</td>
+                  <td>{{ raca_esperado.4.0 }}</td>
+                  <td>{{ raca_esperado.4.1 }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p>P-valor: 0</p>
+        </div>
+      </div>
+    </div>
   </div>
   
   <div class="row">
@@ -209,6 +260,41 @@
               </tbody>
             </table>
           </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col-lg-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          Incidência de cárie por questão: 73. Alguma vez na vida, você já fumou cigarro, mesmo uma ou duas tragadas? (valores esperados)
+        </div>
+        <div class="panel-body">
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Questão 73</th>
+                  <th>Sim</th>
+                  <th>Não</th>
+                </tr>
+              </thead>
+              
+              <tbody>
+                <tr>
+                  <td>Sim</td>
+                  <td>{{ questao_73_esperado.0.0 }}</td>
+                  <td>{{ questao_73_esperado.0.1 }}</td>
+                </tr>
+                <tr>
+                  <td>Não</td>
+                  <td>{{ questao_73_esperado.1.0 }}</td>
+                  <td>{{ questao_73_esperado.1.1 }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p>P-valor: 0</p>
         </div>
       </div>
     </div>
@@ -285,6 +371,66 @@
               </tbody>
             </table>
           </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col-lg-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          Incidência de cárie por questão: 75. Nos últimos 30 dias, em quantos dias você fumou cigarros? (valores esperados)
+        </div>
+        <div class="panel-body">
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Questão 75</th>
+                  <th>Sim</th>
+                  <th>Não</th>
+                </tr>
+              </thead>
+              
+              <tbody>
+                <tr>
+                  <td>Nenhum dia nos últimos 30 dias (0 dia)</td>
+                  <td>{{ questao_75_esperado.0.0 }}</td>
+                  <td>{{ questao_75_esperado.0.1 }}</td>
+                </tr>
+                <tr>
+                  <td>1 ou 2 dias nos últimos 30 dias</td>
+                  <td>{{ questao_75_esperado.1.0 }}</td>
+                  <td>{{ questao_75_esperado.1.1 }}</td>
+                </tr>
+                <tr>
+                  <td>3 a 5 dias nos últimos 30 dias</td>
+                  <td>{{ questao_75_esperado.2.0 }}</td>
+                  <td>{{ questao_75_esperado.2.1 }}</td>
+                </tr>
+                <tr>
+                  <td>6 a 9 dias nos últimos 30 dias</td>
+                  <td>{{ questao_75_esperado.3.0 }}</td>
+                  <td>{{ questao_75_esperado.3.1 }}</td>
+                </tr>
+                <tr>
+                  <td>10 a 19 dias nos últimos 30 dias</td>
+                  <td>{{ questao_75_esperado.4.0 }}</td>
+                  <td>{{ questao_75_esperado.4.1 }}</td>
+                </tr>
+                <tr>
+                  <td>20 a 29 dias nos últimos 30 dias</td>
+                  <td>{{ questao_75_esperado.5.0 }}</td>
+                  <td>{{ questao_75_esperado.5.1 }}</td>
+                </tr>
+                <tr>
+                  <td>Todos os dias nos últimos 30 dias</td>
+                  <td>{{ questao_75_esperado.6.0 }}</td>
+                  <td>{{ questao_75_esperado.6.1 }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p>P-valor: 0</p>
         </div>
       </div>
     </div>
@@ -382,6 +528,81 @@
         </div>
       </div>
     </div>
+    
+    <div class="col-lg-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          Incidência de cárie por questão: 79. Qual outro produto do tabaco você usou com mais frequência nos últimos 30 dias? (valores esperados)
+        </div>
+        <div class="panel-body">
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Questão 79</th>
+                  <th>Sim</th>
+                  <th>Não</th>
+                </tr>
+              </thead>
+              
+              <tbody>
+                <tr>
+                  <td>Não usei nenhum produto do tabaco (os produtos do tabaco estão abaixo relacionados)</td>
+                  <td>{{ questao_79_esperado.0.0 }}</td>
+                  <td>{{ questao_79_esperado.0.1 }}</td>
+                </tr>
+                <tr>
+                  <td>Cigarros de cravo (conhecidos como cigarros de Bali).</td>
+                  <td>{{ questao_79_esperado.1.0 }}</td>
+                  <td>{{ questao_79_esperado.1.1 }}</td>
+                </tr>
+                <tr>
+                  <td>Cigarros enrolados à mão (conhecidos como cigarros de palha ou papel)</td>
+                  <td>{{ questao_79_esperado.2.0 }}</td>
+                  <td>{{ questao_79_esperado.2.1 }}</td>
+                </tr>
+                <tr>
+                  <td>Cigarrilhas</td>
+                  <td>{{ questao_79_esperado.3.0 }}</td>
+                  <td>{{ questao_79_esperado.3.1 }}</td>
+                </tr>
+                <tr>
+                  <td>Charutos, charutos pequenos.</td>
+                  <td>{{ questao_79_esperado.4.0 }}</td>
+                  <td>{{ questao_79_esperado.4.1 }}</td>
+                </tr>
+                <tr>
+                  <td>Fumo para mascar</td>
+                  <td>{{ questao_79_esperado.5.0 }}</td>
+                  <td>{{ questao_79_esperado.5.1 }}</td>
+                </tr>
+                <tr>
+                  <td>Narguilé (cachimbo de água)</td>
+                  <td>{{ questao_79_esperado.6.0 }}</td>
+                  <td>{{ questao_79_esperado.6.1 }}</td>
+                </tr>
+                <tr>
+                  <td>Cigarros indianos (bidis)</td>
+                  <td>{{ questao_79_esperado.7.0 }}</td>
+                  <td>{{ questao_79_esperado.7.1 }}</td>
+                </tr>
+                <tr>
+                  <td>Cigarro eletrônico (e-cigarette)</td>
+                  <td>{{ questao_79_esperado.8.0 }}</td>
+                  <td>{{ questao_79_esperado.8.1 }}</td>
+                </tr>
+                <tr>
+                  <td>Outros</td>
+                  <td>{{ questao_79_esperado.9.0 }}</td>
+                  <td>{{ questao_79_esperado.9.1 }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p>P-valor: 0</p>
+        </div>
+      </div>
+    </div>
   </div>
   
   <div class="row">
@@ -458,6 +679,66 @@
         </div>
       </div>
     </div>
+    
+    <div class="col-lg-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          Incidência de cárie por questão: 84. Nos últimos 30 dias, em quantos dias você tomou pelo menos um copo ou uma dose de bebida alcoólica (uma dose equivale a uma lata de cerveja ou uma taça de vinho ou uma dose de cachaça ou uísque etc.)? (valores esperados)
+        </div>
+        <div class="panel-body">
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Questão 84</th>
+                  <th>Sim</th>
+                  <th>Não</th>
+                </tr>
+              </thead>
+              
+              <tbody>
+                <tr>
+                  <td>Nenhum dia nos últimos 30 dias (0 dia)</td>
+                  <td>{{ questao_84_esperado.0.0 }}</td>
+                  <td>{{ questao_84_esperado.0.1 }}</td>
+                </tr>
+                <tr>
+                  <td>1 ou 2 dias nos últimos 30 dias</td>
+                  <td>{{ questao_84_esperado.1.0 }}</td>
+                  <td>{{ questao_84_esperado.1.1 }}</td>
+                </tr>
+                <tr>
+                  <td>3 a 5 dias nos últimos 30 dias</td>
+                  <td>{{ questao_84_esperado.2.0 }}</td>
+                  <td>{{ questao_84_esperado.2.1 }}</td>
+                </tr>
+                <tr>
+                  <td>6 a 9 dias nos últimos 30 dias</td>
+                  <td>{{ questao_84_esperado.3.0 }}</td>
+                  <td>{{ questao_84_esperado.3.1 }}</td>
+                </tr>
+                <tr>
+                  <td>10 a 19 dias nos últimos 30 dias</td>
+                  <td>{{ questao_84_esperado.4.0 }}</td>
+                  <td>{{ questao_84_esperado.4.1 }}</td>
+                </tr>
+                <tr>
+                  <td>20 a 29 dias nos últimos 30 dias</td>
+                  <td>{{ questao_84_esperado.5.0 }}</td>
+                  <td>{{ questao_84_esperado.5.1 }}</td>
+                </tr>
+                <tr>
+                  <td>Todos os dias nos últimos 30 dias</td>
+                  <td>{{ questao_84_esperado.6.0 }}</td>
+                  <td>{{ questao_84_esperado.6.1 }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p>P-valor: 0</p>
+        </div>
+      </div>
+    </div>
   </div>
   
   <div class="row">
@@ -519,6 +800,56 @@
               </tbody>
             </table>
           </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col-lg-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          Incidência de cárie por questão: 92. Nos ultimos 30 dias, quantos dias você usou droga como maconha, cocaína, crack, cola, loló, lança-perfume, ecstasy, oxy etc.? (valores esperados)
+        </div>
+        <div class="panel-body">
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Questão 92</th>
+                  <th>Sim</th>
+                  <th>Não</th>
+                </tr>
+              </thead>
+              
+              <tbody>
+                <tr>
+                  <td>Nenhum dia nos últimos 30 dias (0 dia)</td>
+                  <td>{{ questao_92_esperado.0.0 }}</td>
+                  <td>{{ questao_92_esperado.0.1 }}</td>
+                </tr>
+                <tr>
+                  <td>1 ou 2 dias nos últimos 30 dias</td>
+                  <td>{{ questao_92_esperado.1.0 }}</td>
+                  <td>{{ questao_92_esperado.1.1 }}</td>
+                </tr>
+                <tr>
+                  <td>3 a 5 dias nos últimos 30 dias</td>
+                  <td>{{ questao_92_esperado.2.0 }}</td>
+                  <td>{{ questao_92_esperado.2.1 }}</td>
+                </tr>
+                <tr>
+                  <td>6 a 9 dias nos últimos 30 dias</td>
+                  <td>{{ questao_92_esperado.3.0 }}</td>
+                  <td>{{ questao_92_esperado.3.1 }}</td>
+                </tr>
+                <tr>
+                  <td>10 ou mais dias nos últimos 30 dias</td>
+                  <td>{{ questao_92_esperado.4.0 }}</td>
+                  <td>{{ questao_92_esperado.4.1 }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p>P-valor: 0</p>
         </div>
       </div>
     </div>
@@ -592,6 +923,61 @@
         </div>
       </div>
     </div>
+    
+    <div class="col-lg-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          Incidência de cárie por questão: 111. Nos últimos 30 dias, quantas vezes por dia você usualmente escovou os dentes? (valores esperados)
+        </div>
+        <div class="panel-body">
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Questão 111</th>
+                  <th>Sim</th>
+                  <th>Não</th>
+                </tr>
+              </thead>
+              
+              <tbody>
+                <tr>
+                  <td>Não escovei meus dentes nos últimos 30 dias</td>
+                  <td>{{ questao_111_esperado.0.0 }}</td>
+                  <td>{{ questao_111_esperado.0.1 }}</td>
+                </tr>
+                <tr>
+                  <td>Não escovei meus dentes diariamente</td>
+                  <td>{{ questao_111_esperado.1.0 }}</td>
+                  <td>{{ questao_111_esperado.1.1 }}</td>
+                </tr>
+                <tr>
+                  <td>1 vez por dia nos últimos 30 dias</td>
+                  <td>{{ questao_111_esperado.2.0 }}</td>
+                  <td>{{ questao_111_esperado.2.1 }}</td>
+                </tr>
+                <tr>
+                  <td>2 vezes por dia nos últimos 30 dias</td>
+                  <td>{{ questao_111_esperado.3.0 }}</td>
+                  <td>{{ questao_111_esperado.3.1 }}</td>
+                </tr>
+                <tr>
+                  <td>3 vezes por dia nos últimos 30 dias</td>
+                  <td>{{ questao_111_esperado.4.0 }}</td>
+                  <td>{{ questao_111_esperado.4.1 }}</td>
+                </tr>
+                <tr>
+                  <td>4 ou mais vezes por dia nos últimos 30 dias</td>
+                  <td>{{ questao_111_esperado.5.0 }}</td>
+                  <td>{{ questao_111_esperado.5.1 }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p>P-valor: 0</p>
+        </div>
+      </div>
+    </div>
   </div>
   
   <div class="row">
@@ -647,6 +1033,51 @@
               </tbody>
             </table>
           </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col-lg-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          Incidência de cárie por questão: 113. Nos últimos 12 meses, quantas vezes você foi ao dentista? (valores esperados)
+        </div>
+        <div class="panel-body">
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Questão 113</th>
+                  <th>Sim</th>
+                  <th>Não</th>
+                </tr>
+              </thead>
+              
+              <tbody>
+                <tr>
+                  <td>Nenhuma vez nos últimos 12 meses (0 vez)</td>
+                  <td>{{ questao_113_esperado.0.0 }}</td>
+                  <td>{{ questao_113_esperado.0.1 }}</td>
+                </tr>
+                <tr>
+                  <td>1 vez nos últimos 12 meses</td>
+                  <td>{{ questao_113_esperado.1.0 }}</td>
+                  <td>{{ questao_113_esperado.1.1 }}</td>
+                </tr>
+                <tr>
+                  <td>2 vezes nos últimos 12 meses</td>
+                  <td>{{ questao_113_esperado.2.0 }}</td>
+                  <td>{{ questao_113_esperado.2.1 }}</td>
+                </tr>
+                <tr>
+                  <td>3 ou mais vezes nos últimos 12 meses</td>
+                  <td>{{ questao_113_esperado.3.0 }}</td>
+                  <td>{{ questao_113_esperado.3.1 }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p>P-valor: 0</p>
         </div>
       </div>
     </div>
@@ -738,6 +1169,76 @@
         </div>
       </div>
     </div>
+    
+    <div class="col-lg-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          Incidência de cárie por consumo de alimento (25) - Leite de vaca: (valores esperados)
+        </div>
+        <div class="panel-body">
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Questão 25</th>
+                  <th>Sim</th>
+                  <th>Não</th>
+                </tr>
+              </thead>
+              
+              <tbody>
+                <tr>
+                  <td>Nunca ou menos de uma vez por mês</td>
+                  <td>{{ questao_25_esperado.0.0 }}</td>
+                  <td>{{ questao_25_esperado.0.1 }}</td>
+                </tr>
+                <tr>
+                  <td>1 a 3 vezes por mês</td>
+                  <td>{{ questao_25_esperado.1.0 }}</td>
+                  <td>{{ questao_25_esperado.1.1 }}</td>
+                </tr>
+                <tr>
+                  <td>1 vez por semana</td>
+                  <td>{{ questao_25_esperado.2.0 }}</td>
+                  <td>{{ questao_25_esperado.2.1 }}</td>
+                </tr>
+                <tr>
+                  <td>2 a 4 vezes por semana</td>
+                  <td>{{ questao_25_esperado.3.0 }}</td>
+                  <td>{{ questao_25_esperado.3.1 }}</td>
+                </tr>
+                <tr>
+                  <td>6 a 8 vezes por semana</td>
+                  <td>{{ questao_25_esperado.4.0 }}</td>
+                  <td>{{ questao_25_esperado.4.1 }}</td>
+                </tr>
+                <tr>
+                  <td>1 vez por dia</td>
+                  <td>{{ questao_25_esperado.5.0 }}</td>
+                  <td>{{ questao_25_esperado.5.1 }}</td>
+                </tr>
+                <tr>
+                  <td>2 a 3 vezes por dia</td>
+                  <td>{{ questao_25_esperado.6.0 }}</td>
+                  <td>{{ questao_25_esperado.6.1 }}</td>
+                </tr>
+                <tr>
+                  <td>4 a 6 vezes por dia</td>
+                  <td>{{ questao_25_esperado.7.0 }}</td>
+                  <td>{{ questao_25_esperado.7.1 }}</td>
+                </tr>
+                <tr>
+                  <td>Mais de 8 vezes por dia</td>
+                  <td>{{ questao_25_esperado.8.0 }}</td>
+                  <td>{{ questao_25_esperado.8.1 }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p>P-valor: 0</p>
+        </div>
+      </div>
+    </div>
   </div>
   
   <div class="row">
@@ -823,6 +1324,76 @@
               </tbody>
             </table>
           </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col-lg-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          Incidência de cárie por consumo de alimento (26) - Leite de vaca com adição de achocolatados em pó (nescau, toddy, ovomaltine), mel ou açúcar: (valores esperados)
+        </div>
+        <div class="panel-body">
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Questão 26</th>
+                  <th>Sim</th>
+                  <th>Não</th>
+                </tr>
+              </thead>
+              
+              <tbody>
+                <tr>
+                  <td>Nunca ou menos de uma vez por mês</td>
+                  <td>{{ questao_26_esperado.0.0 }}</td>
+                  <td>{{ questao_26_esperado.0.1 }}</td>
+                </tr>
+                <tr>
+                  <td>1 a 3 vezes por mês</td>
+                  <td>{{ questao_26_esperado.1.0 }}</td>
+                  <td>{{ questao_26_esperado.1.1 }}</td>
+                </tr>
+                <tr>
+                  <td>1 vez por semana</td>
+                  <td>{{ questao_26_esperado.2.0 }}</td>
+                  <td>{{ questao_26_esperado.2.1 }}</td>
+                </tr>
+                <tr>
+                  <td>2 a 4 vezes por semana</td>
+                  <td>{{ questao_26_esperado.3.0 }}</td>
+                  <td>{{ questao_26_esperado.3.1 }}</td>
+                </tr>
+                <tr>
+                  <td>6 a 8 vezes por semana</td>
+                  <td>{{ questao_26_esperado.4.0 }}</td>
+                  <td>{{ questao_26_esperado.4.1 }}</td>
+                </tr>
+                <tr>
+                  <td>1 vez por dia</td>
+                  <td>{{ questao_26_esperado.5.0 }}</td>
+                  <td>{{ questao_26_esperado.5.1 }}</td>
+                </tr>
+                <tr>
+                  <td>2 a 3 vezes por dia</td>
+                  <td>{{ questao_26_esperado.6.0 }}</td>
+                  <td>{{ questao_26_esperado.6.1 }}</td>
+                </tr>
+                <tr>
+                  <td>4 a 6 vezes por dia</td>
+                  <td>{{ questao_26_esperado.7.0 }}</td>
+                  <td>{{ questao_26_esperado.7.1 }}</td>
+                </tr>
+                <tr>
+                  <td>Mais de 8 vezes por dia</td>
+                  <td>{{ questao_26_esperado.8.0 }}</td>
+                  <td>{{ questao_26_esperado.8.1 }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p>P-valor: 0</p>
         </div>
       </div>
     </div>
@@ -914,6 +1485,76 @@
         </div>
       </div>
     </div>
+    
+    <div class="col-lg-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          Incidência de cárie por consumo de alimento (27) - Achocolatados líquidos comprados em supermercados como, por exemplo: Todyynho, Chokinho; Nescau; Italac etc. (valores esperados)
+        </div>
+        <div class="panel-body">
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Questão 27</th>
+                  <th>Sim</th>
+                  <th>Não</th>
+                </tr>
+              </thead>
+              
+              <tbody>
+                <tr>
+                  <td>Nunca ou menos de uma vez por mês</td>
+                  <td>{{ questao_27_esperado.0.0 }}</td>
+                  <td>{{ questao_27_esperado.0.1 }}</td>
+                </tr>
+                <tr>
+                  <td>1 a 3 vezes por mês</td>
+                  <td>{{ questao_27_esperado.1.0 }}</td>
+                  <td>{{ questao_27_esperado.1.1 }}</td>
+                </tr>
+                <tr>
+                  <td>1 vez por semana</td>
+                  <td>{{ questao_27_esperado.2.0 }}</td>
+                  <td>{{ questao_27_esperado.2.1 }}</td>
+                </tr>
+                <tr>
+                  <td>2 a 4 vezes por semana</td>
+                  <td>{{ questao_27_esperado.3.0 }}</td>
+                  <td>{{ questao_27_esperado.3.1 }}</td>
+                </tr>
+                <tr>
+                  <td>6 a 8 vezes por semana</td>
+                  <td>{{ questao_27_esperado.4.0 }}</td>
+                  <td>{{ questao_27_esperado.4.1 }}</td>
+                </tr>
+                <tr>
+                  <td>1 vez por dia</td>
+                  <td>{{ questao_27_esperado.5.0 }}</td>
+                  <td>{{ questao_27_esperado.5.1 }}</td>
+                </tr>
+                <tr>
+                  <td>2 a 3 vezes por dia</td>
+                  <td>{{ questao_27_esperado.6.0 }}</td>
+                  <td>{{ questao_27_esperado.6.1 }}</td>
+                </tr>
+                <tr>
+                  <td>4 a 6 vezes por dia</td>
+                  <td>{{ questao_27_esperado.7.0 }}</td>
+                  <td>{{ questao_27_esperado.7.1 }}</td>
+                </tr>
+                <tr>
+                  <td>Mais de 8 vezes por dia</td>
+                  <td>{{ questao_27_esperado.8.0 }}</td>
+                  <td>{{ questao_27_esperado.8.1 }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p>P-valor: 0</p>
+        </div>
+      </div>
+    </div>
   </div>
   
   <div class="row">
@@ -999,6 +1640,76 @@
               </tbody>
             </table>
           </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col-lg-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          Incidência de cárie por consumo de alimento (28) - Iogurte como, por exemplo: Danone, Danoninho, Nestlé, Ninho, etc. (valores esperados)
+        </div>
+        <div class="panel-body">
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Questão 28</th>
+                  <th>Sim</th>
+                  <th>Não</th>
+                </tr>
+              </thead>
+              
+              <tbody>
+                <tr>
+                  <td>Nunca ou menos de uma vez por mês</td>
+                  <td>{{ questao_28_esperado.0.0 }}</td>
+                  <td>{{ questao_28_esperado.0.1 }}</td>
+                </tr>
+                <tr>
+                  <td>1 a 3 vezes por mês</td>
+                  <td>{{ questao_28_esperado.1.0 }}</td>
+                  <td>{{ questao_28_esperado.1.1 }}</td>
+                </tr>
+                <tr>
+                  <td>1 vez por semana</td>
+                  <td>{{ questao_28_esperado.2.0 }}</td>
+                  <td>{{ questao_28_esperado.2.1 }}</td>
+                </tr>
+                <tr>
+                  <td>2 a 4 vezes por semana</td>
+                  <td>{{ questao_28_esperado.3.0 }}</td>
+                  <td>{{ questao_28_esperado.3.1 }}</td>
+                </tr>
+                <tr>
+                  <td>6 a 8 vezes por semana</td>
+                  <td>{{ questao_28_esperado.4.0 }}</td>
+                  <td>{{ questao_28_esperado.4.1 }}</td>
+                </tr>
+                <tr>
+                  <td>1 vez por dia</td>
+                  <td>{{ questao_28_esperado.5.0 }}</td>
+                  <td>{{ questao_28_esperado.5.1 }}</td>
+                </tr>
+                <tr>
+                  <td>2 a 3 vezes por dia</td>
+                  <td>{{ questao_28_esperado.6.0 }}</td>
+                  <td>{{ questao_28_esperado.6.1 }}</td>
+                </tr>
+                <tr>
+                  <td>4 a 6 vezes por dia</td>
+                  <td>{{ questao_28_esperado.7.0 }}</td>
+                  <td>{{ questao_28_esperado.7.1 }}</td>
+                </tr>
+                <tr>
+                  <td>Mais de 8 vezes por dia</td>
+                  <td>{{ questao_28_esperado.8.0 }}</td>
+                  <td>{{ questao_28_esperado.8.1 }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p>P-valor: 0</p>
         </div>
       </div>
     </div>
@@ -1090,6 +1801,76 @@
         </div>
       </div>
     </div>
+    
+    <div class="col-lg-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          Incidência de cárie por consumo de alimento (29) - Queijo. (valores esperados)
+        </div>
+        <div class="panel-body">
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Questão 29</th>
+                  <th>Sim</th>
+                  <th>Não</th>
+                </tr>
+              </thead>
+              
+              <tbody>
+                <tr>
+                  <td>Nunca ou menos de uma vez por mês</td>
+                  <td>{{ questao_29_esperado.0.0 }}</td>
+                  <td>{{ questao_29_esperado.0.1 }}</td>
+                </tr>
+                <tr>
+                  <td>1 a 3 vezes por mês</td>
+                  <td>{{ questao_29_esperado.1.0 }}</td>
+                  <td>{{ questao_29_esperado.1.1 }}</td>
+                </tr>
+                <tr>
+                  <td>1 vez por semana</td>
+                  <td>{{ questao_29_esperado.2.0 }}</td>
+                  <td>{{ questao_29_esperado.2.1 }}</td>
+                </tr>
+                <tr>
+                  <td>2 a 4 vezes por semana</td>
+                  <td>{{ questao_29_esperado.3.0 }}</td>
+                  <td>{{ questao_29_esperado.3.1 }}</td>
+                </tr>
+                <tr>
+                  <td>6 a 8 vezes por semana</td>
+                  <td>{{ questao_29_esperado.4.0 }}</td>
+                  <td>{{ questao_29_esperado.4.1 }}</td>
+                </tr>
+                <tr>
+                  <td>1 vez por dia</td>
+                  <td>{{ questao_29_esperado.5.0 }}</td>
+                  <td>{{ questao_29_esperado.5.1 }}</td>
+                </tr>
+                <tr>
+                  <td>2 a 3 vezes por dia</td>
+                  <td>{{ questao_29_esperado.6.0 }}</td>
+                  <td>{{ questao_29_esperado.6.1 }}</td>
+                </tr>
+                <tr>
+                  <td>4 a 6 vezes por dia</td>
+                  <td>{{ questao_29_esperado.7.0 }}</td>
+                  <td>{{ questao_29_esperado.7.1 }}</td>
+                </tr>
+                <tr>
+                  <td>Mais de 8 vezes por dia</td>
+                  <td>{{ questao_29_esperado.8.0 }}</td>
+                  <td>{{ questao_29_esperado.8.1 }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p>P-valor: 0</p>
+        </div>
+      </div>
+    </div>
   </div>
   
   <div class="row">
@@ -1175,6 +1956,76 @@
               </tbody>
             </table>
           </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col-lg-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          Incidência de cárie por consumo de alimento (30) Sobremesas feitas com leite (pudim, flam, pudim de chocolate, creme de leite).: (valores esperados)
+        </div>
+        <div class="panel-body">
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Questão 30</th>
+                  <th>Sim</th>
+                  <th>Não</th>
+                </tr>
+              </thead>
+              
+              <tbody>
+                <tr>
+                  <td>Nunca ou menos de uma vez por mês</td>
+                  <td>{{ questao_30_esperado.0.0 }}</td>
+                  <td>{{ questao_30_esperado.0.1 }}</td>
+                </tr>
+                <tr>
+                  <td>1 a 3 vezes por mês</td>
+                  <td>{{ questao_30_esperado.1.0 }}</td>
+                  <td>{{ questao_30_esperado.1.1 }}</td>
+                </tr>
+                <tr>
+                  <td>1 vez por semana</td>
+                  <td>{{ questao_30_esperado.2.0 }}</td>
+                  <td>{{ questao_30_esperado.2.1 }}</td>
+                </tr>
+                <tr>
+                  <td>2 a 4 vezes por semana</td>
+                  <td>{{ questao_30_esperado.3.0 }}</td>
+                  <td>{{ questao_30_esperado.3.1 }}</td>
+                </tr>
+                <tr>
+                  <td>6 a 8 vezes por semana</td>
+                  <td>{{ questao_30_esperado.4.0 }}</td>
+                  <td>{{ questao_30_esperado.4.1 }}</td>
+                </tr>
+                <tr>
+                  <td>1 vez por dia</td>
+                  <td>{{ questao_30_esperado.5.0 }}</td>
+                  <td>{{ questao_30_esperado.5.1 }}</td>
+                </tr>
+                <tr>
+                  <td>2 a 3 vezes por dia</td>
+                  <td>{{ questao_30_esperado.6.0 }}</td>
+                  <td>{{ questao_30_esperado.6.1 }}</td>
+                </tr>
+                <tr>
+                  <td>4 a 6 vezes por dia</td>
+                  <td>{{ questao_30_esperado.7.0 }}</td>
+                  <td>{{ questao_30_esperado.7.1 }}</td>
+                </tr>
+                <tr>
+                  <td>Mais de 8 vezes por dia</td>
+                  <td>{{ questao_30_esperado.8.0 }}</td>
+                  <td>{{ questao_30_esperado.8.1 }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p>P-valor: 0</p>
         </div>
       </div>
     </div>
@@ -1266,6 +2117,76 @@
         </div>
       </div>
     </div>
+    
+    <div class="col-lg-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          Incidência de cárie por consumo de alimento (31) Gelados (Picolé, sorvete, geladinho).: (valores esperados)
+        </div>
+        <div class="panel-body">
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Questão 31</th>
+                  <th>Sim</th>
+                  <th>Não</th>
+                </tr>
+              </thead>
+              
+              <tbody>
+                <tr>
+                  <td>Nunca ou menos de uma vez por mês</td>
+                  <td>{{ questao_31_esperado.0.0 }}</td>
+                  <td>{{ questao_31_esperado.0.1 }}</td>
+                </tr>
+                <tr>
+                  <td>1 a 3 vezes por mês</td>
+                  <td>{{ questao_31_esperado.1.0 }}</td>
+                  <td>{{ questao_31_esperado.1.1 }}</td>
+                </tr>
+                <tr>
+                  <td>1 vez por semana</td>
+                  <td>{{ questao_31_esperado.2.0 }}</td>
+                  <td>{{ questao_31_esperado.2.1 }}</td>
+                </tr>
+                <tr>
+                  <td>2 a 4 vezes por semana</td>
+                  <td>{{ questao_31_esperado.3.0 }}</td>
+                  <td>{{ questao_31_esperado.3.1 }}</td>
+                </tr>
+                <tr>
+                  <td>6 a 8 vezes por semana</td>
+                  <td>{{ questao_31_esperado.4.0 }}</td>
+                  <td>{{ questao_31_esperado.4.1 }}</td>
+                </tr>
+                <tr>
+                  <td>1 vez por dia</td>
+                  <td>{{ questao_31_esperado.5.0 }}</td>
+                  <td>{{ questao_31_esperado.5.1 }}</td>
+                </tr>
+                <tr>
+                  <td>2 a 3 vezes por dia</td>
+                  <td>{{ questao_31_esperado.6.0 }}</td>
+                  <td>{{ questao_31_esperado.6.1 }}</td>
+                </tr>
+                <tr>
+                  <td>4 a 6 vezes por dia</td>
+                  <td>{{ questao_31_esperado.7.0 }}</td>
+                  <td>{{ questao_31_esperado.7.1 }}</td>
+                </tr>
+                <tr>
+                  <td>Mais de 8 vezes por dia</td>
+                  <td>{{ questao_31_esperado.8.0 }}</td>
+                  <td>{{ questao_31_esperado.8.1 }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p>P-valor: 0</p>
+        </div>
+      </div>
+    </div>
   </div>
   
   <div class="row">
@@ -1351,6 +2272,76 @@
               </tbody>
             </table>
           </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col-lg-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          Incidência de cárie por consumo de alimento (32) Pão ou torrada (torrada é o mesmo que pão, sendo que em torrado).: (valores esperados)
+        </div>
+        <div class="panel-body">
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Questão 32</th>
+                  <th>Sim</th>
+                  <th>Não</th>
+                </tr>
+              </thead>
+              
+              <tbody>
+                <tr>
+                  <td>Nunca ou menos de uma vez por mês</td>
+                  <td>{{ questao_32_esperado.0.0 }}</td>
+                  <td>{{ questao_32_esperado.0.1 }}</td>
+                </tr>
+                <tr>
+                  <td>1 a 3 vezes por mês</td>
+                  <td>{{ questao_32_esperado.1.0 }}</td>
+                  <td>{{ questao_32_esperado.1.1 }}</td>
+                </tr>
+                <tr>
+                  <td>1 vez por semana</td>
+                  <td>{{ questao_32_esperado.2.0 }}</td>
+                  <td>{{ questao_32_esperado.2.1 }}</td>
+                </tr>
+                <tr>
+                  <td>2 a 4 vezes por semana</td>
+                  <td>{{ questao_32_esperado.3.0 }}</td>
+                  <td>{{ questao_32_esperado.3.1 }}</td>
+                </tr>
+                <tr>
+                  <td>6 a 8 vezes por semana</td>
+                  <td>{{ questao_32_esperado.4.0 }}</td>
+                  <td>{{ questao_32_esperado.4.1 }}</td>
+                </tr>
+                <tr>
+                  <td>1 vez por dia</td>
+                  <td>{{ questao_32_esperado.5.0 }}</td>
+                  <td>{{ questao_32_esperado.5.1 }}</td>
+                </tr>
+                <tr>
+                  <td>2 a 3 vezes por dia</td>
+                  <td>{{ questao_32_esperado.6.0 }}</td>
+                  <td>{{ questao_32_esperado.6.1 }}</td>
+                </tr>
+                <tr>
+                  <td>4 a 6 vezes por dia</td>
+                  <td>{{ questao_32_esperado.7.0 }}</td>
+                  <td>{{ questao_32_esperado.7.1 }}</td>
+                </tr>
+                <tr>
+                  <td>Mais de 8 vezes por dia</td>
+                  <td>{{ questao_32_esperado.8.0 }}</td>
+                  <td>{{ questao_32_esperado.8.1 }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p>P-valor: 0</p>
         </div>
       </div>
     </div>
@@ -1442,6 +2433,76 @@
         </div>
       </div>
     </div>
+    
+    <div class="col-lg-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          Incidência de cárie por consumo de alimento (33) Flocos de cereais açucarados (por exemplo, flocos conhecidos como sucrilhos ou equivalentes, nescau cereal), etc.: (valores esperados)
+        </div>
+        <div class="panel-body">
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Questão 33</th>
+                  <th>Sim</th>
+                  <th>Não</th>
+                </tr>
+              </thead>
+              
+              <tbody>
+                <tr>
+                  <td>Nunca ou menos de uma vez por mês</td>
+                  <td>{{ questao_33_esperado.0.0 }}</td>
+                  <td>{{ questao_33_esperado.0.1 }}</td>
+                </tr>
+                <tr>
+                  <td>1 a 3 vezes por mês</td>
+                  <td>{{ questao_33_esperado.1.0 }}</td>
+                  <td>{{ questao_33_esperado.1.1 }}</td>
+                </tr>
+                <tr>
+                  <td>1 vez por semana</td>
+                  <td>{{ questao_33_esperado.2.0 }}</td>
+                  <td>{{ questao_33_esperado.2.1 }}</td>
+                </tr>
+                <tr>
+                  <td>2 a 4 vezes por semana</td>
+                  <td>{{ questao_33_esperado.3.0 }}</td>
+                  <td>{{ questao_33_esperado.3.1 }}</td>
+                </tr>
+                <tr>
+                  <td>6 a 8 vezes por semana</td>
+                  <td>{{ questao_33_esperado.4.0 }}</td>
+                  <td>{{ questao_33_esperado.4.1 }}</td>
+                </tr>
+                <tr>
+                  <td>1 vez por dia</td>
+                  <td>{{ questao_33_esperado.5.0 }}</td>
+                  <td>{{ questao_33_esperado.5.1 }}</td>
+                </tr>
+                <tr>
+                  <td>2 a 3 vezes por dia</td>
+                  <td>{{ questao_33_esperado.6.0 }}</td>
+                  <td>{{ questao_33_esperado.6.1 }}</td>
+                </tr>
+                <tr>
+                  <td>4 a 6 vezes por dia</td>
+                  <td>{{ questao_33_esperado.7.0 }}</td>
+                  <td>{{ questao_33_esperado.7.1 }}</td>
+                </tr>
+                <tr>
+                  <td>Mais de 8 vezes por dia</td>
+                  <td>{{ questao_33_esperado.8.0 }}</td>
+                  <td>{{ questao_33_esperado.8.1 }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p>P-valor: 0</p>
+        </div>
+      </div>
+    </div>
   </div>
   
   <div class="row">
@@ -1527,6 +2588,76 @@
               </tbody>
             </table>
           </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col-lg-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          Incidência de cárie por consumo de alimento (34) Flocos de cereais (aveia, milho, centeio, como os da marca Nesfit e Nutry): (valores esperados)
+        </div>
+        <div class="panel-body">
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Questão 34</th>
+                  <th>Sim</th>
+                  <th>Não</th>
+                </tr>
+              </thead>
+              
+              <tbody>
+                <tr>
+                  <td>Nunca ou menos de uma vez por mês</td>
+                  <td>{{ questao_34_esperado.0.0 }}</td>
+                  <td>{{ questao_34_esperado.0.1 }}</td>
+                </tr>
+                <tr>
+                  <td>1 a 3 vezes por mês</td>
+                  <td>{{ questao_34_esperado.1.0 }}</td>
+                  <td>{{ questao_34_esperado.1.1 }}</td>
+                </tr>
+                <tr>
+                  <td>1 vez por semana</td>
+                  <td>{{ questao_34_esperado.2.0 }}</td>
+                  <td>{{ questao_34_esperado.2.1 }}</td>
+                </tr>
+                <tr>
+                  <td>2 a 4 vezes por semana</td>
+                  <td>{{ questao_34_esperado.3.0 }}</td>
+                  <td>{{ questao_34_esperado.3.1 }}</td>
+                </tr>
+                <tr>
+                  <td>6 a 8 vezes por semana</td>
+                  <td>{{ questao_34_esperado.4.0 }}</td>
+                  <td>{{ questao_34_esperado.4.1 }}</td>
+                </tr>
+                <tr>
+                  <td>1 vez por dia</td>
+                  <td>{{ questao_34_esperado.5.0 }}</td>
+                  <td>{{ questao_34_esperado.5.1 }}</td>
+                </tr>
+                <tr>
+                  <td>2 a 3 vezes por dia</td>
+                  <td>{{ questao_34_esperado.6.0 }}</td>
+                  <td>{{ questao_34_esperado.6.1 }}</td>
+                </tr>
+                <tr>
+                  <td>4 a 6 vezes por dia</td>
+                  <td>{{ questao_34_esperado.7.0 }}</td>
+                  <td>{{ questao_34_esperado.7.1 }}</td>
+                </tr>
+                <tr>
+                  <td>Mais de 8 vezes por dia</td>
+                  <td>{{ questao_34_esperado.8.0 }}</td>
+                  <td>{{ questao_34_esperado.8.1 }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p>P-valor: 0</p>
         </div>
       </div>
     </div>
@@ -1618,6 +2749,76 @@
         </div>
       </div>
     </div>
+    
+    <div class="col-lg-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          Incidência de cárie por consumo de alimento (35) Arroz, massas, batatas.: (valores esperados)
+        </div>
+        <div class="panel-body">
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Questão 35</th>
+                  <th>Sim</th>
+                  <th>Não</th>
+                </tr>
+              </thead>
+              
+              <tbody>
+                <tr>
+                  <td>Nunca ou menos de uma vez por mês</td>
+                  <td>{{ questao_35_esperado.0.0 }}</td>
+                  <td>{{ questao_35_esperado.0.1 }}</td>
+                </tr>
+                <tr>
+                  <td>1 a 3 vezes por mês</td>
+                  <td>{{ questao_35_esperado.1.0 }}</td>
+                  <td>{{ questao_35_esperado.1.1 }}</td>
+                </tr>
+                <tr>
+                  <td>1 vez por semana</td>
+                  <td>{{ questao_35_esperado.2.0 }}</td>
+                  <td>{{ questao_35_esperado.2.1 }}</td>
+                </tr>
+                <tr>
+                  <td>2 a 4 vezes por semana</td>
+                  <td>{{ questao_35_esperado.3.0 }}</td>
+                  <td>{{ questao_35_esperado.3.1 }}</td>
+                </tr>
+                <tr>
+                  <td>6 a 8 vezes por semana</td>
+                  <td>{{ questao_35_esperado.4.0 }}</td>
+                  <td>{{ questao_35_esperado.4.1 }}</td>
+                </tr>
+                <tr>
+                  <td>1 vez por dia</td>
+                  <td>{{ questao_35_esperado.5.0 }}</td>
+                  <td>{{ questao_35_esperado.5.1 }}</td>
+                </tr>
+                <tr>
+                  <td>2 a 3 vezes por dia</td>
+                  <td>{{ questao_35_esperado.6.0 }}</td>
+                  <td>{{ questao_35_esperado.6.1 }}</td>
+                </tr>
+                <tr>
+                  <td>4 a 6 vezes por dia</td>
+                  <td>{{ questao_35_esperado.7.0 }}</td>
+                  <td>{{ questao_35_esperado.7.1 }}</td>
+                </tr>
+                <tr>
+                  <td>Mais de 8 vezes por dia</td>
+                  <td>{{ questao_35_esperado.8.0 }}</td>
+                  <td>{{ questao_35_esperado.8.1 }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p>P-valor: 0</p>
+        </div>
+      </div>
+    </div>
   </div>
   
   <div class="row">
@@ -1703,6 +2904,76 @@
               </tbody>
             </table>
           </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col-lg-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          Incidência de cárie por consumo de alimento (36) Batatas fritas pacote Ruffles, Pringles, Lay’s: (valores esperados)
+        </div>
+        <div class="panel-body">
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Questão 36</th>
+                  <th>Sim</th>
+                  <th>Não</th>
+                </tr>
+              </thead>
+              
+              <tbody>
+                <tr>
+                  <td>Nunca ou menos de uma vez por mês</td>
+                  <td>{{ questao_36_esperado.0.0 }}</td>
+                  <td>{{ questao_36_esperado.0.1 }}</td>
+                </tr>
+                <tr>
+                  <td>1 a 3 vezes por mês</td>
+                  <td>{{ questao_36_esperado.1.0 }}</td>
+                  <td>{{ questao_36_esperado.1.1 }}</td>
+                </tr>
+                <tr>
+                  <td>1 vez por semana</td>
+                  <td>{{ questao_36_esperado.2.0 }}</td>
+                  <td>{{ questao_36_esperado.2.1 }}</td>
+                </tr>
+                <tr>
+                  <td>2 a 4 vezes por semana</td>
+                  <td>{{ questao_36_esperado.3.0 }}</td>
+                  <td>{{ questao_36_esperado.3.1 }}</td>
+                </tr>
+                <tr>
+                  <td>6 a 8 vezes por semana</td>
+                  <td>{{ questao_36_esperado.4.0 }}</td>
+                  <td>{{ questao_36_esperado.4.1 }}</td>
+                </tr>
+                <tr>
+                  <td>1 vez por dia</td>
+                  <td>{{ questao_36_esperado.5.0 }}</td>
+                  <td>{{ questao_36_esperado.5.1 }}</td>
+                </tr>
+                <tr>
+                  <td>2 a 3 vezes por dia</td>
+                  <td>{{ questao_36_esperado.6.0 }}</td>
+                  <td>{{ questao_36_esperado.6.1 }}</td>
+                </tr>
+                <tr>
+                  <td>4 a 6 vezes por dia</td>
+                  <td>{{ questao_36_esperado.7.0 }}</td>
+                  <td>{{ questao_36_esperado.7.1 }}</td>
+                </tr>
+                <tr>
+                  <td>Mais de 8 vezes por dia</td>
+                  <td>{{ questao_36_esperado.8.0 }}</td>
+                  <td>{{ questao_36_esperado.8.1 }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p>P-valor: 0</p>
         </div>
       </div>
     </div>
@@ -1794,6 +3065,76 @@
         </div>
       </div>
     </div>
+    
+    <div class="col-lg-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          Incidência de cárie por consumo de alimento (37) Batatas fritas caseiras.: (valores esperados)
+        </div>
+        <div class="panel-body">
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Questão 37</th>
+                  <th>Sim</th>
+                  <th>Não</th>
+                </tr>
+              </thead>
+              
+              <tbody>
+                <tr>
+                  <td>Nunca ou menos de uma vez por mês</td>
+                  <td>{{ questao_37_esperado.0.0 }}</td>
+                  <td>{{ questao_37_esperado.0.1 }}</td>
+                </tr>
+                <tr>
+                  <td>1 a 3 vezes por mês</td>
+                  <td>{{ questao_37_esperado.1.0 }}</td>
+                  <td>{{ questao_37_esperado.1.1 }}</td>
+                </tr>
+                <tr>
+                  <td>1 vez por semana</td>
+                  <td>{{ questao_37_esperado.2.0 }}</td>
+                  <td>{{ questao_37_esperado.2.1 }}</td>
+                </tr>
+                <tr>
+                  <td>2 a 4 vezes por semana</td>
+                  <td>{{ questao_37_esperado.3.0 }}</td>
+                  <td>{{ questao_37_esperado.3.1 }}</td>
+                </tr>
+                <tr>
+                  <td>6 a 8 vezes por semana</td>
+                  <td>{{ questao_37_esperado.4.0 }}</td>
+                  <td>{{ questao_37_esperado.4.1 }}</td>
+                </tr>
+                <tr>
+                  <td>1 vez por dia</td>
+                  <td>{{ questao_37_esperado.5.0 }}</td>
+                  <td>{{ questao_37_esperado.5.1 }}</td>
+                </tr>
+                <tr>
+                  <td>2 a 3 vezes por dia</td>
+                  <td>{{ questao_37_esperado.6.0 }}</td>
+                  <td>{{ questao_37_esperado.6.1 }}</td>
+                </tr>
+                <tr>
+                  <td>4 a 6 vezes por dia</td>
+                  <td>{{ questao_37_esperado.7.0 }}</td>
+                  <td>{{ questao_37_esperado.7.1 }}</td>
+                </tr>
+                <tr>
+                  <td>Mais de 8 vezes por dia</td>
+                  <td>{{ questao_37_esperado.8.0 }}</td>
+                  <td>{{ questao_37_esperado.8.1 }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p>P-valor: 0</p>
+        </div>
+      </div>
+    </div>
   </div>
   
   <div class="row">
@@ -1879,6 +3220,76 @@
               </tbody>
             </table>
           </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col-lg-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          Incidência de cárie por consumo de alimento (38) Bolachas Maria, bolachas Mabel, biscoitos ou bolachas cream cracker, (ou água e sal) etc.: (valores esperados)
+        </div>
+        <div class="panel-body">
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Questão 38</th>
+                  <th>Sim</th>
+                  <th>Não</th>
+                </tr>
+              </thead>
+              
+              <tbody>
+                <tr>
+                  <td>Nunca ou menos de uma vez por mês</td>
+                  <td>{{ questao_38_esperado.0.0 }}</td>
+                  <td>{{ questao_38_esperado.0.1 }}</td>
+                </tr>
+                <tr>
+                  <td>1 a 3 vezes por mês</td>
+                  <td>{{ questao_38_esperado.1.0 }}</td>
+                  <td>{{ questao_38_esperado.1.1 }}</td>
+                </tr>
+                <tr>
+                  <td>1 vez por semana</td>
+                  <td>{{ questao_38_esperado.2.0 }}</td>
+                  <td>{{ questao_38_esperado.2.1 }}</td>
+                </tr>
+                <tr>
+                  <td>2 a 4 vezes por semana</td>
+                  <td>{{ questao_38_esperado.3.0 }}</td>
+                  <td>{{ questao_38_esperado.3.1 }}</td>
+                </tr>
+                <tr>
+                  <td>6 a 8 vezes por semana</td>
+                  <td>{{ questao_38_esperado.4.0 }}</td>
+                  <td>{{ questao_38_esperado.4.1 }}</td>
+                </tr>
+                <tr>
+                  <td>1 vez por dia</td>
+                  <td>{{ questao_38_esperado.5.0 }}</td>
+                  <td>{{ questao_38_esperado.5.1 }}</td>
+                </tr>
+                <tr>
+                  <td>2 a 3 vezes por dia</td>
+                  <td>{{ questao_38_esperado.6.0 }}</td>
+                  <td>{{ questao_38_esperado.6.1 }}</td>
+                </tr>
+                <tr>
+                  <td>4 a 6 vezes por dia</td>
+                  <td>{{ questao_38_esperado.7.0 }}</td>
+                  <td>{{ questao_38_esperado.7.1 }}</td>
+                </tr>
+                <tr>
+                  <td>Mais de 8 vezes por dia</td>
+                  <td>{{ questao_38_esperado.8.0 }}</td>
+                  <td>{{ questao_38_esperado.8.1 }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p>P-valor: 0</p>
         </div>
       </div>
     </div>
@@ -1970,6 +3381,76 @@
         </div>
       </div>
     </div>
+    
+    <div class="col-lg-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          Incidência de cárie por consumo de alimento (39) Outras bolachas (biscoitos recheados como Bono, Trakinas e Oreo).: (valores esperados)
+        </div>
+        <div class="panel-body">
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Questão 39</th>
+                  <th>Sim</th>
+                  <th>Não</th>
+                </tr>
+              </thead>
+              
+              <tbody>
+                <tr>
+                  <td>Nunca ou menos de uma vez por mês</td>
+                  <td>{{ questao_39_esperado.0.0 }}</td>
+                  <td>{{ questao_39_esperado.0.1 }}</td>
+                </tr>
+                <tr>
+                  <td>1 a 3 vezes por mês</td>
+                  <td>{{ questao_39_esperado.1.0 }}</td>
+                  <td>{{ questao_39_esperado.1.1 }}</td>
+                </tr>
+                <tr>
+                  <td>1 vez por semana</td>
+                  <td>{{ questao_39_esperado.2.0 }}</td>
+                  <td>{{ questao_39_esperado.2.1 }}</td>
+                </tr>
+                <tr>
+                  <td>2 a 4 vezes por semana</td>
+                  <td>{{ questao_39_esperado.3.0 }}</td>
+                  <td>{{ questao_39_esperado.3.1 }}</td>
+                </tr>
+                <tr>
+                  <td>6 a 8 vezes por semana</td>
+                  <td>{{ questao_39_esperado.4.0 }}</td>
+                  <td>{{ questao_39_esperado.4.1 }}</td>
+                </tr>
+                <tr>
+                  <td>1 vez por dia</td>
+                  <td>{{ questao_39_esperado.5.0 }}</td>
+                  <td>{{ questao_39_esperado.5.1 }}</td>
+                </tr>
+                <tr>
+                  <td>2 a 3 vezes por dia</td>
+                  <td>{{ questao_39_esperado.6.0 }}</td>
+                  <td>{{ questao_39_esperado.6.1 }}</td>
+                </tr>
+                <tr>
+                  <td>4 a 6 vezes por dia</td>
+                  <td>{{ questao_39_esperado.7.0 }}</td>
+                  <td>{{ questao_39_esperado.7.1 }}</td>
+                </tr>
+                <tr>
+                  <td>Mais de 8 vezes por dia</td>
+                  <td>{{ questao_39_esperado.8.0 }}</td>
+                  <td>{{ questao_39_esperado.8.1 }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p>P-valor: 0</p>
+        </div>
+      </div>
+    </div>
   </div>
   
   <div class="row">
@@ -2055,6 +3536,76 @@
               </tbody>
             </table>
           </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col-lg-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          Incidência de cárie por consumo de alimento (40) Produtos de pastelaria (coxinhas, pastéis, salgadinhos de queijo, kibes).: (valores esperados)
+        </div>
+        <div class="panel-body">
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Questão 40</th>
+                  <th>Sim</th>
+                  <th>Não</th>
+                </tr>
+              </thead>
+              
+              <tbody>
+                <tr>
+                  <td>Nunca ou menos de uma vez por mês</td>
+                  <td>{{ questao_40_esperado.0.0 }}</td>
+                  <td>{{ questao_40_esperado.0.1 }}</td>
+                </tr>
+                <tr>
+                  <td>1 a 3 vezes por mês</td>
+                  <td>{{ questao_40_esperado.1.0 }}</td>
+                  <td>{{ questao_40_esperado.1.1 }}</td>
+                </tr>
+                <tr>
+                  <td>1 vez por semana</td>
+                  <td>{{ questao_40_esperado.2.0 }}</td>
+                  <td>{{ questao_40_esperado.2.1 }}</td>
+                </tr>
+                <tr>
+                  <td>2 a 4 vezes por semana</td>
+                  <td>{{ questao_40_esperado.3.0 }}</td>
+                  <td>{{ questao_40_esperado.3.1 }}</td>
+                </tr>
+                <tr>
+                  <td>6 a 8 vezes por semana</td>
+                  <td>{{ questao_40_esperado.4.0 }}</td>
+                  <td>{{ questao_40_esperado.4.1 }}</td>
+                </tr>
+                <tr>
+                  <td>1 vez por dia</td>
+                  <td>{{ questao_40_esperado.5.0 }}</td>
+                  <td>{{ questao_40_esperado.5.1 }}</td>
+                </tr>
+                <tr>
+                  <td>2 a 3 vezes por dia</td>
+                  <td>{{ questao_40_esperado.6.0 }}</td>
+                  <td>{{ questao_40_esperado.6.1 }}</td>
+                </tr>
+                <tr>
+                  <td>4 a 6 vezes por dia</td>
+                  <td>{{ questao_40_esperado.7.0 }}</td>
+                  <td>{{ questao_40_esperado.7.1 }}</td>
+                </tr>
+                <tr>
+                  <td>Mais de 8 vezes por dia</td>
+                  <td>{{ questao_40_esperado.8.0 }}</td>
+                  <td>{{ questao_40_esperado.8.1 }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p>P-valor: 0</p>
         </div>
       </div>
     </div>
@@ -2146,6 +3697,76 @@
         </div>
       </div>
     </div>
+    
+    <div class="col-lg-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          Incidência de cárie por consumo de alimento (41) Snacks (chocolates vendidos em barrinhas, como Twix, Kitkat, Bis e Chokito): (valores esperados)
+        </div>
+        <div class="panel-body">
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Questão 41</th>
+                  <th>Sim</th>
+                  <th>Não</th>
+                </tr>
+              </thead>
+              
+              <tbody>
+                <tr>
+                  <td>Nunca ou menos de uma vez por mês</td>
+                  <td>{{ questao_41_esperado.0.0 }}</td>
+                  <td>{{ questao_41_esperado.0.1 }}</td>
+                </tr>
+                <tr>
+                  <td>1 a 3 vezes por mês</td>
+                  <td>{{ questao_41_esperado.1.0 }}</td>
+                  <td>{{ questao_41_esperado.1.1 }}</td>
+                </tr>
+                <tr>
+                  <td>1 vez por semana</td>
+                  <td>{{ questao_41_esperado.2.0 }}</td>
+                  <td>{{ questao_41_esperado.2.1 }}</td>
+                </tr>
+                <tr>
+                  <td>2 a 4 vezes por semana</td>
+                  <td>{{ questao_41_esperado.3.0 }}</td>
+                  <td>{{ questao_41_esperado.3.1 }}</td>
+                </tr>
+                <tr>
+                  <td>6 a 8 vezes por semana</td>
+                  <td>{{ questao_41_esperado.4.0 }}</td>
+                  <td>{{ questao_41_esperado.4.1 }}</td>
+                </tr>
+                <tr>
+                  <td>1 vez por dia</td>
+                  <td>{{ questao_41_esperado.5.0 }}</td>
+                  <td>{{ questao_41_esperado.5.1 }}</td>
+                </tr>
+                <tr>
+                  <td>2 a 3 vezes por dia</td>
+                  <td>{{ questao_41_esperado.6.0 }}</td>
+                  <td>{{ questao_41_esperado.6.1 }}</td>
+                </tr>
+                <tr>
+                  <td>4 a 6 vezes por dia</td>
+                  <td>{{ questao_41_esperado.7.0 }}</td>
+                  <td>{{ questao_41_esperado.7.1 }}</td>
+                </tr>
+                <tr>
+                  <td>Mais de 8 vezes por dia</td>
+                  <td>{{ questao_41_esperado.8.0 }}</td>
+                  <td>{{ questao_41_esperado.8.1 }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p>P-valor: 0</p>
+        </div>
+      </div>
+    </div>
   </div>
   
   <div class="row">
@@ -2231,6 +3852,76 @@
               </tbody>
             </table>
           </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col-lg-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          Incidência de cárie por consumo de alimento (42) Marmelada, doce em potinho, geleia, mel. (Como Paçoquita, Melzinho e Pé de moleque): (valores esperados)
+        </div>
+        <div class="panel-body">
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Questão 42</th>
+                  <th>Sim</th>
+                  <th>Não</th>
+                </tr>
+              </thead>
+              
+              <tbody>
+                <tr>
+                  <td>Nunca ou menos de uma vez por mês</td>
+                  <td>{{ questao_42_esperado.0.0 }}</td>
+                  <td>{{ questao_42_esperado.0.1 }}</td>
+                </tr>
+                <tr>
+                  <td>1 a 3 vezes por mês</td>
+                  <td>{{ questao_42_esperado.1.0 }}</td>
+                  <td>{{ questao_42_esperado.1.1 }}</td>
+                </tr>
+                <tr>
+                  <td>1 vez por semana</td>
+                  <td>{{ questao_42_esperado.2.0 }}</td>
+                  <td>{{ questao_42_esperado.2.1 }}</td>
+                </tr>
+                <tr>
+                  <td>2 a 4 vezes por semana</td>
+                  <td>{{ questao_42_esperado.3.0 }}</td>
+                  <td>{{ questao_42_esperado.3.1 }}</td>
+                </tr>
+                <tr>
+                  <td>6 a 8 vezes por semana</td>
+                  <td>{{ questao_42_esperado.4.0 }}</td>
+                  <td>{{ questao_42_esperado.4.1 }}</td>
+                </tr>
+                <tr>
+                  <td>1 vez por dia</td>
+                  <td>{{ questao_42_esperado.5.0 }}</td>
+                  <td>{{ questao_42_esperado.5.1 }}</td>
+                </tr>
+                <tr>
+                  <td>2 a 3 vezes por dia</td>
+                  <td>{{ questao_42_esperado.6.0 }}</td>
+                  <td>{{ questao_42_esperado.6.1 }}</td>
+                </tr>
+                <tr>
+                  <td>4 a 6 vezes por dia</td>
+                  <td>{{ questao_42_esperado.7.0 }}</td>
+                  <td>{{ questao_42_esperado.7.1 }}</td>
+                </tr>
+                <tr>
+                  <td>Mais de 8 vezes por dia</td>
+                  <td>{{ questao_42_esperado.8.0 }}</td>
+                  <td>{{ questao_42_esperado.8.1 }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p>P-valor: 0</p>
         </div>
       </div>
     </div>
@@ -2322,6 +4013,76 @@
         </div>
       </div>
     </div>
+    
+    <div class="col-lg-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          Incidência de cárie por consumo de alimento (43) Açúcares em geral.: (valores esperados)
+        </div>
+        <div class="panel-body">
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Questão 43</th>
+                  <th>Sim</th>
+                  <th>Não</th>
+                </tr>
+              </thead>
+              
+              <tbody>
+                <tr>
+                  <td>Nunca ou menos de uma vez por mês</td>
+                  <td>{{ questao_43_esperado.0.0 }}</td>
+                  <td>{{ questao_43_esperado.0.1 }}</td>
+                </tr>
+                <tr>
+                  <td>1 a 3 vezes por mês</td>
+                  <td>{{ questao_43_esperado.1.0 }}</td>
+                  <td>{{ questao_43_esperado.1.1 }}</td>
+                </tr>
+                <tr>
+                  <td>1 vez por semana</td>
+                  <td>{{ questao_43_esperado.2.0 }}</td>
+                  <td>{{ questao_43_esperado.2.1 }}</td>
+                </tr>
+                <tr>
+                  <td>2 a 4 vezes por semana</td>
+                  <td>{{ questao_43_esperado.3.0 }}</td>
+                  <td>{{ questao_43_esperado.3.1 }}</td>
+                </tr>
+                <tr>
+                  <td>6 a 8 vezes por semana</td>
+                  <td>{{ questao_43_esperado.4.0 }}</td>
+                  <td>{{ questao_43_esperado.4.1 }}</td>
+                </tr>
+                <tr>
+                  <td>1 vez por dia</td>
+                  <td>{{ questao_43_esperado.5.0 }}</td>
+                  <td>{{ questao_43_esperado.5.1 }}</td>
+                </tr>
+                <tr>
+                  <td>2 a 3 vezes por dia</td>
+                  <td>{{ questao_43_esperado.6.0 }}</td>
+                  <td>{{ questao_43_esperado.6.1 }}</td>
+                </tr>
+                <tr>
+                  <td>4 a 6 vezes por dia</td>
+                  <td>{{ questao_43_esperado.7.0 }}</td>
+                  <td>{{ questao_43_esperado.7.1 }}</td>
+                </tr>
+                <tr>
+                  <td>Mais de 8 vezes por dia</td>
+                  <td>{{ questao_43_esperado.8.0 }}</td>
+                  <td>{{ questao_43_esperado.8.1 }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p>P-valor: 0</p>
+        </div>
+      </div>
+    </div>
   </div>
   
   <div class="row">
@@ -2407,6 +4168,76 @@
               </tbody>
             </table>
           </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col-lg-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          Incidência de cárie por consumo de alimento (44) Sopas comuns caseiras (de carne, frango ou legumes): (valores esperados)
+        </div>
+        <div class="panel-body">
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Questão 44</th>
+                  <th>Sim</th>
+                  <th>Não</th>
+                </tr>
+              </thead>
+              
+              <tbody>
+                <tr>
+                  <td>Nunca ou menos de uma vez por mês</td>
+                  <td>{{ questao_44_esperado.0.0 }}</td>
+                  <td>{{ questao_44_esperado.0.1 }}</td>
+                </tr>
+                <tr>
+                  <td>1 a 3 vezes por mês</td>
+                  <td>{{ questao_44_esperado.1.0 }}</td>
+                  <td>{{ questao_44_esperado.1.1 }}</td>
+                </tr>
+                <tr>
+                  <td>1 vez por semana</td>
+                  <td>{{ questao_44_esperado.2.0 }}</td>
+                  <td>{{ questao_44_esperado.2.1 }}</td>
+                </tr>
+                <tr>
+                  <td>2 a 4 vezes por semana</td>
+                  <td>{{ questao_44_esperado.3.0 }}</td>
+                  <td>{{ questao_44_esperado.3.1 }}</td>
+                </tr>
+                <tr>
+                  <td>6 a 8 vezes por semana</td>
+                  <td>{{ questao_44_esperado.4.0 }}</td>
+                  <td>{{ questao_44_esperado.4.1 }}</td>
+                </tr>
+                <tr>
+                  <td>1 vez por dia</td>
+                  <td>{{ questao_44_esperado.5.0 }}</td>
+                  <td>{{ questao_44_esperado.5.1 }}</td>
+                </tr>
+                <tr>
+                  <td>2 a 3 vezes por dia</td>
+                  <td>{{ questao_44_esperado.6.0 }}</td>
+                  <td>{{ questao_44_esperado.6.1 }}</td>
+                </tr>
+                <tr>
+                  <td>4 a 6 vezes por dia</td>
+                  <td>{{ questao_44_esperado.7.0 }}</td>
+                  <td>{{ questao_44_esperado.7.1 }}</td>
+                </tr>
+                <tr>
+                  <td>Mais de 8 vezes por dia</td>
+                  <td>{{ questao_44_esperado.8.0 }}</td>
+                  <td>{{ questao_44_esperado.8.1 }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p>P-valor: 0</p>
         </div>
       </div>
     </div>
@@ -2498,6 +4329,76 @@
         </div>
       </div>
     </div>
+    
+    <div class="col-lg-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          Incidência de cárie por consumo de alimento (45) Vegetais crus em salada ou cozinhados (Cenoura, couve flor, brócolis, alface, beterraba, agrião): (valores esperados)
+        </div>
+        <div class="panel-body">
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Questão 45</th>
+                  <th>Sim</th>
+                  <th>Não</th>
+                </tr>
+              </thead>
+              
+              <tbody>
+                <tr>
+                  <td>Nunca ou menos de uma vez por mês</td>
+                  <td>{{ questao_45_esperado.0.0 }}</td>
+                  <td>{{ questao_45_esperado.0.1 }}</td>
+                </tr>
+                <tr>
+                  <td>1 a 3 vezes por mês</td>
+                  <td>{{ questao_45_esperado.1.0 }}</td>
+                  <td>{{ questao_45_esperado.1.1 }}</td>
+                </tr>
+                <tr>
+                  <td>1 vez por semana</td>
+                  <td>{{ questao_45_esperado.2.0 }}</td>
+                  <td>{{ questao_45_esperado.2.1 }}</td>
+                </tr>
+                <tr>
+                  <td>2 a 4 vezes por semana</td>
+                  <td>{{ questao_45_esperado.3.0 }}</td>
+                  <td>{{ questao_45_esperado.3.1 }}</td>
+                </tr>
+                <tr>
+                  <td>6 a 8 vezes por semana</td>
+                  <td>{{ questao_45_esperado.4.0 }}</td>
+                  <td>{{ questao_45_esperado.4.1 }}</td>
+                </tr>
+                <tr>
+                  <td>1 vez por dia</td>
+                  <td>{{ questao_45_esperado.5.0 }}</td>
+                  <td>{{ questao_45_esperado.5.1 }}</td>
+                </tr>
+                <tr>
+                  <td>2 a 3 vezes por dia</td>
+                  <td>{{ questao_45_esperado.6.0 }}</td>
+                  <td>{{ questao_45_esperado.6.1 }}</td>
+                </tr>
+                <tr>
+                  <td>4 a 6 vezes por dia</td>
+                  <td>{{ questao_45_esperado.7.0 }}</td>
+                  <td>{{ questao_45_esperado.7.1 }}</td>
+                </tr>
+                <tr>
+                  <td>Mais de 8 vezes por dia</td>
+                  <td>{{ questao_45_esperado.8.0 }}</td>
+                  <td>{{ questao_45_esperado.8.1 }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p>P-valor: 0</p>
+        </div>
+      </div>
+    </div>
   </div>
   
   <div class="row">
@@ -2583,6 +4484,76 @@
               </tbody>
             </table>
           </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col-lg-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          Incidência de cárie por consumo de alimento (46) Leguminosas (feijão, grão de bico, ervilhas, favas).: (valores esperados)
+        </div>
+        <div class="panel-body">
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Questão 46</th>
+                  <th>Sim</th>
+                  <th>Não</th>
+                </tr>
+              </thead>
+              
+              <tbody>
+                <tr>
+                  <td>Nunca ou menos de uma vez por mês</td>
+                  <td>{{ questao_46_esperado.0.0 }}</td>
+                  <td>{{ questao_46_esperado.0.1 }}</td>
+                </tr>
+                <tr>
+                  <td>1 a 3 vezes por mês</td>
+                  <td>{{ questao_46_esperado.1.0 }}</td>
+                  <td>{{ questao_46_esperado.1.1 }}</td>
+                </tr>
+                <tr>
+                  <td>1 vez por semana</td>
+                  <td>{{ questao_46_esperado.2.0 }}</td>
+                  <td>{{ questao_46_esperado.2.1 }}</td>
+                </tr>
+                <tr>
+                  <td>2 a 4 vezes por semana</td>
+                  <td>{{ questao_46_esperado.3.0 }}</td>
+                  <td>{{ questao_46_esperado.3.1 }}</td>
+                </tr>
+                <tr>
+                  <td>6 a 8 vezes por semana</td>
+                  <td>{{ questao_46_esperado.4.0 }}</td>
+                  <td>{{ questao_46_esperado.4.1 }}</td>
+                </tr>
+                <tr>
+                  <td>1 vez por dia</td>
+                  <td>{{ questao_46_esperado.5.0 }}</td>
+                  <td>{{ questao_46_esperado.5.1 }}</td>
+                </tr>
+                <tr>
+                  <td>2 a 3 vezes por dia</td>
+                  <td>{{ questao_46_esperado.6.0 }}</td>
+                  <td>{{ questao_46_esperado.6.1 }}</td>
+                </tr>
+                <tr>
+                  <td>4 a 6 vezes por dia</td>
+                  <td>{{ questao_46_esperado.7.0 }}</td>
+                  <td>{{ questao_46_esperado.7.1 }}</td>
+                </tr>
+                <tr>
+                  <td>Mais de 8 vezes por dia</td>
+                  <td>{{ questao_46_esperado.8.0 }}</td>
+                  <td>{{ questao_46_esperado.8.1 }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p>P-valor: 0</p>
         </div>
       </div>
     </div>
@@ -2674,6 +4645,76 @@
         </div>
       </div>
     </div>
+    
+    <div class="col-lg-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          Incidência de cárie por consumo de alimento (47) Fruta fresca. (Manga, caju, banana, goiaba, acerola, murici, maça, laranja): (valores esperados)
+        </div>
+        <div class="panel-body">
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Questão 47</th>
+                  <th>Sim</th>
+                  <th>Não</th>
+                </tr>
+              </thead>
+              
+              <tbody>
+                <tr>
+                  <td>Nunca ou menos de uma vez por mês</td>
+                  <td>{{ questao_47_esperado.0.0 }}</td>
+                  <td>{{ questao_47_esperado.0.1 }}</td>
+                </tr>
+                <tr>
+                  <td>1 a 3 vezes por mês</td>
+                  <td>{{ questao_47_esperado.1.0 }}</td>
+                  <td>{{ questao_47_esperado.1.1 }}</td>
+                </tr>
+                <tr>
+                  <td>1 vez por semana</td>
+                  <td>{{ questao_47_esperado.2.0 }}</td>
+                  <td>{{ questao_47_esperado.2.1 }}</td>
+                </tr>
+                <tr>
+                  <td>2 a 4 vezes por semana</td>
+                  <td>{{ questao_47_esperado.3.0 }}</td>
+                  <td>{{ questao_47_esperado.3.1 }}</td>
+                </tr>
+                <tr>
+                  <td>6 a 8 vezes por semana</td>
+                  <td>{{ questao_47_esperado.4.0 }}</td>
+                  <td>{{ questao_47_esperado.4.1 }}</td>
+                </tr>
+                <tr>
+                  <td>1 vez por dia</td>
+                  <td>{{ questao_47_esperado.5.0 }}</td>
+                  <td>{{ questao_47_esperado.5.1 }}</td>
+                </tr>
+                <tr>
+                  <td>2 a 3 vezes por dia</td>
+                  <td>{{ questao_47_esperado.6.0 }}</td>
+                  <td>{{ questao_47_esperado.6.1 }}</td>
+                </tr>
+                <tr>
+                  <td>4 a 6 vezes por dia</td>
+                  <td>{{ questao_47_esperado.7.0 }}</td>
+                  <td>{{ questao_47_esperado.7.1 }}</td>
+                </tr>
+                <tr>
+                  <td>Mais de 8 vezes por dia</td>
+                  <td>{{ questao_47_esperado.8.0 }}</td>
+                  <td>{{ questao_47_esperado.8.1 }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p>P-valor: 0</p>
+        </div>
+      </div>
+    </div>
   </div>
   
   <div class="row">
@@ -2759,6 +4800,76 @@
               </tbody>
             </table>
           </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col-lg-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          Incidência de cárie por consumo de alimento (48) Frutos enlatados em calda: (pêssego, banana, caju, goiaba).: (valores esperados)
+        </div>
+        <div class="panel-body">
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Questão 48</th>
+                  <th>Sim</th>
+                  <th>Não</th>
+                </tr>
+              </thead>
+              
+              <tbody>
+                <tr>
+                  <td>Nunca ou menos de uma vez por mês</td>
+                  <td>{{ questao_48_esperado.0.0 }}</td>
+                  <td>{{ questao_48_esperado.0.1 }}</td>
+                </tr>
+                <tr>
+                  <td>1 a 3 vezes por mês</td>
+                  <td>{{ questao_48_esperado.1.0 }}</td>
+                  <td>{{ questao_48_esperado.1.1 }}</td>
+                </tr>
+                <tr>
+                  <td>1 vez por semana</td>
+                  <td>{{ questao_48_esperado.2.0 }}</td>
+                  <td>{{ questao_48_esperado.2.1 }}</td>
+                </tr>
+                <tr>
+                  <td>2 a 4 vezes por semana</td>
+                  <td>{{ questao_48_esperado.3.0 }}</td>
+                  <td>{{ questao_48_esperado.3.1 }}</td>
+                </tr>
+                <tr>
+                  <td>6 a 8 vezes por semana</td>
+                  <td>{{ questao_48_esperado.4.0 }}</td>
+                  <td>{{ questao_48_esperado.4.1 }}</td>
+                </tr>
+                <tr>
+                  <td>1 vez por dia</td>
+                  <td>{{ questao_48_esperado.5.0 }}</td>
+                  <td>{{ questao_48_esperado.5.1 }}</td>
+                </tr>
+                <tr>
+                  <td>2 a 3 vezes por dia</td>
+                  <td>{{ questao_48_esperado.6.0 }}</td>
+                  <td>{{ questao_48_esperado.6.1 }}</td>
+                </tr>
+                <tr>
+                  <td>4 a 6 vezes por dia</td>
+                  <td>{{ questao_48_esperado.7.0 }}</td>
+                  <td>{{ questao_48_esperado.7.1 }}</td>
+                </tr>
+                <tr>
+                  <td>Mais de 8 vezes por dia</td>
+                  <td>{{ questao_48_esperado.8.0 }}</td>
+                  <td>{{ questao_48_esperado.8.1 }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p>P-valor: 0</p>
         </div>
       </div>
     </div>
@@ -2850,6 +4961,76 @@
         </div>
       </div>
     </div>
+    
+    <div class="col-lg-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          Incidência de cárie por consumo de alimento (49) Sucos naturais (de laranja, acerola, tangerina, uva): (valores esperados)
+        </div>
+        <div class="panel-body">
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Questão 49</th>
+                  <th>Sim</th>
+                  <th>Não</th>
+                </tr>
+              </thead>
+              
+              <tbody>
+                <tr>
+                  <td>Nunca ou menos de uma vez por mês</td>
+                  <td>{{ questao_49_esperado.0.0 }}</td>
+                  <td>{{ questao_49_esperado.0.1 }}</td>
+                </tr>
+                <tr>
+                  <td>1 a 3 vezes por mês</td>
+                  <td>{{ questao_49_esperado.1.0 }}</td>
+                  <td>{{ questao_49_esperado.1.1 }}</td>
+                </tr>
+                <tr>
+                  <td>1 vez por semana</td>
+                  <td>{{ questao_49_esperado.2.0 }}</td>
+                  <td>{{ questao_49_esperado.2.1 }}</td>
+                </tr>
+                <tr>
+                  <td>2 a 4 vezes por semana</td>
+                  <td>{{ questao_49_esperado.3.0 }}</td>
+                  <td>{{ questao_49_esperado.3.1 }}</td>
+                </tr>
+                <tr>
+                  <td>6 a 8 vezes por semana</td>
+                  <td>{{ questao_49_esperado.4.0 }}</td>
+                  <td>{{ questao_49_esperado.4.1 }}</td>
+                </tr>
+                <tr>
+                  <td>1 vez por dia</td>
+                  <td>{{ questao_49_esperado.5.0 }}</td>
+                  <td>{{ questao_49_esperado.5.1 }}</td>
+                </tr>
+                <tr>
+                  <td>2 a 3 vezes por dia</td>
+                  <td>{{ questao_49_esperado.6.0 }}</td>
+                  <td>{{ questao_49_esperado.6.1 }}</td>
+                </tr>
+                <tr>
+                  <td>4 a 6 vezes por dia</td>
+                  <td>{{ questao_49_esperado.7.0 }}</td>
+                  <td>{{ questao_49_esperado.7.1 }}</td>
+                </tr>
+                <tr>
+                  <td>Mais de 8 vezes por dia</td>
+                  <td>{{ questao_49_esperado.8.0 }}</td>
+                  <td>{{ questao_49_esperado.8.1 }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p>P-valor: 0</p>
+        </div>
+      </div>
+    </div>
   </div>
   
   <div class="row">
@@ -2935,6 +5116,76 @@
               </tbody>
             </table>
           </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col-lg-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          Incidência de cárie por consumo de alimento (50) Refrigerantes (Coca cola, graraná ou fanta) ou ainda sucos de caixinha com néctar (como Kapo, del Valle): (valores esperados)
+        </div>
+        <div class="panel-body">
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Questão 50</th>
+                  <th>Sim</th>
+                  <th>Não</th>
+                </tr>
+              </thead>
+              
+              <tbody>
+                <tr>
+                  <td>Nunca ou menos de uma vez por mês</td>
+                  <td>{{ questao_50_esperado.0.0 }}</td>
+                  <td>{{ questao_50_esperado.0.1 }}</td>
+                </tr>
+                <tr>
+                  <td>1 a 3 vezes por mês</td>
+                  <td>{{ questao_50_esperado.1.0 }}</td>
+                  <td>{{ questao_50_esperado.1.1 }}</td>
+                </tr>
+                <tr>
+                  <td>1 vez por semana</td>
+                  <td>{{ questao_50_esperado.2.0 }}</td>
+                  <td>{{ questao_50_esperado.2.1 }}</td>
+                </tr>
+                <tr>
+                  <td>2 a 4 vezes por semana</td>
+                  <td>{{ questao_50_esperado.3.0 }}</td>
+                  <td>{{ questao_50_esperado.3.1 }}</td>
+                </tr>
+                <tr>
+                  <td>6 a 8 vezes por semana</td>
+                  <td>{{ questao_50_esperado.4.0 }}</td>
+                  <td>{{ questao_50_esperado.4.1 }}</td>
+                </tr>
+                <tr>
+                  <td>1 vez por dia</td>
+                  <td>{{ questao_50_esperado.5.0 }}</td>
+                  <td>{{ questao_50_esperado.5.1 }}</td>
+                </tr>
+                <tr>
+                  <td>2 a 3 vezes por dia</td>
+                  <td>{{ questao_50_esperado.6.0 }}</td>
+                  <td>{{ questao_50_esperado.6.1 }}</td>
+                </tr>
+                <tr>
+                  <td>4 a 6 vezes por dia</td>
+                  <td>{{ questao_50_esperado.7.0 }}</td>
+                  <td>{{ questao_50_esperado.7.1 }}</td>
+                </tr>
+                <tr>
+                  <td>Mais de 8 vezes por dia</td>
+                  <td>{{ questao_50_esperado.8.0 }}</td>
+                  <td>{{ questao_50_esperado.8.1 }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p>P-valor: 0</p>
         </div>
       </div>
     </div>
@@ -3026,6 +5277,76 @@
         </div>
       </div>
     </div>
+    
+    <div class="col-lg-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          Incidência de cárie por consumo de alimento (51) Pizzas. (Mini Pizza por exemplo): (valores esperados)
+        </div>
+        <div class="panel-body">
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Questão 51</th>
+                  <th>Sim</th>
+                  <th>Não</th>
+                </tr>
+              </thead>
+              
+              <tbody>
+                <tr>
+                  <td>Nunca ou menos de uma vez por mês</td>
+                  <td>{{ questao_51_esperado.0.0 }}</td>
+                  <td>{{ questao_51_esperado.0.1 }}</td>
+                </tr>
+                <tr>
+                  <td>1 a 3 vezes por mês</td>
+                  <td>{{ questao_51_esperado.1.0 }}</td>
+                  <td>{{ questao_51_esperado.1.1 }}</td>
+                </tr>
+                <tr>
+                  <td>1 vez por semana</td>
+                  <td>{{ questao_51_esperado.2.0 }}</td>
+                  <td>{{ questao_51_esperado.2.1 }}</td>
+                </tr>
+                <tr>
+                  <td>2 a 4 vezes por semana</td>
+                  <td>{{ questao_51_esperado.3.0 }}</td>
+                  <td>{{ questao_51_esperado.3.1 }}</td>
+                </tr>
+                <tr>
+                  <td>6 a 8 vezes por semana</td>
+                  <td>{{ questao_51_esperado.4.0 }}</td>
+                  <td>{{ questao_51_esperado.4.1 }}</td>
+                </tr>
+                <tr>
+                  <td>1 vez por dia</td>
+                  <td>{{ questao_51_esperado.5.0 }}</td>
+                  <td>{{ questao_51_esperado.5.1 }}</td>
+                </tr>
+                <tr>
+                  <td>2 a 3 vezes por dia</td>
+                  <td>{{ questao_51_esperado.6.0 }}</td>
+                  <td>{{ questao_51_esperado.6.1 }}</td>
+                </tr>
+                <tr>
+                  <td>4 a 6 vezes por dia</td>
+                  <td>{{ questao_51_esperado.7.0 }}</td>
+                  <td>{{ questao_51_esperado.7.1 }}</td>
+                </tr>
+                <tr>
+                  <td>Mais de 8 vezes por dia</td>
+                  <td>{{ questao_51_esperado.8.0 }}</td>
+                  <td>{{ questao_51_esperado.8.1 }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p>P-valor: 0</p>
+        </div>
+      </div>
+    </div>
   </div>
   
   <div class="row">
@@ -3111,6 +5432,76 @@
               </tbody>
             </table>
           </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col-lg-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          Incidência de cárie por consumo de alimento (52) Hamburguer e cachorro quente.: (valores esperados)
+        </div>
+        <div class="panel-body">
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Questão 52</th>
+                  <th>Sim</th>
+                  <th>Não</th>
+                </tr>
+              </thead>
+              
+              <tbody>
+                <tr>
+                  <td>Nunca ou menos de uma vez por mês</td>
+                  <td>{{ questao_52_esperado.0.0 }}</td>
+                  <td>{{ questao_52_esperado.0.1 }}</td>
+                </tr>
+                <tr>
+                  <td>1 a 3 vezes por mês</td>
+                  <td>{{ questao_52_esperado.1.0 }}</td>
+                  <td>{{ questao_52_esperado.1.1 }}</td>
+                </tr>
+                <tr>
+                  <td>1 vez por semana</td>
+                  <td>{{ questao_52_esperado.2.0 }}</td>
+                  <td>{{ questao_52_esperado.2.1 }}</td>
+                </tr>
+                <tr>
+                  <td>2 a 4 vezes por semana</td>
+                  <td>{{ questao_52_esperado.3.0 }}</td>
+                  <td>{{ questao_52_esperado.3.1 }}</td>
+                </tr>
+                <tr>
+                  <td>6 a 8 vezes por semana</td>
+                  <td>{{ questao_52_esperado.4.0 }}</td>
+                  <td>{{ questao_52_esperado.4.1 }}</td>
+                </tr>
+                <tr>
+                  <td>1 vez por dia</td>
+                  <td>{{ questao_52_esperado.5.0 }}</td>
+                  <td>{{ questao_52_esperado.5.1 }}</td>
+                </tr>
+                <tr>
+                  <td>2 a 3 vezes por dia</td>
+                  <td>{{ questao_52_esperado.6.0 }}</td>
+                  <td>{{ questao_52_esperado.6.1 }}</td>
+                </tr>
+                <tr>
+                  <td>4 a 6 vezes por dia</td>
+                  <td>{{ questao_52_esperado.7.0 }}</td>
+                  <td>{{ questao_52_esperado.7.1 }}</td>
+                </tr>
+                <tr>
+                  <td>Mais de 8 vezes por dia</td>
+                  <td>{{ questao_52_esperado.8.0 }}</td>
+                  <td>{{ questao_52_esperado.8.1 }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p>P-valor: 0</p>
         </div>
       </div>
     </div>
@@ -3202,6 +5593,76 @@
         </div>
       </div>
     </div>
+    
+    <div class="col-lg-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          Incidência de cárie por consumo de alimento (53) Rebuçados, gomas, pastilhas elásticas. (Chicletes, balinhas, jujubas): (valores esperados)
+        </div>
+        <div class="panel-body">
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Questão 53</th>
+                  <th>Sim</th>
+                  <th>Não</th>
+                </tr>
+              </thead>
+              
+              <tbody>
+                <tr>
+                  <td>Nunca ou menos de uma vez por mês</td>
+                  <td>{{ questao_53_esperado.0.0 }}</td>
+                  <td>{{ questao_53_esperado.0.1 }}</td>
+                </tr>
+                <tr>
+                  <td>1 a 3 vezes por mês</td>
+                  <td>{{ questao_53_esperado.1.0 }}</td>
+                  <td>{{ questao_53_esperado.1.1 }}</td>
+                </tr>
+                <tr>
+                  <td>1 vez por semana</td>
+                  <td>{{ questao_53_esperado.2.0 }}</td>
+                  <td>{{ questao_53_esperado.2.1 }}</td>
+                </tr>
+                <tr>
+                  <td>2 a 4 vezes por semana</td>
+                  <td>{{ questao_53_esperado.3.0 }}</td>
+                  <td>{{ questao_53_esperado.3.1 }}</td>
+                </tr>
+                <tr>
+                  <td>6 a 8 vezes por semana</td>
+                  <td>{{ questao_53_esperado.4.0 }}</td>
+                  <td>{{ questao_53_esperado.4.1 }}</td>
+                </tr>
+                <tr>
+                  <td>1 vez por dia</td>
+                  <td>{{ questao_53_esperado.5.0 }}</td>
+                  <td>{{ questao_53_esperado.5.1 }}</td>
+                </tr>
+                <tr>
+                  <td>2 a 3 vezes por dia</td>
+                  <td>{{ questao_53_esperado.6.0 }}</td>
+                  <td>{{ questao_53_esperado.6.1 }}</td>
+                </tr>
+                <tr>
+                  <td>4 a 6 vezes por dia</td>
+                  <td>{{ questao_53_esperado.7.0 }}</td>
+                  <td>{{ questao_53_esperado.7.1 }}</td>
+                </tr>
+                <tr>
+                  <td>Mais de 8 vezes por dia</td>
+                  <td>{{ questao_53_esperado.8.0 }}</td>
+                  <td>{{ questao_53_esperado.8.1 }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p>P-valor: 0</p>
+        </div>
+      </div>
+    </div>
   </div>
   
   <div class="row">
@@ -3287,6 +5748,76 @@
               </tbody>
             </table>
           </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col-lg-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          Incidência de cárie por consumo de alimento (54) Rosquinhas (como Donuts, Sonhos, Rosquinhas de Polvilho, Pão de Mel) Hábitos Alimentares quando o (a) estudante tinha menos de dois anos de idade: (valores esperados)
+        </div>
+        <div class="panel-body">
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Questão 54</th>
+                  <th>Sim</th>
+                  <th>Não</th>
+                </tr>
+              </thead>
+              
+              <tbody>
+                <tr>
+                  <td>Nunca ou menos de uma vez por mês</td>
+                  <td>{{ questao_54_esperado.0.0 }}</td>
+                  <td>{{ questao_54_esperado.0.1 }}</td>
+                </tr>
+                <tr>
+                  <td>1 a 3 vezes por mês</td>
+                  <td>{{ questao_54_esperado.1.0 }}</td>
+                  <td>{{ questao_54_esperado.1.1 }}</td>
+                </tr>
+                <tr>
+                  <td>1 vez por semana</td>
+                  <td>{{ questao_54_esperado.2.0 }}</td>
+                  <td>{{ questao_54_esperado.2.1 }}</td>
+                </tr>
+                <tr>
+                  <td>2 a 4 vezes por semana</td>
+                  <td>{{ questao_54_esperado.3.0 }}</td>
+                  <td>{{ questao_54_esperado.3.1 }}</td>
+                </tr>
+                <tr>
+                  <td>6 a 8 vezes por semana</td>
+                  <td>{{ questao_54_esperado.4.0 }}</td>
+                  <td>{{ questao_54_esperado.4.1 }}</td>
+                </tr>
+                <tr>
+                  <td>1 vez por dia</td>
+                  <td>{{ questao_54_esperado.5.0 }}</td>
+                  <td>{{ questao_54_esperado.5.1 }}</td>
+                </tr>
+                <tr>
+                  <td>2 a 3 vezes por dia</td>
+                  <td>{{ questao_54_esperado.6.0 }}</td>
+                  <td>{{ questao_54_esperado.6.1 }}</td>
+                </tr>
+                <tr>
+                  <td>4 a 6 vezes por dia</td>
+                  <td>{{ questao_54_esperado.7.0 }}</td>
+                  <td>{{ questao_54_esperado.7.1 }}</td>
+                </tr>
+                <tr>
+                  <td>Mais de 8 vezes por dia</td>
+                  <td>{{ questao_54_esperado.8.0 }}</td>
+                  <td>{{ questao_54_esperado.8.1 }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p>P-valor: 0</p>
         </div>
       </div>
     </div>
