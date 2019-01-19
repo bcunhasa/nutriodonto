@@ -45,6 +45,10 @@ function criaGrafico(questao, dados, label) {
                 minTickSize: 0,
                 tickDecimals: 0,
             },
+        },
+        $("#placeholder"),
+            [ [[ 0, 12345 ], [ 10, 67890 ]] ],
+            { bars: { show: true }, valueLabels: { show: true }
         }
     );
 }
