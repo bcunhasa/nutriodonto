@@ -1,0 +1,119 @@
+sexo = matrix(c(61,62,0,130,165,2), ncol=2)
+raca = matrix(c(5,25,4,64,22,18,88,6,139,46), ncol=2)
+questao_73 = matrix(c(23,70,61,182), ncol=2)
+questao_75 = matrix(c(29,8,3,1,0,1,0,84,7,2,2,2,1,1), ncol=2)
+questao_79 = matrix(c(46,1,3,1,0,0,9,0,1,1,143,2,4,2,1,1,31,0,1,2), ncol=2)
+questao_84 = matrix(c(44,17,7,1,1,0,1,127,40,13,6,7,2,0), ncol=2)
+questao_92 = matrix(c(36,1,1,0,1,110,4,2,1,1), ncol=2)
+questao_111 = matrix(c(0,5,7,24,29,25,6,2,12,72,85,66), ncol=2)
+questao_113 = matrix(c(35,13,19,24,77,53,31,83), ncol=2)
+questao_25 = matrix(c(15,14,7,6,1,16,7,3,3,55,35,20,32,10,39,31,4,5), ncol=2)
+questao_26 = matrix(c(23,16,6,10,2,8,5,2,1,48,33,22,38,14,33,27,6,8), ncol=2)
+questao_27 = matrix(c(27,24,6,7,3,5,1,0,0,83,62,23,26,10,14,9,2,3), ncol=2)
+questao_28 = matrix(c(16,28,11,12,1,4,0,0,0,64,62,28,35,13,13,8,3,2), ncol=2)
+questao_29 = matrix(c(21,24,7,5,6,4,2,2,0,76,64,31,38,7,8,3,1,2), ncol=2)
+questao_30 = matrix(c(21,20,13,7,5,1,3,0,2,46,91,41,27,10,8,1,1,6), ncol=2)
+questao_31 = matrix(c(6,15,8,13,11,10,4,1,3,30,54,41,43,13,23,12,5,9), ncol=2)
+questao_32 = matrix(c(7,15,6,17,6,11,9,0,1,40,43,34,50,24,24,15,0,2), ncol=2)
+questao_33 = matrix(c(34,24,4,4,1,4,1,0,1,106,60,19,19,1,16,3,2,4), ncol=2)
+questao_34 = matrix(c(49,11,5,2,1,3,1,1,0,138,45,12,16,3,7,5,2,1), ncol=2)
+questao_35 = matrix(c(3,3,5,5,10,12,25,4,6,2,12,9,14,27,58,88,8,14), ncol=2)
+questao_36 = matrix(c(15,24,12,14,0,3,2,3,0,63,68,39,23,10,18,3,2,4), ncol=2)
+questao_37 = matrix(c(26,23,9,10,1,2,2,0,0,80,73,43,23,2,3,3,1,4), ncol=2)
+questao_38 = matrix(c(7,10,10,10,8,15,7,3,2,25,45,37,44,17,33,17,5,7), ncol=2)
+questao_39 = matrix(c(11,12,20,9,4,7,6,1,2,31,54,44,34,18,26,11,5,4), ncol=2)
+questao_40 = matrix(c(12,18,12,17,5,4,3,0,0,39,74,46,32,14,10,5,5,3), ncol=2)
+questao_41 = matrix(c(21,24,13,9,0,2,3,0,0,57,72,47,23,13,4,6,4,2), ncol=2)
+questao_42 = matrix(c(37,19,6,2,1,3,2,0,1,101,76,14,12,4,11,6,1,4), ncol=2)
+questao_43 = matrix(c(4,8,4,11,7,10,13,2,13,16,21,23,28,17,49,40,16,20), ncol=2)
+questao_44 = matrix(c(22,22,7,8,5,7,2,0,0,58,84,35,24,7,11,9,2,1), ncol=2)
+questao_45 = matrix(c(15,11,9,18,2,9,6,0,3,40,27,26,48,20,37,21,5,7), ncol=2)
+questao_46 = matrix(c(8,9,3,10,5,20,15,0,3,37,16,15,21,18,57,49,8,11), ncol=2)
+questao_47 = matrix(c(5,7,3,14,5,17,14,6,3,23,16,25,42,22,47,25,12,14), ncol=2)
+questao_48 = matrix(c(41,18,4,1,2,2,2,1,2,126,40,17,11,7,14,5,3,3), ncol=2)
+questao_49 = matrix(c(6,12,8,10,11,12,7,4,3,22,40,32,41,17,32,20,10,11), ncol=2)
+questao_50 = matrix(c(8,12,11,14,6,11,5,5,1,25,43,37,46,18,22,14,6,16), ncol=2)
+questao_51 = matrix(c(17,34,15,4,2,1,0,1,0,54,110,30,16,7,4,1,1,4), ncol=2)
+questao_52 = matrix(c(19,31,12,6,2,1,3,0,0,50,93,35,28,7,6,4,1,6), ncol=2)
+questao_53 = matrix(c(7,10,11,8,6,13,8,7,4,30,34,28,48,26,29,13,6,17), ncol=2)
+questao_54 = matrix(c(15,28,13,3,2,7,1,0,1,70,67,71,36,21,10,12,6,2,3,228), ncol=2)
+
+chisq.test(sexo, correct=T)$p.value
+chisq.test(raca, correct=T)$p.value
+chisq.test(questao_73, correct=T)$p.value
+chisq.test(questao_75, correct=T)$p.value
+chisq.test(questao_79, correct=T)$p.value
+chisq.test(questao_84, correct=T)$p.value
+chisq.test(questao_92, correct=T)$p.value
+chisq.test(questao_111, correct=T)$p.value
+chisq.test(questao_113, correct=T)$p.value
+chisq.test(questao_25, correct=T)$p.value
+chisq.test(questao_26, correct=T)$p.value
+chisq.test(questao_27, correct=T)$p.value
+chisq.test(questao_28, correct=T)$p.value
+chisq.test(questao_29, correct=T)$p.value
+chisq.test(questao_30, correct=T)$p.value
+chisq.test(questao_31, correct=T)$p.value
+chisq.test(questao_32, correct=T)$p.value
+chisq.test(questao_33, correct=T)$p.value
+chisq.test(questao_34, correct=T)$p.value
+chisq.test(questao_35, correct=T)$p.value
+chisq.test(questao_36, correct=T)$p.value
+chisq.test(questao_37, correct=T)$p.value
+chisq.test(questao_38, correct=T)$p.value
+chisq.test(questao_39, correct=T)$p.value
+chisq.test(questao_40, correct=T)$p.value
+chisq.test(questao_41, correct=T)$p.value
+chisq.test(questao_42, correct=T)$p.value
+chisq.test(questao_43, correct=T)$p.value
+chisq.test(questao_44, correct=T)$p.value
+chisq.test(questao_45, correct=T)$p.value
+chisq.test(questao_46, correct=T)$p.value
+chisq.test(questao_47, correct=T)$p.value
+chisq.test(questao_48, correct=T)$p.value
+chisq.test(questao_49, correct=T)$p.value
+chisq.test(questao_50, correct=T)$p.value
+chisq.test(questao_51, correct=T)$p.value
+chisq.test(questao_52, correct=T)$p.value
+chisq.test(questao_53, correct=T)$p.value
+chisq.test(questao_54, correct=T)$p.value
+
+sexo(0,3860944)
+raca(0,3101751)
+questao_73(1)
+questao_75(0,1876084)
+questao_79(0,7401808)
+questao_84(0,4321177)
+questao_92(0,879766)
+questao_111(0,06218314)
+questao_113(0,07239675)
+questao_25(0,5100324)
+questao_26(0,3647463)
+questao_27(0,8768924)
+questao_28(0,2704115)
+questao_29(0,09283336)
+questao_30(0,1508443)
+questao_31(0,2559678)
+questao_32(0,1937388)
+questao_33(0,8869643)
+questao_34(0,8742866)
+questao_35(0,4350512)
+questao_36(0,06306219)
+questao_37(0,7418046)
+questao_38(0,6887537)
+questao_39(0,6931379)
+questao_40(0,4326469)
+questao_41(0,4722577)
+questao_42(0,9331144)
+questao_43(0,2691176)
+questao_44(0,4537747)
+questao_45(0,616505)
+questao_46(0,489059)
+questao_47(0,3820506)
+questao_48(0,7177138)
+questao_49(0,755798)
+questao_50(0,4754756)
+questao_51(0,8009436)
+questao_52(0,7320234)
+questao_53(0,07582135)
+questao_54(0,5844354)
