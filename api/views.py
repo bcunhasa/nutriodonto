@@ -5,6 +5,7 @@ from rest_framework.response import Response
 
 from api.serializers import *
 from administracao.models import *
+from gerencia.models import *
 
 
 class ClienteAutenticacaoAPIView(ObtainAuthToken):
@@ -37,3 +38,24 @@ class AtualizaAlunoAPIView(generics.UpdateAPIView):
     permission_classes = [permissions.IsAuthenticated]
     queryset = Aluno.objects.all()
     serializer_class = AlunoSerializer
+
+
+# URLs para o exemplo dado no curso de Ionic
+
+class NoticiasAPIView(generics.ListAPIView):
+    """Lista todas as notícias"""
+    permission_classes = [permissions.IsAuthenticated]
+    queryset = Noticia.objects.all()
+    serializer_class = NoticiaSerializer
+
+class CriaNoticiaAPIView(generics.CreateAPIView):
+    """Cria uma nova notícia"""
+    permission_classes = [permissions.IsAuthenticated]
+    queryset = Noticia.objects.all()
+    serializer_class = NoticiaSerializer
+
+class AtualizaNoticiaAPIView(generics.UpdateAPIView):
+    """Atualiza uma notícia"""
+    permission_classes = [permissions.IsAuthenticated]
+    queryset = Noticia.objects.all()
+    serializer_class = NoticiaSerializer

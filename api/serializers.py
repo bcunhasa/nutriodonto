@@ -1,6 +1,7 @@
 from rest_framework import serializers
 
 from administracao.models import *
+from gerencia.models import *
 
 
 class ExameSerializer(serializers.ModelSerializer):
@@ -59,3 +60,13 @@ class CampanhaSerializer(serializers.ModelSerializer):
     class Meta:
         model = Campanha
         fields = ('id', 'nome', 'acoes')
+
+
+# Serializers para o exemplo dado no curso de Ionic
+
+class NoticiaSerializer(serializers.ModelSerializer):
+    """Serializer do modelo Notícia"""
+    
+    class Meta:
+        model = Noticia
+        fields = '__all__'

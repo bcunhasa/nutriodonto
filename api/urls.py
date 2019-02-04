@@ -15,4 +15,10 @@ urlpatterns = [
     
     # Atualiza os dados do aluno pré-cadastrado com as informações de exame e questionário
     url(r'^aluno/(?P<pk>[0-9]+)/$', views.AtualizaAlunoAPIView.as_view(), name='aluno'),
+    
+    
+    # URLs para o exemplo dado no curso de Ionic
+    url(r'^noticias/$', views.NoticiasAPIView.as_view(), name='noticias'),
+    url(r'^cria_noticia/$', views.CriaNoticiaAPIView.as_view(), name='cria_noticia'),
+    url(r'^atualiza_noticia/$', views.AtualizaNoticiaAPIView.as_view(), name='atualiza_noticia'),
 ]
