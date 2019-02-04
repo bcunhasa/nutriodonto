@@ -20,5 +20,5 @@ urlpatterns = [
     # URLs para o exemplo dado no curso de Ionic
     url(r'^noticias/$', views.NoticiasAPIView.as_view(), name='noticias'),
     url(r'^cria_noticia/$', views.CriaNoticiaAPIView.as_view(), name='cria_noticia'),
-    url(r'^atualiza_noticia/$', views.AtualizaNoticiaAPIView.as_view(), name='atualiza_noticia'),
+    url(r'^atualiza_noticia(?P<pk>[0-9]+)/$', views.AtualizaNoticiaAPIView.as_view(), name='atualiza_noticia'),
 ]
