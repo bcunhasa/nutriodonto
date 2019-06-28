@@ -30,7 +30,7 @@ class Acao(models.Model):
 class Escola(models.Model):
     """Modelo que representa uma escola de uma acao"""
     acao = models.ForeignKey('Acao', related_name='escolas', on_delete=models.CASCADE)
-    nome = models.CharField(choices=ESCOLA, max_length=TAMANHO_NOMES, verbose_name='Nome')
+    nome = models.CharField(max_length=TAMANHO_NOMES, verbose_name='Nome')
     latitude = models.DecimalField(max_digits=22, decimal_places=18, default=0, verbose_name='Latitude')
     longitude = models.DecimalField(max_digits=22, decimal_places=18, default=0, verbose_name='Longitude')
 

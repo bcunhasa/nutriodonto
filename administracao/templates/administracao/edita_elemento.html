@@ -511,7 +511,7 @@
             <label class="col-lg-2 control-label">Nome</label>
             {{ form.nome.errors }}
             <div class="col-lg-10">
-              {% render_field form.nome class='form-control' type='number' placeholder='Nome' %}
+              {% render_field form.nome class='form-control' type='text' placeholder='Nome' %}
             </div>
             {% if form.nome.help_text %}
               <p class="help">{{ field.help_text|safe }}</p>
