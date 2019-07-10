@@ -8,7 +8,7 @@
 {% endblock head %}
 
 {% block header %}
-  Dados obtidos por meio de inferência estatística
+  Dados obtidos por meio de predição pelo Naive Bayes
 {% endblock header %}
 
 {% block content %}
@@ -66,7 +66,7 @@
     <div class="col-lg-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          Incidência de cárie por sexo (valores esperados)
+          Incidência de cárie por sexo (predição)
         </div>
         <div class="panel-body">
           <div class="table-responsive">
@@ -82,23 +82,22 @@
               <tbody>
                 <tr>
                   <td>Masculino</td>
-                  <td>{{ sexo_esperado.0.0|floatformat:2 }}</td>
-                  <td>{{ sexo_esperado.0.1|floatformat:2 }}</td>
+                  <td>{{ sexo_esperado.0.0|floatformat:2 }} %</td>
+                  <td>{{ sexo_esperado.0.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>Feminino</td>
-                  <td>{{ sexo_esperado.1.0|floatformat:2 }}</td>
-                  <td>{{ sexo_esperado.1.1|floatformat:2 }}</td>
+                  <td>{{ sexo_esperado.1.0|floatformat:2 }} %</td>
+                  <td>{{ sexo_esperado.1.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>Outro</td>
-                  <td>{{ sexo_esperado.2.0|floatformat:2 }}</td>
-                  <td>{{ sexo_esperado.2.1|floatformat:2 }}</td>
+                  <td>{{ sexo_esperado.2.0|floatformat:2 }} %</td>
+                  <td>{{ sexo_esperado.2.1|floatformat:2 }} %</td>
                 </tr>
               </tbody>
             </table>
           </div>
-          <p>P-valor: {{ sexo_pvalor }}</p>
         </div>
       </div>
     </div>
@@ -169,7 +168,7 @@
     <div class="col-lg-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          Incidência de cárie por raça (valores esperados)
+          Incidência de cárie por raça (predição)
         </div>
         <div class="panel-body">
           <div class="table-responsive">
@@ -185,33 +184,32 @@
               <tbody>
                 <tr>
                   <td>Amarela</td>
-                  <td>{{ raca_esperado.0.0|floatformat:2 }}</td>
-                  <td>{{ raca_esperado.0.1|floatformat:2 }}</td>
+                  <td>{{ raca_esperado.0.0|floatformat:2 }} %</td>
+                  <td>{{ raca_esperado.0.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>Branca</td>
-                  <td>{{ raca_esperado.1.0|floatformat:2 }}</td>
-                  <td>{{ raca_esperado.1.1|floatformat:2 }}</td>
+                  <td>{{ raca_esperado.1.0|floatformat:2 }} %</td>
+                  <td>{{ raca_esperado.1.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>Indígena</td>
-                  <td>{{ raca_esperado.2.0|floatformat:2 }}</td>
-                  <td>{{ raca_esperado.2.1|floatformat:2 }}</td>
+                  <td>{{ raca_esperado.2.0|floatformat:2 }} %</td>
+                  <td>{{ raca_esperado.2.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>Parda</td>
-                  <td>{{ raca_esperado.3.0|floatformat:2 }}</td>
-                  <td>{{ raca_esperado.3.1|floatformat:2 }}</td>
+                  <td>{{ raca_esperado.3.0|floatformat:2 }} %</td>
+                  <td>{{ raca_esperado.3.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>Preta</td>
-                  <td>{{ raca_esperado.4.0|floatformat:2 }}</td>
-                  <td>{{ raca_esperado.4.1|floatformat:2 }}</td>
+                  <td>{{ raca_esperado.4.0|floatformat:2 }} %</td>
+                  <td>{{ raca_esperado.4.1|floatformat:2 }} %</td>
                 </tr>
               </tbody>
             </table>
           </div>
-          <p>P-valor: {{ raca_pvalor }}</p>
         </div>
       </div>
     </div>
@@ -264,7 +262,7 @@
     <div class="col-lg-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          Incidência de cárie por questão: 73. Alguma vez na vida, você já fumou cigarro, mesmo uma ou duas tragadas? (valores esperados)
+          Incidência de cárie por questão: 73. Alguma vez na vida, você já fumou cigarro, mesmo uma ou duas tragadas? (predição)
         </div>
         <div class="panel-body">
           <div class="table-responsive">
@@ -280,18 +278,17 @@
               <tbody>
                 <tr>
                   <td>Sim</td>
-                  <td>{{ questao_73_esperado.0.0|floatformat:2 }}</td>
-                  <td>{{ questao_73_esperado.0.1|floatformat:2 }}</td>
+                  <td>{{ questao_73_esperado.0.0|floatformat:2 }} %</td>
+                  <td>{{ questao_73_esperado.0.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>Não</td>
-                  <td>{{ questao_73_esperado.1.0|floatformat:2 }}</td>
-                  <td>{{ questao_73_esperado.1.1|floatformat:2 }}</td>
+                  <td>{{ questao_73_esperado.1.0|floatformat:2 }} %</td>
+                  <td>{{ questao_73_esperado.1.1|floatformat:2 }} %</td>
                 </tr>
               </tbody>
             </table>
           </div>
-          <p>P-valor: {{ questao_73_pvalor }}</p>
         </div>
       </div>
     </div>
@@ -374,7 +371,7 @@
     <div class="col-lg-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          Incidência de cárie por questão: 75. Nos últimos 30 dias, em quantos dias você fumou cigarros? (valores esperados)
+          Incidência de cárie por questão: 75. Nos últimos 30 dias, em quantos dias você fumou cigarros? (predição)
         </div>
         <div class="panel-body">
           <div class="table-responsive">
@@ -390,43 +387,42 @@
               <tbody>
                 <tr>
                   <td>Nenhum dia nos últimos 30 dias (0 dia)</td>
-                  <td>{{ questao_75_esperado.0.0|floatformat:2 }}</td>
-                  <td>{{ questao_75_esperado.0.1|floatformat:2 }}</td>
+                  <td>{{ questao_75_esperado.0.0|floatformat:2 }} %</td>
+                  <td>{{ questao_75_esperado.0.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>1 ou 2 dias nos últimos 30 dias</td>
-                  <td>{{ questao_75_esperado.1.0|floatformat:2 }}</td>
-                  <td>{{ questao_75_esperado.1.1|floatformat:2 }}</td>
+                  <td>{{ questao_75_esperado.1.0|floatformat:2 }} %</td>
+                  <td>{{ questao_75_esperado.1.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>3 a 5 dias nos últimos 30 dias</td>
-                  <td>{{ questao_75_esperado.2.0|floatformat:2 }}</td>
-                  <td>{{ questao_75_esperado.2.1|floatformat:2 }}</td>
+                  <td>{{ questao_75_esperado.2.0|floatformat:2 }} %</td>
+                  <td>{{ questao_75_esperado.2.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>6 a 9 dias nos últimos 30 dias</td>
-                  <td>{{ questao_75_esperado.3.0|floatformat:2 }}</td>
-                  <td>{{ questao_75_esperado.3.1|floatformat:2 }}</td>
+                  <td>{{ questao_75_esperado.3.0|floatformat:2 }} %</td>
+                  <td>{{ questao_75_esperado.3.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>10 a 19 dias nos últimos 30 dias</td>
-                  <td>{{ questao_75_esperado.4.0|floatformat:2 }}</td>
-                  <td>{{ questao_75_esperado.4.1|floatformat:2 }}</td>
+                  <td>{{ questao_75_esperado.4.0|floatformat:2 }} %</td>
+                  <td>{{ questao_75_esperado.4.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>20 a 29 dias nos últimos 30 dias</td>
-                  <td>{{ questao_75_esperado.5.0|floatformat:2 }}</td>
-                  <td>{{ questao_75_esperado.5.1|floatformat:2 }}</td>
+                  <td>{{ questao_75_esperado.5.0|floatformat:2 }} %</td>
+                  <td>{{ questao_75_esperado.5.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>Todos os dias nos últimos 30 dias</td>
-                  <td>{{ questao_75_esperado.6.0|floatformat:2 }}</td>
-                  <td>{{ questao_75_esperado.6.1|floatformat:2 }}</td>
+                  <td>{{ questao_75_esperado.6.0|floatformat:2 }} %</td>
+                  <td>{{ questao_75_esperado.6.1|floatformat:2 }} %</td>
                 </tr>
               </tbody>
             </table>
           </div>
-          <p>P-valor: {{ questao_75_pvalor }}</p>
         </div>
       </div>
     </div>
@@ -527,7 +523,7 @@
     <div class="col-lg-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          Incidência de cárie por questão: 79. Qual outro produto do tabaco você usou com mais frequência nos últimos 30 dias? (valores esperados)
+          Incidência de cárie por questão: 79. Qual outro produto do tabaco você usou com mais frequência nos últimos 30 dias? (predição)
         </div>
         <div class="panel-body">
           <div class="table-responsive">
@@ -543,58 +539,57 @@
               <tbody>
                 <tr>
                   <td>Não usei nenhum produto do tabaco (os produtos do tabaco estão abaixo relacionados)</td>
-                  <td>{{ questao_79_esperado.0.0|floatformat:2 }}</td>
-                  <td>{{ questao_79_esperado.0.1|floatformat:2 }}</td>
+                  <td>{{ questao_79_esperado.0.0|floatformat:2 }} %</td>
+                  <td>{{ questao_79_esperado.0.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>Cigarros de cravo (conhecidos como cigarros de Bali).</td>
-                  <td>{{ questao_79_esperado.1.0|floatformat:2 }}</td>
-                  <td>{{ questao_79_esperado.1.1|floatformat:2 }}</td>
+                  <td>{{ questao_79_esperado.1.0|floatformat:2 }} %</td>
+                  <td>{{ questao_79_esperado.1.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>Cigarros enrolados à mão (conhecidos como cigarros de palha ou papel)</td>
-                  <td>{{ questao_79_esperado.2.0|floatformat:2 }}</td>
-                  <td>{{ questao_79_esperado.2.1|floatformat:2 }}</td>
+                  <td>{{ questao_79_esperado.2.0|floatformat:2 }} %</td>
+                  <td>{{ questao_79_esperado.2.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>Cigarrilhas</td>
-                  <td>{{ questao_79_esperado.3.0|floatformat:2 }}</td>
-                  <td>{{ questao_79_esperado.3.1|floatformat:2 }}</td>
+                  <td>{{ questao_79_esperado.3.0|floatformat:2 }} %</td>
+                  <td>{{ questao_79_esperado.3.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>Charutos, charutos pequenos.</td>
-                  <td>{{ questao_79_esperado.4.0|floatformat:2 }}</td>
-                  <td>{{ questao_79_esperado.4.1|floatformat:2 }}</td>
+                  <td>{{ questao_79_esperado.4.0|floatformat:2 }} %</td>
+                  <td>{{ questao_79_esperado.4.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>Fumo para mascar</td>
-                  <td>{{ questao_79_esperado.5.0|floatformat:2 }}</td>
-                  <td>{{ questao_79_esperado.5.1|floatformat:2 }}</td>
+                  <td>{{ questao_79_esperado.5.0|floatformat:2 }} %</td>
+                  <td>{{ questao_79_esperado.5.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>Narguilé (cachimbo de água)</td>
-                  <td>{{ questao_79_esperado.6.0|floatformat:2 }}</td>
-                  <td>{{ questao_79_esperado.6.1|floatformat:2 }}</td>
+                  <td>{{ questao_79_esperado.6.0|floatformat:2 }} %</td>
+                  <td>{{ questao_79_esperado.6.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>Cigarros indianos (bidis)</td>
-                  <td>{{ questao_79_esperado.7.0|floatformat:2 }}</td>
-                  <td>{{ questao_79_esperado.7.1|floatformat:2 }}</td>
+                  <td>{{ questao_79_esperado.7.0|floatformat:2 }} %</td>
+                  <td>{{ questao_79_esperado.7.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>Cigarro eletrônico (e-cigarette)</td>
-                  <td>{{ questao_79_esperado.8.0|floatformat:2 }}</td>
-                  <td>{{ questao_79_esperado.8.1|floatformat:2 }}</td>
+                  <td>{{ questao_79_esperado.8.0|floatformat:2 }} %</td>
+                  <td>{{ questao_79_esperado.8.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>Outros</td>
-                  <td>{{ questao_79_esperado.9.0|floatformat:2 }}</td>
-                  <td>{{ questao_79_esperado.9.1|floatformat:2 }}</td>
+                  <td>{{ questao_79_esperado.9.0|floatformat:2 }} %</td>
+                  <td>{{ questao_79_esperado.9.1|floatformat:2 }} %</td>
                 </tr>
               </tbody>
             </table>
           </div>
-          <p>P-valor: {{ questao_79_pvalor }}</p>
         </div>
       </div>
     </div>
@@ -677,7 +672,7 @@
     <div class="col-lg-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          Incidência de cárie por questão: 84. Nos últimos 30 dias, em quantos dias você tomou pelo menos um copo ou uma dose de bebida alcoólica (uma dose equivale a uma lata de cerveja ou uma taça de vinho ou uma dose de cachaça ou uísque etc.)? (valores esperados)
+          Incidência de cárie por questão: 84. Nos últimos 30 dias, em quantos dias você tomou pelo menos um copo ou uma dose de bebida alcoólica (uma dose equivale a uma lata de cerveja ou uma taça de vinho ou uma dose de cachaça ou uísque etc.)? (predição)
         </div>
         <div class="panel-body">
           <div class="table-responsive">
@@ -693,43 +688,42 @@
               <tbody>
                 <tr>
                   <td>Nenhum dia nos últimos 30 dias (0 dia)</td>
-                  <td>{{ questao_84_esperado.0.0|floatformat:2 }}</td>
-                  <td>{{ questao_84_esperado.0.1|floatformat:2 }}</td>
+                  <td>{{ questao_84_esperado.0.0|floatformat:2 }} %</td>
+                  <td>{{ questao_84_esperado.0.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>1 ou 2 dias nos últimos 30 dias</td>
-                  <td>{{ questao_84_esperado.1.0|floatformat:2 }}</td>
-                  <td>{{ questao_84_esperado.1.1|floatformat:2 }}</td>
+                  <td>{{ questao_84_esperado.1.0|floatformat:2 }} %</td>
+                  <td>{{ questao_84_esperado.1.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>3 a 5 dias nos últimos 30 dias</td>
-                  <td>{{ questao_84_esperado.2.0|floatformat:2 }}</td>
-                  <td>{{ questao_84_esperado.2.1|floatformat:2 }}</td>
+                  <td>{{ questao_84_esperado.2.0|floatformat:2 }} %</td>
+                  <td>{{ questao_84_esperado.2.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>6 a 9 dias nos últimos 30 dias</td>
-                  <td>{{ questao_84_esperado.3.0|floatformat:2 }}</td>
-                  <td>{{ questao_84_esperado.3.1|floatformat:2 }}</td>
+                  <td>{{ questao_84_esperado.3.0|floatformat:2 }} %</td>
+                  <td>{{ questao_84_esperado.3.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>10 a 19 dias nos últimos 30 dias</td>
-                  <td>{{ questao_84_esperado.4.0|floatformat:2 }}</td>
-                  <td>{{ questao_84_esperado.4.1|floatformat:2 }}</td>
+                  <td>{{ questao_84_esperado.4.0|floatformat:2 }} %</td>
+                  <td>{{ questao_84_esperado.4.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>20 a 29 dias nos últimos 30 dias</td>
-                  <td>{{ questao_84_esperado.5.0|floatformat:2 }}</td>
-                  <td>{{ questao_84_esperado.5.1|floatformat:2 }}</td>
+                  <td>{{ questao_84_esperado.5.0|floatformat:2 }} %</td>
+                  <td>{{ questao_84_esperado.5.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>Todos os dias nos últimos 30 dias</td>
-                  <td>{{ questao_84_esperado.6.0|floatformat:2 }}</td>
-                  <td>{{ questao_84_esperado.6.1|floatformat:2 }}</td>
+                  <td>{{ questao_84_esperado.6.0|floatformat:2 }} %</td>
+                  <td>{{ questao_84_esperado.6.1|floatformat:2 }} %</td>
                 </tr>
               </tbody>
             </table>
           </div>
-          <p>P-valor: {{ questao_84_pvalor }}</p>
         </div>
       </div>
     </div>
@@ -800,7 +794,7 @@
     <div class="col-lg-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          Incidência de cárie por questão: 92. Nos ultimos 30 dias, quantos dias você usou droga como maconha, cocaína, crack, cola, loló, lança-perfume, ecstasy, oxy etc.? (valores esperados)
+          Incidência de cárie por questão: 92. Nos ultimos 30 dias, quantos dias você usou droga como maconha, cocaína, crack, cola, loló, lança-perfume, ecstasy, oxy etc.? (predição)
         </div>
         <div class="panel-body">
           <div class="table-responsive">
@@ -816,33 +810,32 @@
               <tbody>
                 <tr>
                   <td>Nenhum dia nos últimos 30 dias (0 dia)</td>
-                  <td>{{ questao_92_esperado.0.0|floatformat:2 }}</td>
-                  <td>{{ questao_92_esperado.0.1|floatformat:2 }}</td>
+                  <td>{{ questao_92_esperado.0.0|floatformat:2 }} %</td>
+                  <td>{{ questao_92_esperado.0.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>1 ou 2 dias nos últimos 30 dias</td>
-                  <td>{{ questao_92_esperado.1.0|floatformat:2 }}</td>
-                  <td>{{ questao_92_esperado.1.1|floatformat:2 }}</td>
+                  <td>{{ questao_92_esperado.1.0|floatformat:2 }} %</td>
+                  <td>{{ questao_92_esperado.1.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>3 a 5 dias nos últimos 30 dias</td>
-                  <td>{{ questao_92_esperado.2.0|floatformat:2 }}</td>
-                  <td>{{ questao_92_esperado.2.1|floatformat:2 }}</td>
+                  <td>{{ questao_92_esperado.2.0|floatformat:2 }} %</td>
+                  <td>{{ questao_92_esperado.2.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>6 a 9 dias nos últimos 30 dias</td>
-                  <td>{{ questao_92_esperado.3.0|floatformat:2 }}</td>
-                  <td>{{ questao_92_esperado.3.1|floatformat:2 }}</td>
+                  <td>{{ questao_92_esperado.3.0|floatformat:2 }} %</td>
+                  <td>{{ questao_92_esperado.3.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>10 ou mais dias nos últimos 30 dias</td>
-                  <td>{{ questao_92_esperado.4.0|floatformat:2 }}</td>
-                  <td>{{ questao_92_esperado.4.1|floatformat:2 }}</td>
+                  <td>{{ questao_92_esperado.4.0|floatformat:2 }} %</td>
+                  <td>{{ questao_92_esperado.4.1|floatformat:2 }} %</td>
                 </tr>
               </tbody>
             </table>
           </div>
-          <p>P-valor: {{ questao_92_pvalor }}</p>
         </div>
       </div>
     </div>
@@ -919,7 +912,7 @@
     <div class="col-lg-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          Incidência de cárie por questão: 111. Nos últimos 30 dias, quantas vezes por dia você usualmente escovou os dentes? (valores esperados)
+          Incidência de cárie por questão: 111. Nos últimos 30 dias, quantas vezes por dia você usualmente escovou os dentes? (predição)
         </div>
         <div class="panel-body">
           <div class="table-responsive">
@@ -935,38 +928,37 @@
               <tbody>
                 <tr>
                   <td>Não escovei meus dentes nos últimos 30 dias</td>
-                  <td>{{ questao_111_esperado.0.0|floatformat:2 }}</td>
-                  <td>{{ questao_111_esperado.0.1|floatformat:2 }}</td>
+                  <td>{{ questao_111_esperado.0.0|floatformat:2 }} %</td>
+                  <td>{{ questao_111_esperado.0.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>Não escovei meus dentes diariamente</td>
-                  <td>{{ questao_111_esperado.1.0|floatformat:2 }}</td>
-                  <td>{{ questao_111_esperado.1.1|floatformat:2 }}</td>
+                  <td>{{ questao_111_esperado.1.0|floatformat:2 }} %</td>
+                  <td>{{ questao_111_esperado.1.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>1 vez por dia nos últimos 30 dias</td>
-                  <td>{{ questao_111_esperado.2.0|floatformat:2 }}</td>
-                  <td>{{ questao_111_esperado.2.1|floatformat:2 }}</td>
+                  <td>{{ questao_111_esperado.2.0|floatformat:2 }} %</td>
+                  <td>{{ questao_111_esperado.2.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>2 vezes por dia nos últimos 30 dias</td>
-                  <td>{{ questao_111_esperado.3.0|floatformat:2 }}</td>
-                  <td>{{ questao_111_esperado.3.1|floatformat:2 }}</td>
+                  <td>{{ questao_111_esperado.3.0|floatformat:2 }} %</td>
+                  <td>{{ questao_111_esperado.3.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>3 vezes por dia nos últimos 30 dias</td>
-                  <td>{{ questao_111_esperado.4.0|floatformat:2 }}</td>
-                  <td>{{ questao_111_esperado.4.1|floatformat:2 }}</td>
+                  <td>{{ questao_111_esperado.4.0|floatformat:2 }} %</td>
+                  <td>{{ questao_111_esperado.4.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>4 ou mais vezes por dia nos últimos 30 dias</td>
-                  <td>{{ questao_111_esperado.5.0|floatformat:2 }}</td>
-                  <td>{{ questao_111_esperado.5.1|floatformat:2 }}</td>
+                  <td>{{ questao_111_esperado.5.0|floatformat:2 }} %</td>
+                  <td>{{ questao_111_esperado.5.1|floatformat:2 }} %</td>
                 </tr>
               </tbody>
             </table>
           </div>
-          <p>P-valor: {{ questao_111_pvalor }}</p>
         </div>
       </div>
     </div>
@@ -1031,7 +1023,7 @@
     <div class="col-lg-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          Incidência de cárie por questão: 113. Nos últimos 12 meses, quantas vezes você foi ao dentista? (valores esperados)
+          Incidência de cárie por questão: 113. Nos últimos 12 meses, quantas vezes você foi ao dentista? (predição)
         </div>
         <div class="panel-body">
           <div class="table-responsive">
@@ -1047,28 +1039,27 @@
               <tbody>
                 <tr>
                   <td>Nenhuma vez nos últimos 12 meses (0 vez)</td>
-                  <td>{{ questao_113_esperado.0.0|floatformat:2 }}</td>
-                  <td>{{ questao_113_esperado.0.1|floatformat:2 }}</td>
+                  <td>{{ questao_113_esperado.0.0|floatformat:2 }} %</td>
+                  <td>{{ questao_113_esperado.0.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>1 vez nos últimos 12 meses</td>
-                  <td>{{ questao_113_esperado.1.0|floatformat:2 }}</td>
-                  <td>{{ questao_113_esperado.1.1|floatformat:2 }}</td>
+                  <td>{{ questao_113_esperado.1.0|floatformat:2 }} %</td>
+                  <td>{{ questao_113_esperado.1.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>2 vezes nos últimos 12 meses</td>
-                  <td>{{ questao_113_esperado.2.0|floatformat:2 }}</td>
-                  <td>{{ questao_113_esperado.2.1|floatformat:2 }}</td>
+                  <td>{{ questao_113_esperado.2.0|floatformat:2 }} %</td>
+                  <td>{{ questao_113_esperado.2.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>3 ou mais vezes nos últimos 12 meses</td>
-                  <td>{{ questao_113_esperado.3.0|floatformat:2 }}</td>
-                  <td>{{ questao_113_esperado.3.1|floatformat:2 }}</td>
+                  <td>{{ questao_113_esperado.3.0|floatformat:2 }} %</td>
+                  <td>{{ questao_113_esperado.3.1|floatformat:2 }} %</td>
                 </tr>
               </tbody>
             </table>
           </div>
-          <p>P-valor: {{ questao_113_pvalor }}</p>
         </div>
       </div>
     </div>
@@ -1163,7 +1154,7 @@
     <div class="col-lg-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          Incidência de cárie por consumo de alimento (25) - Leite de vaca: (valores esperados)
+          Incidência de cárie por consumo de alimento (25) - Leite de vaca: (predição)
         </div>
         <div class="panel-body">
           <div class="table-responsive">
@@ -1179,53 +1170,52 @@
               <tbody>
                 <tr>
                   <td>Nunca ou menos de uma vez por mês</td>
-                  <td>{{ questao_25_esperado.0.0|floatformat:2 }}</td>
-                  <td>{{ questao_25_esperado.0.1|floatformat:2 }}</td>
+                  <td>{{ questao_25_esperado.0.0|floatformat:2 }} %</td>
+                  <td>{{ questao_25_esperado.0.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>1 a 3 vezes por mês</td>
-                  <td>{{ questao_25_esperado.1.0|floatformat:2 }}</td>
-                  <td>{{ questao_25_esperado.1.1|floatformat:2 }}</td>
+                  <td>{{ questao_25_esperado.1.0|floatformat:2 }} %</td>
+                  <td>{{ questao_25_esperado.1.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>1 vez por semana</td>
-                  <td>{{ questao_25_esperado.2.0|floatformat:2 }}</td>
-                  <td>{{ questao_25_esperado.2.1|floatformat:2 }}</td>
+                  <td>{{ questao_25_esperado.2.0|floatformat:2 }} %</td>
+                  <td>{{ questao_25_esperado.2.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>2 a 4 vezes por semana</td>
-                  <td>{{ questao_25_esperado.3.0|floatformat:2 }}</td>
-                  <td>{{ questao_25_esperado.3.1|floatformat:2 }}</td>
+                  <td>{{ questao_25_esperado.3.0|floatformat:2 }} %</td>
+                  <td>{{ questao_25_esperado.3.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>6 a 8 vezes por semana</td>
-                  <td>{{ questao_25_esperado.4.0|floatformat:2 }}</td>
-                  <td>{{ questao_25_esperado.4.1|floatformat:2 }}</td>
+                  <td>{{ questao_25_esperado.4.0|floatformat:2 }} %</td>
+                  <td>{{ questao_25_esperado.4.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>1 vez por dia</td>
-                  <td>{{ questao_25_esperado.5.0|floatformat:2 }}</td>
-                  <td>{{ questao_25_esperado.5.1|floatformat:2 }}</td>
+                  <td>{{ questao_25_esperado.5.0|floatformat:2 }} %</td>
+                  <td>{{ questao_25_esperado.5.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>2 a 3 vezes por dia</td>
-                  <td>{{ questao_25_esperado.6.0|floatformat:2 }}</td>
-                  <td>{{ questao_25_esperado.6.1|floatformat:2 }}</td>
+                  <td>{{ questao_25_esperado.6.0|floatformat:2 }} %</td>
+                  <td>{{ questao_25_esperado.6.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>4 a 6 vezes por dia</td>
-                  <td>{{ questao_25_esperado.7.0|floatformat:2 }}</td>
-                  <td>{{ questao_25_esperado.7.1|floatformat:2 }}</td>
+                  <td>{{ questao_25_esperado.7.0|floatformat:2 }} %</td>
+                  <td>{{ questao_25_esperado.7.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>Mais de 8 vezes por dia</td>
-                  <td>{{ questao_25_esperado.8.0|floatformat:2 }}</td>
-                  <td>{{ questao_25_esperado.8.1|floatformat:2 }}</td>
+                  <td>{{ questao_25_esperado.8.0|floatformat:2 }} %</td>
+                  <td>{{ questao_25_esperado.8.1|floatformat:2 }} %</td>
                 </tr>
               </tbody>
             </table>
           </div>
-          <p>P-valor: {{ questao_25_pvalor }}</p>
         </div>
       </div>
     </div>
@@ -1320,7 +1310,7 @@
     <div class="col-lg-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          Incidência de cárie por consumo de alimento (26) - Leite de vaca com adição de achocolatados em pó (nescau, toddy, ovomaltine), mel ou açúcar: (valores esperados)
+          Incidência de cárie por consumo de alimento (26) - Leite de vaca com adição de achocolatados em pó (nescau, toddy, ovomaltine), mel ou açúcar: (predição)
         </div>
         <div class="panel-body">
           <div class="table-responsive">
@@ -1336,53 +1326,52 @@
               <tbody>
                 <tr>
                   <td>Nunca ou menos de uma vez por mês</td>
-                  <td>{{ questao_26_esperado.0.0|floatformat:2 }}</td>
-                  <td>{{ questao_26_esperado.0.1|floatformat:2 }}</td>
+                  <td>{{ questao_26_esperado.0.0|floatformat:2 }} %</td>
+                  <td>{{ questao_26_esperado.0.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>1 a 3 vezes por mês</td>
-                  <td>{{ questao_26_esperado.1.0|floatformat:2 }}</td>
-                  <td>{{ questao_26_esperado.1.1|floatformat:2 }}</td>
+                  <td>{{ questao_26_esperado.1.0|floatformat:2 }} %</td>
+                  <td>{{ questao_26_esperado.1.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>1 vez por semana</td>
-                  <td>{{ questao_26_esperado.2.0|floatformat:2 }}</td>
-                  <td>{{ questao_26_esperado.2.1|floatformat:2 }}</td>
+                  <td>{{ questao_26_esperado.2.0|floatformat:2 }} %</td>
+                  <td>{{ questao_26_esperado.2.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>2 a 4 vezes por semana</td>
-                  <td>{{ questao_26_esperado.3.0|floatformat:2 }}</td>
-                  <td>{{ questao_26_esperado.3.1|floatformat:2 }}</td>
+                  <td>{{ questao_26_esperado.3.0|floatformat:2 }} %</td>
+                  <td>{{ questao_26_esperado.3.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>6 a 8 vezes por semana</td>
-                  <td>{{ questao_26_esperado.4.0|floatformat:2 }}</td>
-                  <td>{{ questao_26_esperado.4.1|floatformat:2 }}</td>
+                  <td>{{ questao_26_esperado.4.0|floatformat:2 }} %</td>
+                  <td>{{ questao_26_esperado.4.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>1 vez por dia</td>
-                  <td>{{ questao_26_esperado.5.0|floatformat:2 }}</td>
-                  <td>{{ questao_26_esperado.5.1|floatformat:2 }}</td>
+                  <td>{{ questao_26_esperado.5.0|floatformat:2 }} %</td>
+                  <td>{{ questao_26_esperado.5.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>2 a 3 vezes por dia</td>
-                  <td>{{ questao_26_esperado.6.0|floatformat:2 }}</td>
-                  <td>{{ questao_26_esperado.6.1|floatformat:2 }}</td>
+                  <td>{{ questao_26_esperado.6.0|floatformat:2 }} %</td>
+                  <td>{{ questao_26_esperado.6.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>4 a 6 vezes por dia</td>
-                  <td>{{ questao_26_esperado.7.0|floatformat:2 }}</td>
-                  <td>{{ questao_26_esperado.7.1|floatformat:2 }}</td>
+                  <td>{{ questao_26_esperado.7.0|floatformat:2 }} %</td>
+                  <td>{{ questao_26_esperado.7.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>Mais de 8 vezes por dia</td>
-                  <td>{{ questao_26_esperado.8.0|floatformat:2 }}</td>
-                  <td>{{ questao_26_esperado.8.1|floatformat:2 }}</td>
+                  <td>{{ questao_26_esperado.8.0|floatformat:2 }} %</td>
+                  <td>{{ questao_26_esperado.8.1|floatformat:2 }} %</td>
                 </tr>
               </tbody>
             </table>
           </div>
-          <p>P-valor: {{ questao_26_pvalor }}</p>
         </div>
       </div>
     </div>
@@ -1477,7 +1466,7 @@
     <div class="col-lg-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          Incidência de cárie por consumo de alimento (27) - Achocolatados líquidos comprados em supermercados como, por exemplo: Todyynho, Chokinho; Nescau; Italac etc. (valores esperados)
+          Incidência de cárie por consumo de alimento (27) - Achocolatados líquidos comprados em supermercados como, por exemplo: Todyynho, Chokinho; Nescau; Italac etc. (predição)
         </div>
         <div class="panel-body">
           <div class="table-responsive">
@@ -1493,53 +1482,52 @@
               <tbody>
                 <tr>
                   <td>Nunca ou menos de uma vez por mês</td>
-                  <td>{{ questao_27_esperado.0.0|floatformat:2 }}</td>
-                  <td>{{ questao_27_esperado.0.1|floatformat:2 }}</td>
+                  <td>{{ questao_27_esperado.0.0|floatformat:2 }} %</td>
+                  <td>{{ questao_27_esperado.0.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>1 a 3 vezes por mês</td>
-                  <td>{{ questao_27_esperado.1.0|floatformat:2 }}</td>
-                  <td>{{ questao_27_esperado.1.1|floatformat:2 }}</td>
+                  <td>{{ questao_27_esperado.1.0|floatformat:2 }} %</td>
+                  <td>{{ questao_27_esperado.1.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>1 vez por semana</td>
-                  <td>{{ questao_27_esperado.2.0|floatformat:2 }}</td>
-                  <td>{{ questao_27_esperado.2.1|floatformat:2 }}</td>
+                  <td>{{ questao_27_esperado.2.0|floatformat:2 }} %</td>
+                  <td>{{ questao_27_esperado.2.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>2 a 4 vezes por semana</td>
-                  <td>{{ questao_27_esperado.3.0|floatformat:2 }}</td>
-                  <td>{{ questao_27_esperado.3.1|floatformat:2 }}</td>
+                  <td>{{ questao_27_esperado.3.0|floatformat:2 }} %</td>
+                  <td>{{ questao_27_esperado.3.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>6 a 8 vezes por semana</td>
-                  <td>{{ questao_27_esperado.4.0|floatformat:2 }}</td>
-                  <td>{{ questao_27_esperado.4.1|floatformat:2 }}</td>
+                  <td>{{ questao_27_esperado.4.0|floatformat:2 }} %</td>
+                  <td>{{ questao_27_esperado.4.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>1 vez por dia</td>
-                  <td>{{ questao_27_esperado.5.0|floatformat:2 }}</td>
-                  <td>{{ questao_27_esperado.5.1|floatformat:2 }}</td>
+                  <td>{{ questao_27_esperado.5.0|floatformat:2 }} %</td>
+                  <td>{{ questao_27_esperado.5.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>2 a 3 vezes por dia</td>
-                  <td>{{ questao_27_esperado.6.0|floatformat:2 }}</td>
-                  <td>{{ questao_27_esperado.6.1|floatformat:2 }}</td>
+                  <td>{{ questao_27_esperado.6.0|floatformat:2 }} %</td>
+                  <td>{{ questao_27_esperado.6.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>4 a 6 vezes por dia</td>
-                  <td>{{ questao_27_esperado.7.0|floatformat:2 }}</td>
-                  <td>{{ questao_27_esperado.7.1|floatformat:2 }}</td>
+                  <td>{{ questao_27_esperado.7.0|floatformat:2 }} %</td>
+                  <td>{{ questao_27_esperado.7.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>Mais de 8 vezes por dia</td>
-                  <td>{{ questao_27_esperado.8.0|floatformat:2 }}</td>
-                  <td>{{ questao_27_esperado.8.1|floatformat:2 }}</td>
+                  <td>{{ questao_27_esperado.8.0|floatformat:2 }} %</td>
+                  <td>{{ questao_27_esperado.8.1|floatformat:2 }} %</td>
                 </tr>
               </tbody>
             </table>
           </div>
-          <p>P-valor: {{ questao_27_pvalor }}</p>
         </div>
       </div>
     </div>
@@ -1634,7 +1622,7 @@
     <div class="col-lg-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          Incidência de cárie por consumo de alimento (28) - Iogurte como, por exemplo: Danone, Danoninho, Nestlé, Ninho, etc. (valores esperados)
+          Incidência de cárie por consumo de alimento (28) - Iogurte como, por exemplo: Danone, Danoninho, Nestlé, Ninho, etc. (predição)
         </div>
         <div class="panel-body">
           <div class="table-responsive">
@@ -1650,53 +1638,52 @@
               <tbody>
                 <tr>
                   <td>Nunca ou menos de uma vez por mês</td>
-                  <td>{{ questao_28_esperado.0.0|floatformat:2 }}</td>
-                  <td>{{ questao_28_esperado.0.1|floatformat:2 }}</td>
+                  <td>{{ questao_28_esperado.0.0|floatformat:2 }} %</td>
+                  <td>{{ questao_28_esperado.0.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>1 a 3 vezes por mês</td>
-                  <td>{{ questao_28_esperado.1.0|floatformat:2 }}</td>
-                  <td>{{ questao_28_esperado.1.1|floatformat:2 }}</td>
+                  <td>{{ questao_28_esperado.1.0|floatformat:2 }} %</td>
+                  <td>{{ questao_28_esperado.1.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>1 vez por semana</td>
-                  <td>{{ questao_28_esperado.2.0|floatformat:2 }}</td>
-                  <td>{{ questao_28_esperado.2.1|floatformat:2 }}</td>
+                  <td>{{ questao_28_esperado.2.0|floatformat:2 }} %</td>
+                  <td>{{ questao_28_esperado.2.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>2 a 4 vezes por semana</td>
-                  <td>{{ questao_28_esperado.3.0|floatformat:2 }}</td>
-                  <td>{{ questao_28_esperado.3.1|floatformat:2 }}</td>
+                  <td>{{ questao_28_esperado.3.0|floatformat:2 }} %</td>
+                  <td>{{ questao_28_esperado.3.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>6 a 8 vezes por semana</td>
-                  <td>{{ questao_28_esperado.4.0|floatformat:2 }}</td>
-                  <td>{{ questao_28_esperado.4.1|floatformat:2 }}</td>
+                  <td>{{ questao_28_esperado.4.0|floatformat:2 }} %</td>
+                  <td>{{ questao_28_esperado.4.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>1 vez por dia</td>
-                  <td>{{ questao_28_esperado.5.0|floatformat:2 }}</td>
-                  <td>{{ questao_28_esperado.5.1|floatformat:2 }}</td>
+                  <td>{{ questao_28_esperado.5.0|floatformat:2 }} %</td>
+                  <td>{{ questao_28_esperado.5.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>2 a 3 vezes por dia</td>
-                  <td>{{ questao_28_esperado.6.0|floatformat:2 }}</td>
-                  <td>{{ questao_28_esperado.6.1|floatformat:2 }}</td>
+                  <td>{{ questao_28_esperado.6.0|floatformat:2 }} %</td>
+                  <td>{{ questao_28_esperado.6.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>4 a 6 vezes por dia</td>
-                  <td>{{ questao_28_esperado.7.0|floatformat:2 }}</td>
-                  <td>{{ questao_28_esperado.7.1|floatformat:2 }}</td>
+                  <td>{{ questao_28_esperado.7.0|floatformat:2 }} %</td>
+                  <td>{{ questao_28_esperado.7.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>Mais de 8 vezes por dia</td>
-                  <td>{{ questao_28_esperado.8.0|floatformat:2 }}</td>
-                  <td>{{ questao_28_esperado.8.1|floatformat:2 }}</td>
+                  <td>{{ questao_28_esperado.8.0|floatformat:2 }} %</td>
+                  <td>{{ questao_28_esperado.8.1|floatformat:2 }} %</td>
                 </tr>
               </tbody>
             </table>
           </div>
-          <p>P-valor: {{ questao_28_pvalor }}</p>
         </div>
       </div>
     </div>
@@ -1791,7 +1778,7 @@
     <div class="col-lg-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          Incidência de cárie por consumo de alimento (29) - Queijo. (valores esperados)
+          Incidência de cárie por consumo de alimento (29) - Queijo. (predição)
         </div>
         <div class="panel-body">
           <div class="table-responsive">
@@ -1807,53 +1794,52 @@
               <tbody>
                 <tr>
                   <td>Nunca ou menos de uma vez por mês</td>
-                  <td>{{ questao_29_esperado.0.0|floatformat:2 }}</td>
-                  <td>{{ questao_29_esperado.0.1|floatformat:2 }}</td>
+                  <td>{{ questao_29_esperado.0.0|floatformat:2 }} %</td>
+                  <td>{{ questao_29_esperado.0.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>1 a 3 vezes por mês</td>
-                  <td>{{ questao_29_esperado.1.0|floatformat:2 }}</td>
-                  <td>{{ questao_29_esperado.1.1|floatformat:2 }}</td>
+                  <td>{{ questao_29_esperado.1.0|floatformat:2 }} %</td>
+                  <td>{{ questao_29_esperado.1.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>1 vez por semana</td>
-                  <td>{{ questao_29_esperado.2.0|floatformat:2 }}</td>
-                  <td>{{ questao_29_esperado.2.1|floatformat:2 }}</td>
+                  <td>{{ questao_29_esperado.2.0|floatformat:2 }} %</td>
+                  <td>{{ questao_29_esperado.2.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>2 a 4 vezes por semana</td>
-                  <td>{{ questao_29_esperado.3.0|floatformat:2 }}</td>
-                  <td>{{ questao_29_esperado.3.1|floatformat:2 }}</td>
+                  <td>{{ questao_29_esperado.3.0|floatformat:2 }} %</td>
+                  <td>{{ questao_29_esperado.3.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>6 a 8 vezes por semana</td>
-                  <td>{{ questao_29_esperado.4.0|floatformat:2 }}</td>
-                  <td>{{ questao_29_esperado.4.1|floatformat:2 }}</td>
+                  <td>{{ questao_29_esperado.4.0|floatformat:2 }} %</td>
+                  <td>{{ questao_29_esperado.4.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>1 vez por dia</td>
-                  <td>{{ questao_29_esperado.5.0|floatformat:2 }}</td>
-                  <td>{{ questao_29_esperado.5.1|floatformat:2 }}</td>
+                  <td>{{ questao_29_esperado.5.0|floatformat:2 }} %</td>
+                  <td>{{ questao_29_esperado.5.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>2 a 3 vezes por dia</td>
-                  <td>{{ questao_29_esperado.6.0|floatformat:2 }}</td>
-                  <td>{{ questao_29_esperado.6.1|floatformat:2 }}</td>
+                  <td>{{ questao_29_esperado.6.0|floatformat:2 }} %</td>
+                  <td>{{ questao_29_esperado.6.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>4 a 6 vezes por dia</td>
-                  <td>{{ questao_29_esperado.7.0|floatformat:2 }}</td>
-                  <td>{{ questao_29_esperado.7.1|floatformat:2 }}</td>
+                  <td>{{ questao_29_esperado.7.0|floatformat:2 }} %</td>
+                  <td>{{ questao_29_esperado.7.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>Mais de 8 vezes por dia</td>
-                  <td>{{ questao_29_esperado.8.0|floatformat:2 }}</td>
-                  <td>{{ questao_29_esperado.8.1|floatformat:2 }}</td>
+                  <td>{{ questao_29_esperado.8.0|floatformat:2 }} %</td>
+                  <td>{{ questao_29_esperado.8.1|floatformat:2 }} %</td>
                 </tr>
               </tbody>
             </table>
           </div>
-          <p>P-valor: {{ questao_29_pvalor }}</p>
         </div>
       </div>
     </div>
@@ -1948,7 +1934,7 @@
     <div class="col-lg-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          Incidência de cárie por consumo de alimento (30) Sobremesas feitas com leite (pudim, flam, pudim de chocolate, creme de leite).: (valores esperados)
+          Incidência de cárie por consumo de alimento (30) Sobremesas feitas com leite (pudim, flam, pudim de chocolate, creme de leite).: (predição)
         </div>
         <div class="panel-body">
           <div class="table-responsive">
@@ -1964,53 +1950,52 @@
               <tbody>
                 <tr>
                   <td>Nunca ou menos de uma vez por mês</td>
-                  <td>{{ questao_30_esperado.0.0|floatformat:2 }}</td>
-                  <td>{{ questao_30_esperado.0.1|floatformat:2 }}</td>
+                  <td>{{ questao_30_esperado.0.0|floatformat:2 }} %</td>
+                  <td>{{ questao_30_esperado.0.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>1 a 3 vezes por mês</td>
-                  <td>{{ questao_30_esperado.1.0|floatformat:2 }}</td>
-                  <td>{{ questao_30_esperado.1.1|floatformat:2 }}</td>
+                  <td>{{ questao_30_esperado.1.0|floatformat:2 }} %</td>
+                  <td>{{ questao_30_esperado.1.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>1 vez por semana</td>
-                  <td>{{ questao_30_esperado.2.0|floatformat:2 }}</td>
-                  <td>{{ questao_30_esperado.2.1|floatformat:2 }}</td>
+                  <td>{{ questao_30_esperado.2.0|floatformat:2 }} %</td>
+                  <td>{{ questao_30_esperado.2.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>2 a 4 vezes por semana</td>
-                  <td>{{ questao_30_esperado.3.0|floatformat:2 }}</td>
-                  <td>{{ questao_30_esperado.3.1|floatformat:2 }}</td>
+                  <td>{{ questao_30_esperado.3.0|floatformat:2 }} %</td>
+                  <td>{{ questao_30_esperado.3.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>6 a 8 vezes por semana</td>
-                  <td>{{ questao_30_esperado.4.0|floatformat:2 }}</td>
-                  <td>{{ questao_30_esperado.4.1|floatformat:2 }}</td>
+                  <td>{{ questao_30_esperado.4.0|floatformat:2 }} %</td>
+                  <td>{{ questao_30_esperado.4.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>1 vez por dia</td>
-                  <td>{{ questao_30_esperado.5.0|floatformat:2 }}</td>
-                  <td>{{ questao_30_esperado.5.1|floatformat:2 }}</td>
+                  <td>{{ questao_30_esperado.5.0|floatformat:2 }} %</td>
+                  <td>{{ questao_30_esperado.5.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>2 a 3 vezes por dia</td>
-                  <td>{{ questao_30_esperado.6.0|floatformat:2 }}</td>
-                  <td>{{ questao_30_esperado.6.1|floatformat:2 }}</td>
+                  <td>{{ questao_30_esperado.6.0|floatformat:2 }} %</td>
+                  <td>{{ questao_30_esperado.6.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>4 a 6 vezes por dia</td>
-                  <td>{{ questao_30_esperado.7.0|floatformat:2 }}</td>
-                  <td>{{ questao_30_esperado.7.1|floatformat:2 }}</td>
+                  <td>{{ questao_30_esperado.7.0|floatformat:2 }} %</td>
+                  <td>{{ questao_30_esperado.7.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>Mais de 8 vezes por dia</td>
-                  <td>{{ questao_30_esperado.8.0|floatformat:2 }}</td>
-                  <td>{{ questao_30_esperado.8.1|floatformat:2 }}</td>
+                  <td>{{ questao_30_esperado.8.0|floatformat:2 }} %</td>
+                  <td>{{ questao_30_esperado.8.1|floatformat:2 }} %</td>
                 </tr>
               </tbody>
             </table>
           </div>
-          <p>P-valor: {{ questao_30_pvalor }}</p>
         </div>
       </div>
     </div>
@@ -2105,7 +2090,7 @@
     <div class="col-lg-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          Incidência de cárie por consumo de alimento (31) Gelados (Picolé, sorvete, geladinho).: (valores esperados)
+          Incidência de cárie por consumo de alimento (31) Gelados (Picolé, sorvete, geladinho).: (predição)
         </div>
         <div class="panel-body">
           <div class="table-responsive">
@@ -2121,53 +2106,52 @@
               <tbody>
                 <tr>
                   <td>Nunca ou menos de uma vez por mês</td>
-                  <td>{{ questao_31_esperado.0.0|floatformat:2 }}</td>
-                  <td>{{ questao_31_esperado.0.1|floatformat:2 }}</td>
+                  <td>{{ questao_31_esperado.0.0|floatformat:2 }} %</td>
+                  <td>{{ questao_31_esperado.0.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>1 a 3 vezes por mês</td>
-                  <td>{{ questao_31_esperado.1.0|floatformat:2 }}</td>
-                  <td>{{ questao_31_esperado.1.1|floatformat:2 }}</td>
+                  <td>{{ questao_31_esperado.1.0|floatformat:2 }} %</td>
+                  <td>{{ questao_31_esperado.1.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>1 vez por semana</td>
-                  <td>{{ questao_31_esperado.2.0|floatformat:2 }}</td>
-                  <td>{{ questao_31_esperado.2.1|floatformat:2 }}</td>
+                  <td>{{ questao_31_esperado.2.0|floatformat:2 }} %</td>
+                  <td>{{ questao_31_esperado.2.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>2 a 4 vezes por semana</td>
-                  <td>{{ questao_31_esperado.3.0|floatformat:2 }}</td>
-                  <td>{{ questao_31_esperado.3.1|floatformat:2 }}</td>
+                  <td>{{ questao_31_esperado.3.0|floatformat:2 }} %</td>
+                  <td>{{ questao_31_esperado.3.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>6 a 8 vezes por semana</td>
-                  <td>{{ questao_31_esperado.4.0|floatformat:2 }}</td>
-                  <td>{{ questao_31_esperado.4.1|floatformat:2 }}</td>
+                  <td>{{ questao_31_esperado.4.0|floatformat:2 }} %</td>
+                  <td>{{ questao_31_esperado.4.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>1 vez por dia</td>
-                  <td>{{ questao_31_esperado.5.0|floatformat:2 }}</td>
-                  <td>{{ questao_31_esperado.5.1|floatformat:2 }}</td>
+                  <td>{{ questao_31_esperado.5.0|floatformat:2 }} %</td>
+                  <td>{{ questao_31_esperado.5.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>2 a 3 vezes por dia</td>
-                  <td>{{ questao_31_esperado.6.0|floatformat:2 }}</td>
-                  <td>{{ questao_31_esperado.6.1|floatformat:2 }}</td>
+                  <td>{{ questao_31_esperado.6.0|floatformat:2 }} %</td>
+                  <td>{{ questao_31_esperado.6.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>4 a 6 vezes por dia</td>
-                  <td>{{ questao_31_esperado.7.0|floatformat:2 }}</td>
-                  <td>{{ questao_31_esperado.7.1|floatformat:2 }}</td>
+                  <td>{{ questao_31_esperado.7.0|floatformat:2 }} %</td>
+                  <td>{{ questao_31_esperado.7.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>Mais de 8 vezes por dia</td>
-                  <td>{{ questao_31_esperado.8.0|floatformat:2 }}</td>
-                  <td>{{ questao_31_esperado.8.1|floatformat:2 }}</td>
+                  <td>{{ questao_31_esperado.8.0|floatformat:2 }} %</td>
+                  <td>{{ questao_31_esperado.8.1|floatformat:2 }} %</td>
                 </tr>
               </tbody>
             </table>
           </div>
-          <p>P-valor: {{ questao_31_pvalor }}</p>
         </div>
       </div>
     </div>
@@ -2262,7 +2246,7 @@
     <div class="col-lg-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          Incidência de cárie por consumo de alimento (32) Pão ou torrada (torrada é o mesmo que pão, sendo que em torrado).: (valores esperados)
+          Incidência de cárie por consumo de alimento (32) Pão ou torrada (torrada é o mesmo que pão, sendo que em torrado).: (predição)
         </div>
         <div class="panel-body">
           <div class="table-responsive">
@@ -2278,53 +2262,52 @@
               <tbody>
                 <tr>
                   <td>Nunca ou menos de uma vez por mês</td>
-                  <td>{{ questao_32_esperado.0.0|floatformat:2 }}</td>
-                  <td>{{ questao_32_esperado.0.1|floatformat:2 }}</td>
+                  <td>{{ questao_32_esperado.0.0|floatformat:2 }} %</td>
+                  <td>{{ questao_32_esperado.0.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>1 a 3 vezes por mês</td>
-                  <td>{{ questao_32_esperado.1.0|floatformat:2 }}</td>
-                  <td>{{ questao_32_esperado.1.1|floatformat:2 }}</td>
+                  <td>{{ questao_32_esperado.1.0|floatformat:2 }} %</td>
+                  <td>{{ questao_32_esperado.1.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>1 vez por semana</td>
-                  <td>{{ questao_32_esperado.2.0|floatformat:2 }}</td>
-                  <td>{{ questao_32_esperado.2.1|floatformat:2 }}</td>
+                  <td>{{ questao_32_esperado.2.0|floatformat:2 }} %</td>
+                  <td>{{ questao_32_esperado.2.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>2 a 4 vezes por semana</td>
-                  <td>{{ questao_32_esperado.3.0|floatformat:2 }}</td>
-                  <td>{{ questao_32_esperado.3.1|floatformat:2 }}</td>
+                  <td>{{ questao_32_esperado.3.0|floatformat:2 }} %</td>
+                  <td>{{ questao_32_esperado.3.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>6 a 8 vezes por semana</td>
-                  <td>{{ questao_32_esperado.4.0|floatformat:2 }}</td>
-                  <td>{{ questao_32_esperado.4.1|floatformat:2 }}</td>
+                  <td>{{ questao_32_esperado.4.0|floatformat:2 }} %</td>
+                  <td>{{ questao_32_esperado.4.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>1 vez por dia</td>
-                  <td>{{ questao_32_esperado.5.0|floatformat:2 }}</td>
-                  <td>{{ questao_32_esperado.5.1|floatformat:2 }}</td>
+                  <td>{{ questao_32_esperado.5.0|floatformat:2 }} %</td>
+                  <td>{{ questao_32_esperado.5.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>2 a 3 vezes por dia</td>
-                  <td>{{ questao_32_esperado.6.0|floatformat:2 }}</td>
-                  <td>{{ questao_32_esperado.6.1|floatformat:2 }}</td>
+                  <td>{{ questao_32_esperado.6.0|floatformat:2 }} %</td>
+                  <td>{{ questao_32_esperado.6.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>4 a 6 vezes por dia</td>
-                  <td>{{ questao_32_esperado.7.0|floatformat:2 }}</td>
-                  <td>{{ questao_32_esperado.7.1|floatformat:2 }}</td>
+                  <td>{{ questao_32_esperado.7.0|floatformat:2 }} %</td>
+                  <td>{{ questao_32_esperado.7.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>Mais de 8 vezes por dia</td>
-                  <td>{{ questao_32_esperado.8.0|floatformat:2 }}</td>
-                  <td>{{ questao_32_esperado.8.1|floatformat:2 }}</td>
+                  <td>{{ questao_32_esperado.8.0|floatformat:2 }} %</td>
+                  <td>{{ questao_32_esperado.8.1|floatformat:2 }} %</td>
                 </tr>
               </tbody>
             </table>
           </div>
-          <p>P-valor: {{ questao_32_pvalor }}</p>
         </div>
       </div>
     </div>
@@ -2419,7 +2402,7 @@
     <div class="col-lg-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          Incidência de cárie por consumo de alimento (33) Flocos de cereais açucarados (por exemplo, flocos conhecidos como sucrilhos ou equivalentes, nescau cereal), etc.: (valores esperados)
+          Incidência de cárie por consumo de alimento (33) Flocos de cereais açucarados (por exemplo, flocos conhecidos como sucrilhos ou equivalentes, nescau cereal), etc.: (predição)
         </div>
         <div class="panel-body">
           <div class="table-responsive">
@@ -2435,53 +2418,52 @@
               <tbody>
                 <tr>
                   <td>Nunca ou menos de uma vez por mês</td>
-                  <td>{{ questao_33_esperado.0.0|floatformat:2 }}</td>
-                  <td>{{ questao_33_esperado.0.1|floatformat:2 }}</td>
+                  <td>{{ questao_33_esperado.0.0|floatformat:2 }} %</td>
+                  <td>{{ questao_33_esperado.0.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>1 a 3 vezes por mês</td>
-                  <td>{{ questao_33_esperado.1.0|floatformat:2 }}</td>
-                  <td>{{ questao_33_esperado.1.1|floatformat:2 }}</td>
+                  <td>{{ questao_33_esperado.1.0|floatformat:2 }} %</td>
+                  <td>{{ questao_33_esperado.1.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>1 vez por semana</td>
-                  <td>{{ questao_33_esperado.2.0|floatformat:2 }}</td>
-                  <td>{{ questao_33_esperado.2.1|floatformat:2 }}</td>
+                  <td>{{ questao_33_esperado.2.0|floatformat:2 }} %</td>
+                  <td>{{ questao_33_esperado.2.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>2 a 4 vezes por semana</td>
-                  <td>{{ questao_33_esperado.3.0|floatformat:2 }}</td>
-                  <td>{{ questao_33_esperado.3.1|floatformat:2 }}</td>
+                  <td>{{ questao_33_esperado.3.0|floatformat:2 }} %</td>
+                  <td>{{ questao_33_esperado.3.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>6 a 8 vezes por semana</td>
-                  <td>{{ questao_33_esperado.4.0|floatformat:2 }}</td>
-                  <td>{{ questao_33_esperado.4.1|floatformat:2 }}</td>
+                  <td>{{ questao_33_esperado.4.0|floatformat:2 }} %</td>
+                  <td>{{ questao_33_esperado.4.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>1 vez por dia</td>
-                  <td>{{ questao_33_esperado.5.0|floatformat:2 }}</td>
-                  <td>{{ questao_33_esperado.5.1|floatformat:2 }}</td>
+                  <td>{{ questao_33_esperado.5.0|floatformat:2 }} %</td>
+                  <td>{{ questao_33_esperado.5.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>2 a 3 vezes por dia</td>
-                  <td>{{ questao_33_esperado.6.0|floatformat:2 }}</td>
-                  <td>{{ questao_33_esperado.6.1|floatformat:2 }}</td>
+                  <td>{{ questao_33_esperado.6.0|floatformat:2 }} %</td>
+                  <td>{{ questao_33_esperado.6.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>4 a 6 vezes por dia</td>
-                  <td>{{ questao_33_esperado.7.0|floatformat:2 }}</td>
-                  <td>{{ questao_33_esperado.7.1|floatformat:2 }}</td>
+                  <td>{{ questao_33_esperado.7.0|floatformat:2 }} %</td>
+                  <td>{{ questao_33_esperado.7.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>Mais de 8 vezes por dia</td>
-                  <td>{{ questao_33_esperado.8.0|floatformat:2 }}</td>
-                  <td>{{ questao_33_esperado.8.1|floatformat:2 }}</td>
+                  <td>{{ questao_33_esperado.8.0|floatformat:2 }} %</td>
+                  <td>{{ questao_33_esperado.8.1|floatformat:2 }} %</td>
                 </tr>
               </tbody>
             </table>
           </div>
-          <p>P-valor: {{ questao_33_pvalor }}</p>
         </div>
       </div>
     </div>
@@ -2576,7 +2558,7 @@
     <div class="col-lg-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          Incidência de cárie por consumo de alimento (34) Flocos de cereais (aveia, milho, centeio, como os da marca Nesfit e Nutry): (valores esperados)
+          Incidência de cárie por consumo de alimento (34) Flocos de cereais (aveia, milho, centeio, como os da marca Nesfit e Nutry): (predição)
         </div>
         <div class="panel-body">
           <div class="table-responsive">
@@ -2592,53 +2574,52 @@
               <tbody>
                 <tr>
                   <td>Nunca ou menos de uma vez por mês</td>
-                  <td>{{ questao_34_esperado.0.0|floatformat:2 }}</td>
-                  <td>{{ questao_34_esperado.0.1|floatformat:2 }}</td>
+                  <td>{{ questao_34_esperado.0.0|floatformat:2 }} %</td>
+                  <td>{{ questao_34_esperado.0.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>1 a 3 vezes por mês</td>
-                  <td>{{ questao_34_esperado.1.0|floatformat:2 }}</td>
-                  <td>{{ questao_34_esperado.1.1|floatformat:2 }}</td>
+                  <td>{{ questao_34_esperado.1.0|floatformat:2 }} %</td>
+                  <td>{{ questao_34_esperado.1.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>1 vez por semana</td>
-                  <td>{{ questao_34_esperado.2.0|floatformat:2 }}</td>
-                  <td>{{ questao_34_esperado.2.1|floatformat:2 }}</td>
+                  <td>{{ questao_34_esperado.2.0|floatformat:2 }} %</td>
+                  <td>{{ questao_34_esperado.2.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>2 a 4 vezes por semana</td>
-                  <td>{{ questao_34_esperado.3.0|floatformat:2 }}</td>
-                  <td>{{ questao_34_esperado.3.1|floatformat:2 }}</td>
+                  <td>{{ questao_34_esperado.3.0|floatformat:2 }} %</td>
+                  <td>{{ questao_34_esperado.3.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>6 a 8 vezes por semana</td>
-                  <td>{{ questao_34_esperado.4.0|floatformat:2 }}</td>
-                  <td>{{ questao_34_esperado.4.1|floatformat:2 }}</td>
+                  <td>{{ questao_34_esperado.4.0|floatformat:2 }} %</td>
+                  <td>{{ questao_34_esperado.4.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>1 vez por dia</td>
-                  <td>{{ questao_34_esperado.5.0|floatformat:2 }}</td>
-                  <td>{{ questao_34_esperado.5.1|floatformat:2 }}</td>
+                  <td>{{ questao_34_esperado.5.0|floatformat:2 }} %</td>
+                  <td>{{ questao_34_esperado.5.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>2 a 3 vezes por dia</td>
-                  <td>{{ questao_34_esperado.6.0|floatformat:2 }}</td>
-                  <td>{{ questao_34_esperado.6.1|floatformat:2 }}</td>
+                  <td>{{ questao_34_esperado.6.0|floatformat:2 }} %</td>
+                  <td>{{ questao_34_esperado.6.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>4 a 6 vezes por dia</td>
-                  <td>{{ questao_34_esperado.7.0|floatformat:2 }}</td>
-                  <td>{{ questao_34_esperado.7.1|floatformat:2 }}</td>
+                  <td>{{ questao_34_esperado.7.0|floatformat:2 }} %</td>
+                  <td>{{ questao_34_esperado.7.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>Mais de 8 vezes por dia</td>
-                  <td>{{ questao_34_esperado.8.0|floatformat:2 }}</td>
-                  <td>{{ questao_34_esperado.8.1|floatformat:2 }}</td>
+                  <td>{{ questao_34_esperado.8.0|floatformat:2 }} %</td>
+                  <td>{{ questao_34_esperado.8.1|floatformat:2 }} %</td>
                 </tr>
               </tbody>
             </table>
           </div>
-          <p>P-valor: {{ questao_34_pvalor }}</p>
         </div>
       </div>
     </div>
@@ -2733,7 +2714,7 @@
     <div class="col-lg-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          Incidência de cárie por consumo de alimento (35) Arroz, massas, batatas.: (valores esperados)
+          Incidência de cárie por consumo de alimento (35) Arroz, massas, batatas.: (predição)
         </div>
         <div class="panel-body">
           <div class="table-responsive">
@@ -2749,53 +2730,52 @@
               <tbody>
                 <tr>
                   <td>Nunca ou menos de uma vez por mês</td>
-                  <td>{{ questao_35_esperado.0.0|floatformat:2 }}</td>
-                  <td>{{ questao_35_esperado.0.1|floatformat:2 }}</td>
+                  <td>{{ questao_35_esperado.0.0|floatformat:2 }} %</td>
+                  <td>{{ questao_35_esperado.0.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>1 a 3 vezes por mês</td>
-                  <td>{{ questao_35_esperado.1.0|floatformat:2 }}</td>
-                  <td>{{ questao_35_esperado.1.1|floatformat:2 }}</td>
+                  <td>{{ questao_35_esperado.1.0|floatformat:2 }} %</td>
+                  <td>{{ questao_35_esperado.1.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>1 vez por semana</td>
-                  <td>{{ questao_35_esperado.2.0|floatformat:2 }}</td>
-                  <td>{{ questao_35_esperado.2.1|floatformat:2 }}</td>
+                  <td>{{ questao_35_esperado.2.0|floatformat:2 }} %</td>
+                  <td>{{ questao_35_esperado.2.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>2 a 4 vezes por semana</td>
-                  <td>{{ questao_35_esperado.3.0|floatformat:2 }}</td>
-                  <td>{{ questao_35_esperado.3.1|floatformat:2 }}</td>
+                  <td>{{ questao_35_esperado.3.0|floatformat:2 }} %</td>
+                  <td>{{ questao_35_esperado.3.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>6 a 8 vezes por semana</td>
-                  <td>{{ questao_35_esperado.4.0|floatformat:2 }}</td>
-                  <td>{{ questao_35_esperado.4.1|floatformat:2 }}</td>
+                  <td>{{ questao_35_esperado.4.0|floatformat:2 }} %</td>
+                  <td>{{ questao_35_esperado.4.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>1 vez por dia</td>
-                  <td>{{ questao_35_esperado.5.0|floatformat:2 }}</td>
-                  <td>{{ questao_35_esperado.5.1|floatformat:2 }}</td>
+                  <td>{{ questao_35_esperado.5.0|floatformat:2 }} %</td>
+                  <td>{{ questao_35_esperado.5.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>2 a 3 vezes por dia</td>
-                  <td>{{ questao_35_esperado.6.0|floatformat:2 }}</td>
-                  <td>{{ questao_35_esperado.6.1|floatformat:2 }}</td>
+                  <td>{{ questao_35_esperado.6.0|floatformat:2 }} %</td>
+                  <td>{{ questao_35_esperado.6.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>4 a 6 vezes por dia</td>
-                  <td>{{ questao_35_esperado.7.0|floatformat:2 }}</td>
-                  <td>{{ questao_35_esperado.7.1|floatformat:2 }}</td>
+                  <td>{{ questao_35_esperado.7.0|floatformat:2 }} %</td>
+                  <td>{{ questao_35_esperado.7.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>Mais de 8 vezes por dia</td>
-                  <td>{{ questao_35_esperado.8.0|floatformat:2 }}</td>
-                  <td>{{ questao_35_esperado.8.1|floatformat:2 }}</td>
+                  <td>{{ questao_35_esperado.8.0|floatformat:2 }} %</td>
+                  <td>{{ questao_35_esperado.8.1|floatformat:2 }} %</td>
                 </tr>
               </tbody>
             </table>
           </div>
-          <p>P-valor: {{ questao_35_pvalor }}</p>
         </div>
       </div>
     </div>
@@ -2890,7 +2870,7 @@
     <div class="col-lg-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          Incidência de cárie por consumo de alimento (36) Batatas fritas pacote Ruffles, Pringles, Lay’s: (valores esperados)
+          Incidência de cárie por consumo de alimento (36) Batatas fritas pacote Ruffles, Pringles, Lay’s: (predição)
         </div>
         <div class="panel-body">
           <div class="table-responsive">
@@ -2906,53 +2886,52 @@
               <tbody>
                 <tr>
                   <td>Nunca ou menos de uma vez por mês</td>
-                  <td>{{ questao_36_esperado.0.0|floatformat:2 }}</td>
-                  <td>{{ questao_36_esperado.0.1|floatformat:2 }}</td>
+                  <td>{{ questao_36_esperado.0.0|floatformat:2 }} %</td>
+                  <td>{{ questao_36_esperado.0.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>1 a 3 vezes por mês</td>
-                  <td>{{ questao_36_esperado.1.0|floatformat:2 }}</td>
-                  <td>{{ questao_36_esperado.1.1|floatformat:2 }}</td>
+                  <td>{{ questao_36_esperado.1.0|floatformat:2 }} %</td>
+                  <td>{{ questao_36_esperado.1.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>1 vez por semana</td>
-                  <td>{{ questao_36_esperado.2.0|floatformat:2 }}</td>
-                  <td>{{ questao_36_esperado.2.1|floatformat:2 }}</td>
+                  <td>{{ questao_36_esperado.2.0|floatformat:2 }} %</td>
+                  <td>{{ questao_36_esperado.2.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>2 a 4 vezes por semana</td>
-                  <td>{{ questao_36_esperado.3.0|floatformat:2 }}</td>
-                  <td>{{ questao_36_esperado.3.1|floatformat:2 }}</td>
+                  <td>{{ questao_36_esperado.3.0|floatformat:2 }} %</td>
+                  <td>{{ questao_36_esperado.3.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>6 a 8 vezes por semana</td>
-                  <td>{{ questao_36_esperado.4.0|floatformat:2 }}</td>
-                  <td>{{ questao_36_esperado.4.1|floatformat:2 }}</td>
+                  <td>{{ questao_36_esperado.4.0|floatformat:2 }} %</td>
+                  <td>{{ questao_36_esperado.4.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>1 vez por dia</td>
-                  <td>{{ questao_36_esperado.5.0|floatformat:2 }}</td>
-                  <td>{{ questao_36_esperado.5.1|floatformat:2 }}</td>
+                  <td>{{ questao_36_esperado.5.0|floatformat:2 }} %</td>
+                  <td>{{ questao_36_esperado.5.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>2 a 3 vezes por dia</td>
-                  <td>{{ questao_36_esperado.6.0|floatformat:2 }}</td>
-                  <td>{{ questao_36_esperado.6.1|floatformat:2 }}</td>
+                  <td>{{ questao_36_esperado.6.0|floatformat:2 }} %</td>
+                  <td>{{ questao_36_esperado.6.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>4 a 6 vezes por dia</td>
-                  <td>{{ questao_36_esperado.7.0|floatformat:2 }}</td>
-                  <td>{{ questao_36_esperado.7.1|floatformat:2 }}</td>
+                  <td>{{ questao_36_esperado.7.0|floatformat:2 }} %</td>
+                  <td>{{ questao_36_esperado.7.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>Mais de 8 vezes por dia</td>
-                  <td>{{ questao_36_esperado.8.0|floatformat:2 }}</td>
-                  <td>{{ questao_36_esperado.8.1|floatformat:2 }}</td>
+                  <td>{{ questao_36_esperado.8.0|floatformat:2 }} %</td>
+                  <td>{{ questao_36_esperado.8.1|floatformat:2 }} %</td>
                 </tr>
               </tbody>
             </table>
           </div>
-          <p>P-valor: {{ questao_36_pvalor }}</p>
         </div>
       </div>
     </div>
@@ -3047,7 +3026,7 @@
     <div class="col-lg-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          Incidência de cárie por consumo de alimento (37) Batatas fritas caseiras.: (valores esperados)
+          Incidência de cárie por consumo de alimento (37) Batatas fritas caseiras.: (predição)
         </div>
         <div class="panel-body">
           <div class="table-responsive">
@@ -3063,53 +3042,52 @@
               <tbody>
                 <tr>
                   <td>Nunca ou menos de uma vez por mês</td>
-                  <td>{{ questao_37_esperado.0.0|floatformat:2 }}</td>
-                  <td>{{ questao_37_esperado.0.1|floatformat:2 }}</td>
+                  <td>{{ questao_37_esperado.0.0|floatformat:2 }} %</td>
+                  <td>{{ questao_37_esperado.0.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>1 a 3 vezes por mês</td>
-                  <td>{{ questao_37_esperado.1.0|floatformat:2 }}</td>
-                  <td>{{ questao_37_esperado.1.1|floatformat:2 }}</td>
+                  <td>{{ questao_37_esperado.1.0|floatformat:2 }} %</td>
+                  <td>{{ questao_37_esperado.1.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>1 vez por semana</td>
-                  <td>{{ questao_37_esperado.2.0|floatformat:2 }}</td>
-                  <td>{{ questao_37_esperado.2.1|floatformat:2 }}</td>
+                  <td>{{ questao_37_esperado.2.0|floatformat:2 }} %</td>
+                  <td>{{ questao_37_esperado.2.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>2 a 4 vezes por semana</td>
-                  <td>{{ questao_37_esperado.3.0|floatformat:2 }}</td>
-                  <td>{{ questao_37_esperado.3.1|floatformat:2 }}</td>
+                  <td>{{ questao_37_esperado.3.0|floatformat:2 }} %</td>
+                  <td>{{ questao_37_esperado.3.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>6 a 8 vezes por semana</td>
-                  <td>{{ questao_37_esperado.4.0|floatformat:2 }}</td>
-                  <td>{{ questao_37_esperado.4.1|floatformat:2 }}</td>
+                  <td>{{ questao_37_esperado.4.0|floatformat:2 }} %</td>
+                  <td>{{ questao_37_esperado.4.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>1 vez por dia</td>
-                  <td>{{ questao_37_esperado.5.0|floatformat:2 }}</td>
-                  <td>{{ questao_37_esperado.5.1|floatformat:2 }}</td>
+                  <td>{{ questao_37_esperado.5.0|floatformat:2 }} %</td>
+                  <td>{{ questao_37_esperado.5.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>2 a 3 vezes por dia</td>
-                  <td>{{ questao_37_esperado.6.0|floatformat:2 }}</td>
-                  <td>{{ questao_37_esperado.6.1|floatformat:2 }}</td>
+                  <td>{{ questao_37_esperado.6.0|floatformat:2 }} %</td>
+                  <td>{{ questao_37_esperado.6.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>4 a 6 vezes por dia</td>
-                  <td>{{ questao_37_esperado.7.0|floatformat:2 }}</td>
-                  <td>{{ questao_37_esperado.7.1|floatformat:2 }}</td>
+                  <td>{{ questao_37_esperado.7.0|floatformat:2 }} %</td>
+                  <td>{{ questao_37_esperado.7.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>Mais de 8 vezes por dia</td>
-                  <td>{{ questao_37_esperado.8.0|floatformat:2 }}</td>
-                  <td>{{ questao_37_esperado.8.1|floatformat:2 }}</td>
+                  <td>{{ questao_37_esperado.8.0|floatformat:2 }} %</td>
+                  <td>{{ questao_37_esperado.8.1|floatformat:2 }} %</td>
                 </tr>
               </tbody>
             </table>
           </div>
-          <p>P-valor: {{ questao_37_pvalor }}</p>
         </div>
       </div>
     </div>
@@ -3204,7 +3182,7 @@
     <div class="col-lg-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          Incidência de cárie por consumo de alimento (38) Bolachas Maria, bolachas Mabel, biscoitos ou bolachas cream cracker, (ou água e sal) etc.: (valores esperados)
+          Incidência de cárie por consumo de alimento (38) Bolachas Maria, bolachas Mabel, biscoitos ou bolachas cream cracker, (ou água e sal) etc.: (predição)
         </div>
         <div class="panel-body">
           <div class="table-responsive">
@@ -3220,53 +3198,52 @@
               <tbody>
                 <tr>
                   <td>Nunca ou menos de uma vez por mês</td>
-                  <td>{{ questao_38_esperado.0.0|floatformat:2 }}</td>
-                  <td>{{ questao_38_esperado.0.1|floatformat:2 }}</td>
+                  <td>{{ questao_38_esperado.0.0|floatformat:2 }} %</td>
+                  <td>{{ questao_38_esperado.0.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>1 a 3 vezes por mês</td>
-                  <td>{{ questao_38_esperado.1.0|floatformat:2 }}</td>
-                  <td>{{ questao_38_esperado.1.1|floatformat:2 }}</td>
+                  <td>{{ questao_38_esperado.1.0|floatformat:2 }} %</td>
+                  <td>{{ questao_38_esperado.1.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>1 vez por semana</td>
-                  <td>{{ questao_38_esperado.2.0|floatformat:2 }}</td>
-                  <td>{{ questao_38_esperado.2.1|floatformat:2 }}</td>
+                  <td>{{ questao_38_esperado.2.0|floatformat:2 }} %</td>
+                  <td>{{ questao_38_esperado.2.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>2 a 4 vezes por semana</td>
-                  <td>{{ questao_38_esperado.3.0|floatformat:2 }}</td>
-                  <td>{{ questao_38_esperado.3.1|floatformat:2 }}</td>
+                  <td>{{ questao_38_esperado.3.0|floatformat:2 }} %</td>
+                  <td>{{ questao_38_esperado.3.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>6 a 8 vezes por semana</td>
-                  <td>{{ questao_38_esperado.4.0|floatformat:2 }}</td>
-                  <td>{{ questao_38_esperado.4.1|floatformat:2 }}</td>
+                  <td>{{ questao_38_esperado.4.0|floatformat:2 }} %</td>
+                  <td>{{ questao_38_esperado.4.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>1 vez por dia</td>
-                  <td>{{ questao_38_esperado.5.0|floatformat:2 }}</td>
-                  <td>{{ questao_38_esperado.5.1|floatformat:2 }}</td>
+                  <td>{{ questao_38_esperado.5.0|floatformat:2 }} %</td>
+                  <td>{{ questao_38_esperado.5.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>2 a 3 vezes por dia</td>
-                  <td>{{ questao_38_esperado.6.0|floatformat:2 }}</td>
-                  <td>{{ questao_38_esperado.6.1|floatformat:2 }}</td>
+                  <td>{{ questao_38_esperado.6.0|floatformat:2 }} %</td>
+                  <td>{{ questao_38_esperado.6.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>4 a 6 vezes por dia</td>
-                  <td>{{ questao_38_esperado.7.0|floatformat:2 }}</td>
-                  <td>{{ questao_38_esperado.7.1|floatformat:2 }}</td>
+                  <td>{{ questao_38_esperado.7.0|floatformat:2 }} %</td>
+                  <td>{{ questao_38_esperado.7.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>Mais de 8 vezes por dia</td>
-                  <td>{{ questao_38_esperado.8.0|floatformat:2 }}</td>
-                  <td>{{ questao_38_esperado.8.1|floatformat:2 }}</td>
+                  <td>{{ questao_38_esperado.8.0|floatformat:2 }} %</td>
+                  <td>{{ questao_38_esperado.8.1|floatformat:2 }} %</td>
                 </tr>
               </tbody>
             </table>
           </div>
-          <p>P-valor: {{ questao_38_pvalor }}</p>
         </div>
       </div>
     </div>
@@ -3361,7 +3338,7 @@
     <div class="col-lg-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          Incidência de cárie por consumo de alimento (39) Outras bolachas (biscoitos recheados como Bono, Trakinas e Oreo).: (valores esperados)
+          Incidência de cárie por consumo de alimento (39) Outras bolachas (biscoitos recheados como Bono, Trakinas e Oreo).: (predição)
         </div>
         <div class="panel-body">
           <div class="table-responsive">
@@ -3377,53 +3354,52 @@
               <tbody>
                 <tr>
                   <td>Nunca ou menos de uma vez por mês</td>
-                  <td>{{ questao_39_esperado.0.0|floatformat:2 }}</td>
-                  <td>{{ questao_39_esperado.0.1|floatformat:2 }}</td>
+                  <td>{{ questao_39_esperado.0.0|floatformat:2 }} %</td>
+                  <td>{{ questao_39_esperado.0.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>1 a 3 vezes por mês</td>
-                  <td>{{ questao_39_esperado.1.0|floatformat:2 }}</td>
-                  <td>{{ questao_39_esperado.1.1|floatformat:2 }}</td>
+                  <td>{{ questao_39_esperado.1.0|floatformat:2 }} %</td>
+                  <td>{{ questao_39_esperado.1.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>1 vez por semana</td>
-                  <td>{{ questao_39_esperado.2.0|floatformat:2 }}</td>
-                  <td>{{ questao_39_esperado.2.1|floatformat:2 }}</td>
+                  <td>{{ questao_39_esperado.2.0|floatformat:2 }} %</td>
+                  <td>{{ questao_39_esperado.2.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>2 a 4 vezes por semana</td>
-                  <td>{{ questao_39_esperado.3.0|floatformat:2 }}</td>
-                  <td>{{ questao_39_esperado.3.1|floatformat:2 }}</td>
+                  <td>{{ questao_39_esperado.3.0|floatformat:2 }} %</td>
+                  <td>{{ questao_39_esperado.3.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>6 a 8 vezes por semana</td>
-                  <td>{{ questao_39_esperado.4.0|floatformat:2 }}</td>
-                  <td>{{ questao_39_esperado.4.1|floatformat:2 }}</td>
+                  <td>{{ questao_39_esperado.4.0|floatformat:2 }} %</td>
+                  <td>{{ questao_39_esperado.4.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>1 vez por dia</td>
-                  <td>{{ questao_39_esperado.5.0|floatformat:2 }}</td>
-                  <td>{{ questao_39_esperado.5.1|floatformat:2 }}</td>
+                  <td>{{ questao_39_esperado.5.0|floatformat:2 }} %</td>
+                  <td>{{ questao_39_esperado.5.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>2 a 3 vezes por dia</td>
-                  <td>{{ questao_39_esperado.6.0|floatformat:2 }}</td>
-                  <td>{{ questao_39_esperado.6.1|floatformat:2 }}</td>
+                  <td>{{ questao_39_esperado.6.0|floatformat:2 }} %</td>
+                  <td>{{ questao_39_esperado.6.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>4 a 6 vezes por dia</td>
-                  <td>{{ questao_39_esperado.7.0|floatformat:2 }}</td>
-                  <td>{{ questao_39_esperado.7.1|floatformat:2 }}</td>
+                  <td>{{ questao_39_esperado.7.0|floatformat:2 }} %</td>
+                  <td>{{ questao_39_esperado.7.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>Mais de 8 vezes por dia</td>
-                  <td>{{ questao_39_esperado.8.0|floatformat:2 }}</td>
-                  <td>{{ questao_39_esperado.8.1|floatformat:2 }}</td>
+                  <td>{{ questao_39_esperado.8.0|floatformat:2 }} %</td>
+                  <td>{{ questao_39_esperado.8.1|floatformat:2 }} %</td>
                 </tr>
               </tbody>
             </table>
           </div>
-          <p>P-valor: {{ questao_39_pvalor }}</p>
         </div>
       </div>
     </div>
@@ -3518,7 +3494,7 @@
     <div class="col-lg-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          Incidência de cárie por consumo de alimento (40) Produtos de pastelaria (coxinhas, pastéis, salgadinhos de queijo, kibes).: (valores esperados)
+          Incidência de cárie por consumo de alimento (40) Produtos de pastelaria (coxinhas, pastéis, salgadinhos de queijo, kibes).: (predição)
         </div>
         <div class="panel-body">
           <div class="table-responsive">
@@ -3534,53 +3510,52 @@
               <tbody>
                 <tr>
                   <td>Nunca ou menos de uma vez por mês</td>
-                  <td>{{ questao_40_esperado.0.0|floatformat:2 }}</td>
-                  <td>{{ questao_40_esperado.0.1|floatformat:2 }}</td>
+                  <td>{{ questao_40_esperado.0.0|floatformat:2 }} %</td>
+                  <td>{{ questao_40_esperado.0.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>1 a 3 vezes por mês</td>
-                  <td>{{ questao_40_esperado.1.0|floatformat:2 }}</td>
-                  <td>{{ questao_40_esperado.1.1|floatformat:2 }}</td>
+                  <td>{{ questao_40_esperado.1.0|floatformat:2 }} %</td>
+                  <td>{{ questao_40_esperado.1.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>1 vez por semana</td>
-                  <td>{{ questao_40_esperado.2.0|floatformat:2 }}</td>
-                  <td>{{ questao_40_esperado.2.1|floatformat:2 }}</td>
+                  <td>{{ questao_40_esperado.2.0|floatformat:2 }} %</td>
+                  <td>{{ questao_40_esperado.2.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>2 a 4 vezes por semana</td>
-                  <td>{{ questao_40_esperado.3.0|floatformat:2 }}</td>
-                  <td>{{ questao_40_esperado.3.1|floatformat:2 }}</td>
+                  <td>{{ questao_40_esperado.3.0|floatformat:2 }} %</td>
+                  <td>{{ questao_40_esperado.3.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>6 a 8 vezes por semana</td>
-                  <td>{{ questao_40_esperado.4.0|floatformat:2 }}</td>
-                  <td>{{ questao_40_esperado.4.1|floatformat:2 }}</td>
+                  <td>{{ questao_40_esperado.4.0|floatformat:2 }} %</td>
+                  <td>{{ questao_40_esperado.4.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>1 vez por dia</td>
-                  <td>{{ questao_40_esperado.5.0|floatformat:2 }}</td>
-                  <td>{{ questao_40_esperado.5.1|floatformat:2 }}</td>
+                  <td>{{ questao_40_esperado.5.0|floatformat:2 }} %</td>
+                  <td>{{ questao_40_esperado.5.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>2 a 3 vezes por dia</td>
-                  <td>{{ questao_40_esperado.6.0|floatformat:2 }}</td>
-                  <td>{{ questao_40_esperado.6.1|floatformat:2 }}</td>
+                  <td>{{ questao_40_esperado.6.0|floatformat:2 }} %</td>
+                  <td>{{ questao_40_esperado.6.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>4 a 6 vezes por dia</td>
-                  <td>{{ questao_40_esperado.7.0|floatformat:2 }}</td>
-                  <td>{{ questao_40_esperado.7.1|floatformat:2 }}</td>
+                  <td>{{ questao_40_esperado.7.0|floatformat:2 }} %</td>
+                  <td>{{ questao_40_esperado.7.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>Mais de 8 vezes por dia</td>
-                  <td>{{ questao_40_esperado.8.0|floatformat:2 }}</td>
-                  <td>{{ questao_40_esperado.8.1|floatformat:2 }}</td>
+                  <td>{{ questao_40_esperado.8.0|floatformat:2 }} %</td>
+                  <td>{{ questao_40_esperado.8.1|floatformat:2 }} %</td>
                 </tr>
               </tbody>
             </table>
           </div>
-          <p>P-valor: {{ questao_40_pvalor }}</p>
         </div>
       </div>
     </div>
@@ -3675,7 +3650,7 @@
     <div class="col-lg-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          Incidência de cárie por consumo de alimento (41) Snacks (chocolates vendidos em barrinhas, como Twix, Kitkat, Bis e Chokito): (valores esperados)
+          Incidência de cárie por consumo de alimento (41) Snacks (chocolates vendidos em barrinhas, como Twix, Kitkat, Bis e Chokito): (predição)
         </div>
         <div class="panel-body">
           <div class="table-responsive">
@@ -3691,53 +3666,52 @@
               <tbody>
                 <tr>
                   <td>Nunca ou menos de uma vez por mês</td>
-                  <td>{{ questao_41_esperado.0.0|floatformat:2 }}</td>
-                  <td>{{ questao_41_esperado.0.1|floatformat:2 }}</td>
+                  <td>{{ questao_41_esperado.0.0|floatformat:2 }} %</td>
+                  <td>{{ questao_41_esperado.0.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>1 a 3 vezes por mês</td>
-                  <td>{{ questao_41_esperado.1.0|floatformat:2 }}</td>
-                  <td>{{ questao_41_esperado.1.1|floatformat:2 }}</td>
+                  <td>{{ questao_41_esperado.1.0|floatformat:2 }} %</td>
+                  <td>{{ questao_41_esperado.1.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>1 vez por semana</td>
-                  <td>{{ questao_41_esperado.2.0|floatformat:2 }}</td>
-                  <td>{{ questao_41_esperado.2.1|floatformat:2 }}</td>
+                  <td>{{ questao_41_esperado.2.0|floatformat:2 }} %</td>
+                  <td>{{ questao_41_esperado.2.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>2 a 4 vezes por semana</td>
-                  <td>{{ questao_41_esperado.3.0|floatformat:2 }}</td>
-                  <td>{{ questao_41_esperado.3.1|floatformat:2 }}</td>
+                  <td>{{ questao_41_esperado.3.0|floatformat:2 }} %</td>
+                  <td>{{ questao_41_esperado.3.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>6 a 8 vezes por semana</td>
-                  <td>{{ questao_41_esperado.4.0|floatformat:2 }}</td>
-                  <td>{{ questao_41_esperado.4.1|floatformat:2 }}</td>
+                  <td>{{ questao_41_esperado.4.0|floatformat:2 }} %</td>
+                  <td>{{ questao_41_esperado.4.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>1 vez por dia</td>
-                  <td>{{ questao_41_esperado.5.0|floatformat:2 }}</td>
-                  <td>{{ questao_41_esperado.5.1|floatformat:2 }}</td>
+                  <td>{{ questao_41_esperado.5.0|floatformat:2 }} %</td>
+                  <td>{{ questao_41_esperado.5.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>2 a 3 vezes por dia</td>
-                  <td>{{ questao_41_esperado.6.0|floatformat:2 }}</td>
-                  <td>{{ questao_41_esperado.6.1|floatformat:2 }}</td>
+                  <td>{{ questao_41_esperado.6.0|floatformat:2 }} %</td>
+                  <td>{{ questao_41_esperado.6.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>4 a 6 vezes por dia</td>
-                  <td>{{ questao_41_esperado.7.0|floatformat:2 }}</td>
-                  <td>{{ questao_41_esperado.7.1|floatformat:2 }}</td>
+                  <td>{{ questao_41_esperado.7.0|floatformat:2 }} %</td>
+                  <td>{{ questao_41_esperado.7.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>Mais de 8 vezes por dia</td>
-                  <td>{{ questao_41_esperado.8.0|floatformat:2 }}</td>
-                  <td>{{ questao_41_esperado.8.1|floatformat:2 }}</td>
+                  <td>{{ questao_41_esperado.8.0|floatformat:2 }} %</td>
+                  <td>{{ questao_41_esperado.8.1|floatformat:2 }} %</td>
                 </tr>
               </tbody>
             </table>
           </div>
-          <p>P-valor: {{ questao_41_pvalor }}</p>
         </div>
       </div>
     </div>
@@ -3832,7 +3806,7 @@
     <div class="col-lg-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          Incidência de cárie por consumo de alimento (42) Marmelada, doce em potinho, geleia, mel. (Como Paçoquita, Melzinho e Pé de moleque): (valores esperados)
+          Incidência de cárie por consumo de alimento (42) Marmelada, doce em potinho, geleia, mel. (Como Paçoquita, Melzinho e Pé de moleque): (predição)
         </div>
         <div class="panel-body">
           <div class="table-responsive">
@@ -3848,53 +3822,52 @@
               <tbody>
                 <tr>
                   <td>Nunca ou menos de uma vez por mês</td>
-                  <td>{{ questao_42_esperado.0.0|floatformat:2 }}</td>
-                  <td>{{ questao_42_esperado.0.1|floatformat:2 }}</td>
+                  <td>{{ questao_42_esperado.0.0|floatformat:2 }} %</td>
+                  <td>{{ questao_42_esperado.0.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>1 a 3 vezes por mês</td>
-                  <td>{{ questao_42_esperado.1.0|floatformat:2 }}</td>
-                  <td>{{ questao_42_esperado.1.1|floatformat:2 }}</td>
+                  <td>{{ questao_42_esperado.1.0|floatformat:2 }} %</td>
+                  <td>{{ questao_42_esperado.1.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>1 vez por semana</td>
-                  <td>{{ questao_42_esperado.2.0|floatformat:2 }}</td>
-                  <td>{{ questao_42_esperado.2.1|floatformat:2 }}</td>
+                  <td>{{ questao_42_esperado.2.0|floatformat:2 }} %</td>
+                  <td>{{ questao_42_esperado.2.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>2 a 4 vezes por semana</td>
-                  <td>{{ questao_42_esperado.3.0|floatformat:2 }}</td>
-                  <td>{{ questao_42_esperado.3.1|floatformat:2 }}</td>
+                  <td>{{ questao_42_esperado.3.0|floatformat:2 }} %</td>
+                  <td>{{ questao_42_esperado.3.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>6 a 8 vezes por semana</td>
-                  <td>{{ questao_42_esperado.4.0|floatformat:2 }}</td>
-                  <td>{{ questao_42_esperado.4.1|floatformat:2 }}</td>
+                  <td>{{ questao_42_esperado.4.0|floatformat:2 }} %</td>
+                  <td>{{ questao_42_esperado.4.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>1 vez por dia</td>
-                  <td>{{ questao_42_esperado.5.0|floatformat:2 }}</td>
-                  <td>{{ questao_42_esperado.5.1|floatformat:2 }}</td>
+                  <td>{{ questao_42_esperado.5.0|floatformat:2 }} %</td>
+                  <td>{{ questao_42_esperado.5.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>2 a 3 vezes por dia</td>
-                  <td>{{ questao_42_esperado.6.0|floatformat:2 }}</td>
-                  <td>{{ questao_42_esperado.6.1|floatformat:2 }}</td>
+                  <td>{{ questao_42_esperado.6.0|floatformat:2 }} %</td>
+                  <td>{{ questao_42_esperado.6.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>4 a 6 vezes por dia</td>
-                  <td>{{ questao_42_esperado.7.0|floatformat:2 }}</td>
-                  <td>{{ questao_42_esperado.7.1|floatformat:2 }}</td>
+                  <td>{{ questao_42_esperado.7.0|floatformat:2 }} %</td>
+                  <td>{{ questao_42_esperado.7.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>Mais de 8 vezes por dia</td>
-                  <td>{{ questao_42_esperado.8.0|floatformat:2 }}</td>
-                  <td>{{ questao_42_esperado.8.1|floatformat:2 }}</td>
+                  <td>{{ questao_42_esperado.8.0|floatformat:2 }} %</td>
+                  <td>{{ questao_42_esperado.8.1|floatformat:2 }} %</td>
                 </tr>
               </tbody>
             </table>
           </div>
-          <p>P-valor: {{ questao_42_pvalor }}</p>
         </div>
       </div>
     </div>
@@ -3989,7 +3962,7 @@
     <div class="col-lg-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          Incidência de cárie por consumo de alimento (43) Açúcares em geral.: (valores esperados)
+          Incidência de cárie por consumo de alimento (43) Açúcares em geral.: (predição)
         </div>
         <div class="panel-body">
           <div class="table-responsive">
@@ -4005,53 +3978,52 @@
               <tbody>
                 <tr>
                   <td>Nunca ou menos de uma vez por mês</td>
-                  <td>{{ questao_43_esperado.0.0|floatformat:2 }}</td>
-                  <td>{{ questao_43_esperado.0.1|floatformat:2 }}</td>
+                  <td>{{ questao_43_esperado.0.0|floatformat:2 }} %</td>
+                  <td>{{ questao_43_esperado.0.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>1 a 3 vezes por mês</td>
-                  <td>{{ questao_43_esperado.1.0|floatformat:2 }}</td>
-                  <td>{{ questao_43_esperado.1.1|floatformat:2 }}</td>
+                  <td>{{ questao_43_esperado.1.0|floatformat:2 }} %</td>
+                  <td>{{ questao_43_esperado.1.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>1 vez por semana</td>
-                  <td>{{ questao_43_esperado.2.0|floatformat:2 }}</td>
-                  <td>{{ questao_43_esperado.2.1|floatformat:2 }}</td>
+                  <td>{{ questao_43_esperado.2.0|floatformat:2 }} %</td>
+                  <td>{{ questao_43_esperado.2.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>2 a 4 vezes por semana</td>
-                  <td>{{ questao_43_esperado.3.0|floatformat:2 }}</td>
-                  <td>{{ questao_43_esperado.3.1|floatformat:2 }}</td>
+                  <td>{{ questao_43_esperado.3.0|floatformat:2 }} %</td>
+                  <td>{{ questao_43_esperado.3.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>6 a 8 vezes por semana</td>
-                  <td>{{ questao_43_esperado.4.0|floatformat:2 }}</td>
-                  <td>{{ questao_43_esperado.4.1|floatformat:2 }}</td>
+                  <td>{{ questao_43_esperado.4.0|floatformat:2 }} %</td>
+                  <td>{{ questao_43_esperado.4.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>1 vez por dia</td>
-                  <td>{{ questao_43_esperado.5.0|floatformat:2 }}</td>
-                  <td>{{ questao_43_esperado.5.1|floatformat:2 }}</td>
+                  <td>{{ questao_43_esperado.5.0|floatformat:2 }} %</td>
+                  <td>{{ questao_43_esperado.5.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>2 a 3 vezes por dia</td>
-                  <td>{{ questao_43_esperado.6.0|floatformat:2 }}</td>
-                  <td>{{ questao_43_esperado.6.1|floatformat:2 }}</td>
+                  <td>{{ questao_43_esperado.6.0|floatformat:2 }} %</td>
+                  <td>{{ questao_43_esperado.6.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>4 a 6 vezes por dia</td>
-                  <td>{{ questao_43_esperado.7.0|floatformat:2 }}</td>
-                  <td>{{ questao_43_esperado.7.1|floatformat:2 }}</td>
+                  <td>{{ questao_43_esperado.7.0|floatformat:2 }} %</td>
+                  <td>{{ questao_43_esperado.7.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>Mais de 8 vezes por dia</td>
-                  <td>{{ questao_43_esperado.8.0|floatformat:2 }}</td>
-                  <td>{{ questao_43_esperado.8.1|floatformat:2 }}</td>
+                  <td>{{ questao_43_esperado.8.0|floatformat:2 }} %</td>
+                  <td>{{ questao_43_esperado.8.1|floatformat:2 }} %</td>
                 </tr>
               </tbody>
             </table>
           </div>
-          <p>P-valor: {{ questao_43_pvalor }}</p>
         </div>
       </div>
     </div>
@@ -4146,7 +4118,7 @@
     <div class="col-lg-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          Incidência de cárie por consumo de alimento (44) Sopas comuns caseiras (de carne, frango ou legumes): (valores esperados)
+          Incidência de cárie por consumo de alimento (44) Sopas comuns caseiras (de carne, frango ou legumes): (predição)
         </div>
         <div class="panel-body">
           <div class="table-responsive">
@@ -4162,53 +4134,52 @@
               <tbody>
                 <tr>
                   <td>Nunca ou menos de uma vez por mês</td>
-                  <td>{{ questao_44_esperado.0.0|floatformat:2 }}</td>
-                  <td>{{ questao_44_esperado.0.1|floatformat:2 }}</td>
+                  <td>{{ questao_44_esperado.0.0|floatformat:2 }} %</td>
+                  <td>{{ questao_44_esperado.0.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>1 a 3 vezes por mês</td>
-                  <td>{{ questao_44_esperado.1.0|floatformat:2 }}</td>
-                  <td>{{ questao_44_esperado.1.1|floatformat:2 }}</td>
+                  <td>{{ questao_44_esperado.1.0|floatformat:2 }} %</td>
+                  <td>{{ questao_44_esperado.1.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>1 vez por semana</td>
-                  <td>{{ questao_44_esperado.2.0|floatformat:2 }}</td>
-                  <td>{{ questao_44_esperado.2.1|floatformat:2 }}</td>
+                  <td>{{ questao_44_esperado.2.0|floatformat:2 }} %</td>
+                  <td>{{ questao_44_esperado.2.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>2 a 4 vezes por semana</td>
-                  <td>{{ questao_44_esperado.3.0|floatformat:2 }}</td>
-                  <td>{{ questao_44_esperado.3.1|floatformat:2 }}</td>
+                  <td>{{ questao_44_esperado.3.0|floatformat:2 }} %</td>
+                  <td>{{ questao_44_esperado.3.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>6 a 8 vezes por semana</td>
-                  <td>{{ questao_44_esperado.4.0|floatformat:2 }}</td>
-                  <td>{{ questao_44_esperado.4.1|floatformat:2 }}</td>
+                  <td>{{ questao_44_esperado.4.0|floatformat:2 }} %</td>
+                  <td>{{ questao_44_esperado.4.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>1 vez por dia</td>
-                  <td>{{ questao_44_esperado.5.0|floatformat:2 }}</td>
-                  <td>{{ questao_44_esperado.5.1|floatformat:2 }}</td>
+                  <td>{{ questao_44_esperado.5.0|floatformat:2 }} %</td>
+                  <td>{{ questao_44_esperado.5.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>2 a 3 vezes por dia</td>
-                  <td>{{ questao_44_esperado.6.0|floatformat:2 }}</td>
-                  <td>{{ questao_44_esperado.6.1|floatformat:2 }}</td>
+                  <td>{{ questao_44_esperado.6.0|floatformat:2 }} %</td>
+                  <td>{{ questao_44_esperado.6.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>4 a 6 vezes por dia</td>
-                  <td>{{ questao_44_esperado.7.0|floatformat:2 }}</td>
-                  <td>{{ questao_44_esperado.7.1|floatformat:2 }}</td>
+                  <td>{{ questao_44_esperado.7.0|floatformat:2 }} %</td>
+                  <td>{{ questao_44_esperado.7.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>Mais de 8 vezes por dia</td>
-                  <td>{{ questao_44_esperado.8.0|floatformat:2 }}</td>
-                  <td>{{ questao_44_esperado.8.1|floatformat:2 }}</td>
+                  <td>{{ questao_44_esperado.8.0|floatformat:2 }} %</td>
+                  <td>{{ questao_44_esperado.8.1|floatformat:2 }} %</td>
                 </tr>
               </tbody>
             </table>
           </div>
-          <p>P-valor: {{ questao_44_pvalor }}</p>
         </div>
       </div>
     </div>
@@ -4303,7 +4274,7 @@
     <div class="col-lg-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          Incidência de cárie por consumo de alimento (45) Vegetais crus em salada ou cozinhados (Cenoura, couve flor, brócolis, alface, beterraba, agrião): (valores esperados)
+          Incidência de cárie por consumo de alimento (45) Vegetais crus em salada ou cozinhados (Cenoura, couve flor, brócolis, alface, beterraba, agrião): (predição)
         </div>
         <div class="panel-body">
           <div class="table-responsive">
@@ -4319,53 +4290,52 @@
               <tbody>
                 <tr>
                   <td>Nunca ou menos de uma vez por mês</td>
-                  <td>{{ questao_45_esperado.0.0|floatformat:2 }}</td>
-                  <td>{{ questao_45_esperado.0.1|floatformat:2 }}</td>
+                  <td>{{ questao_45_esperado.0.0|floatformat:2 }} %</td>
+                  <td>{{ questao_45_esperado.0.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>1 a 3 vezes por mês</td>
-                  <td>{{ questao_45_esperado.1.0|floatformat:2 }}</td>
-                  <td>{{ questao_45_esperado.1.1|floatformat:2 }}</td>
+                  <td>{{ questao_45_esperado.1.0|floatformat:2 }} %</td>
+                  <td>{{ questao_45_esperado.1.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>1 vez por semana</td>
-                  <td>{{ questao_45_esperado.2.0|floatformat:2 }}</td>
-                  <td>{{ questao_45_esperado.2.1|floatformat:2 }}</td>
+                  <td>{{ questao_45_esperado.2.0|floatformat:2 }} %</td>
+                  <td>{{ questao_45_esperado.2.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>2 a 4 vezes por semana</td>
-                  <td>{{ questao_45_esperado.3.0|floatformat:2 }}</td>
-                  <td>{{ questao_45_esperado.3.1|floatformat:2 }}</td>
+                  <td>{{ questao_45_esperado.3.0|floatformat:2 }} %</td>
+                  <td>{{ questao_45_esperado.3.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>6 a 8 vezes por semana</td>
-                  <td>{{ questao_45_esperado.4.0|floatformat:2 }}</td>
-                  <td>{{ questao_45_esperado.4.1|floatformat:2 }}</td>
+                  <td>{{ questao_45_esperado.4.0|floatformat:2 }} %</td>
+                  <td>{{ questao_45_esperado.4.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>1 vez por dia</td>
-                  <td>{{ questao_45_esperado.5.0|floatformat:2 }}</td>
-                  <td>{{ questao_45_esperado.5.1|floatformat:2 }}</td>
+                  <td>{{ questao_45_esperado.5.0|floatformat:2 }} %</td>
+                  <td>{{ questao_45_esperado.5.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>2 a 3 vezes por dia</td>
-                  <td>{{ questao_45_esperado.6.0|floatformat:2 }}</td>
-                  <td>{{ questao_45_esperado.6.1|floatformat:2 }}</td>
+                  <td>{{ questao_45_esperado.6.0|floatformat:2 }} %</td>
+                  <td>{{ questao_45_esperado.6.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>4 a 6 vezes por dia</td>
-                  <td>{{ questao_45_esperado.7.0|floatformat:2 }}</td>
-                  <td>{{ questao_45_esperado.7.1|floatformat:2 }}</td>
+                  <td>{{ questao_45_esperado.7.0|floatformat:2 }} %</td>
+                  <td>{{ questao_45_esperado.7.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>Mais de 8 vezes por dia</td>
-                  <td>{{ questao_45_esperado.8.0|floatformat:2 }}</td>
-                  <td>{{ questao_45_esperado.8.1|floatformat:2 }}</td>
+                  <td>{{ questao_45_esperado.8.0|floatformat:2 }} %</td>
+                  <td>{{ questao_45_esperado.8.1|floatformat:2 }} %</td>
                 </tr>
               </tbody>
             </table>
           </div>
-          <p>P-valor: {{ questao_45_pvalor }}</p>
         </div>
       </div>
     </div>
@@ -4460,7 +4430,7 @@
     <div class="col-lg-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          Incidência de cárie por consumo de alimento (46) Leguminosas (feijão, grão de bico, ervilhas, favas).: (valores esperados)
+          Incidência de cárie por consumo de alimento (46) Leguminosas (feijão, grão de bico, ervilhas, favas).: (predição)
         </div>
         <div class="panel-body">
           <div class="table-responsive">
@@ -4476,53 +4446,52 @@
               <tbody>
                 <tr>
                   <td>Nunca ou menos de uma vez por mês</td>
-                  <td>{{ questao_46_esperado.0.0|floatformat:2 }}</td>
-                  <td>{{ questao_46_esperado.0.1|floatformat:2 }}</td>
+                  <td>{{ questao_46_esperado.0.0|floatformat:2 }} %</td>
+                  <td>{{ questao_46_esperado.0.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>1 a 3 vezes por mês</td>
-                  <td>{{ questao_46_esperado.1.0|floatformat:2 }}</td>
-                  <td>{{ questao_46_esperado.1.1|floatformat:2 }}</td>
+                  <td>{{ questao_46_esperado.1.0|floatformat:2 }} %</td>
+                  <td>{{ questao_46_esperado.1.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>1 vez por semana</td>
-                  <td>{{ questao_46_esperado.2.0|floatformat:2 }}</td>
-                  <td>{{ questao_46_esperado.2.1|floatformat:2 }}</td>
+                  <td>{{ questao_46_esperado.2.0|floatformat:2 }} %</td>
+                  <td>{{ questao_46_esperado.2.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>2 a 4 vezes por semana</td>
-                  <td>{{ questao_46_esperado.3.0|floatformat:2 }}</td>
-                  <td>{{ questao_46_esperado.3.1|floatformat:2 }}</td>
+                  <td>{{ questao_46_esperado.3.0|floatformat:2 }} %</td>
+                  <td>{{ questao_46_esperado.3.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>6 a 8 vezes por semana</td>
-                  <td>{{ questao_46_esperado.4.0|floatformat:2 }}</td>
-                  <td>{{ questao_46_esperado.4.1|floatformat:2 }}</td>
+                  <td>{{ questao_46_esperado.4.0|floatformat:2 }} %</td>
+                  <td>{{ questao_46_esperado.4.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>1 vez por dia</td>
-                  <td>{{ questao_46_esperado.5.0|floatformat:2 }}</td>
-                  <td>{{ questao_46_esperado.5.1|floatformat:2 }}</td>
+                  <td>{{ questao_46_esperado.5.0|floatformat:2 }} %</td>
+                  <td>{{ questao_46_esperado.5.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>2 a 3 vezes por dia</td>
-                  <td>{{ questao_46_esperado.6.0|floatformat:2 }}</td>
-                  <td>{{ questao_46_esperado.6.1|floatformat:2 }}</td>
+                  <td>{{ questao_46_esperado.6.0|floatformat:2 }} %</td>
+                  <td>{{ questao_46_esperado.6.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>4 a 6 vezes por dia</td>
-                  <td>{{ questao_46_esperado.7.0|floatformat:2 }}</td>
-                  <td>{{ questao_46_esperado.7.1|floatformat:2 }}</td>
+                  <td>{{ questao_46_esperado.7.0|floatformat:2 }} %</td>
+                  <td>{{ questao_46_esperado.7.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>Mais de 8 vezes por dia</td>
-                  <td>{{ questao_46_esperado.8.0|floatformat:2 }}</td>
-                  <td>{{ questao_46_esperado.8.1|floatformat:2 }}</td>
+                  <td>{{ questao_46_esperado.8.0|floatformat:2 }} %</td>
+                  <td>{{ questao_46_esperado.8.1|floatformat:2 }} %</td>
                 </tr>
               </tbody>
             </table>
           </div>
-          <p>P-valor: {{ questao_46_pvalor }}</p>
         </div>
       </div>
     </div>
@@ -4617,7 +4586,7 @@
     <div class="col-lg-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          Incidência de cárie por consumo de alimento (47) Fruta fresca. (Manga, caju, banana, goiaba, acerola, murici, maça, laranja): (valores esperados)
+          Incidência de cárie por consumo de alimento (47) Fruta fresca. (Manga, caju, banana, goiaba, acerola, murici, maça, laranja): (predição)
         </div>
         <div class="panel-body">
           <div class="table-responsive">
@@ -4633,53 +4602,52 @@
               <tbody>
                 <tr>
                   <td>Nunca ou menos de uma vez por mês</td>
-                  <td>{{ questao_47_esperado.0.0|floatformat:2 }}</td>
-                  <td>{{ questao_47_esperado.0.1|floatformat:2 }}</td>
+                  <td>{{ questao_47_esperado.0.0|floatformat:2 }} %</td>
+                  <td>{{ questao_47_esperado.0.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>1 a 3 vezes por mês</td>
-                  <td>{{ questao_47_esperado.1.0|floatformat:2 }}</td>
-                  <td>{{ questao_47_esperado.1.1|floatformat:2 }}</td>
+                  <td>{{ questao_47_esperado.1.0|floatformat:2 }} %</td>
+                  <td>{{ questao_47_esperado.1.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>1 vez por semana</td>
-                  <td>{{ questao_47_esperado.2.0|floatformat:2 }}</td>
-                  <td>{{ questao_47_esperado.2.1|floatformat:2 }}</td>
+                  <td>{{ questao_47_esperado.2.0|floatformat:2 }} %</td>
+                  <td>{{ questao_47_esperado.2.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>2 a 4 vezes por semana</td>
-                  <td>{{ questao_47_esperado.3.0|floatformat:2 }}</td>
-                  <td>{{ questao_47_esperado.3.1|floatformat:2 }}</td>
+                  <td>{{ questao_47_esperado.3.0|floatformat:2 }} %</td>
+                  <td>{{ questao_47_esperado.3.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>6 a 8 vezes por semana</td>
-                  <td>{{ questao_47_esperado.4.0|floatformat:2 }}</td>
-                  <td>{{ questao_47_esperado.4.1|floatformat:2 }}</td>
+                  <td>{{ questao_47_esperado.4.0|floatformat:2 }} %</td>
+                  <td>{{ questao_47_esperado.4.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>1 vez por dia</td>
-                  <td>{{ questao_47_esperado.5.0|floatformat:2 }}</td>
-                  <td>{{ questao_47_esperado.5.1|floatformat:2 }}</td>
+                  <td>{{ questao_47_esperado.5.0|floatformat:2 }} %</td>
+                  <td>{{ questao_47_esperado.5.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>2 a 3 vezes por dia</td>
-                  <td>{{ questao_47_esperado.6.0|floatformat:2 }}</td>
-                  <td>{{ questao_47_esperado.6.1|floatformat:2 }}</td>
+                  <td>{{ questao_47_esperado.6.0|floatformat:2 }} %</td>
+                  <td>{{ questao_47_esperado.6.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>4 a 6 vezes por dia</td>
-                  <td>{{ questao_47_esperado.7.0|floatformat:2 }}</td>
-                  <td>{{ questao_47_esperado.7.1|floatformat:2 }}</td>
+                  <td>{{ questao_47_esperado.7.0|floatformat:2 }} %</td>
+                  <td>{{ questao_47_esperado.7.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>Mais de 8 vezes por dia</td>
-                  <td>{{ questao_47_esperado.8.0|floatformat:2 }}</td>
-                  <td>{{ questao_47_esperado.8.1|floatformat:2 }}</td>
+                  <td>{{ questao_47_esperado.8.0|floatformat:2 }} %</td>
+                  <td>{{ questao_47_esperado.8.1|floatformat:2 }} %</td>
                 </tr>
               </tbody>
             </table>
           </div>
-          <p>P-valor: {{ questao_47_pvalor }}</p>
         </div>
       </div>
     </div>
@@ -4774,7 +4742,7 @@
     <div class="col-lg-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          Incidência de cárie por consumo de alimento (48) Frutos enlatados em calda: (pêssego, banana, caju, goiaba).: (valores esperados)
+          Incidência de cárie por consumo de alimento (48) Frutos enlatados em calda: (pêssego, banana, caju, goiaba).: (predição)
         </div>
         <div class="panel-body">
           <div class="table-responsive">
@@ -4790,53 +4758,52 @@
               <tbody>
                 <tr>
                   <td>Nunca ou menos de uma vez por mês</td>
-                  <td>{{ questao_48_esperado.0.0|floatformat:2 }}</td>
-                  <td>{{ questao_48_esperado.0.1|floatformat:2 }}</td>
+                  <td>{{ questao_48_esperado.0.0|floatformat:2 }} %</td>
+                  <td>{{ questao_48_esperado.0.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>1 a 3 vezes por mês</td>
-                  <td>{{ questao_48_esperado.1.0|floatformat:2 }}</td>
-                  <td>{{ questao_48_esperado.1.1|floatformat:2 }}</td>
+                  <td>{{ questao_48_esperado.1.0|floatformat:2 }} %</td>
+                  <td>{{ questao_48_esperado.1.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>1 vez por semana</td>
-                  <td>{{ questao_48_esperado.2.0|floatformat:2 }}</td>
-                  <td>{{ questao_48_esperado.2.1|floatformat:2 }}</td>
+                  <td>{{ questao_48_esperado.2.0|floatformat:2 }} %</td>
+                  <td>{{ questao_48_esperado.2.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>2 a 4 vezes por semana</td>
-                  <td>{{ questao_48_esperado.3.0|floatformat:2 }}</td>
-                  <td>{{ questao_48_esperado.3.1|floatformat:2 }}</td>
+                  <td>{{ questao_48_esperado.3.0|floatformat:2 }} %</td>
+                  <td>{{ questao_48_esperado.3.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>6 a 8 vezes por semana</td>
-                  <td>{{ questao_48_esperado.4.0|floatformat:2 }}</td>
-                  <td>{{ questao_48_esperado.4.1|floatformat:2 }}</td>
+                  <td>{{ questao_48_esperado.4.0|floatformat:2 }} %</td>
+                  <td>{{ questao_48_esperado.4.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>1 vez por dia</td>
-                  <td>{{ questao_48_esperado.5.0|floatformat:2 }}</td>
-                  <td>{{ questao_48_esperado.5.1|floatformat:2 }}</td>
+                  <td>{{ questao_48_esperado.5.0|floatformat:2 }} %</td>
+                  <td>{{ questao_48_esperado.5.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>2 a 3 vezes por dia</td>
-                  <td>{{ questao_48_esperado.6.0|floatformat:2 }}</td>
-                  <td>{{ questao_48_esperado.6.1|floatformat:2 }}</td>
+                  <td>{{ questao_48_esperado.6.0|floatformat:2 }} %</td>
+                  <td>{{ questao_48_esperado.6.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>4 a 6 vezes por dia</td>
-                  <td>{{ questao_48_esperado.7.0|floatformat:2 }}</td>
-                  <td>{{ questao_48_esperado.7.1|floatformat:2 }}</td>
+                  <td>{{ questao_48_esperado.7.0|floatformat:2 }} %</td>
+                  <td>{{ questao_48_esperado.7.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>Mais de 8 vezes por dia</td>
-                  <td>{{ questao_48_esperado.8.0|floatformat:2 }}</td>
-                  <td>{{ questao_48_esperado.8.1|floatformat:2 }}</td>
+                  <td>{{ questao_48_esperado.8.0|floatformat:2 }} %</td>
+                  <td>{{ questao_48_esperado.8.1|floatformat:2 }} %</td>
                 </tr>
               </tbody>
             </table>
           </div>
-          <p>P-valor: {{ questao_48_pvalor }}</p>
         </div>
       </div>
     </div>
@@ -4931,7 +4898,7 @@
     <div class="col-lg-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          Incidência de cárie por consumo de alimento (49) Sucos naturais (de laranja, acerola, tangerina, uva): (valores esperados)
+          Incidência de cárie por consumo de alimento (49) Sucos naturais (de laranja, acerola, tangerina, uva): (predição)
         </div>
         <div class="panel-body">
           <div class="table-responsive">
@@ -4947,53 +4914,52 @@
               <tbody>
                 <tr>
                   <td>Nunca ou menos de uma vez por mês</td>
-                  <td>{{ questao_49_esperado.0.0|floatformat:2 }}</td>
-                  <td>{{ questao_49_esperado.0.1|floatformat:2 }}</td>
+                  <td>{{ questao_49_esperado.0.0|floatformat:2 }} %</td>
+                  <td>{{ questao_49_esperado.0.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>1 a 3 vezes por mês</td>
-                  <td>{{ questao_49_esperado.1.0|floatformat:2 }}</td>
-                  <td>{{ questao_49_esperado.1.1|floatformat:2 }}</td>
+                  <td>{{ questao_49_esperado.1.0|floatformat:2 }} %</td>
+                  <td>{{ questao_49_esperado.1.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>1 vez por semana</td>
-                  <td>{{ questao_49_esperado.2.0|floatformat:2 }}</td>
-                  <td>{{ questao_49_esperado.2.1|floatformat:2 }}</td>
+                  <td>{{ questao_49_esperado.2.0|floatformat:2 }} %</td>
+                  <td>{{ questao_49_esperado.2.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>2 a 4 vezes por semana</td>
-                  <td>{{ questao_49_esperado.3.0|floatformat:2 }}</td>
-                  <td>{{ questao_49_esperado.3.1|floatformat:2 }}</td>
+                  <td>{{ questao_49_esperado.3.0|floatformat:2 }} %</td>
+                  <td>{{ questao_49_esperado.3.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>6 a 8 vezes por semana</td>
-                  <td>{{ questao_49_esperado.4.0|floatformat:2 }}</td>
-                  <td>{{ questao_49_esperado.4.1|floatformat:2 }}</td>
+                  <td>{{ questao_49_esperado.4.0|floatformat:2 }} %</td>
+                  <td>{{ questao_49_esperado.4.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>1 vez por dia</td>
-                  <td>{{ questao_49_esperado.5.0|floatformat:2 }}</td>
-                  <td>{{ questao_49_esperado.5.1|floatformat:2 }}</td>
+                  <td>{{ questao_49_esperado.5.0|floatformat:2 }} %</td>
+                  <td>{{ questao_49_esperado.5.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>2 a 3 vezes por dia</td>
-                  <td>{{ questao_49_esperado.6.0|floatformat:2 }}</td>
-                  <td>{{ questao_49_esperado.6.1|floatformat:2 }}</td>
+                  <td>{{ questao_49_esperado.6.0|floatformat:2 }} %</td>
+                  <td>{{ questao_49_esperado.6.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>4 a 6 vezes por dia</td>
-                  <td>{{ questao_49_esperado.7.0|floatformat:2 }}</td>
-                  <td>{{ questao_49_esperado.7.1|floatformat:2 }}</td>
+                  <td>{{ questao_49_esperado.7.0|floatformat:2 }} %</td>
+                  <td>{{ questao_49_esperado.7.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>Mais de 8 vezes por dia</td>
-                  <td>{{ questao_49_esperado.8.0|floatformat:2 }}</td>
-                  <td>{{ questao_49_esperado.8.1|floatformat:2 }}</td>
+                  <td>{{ questao_49_esperado.8.0|floatformat:2 }} %</td>
+                  <td>{{ questao_49_esperado.8.1|floatformat:2 }} %</td>
                 </tr>
               </tbody>
             </table>
           </div>
-          <p>P-valor: {{ questao_49_pvalor }}</p>
         </div>
       </div>
     </div>
@@ -5088,7 +5054,7 @@
     <div class="col-lg-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          Incidência de cárie por consumo de alimento (50) Refrigerantes (Coca cola, graraná ou fanta) ou ainda sucos de caixinha com néctar (como Kapo, del Valle): (valores esperados)
+          Incidência de cárie por consumo de alimento (50) Refrigerantes (Coca cola, graraná ou fanta) ou ainda sucos de caixinha com néctar (como Kapo, del Valle): (predição)
         </div>
         <div class="panel-body">
           <div class="table-responsive">
@@ -5104,53 +5070,52 @@
               <tbody>
                 <tr>
                   <td>Nunca ou menos de uma vez por mês</td>
-                  <td>{{ questao_50_esperado.0.0|floatformat:2 }}</td>
-                  <td>{{ questao_50_esperado.0.1|floatformat:2 }}</td>
+                  <td>{{ questao_50_esperado.0.0|floatformat:2 }} %</td>
+                  <td>{{ questao_50_esperado.0.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>1 a 3 vezes por mês</td>
-                  <td>{{ questao_50_esperado.1.0|floatformat:2 }}</td>
-                  <td>{{ questao_50_esperado.1.1|floatformat:2 }}</td>
+                  <td>{{ questao_50_esperado.1.0|floatformat:2 }} %</td>
+                  <td>{{ questao_50_esperado.1.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>1 vez por semana</td>
-                  <td>{{ questao_50_esperado.2.0|floatformat:2 }}</td>
-                  <td>{{ questao_50_esperado.2.1|floatformat:2 }}</td>
+                  <td>{{ questao_50_esperado.2.0|floatformat:2 }} %</td>
+                  <td>{{ questao_50_esperado.2.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>2 a 4 vezes por semana</td>
-                  <td>{{ questao_50_esperado.3.0|floatformat:2 }}</td>
-                  <td>{{ questao_50_esperado.3.1|floatformat:2 }}</td>
+                  <td>{{ questao_50_esperado.3.0|floatformat:2 }} %</td>
+                  <td>{{ questao_50_esperado.3.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>6 a 8 vezes por semana</td>
-                  <td>{{ questao_50_esperado.4.0|floatformat:2 }}</td>
-                  <td>{{ questao_50_esperado.4.1|floatformat:2 }}</td>
+                  <td>{{ questao_50_esperado.4.0|floatformat:2 }} %</td>
+                  <td>{{ questao_50_esperado.4.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>1 vez por dia</td>
-                  <td>{{ questao_50_esperado.5.0|floatformat:2 }}</td>
-                  <td>{{ questao_50_esperado.5.1|floatformat:2 }}</td>
+                  <td>{{ questao_50_esperado.5.0|floatformat:2 }} %</td>
+                  <td>{{ questao_50_esperado.5.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>2 a 3 vezes por dia</td>
-                  <td>{{ questao_50_esperado.6.0|floatformat:2 }}</td>
-                  <td>{{ questao_50_esperado.6.1|floatformat:2 }}</td>
+                  <td>{{ questao_50_esperado.6.0|floatformat:2 }} %</td>
+                  <td>{{ questao_50_esperado.6.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>4 a 6 vezes por dia</td>
-                  <td>{{ questao_50_esperado.7.0|floatformat:2 }}</td>
-                  <td>{{ questao_50_esperado.7.1|floatformat:2 }}</td>
+                  <td>{{ questao_50_esperado.7.0|floatformat:2 }} %</td>
+                  <td>{{ questao_50_esperado.7.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>Mais de 8 vezes por dia</td>
-                  <td>{{ questao_50_esperado.8.0|floatformat:2 }}</td>
-                  <td>{{ questao_50_esperado.8.1|floatformat:2 }}</td>
+                  <td>{{ questao_50_esperado.8.0|floatformat:2 }} %</td>
+                  <td>{{ questao_50_esperado.8.1|floatformat:2 }} %</td>
                 </tr>
               </tbody>
             </table>
           </div>
-          <p>P-valor: {{ questao_50_pvalor }}</p>
         </div>
       </div>
     </div>
@@ -5245,7 +5210,7 @@
     <div class="col-lg-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          Incidência de cárie por consumo de alimento (51) Pizzas. (Mini Pizza por exemplo): (valores esperados)
+          Incidência de cárie por consumo de alimento (51) Pizzas. (Mini Pizza por exemplo): (predição)
         </div>
         <div class="panel-body">
           <div class="table-responsive">
@@ -5261,53 +5226,52 @@
               <tbody>
                 <tr>
                   <td>Nunca ou menos de uma vez por mês</td>
-                  <td>{{ questao_51_esperado.0.0|floatformat:2 }}</td>
-                  <td>{{ questao_51_esperado.0.1|floatformat:2 }}</td>
+                  <td>{{ questao_51_esperado.0.0|floatformat:2 }} %</td>
+                  <td>{{ questao_51_esperado.0.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>1 a 3 vezes por mês</td>
-                  <td>{{ questao_51_esperado.1.0|floatformat:2 }}</td>
-                  <td>{{ questao_51_esperado.1.1|floatformat:2 }}</td>
+                  <td>{{ questao_51_esperado.1.0|floatformat:2 }} %</td>
+                  <td>{{ questao_51_esperado.1.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>1 vez por semana</td>
-                  <td>{{ questao_51_esperado.2.0|floatformat:2 }}</td>
-                  <td>{{ questao_51_esperado.2.1|floatformat:2 }}</td>
+                  <td>{{ questao_51_esperado.2.0|floatformat:2 }} %</td>
+                  <td>{{ questao_51_esperado.2.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>2 a 4 vezes por semana</td>
-                  <td>{{ questao_51_esperado.3.0|floatformat:2 }}</td>
-                  <td>{{ questao_51_esperado.3.1|floatformat:2 }}</td>
+                  <td>{{ questao_51_esperado.3.0|floatformat:2 }} %</td>
+                  <td>{{ questao_51_esperado.3.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>6 a 8 vezes por semana</td>
-                  <td>{{ questao_51_esperado.4.0|floatformat:2 }}</td>
-                  <td>{{ questao_51_esperado.4.1|floatformat:2 }}</td>
+                  <td>{{ questao_51_esperado.4.0|floatformat:2 }} %</td>
+                  <td>{{ questao_51_esperado.4.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>1 vez por dia</td>
-                  <td>{{ questao_51_esperado.5.0|floatformat:2 }}</td>
-                  <td>{{ questao_51_esperado.5.1|floatformat:2 }}</td>
+                  <td>{{ questao_51_esperado.5.0|floatformat:2 }} %</td>
+                  <td>{{ questao_51_esperado.5.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>2 a 3 vezes por dia</td>
-                  <td>{{ questao_51_esperado.6.0|floatformat:2 }}</td>
-                  <td>{{ questao_51_esperado.6.1|floatformat:2 }}</td>
+                  <td>{{ questao_51_esperado.6.0|floatformat:2 }} %</td>
+                  <td>{{ questao_51_esperado.6.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>4 a 6 vezes por dia</td>
-                  <td>{{ questao_51_esperado.7.0|floatformat:2 }}</td>
-                  <td>{{ questao_51_esperado.7.1|floatformat:2 }}</td>
+                  <td>{{ questao_51_esperado.7.0|floatformat:2 }} %</td>
+                  <td>{{ questao_51_esperado.7.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>Mais de 8 vezes por dia</td>
-                  <td>{{ questao_51_esperado.8.0|floatformat:2 }}</td>
-                  <td>{{ questao_51_esperado.8.1|floatformat:2 }}</td>
+                  <td>{{ questao_51_esperado.8.0|floatformat:2 }} %</td>
+                  <td>{{ questao_51_esperado.8.1|floatformat:2 }} %</td>
                 </tr>
               </tbody>
             </table>
           </div>
-          <p>P-valor: {{ questao_51_pvalor }}</p>
         </div>
       </div>
     </div>
@@ -5402,7 +5366,7 @@
     <div class="col-lg-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          Incidência de cárie por consumo de alimento (52) Hamburguer e cachorro quente.: (valores esperados)
+          Incidência de cárie por consumo de alimento (52) Hamburguer e cachorro quente.: (predição)
         </div>
         <div class="panel-body">
           <div class="table-responsive">
@@ -5418,53 +5382,52 @@
               <tbody>
                 <tr>
                   <td>Nunca ou menos de uma vez por mês</td>
-                  <td>{{ questao_52_esperado.0.0|floatformat:2 }}</td>
-                  <td>{{ questao_52_esperado.0.1|floatformat:2 }}</td>
+                  <td>{{ questao_52_esperado.0.0|floatformat:2 }} %</td>
+                  <td>{{ questao_52_esperado.0.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>1 a 3 vezes por mês</td>
-                  <td>{{ questao_52_esperado.1.0|floatformat:2 }}</td>
-                  <td>{{ questao_52_esperado.1.1|floatformat:2 }}</td>
+                  <td>{{ questao_52_esperado.1.0|floatformat:2 }} %</td>
+                  <td>{{ questao_52_esperado.1.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>1 vez por semana</td>
-                  <td>{{ questao_52_esperado.2.0|floatformat:2 }}</td>
-                  <td>{{ questao_52_esperado.2.1|floatformat:2 }}</td>
+                  <td>{{ questao_52_esperado.2.0|floatformat:2 }} %</td>
+                  <td>{{ questao_52_esperado.2.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>2 a 4 vezes por semana</td>
-                  <td>{{ questao_52_esperado.3.0|floatformat:2 }}</td>
-                  <td>{{ questao_52_esperado.3.1|floatformat:2 }}</td>
+                  <td>{{ questao_52_esperado.3.0|floatformat:2 }} %</td>
+                  <td>{{ questao_52_esperado.3.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>6 a 8 vezes por semana</td>
-                  <td>{{ questao_52_esperado.4.0|floatformat:2 }}</td>
-                  <td>{{ questao_52_esperado.4.1|floatformat:2 }}</td>
+                  <td>{{ questao_52_esperado.4.0|floatformat:2 }} %</td>
+                  <td>{{ questao_52_esperado.4.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>1 vez por dia</td>
-                  <td>{{ questao_52_esperado.5.0|floatformat:2 }}</td>
-                  <td>{{ questao_52_esperado.5.1|floatformat:2 }}</td>
+                  <td>{{ questao_52_esperado.5.0|floatformat:2 }} %</td>
+                  <td>{{ questao_52_esperado.5.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>2 a 3 vezes por dia</td>
-                  <td>{{ questao_52_esperado.6.0|floatformat:2 }}</td>
-                  <td>{{ questao_52_esperado.6.1|floatformat:2 }}</td>
+                  <td>{{ questao_52_esperado.6.0|floatformat:2 }} %</td>
+                  <td>{{ questao_52_esperado.6.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>4 a 6 vezes por dia</td>
-                  <td>{{ questao_52_esperado.7.0|floatformat:2 }}</td>
-                  <td>{{ questao_52_esperado.7.1|floatformat:2 }}</td>
+                  <td>{{ questao_52_esperado.7.0|floatformat:2 }} %</td>
+                  <td>{{ questao_52_esperado.7.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>Mais de 8 vezes por dia</td>
-                  <td>{{ questao_52_esperado.8.0|floatformat:2 }}</td>
-                  <td>{{ questao_52_esperado.8.1|floatformat:2 }}</td>
+                  <td>{{ questao_52_esperado.8.0|floatformat:2 }} %</td>
+                  <td>{{ questao_52_esperado.8.1|floatformat:2 }} %</td>
                 </tr>
               </tbody>
             </table>
           </div>
-          <p>P-valor: {{ questao_52_pvalor }}</p>
         </div>
       </div>
     </div>
@@ -5559,7 +5522,7 @@
     <div class="col-lg-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          Incidência de cárie por consumo de alimento (53) Rebuçados, gomas, pastilhas elásticas. (Chicletes, balinhas, jujubas): (valores esperados)
+          Incidência de cárie por consumo de alimento (53) Rebuçados, gomas, pastilhas elásticas. (Chicletes, balinhas, jujubas): (predição)
         </div>
         <div class="panel-body">
           <div class="table-responsive">
@@ -5575,53 +5538,52 @@
               <tbody>
                 <tr>
                   <td>Nunca ou menos de uma vez por mês</td>
-                  <td>{{ questao_53_esperado.0.0|floatformat:2 }}</td>
-                  <td>{{ questao_53_esperado.0.1|floatformat:2 }}</td>
+                  <td>{{ questao_53_esperado.0.0|floatformat:2 }} %</td>
+                  <td>{{ questao_53_esperado.0.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>1 a 3 vezes por mês</td>
-                  <td>{{ questao_53_esperado.1.0|floatformat:2 }}</td>
-                  <td>{{ questao_53_esperado.1.1|floatformat:2 }}</td>
+                  <td>{{ questao_53_esperado.1.0|floatformat:2 }} %</td>
+                  <td>{{ questao_53_esperado.1.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>1 vez por semana</td>
-                  <td>{{ questao_53_esperado.2.0|floatformat:2 }}</td>
-                  <td>{{ questao_53_esperado.2.1|floatformat:2 }}</td>
+                  <td>{{ questao_53_esperado.2.0|floatformat:2 }} %</td>
+                  <td>{{ questao_53_esperado.2.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>2 a 4 vezes por semana</td>
-                  <td>{{ questao_53_esperado.3.0|floatformat:2 }}</td>
-                  <td>{{ questao_53_esperado.3.1|floatformat:2 }}</td>
+                  <td>{{ questao_53_esperado.3.0|floatformat:2 }} %</td>
+                  <td>{{ questao_53_esperado.3.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>6 a 8 vezes por semana</td>
-                  <td>{{ questao_53_esperado.4.0|floatformat:2 }}</td>
-                  <td>{{ questao_53_esperado.4.1|floatformat:2 }}</td>
+                  <td>{{ questao_53_esperado.4.0|floatformat:2 }} %</td>
+                  <td>{{ questao_53_esperado.4.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>1 vez por dia</td>
-                  <td>{{ questao_53_esperado.5.0|floatformat:2 }}</td>
-                  <td>{{ questao_53_esperado.5.1|floatformat:2 }}</td>
+                  <td>{{ questao_53_esperado.5.0|floatformat:2 }} %</td>
+                  <td>{{ questao_53_esperado.5.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>2 a 3 vezes por dia</td>
-                  <td>{{ questao_53_esperado.6.0|floatformat:2 }}</td>
-                  <td>{{ questao_53_esperado.6.1|floatformat:2 }}</td>
+                  <td>{{ questao_53_esperado.6.0|floatformat:2 }} %</td>
+                  <td>{{ questao_53_esperado.6.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>4 a 6 vezes por dia</td>
-                  <td>{{ questao_53_esperado.7.0|floatformat:2 }}</td>
-                  <td>{{ questao_53_esperado.7.1|floatformat:2 }}</td>
+                  <td>{{ questao_53_esperado.7.0|floatformat:2 }} %</td>
+                  <td>{{ questao_53_esperado.7.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>Mais de 8 vezes por dia</td>
-                  <td>{{ questao_53_esperado.8.0|floatformat:2 }}</td>
-                  <td>{{ questao_53_esperado.8.1|floatformat:2 }}</td>
+                  <td>{{ questao_53_esperado.8.0|floatformat:2 }} %</td>
+                  <td>{{ questao_53_esperado.8.1|floatformat:2 }} %</td>
                 </tr>
               </tbody>
             </table>
           </div>
-          <p>P-valor: {{ questao_53_pvalor }}</p>
         </div>
       </div>
     </div>
@@ -5716,7 +5678,7 @@
     <div class="col-lg-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          Incidência de cárie por consumo de alimento (54) Rosquinhas (como Donuts, Sonhos, Rosquinhas de Polvilho, Pão de Mel) Hábitos Alimentares quando o (a) estudante tinha menos de dois anos de idade: (valores esperados)
+          Incidência de cárie por consumo de alimento (54) Rosquinhas (como Donuts, Sonhos, Rosquinhas de Polvilho, Pão de Mel) Hábitos Alimentares quando o (a) estudante tinha menos de dois anos de idade: (predição)
         </div>
         <div class="panel-body">
           <div class="table-responsive">
@@ -5732,53 +5694,52 @@
               <tbody>
                 <tr>
                   <td>Nunca ou menos de uma vez por mês</td>
-                  <td>{{ questao_54_esperado.0.0|floatformat:2 }}</td>
-                  <td>{{ questao_54_esperado.0.1|floatformat:2 }}</td>
+                  <td>{{ questao_54_esperado.0.0|floatformat:2 }} %</td>
+                  <td>{{ questao_54_esperado.0.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>1 a 3 vezes por mês</td>
-                  <td>{{ questao_54_esperado.1.0|floatformat:2 }}</td>
-                  <td>{{ questao_54_esperado.1.1|floatformat:2 }}</td>
+                  <td>{{ questao_54_esperado.1.0|floatformat:2 }} %</td>
+                  <td>{{ questao_54_esperado.1.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>1 vez por semana</td>
-                  <td>{{ questao_54_esperado.2.0|floatformat:2 }}</td>
-                  <td>{{ questao_54_esperado.2.1|floatformat:2 }}</td>
+                  <td>{{ questao_54_esperado.2.0|floatformat:2 }} %</td>
+                  <td>{{ questao_54_esperado.2.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>2 a 4 vezes por semana</td>
-                  <td>{{ questao_54_esperado.3.0|floatformat:2 }}</td>
-                  <td>{{ questao_54_esperado.3.1|floatformat:2 }}</td>
+                  <td>{{ questao_54_esperado.3.0|floatformat:2 }} %</td>
+                  <td>{{ questao_54_esperado.3.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>6 a 8 vezes por semana</td>
-                  <td>{{ questao_54_esperado.4.0|floatformat:2 }}</td>
-                  <td>{{ questao_54_esperado.4.1|floatformat:2 }}</td>
+                  <td>{{ questao_54_esperado.4.0|floatformat:2 }} %</td>
+                  <td>{{ questao_54_esperado.4.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>1 vez por dia</td>
-                  <td>{{ questao_54_esperado.5.0|floatformat:2 }}</td>
-                  <td>{{ questao_54_esperado.5.1|floatformat:2 }}</td>
+                  <td>{{ questao_54_esperado.5.0|floatformat:2 }} %</td>
+                  <td>{{ questao_54_esperado.5.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>2 a 3 vezes por dia</td>
-                  <td>{{ questao_54_esperado.6.0|floatformat:2 }}</td>
-                  <td>{{ questao_54_esperado.6.1|floatformat:2 }}</td>
+                  <td>{{ questao_54_esperado.6.0|floatformat:2 }} %</td>
+                  <td>{{ questao_54_esperado.6.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>4 a 6 vezes por dia</td>
-                  <td>{{ questao_54_esperado.7.0|floatformat:2 }}</td>
-                  <td>{{ questao_54_esperado.7.1|floatformat:2 }}</td>
+                  <td>{{ questao_54_esperado.7.0|floatformat:2 }} %</td>
+                  <td>{{ questao_54_esperado.7.1|floatformat:2 }} %</td>
                 </tr>
                 <tr>
                   <td>Mais de 8 vezes por dia</td>
-                  <td>{{ questao_54_esperado.8.0|floatformat:2 }}</td>
-                  <td>{{ questao_54_esperado.8.1|floatformat:2 }}</td>
+                  <td>{{ questao_54_esperado.8.0|floatformat:2 }} %</td>
+                  <td>{{ questao_54_esperado.8.1|floatformat:2 }} %</td>
                 </tr>
               </tbody>
             </table>
           </div>
-          <p>P-valor: {{ questao_54_pvalor }}</p>
         </div>
       </div>
     </div>

@@ -3058,6 +3058,2901 @@ class InferenciaView(LoginRequired, View):
         return render(self.request, 'administracao/inferencia.html', context)
 
 
+class PredicaoView(LoginRequired, View):
+    """Exibe dados gerados após o processo predição pelo Naive Bayes"""
+    
+    def get(self, request):
+        alunos = Aluno.objects.all()
+        
+        # Dados sociais
+        sexo = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
+        sexo_esperado = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
+        raca = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
+        raca_esperado = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
+        
+        # Uso de cigarro
+        questao_73 = [[0, 0, 1], [0, 0, 1], [1, 1, 1]]
+        questao_73_esperado = [[0, 0, 1], [0, 0, 1], [1, 1, 1]]
+        questao_75 = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
+        questao_75_esperado = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
+        questao_79 = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
+        questao_79_esperado = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
+        
+        # Consumo de bebida alcoólica
+        questao_84 = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
+        questao_84_esperado = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
+        
+        # Drogas ilícitas
+        questao_92 = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
+        questao_92_esperado = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
+        
+        # Saúde bucal
+        questao_111 = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
+        questao_111_esperado = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
+        questao_113 = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
+        questao_113_esperado = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
+        
+        # Frequência alimentar
+        questao_25 = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
+        questao_25_esperado = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
+        questao_26 = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
+        questao_26_esperado = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
+        questao_27 = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
+        questao_27_esperado = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
+        questao_28 = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
+        questao_28_esperado = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
+        questao_29 = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
+        questao_29_esperado = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
+        questao_30 = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
+        questao_30_esperado = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
+        questao_31 = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
+        questao_31_esperado = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
+        questao_32 = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
+        questao_32_esperado = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
+        questao_33 = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
+        questao_33_esperado = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
+        questao_34 = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
+        questao_34_esperado = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
+        questao_35 = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
+        questao_35_esperado = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
+        questao_36 = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
+        questao_36_esperado = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
+        questao_37 = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
+        questao_37_esperado = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
+        questao_38 = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
+        questao_38_esperado = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
+        questao_39 = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
+        questao_39_esperado = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
+        questao_40 = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
+        questao_40_esperado = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
+        questao_41 = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
+        questao_41_esperado = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
+        questao_42 = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
+        questao_42_esperado = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
+        questao_43 = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
+        questao_43_esperado = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
+        questao_44 = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
+        questao_44_esperado = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
+        questao_45 = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
+        questao_45_esperado = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
+        questao_46 = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
+        questao_46_esperado = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
+        questao_47 = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
+        questao_47_esperado = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
+        questao_48 = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
+        questao_48_esperado = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
+        questao_49 = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
+        questao_49_esperado = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
+        questao_50 = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
+        questao_50_esperado = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
+        questao_51 = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
+        questao_51_esperado = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
+        questao_52 = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
+        questao_52_esperado = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
+        questao_53 = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
+        questao_53_esperado = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
+        questao_54 = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
+        questao_54_esperado = [[0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [0, 0, 1], [1, 1, 1]]
+        
+        sexo_pvalor = 0
+        raca_pvalor = 0
+        questao_73_pvalor = 0
+        questao_75_pvalor = 0
+        questao_79_pvalor = 0
+        questao_84_pvalor = 0
+        questao_92_pvalor = 0
+        questao_111_pvalor = 0
+        questao_113_pvalor = 0
+        questao_25_pvalor = 0
+        questao_26_pvalor = 0
+        questao_27_pvalor = 0
+        questao_28_pvalor = 0
+        questao_29_pvalor = 0
+        questao_30_pvalor = 0
+        questao_31_pvalor = 0
+        questao_32_pvalor = 0
+        questao_33_pvalor = 0
+        questao_34_pvalor = 0
+        questao_35_pvalor = 0
+        questao_36_pvalor = 0
+        questao_37_pvalor = 0
+        questao_38_pvalor = 0
+        questao_39_pvalor = 0
+        questao_40_pvalor = 0
+        questao_41_pvalor = 0
+        questao_42_pvalor = 0
+        questao_43_pvalor = 0
+        questao_44_pvalor = 0
+        questao_45_pvalor = 0
+        questao_46_pvalor = 0
+        questao_47_pvalor = 0
+        questao_48_pvalor = 0
+        questao_49_pvalor = 0
+        questao_50_pvalor = 0
+        questao_51_pvalor = 0
+        questao_52_pvalor = 0
+        questao_53_pvalor = 0
+        questao_54_pvalor = 0
+        
+        for aluno in alunos:
+            try:
+                exame = aluno.exame
+            except Exame.DoesNotExist:
+                pass
+            else:
+                if aluno.exame.carie_coroa_18 == 'B' or aluno.exame.carie_coroa_18 == '1' \
+                   or aluno.exame.carie_coroa_17 == 'B' or aluno.exame.carie_coroa_17 == '1' \
+                   or aluno.exame.carie_coroa_16 == 'B' or aluno.exame.carie_coroa_16 == '1' \
+                   or aluno.exame.carie_coroa_15 == 'B' or aluno.exame.carie_coroa_15 == '1' \
+                   or aluno.exame.carie_coroa_14 == 'B' or aluno.exame.carie_coroa_14 == '1' \
+                   or aluno.exame.carie_coroa_13 == 'B' or aluno.exame.carie_coroa_13 == '1' \
+                   or aluno.exame.carie_coroa_12 == 'B' or aluno.exame.carie_coroa_12 == '1' \
+                   or aluno.exame.carie_coroa_11 == 'B' or aluno.exame.carie_coroa_11 == '1' \
+                   or aluno.exame.carie_coroa_21 == 'B' or aluno.exame.carie_coroa_21 == '1' \
+                   or aluno.exame.carie_coroa_22 == 'B' or aluno.exame.carie_coroa_22 == '1' \
+                   or aluno.exame.carie_coroa_23 == 'B' or aluno.exame.carie_coroa_23 == '1' \
+                   or aluno.exame.carie_coroa_24 == 'B' or aluno.exame.carie_coroa_24 == '1' \
+                   or aluno.exame.carie_coroa_25 == 'B' or aluno.exame.carie_coroa_25 == '1' \
+                   or aluno.exame.carie_coroa_26 == 'B' or aluno.exame.carie_coroa_26 == '1' \
+                   or aluno.exame.carie_coroa_27 == 'B' or aluno.exame.carie_coroa_27 == '1' \
+                   or aluno.exame.carie_coroa_28 == 'B' or aluno.exame.carie_coroa_28 == '1' \
+                   or aluno.exame.carie_coroa_38 == 'B' or aluno.exame.carie_coroa_38 == '1' \
+                   or aluno.exame.carie_coroa_37 == 'B' or aluno.exame.carie_coroa_37 == '1' \
+                   or aluno.exame.carie_coroa_36 == 'B' or aluno.exame.carie_coroa_36 == '1' \
+                   or aluno.exame.carie_coroa_35 == 'B' or aluno.exame.carie_coroa_35 == '1' \
+                   or aluno.exame.carie_coroa_34 == 'B' or aluno.exame.carie_coroa_34 == '1' \
+                   or aluno.exame.carie_coroa_33 == 'B' or aluno.exame.carie_coroa_33 == '1' \
+                   or aluno.exame.carie_coroa_32 == 'B' or aluno.exame.carie_coroa_32 == '1' \
+                   or aluno.exame.carie_coroa_31 == 'B' or aluno.exame.carie_coroa_31 == '1' \
+                   or aluno.exame.carie_coroa_41 == 'B' or aluno.exame.carie_coroa_41 == '1' \
+                   or aluno.exame.carie_coroa_42 == 'B' or aluno.exame.carie_coroa_42 == '1' \
+                   or aluno.exame.carie_coroa_43 == 'B' or aluno.exame.carie_coroa_43 == '1' \
+                   or aluno.exame.carie_coroa_44 == 'B' or aluno.exame.carie_coroa_44 == '1' \
+                   or aluno.exame.carie_coroa_45 == 'B' or aluno.exame.carie_coroa_45 == '1' \
+                   or aluno.exame.carie_coroa_46 == 'B' or aluno.exame.carie_coroa_46 == '1' \
+                   or aluno.exame.carie_coroa_47 == 'B' or aluno.exame.carie_coroa_47 == '1' \
+                   or aluno.exame.carie_coroa_48 == 'B' or aluno.exame.carie_coroa_48 == '1':
+                    # Sexo
+                    if aluno.sexo == '0': # masculino
+                        sexo[0][0] += 1
+                    elif aluno.sexo == '1': # feminino
+                        sexo[1][0] += 1
+                    elif aluno.sexo == '2': # outro
+                        sexo[2][0] += 1
+                    
+                    # Raça
+                    if aluno.raca == '0': # amarela
+                        raca[0][0] += 1
+                    elif aluno.raca == '1': # branca
+                        raca[1][0] += 1
+                    elif aluno.raca == '2': # indigena
+                        raca[2][0] += 1
+                    elif aluno.raca == '3': # parda
+                        raca[3][0] += 1
+                    elif aluno.raca == '4': # preta
+                        raca[4][0] += 1
+                    
+                    try:
+                        questionario = aluno.questionario
+                    except Questionario.DoesNotExist:
+                        pass
+                    else:
+                        # Questão 73
+                        if aluno.questionario.questao_73 == '0': # Sim
+                            questao_73[0][0] += 1
+                        elif aluno.questionario.questao_73 == '1': # Não
+                            questao_73[1][0] += 1
+                        
+                        # Questão 75
+                        if aluno.questionario.questao_75 == '0': # Nenhum dia nos últimos 30 dias (0 dia)
+                            questao_75[0][0] += 1
+                        elif aluno.questionario.questao_75 == '1': # 1 ou 2 dias nos últimos 30 dias
+                            questao_75[1][0] += 1
+                        elif aluno.questionario.questao_75 == '2': # 3 a 5 dias nos últimos 30 dias
+                            questao_75[2][0] += 1
+                        elif aluno.questionario.questao_75 == '3': # 6 a 9 dias nos últimos 30 dias
+                            questao_75[3][0] += 1
+                        elif aluno.questionario.questao_75 == '4': # 10 a 19 dias nos últimos 30 dias
+                            questao_75[4][0] += 1
+                        elif aluno.questionario.questao_75 == '5': # 20 a 29 dias nos últimos 30 dias
+                            questao_75[5][0] += 1
+                        elif aluno.questionario.questao_75 == '6': # Todos os dias nos últimos 30 dias
+                            questao_75[6][0] += 1
+                        
+                        # Questão 79
+                        if aluno.questionario.questao_79 == '0': # Não usei nenhum produto do tabaco (os produtos do tabaco estão abaixo relacionados)
+                            questao_79[0][0] += 1
+                        elif aluno.questionario.questao_79 == '1': # Cigarros de cravo (conhecidos como cigarros de Bali).
+                            questao_79[1][0] += 1
+                        elif aluno.questionario.questao_79 == '2': # Cigarros enrolados à mão (conhecidos como cigarros de palha ou papel)
+                            questao_79[2][0] += 1
+                        elif aluno.questionario.questao_79 == '3': # Cigarrilhas
+                            questao_79[3][0] += 1
+                        elif aluno.questionario.questao_79 == '4': # Charutos, charutos pequenos.
+                            questao_79[4][0] += 1
+                        elif aluno.questionario.questao_79 == '5': # Fumo para mascar
+                            questao_79[5][0] += 1
+                        elif aluno.questionario.questao_79 == '6': # Narguilé (cachimbo de água)
+                            questao_79[6][0] += 1
+                        elif aluno.questionario.questao_79 == '7': # Cigarros indianos (bidis)
+                            questao_79[7][0] += 1
+                        elif aluno.questionario.questao_79 == '8': # Cigarro eletrônico (e-cigarette)
+                            questao_79[8][0] += 1
+                        elif aluno.questionario.questao_79 == '9': # Outros
+                            questao_79[9][0] += 1
+                        
+                        # Questao_84
+                        if aluno.questionario.questao_84 == '0': # Nenhum dia nos últimos 30 dias (0 dia)
+                            questao_84[0][0] += 1
+                        elif aluno.questionario.questao_84 == '1': # 1 ou 2 dias nos últimos 30 dias
+                            questao_84[1][0] += 1
+                        elif aluno.questionario.questao_84 == '2': # 3 a 5 dias nos últimos 30 dias
+                            questao_84[2][0] += 1
+                        elif aluno.questionario.questao_84 == '3': # 6 a 9 dias nos últimos 30 dias
+                            questao_84[3][0] += 1
+                        elif aluno.questionario.questao_84 == '4': # 10 a 19 dias nos últimos 30 dias
+                            questao_84[4][0] += 1
+                        elif aluno.questionario.questao_84 == '5': # 20 a 29 dias nos últimos 30 dias
+                            questao_84[5][0] += 1
+                        elif aluno.questionario.questao_84 == '6': # Todos os dias nos últimos 30 dias
+                            questao_84[6][0] += 1
+                        
+                        # Questao_92
+                        if aluno.questionario.questao_92 == '0': # Nenhum dia nos últimos 30 dias (0 dia)
+                            questao_92[0][0] += 1
+                        elif aluno.questionario.questao_92 == '1': # 1 ou 2 dias nos últimos 30 dias
+                            questao_92[1][0] += 1
+                        elif aluno.questionario.questao_92 == '2': # 3 a 5 dias nos últimos 30 dias
+                            questao_92[2][0] += 1
+                        elif aluno.questionario.questao_92 == '3': # 6 a 9 dias nos últimos 30 dias
+                            questao_92[3][0] += 1
+                        elif aluno.questionario.questao_92 == '4': # 10 ou mais dias nos últimos 30 dias
+                            questao_92[4][0] += 1
+                        
+                        # Questao_111
+                        if aluno.questionario.questao_111 == '0': # Não escovei meus dentes nos últimos 30 dias
+                            questao_111[0][0] += 1
+                        elif aluno.questionario.questao_111 == '1': # Não escovei meus dentes diariamente
+                            questao_111[1][0] += 1
+                        elif aluno.questionario.questao_111 == '2': # 1 vez por dia nos últimos 30 dias
+                            questao_111[2][0] += 1
+                        elif aluno.questionario.questao_111 == '3': # 2 vezes por dia nos últimos 30 dias
+                            questao_111[3][0] += 1
+                        elif aluno.questionario.questao_111 == '4': # 3 vezes por dia nos últimos 30 dias
+                            questao_111[4][0] += 1
+                        elif aluno.questionario.questao_111 == '5': # 4 ou mais vezes por dia nos últimos 30 dias
+                            questao_111[5][0] += 1
+                        
+                        # Questao_113
+                        if aluno.questionario.questao_113 == '0': # Nenhuma vez nos últimos 12 meses (0 vez)
+                            questao_113[0][0] += 1
+                        elif aluno.questionario.questao_113 == '1': # 1 vez nos últimos 12 meses
+                            questao_113[1][0] += 1
+                        elif aluno.questionario.questao_113 == '2': # 2 vezes nos últimos 12 meses
+                            questao_113[2][0] += 1
+                        elif aluno.questionario.questao_113 == '3': # 3 ou mais vezes nos últimos 12 meses
+                            questao_113[3][0] += 1
+                        
+                        # Questão 25
+                        if aluno.questionario.questao_25 == '0': # Nunca ou menos de uma vez por mês
+                            questao_25[0][0] += 1
+                        elif aluno.questionario.questao_25 == '1': # 1 a 3 vezes por mês
+                            questao_25[1][0] += 1
+                        elif aluno.questionario.questao_25 == '2': # 1 vez por semana
+                            questao_25[2][0] += 1
+                        elif aluno.questionario.questao_25 == '3': # 2 a 4 vezes por semana
+                            questao_25[3][0] += 1
+                        elif aluno.questionario.questao_25 == '4': # 6 a 8 vezes por semana
+                            questao_25[4][0] += 1
+                        elif aluno.questionario.questao_25 == '5': # 1 vez por dia
+                            questao_25[5][0] += 1
+                        elif aluno.questionario.questao_25 == '6': # 2 a 3 vezes por dia
+                            questao_25[6][0] += 1
+                        elif aluno.questionario.questao_25 == '7': # 4 a 6 vezes por dia
+                            questao_25[7][0] += 1
+                        elif aluno.questionario.questao_25 == '8': # Mais de 8 vezes por dia
+                            questao_25[8][0] += 1
+                        
+                        # Questão 26
+                        if aluno.questionario.questao_26 == '0': # Nunca ou menos de uma vez por mês
+                            questao_26[0][0] += 1
+                        elif aluno.questionario.questao_26 == '1': # 1 a 3 vezes por mês
+                            questao_26[1][0] += 1
+                        elif aluno.questionario.questao_26 == '2': # 1 vez por semana
+                            questao_26[2][0] += 1
+                        elif aluno.questionario.questao_26 == '3': # 2 a 4 vezes por semana
+                            questao_26[3][0] += 1
+                        elif aluno.questionario.questao_26 == '4': # 6 a 8 vezes por semana
+                            questao_26[4][0] += 1
+                        elif aluno.questionario.questao_26 == '5': # 1 vez por dia
+                            questao_26[5][0] += 1
+                        elif aluno.questionario.questao_26 == '6': # 2 a 3 vezes por dia
+                            questao_26[6][0] += 1
+                        elif aluno.questionario.questao_26 == '7': # 4 a 6 vezes por dia
+                            questao_26[7][0] += 1
+                        elif aluno.questionario.questao_26 == '8': # Mais de 8 vezes por dia
+                            questao_26[8][0] += 1
+                        
+                        # Questão 27
+                        if aluno.questionario.questao_27 == '0': # Nunca ou menos de uma vez por mês
+                            questao_27[0][0] += 1
+                        elif aluno.questionario.questao_27 == '1': # 1 a 3 vezes por mês
+                            questao_27[1][0] += 1
+                        elif aluno.questionario.questao_27 == '2': # 1 vez por semana
+                            questao_27[2][0] += 1
+                        elif aluno.questionario.questao_27 == '3': # 2 a 4 vezes por semana
+                            questao_27[3][0] += 1
+                        elif aluno.questionario.questao_27 == '4': # 6 a 8 vezes por semana
+                            questao_27[4][0] += 1
+                        elif aluno.questionario.questao_27 == '5': # 1 vez por dia
+                            questao_27[5][0] += 1
+                        elif aluno.questionario.questao_27 == '6': # 2 a 3 vezes por dia
+                            questao_27[6][0] += 1
+                        elif aluno.questionario.questao_27 == '7': # 4 a 6 vezes por dia
+                            questao_27[7][0] += 1
+                        elif aluno.questionario.questao_27 == '8': # Mais de 8 vezes por dia
+                            questao_27[8][0] += 1
+                        
+                        # Questão 28
+                        if aluno.questionario.questao_28 == '0': # Nunca ou menos de uma vez por mês
+                            questao_28[0][0] += 1
+                        elif aluno.questionario.questao_28 == '1': # 1 a 3 vezes por mês
+                            questao_28[1][0] += 1
+                        elif aluno.questionario.questao_28 == '2': # 1 vez por semana
+                            questao_28[2][0] += 1
+                        elif aluno.questionario.questao_28 == '3': # 2 a 4 vezes por semana
+                            questao_28[3][0] += 1
+                        elif aluno.questionario.questao_28 == '4': # 6 a 8 vezes por semana
+                            questao_28[4][0] += 1
+                        elif aluno.questionario.questao_28 == '5': # 1 vez por dia
+                            questao_28[5][0] += 1
+                        elif aluno.questionario.questao_28 == '6': # 2 a 3 vezes por dia
+                            questao_28[6][0] += 1
+                        elif aluno.questionario.questao_28 == '7': # 4 a 6 vezes por dia
+                            questao_28[7][0] += 1
+                        elif aluno.questionario.questao_28 == '8': # Mais de 8 vezes por dia
+                            questao_28[8][0] += 1
+                        
+                        # Questão 29
+                        if aluno.questionario.questao_29 == '0': # Nunca ou menos de uma vez por mês
+                            questao_29[0][0] += 1
+                        elif aluno.questionario.questao_29 == '1': # 1 a 3 vezes por mês
+                            questao_29[1][0] += 1
+                        elif aluno.questionario.questao_29 == '2': # 1 vez por semana
+                            questao_29[2][0] += 1
+                        elif aluno.questionario.questao_29 == '3': # 2 a 4 vezes por semana
+                            questao_29[3][0] += 1
+                        elif aluno.questionario.questao_29 == '4': # 6 a 8 vezes por semana
+                            questao_29[4][0] += 1
+                        elif aluno.questionario.questao_29 == '5': # 1 vez por dia
+                            questao_29[5][0] += 1
+                        elif aluno.questionario.questao_29 == '6': # 2 a 3 vezes por dia
+                            questao_29[6][0] += 1
+                        elif aluno.questionario.questao_29 == '7': # 4 a 6 vezes por dia
+                            questao_29[7][0] += 1
+                        elif aluno.questionario.questao_29 == '8': # Mais de 8 vezes por dia
+                            questao_29[8][0] += 1
+                        
+                        # Questão 30
+                        if aluno.questionario.questao_30 == '0': # Nunca ou menos de uma vez por mês
+                            questao_30[0][0] += 1
+                        elif aluno.questionario.questao_30 == '1': # 1 a 3 vezes por mês
+                            questao_30[1][0] += 1
+                        elif aluno.questionario.questao_30 == '2': # 1 vez por semana
+                            questao_30[2][0] += 1
+                        elif aluno.questionario.questao_30 == '3': # 2 a 4 vezes por semana
+                            questao_30[3][0] += 1
+                        elif aluno.questionario.questao_30 == '4': # 6 a 8 vezes por semana
+                            questao_30[4][0] += 1
+                        elif aluno.questionario.questao_30 == '5': # 1 vez por dia
+                            questao_30[5][0] += 1
+                        elif aluno.questionario.questao_30 == '6': # 2 a 3 vezes por dia
+                            questao_30[6][0] += 1
+                        elif aluno.questionario.questao_30 == '7': # 4 a 6 vezes por dia
+                            questao_30[7][0] += 1
+                        elif aluno.questionario.questao_30 == '8': # Mais de 8 vezes por dia
+                            questao_30[8][0] += 1
+                        
+                        # Questão 31
+                        if aluno.questionario.questao_31 == '0': # Nunca ou menos de uma vez por mês
+                            questao_31[0][0] += 1
+                        elif aluno.questionario.questao_31 == '1': # 1 a 3 vezes por mês
+                            questao_31[1][0] += 1
+                        elif aluno.questionario.questao_31 == '2': # 1 vez por semana
+                            questao_31[2][0] += 1
+                        elif aluno.questionario.questao_31 == '3': # 2 a 4 vezes por semana
+                            questao_31[3][0] += 1
+                        elif aluno.questionario.questao_31 == '4': # 6 a 8 vezes por semana
+                            questao_31[4][0] += 1
+                        elif aluno.questionario.questao_31 == '5': # 1 vez por dia
+                            questao_31[5][0] += 1
+                        elif aluno.questionario.questao_31 == '6': # 2 a 3 vezes por dia
+                            questao_31[6][0] += 1
+                        elif aluno.questionario.questao_31 == '7': # 4 a 6 vezes por dia
+                            questao_31[7][0] += 1
+                        elif aluno.questionario.questao_31 == '8': # Mais de 8 vezes por dia
+                            questao_31[8][0] += 1
+                        
+                        # Questão 32
+                        if aluno.questionario.questao_32 == '0': # Nunca ou menos de uma vez por mês
+                            questao_32[0][0] += 1
+                        elif aluno.questionario.questao_32 == '1': # 1 a 3 vezes por mês
+                            questao_32[1][0] += 1
+                        elif aluno.questionario.questao_32 == '2': # 1 vez por semana
+                            questao_32[2][0] += 1
+                        elif aluno.questionario.questao_32 == '3': # 2 a 4 vezes por semana
+                            questao_32[3][0] += 1
+                        elif aluno.questionario.questao_32 == '4': # 6 a 8 vezes por semana
+                            questao_32[4][0] += 1
+                        elif aluno.questionario.questao_32 == '5': # 1 vez por dia
+                            questao_32[5][0] += 1
+                        elif aluno.questionario.questao_32 == '6': # 2 a 3 vezes por dia
+                            questao_32[6][0] += 1
+                        elif aluno.questionario.questao_32 == '7': # 4 a 6 vezes por dia
+                            questao_32[7][0] += 1
+                        elif aluno.questionario.questao_32 == '8': # Mais de 8 vezes por dia
+                            questao_32[8][0] += 1
+                        
+                        # Questão 33
+                        if aluno.questionario.questao_33 == '0': # Nunca ou menos de uma vez por mês
+                            questao_33[0][0] += 1
+                        elif aluno.questionario.questao_33 == '1': # 1 a 3 vezes por mês
+                            questao_33[1][0] += 1
+                        elif aluno.questionario.questao_33 == '2': # 1 vez por semana
+                            questao_33[2][0] += 1
+                        elif aluno.questionario.questao_33 == '3': # 2 a 4 vezes por semana
+                            questao_33[3][0] += 1
+                        elif aluno.questionario.questao_33 == '4': # 6 a 8 vezes por semana
+                            questao_33[4][0] += 1
+                        elif aluno.questionario.questao_33 == '5': # 1 vez por dia
+                            questao_33[5][0] += 1
+                        elif aluno.questionario.questao_33 == '6': # 2 a 3 vezes por dia
+                            questao_33[6][0] += 1
+                        elif aluno.questionario.questao_33 == '7': # 4 a 6 vezes por dia
+                            questao_33[7][0] += 1
+                        elif aluno.questionario.questao_33 == '8': # Mais de 8 vezes por dia
+                            questao_33[8][0] += 1
+                        
+                        # Questão 34
+                        if aluno.questionario.questao_34 == '0': # Nunca ou menos de uma vez por mês
+                            questao_34[0][0] += 1
+                        elif aluno.questionario.questao_34 == '1': # 1 a 3 vezes por mês
+                            questao_34[1][0] += 1
+                        elif aluno.questionario.questao_34 == '2': # 1 vez por semana
+                            questao_34[2][0] += 1
+                        elif aluno.questionario.questao_34 == '3': # 2 a 4 vezes por semana
+                            questao_34[3][0] += 1
+                        elif aluno.questionario.questao_34 == '4': # 6 a 8 vezes por semana
+                            questao_34[4][0] += 1
+                        elif aluno.questionario.questao_34 == '5': # 1 vez por dia
+                            questao_34[5][0] += 1
+                        elif aluno.questionario.questao_34 == '6': # 2 a 3 vezes por dia
+                            questao_34[6][0] += 1
+                        elif aluno.questionario.questao_34 == '7': # 4 a 6 vezes por dia
+                            questao_34[7][0] += 1
+                        elif aluno.questionario.questao_34 == '8': # Mais de 8 vezes por dia
+                            questao_34[8][0] += 1
+                        
+                        # Questão 35
+                        if aluno.questionario.questao_35 == '0': # Nunca ou menos de uma vez por mês
+                            questao_35[0][0] += 1
+                        elif aluno.questionario.questao_35 == '1': # 1 a 3 vezes por mês
+                            questao_35[1][0] += 1
+                        elif aluno.questionario.questao_35 == '2': # 1 vez por semana
+                            questao_35[2][0] += 1
+                        elif aluno.questionario.questao_35 == '3': # 2 a 4 vezes por semana
+                            questao_35[3][0] += 1
+                        elif aluno.questionario.questao_35 == '4': # 6 a 8 vezes por semana
+                            questao_35[4][0] += 1
+                        elif aluno.questionario.questao_35 == '5': # 1 vez por dia
+                            questao_35[5][0] += 1
+                        elif aluno.questionario.questao_35 == '6': # 2 a 3 vezes por dia
+                            questao_35[6][0] += 1
+                        elif aluno.questionario.questao_35 == '7': # 4 a 6 vezes por dia
+                            questao_35[7][0] += 1
+                        elif aluno.questionario.questao_35 == '8': # Mais de 8 vezes por dia
+                            questao_35[8][0] += 1
+                        
+                        # Questão 36
+                        if aluno.questionario.questao_36 == '0': # Nunca ou menos de uma vez por mês
+                            questao_36[0][0] += 1
+                        elif aluno.questionario.questao_36 == '1': # 1 a 3 vezes por mês
+                            questao_36[1][0] += 1
+                        elif aluno.questionario.questao_36 == '2': # 1 vez por semana
+                            questao_36[2][0] += 1
+                        elif aluno.questionario.questao_36 == '3': # 2 a 4 vezes por semana
+                            questao_36[3][0] += 1
+                        elif aluno.questionario.questao_36 == '4': # 6 a 8 vezes por semana
+                            questao_36[4][0] += 1
+                        elif aluno.questionario.questao_36 == '5': # 1 vez por dia
+                            questao_36[5][0] += 1
+                        elif aluno.questionario.questao_36 == '6': # 2 a 3 vezes por dia
+                            questao_36[6][0] += 1
+                        elif aluno.questionario.questao_36 == '7': # 4 a 6 vezes por dia
+                            questao_36[7][0] += 1
+                        elif aluno.questionario.questao_36 == '8': # Mais de 8 vezes por dia
+                            questao_36[8][0] += 1
+                        
+                        # Questão 37
+                        if aluno.questionario.questao_37 == '0': # Nunca ou menos de uma vez por mês
+                            questao_37[0][0] += 1
+                        elif aluno.questionario.questao_37 == '1': # 1 a 3 vezes por mês
+                            questao_37[1][0] += 1
+                        elif aluno.questionario.questao_37 == '2': # 1 vez por semana
+                            questao_37[2][0] += 1
+                        elif aluno.questionario.questao_37 == '3': # 2 a 4 vezes por semana
+                            questao_37[3][0] += 1
+                        elif aluno.questionario.questao_37 == '4': # 6 a 8 vezes por semana
+                            questao_37[4][0] += 1
+                        elif aluno.questionario.questao_37 == '5': # 1 vez por dia
+                            questao_37[5][0] += 1
+                        elif aluno.questionario.questao_37 == '6': # 2 a 3 vezes por dia
+                            questao_37[6][0] += 1
+                        elif aluno.questionario.questao_37 == '7': # 4 a 6 vezes por dia
+                            questao_37[7][0] += 1
+                        elif aluno.questionario.questao_37 == '8': # Mais de 8 vezes por dia
+                            questao_37[8][0] += 1
+                        
+                        # Questão 38
+                        if aluno.questionario.questao_38 == '0': # Nunca ou menos de uma vez por mês
+                            questao_38[0][0] += 1
+                        elif aluno.questionario.questao_38 == '1': # 1 a 3 vezes por mês
+                            questao_38[1][0] += 1
+                        elif aluno.questionario.questao_38 == '2': # 1 vez por semana
+                            questao_38[2][0] += 1
+                        elif aluno.questionario.questao_38 == '3': # 2 a 4 vezes por semana
+                            questao_38[3][0] += 1
+                        elif aluno.questionario.questao_38 == '4': # 6 a 8 vezes por semana
+                            questao_38[4][0] += 1
+                        elif aluno.questionario.questao_38 == '5': # 1 vez por dia
+                            questao_38[5][0] += 1
+                        elif aluno.questionario.questao_38 == '6': # 2 a 3 vezes por dia
+                            questao_38[6][0] += 1
+                        elif aluno.questionario.questao_38 == '7': # 4 a 6 vezes por dia
+                            questao_38[7][0] += 1
+                        elif aluno.questionario.questao_38 == '8': # Mais de 8 vezes por dia
+                            questao_38[8][0] += 1
+                        
+                        # Questão 39
+                        if aluno.questionario.questao_39 == '0': # Nunca ou menos de uma vez por mês
+                            questao_39[0][0] += 1
+                        elif aluno.questionario.questao_39 == '1': # 1 a 3 vezes por mês
+                            questao_39[1][0] += 1
+                        elif aluno.questionario.questao_39 == '2': # 1 vez por semana
+                            questao_39[2][0] += 1
+                        elif aluno.questionario.questao_39 == '3': # 2 a 4 vezes por semana
+                            questao_39[3][0] += 1
+                        elif aluno.questionario.questao_39 == '4': # 6 a 8 vezes por semana
+                            questao_39[4][0] += 1
+                        elif aluno.questionario.questao_39 == '5': # 1 vez por dia
+                            questao_39[5][0] += 1
+                        elif aluno.questionario.questao_39 == '6': # 2 a 3 vezes por dia
+                            questao_39[6][0] += 1
+                        elif aluno.questionario.questao_39 == '7': # 4 a 6 vezes por dia
+                            questao_39[7][0] += 1
+                        elif aluno.questionario.questao_39 == '8': # Mais de 8 vezes por dia
+                            questao_39[8][0] += 1
+                        
+                        # Questão 40
+                        if aluno.questionario.questao_40 == '0': # Nunca ou menos de uma vez por mês
+                            questao_40[0][0] += 1
+                        elif aluno.questionario.questao_40 == '1': # 1 a 3 vezes por mês
+                            questao_40[1][0] += 1
+                        elif aluno.questionario.questao_40 == '2': # 1 vez por semana
+                            questao_40[2][0] += 1
+                        elif aluno.questionario.questao_40 == '3': # 2 a 4 vezes por semana
+                            questao_40[3][0] += 1
+                        elif aluno.questionario.questao_40 == '4': # 6 a 8 vezes por semana
+                            questao_40[4][0] += 1
+                        elif aluno.questionario.questao_40 == '5': # 1 vez por dia
+                            questao_40[5][0] += 1
+                        elif aluno.questionario.questao_40 == '6': # 2 a 3 vezes por dia
+                            questao_40[6][0] += 1
+                        elif aluno.questionario.questao_40 == '7': # 4 a 6 vezes por dia
+                            questao_40[7][0] += 1
+                        elif aluno.questionario.questao_40 == '8': # Mais de 8 vezes por dia
+                            questao_40[8][0] += 1
+                        
+                        # Questão 41
+                        if aluno.questionario.questao_41 == '0': # Nunca ou menos de uma vez por mês
+                            questao_41[0][0] += 1
+                        elif aluno.questionario.questao_41 == '1': # 1 a 3 vezes por mês
+                            questao_41[1][0] += 1
+                        elif aluno.questionario.questao_41 == '2': # 1 vez por semana
+                            questao_41[2][0] += 1
+                        elif aluno.questionario.questao_41 == '3': # 2 a 4 vezes por semana
+                            questao_41[3][0] += 1
+                        elif aluno.questionario.questao_41 == '4': # 6 a 8 vezes por semana
+                            questao_41[4][0] += 1
+                        elif aluno.questionario.questao_41 == '5': # 1 vez por dia
+                            questao_41[5][0] += 1
+                        elif aluno.questionario.questao_41 == '6': # 2 a 3 vezes por dia
+                            questao_41[6][0] += 1
+                        elif aluno.questionario.questao_41 == '7': # 4 a 6 vezes por dia
+                            questao_41[7][0] += 1
+                        elif aluno.questionario.questao_41 == '8': # Mais de 8 vezes por dia
+                            questao_41[8][0] += 1
+                        
+                        # Questão 42
+                        if aluno.questionario.questao_42 == '0': # Nunca ou menos de uma vez por mês
+                            questao_42[0][0] += 1
+                        elif aluno.questionario.questao_42 == '1': # 1 a 3 vezes por mês
+                            questao_42[1][0] += 1
+                        elif aluno.questionario.questao_42 == '2': # 1 vez por semana
+                            questao_42[2][0] += 1
+                        elif aluno.questionario.questao_42 == '3': # 2 a 4 vezes por semana
+                            questao_42[3][0] += 1
+                        elif aluno.questionario.questao_42 == '4': # 6 a 8 vezes por semana
+                            questao_42[4][0] += 1
+                        elif aluno.questionario.questao_42 == '5': # 1 vez por dia
+                            questao_42[5][0] += 1
+                        elif aluno.questionario.questao_42 == '6': # 2 a 3 vezes por dia
+                            questao_42[6][0] += 1
+                        elif aluno.questionario.questao_42 == '7': # 4 a 6 vezes por dia
+                            questao_42[7][0] += 1
+                        elif aluno.questionario.questao_42 == '8': # Mais de 8 vezes por dia
+                            questao_42[8][0] += 1
+                        
+                        # Questão 43
+                        if aluno.questionario.questao_43 == '0': # Nunca ou menos de uma vez por mês
+                            questao_43[0][0] += 1
+                        elif aluno.questionario.questao_43 == '1': # 1 a 3 vezes por mês
+                            questao_43[1][0] += 1
+                        elif aluno.questionario.questao_43 == '2': # 1 vez por semana
+                            questao_43[2][0] += 1
+                        elif aluno.questionario.questao_43 == '3': # 2 a 4 vezes por semana
+                            questao_43[3][0] += 1
+                        elif aluno.questionario.questao_43 == '4': # 6 a 8 vezes por semana
+                            questao_43[4][0] += 1
+                        elif aluno.questionario.questao_43 == '5': # 1 vez por dia
+                            questao_43[5][0] += 1
+                        elif aluno.questionario.questao_43 == '6': # 2 a 3 vezes por dia
+                            questao_43[6][0] += 1
+                        elif aluno.questionario.questao_43 == '7': # 4 a 6 vezes por dia
+                            questao_43[7][0] += 1
+                        elif aluno.questionario.questao_43 == '8': # Mais de 8 vezes por dia
+                            questao_43[8][0] += 1
+                        
+                        # Questão 44
+                        if aluno.questionario.questao_44 == '0': # Nunca ou menos de uma vez por mês
+                            questao_44[0][0] += 1
+                        elif aluno.questionario.questao_44 == '1': # 1 a 3 vezes por mês
+                            questao_44[1][0] += 1
+                        elif aluno.questionario.questao_44 == '2': # 1 vez por semana
+                            questao_44[2][0] += 1
+                        elif aluno.questionario.questao_44 == '3': # 2 a 4 vezes por semana
+                            questao_44[3][0] += 1
+                        elif aluno.questionario.questao_44 == '4': # 6 a 8 vezes por semana
+                            questao_44[4][0] += 1
+                        elif aluno.questionario.questao_44 == '5': # 1 vez por dia
+                            questao_44[5][0] += 1
+                        elif aluno.questionario.questao_44 == '6': # 2 a 3 vezes por dia
+                            questao_44[6][0] += 1
+                        elif aluno.questionario.questao_44 == '7': # 4 a 6 vezes por dia
+                            questao_44[7][0] += 1
+                        elif aluno.questionario.questao_44 == '8': # Mais de 8 vezes por dia
+                            questao_44[8][0] += 1
+                        
+                        # Questão 45
+                        if aluno.questionario.questao_45 == '0': # Nunca ou menos de uma vez por mês
+                            questao_45[0][0] += 1
+                        elif aluno.questionario.questao_45 == '1': # 1 a 3 vezes por mês
+                            questao_45[1][0] += 1
+                        elif aluno.questionario.questao_45 == '2': # 1 vez por semana
+                            questao_45[2][0] += 1
+                        elif aluno.questionario.questao_45 == '3': # 2 a 4 vezes por semana
+                            questao_45[3][0] += 1
+                        elif aluno.questionario.questao_45 == '4': # 6 a 8 vezes por semana
+                            questao_45[4][0] += 1
+                        elif aluno.questionario.questao_45 == '5': # 1 vez por dia
+                            questao_45[5][0] += 1
+                        elif aluno.questionario.questao_45 == '6': # 2 a 3 vezes por dia
+                            questao_45[6][0] += 1
+                        elif aluno.questionario.questao_45 == '7': # 4 a 6 vezes por dia
+                            questao_45[7][0] += 1
+                        elif aluno.questionario.questao_45 == '8': # Mais de 8 vezes por dia
+                            questao_45[8][0] += 1
+                        
+                        # Questão 46
+                        if aluno.questionario.questao_46 == '0': # Nunca ou menos de uma vez por mês
+                            questao_46[0][0] += 1
+                        elif aluno.questionario.questao_46 == '1': # 1 a 3 vezes por mês
+                            questao_46[1][0] += 1
+                        elif aluno.questionario.questao_46 == '2': # 1 vez por semana
+                            questao_46[2][0] += 1
+                        elif aluno.questionario.questao_46 == '3': # 2 a 4 vezes por semana
+                            questao_46[3][0] += 1
+                        elif aluno.questionario.questao_46 == '4': # 6 a 8 vezes por semana
+                            questao_46[4][0] += 1
+                        elif aluno.questionario.questao_46 == '5': # 1 vez por dia
+                            questao_46[5][0] += 1
+                        elif aluno.questionario.questao_46 == '6': # 2 a 3 vezes por dia
+                            questao_46[6][0] += 1
+                        elif aluno.questionario.questao_46 == '7': # 4 a 6 vezes por dia
+                            questao_46[7][0] += 1
+                        elif aluno.questionario.questao_46 == '8': # Mais de 8 vezes por dia
+                            questao_46[8][0] += 1
+                        
+                        # Questão 47
+                        if aluno.questionario.questao_47 == '0': # Nunca ou menos de uma vez por mês
+                            questao_47[0][0] += 1
+                        elif aluno.questionario.questao_47 == '1': # 1 a 3 vezes por mês
+                            questao_47[1][0] += 1
+                        elif aluno.questionario.questao_47 == '2': # 1 vez por semana
+                            questao_47[2][0] += 1
+                        elif aluno.questionario.questao_47 == '3': # 2 a 4 vezes por semana
+                            questao_47[3][0] += 1
+                        elif aluno.questionario.questao_47 == '4': # 6 a 8 vezes por semana
+                            questao_47[4][0] += 1
+                        elif aluno.questionario.questao_47 == '5': # 1 vez por dia
+                            questao_47[5][0] += 1
+                        elif aluno.questionario.questao_47 == '6': # 2 a 3 vezes por dia
+                            questao_47[6][0] += 1
+                        elif aluno.questionario.questao_47 == '7': # 4 a 6 vezes por dia
+                            questao_47[7][0] += 1
+                        elif aluno.questionario.questao_47 == '8': # Mais de 8 vezes por dia
+                            questao_47[8][0] += 1
+                        
+                        # Questão 48
+                        if aluno.questionario.questao_48 == '0': # Nunca ou menos de uma vez por mês
+                            questao_48[0][0] += 1
+                        elif aluno.questionario.questao_48 == '1': # 1 a 3 vezes por mês
+                            questao_48[1][0] += 1
+                        elif aluno.questionario.questao_48 == '2': # 1 vez por semana
+                            questao_48[2][0] += 1
+                        elif aluno.questionario.questao_48 == '3': # 2 a 4 vezes por semana
+                            questao_48[3][0] += 1
+                        elif aluno.questionario.questao_48 == '4': # 6 a 8 vezes por semana
+                            questao_48[4][0] += 1
+                        elif aluno.questionario.questao_48 == '5': # 1 vez por dia
+                            questao_48[5][0] += 1
+                        elif aluno.questionario.questao_48 == '6': # 2 a 3 vezes por dia
+                            questao_48[6][0] += 1
+                        elif aluno.questionario.questao_48 == '7': # 4 a 6 vezes por dia
+                            questao_48[7][0] += 1
+                        elif aluno.questionario.questao_48 == '8': # Mais de 8 vezes por dia
+                            questao_48[8][0] += 1
+                        
+                        # Questão 49
+                        if aluno.questionario.questao_49 == '0': # Nunca ou menos de uma vez por mês
+                            questao_49[0][0] += 1
+                        elif aluno.questionario.questao_49 == '1': # 1 a 3 vezes por mês
+                            questao_49[1][0] += 1
+                        elif aluno.questionario.questao_49 == '2': # 1 vez por semana
+                            questao_49[2][0] += 1
+                        elif aluno.questionario.questao_49 == '3': # 2 a 4 vezes por semana
+                            questao_49[3][0] += 1
+                        elif aluno.questionario.questao_49 == '4': # 6 a 8 vezes por semana
+                            questao_49[4][0] += 1
+                        elif aluno.questionario.questao_49 == '5': # 1 vez por dia
+                            questao_49[5][0] += 1
+                        elif aluno.questionario.questao_49 == '6': # 2 a 3 vezes por dia
+                            questao_49[6][0] += 1
+                        elif aluno.questionario.questao_49 == '7': # 4 a 6 vezes por dia
+                            questao_49[7][0] += 1
+                        elif aluno.questionario.questao_49 == '8': # Mais de 8 vezes por dia
+                            questao_49[8][0] += 1
+                        
+                        # Questão 50
+                        if aluno.questionario.questao_50 == '0': # Nunca ou menos de uma vez por mês
+                            questao_50[0][0] += 1
+                        elif aluno.questionario.questao_50 == '1': # 1 a 3 vezes por mês
+                            questao_50[1][0] += 1
+                        elif aluno.questionario.questao_50 == '2': # 1 vez por semana
+                            questao_50[2][0] += 1
+                        elif aluno.questionario.questao_50 == '3': # 2 a 4 vezes por semana
+                            questao_50[3][0] += 1
+                        elif aluno.questionario.questao_50 == '4': # 6 a 8 vezes por semana
+                            questao_50[4][0] += 1
+                        elif aluno.questionario.questao_50 == '5': # 1 vez por dia
+                            questao_50[5][0] += 1
+                        elif aluno.questionario.questao_50 == '6': # 2 a 3 vezes por dia
+                            questao_50[6][0] += 1
+                        elif aluno.questionario.questao_50 == '7': # 4 a 6 vezes por dia
+                            questao_50[7][0] += 1
+                        elif aluno.questionario.questao_50 == '8': # Mais de 8 vezes por dia
+                            questao_50[8][0] += 1
+                        
+                        # Questão 51
+                        if aluno.questionario.questao_51 == '0': # Nunca ou menos de uma vez por mês
+                            questao_51[0][0] += 1
+                        elif aluno.questionario.questao_51 == '1': # 1 a 3 vezes por mês
+                            questao_51[1][0] += 1
+                        elif aluno.questionario.questao_51 == '2': # 1 vez por semana
+                            questao_51[2][0] += 1
+                        elif aluno.questionario.questao_51 == '3': # 2 a 4 vezes por semana
+                            questao_51[3][0] += 1
+                        elif aluno.questionario.questao_51 == '4': # 6 a 8 vezes por semana
+                            questao_51[4][0] += 1
+                        elif aluno.questionario.questao_51 == '5': # 1 vez por dia
+                            questao_51[5][0] += 1
+                        elif aluno.questionario.questao_51 == '6': # 2 a 3 vezes por dia
+                            questao_51[6][0] += 1
+                        elif aluno.questionario.questao_51 == '7': # 4 a 6 vezes por dia
+                            questao_51[7][0] += 1
+                        elif aluno.questionario.questao_51 == '8': # Mais de 8 vezes por dia
+                            questao_51[8][0] += 1
+                        
+                        # Questão 52
+                        if aluno.questionario.questao_52 == '0': # Nunca ou menos de uma vez por mês
+                            questao_52[0][0] += 1
+                        elif aluno.questionario.questao_52 == '1': # 1 a 3 vezes por mês
+                            questao_52[1][0] += 1
+                        elif aluno.questionario.questao_52 == '2': # 1 vez por semana
+                            questao_52[2][0] += 1
+                        elif aluno.questionario.questao_52 == '3': # 2 a 4 vezes por semana
+                            questao_52[3][0] += 1
+                        elif aluno.questionario.questao_52 == '4': # 6 a 8 vezes por semana
+                            questao_52[4][0] += 1
+                        elif aluno.questionario.questao_52 == '5': # 1 vez por dia
+                            questao_52[5][0] += 1
+                        elif aluno.questionario.questao_52 == '6': # 2 a 3 vezes por dia
+                            questao_52[6][0] += 1
+                        elif aluno.questionario.questao_52 == '7': # 4 a 6 vezes por dia
+                            questao_52[7][0] += 1
+                        elif aluno.questionario.questao_52 == '8': # Mais de 8 vezes por dia
+                            questao_52[8][0] += 1
+                        
+                        # Questão 53
+                        if aluno.questionario.questao_53 == '0': # Nunca ou menos de uma vez por mês
+                            questao_53[0][0] += 1
+                        elif aluno.questionario.questao_53 == '1': # 1 a 3 vezes por mês
+                            questao_53[1][0] += 1
+                        elif aluno.questionario.questao_53 == '2': # 1 vez por semana
+                            questao_53[2][0] += 1
+                        elif aluno.questionario.questao_53 == '3': # 2 a 4 vezes por semana
+                            questao_53[3][0] += 1
+                        elif aluno.questionario.questao_53 == '4': # 6 a 8 vezes por semana
+                            questao_53[4][0] += 1
+                        elif aluno.questionario.questao_53 == '5': # 1 vez por dia
+                            questao_53[5][0] += 1
+                        elif aluno.questionario.questao_53 == '6': # 2 a 3 vezes por dia
+                            questao_53[6][0] += 1
+                        elif aluno.questionario.questao_53 == '7': # 4 a 6 vezes por dia
+                            questao_53[7][0] += 1
+                        elif aluno.questionario.questao_53 == '8': # Mais de 8 vezes por dia
+                            questao_53[8][0] += 1
+                        
+                        # Questão 54
+                        if aluno.questionario.questao_54 == '0': # Nunca ou menos de uma vez por mês
+                            questao_54[0][0] += 1
+                        elif aluno.questionario.questao_54 == '1': # 1 a 3 vezes por mês
+                            questao_54[1][0] += 1
+                        elif aluno.questionario.questao_54 == '2': # 1 vez por semana
+                            questao_54[2][0] += 1
+                        elif aluno.questionario.questao_54 == '3': # 2 a 4 vezes por semana
+                            questao_54[3][0] += 1
+                        elif aluno.questionario.questao_54 == '4': # 6 a 8 vezes por semana
+                            questao_54[4][0] += 1
+                        elif aluno.questionario.questao_54 == '5': # 1 vez por dia
+                            questao_54[5][0] += 1
+                        elif aluno.questionario.questao_54 == '6': # 2 a 3 vezes por dia
+                            questao_54[6][0] += 1
+                        elif aluno.questionario.questao_54 == '7': # 4 a 6 vezes por dia
+                            questao_54[7][0] += 1
+                        elif aluno.questionario.questao_54 == '8': # Mais de 8 vezes por dia
+                            questao_54[8][0] += 1
+                else:
+                    # Sexo
+                    if aluno.sexo == '0': # masculino
+                        sexo[0][1] += 1
+                    elif aluno.sexo == '1': # feminino
+                        sexo[1][1] += 1
+                    elif aluno.sexo == '2': # outro
+                        sexo[2][1] += 1
+                    
+                    # Raça
+                    if aluno.raca == '0': # amarela
+                        raca[0][1] += 1
+                    elif aluno.raca == '1': # branca
+                        raca[1][1] += 1
+                    elif aluno.raca == '2': # indigena
+                        raca[2][1] += 1
+                    elif aluno.raca == '3': # parda
+                        raca[3][1] += 1
+                    elif aluno.raca == '4': # preta
+                        raca[4][1] += 1
+                    
+                    try:
+                        questionario = aluno.questionario
+                    except Questionario.DoesNotExist:
+                        pass
+                    else:
+                        # Questão 73
+                        if aluno.questionario.questao_73 == '0': # Sim
+                            questao_73[0][1] += 1
+                        elif aluno.questionario.questao_73 == '1': # Não
+                            questao_73[1][1] += 1
+                        
+                        # Questão 75
+                        if aluno.questionario.questao_75 == '0': # Nenhum dia nos últimos 30 dias (0 dia)
+                            questao_75[0][1] += 1
+                        elif aluno.questionario.questao_75 == '1': # 1 ou 2 dias nos últimos 30 dias
+                            questao_75[1][1] += 1
+                        elif aluno.questionario.questao_75 == '2': # 3 a 5 dias nos últimos 30 dias
+                            questao_75[2][1] += 1
+                        elif aluno.questionario.questao_75 == '3': # 6 a 9 dias nos últimos 30 dias
+                            questao_75[3][1] += 1
+                        elif aluno.questionario.questao_75 == '4': # 10 a 19 dias nos últimos 30 dias
+                            questao_75[4][1] += 1
+                        elif aluno.questionario.questao_75 == '5': # 20 a 29 dias nos últimos 30 dias
+                            questao_75[5][1] += 1
+                        elif aluno.questionario.questao_75 == '6': # Todos os dias nos últimos 30 dias
+                            questao_75[6][1] += 1
+                        
+                        # Questão 79
+                        if aluno.questionario.questao_79 == '0': # Não usei nenhum produto do tabaco (os produtos do tabaco estão abaixo relacionados)
+                            questao_79[0][1] += 1
+                        elif aluno.questionario.questao_79 == '1': # Cigarros de cravo (conhecidos como cigarros de Bali).
+                            questao_79[1][1] += 1
+                        elif aluno.questionario.questao_79 == '2': # Cigarros enrolados à mão (conhecidos como cigarros de palha ou papel)
+                            questao_79[2][1] += 1
+                        elif aluno.questionario.questao_79 == '3': # Cigarrilhas
+                            questao_79[3][1] += 1
+                        elif aluno.questionario.questao_79 == '4': # Charutos, charutos pequenos.
+                            questao_79[4][1] += 1
+                        elif aluno.questionario.questao_79 == '5': # Fumo para mascar
+                            questao_79[5][1] += 1
+                        elif aluno.questionario.questao_79 == '6': # Narguilé (cachimbo de água)
+                            questao_79[6][1] += 1
+                        elif aluno.questionario.questao_79 == '7': # Cigarros indianos (bidis)
+                            questao_79[7][1] += 1
+                        elif aluno.questionario.questao_79 == '8': # Cigarro eletrônico (e-cigarette)
+                            questao_79[8][1] += 1
+                        elif aluno.questionario.questao_79 == '9': # Outros
+                            questao_79[9][1] += 1
+                        
+                        # Questao_84
+                        if aluno.questionario.questao_84 == '0': # Nenhum dia nos últimos 30 dias (0 dia)
+                            questao_84[0][1] += 1
+                        elif aluno.questionario.questao_84 == '1': # 1 ou 2 dias nos últimos 30 dias
+                            questao_84[1][1] += 1
+                        elif aluno.questionario.questao_84 == '2': # 3 a 5 dias nos últimos 30 dias
+                            questao_84[2][1] += 1
+                        elif aluno.questionario.questao_84 == '3': # 6 a 9 dias nos últimos 30 dias
+                            questao_84[3][1] += 1
+                        elif aluno.questionario.questao_84 == '4': # 10 a 19 dias nos últimos 30 dias
+                            questao_84[4][1] += 1
+                        elif aluno.questionario.questao_84 == '5': # 20 a 29 dias nos últimos 30 dias
+                            questao_84[5][1] += 1
+                        elif aluno.questionario.questao_84 == '6': # Todos os dias nos últimos 30 dias
+                            questao_84[6][1] += 1
+                        
+                        # Questao_92
+                        if aluno.questionario.questao_92 == '0': # Nenhum dia nos últimos 30 dias (0 dia)
+                            questao_92[0][1] += 1
+                        elif aluno.questionario.questao_92 == '1': # 1 ou 2 dias nos últimos 30 dias
+                            questao_92[1][1] += 1
+                        elif aluno.questionario.questao_92 == '2': # 3 a 5 dias nos últimos 30 dias
+                            questao_92[2][1] += 1
+                        elif aluno.questionario.questao_92 == '3': # 6 a 9 dias nos últimos 30 dias
+                            questao_92[3][1] += 1
+                        elif aluno.questionario.questao_92 == '4': # 10 ou mais dias nos últimos 30 dias
+                            questao_92[4][1] += 1
+                        
+                        # Questao_111
+                        if aluno.questionario.questao_111 == '0': # Não escovei meus dentes nos últimos 30 dias
+                            questao_111[0][1] += 1
+                        elif aluno.questionario.questao_111 == '1': # Não escovei meus dentes diariamente
+                            questao_111[1][1] += 1
+                        elif aluno.questionario.questao_111 == '2': # 1 vez por dia nos últimos 30 dias
+                            questao_111[2][1] += 1
+                        elif aluno.questionario.questao_111 == '3': # 2 vezes por dia nos últimos 30 dias
+                            questao_111[3][1] += 1
+                        elif aluno.questionario.questao_111 == '4': # 3 vezes por dia nos últimos 30 dias
+                            questao_111[4][1] += 1
+                        elif aluno.questionario.questao_111 == '5': # 4 ou mais vezes por dia nos últimos 30 dias
+                            questao_111[5][1] += 1
+                        
+                        # Questao_113
+                        if aluno.questionario.questao_113 == '0': # Nenhuma vez nos últimos 12 meses (0 vez)
+                            questao_113[0][1] += 1
+                        elif aluno.questionario.questao_113 == '1': # 1 vez nos últimos 12 meses
+                            questao_113[1][1] += 1
+                        elif aluno.questionario.questao_113 == '2': # 2 vezes nos últimos 12 meses
+                            questao_113[2][1] += 1
+                        elif aluno.questionario.questao_113 == '3': # 3 ou mais vezes nos últimos 12 meses
+                            questao_113[3][1] += 1
+                        
+                        # Questão 25
+                        if aluno.questionario.questao_25 == '0': # Nunca ou menos de uma vez por mês
+                            questao_25[0][1] += 1
+                        elif aluno.questionario.questao_25 == '1': # 1 a 3 vezes por mês
+                            questao_25[1][1] += 1
+                        elif aluno.questionario.questao_25 == '2': # 1 vez por semana
+                            questao_25[2][1] += 1
+                        elif aluno.questionario.questao_25 == '3': # 2 a 4 vezes por semana
+                            questao_25[3][1] += 1
+                        elif aluno.questionario.questao_25 == '4': # 6 a 8 vezes por semana
+                            questao_25[4][1] += 1
+                        elif aluno.questionario.questao_25 == '5': # 1 vez por dia
+                            questao_25[5][1] += 1
+                        elif aluno.questionario.questao_25 == '6': # 2 a 3 vezes por dia
+                            questao_25[6][1] += 1
+                        elif aluno.questionario.questao_25 == '7': # 4 a 6 vezes por dia
+                            questao_25[7][1] += 1
+                        elif aluno.questionario.questao_25 == '8': # Mais de 8 vezes por dia
+                            questao_25[8][1] += 1
+                        
+                        # Questão 26
+                        if aluno.questionario.questao_26 == '0': # Nunca ou menos de uma vez por mês
+                            questao_26[0][1] += 1
+                        elif aluno.questionario.questao_26 == '1': # 1 a 3 vezes por mês
+                            questao_26[1][1] += 1
+                        elif aluno.questionario.questao_26 == '2': # 1 vez por semana
+                            questao_26[2][1] += 1
+                        elif aluno.questionario.questao_26 == '3': # 2 a 4 vezes por semana
+                            questao_26[3][1] += 1
+                        elif aluno.questionario.questao_26 == '4': # 6 a 8 vezes por semana
+                            questao_26[4][1] += 1
+                        elif aluno.questionario.questao_26 == '5': # 1 vez por dia
+                            questao_26[5][1] += 1
+                        elif aluno.questionario.questao_26 == '6': # 2 a 3 vezes por dia
+                            questao_26[6][1] += 1
+                        elif aluno.questionario.questao_26 == '7': # 4 a 6 vezes por dia
+                            questao_26[7][1] += 1
+                        elif aluno.questionario.questao_26 == '8': # Mais de 8 vezes por dia
+                            questao_26[8][1] += 1
+                        
+                        # Questão 27
+                        if aluno.questionario.questao_27 == '0': # Nunca ou menos de uma vez por mês
+                            questao_27[0][1] += 1
+                        elif aluno.questionario.questao_27 == '1': # 1 a 3 vezes por mês
+                            questao_27[1][1] += 1
+                        elif aluno.questionario.questao_27 == '2': # 1 vez por semana
+                            questao_27[2][1] += 1
+                        elif aluno.questionario.questao_27 == '3': # 2 a 4 vezes por semana
+                            questao_27[3][1] += 1
+                        elif aluno.questionario.questao_27 == '4': # 6 a 8 vezes por semana
+                            questao_27[4][1] += 1
+                        elif aluno.questionario.questao_27 == '5': # 1 vez por dia
+                            questao_27[5][1] += 1
+                        elif aluno.questionario.questao_27 == '6': # 2 a 3 vezes por dia
+                            questao_27[6][1] += 1
+                        elif aluno.questionario.questao_27 == '7': # 4 a 6 vezes por dia
+                            questao_27[7][1] += 1
+                        elif aluno.questionario.questao_27 == '8': # Mais de 8 vezes por dia
+                            questao_27[8][1] += 1
+                        
+                        # Questão 28
+                        if aluno.questionario.questao_28 == '0': # Nunca ou menos de uma vez por mês
+                            questao_28[0][1] += 1
+                        elif aluno.questionario.questao_28 == '1': # 1 a 3 vezes por mês
+                            questao_28[1][1] += 1
+                        elif aluno.questionario.questao_28 == '2': # 1 vez por semana
+                            questao_28[2][1] += 1
+                        elif aluno.questionario.questao_28 == '3': # 2 a 4 vezes por semana
+                            questao_28[3][1] += 1
+                        elif aluno.questionario.questao_28 == '4': # 6 a 8 vezes por semana
+                            questao_28[4][1] += 1
+                        elif aluno.questionario.questao_28 == '5': # 1 vez por dia
+                            questao_28[5][1] += 1
+                        elif aluno.questionario.questao_28 == '6': # 2 a 3 vezes por dia
+                            questao_28[6][1] += 1
+                        elif aluno.questionario.questao_28 == '7': # 4 a 6 vezes por dia
+                            questao_28[7][1] += 1
+                        elif aluno.questionario.questao_28 == '8': # Mais de 8 vezes por dia
+                            questao_28[8][1] += 1
+                        
+                        # Questão 29
+                        if aluno.questionario.questao_29 == '0': # Nunca ou menos de uma vez por mês
+                            questao_29[0][1] += 1
+                        elif aluno.questionario.questao_29 == '1': # 1 a 3 vezes por mês
+                            questao_29[1][1] += 1
+                        elif aluno.questionario.questao_29 == '2': # 1 vez por semana
+                            questao_29[2][1] += 1
+                        elif aluno.questionario.questao_29 == '3': # 2 a 4 vezes por semana
+                            questao_29[3][1] += 1
+                        elif aluno.questionario.questao_29 == '4': # 6 a 8 vezes por semana
+                            questao_29[4][1] += 1
+                        elif aluno.questionario.questao_29 == '5': # 1 vez por dia
+                            questao_29[5][1] += 1
+                        elif aluno.questionario.questao_29 == '6': # 2 a 3 vezes por dia
+                            questao_29[6][1] += 1
+                        elif aluno.questionario.questao_29 == '7': # 4 a 6 vezes por dia
+                            questao_29[7][1] += 1
+                        elif aluno.questionario.questao_29 == '8': # Mais de 8 vezes por dia
+                            questao_29[8][1] += 1
+                        
+                        # Questão 30
+                        if aluno.questionario.questao_30 == '0': # Nunca ou menos de uma vez por mês
+                            questao_30[0][1] += 1
+                        elif aluno.questionario.questao_30 == '1': # 1 a 3 vezes por mês
+                            questao_30[1][1] += 1
+                        elif aluno.questionario.questao_30 == '2': # 1 vez por semana
+                            questao_30[2][1] += 1
+                        elif aluno.questionario.questao_30 == '3': # 2 a 4 vezes por semana
+                            questao_30[3][1] += 1
+                        elif aluno.questionario.questao_30 == '4': # 6 a 8 vezes por semana
+                            questao_30[4][1] += 1
+                        elif aluno.questionario.questao_30 == '5': # 1 vez por dia
+                            questao_30[5][1] += 1
+                        elif aluno.questionario.questao_30 == '6': # 2 a 3 vezes por dia
+                            questao_30[6][1] += 1
+                        elif aluno.questionario.questao_30 == '7': # 4 a 6 vezes por dia
+                            questao_30[7][1] += 1
+                        elif aluno.questionario.questao_30 == '8': # Mais de 8 vezes por dia
+                            questao_30[8][1] += 1
+                        
+                        # Questão 31
+                        if aluno.questionario.questao_31 == '0': # Nunca ou menos de uma vez por mês
+                            questao_31[0][1] += 1
+                        elif aluno.questionario.questao_31 == '1': # 1 a 3 vezes por mês
+                            questao_31[1][1] += 1
+                        elif aluno.questionario.questao_31 == '2': # 1 vez por semana
+                            questao_31[2][1] += 1
+                        elif aluno.questionario.questao_31 == '3': # 2 a 4 vezes por semana
+                            questao_31[3][1] += 1
+                        elif aluno.questionario.questao_31 == '4': # 6 a 8 vezes por semana
+                            questao_31[4][1] += 1
+                        elif aluno.questionario.questao_31 == '5': # 1 vez por dia
+                            questao_31[5][1] += 1
+                        elif aluno.questionario.questao_31 == '6': # 2 a 3 vezes por dia
+                            questao_31[6][1] += 1
+                        elif aluno.questionario.questao_31 == '7': # 4 a 6 vezes por dia
+                            questao_31[7][1] += 1
+                        elif aluno.questionario.questao_31 == '8': # Mais de 8 vezes por dia
+                            questao_31[8][1] += 1
+                        
+                        # Questão 32
+                        if aluno.questionario.questao_32 == '0': # Nunca ou menos de uma vez por mês
+                            questao_32[0][1] += 1
+                        elif aluno.questionario.questao_32 == '1': # 1 a 3 vezes por mês
+                            questao_32[1][1] += 1
+                        elif aluno.questionario.questao_32 == '2': # 1 vez por semana
+                            questao_32[2][1] += 1
+                        elif aluno.questionario.questao_32 == '3': # 2 a 4 vezes por semana
+                            questao_32[3][1] += 1
+                        elif aluno.questionario.questao_32 == '4': # 6 a 8 vezes por semana
+                            questao_32[4][1] += 1
+                        elif aluno.questionario.questao_32 == '5': # 1 vez por dia
+                            questao_32[5][1] += 1
+                        elif aluno.questionario.questao_32 == '6': # 2 a 3 vezes por dia
+                            questao_32[6][1] += 1
+                        elif aluno.questionario.questao_32 == '7': # 4 a 6 vezes por dia
+                            questao_32[7][1] += 1
+                        elif aluno.questionario.questao_32 == '8': # Mais de 8 vezes por dia
+                            questao_32[8][1] += 1
+                        
+                        # Questão 33
+                        if aluno.questionario.questao_33 == '0': # Nunca ou menos de uma vez por mês
+                            questao_33[0][1] += 1
+                        elif aluno.questionario.questao_33 == '1': # 1 a 3 vezes por mês
+                            questao_33[1][1] += 1
+                        elif aluno.questionario.questao_33 == '2': # 1 vez por semana
+                            questao_33[2][1] += 1
+                        elif aluno.questionario.questao_33 == '3': # 2 a 4 vezes por semana
+                            questao_33[3][1] += 1
+                        elif aluno.questionario.questao_33 == '4': # 6 a 8 vezes por semana
+                            questao_33[4][1] += 1
+                        elif aluno.questionario.questao_33 == '5': # 1 vez por dia
+                            questao_33[5][1] += 1
+                        elif aluno.questionario.questao_33 == '6': # 2 a 3 vezes por dia
+                            questao_33[6][1] += 1
+                        elif aluno.questionario.questao_33 == '7': # 4 a 6 vezes por dia
+                            questao_33[7][1] += 1
+                        elif aluno.questionario.questao_33 == '8': # Mais de 8 vezes por dia
+                            questao_33[8][1] += 1
+                        
+                        # Questão 34
+                        if aluno.questionario.questao_34 == '0': # Nunca ou menos de uma vez por mês
+                            questao_34[0][1] += 1
+                        elif aluno.questionario.questao_34 == '1': # 1 a 3 vezes por mês
+                            questao_34[1][1] += 1
+                        elif aluno.questionario.questao_34 == '2': # 1 vez por semana
+                            questao_34[2][1] += 1
+                        elif aluno.questionario.questao_34 == '3': # 2 a 4 vezes por semana
+                            questao_34[3][1] += 1
+                        elif aluno.questionario.questao_34 == '4': # 6 a 8 vezes por semana
+                            questao_34[4][1] += 1
+                        elif aluno.questionario.questao_34 == '5': # 1 vez por dia
+                            questao_34[5][1] += 1
+                        elif aluno.questionario.questao_34 == '6': # 2 a 3 vezes por dia
+                            questao_34[6][1] += 1
+                        elif aluno.questionario.questao_34 == '7': # 4 a 6 vezes por dia
+                            questao_34[7][1] += 1
+                        elif aluno.questionario.questao_34 == '8': # Mais de 8 vezes por dia
+                            questao_34[8][1] += 1
+                        
+                        # Questão 35
+                        if aluno.questionario.questao_35 == '0': # Nunca ou menos de uma vez por mês
+                            questao_35[0][1] += 1
+                        elif aluno.questionario.questao_35 == '1': # 1 a 3 vezes por mês
+                            questao_35[1][1] += 1
+                        elif aluno.questionario.questao_35 == '2': # 1 vez por semana
+                            questao_35[2][1] += 1
+                        elif aluno.questionario.questao_35 == '3': # 2 a 4 vezes por semana
+                            questao_35[3][1] += 1
+                        elif aluno.questionario.questao_35 == '4': # 6 a 8 vezes por semana
+                            questao_35[4][1] += 1
+                        elif aluno.questionario.questao_35 == '5': # 1 vez por dia
+                            questao_35[5][1] += 1
+                        elif aluno.questionario.questao_35 == '6': # 2 a 3 vezes por dia
+                            questao_35[6][1] += 1
+                        elif aluno.questionario.questao_35 == '7': # 4 a 6 vezes por dia
+                            questao_35[7][1] += 1
+                        elif aluno.questionario.questao_35 == '8': # Mais de 8 vezes por dia
+                            questao_35[8][1] += 1
+                        
+                        # Questão 36
+                        if aluno.questionario.questao_36 == '0': # Nunca ou menos de uma vez por mês
+                            questao_36[0][1] += 1
+                        elif aluno.questionario.questao_36 == '1': # 1 a 3 vezes por mês
+                            questao_36[1][1] += 1
+                        elif aluno.questionario.questao_36 == '2': # 1 vez por semana
+                            questao_36[2][1] += 1
+                        elif aluno.questionario.questao_36 == '3': # 2 a 4 vezes por semana
+                            questao_36[3][1] += 1
+                        elif aluno.questionario.questao_36 == '4': # 6 a 8 vezes por semana
+                            questao_36[4][1] += 1
+                        elif aluno.questionario.questao_36 == '5': # 1 vez por dia
+                            questao_36[5][1] += 1
+                        elif aluno.questionario.questao_36 == '6': # 2 a 3 vezes por dia
+                            questao_36[6][1] += 1
+                        elif aluno.questionario.questao_36 == '7': # 4 a 6 vezes por dia
+                            questao_36[7][1] += 1
+                        elif aluno.questionario.questao_36 == '8': # Mais de 8 vezes por dia
+                            questao_36[8][1] += 1
+                        
+                        # Questão 37
+                        if aluno.questionario.questao_37 == '0': # Nunca ou menos de uma vez por mês
+                            questao_37[0][1] += 1
+                        elif aluno.questionario.questao_37 == '1': # 1 a 3 vezes por mês
+                            questao_37[1][1] += 1
+                        elif aluno.questionario.questao_37 == '2': # 1 vez por semana
+                            questao_37[2][1] += 1
+                        elif aluno.questionario.questao_37 == '3': # 2 a 4 vezes por semana
+                            questao_37[3][1] += 1
+                        elif aluno.questionario.questao_37 == '4': # 6 a 8 vezes por semana
+                            questao_37[4][1] += 1
+                        elif aluno.questionario.questao_37 == '5': # 1 vez por dia
+                            questao_37[5][1] += 1
+                        elif aluno.questionario.questao_37 == '6': # 2 a 3 vezes por dia
+                            questao_37[6][1] += 1
+                        elif aluno.questionario.questao_37 == '7': # 4 a 6 vezes por dia
+                            questao_37[7][1] += 1
+                        elif aluno.questionario.questao_37 == '8': # Mais de 8 vezes por dia
+                            questao_37[8][1] += 1
+                        
+                        # Questão 38
+                        if aluno.questionario.questao_38 == '0': # Nunca ou menos de uma vez por mês
+                            questao_38[0][1] += 1
+                        elif aluno.questionario.questao_38 == '1': # 1 a 3 vezes por mês
+                            questao_38[1][1] += 1
+                        elif aluno.questionario.questao_38 == '2': # 1 vez por semana
+                            questao_38[2][1] += 1
+                        elif aluno.questionario.questao_38 == '3': # 2 a 4 vezes por semana
+                            questao_38[3][1] += 1
+                        elif aluno.questionario.questao_38 == '4': # 6 a 8 vezes por semana
+                            questao_38[4][1] += 1
+                        elif aluno.questionario.questao_38 == '5': # 1 vez por dia
+                            questao_38[5][1] += 1
+                        elif aluno.questionario.questao_38 == '6': # 2 a 3 vezes por dia
+                            questao_38[6][1] += 1
+                        elif aluno.questionario.questao_38 == '7': # 4 a 6 vezes por dia
+                            questao_38[7][1] += 1
+                        elif aluno.questionario.questao_38 == '8': # Mais de 8 vezes por dia
+                            questao_38[8][1] += 1
+                        
+                        # Questão 39
+                        if aluno.questionario.questao_39 == '0': # Nunca ou menos de uma vez por mês
+                            questao_39[0][1] += 1
+                        elif aluno.questionario.questao_39 == '1': # 1 a 3 vezes por mês
+                            questao_39[1][1] += 1
+                        elif aluno.questionario.questao_39 == '2': # 1 vez por semana
+                            questao_39[2][1] += 1
+                        elif aluno.questionario.questao_39 == '3': # 2 a 4 vezes por semana
+                            questao_39[3][1] += 1
+                        elif aluno.questionario.questao_39 == '4': # 6 a 8 vezes por semana
+                            questao_39[4][1] += 1
+                        elif aluno.questionario.questao_39 == '5': # 1 vez por dia
+                            questao_39[5][1] += 1
+                        elif aluno.questionario.questao_39 == '6': # 2 a 3 vezes por dia
+                            questao_39[6][1] += 1
+                        elif aluno.questionario.questao_39 == '7': # 4 a 6 vezes por dia
+                            questao_39[7][1] += 1
+                        elif aluno.questionario.questao_39 == '8': # Mais de 8 vezes por dia
+                            questao_39[8][1] += 1
+                        
+                        # Questão 40
+                        if aluno.questionario.questao_40 == '0': # Nunca ou menos de uma vez por mês
+                            questao_40[0][1] += 1
+                        elif aluno.questionario.questao_40 == '1': # 1 a 3 vezes por mês
+                            questao_40[1][1] += 1
+                        elif aluno.questionario.questao_40 == '2': # 1 vez por semana
+                            questao_40[2][1] += 1
+                        elif aluno.questionario.questao_40 == '3': # 2 a 4 vezes por semana
+                            questao_40[3][1] += 1
+                        elif aluno.questionario.questao_40 == '4': # 6 a 8 vezes por semana
+                            questao_40[4][1] += 1
+                        elif aluno.questionario.questao_40 == '5': # 1 vez por dia
+                            questao_40[5][1] += 1
+                        elif aluno.questionario.questao_40 == '6': # 2 a 3 vezes por dia
+                            questao_40[6][1] += 1
+                        elif aluno.questionario.questao_40 == '7': # 4 a 6 vezes por dia
+                            questao_40[7][1] += 1
+                        elif aluno.questionario.questao_40 == '8': # Mais de 8 vezes por dia
+                            questao_40[8][1] += 1
+                        
+                        # Questão 41
+                        if aluno.questionario.questao_41 == '0': # Nunca ou menos de uma vez por mês
+                            questao_41[0][1] += 1
+                        elif aluno.questionario.questao_41 == '1': # 1 a 3 vezes por mês
+                            questao_41[1][1] += 1
+                        elif aluno.questionario.questao_41 == '2': # 1 vez por semana
+                            questao_41[2][1] += 1
+                        elif aluno.questionario.questao_41 == '3': # 2 a 4 vezes por semana
+                            questao_41[3][1] += 1
+                        elif aluno.questionario.questao_41 == '4': # 6 a 8 vezes por semana
+                            questao_41[4][1] += 1
+                        elif aluno.questionario.questao_41 == '5': # 1 vez por dia
+                            questao_41[5][1] += 1
+                        elif aluno.questionario.questao_41 == '6': # 2 a 3 vezes por dia
+                            questao_41[6][1] += 1
+                        elif aluno.questionario.questao_41 == '7': # 4 a 6 vezes por dia
+                            questao_41[7][1] += 1
+                        elif aluno.questionario.questao_41 == '8': # Mais de 8 vezes por dia
+                            questao_41[8][1] += 1
+                        
+                        # Questão 42
+                        if aluno.questionario.questao_42 == '0': # Nunca ou menos de uma vez por mês
+                            questao_42[0][1] += 1
+                        elif aluno.questionario.questao_42 == '1': # 1 a 3 vezes por mês
+                            questao_42[1][1] += 1
+                        elif aluno.questionario.questao_42 == '2': # 1 vez por semana
+                            questao_42[2][1] += 1
+                        elif aluno.questionario.questao_42 == '3': # 2 a 4 vezes por semana
+                            questao_42[3][1] += 1
+                        elif aluno.questionario.questao_42 == '4': # 6 a 8 vezes por semana
+                            questao_42[4][1] += 1
+                        elif aluno.questionario.questao_42 == '5': # 1 vez por dia
+                            questao_42[5][1] += 1
+                        elif aluno.questionario.questao_42 == '6': # 2 a 3 vezes por dia
+                            questao_42[6][1] += 1
+                        elif aluno.questionario.questao_42 == '7': # 4 a 6 vezes por dia
+                            questao_42[7][1] += 1
+                        elif aluno.questionario.questao_42 == '8': # Mais de 8 vezes por dia
+                            questao_42[8][1] += 1
+                        
+                        # Questão 43
+                        if aluno.questionario.questao_43 == '0': # Nunca ou menos de uma vez por mês
+                            questao_43[0][1] += 1
+                        elif aluno.questionario.questao_43 == '1': # 1 a 3 vezes por mês
+                            questao_43[1][1] += 1
+                        elif aluno.questionario.questao_43 == '2': # 1 vez por semana
+                            questao_43[2][1] += 1
+                        elif aluno.questionario.questao_43 == '3': # 2 a 4 vezes por semana
+                            questao_43[3][1] += 1
+                        elif aluno.questionario.questao_43 == '4': # 6 a 8 vezes por semana
+                            questao_43[4][1] += 1
+                        elif aluno.questionario.questao_43 == '5': # 1 vez por dia
+                            questao_43[5][1] += 1
+                        elif aluno.questionario.questao_43 == '6': # 2 a 3 vezes por dia
+                            questao_43[6][1] += 1
+                        elif aluno.questionario.questao_43 == '7': # 4 a 6 vezes por dia
+                            questao_43[7][1] += 1
+                        elif aluno.questionario.questao_43 == '8': # Mais de 8 vezes por dia
+                            questao_43[8][1] += 1
+                        
+                        # Questão 44
+                        if aluno.questionario.questao_44 == '0': # Nunca ou menos de uma vez por mês
+                            questao_44[0][1] += 1
+                        elif aluno.questionario.questao_44 == '1': # 1 a 3 vezes por mês
+                            questao_44[1][1] += 1
+                        elif aluno.questionario.questao_44 == '2': # 1 vez por semana
+                            questao_44[2][1] += 1
+                        elif aluno.questionario.questao_44 == '3': # 2 a 4 vezes por semana
+                            questao_44[3][1] += 1
+                        elif aluno.questionario.questao_44 == '4': # 6 a 8 vezes por semana
+                            questao_44[4][1] += 1
+                        elif aluno.questionario.questao_44 == '5': # 1 vez por dia
+                            questao_44[5][1] += 1
+                        elif aluno.questionario.questao_44 == '6': # 2 a 3 vezes por dia
+                            questao_44[6][1] += 1
+                        elif aluno.questionario.questao_44 == '7': # 4 a 6 vezes por dia
+                            questao_44[7][1] += 1
+                        elif aluno.questionario.questao_44 == '8': # Mais de 8 vezes por dia
+                            questao_44[8][1] += 1
+                        
+                        # Questão 45
+                        if aluno.questionario.questao_45 == '0': # Nunca ou menos de uma vez por mês
+                            questao_45[0][1] += 1
+                        elif aluno.questionario.questao_45 == '1': # 1 a 3 vezes por mês
+                            questao_45[1][1] += 1
+                        elif aluno.questionario.questao_45 == '2': # 1 vez por semana
+                            questao_45[2][1] += 1
+                        elif aluno.questionario.questao_45 == '3': # 2 a 4 vezes por semana
+                            questao_45[3][1] += 1
+                        elif aluno.questionario.questao_45 == '4': # 6 a 8 vezes por semana
+                            questao_45[4][1] += 1
+                        elif aluno.questionario.questao_45 == '5': # 1 vez por dia
+                            questao_45[5][1] += 1
+                        elif aluno.questionario.questao_45 == '6': # 2 a 3 vezes por dia
+                            questao_45[6][1] += 1
+                        elif aluno.questionario.questao_45 == '7': # 4 a 6 vezes por dia
+                            questao_45[7][1] += 1
+                        elif aluno.questionario.questao_45 == '8': # Mais de 8 vezes por dia
+                            questao_45[8][1] += 1
+                        
+                        # Questão 46
+                        if aluno.questionario.questao_46 == '0': # Nunca ou menos de uma vez por mês
+                            questao_46[0][1] += 1
+                        elif aluno.questionario.questao_46 == '1': # 1 a 3 vezes por mês
+                            questao_46[1][1] += 1
+                        elif aluno.questionario.questao_46 == '2': # 1 vez por semana
+                            questao_46[2][1] += 1
+                        elif aluno.questionario.questao_46 == '3': # 2 a 4 vezes por semana
+                            questao_46[3][1] += 1
+                        elif aluno.questionario.questao_46 == '4': # 6 a 8 vezes por semana
+                            questao_46[4][1] += 1
+                        elif aluno.questionario.questao_46 == '5': # 1 vez por dia
+                            questao_46[5][1] += 1
+                        elif aluno.questionario.questao_46 == '6': # 2 a 3 vezes por dia
+                            questao_46[6][1] += 1
+                        elif aluno.questionario.questao_46 == '7': # 4 a 6 vezes por dia
+                            questao_46[7][1] += 1
+                        elif aluno.questionario.questao_46 == '8': # Mais de 8 vezes por dia
+                            questao_46[8][1] += 1
+                        
+                        # Questão 47
+                        if aluno.questionario.questao_47 == '0': # Nunca ou menos de uma vez por mês
+                            questao_47[0][1] += 1
+                        elif aluno.questionario.questao_47 == '1': # 1 a 3 vezes por mês
+                            questao_47[1][1] += 1
+                        elif aluno.questionario.questao_47 == '2': # 1 vez por semana
+                            questao_47[2][1] += 1
+                        elif aluno.questionario.questao_47 == '3': # 2 a 4 vezes por semana
+                            questao_47[3][1] += 1
+                        elif aluno.questionario.questao_47 == '4': # 6 a 8 vezes por semana
+                            questao_47[4][1] += 1
+                        elif aluno.questionario.questao_47 == '5': # 1 vez por dia
+                            questao_47[5][1] += 1
+                        elif aluno.questionario.questao_47 == '6': # 2 a 3 vezes por dia
+                            questao_47[6][1] += 1
+                        elif aluno.questionario.questao_47 == '7': # 4 a 6 vezes por dia
+                            questao_47[7][1] += 1
+                        elif aluno.questionario.questao_47 == '8': # Mais de 8 vezes por dia
+                            questao_47[8][1] += 1
+                        
+                        # Questão 48
+                        if aluno.questionario.questao_48 == '0': # Nunca ou menos de uma vez por mês
+                            questao_48[0][1] += 1
+                        elif aluno.questionario.questao_48 == '1': # 1 a 3 vezes por mês
+                            questao_48[1][1] += 1
+                        elif aluno.questionario.questao_48 == '2': # 1 vez por semana
+                            questao_48[2][1] += 1
+                        elif aluno.questionario.questao_48 == '3': # 2 a 4 vezes por semana
+                            questao_48[3][1] += 1
+                        elif aluno.questionario.questao_48 == '4': # 6 a 8 vezes por semana
+                            questao_48[4][1] += 1
+                        elif aluno.questionario.questao_48 == '5': # 1 vez por dia
+                            questao_48[5][1] += 1
+                        elif aluno.questionario.questao_48 == '6': # 2 a 3 vezes por dia
+                            questao_48[6][1] += 1
+                        elif aluno.questionario.questao_48 == '7': # 4 a 6 vezes por dia
+                            questao_48[7][1] += 1
+                        elif aluno.questionario.questao_48 == '8': # Mais de 8 vezes por dia
+                            questao_48[8][1] += 1
+                        
+                        # Questão 49
+                        if aluno.questionario.questao_49 == '0': # Nunca ou menos de uma vez por mês
+                            questao_49[0][1] += 1
+                        elif aluno.questionario.questao_49 == '1': # 1 a 3 vezes por mês
+                            questao_49[1][1] += 1
+                        elif aluno.questionario.questao_49 == '2': # 1 vez por semana
+                            questao_49[2][1] += 1
+                        elif aluno.questionario.questao_49 == '3': # 2 a 4 vezes por semana
+                            questao_49[3][1] += 1
+                        elif aluno.questionario.questao_49 == '4': # 6 a 8 vezes por semana
+                            questao_49[4][1] += 1
+                        elif aluno.questionario.questao_49 == '5': # 1 vez por dia
+                            questao_49[5][1] += 1
+                        elif aluno.questionario.questao_49 == '6': # 2 a 3 vezes por dia
+                            questao_49[6][1] += 1
+                        elif aluno.questionario.questao_49 == '7': # 4 a 6 vezes por dia
+                            questao_49[7][1] += 1
+                        elif aluno.questionario.questao_49 == '8': # Mais de 8 vezes por dia
+                            questao_49[8][1] += 1
+                        
+                        # Questão 50
+                        if aluno.questionario.questao_50 == '0': # Nunca ou menos de uma vez por mês
+                            questao_50[0][1] += 1
+                        elif aluno.questionario.questao_50 == '1': # 1 a 3 vezes por mês
+                            questao_50[1][1] += 1
+                        elif aluno.questionario.questao_50 == '2': # 1 vez por semana
+                            questao_50[2][1] += 1
+                        elif aluno.questionario.questao_50 == '3': # 2 a 4 vezes por semana
+                            questao_50[3][1] += 1
+                        elif aluno.questionario.questao_50 == '4': # 6 a 8 vezes por semana
+                            questao_50[4][1] += 1
+                        elif aluno.questionario.questao_50 == '5': # 1 vez por dia
+                            questao_50[5][1] += 1
+                        elif aluno.questionario.questao_50 == '6': # 2 a 3 vezes por dia
+                            questao_50[6][1] += 1
+                        elif aluno.questionario.questao_50 == '7': # 4 a 6 vezes por dia
+                            questao_50[7][1] += 1
+                        elif aluno.questionario.questao_50 == '8': # Mais de 8 vezes por dia
+                            questao_50[8][1] += 1
+                        
+                        # Questão 51
+                        if aluno.questionario.questao_51 == '0': # Nunca ou menos de uma vez por mês
+                            questao_51[0][1] += 1
+                        elif aluno.questionario.questao_51 == '1': # 1 a 3 vezes por mês
+                            questao_51[1][1] += 1
+                        elif aluno.questionario.questao_51 == '2': # 1 vez por semana
+                            questao_51[2][1] += 1
+                        elif aluno.questionario.questao_51 == '3': # 2 a 4 vezes por semana
+                            questao_51[3][1] += 1
+                        elif aluno.questionario.questao_51 == '4': # 6 a 8 vezes por semana
+                            questao_51[4][1] += 1
+                        elif aluno.questionario.questao_51 == '5': # 1 vez por dia
+                            questao_51[5][1] += 1
+                        elif aluno.questionario.questao_51 == '6': # 2 a 3 vezes por dia
+                            questao_51[6][1] += 1
+                        elif aluno.questionario.questao_51 == '7': # 4 a 6 vezes por dia
+                            questao_51[7][1] += 1
+                        elif aluno.questionario.questao_51 == '8': # Mais de 8 vezes por dia
+                            questao_51[8][1] += 1
+                        
+                        # Questão 52
+                        if aluno.questionario.questao_52 == '0': # Nunca ou menos de uma vez por mês
+                            questao_52[0][1] += 1
+                        elif aluno.questionario.questao_52 == '1': # 1 a 3 vezes por mês
+                            questao_52[1][1] += 1
+                        elif aluno.questionario.questao_52 == '2': # 1 vez por semana
+                            questao_52[2][1] += 1
+                        elif aluno.questionario.questao_52 == '3': # 2 a 4 vezes por semana
+                            questao_52[3][1] += 1
+                        elif aluno.questionario.questao_52 == '4': # 6 a 8 vezes por semana
+                            questao_52[4][1] += 1
+                        elif aluno.questionario.questao_52 == '5': # 1 vez por dia
+                            questao_52[5][1] += 1
+                        elif aluno.questionario.questao_52 == '6': # 2 a 3 vezes por dia
+                            questao_52[6][1] += 1
+                        elif aluno.questionario.questao_52 == '7': # 4 a 6 vezes por dia
+                            questao_52[7][1] += 1
+                        elif aluno.questionario.questao_52 == '8': # Mais de 8 vezes por dia
+                            questao_52[8][1] += 1
+                        
+                        # Questão 53
+                        if aluno.questionario.questao_53 == '0': # Nunca ou menos de uma vez por mês
+                            questao_53[0][1] += 1
+                        elif aluno.questionario.questao_53 == '1': # 1 a 3 vezes por mês
+                            questao_53[1][1] += 1
+                        elif aluno.questionario.questao_53 == '2': # 1 vez por semana
+                            questao_53[2][1] += 1
+                        elif aluno.questionario.questao_53 == '3': # 2 a 4 vezes por semana
+                            questao_53[3][1] += 1
+                        elif aluno.questionario.questao_53 == '4': # 6 a 8 vezes por semana
+                            questao_53[4][1] += 1
+                        elif aluno.questionario.questao_53 == '5': # 1 vez por dia
+                            questao_53[5][1] += 1
+                        elif aluno.questionario.questao_53 == '6': # 2 a 3 vezes por dia
+                            questao_53[6][1] += 1
+                        elif aluno.questionario.questao_53 == '7': # 4 a 6 vezes por dia
+                            questao_53[7][1] += 1
+                        elif aluno.questionario.questao_53 == '8': # Mais de 8 vezes por dia
+                            questao_53[8][1] += 1
+                        
+                        # Questão 54
+                        if aluno.questionario.questao_54 == '0': # Nunca ou menos de uma vez por mês
+                            questao_54[0][1] += 1
+                        elif aluno.questionario.questao_54 == '1': # 1 a 3 vezes por mês
+                            questao_54[1][1] += 1
+                        elif aluno.questionario.questao_54 == '2': # 1 vez por semana
+                            questao_54[2][1] += 1
+                        elif aluno.questionario.questao_54 == '3': # 2 a 4 vezes por semana
+                            questao_54[3][1] += 1
+                        elif aluno.questionario.questao_54 == '4': # 6 a 8 vezes por semana
+                            questao_54[4][1] += 1
+                        elif aluno.questionario.questao_54 == '5': # 1 vez por dia
+                            questao_54[5][1] += 1
+                        elif aluno.questionario.questao_54 == '6': # 2 a 3 vezes por dia
+                            questao_54[6][1] += 1
+                        elif aluno.questionario.questao_54 == '7': # 4 a 6 vezes por dia
+                            questao_54[7][1] += 1
+                        elif aluno.questionario.questao_54 == '8': # Mais de 8 vezes por dia
+                            questao_54[8][1] += 1
+            
+                # Totais da tabela sexo
+                sexo[3][0] = sexo[0][0] + sexo[1][0] + sexo[2][0] # Total da coluna sim
+                sexo[3][1] = sexo[0][1] + sexo[1][1] + sexo[2][1] # Total da coluna não
+                sexo[3][2] = sexo[3][0] + sexo[3][1] # Total geral
+                sexo[0][2] = sexo[0][0] + sexo[0][1] # Total da linha masculino
+                sexo[1][2] = sexo[1][0] + sexo[1][1] # Total da linha feminino
+                sexo[2][2] = sexo[2][0] + sexo[2][1] # Total da linha outro
+                
+                # Totais da tabela raça
+                raca[5][0] = raca[0][0] + raca[1][0] + raca[2][0] + raca[3][0] + raca[4][0] # Total da coluna sim
+                raca[5][1] = raca[0][1] + raca[1][1] + raca[2][1] + raca[3][1] + raca[4][1] # Total da coluna não
+                raca[5][2] = raca[5][0] + raca[5][1] # Total geral
+                raca[0][2] = raca[0][0] + raca[0][1] # Total da linha amarela
+                raca[1][2] = raca[1][0] + raca[1][1] # Total da linha branca
+                raca[2][2] = raca[2][0] + raca[2][1] # Total da linha indigena
+                raca[3][2] = raca[3][0] + raca[3][1] # Total da linha parda
+                raca[4][2] = raca[4][0] + raca[4][1] # Total da linha preta
+                
+                # Totais da tabela questão 73
+                questao_73[2][0] = questao_73[0][0] + questao_73[1][0] # Total da coluna sim
+                questao_73[2][1] = questao_73[0][1] + questao_73[1][1] # Total da coluna não
+                questao_73[2][2] = questao_73[2][0] + questao_73[2][1] # Total geral
+                questao_73[0][2] = questao_73[0][0] + questao_73[0][1] # Total da linha sim
+                questao_73[1][2] = questao_73[1][0] + questao_73[1][1] # Total da linha não
+                
+                # Totais da tabela questão 75
+                questao_75[7][0] = questao_75[0][0] + questao_75[1][0] + questao_75[2][0] + questao_75[3][0] + questao_75[4][0] + questao_75[5][0] + questao_75[6][0] # Total da coluna sim
+                questao_75[7][1] = questao_75[0][1] + questao_75[1][1] + questao_75[2][1] + questao_75[3][1] + questao_75[4][1] + questao_75[5][1] + questao_75[6][1] # Total da coluna não
+                questao_75[7][2] = questao_75[7][0] + questao_75[7][1] # Total geral
+                questao_75[0][2] = questao_75[0][0] + questao_75[0][1] # Nenhum dia nos últimos 30 dias (0 dia)
+                questao_75[1][2] = questao_75[1][0] + questao_75[1][1] # 1 ou 2 dias nos últimos 30 dias
+                questao_75[2][2] = questao_75[2][0] + questao_75[2][1] # 3 a 5 dias nos últimos 30 dias
+                questao_75[3][2] = questao_75[3][0] + questao_75[3][1] # 6 a 9 dias nos últimos 30 dias
+                questao_75[4][2] = questao_75[4][0] + questao_75[4][1] # 10 a 19 dias nos últimos 30 dias
+                questao_75[5][2] = questao_75[5][0] + questao_75[5][1] # 20 a 29 dias nos últimos 30 dias
+                questao_75[6][2] = questao_75[6][0] + questao_75[6][1] # Todos os dias nos últimos 30 dias
+                
+                # Totais da tabela questão 79
+                questao_79[10][0] = questao_79[0][0] + questao_79[1][0] + questao_79[2][0] + questao_79[3][0] + questao_79[4][0] + questao_79[5][0] + questao_79[6][0] + questao_79[7][0] + questao_79[8][0] + questao_79[9][0] # Total da coluna sim
+                questao_79[10][1] = questao_79[0][1] + questao_79[1][1] + questao_79[2][1] + questao_79[3][1] + questao_79[4][1] + questao_79[5][1] + questao_79[6][1] + questao_79[7][1] + questao_79[8][1] + questao_79[9][1] # Total da coluna não
+                questao_79[10][2] = questao_79[10][0] + questao_79[10][1] # Total geral
+                questao_79[0][2] = questao_79[0][0] + questao_79[0][1] # Não usei nenhum produto do tabaco (os produtos do tabaco estão abaixo relacionados)
+                questao_79[1][2] = questao_79[1][0] + questao_79[1][1] # Cigarros de cravo (conhecidos como cigarros de Bali).
+                questao_79[2][2] = questao_79[2][0] + questao_79[2][1] # Cigarros enrolados à mão (conhecidos como cigarros de palha ou papel)
+                questao_79[3][2] = questao_79[3][0] + questao_79[3][1] # Cigarrilhas
+                questao_79[4][2] = questao_79[4][0] + questao_79[4][1] # Charutos, charutos pequenos.
+                questao_79[5][2] = questao_79[5][0] + questao_79[5][1] # Fumo para mascar
+                questao_79[6][2] = questao_79[6][0] + questao_79[6][1] # Narguilé (cachimbo de água)
+                questao_79[7][2] = questao_79[7][0] + questao_79[7][1] # Cigarros indianos (bidis)
+                questao_79[8][2] = questao_79[8][0] + questao_79[8][1] # Cigarro eletrônico (e-cigarette)
+                questao_79[9][2] = questao_79[9][0] + questao_79[9][1] # Outros
+                
+                # Totais da tabela questão 84
+                questao_84[7][0] = questao_84[0][0] + questao_84[1][0] + questao_84[2][0] + questao_84[3][0] + questao_84[4][0] + questao_84[5][0] + questao_84[6][0] # Total da coluna sim
+                questao_84[7][1] = questao_84[0][1] + questao_84[1][1] + questao_84[2][1] + questao_84[3][1] + questao_84[4][1] + questao_84[5][1] + questao_84[6][1] # Total da coluna não
+                questao_84[7][2] = questao_84[7][0] + questao_84[7][1] # Total geral
+                questao_84[0][2] = questao_84[0][0] + questao_84[0][1] # Nenhum dia nos últimos 30 dias (0 dia)
+                questao_84[1][2] = questao_84[1][0] + questao_84[1][1] # 1 ou 2 dias nos últimos 30 dias
+                questao_84[2][2] = questao_84[2][0] + questao_84[2][1] # 3 a 5 dias nos últimos 30 dias
+                questao_84[3][2] = questao_84[3][0] + questao_84[3][1] # 6 a 9 dias nos últimos 30 dias
+                questao_84[4][2] = questao_84[4][0] + questao_84[4][1] # 10 a 19 dias nos últimos 30 dias
+                questao_84[5][2] = questao_84[5][0] + questao_84[5][1] # 20 a 29 dias nos últimos 30 dias
+                questao_84[6][2] = questao_84[6][0] + questao_84[6][1] # Todos os dias nos últimos 30 dias
+                
+                # Totais da tabela questão 92
+                questao_92[5][0] = questao_92[0][0] + questao_92[1][0] + questao_92[2][0] + questao_92[3][0] + questao_92[4][0] # Total da coluna sim
+                questao_92[5][1] = questao_92[0][1] + questao_92[1][1] + questao_92[2][1] + questao_92[3][1] + questao_92[4][1] # Total da coluna não
+                questao_92[5][2] = questao_92[5][0] + questao_92[5][1] # Total geral
+                questao_92[0][2] = questao_92[0][0] + questao_92[0][1] # Nenhum dia nos últimos 30 dias (0 dia)
+                questao_92[1][2] = questao_92[1][0] + questao_92[1][1] # 1 ou 2 dias nos últimos 30 dias
+                questao_92[2][2] = questao_92[2][0] + questao_92[2][1] # 3 a 5 dias nos últimos 30 dias
+                questao_92[3][2] = questao_92[3][0] + questao_92[3][1] # 6 a 9 dias nos últimos 30 dias
+                questao_92[4][2] = questao_92[4][0] + questao_92[4][1] # 10 ou mais dias nos últimos 30 dias
+                
+                # Totais da tabela questão 111
+                questao_111[6][0] = questao_111[0][0] + questao_111[1][0] + questao_111[2][0] + questao_111[3][0] + questao_111[4][0] + questao_111[5][0] # Total da coluna sim
+                questao_111[6][1] = questao_111[0][1] + questao_111[1][1] + questao_111[2][1] + questao_111[3][1] + questao_111[4][1] + questao_111[5][1] # Total da coluna não
+                questao_111[6][2] = questao_111[6][0] + questao_111[6][1] # Total geral
+                questao_111[0][2] = questao_111[0][0] + questao_111[0][1] # Não escovei meus dentes nos últimos 30 dias
+                questao_111[1][2] = questao_111[1][0] + questao_111[1][1] # Não escovei meus dentes diariamente
+                questao_111[2][2] = questao_111[2][0] + questao_111[2][1] # 1 vez por dia nos últimos 30 dias
+                questao_111[3][2] = questao_111[3][0] + questao_111[3][1] # 2 vezes por dia nos últimos 30 dias
+                questao_111[4][2] = questao_111[4][0] + questao_111[4][1] # 3 vezes por dia nos últimos 30 dias
+                questao_111[5][2] = questao_111[5][0] + questao_111[5][1] # 4 ou mais vezes por dia nos últimos 30 dias
+                
+                # Totais da tabela questão 113
+                questao_113[4][0] = questao_113[0][0] + questao_113[1][0] + questao_113[2][0] + questao_113[3][0] # Total da coluna sim
+                questao_113[4][1] = questao_113[0][1] + questao_113[1][1] + questao_113[2][1] + questao_113[3][1] # Total da coluna não
+                questao_113[4][2] = questao_113[4][0] + questao_113[4][1] # Total geral
+                questao_113[0][2] = questao_113[0][0] + questao_113[0][1] # Nenhuma vez nos últimos 12 meses (0 vez)
+                questao_113[1][2] = questao_113[1][0] + questao_113[1][1] # 1 vez nos últimos 12 meses
+                questao_113[2][2] = questao_113[2][0] + questao_113[2][1] # 2 vezes nos últimos 12 meses
+                questao_113[3][2] = questao_113[3][0] + questao_113[3][1] # 3 ou mais vezes nos últimos 12 meses
+                
+                # Totais da tabela questão 25
+                questao_25[9][0] = questao_25[0][0] + questao_25[1][0] + questao_25[2][0] + questao_25[3][0] + questao_25[4][0] + questao_25[5][0] + questao_25[6][0] + questao_25[7][0] + questao_25[8][0] # Total da coluna sim
+                questao_25[9][1] = questao_25[0][1] + questao_25[1][1] + questao_25[2][1] + questao_25[3][1] + questao_25[4][1] + questao_25[5][1] + questao_25[6][1] + questao_25[7][1] + questao_25[8][1] # Total da coluna não
+                questao_25[9][2] = questao_25[9][0] + questao_25[9][1] # Total geral
+                questao_25[0][2] = questao_25[0][0] + questao_25[0][1] # Nunca ou menos de uma vez por mês
+                questao_25[1][2] = questao_25[1][0] + questao_25[1][1] # 1 a 3 vezes por mês
+                questao_25[2][2] = questao_25[2][0] + questao_25[2][1] # 1 vez por semana
+                questao_25[3][2] = questao_25[3][0] + questao_25[3][1] # 2 a 4 vezes por semana
+                questao_25[4][2] = questao_25[4][0] + questao_25[4][1] # 6 a 8 vezes por semana
+                questao_25[5][2] = questao_25[5][0] + questao_25[5][1] # 1 vez por dia
+                questao_25[6][2] = questao_25[6][0] + questao_25[6][1] # 2 a 3 vezes por dia
+                questao_25[7][2] = questao_25[7][0] + questao_25[7][1] # 4 a 6 vezes por dia
+                questao_25[8][2] = questao_25[8][0] + questao_25[8][1] # Mais de 8 vezes por dia
+                
+                # Totais da tabela questão 26
+                questao_26[9][0] = questao_26[0][0] + questao_26[1][0] + questao_26[2][0] + questao_26[3][0] + questao_26[4][0] + questao_26[5][0] + questao_26[6][0] + questao_26[7][0] + questao_26[8][0] # Total da coluna sim
+                questao_26[9][1] = questao_26[0][1] + questao_26[1][1] + questao_26[2][1] + questao_26[3][1] + questao_26[4][1] + questao_26[5][1] + questao_26[6][1] + questao_26[7][1] + questao_26[8][1] # Total da coluna não
+                questao_26[9][2] = questao_26[9][0] + questao_26[9][1] # Total geral
+                questao_26[0][2] = questao_26[0][0] + questao_26[0][1] # Nunca ou menos de uma vez por mês
+                questao_26[1][2] = questao_26[1][0] + questao_26[1][1] # 1 a 3 vezes por mês
+                questao_26[2][2] = questao_26[2][0] + questao_26[2][1] # 1 vez por semana
+                questao_26[3][2] = questao_26[3][0] + questao_26[3][1] # 2 a 4 vezes por semana
+                questao_26[4][2] = questao_26[4][0] + questao_26[4][1] # 6 a 8 vezes por semana
+                questao_26[5][2] = questao_26[5][0] + questao_26[5][1] # 1 vez por dia
+                questao_26[6][2] = questao_26[6][0] + questao_26[6][1] # 2 a 3 vezes por dia
+                questao_26[7][2] = questao_26[7][0] + questao_26[7][1] # 4 a 6 vezes por dia
+                questao_26[8][2] = questao_26[8][0] + questao_26[8][1] # Mais de 8 vezes por dia
+                
+                # Totais da tabela questão 27
+                questao_27[9][0] = questao_27[0][0] + questao_27[1][0] + questao_27[2][0] + questao_27[3][0] + questao_27[4][0] + questao_27[5][0] + questao_27[6][0] + questao_27[7][0] + questao_27[8][0] # Total da coluna sim
+                questao_27[9][1] = questao_27[0][1] + questao_27[1][1] + questao_27[2][1] + questao_27[3][1] + questao_27[4][1] + questao_27[5][1] + questao_27[6][1] + questao_27[7][1] + questao_27[8][1] # Total da coluna não
+                questao_27[9][2] = questao_27[9][0] + questao_27[9][1] # Total geral
+                questao_27[0][2] = questao_27[0][0] + questao_27[0][1] # Nunca ou menos de uma vez por mês
+                questao_27[1][2] = questao_27[1][0] + questao_27[1][1] # 1 a 3 vezes por mês
+                questao_27[2][2] = questao_27[2][0] + questao_27[2][1] # 1 vez por semana
+                questao_27[3][2] = questao_27[3][0] + questao_27[3][1] # 2 a 4 vezes por semana
+                questao_27[4][2] = questao_27[4][0] + questao_27[4][1] # 6 a 8 vezes por semana
+                questao_27[5][2] = questao_27[5][0] + questao_27[5][1] # 1 vez por dia
+                questao_27[6][2] = questao_27[6][0] + questao_27[6][1] # 2 a 3 vezes por dia
+                questao_27[7][2] = questao_27[7][0] + questao_27[7][1] # 4 a 6 vezes por dia
+                questao_27[8][2] = questao_27[8][0] + questao_27[8][1] # Mais de 8 vezes por dia
+                
+                # Totais da tabela questão 28
+                questao_28[9][0] = questao_28[0][0] + questao_28[1][0] + questao_28[2][0] + questao_28[3][0] + questao_28[4][0] + questao_28[5][0] + questao_28[6][0] + questao_28[7][0] + questao_28[8][0] # Total da coluna sim
+                questao_28[9][1] = questao_28[0][1] + questao_28[1][1] + questao_28[2][1] + questao_28[3][1] + questao_28[4][1] + questao_28[5][1] + questao_28[6][1] + questao_28[7][1] + questao_28[8][1] # Total da coluna não
+                questao_28[9][2] = questao_28[9][0] + questao_28[9][1] # Total geral
+                questao_28[0][2] = questao_28[0][0] + questao_28[0][1] # Nunca ou menos de uma vez por mês
+                questao_28[1][2] = questao_28[1][0] + questao_28[1][1] # 1 a 3 vezes por mês
+                questao_28[2][2] = questao_28[2][0] + questao_28[2][1] # 1 vez por semana
+                questao_28[3][2] = questao_28[3][0] + questao_28[3][1] # 2 a 4 vezes por semana
+                questao_28[4][2] = questao_28[4][0] + questao_28[4][1] # 6 a 8 vezes por semana
+                questao_28[5][2] = questao_28[5][0] + questao_28[5][1] # 1 vez por dia
+                questao_28[6][2] = questao_28[6][0] + questao_28[6][1] # 2 a 3 vezes por dia
+                questao_28[7][2] = questao_28[7][0] + questao_28[7][1] # 4 a 6 vezes por dia
+                questao_28[8][2] = questao_28[8][0] + questao_28[8][1] # Mais de 8 vezes por dia
+                
+                # Totais da tabela questão 29
+                questao_29[9][0] = questao_29[0][0] + questao_29[1][0] + questao_29[2][0] + questao_29[3][0] + questao_29[4][0] + questao_29[5][0] + questao_29[6][0] + questao_29[7][0] + questao_29[8][0] # Total da coluna sim
+                questao_29[9][1] = questao_29[0][1] + questao_29[1][1] + questao_29[2][1] + questao_29[3][1] + questao_29[4][1] + questao_29[5][1] + questao_29[6][1] + questao_29[7][1] + questao_29[8][1] # Total da coluna não
+                questao_29[9][2] = questao_29[9][0] + questao_29[9][1] # Total geral
+                questao_29[0][2] = questao_29[0][0] + questao_29[0][1] # Nunca ou menos de uma vez por mês
+                questao_29[1][2] = questao_29[1][0] + questao_29[1][1] # 1 a 3 vezes por mês
+                questao_29[2][2] = questao_29[2][0] + questao_29[2][1] # 1 vez por semana
+                questao_29[3][2] = questao_29[3][0] + questao_29[3][1] # 2 a 4 vezes por semana
+                questao_29[4][2] = questao_29[4][0] + questao_29[4][1] # 6 a 8 vezes por semana
+                questao_29[5][2] = questao_29[5][0] + questao_29[5][1] # 1 vez por dia
+                questao_29[6][2] = questao_29[6][0] + questao_29[6][1] # 2 a 3 vezes por dia
+                questao_29[7][2] = questao_29[7][0] + questao_29[7][1] # 4 a 6 vezes por dia
+                questao_29[8][2] = questao_29[8][0] + questao_29[8][1] # Mais de 8 vezes por dia
+                
+                # Totais da tabela questão 30
+                questao_30[9][0] = questao_30[0][0] + questao_30[1][0] + questao_30[2][0] + questao_30[3][0] + questao_30[4][0] + questao_30[5][0] + questao_30[6][0] + questao_30[7][0] + questao_30[8][0] # Total da coluna sim
+                questao_30[9][1] = questao_30[0][1] + questao_30[1][1] + questao_30[2][1] + questao_30[3][1] + questao_30[4][1] + questao_30[5][1] + questao_30[6][1] + questao_30[7][1] + questao_30[8][1] # Total da coluna não
+                questao_30[9][2] = questao_30[9][0] + questao_30[9][1] # Total geral
+                questao_30[0][2] = questao_30[0][0] + questao_30[0][1] # Nunca ou menos de uma vez por mês
+                questao_30[1][2] = questao_30[1][0] + questao_30[1][1] # 1 a 3 vezes por mês
+                questao_30[2][2] = questao_30[2][0] + questao_30[2][1] # 1 vez por semana
+                questao_30[3][2] = questao_30[3][0] + questao_30[3][1] # 2 a 4 vezes por semana
+                questao_30[4][2] = questao_30[4][0] + questao_30[4][1] # 6 a 8 vezes por semana
+                questao_30[5][2] = questao_30[5][0] + questao_30[5][1] # 1 vez por dia
+                questao_30[6][2] = questao_30[6][0] + questao_30[6][1] # 2 a 3 vezes por dia
+                questao_30[7][2] = questao_30[7][0] + questao_30[7][1] # 4 a 6 vezes por dia
+                questao_30[8][2] = questao_30[8][0] + questao_30[8][1] # Mais de 8 vezes por dia
+                
+                # Totais da tabela questão 31
+                questao_31[9][0] = questao_31[0][0] + questao_31[1][0] + questao_31[2][0] + questao_31[3][0] + questao_31[4][0] + questao_31[5][0] + questao_31[6][0] + questao_31[7][0] + questao_31[8][0] # Total da coluna sim
+                questao_31[9][1] = questao_31[0][1] + questao_31[1][1] + questao_31[2][1] + questao_31[3][1] + questao_31[4][1] + questao_31[5][1] + questao_31[6][1] + questao_31[7][1] + questao_31[8][1] # Total da coluna não
+                questao_31[9][2] = questao_31[9][0] + questao_31[9][1] # Total geral
+                questao_31[0][2] = questao_31[0][0] + questao_31[0][1] # Nunca ou menos de uma vez por mês
+                questao_31[1][2] = questao_31[1][0] + questao_31[1][1] # 1 a 3 vezes por mês
+                questao_31[2][2] = questao_31[2][0] + questao_31[2][1] # 1 vez por semana
+                questao_31[3][2] = questao_31[3][0] + questao_31[3][1] # 2 a 4 vezes por semana
+                questao_31[4][2] = questao_31[4][0] + questao_31[4][1] # 6 a 8 vezes por semana
+                questao_31[5][2] = questao_31[5][0] + questao_31[5][1] # 1 vez por dia
+                questao_31[6][2] = questao_31[6][0] + questao_31[6][1] # 2 a 3 vezes por dia
+                questao_31[7][2] = questao_31[7][0] + questao_31[7][1] # 4 a 6 vezes por dia
+                questao_31[8][2] = questao_31[8][0] + questao_31[8][1] # Mais de 8 vezes por dia
+                
+                # Totais da tabela questão 32
+                questao_32[9][0] = questao_32[0][0] + questao_32[1][0] + questao_32[2][0] + questao_32[3][0] + questao_32[4][0] + questao_32[5][0] + questao_32[6][0] + questao_32[7][0] + questao_32[8][0] # Total da coluna sim
+                questao_32[9][1] = questao_32[0][1] + questao_32[1][1] + questao_32[2][1] + questao_32[3][1] + questao_32[4][1] + questao_32[5][1] + questao_32[6][1] + questao_32[7][1] + questao_32[8][1] # Total da coluna não
+                questao_32[9][2] = questao_32[9][0] + questao_32[9][1] # Total geral
+                questao_32[0][2] = questao_32[0][0] + questao_32[0][1] # Nunca ou menos de uma vez por mês
+                questao_32[1][2] = questao_32[1][0] + questao_32[1][1] # 1 a 3 vezes por mês
+                questao_32[2][2] = questao_32[2][0] + questao_32[2][1] # 1 vez por semana
+                questao_32[3][2] = questao_32[3][0] + questao_32[3][1] # 2 a 4 vezes por semana
+                questao_32[4][2] = questao_32[4][0] + questao_32[4][1] # 6 a 8 vezes por semana
+                questao_32[5][2] = questao_32[5][0] + questao_32[5][1] # 1 vez por dia
+                questao_32[6][2] = questao_32[6][0] + questao_32[6][1] # 2 a 3 vezes por dia
+                questao_32[7][2] = questao_32[7][0] + questao_32[7][1] # 4 a 6 vezes por dia
+                questao_32[8][2] = questao_32[8][0] + questao_32[8][1] # Mais de 8 vezes por dia
+                
+                # Totais da tabela questão 33
+                questao_33[9][0] = questao_33[0][0] + questao_33[1][0] + questao_33[2][0] + questao_33[3][0] + questao_33[4][0] + questao_33[5][0] + questao_33[6][0] + questao_33[7][0] + questao_33[8][0] # Total da coluna sim
+                questao_33[9][1] = questao_33[0][1] + questao_33[1][1] + questao_33[2][1] + questao_33[3][1] + questao_33[4][1] + questao_33[5][1] + questao_33[6][1] + questao_33[7][1] + questao_33[8][1] # Total da coluna não
+                questao_33[9][2] = questao_33[9][0] + questao_33[9][1] # Total geral
+                questao_33[0][2] = questao_33[0][0] + questao_33[0][1] # Nunca ou menos de uma vez por mês
+                questao_33[1][2] = questao_33[1][0] + questao_33[1][1] # 1 a 3 vezes por mês
+                questao_33[2][2] = questao_33[2][0] + questao_33[2][1] # 1 vez por semana
+                questao_33[3][2] = questao_33[3][0] + questao_33[3][1] # 2 a 4 vezes por semana
+                questao_33[4][2] = questao_33[4][0] + questao_33[4][1] # 6 a 8 vezes por semana
+                questao_33[5][2] = questao_33[5][0] + questao_33[5][1] # 1 vez por dia
+                questao_33[6][2] = questao_33[6][0] + questao_33[6][1] # 2 a 3 vezes por dia
+                questao_33[7][2] = questao_33[7][0] + questao_33[7][1] # 4 a 6 vezes por dia
+                questao_33[8][2] = questao_33[8][0] + questao_33[8][1] # Mais de 8 vezes por dia
+                
+                # Totais da tabela questão 34
+                questao_34[9][0] = questao_34[0][0] + questao_34[1][0] + questao_34[2][0] + questao_34[3][0] + questao_34[4][0] + questao_34[5][0] + questao_34[6][0] + questao_34[7][0] + questao_34[8][0] # Total da coluna sim
+                questao_34[9][1] = questao_34[0][1] + questao_34[1][1] + questao_34[2][1] + questao_34[3][1] + questao_34[4][1] + questao_34[5][1] + questao_34[6][1] + questao_34[7][1] + questao_34[8][1] # Total da coluna não
+                questao_34[9][2] = questao_34[9][0] + questao_34[9][1] # Total geral
+                questao_34[0][2] = questao_34[0][0] + questao_34[0][1] # Nunca ou menos de uma vez por mês
+                questao_34[1][2] = questao_34[1][0] + questao_34[1][1] # 1 a 3 vezes por mês
+                questao_34[2][2] = questao_34[2][0] + questao_34[2][1] # 1 vez por semana
+                questao_34[3][2] = questao_34[3][0] + questao_34[3][1] # 2 a 4 vezes por semana
+                questao_34[4][2] = questao_34[4][0] + questao_34[4][1] # 6 a 8 vezes por semana
+                questao_34[5][2] = questao_34[5][0] + questao_34[5][1] # 1 vez por dia
+                questao_34[6][2] = questao_34[6][0] + questao_34[6][1] # 2 a 3 vezes por dia
+                questao_34[7][2] = questao_34[7][0] + questao_34[7][1] # 4 a 6 vezes por dia
+                questao_34[8][2] = questao_34[8][0] + questao_34[8][1] # Mais de 8 vezes por dia
+                
+                # Totais da tabela questão 35
+                questao_35[9][0] = questao_35[0][0] + questao_35[1][0] + questao_35[2][0] + questao_35[3][0] + questao_35[4][0] + questao_35[5][0] + questao_35[6][0] + questao_35[7][0] + questao_35[8][0] # Total da coluna sim
+                questao_35[9][1] = questao_35[0][1] + questao_35[1][1] + questao_35[2][1] + questao_35[3][1] + questao_35[4][1] + questao_35[5][1] + questao_35[6][1] + questao_35[7][1] + questao_35[8][1] # Total da coluna não
+                questao_35[9][2] = questao_35[9][0] + questao_35[9][1] # Total geral
+                questao_35[0][2] = questao_35[0][0] + questao_35[0][1] # Nunca ou menos de uma vez por mês
+                questao_35[1][2] = questao_35[1][0] + questao_35[1][1] # 1 a 3 vezes por mês
+                questao_35[2][2] = questao_35[2][0] + questao_35[2][1] # 1 vez por semana
+                questao_35[3][2] = questao_35[3][0] + questao_35[3][1] # 2 a 4 vezes por semana
+                questao_35[4][2] = questao_35[4][0] + questao_35[4][1] # 6 a 8 vezes por semana
+                questao_35[5][2] = questao_35[5][0] + questao_35[5][1] # 1 vez por dia
+                questao_35[6][2] = questao_35[6][0] + questao_35[6][1] # 2 a 3 vezes por dia
+                questao_35[7][2] = questao_35[7][0] + questao_35[7][1] # 4 a 6 vezes por dia
+                questao_35[8][2] = questao_35[8][0] + questao_35[8][1] # Mais de 8 vezes por dia
+                
+                # Totais da tabela questão 36
+                questao_36[9][0] = questao_36[0][0] + questao_36[1][0] + questao_36[2][0] + questao_36[3][0] + questao_36[4][0] + questao_36[5][0] + questao_36[6][0] + questao_36[7][0] + questao_36[8][0] # Total da coluna sim
+                questao_36[9][1] = questao_36[0][1] + questao_36[1][1] + questao_36[2][1] + questao_36[3][1] + questao_36[4][1] + questao_36[5][1] + questao_36[6][1] + questao_36[7][1] + questao_36[8][1] # Total da coluna não
+                questao_36[9][2] = questao_36[9][0] + questao_36[9][1] # Total geral
+                questao_36[0][2] = questao_36[0][0] + questao_36[0][1] # Nunca ou menos de uma vez por mês
+                questao_36[1][2] = questao_36[1][0] + questao_36[1][1] # 1 a 3 vezes por mês
+                questao_36[2][2] = questao_36[2][0] + questao_36[2][1] # 1 vez por semana
+                questao_36[3][2] = questao_36[3][0] + questao_36[3][1] # 2 a 4 vezes por semana
+                questao_36[4][2] = questao_36[4][0] + questao_36[4][1] # 6 a 8 vezes por semana
+                questao_36[5][2] = questao_36[5][0] + questao_36[5][1] # 1 vez por dia
+                questao_36[6][2] = questao_36[6][0] + questao_36[6][1] # 2 a 3 vezes por dia
+                questao_36[7][2] = questao_36[7][0] + questao_36[7][1] # 4 a 6 vezes por dia
+                questao_36[8][2] = questao_36[8][0] + questao_36[8][1] # Mais de 8 vezes por dia
+                
+                # Totais da tabela questão 37
+                questao_37[9][0] = questao_37[0][0] + questao_37[1][0] + questao_37[2][0] + questao_37[3][0] + questao_37[4][0] + questao_37[5][0] + questao_37[6][0] + questao_37[7][0] + questao_37[8][0] # Total da coluna sim
+                questao_37[9][1] = questao_37[0][1] + questao_37[1][1] + questao_37[2][1] + questao_37[3][1] + questao_37[4][1] + questao_37[5][1] + questao_37[6][1] + questao_37[7][1] + questao_37[8][1] # Total da coluna não
+                questao_37[9][2] = questao_37[9][0] + questao_37[9][1] # Total geral
+                questao_37[0][2] = questao_37[0][0] + questao_37[0][1] # Nunca ou menos de uma vez por mês
+                questao_37[1][2] = questao_37[1][0] + questao_37[1][1] # 1 a 3 vezes por mês
+                questao_37[2][2] = questao_37[2][0] + questao_37[2][1] # 1 vez por semana
+                questao_37[3][2] = questao_37[3][0] + questao_37[3][1] # 2 a 4 vezes por semana
+                questao_37[4][2] = questao_37[4][0] + questao_37[4][1] # 6 a 8 vezes por semana
+                questao_37[5][2] = questao_37[5][0] + questao_37[5][1] # 1 vez por dia
+                questao_37[6][2] = questao_37[6][0] + questao_37[6][1] # 2 a 3 vezes por dia
+                questao_37[7][2] = questao_37[7][0] + questao_37[7][1] # 4 a 6 vezes por dia
+                questao_37[8][2] = questao_37[8][0] + questao_37[8][1] # Mais de 8 vezes por dia
+                
+                # Totais da tabela questão 38
+                questao_38[9][0] = questao_38[0][0] + questao_38[1][0] + questao_38[2][0] + questao_38[3][0] + questao_38[4][0] + questao_38[5][0] + questao_38[6][0] + questao_38[7][0] + questao_38[8][0] # Total da coluna sim
+                questao_38[9][1] = questao_38[0][1] + questao_38[1][1] + questao_38[2][1] + questao_38[3][1] + questao_38[4][1] + questao_38[5][1] + questao_38[6][1] + questao_38[7][1] + questao_38[8][1] # Total da coluna não
+                questao_38[9][2] = questao_38[9][0] + questao_38[9][1] # Total geral
+                questao_38[0][2] = questao_38[0][0] + questao_38[0][1] # Nunca ou menos de uma vez por mês
+                questao_38[1][2] = questao_38[1][0] + questao_38[1][1] # 1 a 3 vezes por mês
+                questao_38[2][2] = questao_38[2][0] + questao_38[2][1] # 1 vez por semana
+                questao_38[3][2] = questao_38[3][0] + questao_38[3][1] # 2 a 4 vezes por semana
+                questao_38[4][2] = questao_38[4][0] + questao_38[4][1] # 6 a 8 vezes por semana
+                questao_38[5][2] = questao_38[5][0] + questao_38[5][1] # 1 vez por dia
+                questao_38[6][2] = questao_38[6][0] + questao_38[6][1] # 2 a 3 vezes por dia
+                questao_38[7][2] = questao_38[7][0] + questao_38[7][1] # 4 a 6 vezes por dia
+                questao_38[8][2] = questao_38[8][0] + questao_38[8][1] # Mais de 8 vezes por dia
+                
+                # Totais da tabela questão 39
+                questao_39[9][0] = questao_39[0][0] + questao_39[1][0] + questao_39[2][0] + questao_39[3][0] + questao_39[4][0] + questao_39[5][0] + questao_39[6][0] + questao_39[7][0] + questao_39[8][0] # Total da coluna sim
+                questao_39[9][1] = questao_39[0][1] + questao_39[1][1] + questao_39[2][1] + questao_39[3][1] + questao_39[4][1] + questao_39[5][1] + questao_39[6][1] + questao_39[7][1] + questao_39[8][1] # Total da coluna não
+                questao_39[9][2] = questao_39[9][0] + questao_39[9][1] # Total geral
+                questao_39[0][2] = questao_39[0][0] + questao_39[0][1] # Nunca ou menos de uma vez por mês
+                questao_39[1][2] = questao_39[1][0] + questao_39[1][1] # 1 a 3 vezes por mês
+                questao_39[2][2] = questao_39[2][0] + questao_39[2][1] # 1 vez por semana
+                questao_39[3][2] = questao_39[3][0] + questao_39[3][1] # 2 a 4 vezes por semana
+                questao_39[4][2] = questao_39[4][0] + questao_39[4][1] # 6 a 8 vezes por semana
+                questao_39[5][2] = questao_39[5][0] + questao_39[5][1] # 1 vez por dia
+                questao_39[6][2] = questao_39[6][0] + questao_39[6][1] # 2 a 3 vezes por dia
+                questao_39[7][2] = questao_39[7][0] + questao_39[7][1] # 4 a 6 vezes por dia
+                questao_39[8][2] = questao_39[8][0] + questao_39[8][1] # Mais de 8 vezes por dia
+                
+                # Totais da tabela questão 40
+                questao_40[9][0] = questao_40[0][0] + questao_40[1][0] + questao_40[2][0] + questao_40[3][0] + questao_40[4][0] + questao_40[5][0] + questao_40[6][0] + questao_40[7][0] + questao_40[8][0] # Total da coluna sim
+                questao_40[9][1] = questao_40[0][1] + questao_40[1][1] + questao_40[2][1] + questao_40[3][1] + questao_40[4][1] + questao_40[5][1] + questao_40[6][1] + questao_40[7][1] + questao_40[8][1] # Total da coluna não
+                questao_40[9][2] = questao_40[9][0] + questao_40[9][1] # Total geral
+                questao_40[0][2] = questao_40[0][0] + questao_40[0][1] # Nunca ou menos de uma vez por mês
+                questao_40[1][2] = questao_40[1][0] + questao_40[1][1] # 1 a 3 vezes por mês
+                questao_40[2][2] = questao_40[2][0] + questao_40[2][1] # 1 vez por semana
+                questao_40[3][2] = questao_40[3][0] + questao_40[3][1] # 2 a 4 vezes por semana
+                questao_40[4][2] = questao_40[4][0] + questao_40[4][1] # 6 a 8 vezes por semana
+                questao_40[5][2] = questao_40[5][0] + questao_40[5][1] # 1 vez por dia
+                questao_40[6][2] = questao_40[6][0] + questao_40[6][1] # 2 a 3 vezes por dia
+                questao_40[7][2] = questao_40[7][0] + questao_40[7][1] # 4 a 6 vezes por dia
+                questao_40[8][2] = questao_40[8][0] + questao_40[8][1] # Mais de 8 vezes por dia
+                
+                # Totais da tabela questão 41
+                questao_41[9][0] = questao_41[0][0] + questao_41[1][0] + questao_41[2][0] + questao_41[3][0] + questao_41[4][0] + questao_41[5][0] + questao_41[6][0] + questao_41[7][0] + questao_41[8][0] # Total da coluna sim
+                questao_41[9][1] = questao_41[0][1] + questao_41[1][1] + questao_41[2][1] + questao_41[3][1] + questao_41[4][1] + questao_41[5][1] + questao_41[6][1] + questao_41[7][1] + questao_41[8][1] # Total da coluna não
+                questao_41[9][2] = questao_41[9][0] + questao_41[9][1] # Total geral
+                questao_41[0][2] = questao_41[0][0] + questao_41[0][1] # Nunca ou menos de uma vez por mês
+                questao_41[1][2] = questao_41[1][0] + questao_41[1][1] # 1 a 3 vezes por mês
+                questao_41[2][2] = questao_41[2][0] + questao_41[2][1] # 1 vez por semana
+                questao_41[3][2] = questao_41[3][0] + questao_41[3][1] # 2 a 4 vezes por semana
+                questao_41[4][2] = questao_41[4][0] + questao_41[4][1] # 6 a 8 vezes por semana
+                questao_41[5][2] = questao_41[5][0] + questao_41[5][1] # 1 vez por dia
+                questao_41[6][2] = questao_41[6][0] + questao_41[6][1] # 2 a 3 vezes por dia
+                questao_41[7][2] = questao_41[7][0] + questao_41[7][1] # 4 a 6 vezes por dia
+                questao_41[8][2] = questao_41[8][0] + questao_41[8][1] # Mais de 8 vezes por dia
+                
+                # Totais da tabela questão 42
+                questao_42[9][0] = questao_42[0][0] + questao_42[1][0] + questao_42[2][0] + questao_42[3][0] + questao_42[4][0] + questao_42[5][0] + questao_42[6][0] + questao_42[7][0] + questao_42[8][0] # Total da coluna sim
+                questao_42[9][1] = questao_42[0][1] + questao_42[1][1] + questao_42[2][1] + questao_42[3][1] + questao_42[4][1] + questao_42[5][1] + questao_42[6][1] + questao_42[7][1] + questao_42[8][1] # Total da coluna não
+                questao_42[9][2] = questao_42[9][0] + questao_42[9][1] # Total geral
+                questao_42[0][2] = questao_42[0][0] + questao_42[0][1] # Nunca ou menos de uma vez por mês
+                questao_42[1][2] = questao_42[1][0] + questao_42[1][1] # 1 a 3 vezes por mês
+                questao_42[2][2] = questao_42[2][0] + questao_42[2][1] # 1 vez por semana
+                questao_42[3][2] = questao_42[3][0] + questao_42[3][1] # 2 a 4 vezes por semana
+                questao_42[4][2] = questao_42[4][0] + questao_42[4][1] # 6 a 8 vezes por semana
+                questao_42[5][2] = questao_42[5][0] + questao_42[5][1] # 1 vez por dia
+                questao_42[6][2] = questao_42[6][0] + questao_42[6][1] # 2 a 3 vezes por dia
+                questao_42[7][2] = questao_42[7][0] + questao_42[7][1] # 4 a 6 vezes por dia
+                questao_42[8][2] = questao_42[8][0] + questao_42[8][1] # Mais de 8 vezes por dia
+                
+                # Totais da tabela questão 43
+                questao_43[9][0] = questao_43[0][0] + questao_43[1][0] + questao_43[2][0] + questao_43[3][0] + questao_43[4][0] + questao_43[5][0] + questao_43[6][0] + questao_43[7][0] + questao_43[8][0] # Total da coluna sim
+                questao_43[9][1] = questao_43[0][1] + questao_43[1][1] + questao_43[2][1] + questao_43[3][1] + questao_43[4][1] + questao_43[5][1] + questao_43[6][1] + questao_43[7][1] + questao_43[8][1] # Total da coluna não
+                questao_43[9][2] = questao_43[9][0] + questao_43[9][1] # Total geral
+                questao_43[0][2] = questao_43[0][0] + questao_43[0][1] # Nunca ou menos de uma vez por mês
+                questao_43[1][2] = questao_43[1][0] + questao_43[1][1] # 1 a 3 vezes por mês
+                questao_43[2][2] = questao_43[2][0] + questao_43[2][1] # 1 vez por semana
+                questao_43[3][2] = questao_43[3][0] + questao_43[3][1] # 2 a 4 vezes por semana
+                questao_43[4][2] = questao_43[4][0] + questao_43[4][1] # 6 a 8 vezes por semana
+                questao_43[5][2] = questao_43[5][0] + questao_43[5][1] # 1 vez por dia
+                questao_43[6][2] = questao_43[6][0] + questao_43[6][1] # 2 a 3 vezes por dia
+                questao_43[7][2] = questao_43[7][0] + questao_43[7][1] # 4 a 6 vezes por dia
+                questao_43[8][2] = questao_43[8][0] + questao_43[8][1] # Mais de 8 vezes por dia
+                
+                # Totais da tabela questão 44
+                questao_44[9][0] = questao_44[0][0] + questao_44[1][0] + questao_44[2][0] + questao_44[3][0] + questao_44[4][0] + questao_44[5][0] + questao_44[6][0] + questao_44[7][0] + questao_44[8][0] # Total da coluna sim
+                questao_44[9][1] = questao_44[0][1] + questao_44[1][1] + questao_44[2][1] + questao_44[3][1] + questao_44[4][1] + questao_44[5][1] + questao_44[6][1] + questao_44[7][1] + questao_44[8][1] # Total da coluna não
+                questao_44[9][2] = questao_44[9][0] + questao_44[9][1] # Total geral
+                questao_44[0][2] = questao_44[0][0] + questao_44[0][1] # Nunca ou menos de uma vez por mês
+                questao_44[1][2] = questao_44[1][0] + questao_44[1][1] # 1 a 3 vezes por mês
+                questao_44[2][2] = questao_44[2][0] + questao_44[2][1] # 1 vez por semana
+                questao_44[3][2] = questao_44[3][0] + questao_44[3][1] # 2 a 4 vezes por semana
+                questao_44[4][2] = questao_44[4][0] + questao_44[4][1] # 6 a 8 vezes por semana
+                questao_44[5][2] = questao_44[5][0] + questao_44[5][1] # 1 vez por dia
+                questao_44[6][2] = questao_44[6][0] + questao_44[6][1] # 2 a 3 vezes por dia
+                questao_44[7][2] = questao_44[7][0] + questao_44[7][1] # 4 a 6 vezes por dia
+                questao_44[8][2] = questao_44[8][0] + questao_44[8][1] # Mais de 8 vezes por dia
+                
+                # Totais da tabela questão 45
+                questao_45[9][0] = questao_45[0][0] + questao_45[1][0] + questao_45[2][0] + questao_45[3][0] + questao_45[4][0] + questao_45[5][0] + questao_45[6][0] + questao_45[7][0] + questao_45[8][0] # Total da coluna sim
+                questao_45[9][1] = questao_45[0][1] + questao_45[1][1] + questao_45[2][1] + questao_45[3][1] + questao_45[4][1] + questao_45[5][1] + questao_45[6][1] + questao_45[7][1] + questao_45[8][1] # Total da coluna não
+                questao_45[9][2] = questao_45[9][0] + questao_45[9][1] # Total geral
+                questao_45[0][2] = questao_45[0][0] + questao_45[0][1] # Nunca ou menos de uma vez por mês
+                questao_45[1][2] = questao_45[1][0] + questao_45[1][1] # 1 a 3 vezes por mês
+                questao_45[2][2] = questao_45[2][0] + questao_45[2][1] # 1 vez por semana
+                questao_45[3][2] = questao_45[3][0] + questao_45[3][1] # 2 a 4 vezes por semana
+                questao_45[4][2] = questao_45[4][0] + questao_45[4][1] # 6 a 8 vezes por semana
+                questao_45[5][2] = questao_45[5][0] + questao_45[5][1] # 1 vez por dia
+                questao_45[6][2] = questao_45[6][0] + questao_45[6][1] # 2 a 3 vezes por dia
+                questao_45[7][2] = questao_45[7][0] + questao_45[7][1] # 4 a 6 vezes por dia
+                questao_45[8][2] = questao_45[8][0] + questao_45[8][1] # Mais de 8 vezes por dia
+                
+                # Totais da tabela questão 46
+                questao_46[9][0] = questao_46[0][0] + questao_46[1][0] + questao_46[2][0] + questao_46[3][0] + questao_46[4][0] + questao_46[5][0] + questao_46[6][0] + questao_46[7][0] + questao_46[8][0] # Total da coluna sim
+                questao_46[9][1] = questao_46[0][1] + questao_46[1][1] + questao_46[2][1] + questao_46[3][1] + questao_46[4][1] + questao_46[5][1] + questao_46[6][1] + questao_46[7][1] + questao_46[8][1] # Total da coluna não
+                questao_46[9][2] = questao_46[9][0] + questao_46[9][1] # Total geral
+                questao_46[0][2] = questao_46[0][0] + questao_46[0][1] # Nunca ou menos de uma vez por mês
+                questao_46[1][2] = questao_46[1][0] + questao_46[1][1] # 1 a 3 vezes por mês
+                questao_46[2][2] = questao_46[2][0] + questao_46[2][1] # 1 vez por semana
+                questao_46[3][2] = questao_46[3][0] + questao_46[3][1] # 2 a 4 vezes por semana
+                questao_46[4][2] = questao_46[4][0] + questao_46[4][1] # 6 a 8 vezes por semana
+                questao_46[5][2] = questao_46[5][0] + questao_46[5][1] # 1 vez por dia
+                questao_46[6][2] = questao_46[6][0] + questao_46[6][1] # 2 a 3 vezes por dia
+                questao_46[7][2] = questao_46[7][0] + questao_46[7][1] # 4 a 6 vezes por dia
+                questao_46[8][2] = questao_46[8][0] + questao_46[8][1] # Mais de 8 vezes por dia
+                
+                # Totais da tabela questão 47
+                questao_47[9][0] = questao_47[0][0] + questao_47[1][0] + questao_47[2][0] + questao_47[3][0] + questao_47[4][0] + questao_47[5][0] + questao_47[6][0] + questao_47[7][0] + questao_47[8][0] # Total da coluna sim
+                questao_47[9][1] = questao_47[0][1] + questao_47[1][1] + questao_47[2][1] + questao_47[3][1] + questao_47[4][1] + questao_47[5][1] + questao_47[6][1] + questao_47[7][1] + questao_47[8][1] # Total da coluna não
+                questao_47[9][2] = questao_47[9][0] + questao_47[9][1] # Total geral
+                questao_47[0][2] = questao_47[0][0] + questao_47[0][1] # Nunca ou menos de uma vez por mês
+                questao_47[1][2] = questao_47[1][0] + questao_47[1][1] # 1 a 3 vezes por mês
+                questao_47[2][2] = questao_47[2][0] + questao_47[2][1] # 1 vez por semana
+                questao_47[3][2] = questao_47[3][0] + questao_47[3][1] # 2 a 4 vezes por semana
+                questao_47[4][2] = questao_47[4][0] + questao_47[4][1] # 6 a 8 vezes por semana
+                questao_47[5][2] = questao_47[5][0] + questao_47[5][1] # 1 vez por dia
+                questao_47[6][2] = questao_47[6][0] + questao_47[6][1] # 2 a 3 vezes por dia
+                questao_47[7][2] = questao_47[7][0] + questao_47[7][1] # 4 a 6 vezes por dia
+                questao_47[8][2] = questao_47[8][0] + questao_47[8][1] # Mais de 8 vezes por dia
+                
+                # Totais da tabela questão 48
+                questao_48[9][0] = questao_48[0][0] + questao_48[1][0] + questao_48[2][0] + questao_48[3][0] + questao_48[4][0] + questao_48[5][0] + questao_48[6][0] + questao_48[7][0] + questao_48[8][0] # Total da coluna sim
+                questao_48[9][1] = questao_48[0][1] + questao_48[1][1] + questao_48[2][1] + questao_48[3][1] + questao_48[4][1] + questao_48[5][1] + questao_48[6][1] + questao_48[7][1] + questao_48[8][1] # Total da coluna não
+                questao_48[9][2] = questao_48[9][0] + questao_48[9][1] # Total geral
+                questao_48[0][2] = questao_48[0][0] + questao_48[0][1] # Nunca ou menos de uma vez por mês
+                questao_48[1][2] = questao_48[1][0] + questao_48[1][1] # 1 a 3 vezes por mês
+                questao_48[2][2] = questao_48[2][0] + questao_48[2][1] # 1 vez por semana
+                questao_48[3][2] = questao_48[3][0] + questao_48[3][1] # 2 a 4 vezes por semana
+                questao_48[4][2] = questao_48[4][0] + questao_48[4][1] # 6 a 8 vezes por semana
+                questao_48[5][2] = questao_48[5][0] + questao_48[5][1] # 1 vez por dia
+                questao_48[6][2] = questao_48[6][0] + questao_48[6][1] # 2 a 3 vezes por dia
+                questao_48[7][2] = questao_48[7][0] + questao_48[7][1] # 4 a 6 vezes por dia
+                questao_48[8][2] = questao_48[8][0] + questao_48[8][1] # Mais de 8 vezes por dia
+                
+                # Totais da tabela questão 49
+                questao_49[9][0] = questao_49[0][0] + questao_49[1][0] + questao_49[2][0] + questao_49[3][0] + questao_49[4][0] + questao_49[5][0] + questao_49[6][0] + questao_49[7][0] + questao_49[8][0] # Total da coluna sim
+                questao_49[9][1] = questao_49[0][1] + questao_49[1][1] + questao_49[2][1] + questao_49[3][1] + questao_49[4][1] + questao_49[5][1] + questao_49[6][1] + questao_49[7][1] + questao_49[8][1] # Total da coluna não
+                questao_49[9][2] = questao_49[9][0] + questao_49[9][1] # Total geral
+                questao_49[0][2] = questao_49[0][0] + questao_49[0][1] # Nunca ou menos de uma vez por mês
+                questao_49[1][2] = questao_49[1][0] + questao_49[1][1] # 1 a 3 vezes por mês
+                questao_49[2][2] = questao_49[2][0] + questao_49[2][1] # 1 vez por semana
+                questao_49[3][2] = questao_49[3][0] + questao_49[3][1] # 2 a 4 vezes por semana
+                questao_49[4][2] = questao_49[4][0] + questao_49[4][1] # 6 a 8 vezes por semana
+                questao_49[5][2] = questao_49[5][0] + questao_49[5][1] # 1 vez por dia
+                questao_49[6][2] = questao_49[6][0] + questao_49[6][1] # 2 a 3 vezes por dia
+                questao_49[7][2] = questao_49[7][0] + questao_49[7][1] # 4 a 6 vezes por dia
+                questao_49[8][2] = questao_49[8][0] + questao_49[8][1] # Mais de 8 vezes por dia
+                
+                # Totais da tabela questão 50
+                questao_50[9][0] = questao_50[0][0] + questao_50[1][0] + questao_50[2][0] + questao_50[3][0] + questao_50[4][0] + questao_50[5][0] + questao_50[6][0] + questao_50[7][0] + questao_50[8][0] # Total da coluna sim
+                questao_50[9][1] = questao_50[0][1] + questao_50[1][1] + questao_50[2][1] + questao_50[3][1] + questao_50[4][1] + questao_50[5][1] + questao_50[6][1] + questao_50[7][1] + questao_50[8][1] # Total da coluna não
+                questao_50[9][2] = questao_50[9][0] + questao_50[9][1] # Total geral
+                questao_50[0][2] = questao_50[0][0] + questao_50[0][1] # Nunca ou menos de uma vez por mês
+                questao_50[1][2] = questao_50[1][0] + questao_50[1][1] # 1 a 3 vezes por mês
+                questao_50[2][2] = questao_50[2][0] + questao_50[2][1] # 1 vez por semana
+                questao_50[3][2] = questao_50[3][0] + questao_50[3][1] # 2 a 4 vezes por semana
+                questao_50[4][2] = questao_50[4][0] + questao_50[4][1] # 6 a 8 vezes por semana
+                questao_50[5][2] = questao_50[5][0] + questao_50[5][1] # 1 vez por dia
+                questao_50[6][2] = questao_50[6][0] + questao_50[6][1] # 2 a 3 vezes por dia
+                questao_50[7][2] = questao_50[7][0] + questao_50[7][1] # 4 a 6 vezes por dia
+                questao_50[8][2] = questao_50[8][0] + questao_50[8][1] # Mais de 8 vezes por dia
+                
+                # Totais da tabela questão 51
+                questao_51[9][0] = questao_51[0][0] + questao_51[1][0] + questao_51[2][0] + questao_51[3][0] + questao_51[4][0] + questao_51[5][0] + questao_51[6][0] + questao_51[7][0] + questao_51[8][0] # Total da coluna sim
+                questao_51[9][1] = questao_51[0][1] + questao_51[1][1] + questao_51[2][1] + questao_51[3][1] + questao_51[4][1] + questao_51[5][1] + questao_51[6][1] + questao_51[7][1] + questao_51[8][1] # Total da coluna não
+                questao_51[9][2] = questao_51[9][0] + questao_51[9][1] # Total geral
+                questao_51[0][2] = questao_51[0][0] + questao_51[0][1] # Nunca ou menos de uma vez por mês
+                questao_51[1][2] = questao_51[1][0] + questao_51[1][1] # 1 a 3 vezes por mês
+                questao_51[2][2] = questao_51[2][0] + questao_51[2][1] # 1 vez por semana
+                questao_51[3][2] = questao_51[3][0] + questao_51[3][1] # 2 a 4 vezes por semana
+                questao_51[4][2] = questao_51[4][0] + questao_51[4][1] # 6 a 8 vezes por semana
+                questao_51[5][2] = questao_51[5][0] + questao_51[5][1] # 1 vez por dia
+                questao_51[6][2] = questao_51[6][0] + questao_51[6][1] # 2 a 3 vezes por dia
+                questao_51[7][2] = questao_51[7][0] + questao_51[7][1] # 4 a 6 vezes por dia
+                questao_51[8][2] = questao_51[8][0] + questao_51[8][1] # Mais de 8 vezes por dia
+                
+                # Totais da tabela questão 52
+                questao_52[9][0] = questao_52[0][0] + questao_52[1][0] + questao_52[2][0] + questao_52[3][0] + questao_52[4][0] + questao_52[5][0] + questao_52[6][0] + questao_52[7][0] + questao_52[8][0] # Total da coluna sim
+                questao_52[9][1] = questao_52[0][1] + questao_52[1][1] + questao_52[2][1] + questao_52[3][1] + questao_52[4][1] + questao_52[5][1] + questao_52[6][1] + questao_52[7][1] + questao_52[8][1] # Total da coluna não
+                questao_52[9][2] = questao_52[9][0] + questao_52[9][1] # Total geral
+                questao_52[0][2] = questao_52[0][0] + questao_52[0][1] # Nunca ou menos de uma vez por mês
+                questao_52[1][2] = questao_52[1][0] + questao_52[1][1] # 1 a 3 vezes por mês
+                questao_52[2][2] = questao_52[2][0] + questao_52[2][1] # 1 vez por semana
+                questao_52[3][2] = questao_52[3][0] + questao_52[3][1] # 2 a 4 vezes por semana
+                questao_52[4][2] = questao_52[4][0] + questao_52[4][1] # 6 a 8 vezes por semana
+                questao_52[5][2] = questao_52[5][0] + questao_52[5][1] # 1 vez por dia
+                questao_52[6][2] = questao_52[6][0] + questao_52[6][1] # 2 a 3 vezes por dia
+                questao_52[7][2] = questao_52[7][0] + questao_52[7][1] # 4 a 6 vezes por dia
+                questao_52[8][2] = questao_52[8][0] + questao_52[8][1] # Mais de 8 vezes por dia
+                
+                # Totais da tabela questão 53
+                questao_53[9][0] = questao_53[0][0] + questao_53[1][0] + questao_53[2][0] + questao_53[3][0] + questao_53[4][0] + questao_53[5][0] + questao_53[6][0] + questao_53[7][0] + questao_53[8][0] # Total da coluna sim
+                questao_53[9][1] = questao_53[0][1] + questao_53[1][1] + questao_53[2][1] + questao_53[3][1] + questao_53[4][1] + questao_53[5][1] + questao_53[6][1] + questao_53[7][1] + questao_53[8][1] # Total da coluna não
+                questao_53[9][2] = questao_53[9][0] + questao_53[9][1] # Total geral
+                questao_53[0][2] = questao_53[0][0] + questao_53[0][1] # Nunca ou menos de uma vez por mês
+                questao_53[1][2] = questao_53[1][0] + questao_53[1][1] # 1 a 3 vezes por mês
+                questao_53[2][2] = questao_53[2][0] + questao_53[2][1] # 1 vez por semana
+                questao_53[3][2] = questao_53[3][0] + questao_53[3][1] # 2 a 4 vezes por semana
+                questao_53[4][2] = questao_53[4][0] + questao_53[4][1] # 6 a 8 vezes por semana
+                questao_53[5][2] = questao_53[5][0] + questao_53[5][1] # 1 vez por dia
+                questao_53[6][2] = questao_53[6][0] + questao_53[6][1] # 2 a 3 vezes por dia
+                questao_53[7][2] = questao_53[7][0] + questao_53[7][1] # 4 a 6 vezes por dia
+                questao_53[8][2] = questao_53[8][0] + questao_53[8][1] # Mais de 8 vezes por dia
+                
+                # Totais da tabela questão 54
+                questao_54[9][0] = questao_54[0][0] + questao_54[1][0] + questao_54[2][0] + questao_54[3][0] + questao_54[4][0] + questao_54[5][0] + questao_54[6][0] + questao_54[7][0] + questao_54[8][0] # Total da coluna sim
+                questao_54[9][1] = questao_54[0][1] + questao_54[1][1] + questao_54[2][1] + questao_54[3][1] + questao_54[4][1] + questao_54[5][1] + questao_54[6][1] + questao_54[7][1] + questao_54[8][1] # Total da coluna não
+                questao_54[9][2] = questao_54[9][0] + questao_54[9][1] # Total geral
+                questao_54[0][2] = questao_54[0][0] + questao_54[0][1] # Nunca ou menos de uma vez por mês
+                questao_54[1][2] = questao_54[1][0] + questao_54[1][1] # 1 a 3 vezes por mês
+                questao_54[2][2] = questao_54[2][0] + questao_54[2][1] # 1 vez por semana
+                questao_54[3][2] = questao_54[3][0] + questao_54[3][1] # 2 a 4 vezes por semana
+                questao_54[4][2] = questao_54[4][0] + questao_54[4][1] # 6 a 8 vezes por semana
+                questao_54[5][2] = questao_54[5][0] + questao_54[5][1] # 1 vez por dia
+                questao_54[6][2] = questao_54[6][0] + questao_54[6][1] # 2 a 3 vezes por dia
+                questao_54[7][2] = questao_54[7][0] + questao_54[7][1] # 4 a 6 vezes por dia
+                questao_54[8][2] = questao_54[8][0] + questao_54[8][1] # Mais de 8 vezes por dia
+        
+        
+        # Montagem das tabelas de valores esperados
+        sexo_esperado[0][0] = 100 * (sexo[0][0] / sexo[3][0]) * sexo[3][0] / sexo[0][2] # masculino sim
+        sexo_esperado[0][1] = 100 * (sexo[0][1] / sexo[3][1]) * sexo[3][1] / sexo[0][2] # masculino não
+        sexo_esperado[1][0] = 100 * (sexo[1][0] / sexo[3][0]) * sexo[3][0] / sexo[1][2] # feminino sim
+        sexo_esperado[1][1] = 100 * (sexo[1][1] / sexo[3][1]) * sexo[3][1] / sexo[1][2] # feminino não
+        sexo_esperado[2][0] = 100 * (sexo[2][0] / sexo[3][0]) * sexo[3][0] / sexo[2][2] # outro sim
+        sexo_esperado[2][1] = 100 * (sexo[2][1] / sexo[3][1]) * sexo[3][1] / sexo[2][2] # outro não
+        
+        raca_esperado[0][0] = 100 * (raca[0][0] / raca[5][0]) * raca[5][0] / raca[0][2] # Amarela sim
+        raca_esperado[0][1] = 100 * (raca[0][1] / raca[5][1]) * raca[5][1] / raca[0][2] # Amarela não
+        raca_esperado[1][0] = 100 * (raca[1][0] / raca[5][0]) * raca[5][0] / raca[1][2] # Branca sim
+        raca_esperado[1][1] = 100 * (raca[1][1] / raca[5][1]) * raca[5][1] / raca[1][2] # Branca não
+        raca_esperado[2][0] = 100 * (raca[2][0] / raca[5][0]) * raca[5][0] / raca[2][2] # Indígena sim
+        raca_esperado[2][1] = 100 * (raca[2][1] / raca[5][1]) * raca[5][1] / raca[2][2] # Indígena não
+        raca_esperado[3][0] = 100 * (raca[3][0] / raca[5][0]) * raca[5][0] / raca[3][2] # Parda sim
+        raca_esperado[3][1] = 100 * (raca[3][1] / raca[5][1]) * raca[5][1] / raca[3][2] # Parda não
+        raca_esperado[4][0] = 100 * (raca[4][0] / raca[5][0]) * raca[5][0] / raca[4][2] # Preta sim
+        raca_esperado[4][1] = 100 * (raca[4][1] / raca[5][1]) * raca[5][1] / raca[4][2] # Preta não
+        
+        questao_73_esperado[0][0] = 100 * (questao_73[0][0] / questao_73[2][0]) * questao_73[2][0] / questao_73[0][2] # Sim sim
+        questao_73_esperado[0][1] = 100 * (questao_73[0][1] / questao_73[2][1]) * questao_73[2][1] / questao_73[0][2] # Não não
+        questao_73_esperado[1][0] = 100 * (questao_73[1][0] / questao_73[2][0]) * questao_73[2][0] / questao_73[1][2] # Sim sim
+        questao_73_esperado[1][1] = 100 * (questao_73[1][1] / questao_73[2][1]) * questao_73[2][1] / questao_73[1][2] # Não não
+        
+        questao_75_esperado[0][0] = 100 * (questao_75[0][0] / questao_75[7][0]) * questao_75[7][0] / questao_75[0][2] # Nenhum dia nos últimos 30 dias (0 dia) sim
+        questao_75_esperado[0][1] = 100 * (questao_75[0][1] / questao_75[7][1]) * questao_75[7][1] / questao_75[0][2] # Nenhum dia nos últimos 30 dias (0 dia) não
+        questao_75_esperado[1][0] = 100 * (questao_75[1][0] / questao_75[7][0]) * questao_75[7][0] / questao_75[1][2] # 1 ou 2 dias nos últimos 30 dias sim
+        questao_75_esperado[1][1] = 100 * (questao_75[1][1] / questao_75[7][1]) * questao_75[7][1] / questao_75[1][2] # 1 ou 2 dias nos últimos 30 dias não
+        questao_75_esperado[2][0] = 100 * (questao_75[2][0] / questao_75[7][0]) * questao_75[7][0] / questao_75[2][2] # 3 a 5 dias nos últimos 30 dias sim
+        questao_75_esperado[2][1] = 100 * (questao_75[2][1] / questao_75[7][1]) * questao_75[7][1] / questao_75[2][2] # 3 a 5 dias nos últimos 30 dias não
+        questao_75_esperado[3][0] = 100 * (questao_75[3][0] / questao_75[7][0]) * questao_75[7][0] / questao_75[3][2] # 6 a 9 dias nos últimos 30 dias sim
+        questao_75_esperado[3][1] = 100 * (questao_75[3][1] / questao_75[7][1]) * questao_75[7][1] / questao_75[3][2] # 6 a 9 dias nos últimos 30 dias não
+        questao_75_esperado[4][0] = 100 * (questao_75[4][0] / questao_75[7][0]) * questao_75[7][0] / questao_75[4][2] # 10 a 19 dias nos últimos 30 dias sim
+        questao_75_esperado[4][1] = 100 * (questao_75[4][1] / questao_75[7][1]) * questao_75[7][1] / questao_75[4][2] # 10 a 19 dias nos últimos 30 dias não
+        questao_75_esperado[5][0] = 100 * (questao_75[5][0] / questao_75[7][0]) * questao_75[7][0] / questao_75[5][2] # 20 a 29 dias nos últimos 30 dias sim
+        questao_75_esperado[5][1] = 100 * (questao_75[5][1] / questao_75[7][1]) * questao_75[7][1] / questao_75[5][2] # 20 a 29 dias nos últimos 30 dias não
+        questao_75_esperado[6][0] = 100 * (questao_75[6][0] / questao_75[7][0]) * questao_75[7][0] / questao_75[6][2] # Todos os dias nos últimos 30 dias sim
+        questao_75_esperado[6][1] = 100 * (questao_75[6][1] / questao_75[7][1]) * questao_75[7][1] / questao_75[6][2] # Todos os dias nos últimos 30 dias não
+        
+        questao_79_esperado[0][0] = 100 * (questao_79[0][0] / questao_79[10][0]) * questao_79[10][0] / questao_79[0][2]
+        questao_79_esperado[0][1] = 100 * (questao_79[0][1] / questao_79[10][1]) * questao_79[10][1] / questao_79[0][2]
+        questao_79_esperado[1][0] = 100 * (questao_79[1][0] / questao_79[10][0]) * questao_79[10][0] / questao_79[1][2]
+        questao_79_esperado[1][1] = 100 * (questao_79[1][1] / questao_79[10][1]) * questao_79[10][1] / questao_79[1][2]
+        questao_79_esperado[2][0] = 100 * (questao_79[2][0] / questao_79[10][0]) * questao_79[10][0] / questao_79[2][2]
+        questao_79_esperado[2][1] = 100 * (questao_79[2][1] / questao_79[10][1]) * questao_79[10][1] / questao_79[2][2]
+        questao_79_esperado[3][0] = 100 * (questao_79[3][0] / questao_79[10][0]) * questao_79[10][0] / questao_79[3][2]
+        questao_79_esperado[3][1] = 100 * (questao_79[3][1] / questao_79[10][1]) * questao_79[10][1] / questao_79[3][2]
+        questao_79_esperado[4][0] = 100 * (questao_79[4][0] / questao_79[10][0]) * questao_79[10][0] / questao_79[4][2]
+        questao_79_esperado[4][1] = 100 * (questao_79[4][1] / questao_79[10][1]) * questao_79[10][1] / questao_79[4][2]
+        questao_79_esperado[5][0] = 100 * (questao_79[5][0] / questao_79[10][0]) * questao_79[10][0] / questao_79[5][2]
+        questao_79_esperado[5][1] = 100 * (questao_79[5][1] / questao_79[10][1]) * questao_79[10][1] / questao_79[5][2]
+        questao_79_esperado[6][0] = 100 * (questao_79[6][0] / questao_79[10][0]) * questao_79[10][0] / questao_79[6][2]
+        questao_79_esperado[6][1] = 100 * (questao_79[6][1] / questao_79[10][1]) * questao_79[10][1] / questao_79[6][2]
+        if questao_79[7][2] != 0: questao_79_esperado[7][0] = 100 * (questao_79[7][0] / questao_79[10][0]) * questao_79[10][0] / questao_79[7][2]
+        if questao_79[7][2] != 0:questao_79_esperado[7][1] = 100 * (questao_79[7][1] / questao_79[10][1]) * questao_79[10][1] / questao_79[7][2]
+        questao_79_esperado[8][0] = 100 * (questao_79[8][0] / questao_79[10][0]) * questao_79[10][0] / questao_79[8][2]
+        questao_79_esperado[8][1] = 100 * (questao_79[8][1] / questao_79[10][1]) * questao_79[10][1] / questao_79[8][2]
+        questao_79_esperado[9][0] = 100 * (questao_79[9][0] / questao_79[10][0]) * questao_79[10][0] / questao_79[9][2]
+        questao_79_esperado[9][1] = 100 * (questao_79[9][1] / questao_79[10][1]) * questao_79[10][1] / questao_79[9][2]
+        
+        questao_84_esperado[0][0] = 100 * (questao_84[0][0] / questao_84[7][0]) * questao_84[7][0] / questao_84[0][2]
+        questao_84_esperado[0][1] = 100 * (questao_84[0][1] / questao_84[7][1]) * questao_84[7][1] / questao_84[0][2]
+        questao_84_esperado[1][0] = 100 * (questao_84[1][0] / questao_84[7][0]) * questao_84[7][0] / questao_84[1][2]
+        questao_84_esperado[1][1] = 100 * (questao_84[1][1] / questao_84[7][1]) * questao_84[7][1] / questao_84[1][2]
+        questao_84_esperado[2][0] = 100 * (questao_84[2][0] / questao_84[7][0]) * questao_84[7][0] / questao_84[2][2]
+        questao_84_esperado[2][1] = 100 * (questao_84[2][1] / questao_84[7][1]) * questao_84[7][1] / questao_84[2][2]
+        questao_84_esperado[3][0] = 100 * (questao_84[3][0] / questao_84[7][0]) * questao_84[7][0] / questao_84[3][2]
+        questao_84_esperado[3][1] = 100 * (questao_84[3][1] / questao_84[7][1]) * questao_84[7][1] / questao_84[3][2]
+        questao_84_esperado[4][0] = 100 * (questao_84[4][0] / questao_84[7][0]) * questao_84[7][0] / questao_84[4][2]
+        questao_84_esperado[4][1] = 100 * (questao_84[4][1] / questao_84[7][1]) * questao_84[7][1] / questao_84[4][2]
+        questao_84_esperado[5][0] = 100 * (questao_84[5][0] / questao_84[7][0]) * questao_84[7][0] / questao_84[5][2]
+        questao_84_esperado[5][1] = 100 * (questao_84[5][1] / questao_84[7][1]) * questao_84[7][1] / questao_84[5][2]
+        questao_84_esperado[6][0] = 100 * (questao_84[6][0] / questao_84[7][0]) * questao_84[7][0] / questao_84[6][2]
+        questao_84_esperado[6][1] = 100 * (questao_84[6][1] / questao_84[7][1]) * questao_84[7][1] / questao_84[6][2]
+        
+        questao_92_esperado[0][0] = 100 * (questao_92[0][0] / questao_92[5][0]) * questao_92[5][0] / questao_92[0][2]
+        questao_92_esperado[0][1] = 100 * (questao_92[0][1] / questao_92[5][1]) * questao_92[5][1] / questao_92[0][2]
+        questao_92_esperado[1][0] = 100 * (questao_92[1][0] / questao_92[5][0]) * questao_92[5][0] / questao_92[1][2]
+        questao_92_esperado[1][1] = 100 * (questao_92[1][1] / questao_92[5][1]) * questao_92[5][1] / questao_92[1][2]
+        questao_92_esperado[2][0] = 100 * (questao_92[2][0] / questao_92[5][0]) * questao_92[5][0] / questao_92[2][2]
+        questao_92_esperado[2][1] = 100 * (questao_92[2][1] / questao_92[5][1]) * questao_92[5][1] / questao_92[2][2]
+        questao_92_esperado[3][0] = 100 * (questao_92[3][0] / questao_92[5][0]) * questao_92[5][0] / questao_92[3][2]
+        questao_92_esperado[3][1] = 100 * (questao_92[3][1] / questao_92[5][1]) * questao_92[5][1] / questao_92[3][2]
+        questao_92_esperado[4][0] = 100 * (questao_92[4][0] / questao_92[5][0]) * questao_92[5][0] / questao_92[4][2]
+        questao_92_esperado[4][1] = 100 * (questao_92[4][1] / questao_92[5][1]) * questao_92[5][1] / questao_92[4][2]
+        
+        questao_111_esperado[0][0] = 100 * (questao_111[0][0] / questao_111[6][0]) * questao_111[6][0] / questao_111[0][2]
+        questao_111_esperado[0][1] = 100 * (questao_111[0][1] / questao_111[6][1]) * questao_111[6][1] / questao_111[0][2]
+        questao_111_esperado[1][0] = 100 * (questao_111[1][0] / questao_111[6][0]) * questao_111[6][0] / questao_111[1][2]
+        questao_111_esperado[1][1] = 100 * (questao_111[1][1] / questao_111[6][1]) * questao_111[6][1] / questao_111[1][2]
+        questao_111_esperado[2][0] = 100 * (questao_111[2][0] / questao_111[6][0]) * questao_111[6][0] / questao_111[2][2]
+        questao_111_esperado[2][1] = 100 * (questao_111[2][1] / questao_111[6][1]) * questao_111[6][1] / questao_111[2][2]
+        questao_111_esperado[3][0] = 100 * (questao_111[3][0] / questao_111[6][0]) * questao_111[6][0] / questao_111[3][2]
+        questao_111_esperado[3][1] = 100 * (questao_111[3][1] / questao_111[6][1]) * questao_111[6][1] / questao_111[3][2]
+        questao_111_esperado[4][0] = 100 * (questao_111[4][0] / questao_111[6][0]) * questao_111[6][0] / questao_111[4][2]
+        questao_111_esperado[4][1] = 100 * (questao_111[4][1] / questao_111[6][1]) * questao_111[6][1] / questao_111[4][2]
+        questao_111_esperado[5][0] = 100 * (questao_111[5][0] / questao_111[6][0]) * questao_111[6][0] / questao_111[5][2]
+        questao_111_esperado[5][1] = 100 * (questao_111[5][1] / questao_111[6][1]) * questao_111[6][1] / questao_111[5][2]
+        
+        questao_113_esperado[0][0] = 100 * (questao_113[0][0] / questao_113[4][0]) * questao_113[4][0] / questao_113[0][2]
+        questao_113_esperado[0][1] = 100 * (questao_113[0][1] / questao_113[4][1]) * questao_113[4][1] / questao_113[0][2]
+        questao_113_esperado[1][0] = 100 * (questao_113[1][0] / questao_113[4][0]) * questao_113[4][0] / questao_113[1][2]
+        questao_113_esperado[1][1] = 100 * (questao_113[1][1] / questao_113[4][1]) * questao_113[4][1] / questao_113[1][2]
+        questao_113_esperado[2][0] = 100 * (questao_113[2][0] / questao_113[4][0]) * questao_113[4][0] / questao_113[2][2]
+        questao_113_esperado[2][1] = 100 * (questao_113[2][1] / questao_113[4][1]) * questao_113[4][1] / questao_113[2][2]
+        questao_113_esperado[3][0] = 100 * (questao_113[3][0] / questao_113[4][0]) * questao_113[4][0] / questao_113[3][2]
+        questao_113_esperado[3][1] = 100 * (questao_113[3][1] / questao_113[4][1]) * questao_113[4][1] / questao_113[3][2]
+        
+        questao_25_esperado[0][0] = 100 * (questao_25[0][0] / questao_25[9][0]) * questao_25[9][0] / questao_25[0][2]
+        questao_25_esperado[0][1] = 100 * (questao_25[0][1] / questao_25[9][1]) * questao_25[9][1] / questao_25[0][2]
+        questao_25_esperado[1][0] = 100 * (questao_25[1][0] / questao_25[9][0]) * questao_25[9][0] / questao_25[1][2]
+        questao_25_esperado[1][1] = 100 * (questao_25[1][1] / questao_25[9][1]) * questao_25[9][1] / questao_25[1][2]
+        questao_25_esperado[2][0] = 100 * (questao_25[2][0] / questao_25[9][0]) * questao_25[9][0] / questao_25[2][2]
+        questao_25_esperado[2][1] = 100 * (questao_25[2][1] / questao_25[9][1]) * questao_25[9][1] / questao_25[2][2]
+        questao_25_esperado[3][0] = 100 * (questao_25[3][0] / questao_25[9][0]) * questao_25[9][0] / questao_25[3][2]
+        questao_25_esperado[3][1] = 100 * (questao_25[3][1] / questao_25[9][1]) * questao_25[9][1] / questao_25[3][2]
+        questao_25_esperado[4][0] = 100 * (questao_25[4][0] / questao_25[9][0]) * questao_25[9][0] / questao_25[4][2]
+        questao_25_esperado[4][1] = 100 * (questao_25[4][1] / questao_25[9][1]) * questao_25[9][1] / questao_25[4][2]
+        questao_25_esperado[5][0] = 100 * (questao_25[5][0] / questao_25[9][0]) * questao_25[9][0] / questao_25[5][2]
+        questao_25_esperado[5][1] = 100 * (questao_25[5][1] / questao_25[9][1]) * questao_25[9][1] / questao_25[5][2]
+        questao_25_esperado[6][0] = 100 * (questao_25[6][0] / questao_25[9][0]) * questao_25[9][0] / questao_25[6][2]
+        questao_25_esperado[6][1] = 100 * (questao_25[6][1] / questao_25[9][1]) * questao_25[9][1] / questao_25[6][2]
+        questao_25_esperado[7][0] = 100 * (questao_25[7][0] / questao_25[9][0]) * questao_25[9][0] / questao_25[7][2]
+        questao_25_esperado[7][1] = 100 * (questao_25[7][1] / questao_25[9][1]) * questao_25[9][1] / questao_25[7][2]
+        questao_25_esperado[8][0] = 100 * (questao_25[8][0] / questao_25[9][0]) * questao_25[9][0] / questao_25[8][2]
+        questao_25_esperado[8][1] = 100 * (questao_25[8][1] / questao_25[9][1]) * questao_25[9][1] / questao_25[8][2]
+        
+        questao_26_esperado[0][0] = 100 * (questao_26[0][0] / questao_26[9][0]) * questao_26[9][0] / questao_26[0][2]
+        questao_26_esperado[0][1] = 100 * (questao_26[0][1] / questao_26[9][1]) * questao_26[9][1] / questao_26[0][2]
+        questao_26_esperado[1][0] = 100 * (questao_26[1][0] / questao_26[9][0]) * questao_26[9][0] / questao_26[1][2]
+        questao_26_esperado[1][1] = 100 * (questao_26[1][1] / questao_26[9][1]) * questao_26[9][1] / questao_26[1][2]
+        questao_26_esperado[2][0] = 100 * (questao_26[2][0] / questao_26[9][0]) * questao_26[9][0] / questao_26[2][2]
+        questao_26_esperado[2][1] = 100 * (questao_26[2][1] / questao_26[9][1]) * questao_26[9][1] / questao_26[2][2]
+        questao_26_esperado[3][0] = 100 * (questao_26[3][0] / questao_26[9][0]) * questao_26[9][0] / questao_26[3][2]
+        questao_26_esperado[3][1] = 100 * (questao_26[3][1] / questao_26[9][1]) * questao_26[9][1] / questao_26[3][2]
+        questao_26_esperado[4][0] = 100 * (questao_26[4][0] / questao_26[9][0]) * questao_26[9][0] / questao_26[4][2]
+        questao_26_esperado[4][1] = 100 * (questao_26[4][1] / questao_26[9][1]) * questao_26[9][1] / questao_26[4][2]
+        questao_26_esperado[5][0] = 100 * (questao_26[5][0] / questao_26[9][0]) * questao_26[9][0] / questao_26[5][2]
+        questao_26_esperado[5][1] = 100 * (questao_26[5][1] / questao_26[9][1]) * questao_26[9][1] / questao_26[5][2]
+        questao_26_esperado[6][0] = 100 * (questao_26[6][0] / questao_26[9][0]) * questao_26[9][0] / questao_26[6][2]
+        questao_26_esperado[6][1] = 100 * (questao_26[6][1] / questao_26[9][1]) * questao_26[9][1] / questao_26[6][2]
+        questao_26_esperado[7][0] = 100 * (questao_26[7][0] / questao_26[9][0]) * questao_26[9][0] / questao_26[7][2]
+        questao_26_esperado[7][1] = 100 * (questao_26[7][1] / questao_26[9][1]) * questao_26[9][1] / questao_26[7][2]
+        questao_26_esperado[8][0] = 100 * (questao_26[8][0] / questao_26[9][0]) * questao_26[9][0] / questao_26[8][2]
+        questao_26_esperado[8][1] = 100 * (questao_26[8][1] / questao_26[9][1]) * questao_26[9][1] / questao_26[8][2]
+        
+        questao_27_esperado[0][0] = 100 * (questao_27[0][0] / questao_27[9][0]) * questao_27[9][0] / questao_27[0][2]
+        questao_27_esperado[0][1] = 100 * (questao_27[0][1] / questao_27[9][1]) * questao_27[9][1] / questao_27[0][2]
+        questao_27_esperado[1][0] = 100 * (questao_27[1][0] / questao_27[9][0]) * questao_27[9][0] / questao_27[1][2]
+        questao_27_esperado[1][1] = 100 * (questao_27[1][1] / questao_27[9][1]) * questao_27[9][1] / questao_27[1][2]
+        questao_27_esperado[2][0] = 100 * (questao_27[2][0] / questao_27[9][0]) * questao_27[9][0] / questao_27[2][2]
+        questao_27_esperado[2][1] = 100 * (questao_27[2][1] / questao_27[9][1]) * questao_27[9][1] / questao_27[2][2]
+        questao_27_esperado[3][0] = 100 * (questao_27[3][0] / questao_27[9][0]) * questao_27[9][0] / questao_27[3][2]
+        questao_27_esperado[3][1] = 100 * (questao_27[3][1] / questao_27[9][1]) * questao_27[9][1] / questao_27[3][2]
+        questao_27_esperado[4][0] = 100 * (questao_27[4][0] / questao_27[9][0]) * questao_27[9][0] / questao_27[4][2]
+        questao_27_esperado[4][1] = 100 * (questao_27[4][1] / questao_27[9][1]) * questao_27[9][1] / questao_27[4][2]
+        questao_27_esperado[5][0] = 100 * (questao_27[5][0] / questao_27[9][0]) * questao_27[9][0] / questao_27[5][2]
+        questao_27_esperado[5][1] = 100 * (questao_27[5][1] / questao_27[9][1]) * questao_27[9][1] / questao_27[5][2]
+        questao_27_esperado[6][0] = 100 * (questao_27[6][0] / questao_27[9][0]) * questao_27[9][0] / questao_27[6][2]
+        questao_27_esperado[6][1] = 100 * (questao_27[6][1] / questao_27[9][1]) * questao_27[9][1] / questao_27[6][2]
+        questao_27_esperado[7][0] = 100 * (questao_27[7][0] / questao_27[9][0]) * questao_27[9][0] / questao_27[7][2]
+        questao_27_esperado[7][1] = 100 * (questao_27[7][1] / questao_27[9][1]) * questao_27[9][1] / questao_27[7][2]
+        questao_27_esperado[8][0] = 100 * (questao_27[8][0] / questao_27[9][0]) * questao_27[9][0] / questao_27[8][2]
+        questao_27_esperado[8][1] = 100 * (questao_27[8][1] / questao_27[9][1]) * questao_27[9][1] / questao_27[8][2]
+        
+        questao_28_esperado[0][0] = 100 * (questao_28[0][0] / questao_28[9][0]) * questao_28[9][0] / questao_28[0][2]
+        questao_28_esperado[0][1] = 100 * (questao_28[0][1] / questao_28[9][1]) * questao_28[9][1] / questao_28[0][2]
+        questao_28_esperado[1][0] = 100 * (questao_28[1][0] / questao_28[9][0]) * questao_28[9][0] / questao_28[1][2]
+        questao_28_esperado[1][1] = 100 * (questao_28[1][1] / questao_28[9][1]) * questao_28[9][1] / questao_28[1][2]
+        questao_28_esperado[2][0] = 100 * (questao_28[2][0] / questao_28[9][0]) * questao_28[9][0] / questao_28[2][2]
+        questao_28_esperado[2][1] = 100 * (questao_28[2][1] / questao_28[9][1]) * questao_28[9][1] / questao_28[2][2]
+        questao_28_esperado[3][0] = 100 * (questao_28[3][0] / questao_28[9][0]) * questao_28[9][0] / questao_28[3][2]
+        questao_28_esperado[3][1] = 100 * (questao_28[3][1] / questao_28[9][1]) * questao_28[9][1] / questao_28[3][2]
+        questao_28_esperado[4][0] = 100 * (questao_28[4][0] / questao_28[9][0]) * questao_28[9][0] / questao_28[4][2]
+        questao_28_esperado[4][1] = 100 * (questao_28[4][1] / questao_28[9][1]) * questao_28[9][1] / questao_28[4][2]
+        questao_28_esperado[5][0] = 100 * (questao_28[5][0] / questao_28[9][0]) * questao_28[9][0] / questao_28[5][2]
+        questao_28_esperado[5][1] = 100 * (questao_28[5][1] / questao_28[9][1]) * questao_28[9][1] / questao_28[5][2]
+        questao_28_esperado[6][0] = 100 * (questao_28[6][0] / questao_28[9][0]) * questao_28[9][0] / questao_28[6][2]
+        questao_28_esperado[6][1] = 100 * (questao_28[6][1] / questao_28[9][1]) * questao_28[9][1] / questao_28[6][2]
+        questao_28_esperado[7][0] = 100 * (questao_28[7][0] / questao_28[9][0]) * questao_28[9][0] / questao_28[7][2]
+        questao_28_esperado[7][1] = 100 * (questao_28[7][1] / questao_28[9][1]) * questao_28[9][1] / questao_28[7][2]
+        questao_28_esperado[8][0] = 100 * (questao_28[8][0] / questao_28[9][0]) * questao_28[9][0] / questao_28[8][2]
+        questao_28_esperado[8][1] = 100 * (questao_28[8][1] / questao_28[9][1]) * questao_28[9][1] / questao_28[8][2]
+        
+        questao_29_esperado[0][0] = 100 * (questao_29[0][0] / questao_29[9][0]) * questao_29[9][0] / questao_29[0][2]
+        questao_29_esperado[0][1] = 100 * (questao_29[0][1] / questao_29[9][1]) * questao_29[9][1] / questao_29[0][2]
+        questao_29_esperado[1][0] = 100 * (questao_29[1][0] / questao_29[9][0]) * questao_29[9][0] / questao_29[1][2]
+        questao_29_esperado[1][1] = 100 * (questao_29[1][1] / questao_29[9][1]) * questao_29[9][1] / questao_29[1][2]
+        questao_29_esperado[2][0] = 100 * (questao_29[2][0] / questao_29[9][0]) * questao_29[9][0] / questao_29[2][2]
+        questao_29_esperado[2][1] = 100 * (questao_29[2][1] / questao_29[9][1]) * questao_29[9][1] / questao_29[2][2]
+        questao_29_esperado[3][0] = 100 * (questao_29[3][0] / questao_29[9][0]) * questao_29[9][0] / questao_29[3][2]
+        questao_29_esperado[3][1] = 100 * (questao_29[3][1] / questao_29[9][1]) * questao_29[9][1] / questao_29[3][2]
+        questao_29_esperado[4][0] = 100 * (questao_29[4][0] / questao_29[9][0]) * questao_29[9][0] / questao_29[4][2]
+        questao_29_esperado[4][1] = 100 * (questao_29[4][1] / questao_29[9][1]) * questao_29[9][1] / questao_29[4][2]
+        questao_29_esperado[5][0] = 100 * (questao_29[5][0] / questao_29[9][0]) * questao_29[9][0] / questao_29[5][2]
+        questao_29_esperado[5][1] = 100 * (questao_29[5][1] / questao_29[9][1]) * questao_29[9][1] / questao_29[5][2]
+        questao_29_esperado[6][0] = 100 * (questao_29[6][0] / questao_29[9][0]) * questao_29[9][0] / questao_29[6][2]
+        questao_29_esperado[6][1] = 100 * (questao_29[6][1] / questao_29[9][1]) * questao_29[9][1] / questao_29[6][2]
+        questao_29_esperado[7][0] = 100 * (questao_29[7][0] / questao_29[9][0]) * questao_29[9][0] / questao_29[7][2]
+        questao_29_esperado[7][1] = 100 * (questao_29[7][1] / questao_29[9][1]) * questao_29[9][1] / questao_29[7][2]
+        questao_29_esperado[8][0] = 100 * (questao_29[8][0] / questao_29[9][0]) * questao_29[9][0] / questao_29[8][2]
+        questao_29_esperado[8][1] = 100 * (questao_29[8][1] / questao_29[9][1]) * questao_29[9][1] / questao_29[8][2]
+        
+        questao_30_esperado[0][0] = 100 * (questao_30[0][0] / questao_30[9][0]) * questao_30[9][0] / questao_30[0][2]
+        questao_30_esperado[0][1] = 100 * (questao_30[0][1] / questao_30[9][1]) * questao_30[9][1] / questao_30[0][2]
+        questao_30_esperado[1][0] = 100 * (questao_30[1][0] / questao_30[9][0]) * questao_30[9][0] / questao_30[1][2]
+        questao_30_esperado[1][1] = 100 * (questao_30[1][1] / questao_30[9][1]) * questao_30[9][1] / questao_30[1][2]
+        questao_30_esperado[2][0] = 100 * (questao_30[2][0] / questao_30[9][0]) * questao_30[9][0] / questao_30[2][2]
+        questao_30_esperado[2][1] = 100 * (questao_30[2][1] / questao_30[9][1]) * questao_30[9][1] / questao_30[2][2]
+        questao_30_esperado[3][0] = 100 * (questao_30[3][0] / questao_30[9][0]) * questao_30[9][0] / questao_30[3][2]
+        questao_30_esperado[3][1] = 100 * (questao_30[3][1] / questao_30[9][1]) * questao_30[9][1] / questao_30[3][2]
+        questao_30_esperado[4][0] = 100 * (questao_30[4][0] / questao_30[9][0]) * questao_30[9][0] / questao_30[4][2]
+        questao_30_esperado[4][1] = 100 * (questao_30[4][1] / questao_30[9][1]) * questao_30[9][1] / questao_30[4][2]
+        questao_30_esperado[5][0] = 100 * (questao_30[5][0] / questao_30[9][0]) * questao_30[9][0] / questao_30[5][2]
+        questao_30_esperado[5][1] = 100 * (questao_30[5][1] / questao_30[9][1]) * questao_30[9][1] / questao_30[5][2]
+        questao_30_esperado[6][0] = 100 * (questao_30[6][0] / questao_30[9][0]) * questao_30[9][0] / questao_30[6][2]
+        questao_30_esperado[6][1] = 100 * (questao_30[6][1] / questao_30[9][1]) * questao_30[9][1] / questao_30[6][2]
+        questao_30_esperado[7][0] = 100 * (questao_30[7][0] / questao_30[9][0]) * questao_30[9][0] / questao_30[7][2]
+        questao_30_esperado[7][1] = 100 * (questao_30[7][1] / questao_30[9][1]) * questao_30[9][1] / questao_30[7][2]
+        questao_30_esperado[8][0] = 100 * (questao_30[8][0] / questao_30[9][0]) * questao_30[9][0] / questao_30[8][2]
+        questao_30_esperado[8][1] = 100 * (questao_30[8][1] / questao_30[9][1]) * questao_30[9][1] / questao_30[8][2]
+        
+        questao_31_esperado[0][0] = 100 * (questao_31[0][0] / questao_31[9][0]) * questao_31[9][0] / questao_31[0][2]
+        questao_31_esperado[0][1] = 100 * (questao_31[0][1] / questao_31[9][1]) * questao_31[9][1] / questao_31[0][2]
+        questao_31_esperado[1][0] = 100 * (questao_31[1][0] / questao_31[9][0]) * questao_31[9][0] / questao_31[1][2]
+        questao_31_esperado[1][1] = 100 * (questao_31[1][1] / questao_31[9][1]) * questao_31[9][1] / questao_31[1][2]
+        questao_31_esperado[2][0] = 100 * (questao_31[2][0] / questao_31[9][0]) * questao_31[9][0] / questao_31[2][2]
+        questao_31_esperado[2][1] = 100 * (questao_31[2][1] / questao_31[9][1]) * questao_31[9][1] / questao_31[2][2]
+        questao_31_esperado[3][0] = 100 * (questao_31[3][0] / questao_31[9][0]) * questao_31[9][0] / questao_31[3][2]
+        questao_31_esperado[3][1] = 100 * (questao_31[3][1] / questao_31[9][1]) * questao_31[9][1] / questao_31[3][2]
+        questao_31_esperado[4][0] = 100 * (questao_31[4][0] / questao_31[9][0]) * questao_31[9][0] / questao_31[4][2]
+        questao_31_esperado[4][1] = 100 * (questao_31[4][1] / questao_31[9][1]) * questao_31[9][1] / questao_31[4][2]
+        questao_31_esperado[5][0] = 100 * (questao_31[5][0] / questao_31[9][0]) * questao_31[9][0] / questao_31[5][2]
+        questao_31_esperado[5][1] = 100 * (questao_31[5][1] / questao_31[9][1]) * questao_31[9][1] / questao_31[5][2]
+        questao_31_esperado[6][0] = 100 * (questao_31[6][0] / questao_31[9][0]) * questao_31[9][0] / questao_31[6][2]
+        questao_31_esperado[6][1] = 100 * (questao_31[6][1] / questao_31[9][1]) * questao_31[9][1] / questao_31[6][2]
+        questao_31_esperado[7][0] = 100 * (questao_31[7][0] / questao_31[9][0]) * questao_31[9][0] / questao_31[7][2]
+        questao_31_esperado[7][1] = 100 * (questao_31[7][1] / questao_31[9][1]) * questao_31[9][1] / questao_31[7][2]
+        questao_31_esperado[8][0] = 100 * (questao_31[8][0] / questao_31[9][0]) * questao_31[9][0] / questao_31[8][2]
+        questao_31_esperado[8][1] = 100 * (questao_31[8][1] / questao_31[9][1]) * questao_31[9][1] / questao_31[8][2]
+        
+        questao_32_esperado[0][0] = 100 * (questao_32[0][0] / questao_32[9][0]) * questao_32[9][0] / questao_32[0][2]
+        questao_32_esperado[0][1] = 100 * (questao_32[0][1] / questao_32[9][1]) * questao_32[9][1] / questao_32[0][2]
+        questao_32_esperado[1][0] = 100 * (questao_32[1][0] / questao_32[9][0]) * questao_32[9][0] / questao_32[1][2]
+        questao_32_esperado[1][1] = 100 * (questao_32[1][1] / questao_32[9][1]) * questao_32[9][1] / questao_32[1][2]
+        questao_32_esperado[2][0] = 100 * (questao_32[2][0] / questao_32[9][0]) * questao_32[9][0] / questao_32[2][2]
+        questao_32_esperado[2][1] = 100 * (questao_32[2][1] / questao_32[9][1]) * questao_32[9][1] / questao_32[2][2]
+        questao_32_esperado[3][0] = 100 * (questao_32[3][0] / questao_32[9][0]) * questao_32[9][0] / questao_32[3][2]
+        questao_32_esperado[3][1] = 100 * (questao_32[3][1] / questao_32[9][1]) * questao_32[9][1] / questao_32[3][2]
+        questao_32_esperado[4][0] = 100 * (questao_32[4][0] / questao_32[9][0]) * questao_32[9][0] / questao_32[4][2]
+        questao_32_esperado[4][1] = 100 * (questao_32[4][1] / questao_32[9][1]) * questao_32[9][1] / questao_32[4][2]
+        questao_32_esperado[5][0] = 100 * (questao_32[5][0] / questao_32[9][0]) * questao_32[9][0] / questao_32[5][2]
+        questao_32_esperado[5][1] = 100 * (questao_32[5][1] / questao_32[9][1]) * questao_32[9][1] / questao_32[5][2]
+        questao_32_esperado[6][0] = 100 * (questao_32[6][0] / questao_32[9][0]) * questao_32[9][0] / questao_32[6][2]
+        questao_32_esperado[6][1] = 100 * (questao_32[6][1] / questao_32[9][1]) * questao_32[9][1] / questao_32[6][2]
+        if questao_32[7][2] != 0: questao_32_esperado[7][0] = 100 * (questao_32[7][0] / questao_32[9][0]) * questao_32[9][0] / questao_32[7][2]
+        if questao_32[7][2] != 0: questao_32_esperado[7][1] = 100 * (questao_32[7][1] / questao_32[9][1]) * questao_32[9][1] / questao_32[7][2]
+        questao_32_esperado[8][0] = 100 * (questao_32[8][0] / questao_32[9][0]) * questao_32[9][0] / questao_32[8][2]
+        questao_32_esperado[8][1] = 100 * (questao_32[8][1] / questao_32[9][1]) * questao_32[9][1] / questao_32[8][2]
+        
+        questao_33_esperado[0][0] = 100 * (questao_33[0][0] / questao_33[9][0]) * questao_33[9][0] / questao_33[0][2]
+        questao_33_esperado[0][1] = 100 * (questao_33[0][1] / questao_33[9][1]) * questao_33[9][1] / questao_33[0][2]
+        questao_33_esperado[1][0] = 100 * (questao_33[1][0] / questao_33[9][0]) * questao_33[9][0] / questao_33[1][2]
+        questao_33_esperado[1][1] = 100 * (questao_33[1][1] / questao_33[9][1]) * questao_33[9][1] / questao_33[1][2]
+        questao_33_esperado[2][0] = 100 * (questao_33[2][0] / questao_33[9][0]) * questao_33[9][0] / questao_33[2][2]
+        questao_33_esperado[2][1] = 100 * (questao_33[2][1] / questao_33[9][1]) * questao_33[9][1] / questao_33[2][2]
+        questao_33_esperado[3][0] = 100 * (questao_33[3][0] / questao_33[9][0]) * questao_33[9][0] / questao_33[3][2]
+        questao_33_esperado[3][1] = 100 * (questao_33[3][1] / questao_33[9][1]) * questao_33[9][1] / questao_33[3][2]
+        questao_33_esperado[4][0] = 100 * (questao_33[4][0] / questao_33[9][0]) * questao_33[9][0] / questao_33[4][2]
+        questao_33_esperado[4][1] = 100 * (questao_33[4][1] / questao_33[9][1]) * questao_33[9][1] / questao_33[4][2]
+        questao_33_esperado[5][0] = 100 * (questao_33[5][0] / questao_33[9][0]) * questao_33[9][0] / questao_33[5][2]
+        questao_33_esperado[5][1] = 100 * (questao_33[5][1] / questao_33[9][1]) * questao_33[9][1] / questao_33[5][2]
+        questao_33_esperado[6][0] = 100 * (questao_33[6][0] / questao_33[9][0]) * questao_33[9][0] / questao_33[6][2]
+        questao_33_esperado[6][1] = 100 * (questao_33[6][1] / questao_33[9][1]) * questao_33[9][1] / questao_33[6][2]
+        questao_33_esperado[7][0] = 100 * (questao_33[7][0] / questao_33[9][0]) * questao_33[9][0] / questao_33[7][2]
+        questao_33_esperado[7][1] = 100 * (questao_33[7][1] / questao_33[9][1]) * questao_33[9][1] / questao_33[7][2]
+        questao_33_esperado[8][0] = 100 * (questao_33[8][0] / questao_33[9][0]) * questao_33[9][0] / questao_33[8][2]
+        questao_33_esperado[8][1] = 100 * (questao_33[8][1] / questao_33[9][1]) * questao_33[9][1] / questao_33[8][2]
+        
+        questao_34_esperado[0][0] = 100 * (questao_34[0][0] / questao_34[9][0]) * questao_34[9][0] / questao_34[0][2]
+        questao_34_esperado[0][1] = 100 * (questao_34[0][1] / questao_34[9][1]) * questao_34[9][1] / questao_34[0][2]
+        questao_34_esperado[1][0] = 100 * (questao_34[1][0] / questao_34[9][0]) * questao_34[9][0] / questao_34[1][2]
+        questao_34_esperado[1][1] = 100 * (questao_34[1][1] / questao_34[9][1]) * questao_34[9][1] / questao_34[1][2]
+        questao_34_esperado[2][0] = 100 * (questao_34[2][0] / questao_34[9][0]) * questao_34[9][0] / questao_34[2][2]
+        questao_34_esperado[2][1] = 100 * (questao_34[2][1] / questao_34[9][1]) * questao_34[9][1] / questao_34[2][2]
+        questao_34_esperado[3][0] = 100 * (questao_34[3][0] / questao_34[9][0]) * questao_34[9][0] / questao_34[3][2]
+        questao_34_esperado[3][1] = 100 * (questao_34[3][1] / questao_34[9][1]) * questao_34[9][1] / questao_34[3][2]
+        questao_34_esperado[4][0] = 100 * (questao_34[4][0] / questao_34[9][0]) * questao_34[9][0] / questao_34[4][2]
+        questao_34_esperado[4][1] = 100 * (questao_34[4][1] / questao_34[9][1]) * questao_34[9][1] / questao_34[4][2]
+        questao_34_esperado[5][0] = 100 * (questao_34[5][0] / questao_34[9][0]) * questao_34[9][0] / questao_34[5][2]
+        questao_34_esperado[5][1] = 100 * (questao_34[5][1] / questao_34[9][1]) * questao_34[9][1] / questao_34[5][2]
+        questao_34_esperado[6][0] = 100 * (questao_34[6][0] / questao_34[9][0]) * questao_34[9][0] / questao_34[6][2]
+        questao_34_esperado[6][1] = 100 * (questao_34[6][1] / questao_34[9][1]) * questao_34[9][1] / questao_34[6][2]
+        questao_34_esperado[7][0] = 100 * (questao_34[7][0] / questao_34[9][0]) * questao_34[9][0] / questao_34[7][2]
+        questao_34_esperado[7][1] = 100 * (questao_34[7][1] / questao_34[9][1]) * questao_34[9][1] / questao_34[7][2]
+        questao_34_esperado[8][0] = 100 * (questao_34[8][0] / questao_34[9][0]) * questao_34[9][0] / questao_34[8][2]
+        questao_34_esperado[8][1] = 100 * (questao_34[8][1] / questao_34[9][1]) * questao_34[9][1] / questao_34[8][2]
+        
+        questao_35_esperado[0][0] = 100 * (questao_35[0][0] / questao_35[9][0]) * questao_35[9][0] / questao_35[0][2]
+        questao_35_esperado[0][1] = 100 * (questao_35[0][1] / questao_35[9][1]) * questao_35[9][1] / questao_35[0][2]
+        questao_35_esperado[1][0] = 100 * (questao_35[1][0] / questao_35[9][0]) * questao_35[9][0] / questao_35[1][2]
+        questao_35_esperado[1][1] = 100 * (questao_35[1][1] / questao_35[9][1]) * questao_35[9][1] / questao_35[1][2]
+        questao_35_esperado[2][0] = 100 * (questao_35[2][0] / questao_35[9][0]) * questao_35[9][0] / questao_35[2][2]
+        questao_35_esperado[2][1] = 100 * (questao_35[2][1] / questao_35[9][1]) * questao_35[9][1] / questao_35[2][2]
+        questao_35_esperado[3][0] = 100 * (questao_35[3][0] / questao_35[9][0]) * questao_35[9][0] / questao_35[3][2]
+        questao_35_esperado[3][1] = 100 * (questao_35[3][1] / questao_35[9][1]) * questao_35[9][1] / questao_35[3][2]
+        questao_35_esperado[4][0] = 100 * (questao_35[4][0] / questao_35[9][0]) * questao_35[9][0] / questao_35[4][2]
+        questao_35_esperado[4][1] = 100 * (questao_35[4][1] / questao_35[9][1]) * questao_35[9][1] / questao_35[4][2]
+        questao_35_esperado[5][0] = 100 * (questao_35[5][0] / questao_35[9][0]) * questao_35[9][0] / questao_35[5][2]
+        questao_35_esperado[5][1] = 100 * (questao_35[5][1] / questao_35[9][1]) * questao_35[9][1] / questao_35[5][2]
+        questao_35_esperado[6][0] = 100 * (questao_35[6][0] / questao_35[9][0]) * questao_35[9][0] / questao_35[6][2]
+        questao_35_esperado[6][1] = 100 * (questao_35[6][1] / questao_35[9][1]) * questao_35[9][1] / questao_35[6][2]
+        questao_35_esperado[7][0] = 100 * (questao_35[7][0] / questao_35[9][0]) * questao_35[9][0] / questao_35[7][2]
+        questao_35_esperado[7][1] = 100 * (questao_35[7][1] / questao_35[9][1]) * questao_35[9][1] / questao_35[7][2]
+        questao_35_esperado[8][0] = 100 * (questao_35[8][0] / questao_35[9][0]) * questao_35[9][0] / questao_35[8][2]
+        questao_35_esperado[8][1] = 100 * (questao_35[8][1] / questao_35[9][1]) * questao_35[9][1] / questao_35[8][2]
+        
+        questao_36_esperado[0][0] = 100 * (questao_36[0][0] / questao_36[9][0]) * questao_36[9][0] / questao_36[0][2]
+        questao_36_esperado[0][1] = 100 * (questao_36[0][1] / questao_36[9][1]) * questao_36[9][1] / questao_36[0][2]
+        questao_36_esperado[1][0] = 100 * (questao_36[1][0] / questao_36[9][0]) * questao_36[9][0] / questao_36[1][2]
+        questao_36_esperado[1][1] = 100 * (questao_36[1][1] / questao_36[9][1]) * questao_36[9][1] / questao_36[1][2]
+        questao_36_esperado[2][0] = 100 * (questao_36[2][0] / questao_36[9][0]) * questao_36[9][0] / questao_36[2][2]
+        questao_36_esperado[2][1] = 100 * (questao_36[2][1] / questao_36[9][1]) * questao_36[9][1] / questao_36[2][2]
+        questao_36_esperado[3][0] = 100 * (questao_36[3][0] / questao_36[9][0]) * questao_36[9][0] / questao_36[3][2]
+        questao_36_esperado[3][1] = 100 * (questao_36[3][1] / questao_36[9][1]) * questao_36[9][1] / questao_36[3][2]
+        questao_36_esperado[4][0] = 100 * (questao_36[4][0] / questao_36[9][0]) * questao_36[9][0] / questao_36[4][2]
+        questao_36_esperado[4][1] = 100 * (questao_36[4][1] / questao_36[9][1]) * questao_36[9][1] / questao_36[4][2]
+        questao_36_esperado[5][0] = 100 * (questao_36[5][0] / questao_36[9][0]) * questao_36[9][0] / questao_36[5][2]
+        questao_36_esperado[5][1] = 100 * (questao_36[5][1] / questao_36[9][1]) * questao_36[9][1] / questao_36[5][2]
+        questao_36_esperado[6][0] = 100 * (questao_36[6][0] / questao_36[9][0]) * questao_36[9][0] / questao_36[6][2]
+        questao_36_esperado[6][1] = 100 * (questao_36[6][1] / questao_36[9][1]) * questao_36[9][1] / questao_36[6][2]
+        questao_36_esperado[7][0] = 100 * (questao_36[7][0] / questao_36[9][0]) * questao_36[9][0] / questao_36[7][2]
+        questao_36_esperado[7][1] = 100 * (questao_36[7][1] / questao_36[9][1]) * questao_36[9][1] / questao_36[7][2]
+        questao_36_esperado[8][0] = 100 * (questao_36[8][0] / questao_36[9][0]) * questao_36[9][0] / questao_36[8][2]
+        questao_36_esperado[8][1] = 100 * (questao_36[8][1] / questao_36[9][1]) * questao_36[9][1] / questao_36[8][2]
+        
+        questao_37_esperado[0][0] = 100 * (questao_37[0][0] / questao_37[9][0]) * questao_37[9][0] / questao_37[0][2]
+        questao_37_esperado[0][1] = 100 * (questao_37[0][1] / questao_37[9][1]) * questao_37[9][1] / questao_37[0][2]
+        questao_37_esperado[1][0] = 100 * (questao_37[1][0] / questao_37[9][0]) * questao_37[9][0] / questao_37[1][2]
+        questao_37_esperado[1][1] = 100 * (questao_37[1][1] / questao_37[9][1]) * questao_37[9][1] / questao_37[1][2]
+        questao_37_esperado[2][0] = 100 * (questao_37[2][0] / questao_37[9][0]) * questao_37[9][0] / questao_37[2][2]
+        questao_37_esperado[2][1] = 100 * (questao_37[2][1] / questao_37[9][1]) * questao_37[9][1] / questao_37[2][2]
+        questao_37_esperado[3][0] = 100 * (questao_37[3][0] / questao_37[9][0]) * questao_37[9][0] / questao_37[3][2]
+        questao_37_esperado[3][1] = 100 * (questao_37[3][1] / questao_37[9][1]) * questao_37[9][1] / questao_37[3][2]
+        questao_37_esperado[4][0] = 100 * (questao_37[4][0] / questao_37[9][0]) * questao_37[9][0] / questao_37[4][2]
+        questao_37_esperado[4][1] = 100 * (questao_37[4][1] / questao_37[9][1]) * questao_37[9][1] / questao_37[4][2]
+        questao_37_esperado[5][0] = 100 * (questao_37[5][0] / questao_37[9][0]) * questao_37[9][0] / questao_37[5][2]
+        questao_37_esperado[5][1] = 100 * (questao_37[5][1] / questao_37[9][1]) * questao_37[9][1] / questao_37[5][2]
+        questao_37_esperado[6][0] = 100 * (questao_37[6][0] / questao_37[9][0]) * questao_37[9][0] / questao_37[6][2]
+        questao_37_esperado[6][1] = 100 * (questao_37[6][1] / questao_37[9][1]) * questao_37[9][1] / questao_37[6][2]
+        questao_37_esperado[7][0] = 100 * (questao_37[7][0] / questao_37[9][0]) * questao_37[9][0] / questao_37[7][2]
+        questao_37_esperado[7][1] = 100 * (questao_37[7][1] / questao_37[9][1]) * questao_37[9][1] / questao_37[7][2]
+        questao_37_esperado[8][0] = 100 * (questao_37[8][0] / questao_37[9][0]) * questao_37[9][0] / questao_37[8][2]
+        questao_37_esperado[8][1] = 100 * (questao_37[8][1] / questao_37[9][1]) * questao_37[9][1] / questao_37[8][2]
+        
+        questao_38_esperado[0][0] = 100 * (questao_38[0][0] / questao_38[9][0]) * questao_38[9][0] / questao_38[0][2]
+        questao_38_esperado[0][1] = 100 * (questao_38[0][1] / questao_38[9][1]) * questao_38[9][1] / questao_38[0][2]
+        questao_38_esperado[1][0] = 100 * (questao_38[1][0] / questao_38[9][0]) * questao_38[9][0] / questao_38[1][2]
+        questao_38_esperado[1][1] = 100 * (questao_38[1][1] / questao_38[9][1]) * questao_38[9][1] / questao_38[1][2]
+        questao_38_esperado[2][0] = 100 * (questao_38[2][0] / questao_38[9][0]) * questao_38[9][0] / questao_38[2][2]
+        questao_38_esperado[2][1] = 100 * (questao_38[2][1] / questao_38[9][1]) * questao_38[9][1] / questao_38[2][2]
+        questao_38_esperado[3][0] = 100 * (questao_38[3][0] / questao_38[9][0]) * questao_38[9][0] / questao_38[3][2]
+        questao_38_esperado[3][1] = 100 * (questao_38[3][1] / questao_38[9][1]) * questao_38[9][1] / questao_38[3][2]
+        questao_38_esperado[4][0] = 100 * (questao_38[4][0] / questao_38[9][0]) * questao_38[9][0] / questao_38[4][2]
+        questao_38_esperado[4][1] = 100 * (questao_38[4][1] / questao_38[9][1]) * questao_38[9][1] / questao_38[4][2]
+        questao_38_esperado[5][0] = 100 * (questao_38[5][0] / questao_38[9][0]) * questao_38[9][0] / questao_38[5][2]
+        questao_38_esperado[5][1] = 100 * (questao_38[5][1] / questao_38[9][1]) * questao_38[9][1] / questao_38[5][2]
+        questao_38_esperado[6][0] = 100 * (questao_38[6][0] / questao_38[9][0]) * questao_38[9][0] / questao_38[6][2]
+        questao_38_esperado[6][1] = 100 * (questao_38[6][1] / questao_38[9][1]) * questao_38[9][1] / questao_38[6][2]
+        questao_38_esperado[7][0] = 100 * (questao_38[7][0] / questao_38[9][0]) * questao_38[9][0] / questao_38[7][2]
+        questao_38_esperado[7][1] = 100 * (questao_38[7][1] / questao_38[9][1]) * questao_38[9][1] / questao_38[7][2]
+        questao_38_esperado[8][0] = 100 * (questao_38[8][0] / questao_38[9][0]) * questao_38[9][0] / questao_38[8][2]
+        questao_38_esperado[8][1] = 100 * (questao_38[8][1] / questao_38[9][1]) * questao_38[9][1] / questao_38[8][2]
+        
+        questao_39_esperado[0][0] = 100 * (questao_39[0][0] / questao_39[9][0]) * questao_39[9][0] / questao_39[0][2]
+        questao_39_esperado[0][1] = 100 * (questao_39[0][1] / questao_39[9][1]) * questao_39[9][1] / questao_39[0][2]
+        questao_39_esperado[1][0] = 100 * (questao_39[1][0] / questao_39[9][0]) * questao_39[9][0] / questao_39[1][2]
+        questao_39_esperado[1][1] = 100 * (questao_39[1][1] / questao_39[9][1]) * questao_39[9][1] / questao_39[1][2]
+        questao_39_esperado[2][0] = 100 * (questao_39[2][0] / questao_39[9][0]) * questao_39[9][0] / questao_39[2][2]
+        questao_39_esperado[2][1] = 100 * (questao_39[2][1] / questao_39[9][1]) * questao_39[9][1] / questao_39[2][2]
+        questao_39_esperado[3][0] = 100 * (questao_39[3][0] / questao_39[9][0]) * questao_39[9][0] / questao_39[3][2]
+        questao_39_esperado[3][1] = 100 * (questao_39[3][1] / questao_39[9][1]) * questao_39[9][1] / questao_39[3][2]
+        questao_39_esperado[4][0] = 100 * (questao_39[4][0] / questao_39[9][0]) * questao_39[9][0] / questao_39[4][2]
+        questao_39_esperado[4][1] = 100 * (questao_39[4][1] / questao_39[9][1]) * questao_39[9][1] / questao_39[4][2]
+        questao_39_esperado[5][0] = 100 * (questao_39[5][0] / questao_39[9][0]) * questao_39[9][0] / questao_39[5][2]
+        questao_39_esperado[5][1] = 100 * (questao_39[5][1] / questao_39[9][1]) * questao_39[9][1] / questao_39[5][2]
+        questao_39_esperado[6][0] = 100 * (questao_39[6][0] / questao_39[9][0]) * questao_39[9][0] / questao_39[6][2]
+        questao_39_esperado[6][1] = 100 * (questao_39[6][1] / questao_39[9][1]) * questao_39[9][1] / questao_39[6][2]
+        questao_39_esperado[7][0] = 100 * (questao_39[7][0] / questao_39[9][0]) * questao_39[9][0] / questao_39[7][2]
+        questao_39_esperado[7][1] = 100 * (questao_39[7][1] / questao_39[9][1]) * questao_39[9][1] / questao_39[7][2]
+        questao_39_esperado[8][0] = 100 * (questao_39[8][0] / questao_39[9][0]) * questao_39[9][0] / questao_39[8][2]
+        questao_39_esperado[8][1] = 100 * (questao_39[8][1] / questao_39[9][1]) * questao_39[9][1] / questao_39[8][2]
+        
+        questao_40_esperado[0][0] = 100 * (questao_40[0][0] / questao_40[9][0]) * questao_40[9][0] / questao_40[0][2]
+        questao_40_esperado[0][1] = 100 * (questao_40[0][1] / questao_40[9][1]) * questao_40[9][1] / questao_40[0][2]
+        questao_40_esperado[1][0] = 100 * (questao_40[1][0] / questao_40[9][0]) * questao_40[9][0] / questao_40[1][2]
+        questao_40_esperado[1][1] = 100 * (questao_40[1][1] / questao_40[9][1]) * questao_40[9][1] / questao_40[1][2]
+        questao_40_esperado[2][0] = 100 * (questao_40[2][0] / questao_40[9][0]) * questao_40[9][0] / questao_40[2][2]
+        questao_40_esperado[2][1] = 100 * (questao_40[2][1] / questao_40[9][1]) * questao_40[9][1] / questao_40[2][2]
+        questao_40_esperado[3][0] = 100 * (questao_40[3][0] / questao_40[9][0]) * questao_40[9][0] / questao_40[3][2]
+        questao_40_esperado[3][1] = 100 * (questao_40[3][1] / questao_40[9][1]) * questao_40[9][1] / questao_40[3][2]
+        questao_40_esperado[4][0] = 100 * (questao_40[4][0] / questao_40[9][0]) * questao_40[9][0] / questao_40[4][2]
+        questao_40_esperado[4][1] = 100 * (questao_40[4][1] / questao_40[9][1]) * questao_40[9][1] / questao_40[4][2]
+        questao_40_esperado[5][0] = 100 * (questao_40[5][0] / questao_40[9][0]) * questao_40[9][0] / questao_40[5][2]
+        questao_40_esperado[5][1] = 100 * (questao_40[5][1] / questao_40[9][1]) * questao_40[9][1] / questao_40[5][2]
+        questao_40_esperado[6][0] = 100 * (questao_40[6][0] / questao_40[9][0]) * questao_40[9][0] / questao_40[6][2]
+        questao_40_esperado[6][1] = 100 * (questao_40[6][1] / questao_40[9][1]) * questao_40[9][1] / questao_40[6][2]
+        questao_40_esperado[7][0] = 100 * (questao_40[7][0] / questao_40[9][0]) * questao_40[9][0] / questao_40[7][2]
+        questao_40_esperado[7][1] = 100 * (questao_40[7][1] / questao_40[9][1]) * questao_40[9][1] / questao_40[7][2]
+        questao_40_esperado[8][0] = 100 * (questao_40[8][0] / questao_40[9][0]) * questao_40[9][0] / questao_40[8][2]
+        questao_40_esperado[8][1] = 100 * (questao_40[8][1] / questao_40[9][1]) * questao_40[9][1] / questao_40[8][2]
+        
+        questao_41_esperado[0][0] = 100 * (questao_41[0][0] / questao_41[9][0]) * questao_41[9][0] / questao_41[0][2]
+        questao_41_esperado[0][1] = 100 * (questao_41[0][1] / questao_41[9][1]) * questao_41[9][1] / questao_41[0][2]
+        questao_41_esperado[1][0] = 100 * (questao_41[1][0] / questao_41[9][0]) * questao_41[9][0] / questao_41[1][2]
+        questao_41_esperado[1][1] = 100 * (questao_41[1][1] / questao_41[9][1]) * questao_41[9][1] / questao_41[1][2]
+        questao_41_esperado[2][0] = 100 * (questao_41[2][0] / questao_41[9][0]) * questao_41[9][0] / questao_41[2][2]
+        questao_41_esperado[2][1] = 100 * (questao_41[2][1] / questao_41[9][1]) * questao_41[9][1] / questao_41[2][2]
+        questao_41_esperado[3][0] = 100 * (questao_41[3][0] / questao_41[9][0]) * questao_41[9][0] / questao_41[3][2]
+        questao_41_esperado[3][1] = 100 * (questao_41[3][1] / questao_41[9][1]) * questao_41[9][1] / questao_41[3][2]
+        questao_41_esperado[4][0] = 100 * (questao_41[4][0] / questao_41[9][0]) * questao_41[9][0] / questao_41[4][2]
+        questao_41_esperado[4][1] = 100 * (questao_41[4][1] / questao_41[9][1]) * questao_41[9][1] / questao_41[4][2]
+        questao_41_esperado[5][0] = 100 * (questao_41[5][0] / questao_41[9][0]) * questao_41[9][0] / questao_41[5][2]
+        questao_41_esperado[5][1] = 100 * (questao_41[5][1] / questao_41[9][1]) * questao_41[9][1] / questao_41[5][2]
+        questao_41_esperado[6][0] = 100 * (questao_41[6][0] / questao_41[9][0]) * questao_41[9][0] / questao_41[6][2]
+        questao_41_esperado[6][1] = 100 * (questao_41[6][1] / questao_41[9][1]) * questao_41[9][1] / questao_41[6][2]
+        questao_41_esperado[7][0] = 100 * (questao_41[7][0] / questao_41[9][0]) * questao_41[9][0] / questao_41[7][2]
+        questao_41_esperado[7][1] = 100 * (questao_41[7][1] / questao_41[9][1]) * questao_41[9][1] / questao_41[7][2]
+        questao_41_esperado[8][0] = 100 * (questao_41[8][0] / questao_41[9][0]) * questao_41[9][0] / questao_41[8][2]
+        questao_41_esperado[8][1] = 100 * (questao_41[8][1] / questao_41[9][1]) * questao_41[9][1] / questao_41[8][2]
+        
+        questao_42_esperado[0][0] = 100 * (questao_42[0][0] / questao_42[9][0]) * questao_42[9][0] / questao_42[0][2]
+        questao_42_esperado[0][1] = 100 * (questao_42[0][1] / questao_42[9][1]) * questao_42[9][1] / questao_42[0][2]
+        questao_42_esperado[1][0] = 100 * (questao_42[1][0] / questao_42[9][0]) * questao_42[9][0] / questao_42[1][2]
+        questao_42_esperado[1][1] = 100 * (questao_42[1][1] / questao_42[9][1]) * questao_42[9][1] / questao_42[1][2]
+        questao_42_esperado[2][0] = 100 * (questao_42[2][0] / questao_42[9][0]) * questao_42[9][0] / questao_42[2][2]
+        questao_42_esperado[2][1] = 100 * (questao_42[2][1] / questao_42[9][1]) * questao_42[9][1] / questao_42[2][2]
+        questao_42_esperado[3][0] = 100 * (questao_42[3][0] / questao_42[9][0]) * questao_42[9][0] / questao_42[3][2]
+        questao_42_esperado[3][1] = 100 * (questao_42[3][1] / questao_42[9][1]) * questao_42[9][1] / questao_42[3][2]
+        questao_42_esperado[4][0] = 100 * (questao_42[4][0] / questao_42[9][0]) * questao_42[9][0] / questao_42[4][2]
+        questao_42_esperado[4][1] = 100 * (questao_42[4][1] / questao_42[9][1]) * questao_42[9][1] / questao_42[4][2]
+        questao_42_esperado[5][0] = 100 * (questao_42[5][0] / questao_42[9][0]) * questao_42[9][0] / questao_42[5][2]
+        questao_42_esperado[5][1] = 100 * (questao_42[5][1] / questao_42[9][1]) * questao_42[9][1] / questao_42[5][2]
+        questao_42_esperado[6][0] = 100 * (questao_42[6][0] / questao_42[9][0]) * questao_42[9][0] / questao_42[6][2]
+        questao_42_esperado[6][1] = 100 * (questao_42[6][1] / questao_42[9][1]) * questao_42[9][1] / questao_42[6][2]
+        questao_42_esperado[7][0] = 100 * (questao_42[7][0] / questao_42[9][0]) * questao_42[9][0] / questao_42[7][2]
+        questao_42_esperado[7][1] = 100 * (questao_42[7][1] / questao_42[9][1]) * questao_42[9][1] / questao_42[7][2]
+        questao_42_esperado[8][0] = 100 * (questao_42[8][0] / questao_42[9][0]) * questao_42[9][0] / questao_42[8][2]
+        questao_42_esperado[8][1] = 100 * (questao_42[8][1] / questao_42[9][1]) * questao_42[9][1] / questao_42[8][2]
+        
+        questao_43_esperado[0][0] = 100 * (questao_43[0][0] / questao_43[9][0]) * questao_43[9][0] / questao_43[0][2]
+        questao_43_esperado[0][1] = 100 * (questao_43[0][1] / questao_43[9][1]) * questao_43[9][1] / questao_43[0][2]
+        questao_43_esperado[1][0] = 100 * (questao_43[1][0] / questao_43[9][0]) * questao_43[9][0] / questao_43[1][2]
+        questao_43_esperado[1][1] = 100 * (questao_43[1][1] / questao_43[9][1]) * questao_43[9][1] / questao_43[1][2]
+        questao_43_esperado[2][0] = 100 * (questao_43[2][0] / questao_43[9][0]) * questao_43[9][0] / questao_43[2][2]
+        questao_43_esperado[2][1] = 100 * (questao_43[2][1] / questao_43[9][1]) * questao_43[9][1] / questao_43[2][2]
+        questao_43_esperado[3][0] = 100 * (questao_43[3][0] / questao_43[9][0]) * questao_43[9][0] / questao_43[3][2]
+        questao_43_esperado[3][1] = 100 * (questao_43[3][1] / questao_43[9][1]) * questao_43[9][1] / questao_43[3][2]
+        questao_43_esperado[4][0] = 100 * (questao_43[4][0] / questao_43[9][0]) * questao_43[9][0] / questao_43[4][2]
+        questao_43_esperado[4][1] = 100 * (questao_43[4][1] / questao_43[9][1]) * questao_43[9][1] / questao_43[4][2]
+        questao_43_esperado[5][0] = 100 * (questao_43[5][0] / questao_43[9][0]) * questao_43[9][0] / questao_43[5][2]
+        questao_43_esperado[5][1] = 100 * (questao_43[5][1] / questao_43[9][1]) * questao_43[9][1] / questao_43[5][2]
+        questao_43_esperado[6][0] = 100 * (questao_43[6][0] / questao_43[9][0]) * questao_43[9][0] / questao_43[6][2]
+        questao_43_esperado[6][1] = 100 * (questao_43[6][1] / questao_43[9][1]) * questao_43[9][1] / questao_43[6][2]
+        questao_43_esperado[7][0] = 100 * (questao_43[7][0] / questao_43[9][0]) * questao_43[9][0] / questao_43[7][2]
+        questao_43_esperado[7][1] = 100 * (questao_43[7][1] / questao_43[9][1]) * questao_43[9][1] / questao_43[7][2]
+        questao_43_esperado[8][0] = 100 * (questao_43[8][0] / questao_43[9][0]) * questao_43[9][0] / questao_43[8][2]
+        questao_43_esperado[8][1] = 100 * (questao_43[8][1] / questao_43[9][1]) * questao_43[9][1] / questao_43[8][2]
+        
+        questao_44_esperado[0][0] = 100 * (questao_44[0][0] / questao_44[9][0]) * questao_44[9][0] / questao_44[0][2]
+        questao_44_esperado[0][1] = 100 * (questao_44[0][1] / questao_44[9][1]) * questao_44[9][1] / questao_44[0][2]
+        questao_44_esperado[1][0] = 100 * (questao_44[1][0] / questao_44[9][0]) * questao_44[9][0] / questao_44[1][2]
+        questao_44_esperado[1][1] = 100 * (questao_44[1][1] / questao_44[9][1]) * questao_44[9][1] / questao_44[1][2]
+        questao_44_esperado[2][0] = 100 * (questao_44[2][0] / questao_44[9][0]) * questao_44[9][0] / questao_44[2][2]
+        questao_44_esperado[2][1] = 100 * (questao_44[2][1] / questao_44[9][1]) * questao_44[9][1] / questao_44[2][2]
+        questao_44_esperado[3][0] = 100 * (questao_44[3][0] / questao_44[9][0]) * questao_44[9][0] / questao_44[3][2]
+        questao_44_esperado[3][1] = 100 * (questao_44[3][1] / questao_44[9][1]) * questao_44[9][1] / questao_44[3][2]
+        questao_44_esperado[4][0] = 100 * (questao_44[4][0] / questao_44[9][0]) * questao_44[9][0] / questao_44[4][2]
+        questao_44_esperado[4][1] = 100 * (questao_44[4][1] / questao_44[9][1]) * questao_44[9][1] / questao_44[4][2]
+        questao_44_esperado[5][0] = 100 * (questao_44[5][0] / questao_44[9][0]) * questao_44[9][0] / questao_44[5][2]
+        questao_44_esperado[5][1] = 100 * (questao_44[5][1] / questao_44[9][1]) * questao_44[9][1] / questao_44[5][2]
+        questao_44_esperado[6][0] = 100 * (questao_44[6][0] / questao_44[9][0]) * questao_44[9][0] / questao_44[6][2]
+        questao_44_esperado[6][1] = 100 * (questao_44[6][1] / questao_44[9][1]) * questao_44[9][1] / questao_44[6][2]
+        questao_44_esperado[7][0] = 100 * (questao_44[7][0] / questao_44[9][0]) * questao_44[9][0] / questao_44[7][2]
+        questao_44_esperado[7][1] = 100 * (questao_44[7][1] / questao_44[9][1]) * questao_44[9][1] / questao_44[7][2]
+        questao_44_esperado[8][0] = 100 * (questao_44[8][0] / questao_44[9][0]) * questao_44[9][0] / questao_44[8][2]
+        questao_44_esperado[8][1] = 100 * (questao_44[8][1] / questao_44[9][1]) * questao_44[9][1] / questao_44[8][2]
+        
+        questao_45_esperado[0][0] = 100 * (questao_45[0][0] / questao_45[9][0]) * questao_45[9][0] / questao_45[0][2]
+        questao_45_esperado[0][1] = 100 * (questao_45[0][1] / questao_45[9][1]) * questao_45[9][1] / questao_45[0][2]
+        questao_45_esperado[1][0] = 100 * (questao_45[1][0] / questao_45[9][0]) * questao_45[9][0] / questao_45[1][2]
+        questao_45_esperado[1][1] = 100 * (questao_45[1][1] / questao_45[9][1]) * questao_45[9][1] / questao_45[1][2]
+        questao_45_esperado[2][0] = 100 * (questao_45[2][0] / questao_45[9][0]) * questao_45[9][0] / questao_45[2][2]
+        questao_45_esperado[2][1] = 100 * (questao_45[2][1] / questao_45[9][1]) * questao_45[9][1] / questao_45[2][2]
+        questao_45_esperado[3][0] = 100 * (questao_45[3][0] / questao_45[9][0]) * questao_45[9][0] / questao_45[3][2]
+        questao_45_esperado[3][1] = 100 * (questao_45[3][1] / questao_45[9][1]) * questao_45[9][1] / questao_45[3][2]
+        questao_45_esperado[4][0] = 100 * (questao_45[4][0] / questao_45[9][0]) * questao_45[9][0] / questao_45[4][2]
+        questao_45_esperado[4][1] = 100 * (questao_45[4][1] / questao_45[9][1]) * questao_45[9][1] / questao_45[4][2]
+        questao_45_esperado[5][0] = 100 * (questao_45[5][0] / questao_45[9][0]) * questao_45[9][0] / questao_45[5][2]
+        questao_45_esperado[5][1] = 100 * (questao_45[5][1] / questao_45[9][1]) * questao_45[9][1] / questao_45[5][2]
+        questao_45_esperado[6][0] = 100 * (questao_45[6][0] / questao_45[9][0]) * questao_45[9][0] / questao_45[6][2]
+        questao_45_esperado[6][1] = 100 * (questao_45[6][1] / questao_45[9][1]) * questao_45[9][1] / questao_45[6][2]
+        questao_45_esperado[7][0] = 100 * (questao_45[7][0] / questao_45[9][0]) * questao_45[9][0] / questao_45[7][2]
+        questao_45_esperado[7][1] = 100 * (questao_45[7][1] / questao_45[9][1]) * questao_45[9][1] / questao_45[7][2]
+        questao_45_esperado[8][0] = 100 * (questao_45[8][0] / questao_45[9][0]) * questao_45[9][0] / questao_45[8][2]
+        questao_45_esperado[8][1] = 100 * (questao_45[8][1] / questao_45[9][1]) * questao_45[9][1] / questao_45[8][2]
+        
+        questao_46_esperado[0][0] = 100 * (questao_46[0][0] / questao_46[9][0]) * questao_46[9][0] / questao_46[0][2]
+        questao_46_esperado[0][1] = 100 * (questao_46[0][1] / questao_46[9][1]) * questao_46[9][1] / questao_46[0][2]
+        questao_46_esperado[1][0] = 100 * (questao_46[1][0] / questao_46[9][0]) * questao_46[9][0] / questao_46[1][2]
+        questao_46_esperado[1][1] = 100 * (questao_46[1][1] / questao_46[9][1]) * questao_46[9][1] / questao_46[1][2]
+        questao_46_esperado[2][0] = 100 * (questao_46[2][0] / questao_46[9][0]) * questao_46[9][0] / questao_46[2][2]
+        questao_46_esperado[2][1] = 100 * (questao_46[2][1] / questao_46[9][1]) * questao_46[9][1] / questao_46[2][2]
+        questao_46_esperado[3][0] = 100 * (questao_46[3][0] / questao_46[9][0]) * questao_46[9][0] / questao_46[3][2]
+        questao_46_esperado[3][1] = 100 * (questao_46[3][1] / questao_46[9][1]) * questao_46[9][1] / questao_46[3][2]
+        questao_46_esperado[4][0] = 100 * (questao_46[4][0] / questao_46[9][0]) * questao_46[9][0] / questao_46[4][2]
+        questao_46_esperado[4][1] = 100 * (questao_46[4][1] / questao_46[9][1]) * questao_46[9][1] / questao_46[4][2]
+        questao_46_esperado[5][0] = 100 * (questao_46[5][0] / questao_46[9][0]) * questao_46[9][0] / questao_46[5][2]
+        questao_46_esperado[5][1] = 100 * (questao_46[5][1] / questao_46[9][1]) * questao_46[9][1] / questao_46[5][2]
+        questao_46_esperado[6][0] = 100 * (questao_46[6][0] / questao_46[9][0]) * questao_46[9][0] / questao_46[6][2]
+        questao_46_esperado[6][1] = 100 * (questao_46[6][1] / questao_46[9][1]) * questao_46[9][1] / questao_46[6][2]
+        questao_46_esperado[7][0] = 100 * (questao_46[7][0] / questao_46[9][0]) * questao_46[9][0] / questao_46[7][2]
+        questao_46_esperado[7][1] = 100 * (questao_46[7][1] / questao_46[9][1]) * questao_46[9][1] / questao_46[7][2]
+        questao_46_esperado[8][0] = 100 * (questao_46[8][0] / questao_46[9][0]) * questao_46[9][0] / questao_46[8][2]
+        questao_46_esperado[8][1] = 100 * (questao_46[8][1] / questao_46[9][1]) * questao_46[9][1] / questao_46[8][2]
+        
+        questao_47_esperado[0][0] = 100 * (questao_47[0][0] / questao_47[9][0]) * questao_47[9][0] / questao_47[0][2]
+        questao_47_esperado[0][1] = 100 * (questao_47[0][1] / questao_47[9][1]) * questao_47[9][1] / questao_47[0][2]
+        questao_47_esperado[1][0] = 100 * (questao_47[1][0] / questao_47[9][0]) * questao_47[9][0] / questao_47[1][2]
+        questao_47_esperado[1][1] = 100 * (questao_47[1][1] / questao_47[9][1]) * questao_47[9][1] / questao_47[1][2]
+        questao_47_esperado[2][0] = 100 * (questao_47[2][0] / questao_47[9][0]) * questao_47[9][0] / questao_47[2][2]
+        questao_47_esperado[2][1] = 100 * (questao_47[2][1] / questao_47[9][1]) * questao_47[9][1] / questao_47[2][2]
+        questao_47_esperado[3][0] = 100 * (questao_47[3][0] / questao_47[9][0]) * questao_47[9][0] / questao_47[3][2]
+        questao_47_esperado[3][1] = 100 * (questao_47[3][1] / questao_47[9][1]) * questao_47[9][1] / questao_47[3][2]
+        questao_47_esperado[4][0] = 100 * (questao_47[4][0] / questao_47[9][0]) * questao_47[9][0] / questao_47[4][2]
+        questao_47_esperado[4][1] = 100 * (questao_47[4][1] / questao_47[9][1]) * questao_47[9][1] / questao_47[4][2]
+        questao_47_esperado[5][0] = 100 * (questao_47[5][0] / questao_47[9][0]) * questao_47[9][0] / questao_47[5][2]
+        questao_47_esperado[5][1] = 100 * (questao_47[5][1] / questao_47[9][1]) * questao_47[9][1] / questao_47[5][2]
+        questao_47_esperado[6][0] = 100 * (questao_47[6][0] / questao_47[9][0]) * questao_47[9][0] / questao_47[6][2]
+        questao_47_esperado[6][1] = 100 * (questao_47[6][1] / questao_47[9][1]) * questao_47[9][1] / questao_47[6][2]
+        questao_47_esperado[7][0] = 100 * (questao_47[7][0] / questao_47[9][0]) * questao_47[9][0] / questao_47[7][2]
+        questao_47_esperado[7][1] = 100 * (questao_47[7][1] / questao_47[9][1]) * questao_47[9][1] / questao_47[7][2]
+        questao_47_esperado[8][0] = 100 * (questao_47[8][0] / questao_47[9][0]) * questao_47[9][0] / questao_47[8][2]
+        questao_47_esperado[8][1] = 100 * (questao_47[8][1] / questao_47[9][1]) * questao_47[9][1] / questao_47[8][2]
+        
+        questao_48_esperado[0][0] = 100 * (questao_48[0][0] / questao_48[9][0]) * questao_48[9][0] / questao_48[0][2]
+        questao_48_esperado[0][1] = 100 * (questao_48[0][1] / questao_48[9][1]) * questao_48[9][1] / questao_48[0][2]
+        questao_48_esperado[1][0] = 100 * (questao_48[1][0] / questao_48[9][0]) * questao_48[9][0] / questao_48[1][2]
+        questao_48_esperado[1][1] = 100 * (questao_48[1][1] / questao_48[9][1]) * questao_48[9][1] / questao_48[1][2]
+        questao_48_esperado[2][0] = 100 * (questao_48[2][0] / questao_48[9][0]) * questao_48[9][0] / questao_48[2][2]
+        questao_48_esperado[2][1] = 100 * (questao_48[2][1] / questao_48[9][1]) * questao_48[9][1] / questao_48[2][2]
+        questao_48_esperado[3][0] = 100 * (questao_48[3][0] / questao_48[9][0]) * questao_48[9][0] / questao_48[3][2]
+        questao_48_esperado[3][1] = 100 * (questao_48[3][1] / questao_48[9][1]) * questao_48[9][1] / questao_48[3][2]
+        questao_48_esperado[4][0] = 100 * (questao_48[4][0] / questao_48[9][0]) * questao_48[9][0] / questao_48[4][2]
+        questao_48_esperado[4][1] = 100 * (questao_48[4][1] / questao_48[9][1]) * questao_48[9][1] / questao_48[4][2]
+        questao_48_esperado[5][0] = 100 * (questao_48[5][0] / questao_48[9][0]) * questao_48[9][0] / questao_48[5][2]
+        questao_48_esperado[5][1] = 100 * (questao_48[5][1] / questao_48[9][1]) * questao_48[9][1] / questao_48[5][2]
+        questao_48_esperado[6][0] = 100 * (questao_48[6][0] / questao_48[9][0]) * questao_48[9][0] / questao_48[6][2]
+        questao_48_esperado[6][1] = 100 * (questao_48[6][1] / questao_48[9][1]) * questao_48[9][1] / questao_48[6][2]
+        questao_48_esperado[7][0] = 100 * (questao_48[7][0] / questao_48[9][0]) * questao_48[9][0] / questao_48[7][2]
+        questao_48_esperado[7][1] = 100 * (questao_48[7][1] / questao_48[9][1]) * questao_48[9][1] / questao_48[7][2]
+        questao_48_esperado[8][0] = 100 * (questao_48[8][0] / questao_48[9][0]) * questao_48[9][0] / questao_48[8][2]
+        questao_48_esperado[8][1] = 100 * (questao_48[8][1] / questao_48[9][1]) * questao_48[9][1] / questao_48[8][2]
+        
+        questao_49_esperado[0][0] = 100 * (questao_49[0][0] / questao_49[9][0]) * questao_49[9][0] / questao_49[0][2]
+        questao_49_esperado[0][1] = 100 * (questao_49[0][1] / questao_49[9][1]) * questao_49[9][1] / questao_49[0][2]
+        questao_49_esperado[1][0] = 100 * (questao_49[1][0] / questao_49[9][0]) * questao_49[9][0] / questao_49[1][2]
+        questao_49_esperado[1][1] = 100 * (questao_49[1][1] / questao_49[9][1]) * questao_49[9][1] / questao_49[1][2]
+        questao_49_esperado[2][0] = 100 * (questao_49[2][0] / questao_49[9][0]) * questao_49[9][0] / questao_49[2][2]
+        questao_49_esperado[2][1] = 100 * (questao_49[2][1] / questao_49[9][1]) * questao_49[9][1] / questao_49[2][2]
+        questao_49_esperado[3][0] = 100 * (questao_49[3][0] / questao_49[9][0]) * questao_49[9][0] / questao_49[3][2]
+        questao_49_esperado[3][1] = 100 * (questao_49[3][1] / questao_49[9][1]) * questao_49[9][1] / questao_49[3][2]
+        questao_49_esperado[4][0] = 100 * (questao_49[4][0] / questao_49[9][0]) * questao_49[9][0] / questao_49[4][2]
+        questao_49_esperado[4][1] = 100 * (questao_49[4][1] / questao_49[9][1]) * questao_49[9][1] / questao_49[4][2]
+        questao_49_esperado[5][0] = 100 * (questao_49[5][0] / questao_49[9][0]) * questao_49[9][0] / questao_49[5][2]
+        questao_49_esperado[5][1] = 100 * (questao_49[5][1] / questao_49[9][1]) * questao_49[9][1] / questao_49[5][2]
+        questao_49_esperado[6][0] = 100 * (questao_49[6][0] / questao_49[9][0]) * questao_49[9][0] / questao_49[6][2]
+        questao_49_esperado[6][1] = 100 * (questao_49[6][1] / questao_49[9][1]) * questao_49[9][1] / questao_49[6][2]
+        questao_49_esperado[7][0] = 100 * (questao_49[7][0] / questao_49[9][0]) * questao_49[9][0] / questao_49[7][2]
+        questao_49_esperado[7][1] = 100 * (questao_49[7][1] / questao_49[9][1]) * questao_49[9][1] / questao_49[7][2]
+        questao_49_esperado[8][0] = 100 * (questao_49[8][0] / questao_49[9][0]) * questao_49[9][0] / questao_49[8][2]
+        questao_49_esperado[8][1] = 100 * (questao_49[8][1] / questao_49[9][1]) * questao_49[9][1] / questao_49[8][2]
+        
+        questao_50_esperado[0][0] = 100 * (questao_50[0][0] / questao_50[9][0]) * questao_50[9][0] / questao_50[0][2]
+        questao_50_esperado[0][1] = 100 * (questao_50[0][1] / questao_50[9][1]) * questao_50[9][1] / questao_50[0][2]
+        questao_50_esperado[1][0] = 100 * (questao_50[1][0] / questao_50[9][0]) * questao_50[9][0] / questao_50[1][2]
+        questao_50_esperado[1][1] = 100 * (questao_50[1][1] / questao_50[9][1]) * questao_50[9][1] / questao_50[1][2]
+        questao_50_esperado[2][0] = 100 * (questao_50[2][0] / questao_50[9][0]) * questao_50[9][0] / questao_50[2][2]
+        questao_50_esperado[2][1] = 100 * (questao_50[2][1] / questao_50[9][1]) * questao_50[9][1] / questao_50[2][2]
+        questao_50_esperado[3][0] = 100 * (questao_50[3][0] / questao_50[9][0]) * questao_50[9][0] / questao_50[3][2]
+        questao_50_esperado[3][1] = 100 * (questao_50[3][1] / questao_50[9][1]) * questao_50[9][1] / questao_50[3][2]
+        questao_50_esperado[4][0] = 100 * (questao_50[4][0] / questao_50[9][0]) * questao_50[9][0] / questao_50[4][2]
+        questao_50_esperado[4][1] = 100 * (questao_50[4][1] / questao_50[9][1]) * questao_50[9][1] / questao_50[4][2]
+        questao_50_esperado[5][0] = 100 * (questao_50[5][0] / questao_50[9][0]) * questao_50[9][0] / questao_50[5][2]
+        questao_50_esperado[5][1] = 100 * (questao_50[5][1] / questao_50[9][1]) * questao_50[9][1] / questao_50[5][2]
+        questao_50_esperado[6][0] = 100 * (questao_50[6][0] / questao_50[9][0]) * questao_50[9][0] / questao_50[6][2]
+        questao_50_esperado[6][1] = 100 * (questao_50[6][1] / questao_50[9][1]) * questao_50[9][1] / questao_50[6][2]
+        questao_50_esperado[7][0] = 100 * (questao_50[7][0] / questao_50[9][0]) * questao_50[9][0] / questao_50[7][2]
+        questao_50_esperado[7][1] = 100 * (questao_50[7][1] / questao_50[9][1]) * questao_50[9][1] / questao_50[7][2]
+        questao_50_esperado[8][0] = 100 * (questao_50[8][0] / questao_50[9][0]) * questao_50[9][0] / questao_50[8][2]
+        questao_50_esperado[8][1] = 100 * (questao_50[8][1] / questao_50[9][1]) * questao_50[9][1] / questao_50[8][2]
+        
+        questao_51_esperado[0][0] = 100 * (questao_51[0][0] / questao_51[9][0]) * questao_51[9][0] / questao_51[0][2]
+        questao_51_esperado[0][1] = 100 * (questao_51[0][1] / questao_51[9][1]) * questao_51[9][1] / questao_51[0][2]
+        questao_51_esperado[1][0] = 100 * (questao_51[1][0] / questao_51[9][0]) * questao_51[9][0] / questao_51[1][2]
+        questao_51_esperado[1][1] = 100 * (questao_51[1][1] / questao_51[9][1]) * questao_51[9][1] / questao_51[1][2]
+        questao_51_esperado[2][0] = 100 * (questao_51[2][0] / questao_51[9][0]) * questao_51[9][0] / questao_51[2][2]
+        questao_51_esperado[2][1] = 100 * (questao_51[2][1] / questao_51[9][1]) * questao_51[9][1] / questao_51[2][2]
+        questao_51_esperado[3][0] = 100 * (questao_51[3][0] / questao_51[9][0]) * questao_51[9][0] / questao_51[3][2]
+        questao_51_esperado[3][1] = 100 * (questao_51[3][1] / questao_51[9][1]) * questao_51[9][1] / questao_51[3][2]
+        questao_51_esperado[4][0] = 100 * (questao_51[4][0] / questao_51[9][0]) * questao_51[9][0] / questao_51[4][2]
+        questao_51_esperado[4][1] = 100 * (questao_51[4][1] / questao_51[9][1]) * questao_51[9][1] / questao_51[4][2]
+        questao_51_esperado[5][0] = 100 * (questao_51[5][0] / questao_51[9][0]) * questao_51[9][0] / questao_51[5][2]
+        questao_51_esperado[5][1] = 100 * (questao_51[5][1] / questao_51[9][1]) * questao_51[9][1] / questao_51[5][2]
+        questao_51_esperado[6][0] = 100 * (questao_51[6][0] / questao_51[9][0]) * questao_51[9][0] / questao_51[6][2]
+        questao_51_esperado[6][1] = 100 * (questao_51[6][1] / questao_51[9][1]) * questao_51[9][1] / questao_51[6][2]
+        questao_51_esperado[7][0] = 100 * (questao_51[7][0] / questao_51[9][0]) * questao_51[9][0] / questao_51[7][2]
+        questao_51_esperado[7][1] = 100 * (questao_51[7][1] / questao_51[9][1]) * questao_51[9][1] / questao_51[7][2]
+        questao_51_esperado[8][0] = 100 * (questao_51[8][0] / questao_51[9][0]) * questao_51[9][0] / questao_51[8][2]
+        questao_51_esperado[8][1] = 100 * (questao_51[8][1] / questao_51[9][1]) * questao_51[9][1] / questao_51[8][2]
+        
+        questao_52_esperado[0][0] = 100 * (questao_52[0][0] / questao_52[9][0]) * questao_52[9][0] / questao_52[0][2]
+        questao_52_esperado[0][1] = 100 * (questao_52[0][1] / questao_52[9][1]) * questao_52[9][1] / questao_52[0][2]
+        questao_52_esperado[1][0] = 100 * (questao_52[1][0] / questao_52[9][0]) * questao_52[9][0] / questao_52[1][2]
+        questao_52_esperado[1][1] = 100 * (questao_52[1][1] / questao_52[9][1]) * questao_52[9][1] / questao_52[1][2]
+        questao_52_esperado[2][0] = 100 * (questao_52[2][0] / questao_52[9][0]) * questao_52[9][0] / questao_52[2][2]
+        questao_52_esperado[2][1] = 100 * (questao_52[2][1] / questao_52[9][1]) * questao_52[9][1] / questao_52[2][2]
+        questao_52_esperado[3][0] = 100 * (questao_52[3][0] / questao_52[9][0]) * questao_52[9][0] / questao_52[3][2]
+        questao_52_esperado[3][1] = 100 * (questao_52[3][1] / questao_52[9][1]) * questao_52[9][1] / questao_52[3][2]
+        questao_52_esperado[4][0] = 100 * (questao_52[4][0] / questao_52[9][0]) * questao_52[9][0] / questao_52[4][2]
+        questao_52_esperado[4][1] = 100 * (questao_52[4][1] / questao_52[9][1]) * questao_52[9][1] / questao_52[4][2]
+        questao_52_esperado[5][0] = 100 * (questao_52[5][0] / questao_52[9][0]) * questao_52[9][0] / questao_52[5][2]
+        questao_52_esperado[5][1] = 100 * (questao_52[5][1] / questao_52[9][1]) * questao_52[9][1] / questao_52[5][2]
+        questao_52_esperado[6][0] = 100 * (questao_52[6][0] / questao_52[9][0]) * questao_52[9][0] / questao_52[6][2]
+        questao_52_esperado[6][1] = 100 * (questao_52[6][1] / questao_52[9][1]) * questao_52[9][1] / questao_52[6][2]
+        questao_52_esperado[7][0] = 100 * (questao_52[7][0] / questao_52[9][0]) * questao_52[9][0] / questao_52[7][2]
+        questao_52_esperado[7][1] = 100 * (questao_52[7][1] / questao_52[9][1]) * questao_52[9][1] / questao_52[7][2]
+        questao_52_esperado[8][0] = 100 * (questao_52[8][0] / questao_52[9][0]) * questao_52[9][0] / questao_52[8][2]
+        questao_52_esperado[8][1] = 100 * (questao_52[8][1] / questao_52[9][1]) * questao_52[9][1] / questao_52[8][2]
+        
+        questao_53_esperado[0][0] = 100 * (questao_53[0][0] / questao_53[9][0]) * questao_53[9][0] / questao_53[0][2]
+        questao_53_esperado[0][1] = 100 * (questao_53[0][1] / questao_53[9][1]) * questao_53[9][1] / questao_53[0][2]
+        questao_53_esperado[1][0] = 100 * (questao_53[1][0] / questao_53[9][0]) * questao_53[9][0] / questao_53[1][2]
+        questao_53_esperado[1][1] = 100 * (questao_53[1][1] / questao_53[9][1]) * questao_53[9][1] / questao_53[1][2]
+        questao_53_esperado[2][0] = 100 * (questao_53[2][0] / questao_53[9][0]) * questao_53[9][0] / questao_53[2][2]
+        questao_53_esperado[2][1] = 100 * (questao_53[2][1] / questao_53[9][1]) * questao_53[9][1] / questao_53[2][2]
+        questao_53_esperado[3][0] = 100 * (questao_53[3][0] / questao_53[9][0]) * questao_53[9][0] / questao_53[3][2]
+        questao_53_esperado[3][1] = 100 * (questao_53[3][1] / questao_53[9][1]) * questao_53[9][1] / questao_53[3][2]
+        questao_53_esperado[4][0] = 100 * (questao_53[4][0] / questao_53[9][0]) * questao_53[9][0] / questao_53[4][2]
+        questao_53_esperado[4][1] = 100 * (questao_53[4][1] / questao_53[9][1]) * questao_53[9][1] / questao_53[4][2]
+        questao_53_esperado[5][0] = 100 * (questao_53[5][0] / questao_53[9][0]) * questao_53[9][0] / questao_53[5][2]
+        questao_53_esperado[5][1] = 100 * (questao_53[5][1] / questao_53[9][1]) * questao_53[9][1] / questao_53[5][2]
+        questao_53_esperado[6][0] = 100 * (questao_53[6][0] / questao_53[9][0]) * questao_53[9][0] / questao_53[6][2]
+        questao_53_esperado[6][1] = 100 * (questao_53[6][1] / questao_53[9][1]) * questao_53[9][1] / questao_53[6][2]
+        questao_53_esperado[7][0] = 100 * (questao_53[7][0] / questao_53[9][0]) * questao_53[9][0] / questao_53[7][2]
+        questao_53_esperado[7][1] = 100 * (questao_53[7][1] / questao_53[9][1]) * questao_53[9][1] / questao_53[7][2]
+        questao_53_esperado[8][0] = 100 * (questao_53[8][0] / questao_53[9][0]) * questao_53[9][0] / questao_53[8][2]
+        questao_53_esperado[8][1] = 100 * (questao_53[8][1] / questao_53[9][1]) * questao_53[9][1] / questao_53[8][2]
+        
+        questao_54_esperado[0][0] = 100 * (questao_54[0][0] / questao_54[9][0]) * questao_54[9][0] / questao_54[0][2]
+        questao_54_esperado[0][1] = 100 * (questao_54[0][1] / questao_54[9][1]) * questao_54[9][1] / questao_54[0][2]
+        questao_54_esperado[1][0] = 100 * (questao_54[1][0] / questao_54[9][0]) * questao_54[9][0] / questao_54[1][2]
+        questao_54_esperado[1][1] = 100 * (questao_54[1][1] / questao_54[9][1]) * questao_54[9][1] / questao_54[1][2]
+        questao_54_esperado[2][0] = 100 * (questao_54[2][0] / questao_54[9][0]) * questao_54[9][0] / questao_54[2][2]
+        questao_54_esperado[2][1] = 100 * (questao_54[2][1] / questao_54[9][1]) * questao_54[9][1] / questao_54[2][2]
+        questao_54_esperado[3][0] = 100 * (questao_54[3][0] / questao_54[9][0]) * questao_54[9][0] / questao_54[3][2]
+        questao_54_esperado[3][1] = 100 * (questao_54[3][1] / questao_54[9][1]) * questao_54[9][1] / questao_54[3][2]
+        questao_54_esperado[4][0] = 100 * (questao_54[4][0] / questao_54[9][0]) * questao_54[9][0] / questao_54[4][2]
+        questao_54_esperado[4][1] = 100 * (questao_54[4][1] / questao_54[9][1]) * questao_54[9][1] / questao_54[4][2]
+        questao_54_esperado[5][0] = 100 * (questao_54[5][0] / questao_54[9][0]) * questao_54[9][0] / questao_54[5][2]
+        questao_54_esperado[5][1] = 100 * (questao_54[5][1] / questao_54[9][1]) * questao_54[9][1] / questao_54[5][2]
+        questao_54_esperado[6][0] = 100 * (questao_54[6][0] / questao_54[9][0]) * questao_54[9][0] / questao_54[6][2]
+        questao_54_esperado[6][1] = 100 * (questao_54[6][1] / questao_54[9][1]) * questao_54[9][1] / questao_54[6][2]
+        questao_54_esperado[7][0] = 100 * (questao_54[7][0] / questao_54[9][0]) * questao_54[9][0] / questao_54[7][2]
+        questao_54_esperado[7][1] = 100 * (questao_54[7][1] / questao_54[9][1]) * questao_54[9][1] / questao_54[7][2]
+        questao_54_esperado[8][0] = 100 * (questao_54[8][0] / questao_54[9][0]) * questao_54[9][0] / questao_54[8][2]
+        questao_54_esperado[8][1] = 100 * (questao_54[8][1] / questao_54[9][1]) * questao_54[9][1] / questao_54[8][2]
+        
+        context = {
+            'pagina_predicao': True,
+            'sexo': sexo,
+            'raca': raca,
+            'questao_73': questao_73,
+            'questao_75': questao_75,
+            'questao_79': questao_79,
+            'questao_84': questao_84,
+            'questao_92': questao_92,
+            'questao_111': questao_111,
+            'questao_113': questao_113,
+            'questao_25': questao_25,
+            'questao_26': questao_26,
+            'questao_27': questao_27,
+            'questao_28': questao_28,
+            'questao_29': questao_29,
+            'questao_30': questao_30,
+            'questao_31': questao_31,
+            'questao_32': questao_32,
+            'questao_33': questao_33,
+            'questao_34': questao_34,
+            'questao_35': questao_35,
+            'questao_36': questao_36,
+            'questao_37': questao_37,
+            'questao_38': questao_38,
+            'questao_39': questao_39,
+            'questao_40': questao_40,
+            'questao_41': questao_41,
+            'questao_42': questao_42,
+            'questao_43': questao_43,
+            'questao_44': questao_44,
+            'questao_45': questao_45,
+            'questao_46': questao_46,
+            'questao_47': questao_47,
+            'questao_48': questao_48,
+            'questao_49': questao_49,
+            'questao_50': questao_50,
+            'questao_51': questao_51,
+            'questao_52': questao_52,
+            'questao_53': questao_53,
+            'questao_54': questao_54,
+            
+            'sexo_esperado': sexo_esperado,
+            'raca_esperado': raca_esperado,
+            'questao_73_esperado': questao_73_esperado,
+            'questao_75_esperado': questao_75_esperado,
+            'questao_79_esperado': questao_79_esperado,
+            'questao_84_esperado': questao_84_esperado,
+            'questao_92_esperado': questao_92_esperado,
+            'questao_111_esperado': questao_111_esperado,
+            'questao_113_esperado': questao_113_esperado,
+            'questao_25_esperado': questao_25_esperado,
+            'questao_26_esperado': questao_26_esperado,
+            'questao_27_esperado': questao_27_esperado,
+            'questao_28_esperado': questao_28_esperado,
+            'questao_29_esperado': questao_29_esperado,
+            'questao_30_esperado': questao_30_esperado,
+            'questao_31_esperado': questao_31_esperado,
+            'questao_32_esperado': questao_32_esperado,
+            'questao_33_esperado': questao_33_esperado,
+            'questao_34_esperado': questao_34_esperado,
+            'questao_35_esperado': questao_35_esperado,
+            'questao_36_esperado': questao_36_esperado,
+            'questao_37_esperado': questao_37_esperado,
+            'questao_38_esperado': questao_38_esperado,
+            'questao_39_esperado': questao_39_esperado,
+            'questao_40_esperado': questao_40_esperado,
+            'questao_41_esperado': questao_41_esperado,
+            'questao_42_esperado': questao_42_esperado,
+            'questao_43_esperado': questao_43_esperado,
+            'questao_44_esperado': questao_44_esperado,
+            'questao_45_esperado': questao_45_esperado,
+            'questao_46_esperado': questao_46_esperado,
+            'questao_47_esperado': questao_47_esperado,
+            'questao_48_esperado': questao_48_esperado,
+            'questao_49_esperado': questao_49_esperado,
+            'questao_50_esperado': questao_50_esperado,
+            'questao_51_esperado': questao_51_esperado,
+            'questao_52_esperado': questao_52_esperado,
+            'questao_53_esperado': questao_53_esperado,
+            'questao_54_esperado': questao_54_esperado,
+        }
+        
+        return render(self.request, 'administracao/predicao.html', context)
+
+
 class GraficosAlunosView(LoginRequired, View):
     """Página que exibe gráficos baseados nos dados dos alunos"""
     

@@ -130,6 +130,12 @@
                   <span data-localize="sidebar.nav.SINGLEVIEW">Inferência</span>
                 </a>
               </li>
+              <li class="{% if pagina_predicao %} active {% endif %}">
+                <a href="{% url 'administracao:predicao' %}" title="Predição">
+                  <em class="fa fa-arrow-right"></em>
+                  <span data-localize="sidebar.nav.SINGLEVIEW">Predição</span>
+                </a>
+              </li>
               
               <li class="nav-heading ">
                 <span data-localize="sidebar.heading.HEADER">Administração</span>

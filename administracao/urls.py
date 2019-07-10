@@ -19,6 +19,9 @@ urlpatterns = [
     # Exibe dados gerados após o processo de inferência estatística
     url(r'^inferencia/$', views.InferenciaView.as_view(), name='inferencia'),
     
+    # Exibe dados gerados após o processo de predição pelo naive bayes
+    url(r'^predicao/$', views.PredicaoView.as_view(), name='predicao'),
+    
     # Páginas que exibem gráficos baseados nos dados já coletados
     url(r'^graficos_alunos/$', views.GraficosAlunosView.as_view(), name='graficos_alunos'),
     url(r'^graficos_questionarios/$', views.GraficosQuestionariosView.as_view(), name='graficos_questionarios'),
