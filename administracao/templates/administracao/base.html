@@ -124,6 +124,12 @@
                   </li>
                 </ul>
               </li>
+              <li class="{% if pagina_estudo %} active {% endif %}">
+                <a href="{% url 'administracao:estudo' %}" title="Estudo">
+                  <em class="fa fa-bar-chart"></em>
+                  <span data-localize="sidebar.nav.SINGLEVIEW">Estudo</span>
+                </a>
+              </li>
               <li class="{% if pagina_inferencia %} active {% endif %}">
                 <a href="{% url 'administracao:inferencia' %}" title="Inferência">
                   <em class="fa fa-table"></em>
