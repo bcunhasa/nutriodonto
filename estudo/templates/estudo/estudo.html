@@ -1,0 +1,34 @@
+{% extends "administracao/base.html" %}
+{% load staticfiles %}
+
+{% block head %}
+  <link rel="stylesheet" type="text/css" href="{% static 'administracao/css/graficos.css' %}">
+{% endblock head %}
+
+{% block header %}
+  Gráficos para a tabela de alunos
+{% endblock header %}
+
+{% block content %}
+  
+  <div class="row">
+    <div class="col-md-9">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="panel-title">01. Número de escolas e indivíduos pesquisados e respectivas taxas de resposta de acordo com domínio e grupo etário.</div>
+        </div>
+        <div class="panel-body">
+          <p>Domínio</p>
+          <p>Grupo etário</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <script src="{% static 'administracao/vendor/flot/jquery.flot.js' %}"></script>
+  <script src="{% static 'administracao/vendor/flot/jquery.flot.pie.js' %}"></script>
+  <script src="{% static 'administracao/vendor/flot.tooltip/js/jquery.flot.tooltip.min.js' %}"></script>
+  <script src="{% static 'administracao/js/html2canvas.min.js' %}"></script>
+  <script src="{% static 'administracao/js/graficos_alunos.js' %}"></script>
+  
+{% endblock content %}

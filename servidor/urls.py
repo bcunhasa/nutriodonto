@@ -24,6 +24,7 @@ urlpatterns = [
     url(r'api/', include('api.urls', namespace='api')),
     url(r'questionarios/', include('questionarios.urls', namespace='questionarios')),
     url(r'administracao/', include('administracao.urls', namespace='administracao')),
+    url(r'administracao/', include('estudo.urls', namespace='estudo')),
     url(r'administracao/', include('gerencia.urls', namespace='gerencia')),
     url(r'', include('portal.urls', namespace='portal')),
 ]
