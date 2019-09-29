@@ -24,20 +24,45 @@
           
             <div class="col-md-3 selection-panel">
               <div class="list-group">
-                <a href="#" id="1-list-group-item-1" class="list-group-item list-group-item-action active" onclick="changeTab('1', '1', '4')">Geral</a>
-                <a href="#" id="1-list-group-item-2" class="list-group-item list-group-item-action" onclick="changeTab('1', '2', '4')">Escola</a>
-                <a href="#" id="1-list-group-item-3" class="list-group-item list-group-item-action" onclick="changeTab('1', '3', '4')">Território de saúde</a>
-                <a href="#" id="1-list-group-item-4" class="list-group-item list-group-item-action" onclick="changeTab('1', '4', '4')">Distrito sanitário</a>
+                <button id="1-list-group-item-1" class="list-group-item list-group-item-action active" onclick="changeTab('1', '1', '4')">Geral</button>
+                <button id="1-list-group-item-2" class="list-group-item list-group-item-action" onclick="changeTab('1', '2', '4')">Escola</button>
+                <button id="1-list-group-item-3" class="list-group-item list-group-item-action" onclick="changeTab('1', '3', '4')">Território de saúde</button>
+                <button id="1-list-group-item-4" class="list-group-item list-group-item-action" onclick="changeTab('1', '4', '4')">Distrito sanitário</button>
               </div>
             </div>
             
             <div class="col-md-9 data-panel">
               <div class="data-panel-division" id="1-data-panel-1">
-                Geral
+                <table class="table table-striped table-hover" id="tabela">
+                  <thead>
+                    <tr>
+                      <th>12 ou menos</th>
+                      <th>13</th>
+                      <th>14</th>
+                      <th>15</th>
+                      <th>16</th>
+                      <th>17</th>
+                      <th>18</th>
+                      <th>19 ou mais</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>{{ idade_geral.0 }}</td>
+                      <td>{{ idade_geral.1 }}</td>
+                      <td>{{ idade_geral.2 }}</td>
+                      <td>{{ idade_geral.3 }}</td>
+                      <td>{{ idade_geral.4 }}</td>
+                      <td>{{ idade_geral.5 }}</td>
+                      <td>{{ idade_geral.6 }}</td>
+                      <td>{{ idade_geral.7 }}</td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
               
               <div class="data-panel-division hidden" id="1-data-panel-2">
-                Escola
+                Escolas
               </div>
               
               <div class="data-panel-division hidden" id="1-data-panel-3">
@@ -68,16 +93,35 @@
           
             <div class="col-md-3 selection-panel">
               <div class="list-group">
-                <a href="#" id="2-list-group-item-1" class="list-group-item list-group-item-action active" onclick="changeTab('2', '1', '4')">Geral</a>
-                <a href="#" id="2-list-group-item-2" class="list-group-item list-group-item-action" onclick="changeTab('2', '2', '4')">Escola</a>
-                <a href="#" id="2-list-group-item-3" class="list-group-item list-group-item-action" onclick="changeTab('2', '3', '4')">Território de saúde</a>
-                <a href="#" id="2-list-group-item-4" class="list-group-item list-group-item-action" onclick="changeTab('2', '4', '4')">Distrito sanitário</a>
+                <button id="2-list-group-item-1" class="list-group-item list-group-item-action active" onclick="changeTab('2', '1', '4')">Geral</button>
+                <button id="2-list-group-item-2" class="list-group-item list-group-item-action" onclick="changeTab('2', '2', '4')">Escola</button>
+                <button id="2-list-group-item-3" class="list-group-item list-group-item-action" onclick="changeTab('2', '3', '4')">Território de saúde</button>
+                <button id="2-list-group-item-4" class="list-group-item list-group-item-action" onclick="changeTab('2', '4', '4')">Distrito sanitário</button>
               </div>
             </div>
             
             <div class="col-md-9 data-panel">
               <div class="data-panel-division" id="2-data-panel-1">
-                Geral
+                <table class="table table-striped table-hover" id="tabela">
+                  <thead>
+                    <tr>
+                      <th>Amarela</th>
+                      <th>Branca</th>
+                      <th>Indígena</th>
+                      <th>Parda</th>
+                      <th>Preta</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>{{ raca_geral.0 }}</td>
+                      <td>{{ raca_geral.1 }}</td>
+                      <td>{{ raca_geral.2 }}</td>
+                      <td>{{ raca_geral.3 }}</td>
+                      <td>{{ raca_geral.4 }}</td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
               
               <div class="data-panel-division hidden" id="2-data-panel-2">
@@ -112,16 +156,33 @@
           
             <div class="col-md-3 selection-panel">
               <div class="list-group">
-                <a href="#" id="3-list-group-item-1" class="list-group-item list-group-item-action active" onclick="changeTab('3', '1', '4')">Geral</a>
-                <a href="#" id="3-list-group-item-2" class="list-group-item list-group-item-action" onclick="changeTab('3', '2', '4')">Escola</a>
-                <a href="#" id="3-list-group-item-3" class="list-group-item list-group-item-action" onclick="changeTab('3', '3', '4')">Território de saúde</a>
-                <a href="#" id="3-list-group-item-4" class="list-group-item list-group-item-action" onclick="changeTab('3', '4', '4')">Distrito sanitário</a>
+                <button id="3-list-group-item-1" class="list-group-item list-group-item-action active" onclick="changeTab('3', '1', '4')">Geral</button>
+                <button id="3-list-group-item-2" class="list-group-item list-group-item-action" onclick="changeTab('3', '2', '4')">Escola</button>
+                <button id="3-list-group-item-3" class="list-group-item list-group-item-action" onclick="changeTab('3', '3', '4')">Território de saúde</button>
+                <button id="3-list-group-item-4" class="list-group-item list-group-item-action" onclick="changeTab('3', '4', '4')">Distrito sanitário</button>
               </div>
             </div>
             
             <div class="col-md-9 data-panel">
               <div class="data-panel-division" id="3-data-panel-1">
-                Geral
+                <table class="table table-striped table-hover" id="tabela">
+                  <thead>
+                    <tr>
+                      <th>Masculino</th>
+                      <th>Feminino</th>
+                      <th>Outro</th>
+                      <th>Prefiro não responder</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>{{ sexo_geral.0 }}</td>
+                      <td>{{ sexo_geral.1 }}</td>
+                      <td>{{ sexo_geral.2 }}</td>
+                      <td>{{ sexo_geral.3 }}</td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
               
               <div class="data-panel-division hidden" id="3-data-panel-2">
