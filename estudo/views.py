@@ -173,45 +173,45 @@ class EstudoView(LoginRequired, View):
             # Idade (12, 13, 14, 15, 16, 17, 18 e 19)
             idade = int((datetime.date.today() - exame.aluno.nascimento).days / 365.25)
             if idade <= 12:
-                idade_geral[0] += idade_geral[0]
+                idade_geral[0] += 1
             elif idade == 13:
-                idade_geral[1] += idade_geral[1]
+                idade_geral[1] += 1
             elif idade == 14:
-                idade_geral[2] += idade_geral[2]
+                idade_geral[2] += 1
             elif idade == 15:
-                idade_geral[3] += idade_geral[3]
+                idade_geral[3] += 1
             elif idade == 16:
-                idade_geral[4] += idade_geral[4]
+                idade_geral[4] += 1
             elif idade == 17:
-                idade_geral[5] += idade_geral[5]
+                idade_geral[5] += 1
             elif idade == 18:
-                idade_geral[6] += idade_geral[6]
+                idade_geral[6] += 1
             elif idade >= 19:
-                idade_geral[7] += idade_geral[7]
+                idade_geral[7] += 1
             
             # Raça (amarela, branca, indígena, parda, preta)
             raca = exame.aluno.raca
             if raca == 0:                # Amarela
-                raca_geral[0] += raca_geral[0]
+                raca_geral[0] += 1
             elif raca == 1:              # Branca
-                raca_geral[1] += raca_geral[1]
+                raca_geral[1] += 1
             elif raca == 2:              # Indígena
-                raca_geral[2] += raca_geral[2]
+                raca_geral[2] += 1
             elif raca == 3:              # Parda
-                raca_geral[3] += raca_geral[3]
+                raca_geral[3] += 1
             elif raca == 4:              # Preta
-                raca_geral[4] += raca_geral[4]
+                raca_geral[4] += 1
             
             # Sexo (masculino, feminino, outro, sem resposta)
             sexo = exame.aluno.sexo
             if sexo == 0:               # Masculino
-                sexo_geral[0] += sexo_geral[0]
+                sexo_geral[0] += 1
             elif sexo == 1:             # Feminino
-                sexo_geral[1] += sexo_geral[1]
+                sexo_geral[1] += 1
             elif sexo == 2:             # Outro
-                sexo_geral[2] += sexo_geral[2]
+                sexo_geral[2] += 1
             elif sexo == 3:             # Prefiro não responder
-                sexo_geral[3] += sexo_geral[3]
+                sexo_geral[3] += 1
         
         context = {
             'pagina_estudo': True,
