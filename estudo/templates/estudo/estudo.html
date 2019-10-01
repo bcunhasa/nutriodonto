@@ -460,7 +460,7 @@
                   <tbody>
                     <tr>
                       <td>{{ cpod_geral.0 }}</td>
-                      <td>{{ cpod_geral.1 }}</td>
+                      <td>{{ cpod_geral.1|floatformat:2 }}</td>
                     </tr>
                   </tbody>
                 </table>
@@ -478,7 +478,7 @@
                     {% for linha in cpod_escolas %}
                     <tr>
                       <td>{{ linha.0 }}</td>
-                      <td>{{ linha.1 }}</td>
+                      <td>{{ linha.1|floatformat:2 }}</td>
                     </tr>
                     {% endfor %}
                   </tbody>
@@ -497,7 +497,7 @@
                     {% for linha in cpod_territorios_saude %}
                     <tr>
                       <td>{{ linha.0 }}</td>
-                      <td>{{ linha.1 }}</td>
+                      <td>{{ linha.1|floatformat:2 }}</td>
                     </tr>
                     {% endfor %}
                   </tbody>
@@ -516,7 +516,7 @@
                     {% for linha in cpod_macrorregioes %}
                     <tr>
                       <td>{{ linha.0 }}</td>
-                      <td>{{ linha.1 }}</td>
+                      <td>{{ linha.1|floatformat:2 }}</td>
                     </tr>
                     {% endfor %}
                   </tbody>
