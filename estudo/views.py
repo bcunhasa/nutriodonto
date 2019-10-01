@@ -359,7 +359,6 @@ class EstudoView(LoginRequired, View):
             
             # '1 - Cariado'; '4 - Perdido devido à cárie'; '5 - Perdido por outras razões'; '2 - Restaurado mas com cárie'; '3 - Restaurado e sem cárie'.
             # '6 - Extração'.
-            entra_contagem = 0
             escola = 0
             macrorregiao = 0
             territorio_saude = 0
@@ -394,44 +393,208 @@ class EstudoView(LoginRequired, View):
             elif exame.aluno.escola.id == 64: escola = 27; macrorregiao = 3; territorio_saude = 7
             elif exame.aluno.escola.id == 51: escola = 28; macrorregiao = 3; territorio_saude = 7
             
-            if exame.carie_tratamento_18 == '6' or exame.carie_coroa_18 == '1' or exame.carie_coroa_18 == '2' or exame.carie_coroa_18 == '3' or exame.carie_coroa_18 == '4' or exame.carie_coroa_18 == '5': entra_contagem = 1; cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
-            if exame.carie_tratamento_17 == '6' or exame.carie_coroa_17 == '1' or exame.carie_coroa_17 == '2' or exame.carie_coroa_17 == '3' or exame.carie_coroa_17 == '4' or exame.carie_coroa_17 == '5': entra_contagem = 1; cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
-            if exame.carie_tratamento_16 == '6' or exame.carie_coroa_16 == '1' or exame.carie_coroa_16 == '2' or exame.carie_coroa_16 == '3' or exame.carie_coroa_16 == '4' or exame.carie_coroa_16 == '5': entra_contagem = 1; cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
-            if exame.carie_tratamento_15 == '6' or exame.carie_coroa_15 == '1' or exame.carie_coroa_15 == '2' or exame.carie_coroa_15 == '3' or exame.carie_coroa_15 == '4' or exame.carie_coroa_15 == '5': entra_contagem = 1; cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
-            if exame.carie_tratamento_14 == '6' or exame.carie_coroa_14 == '1' or exame.carie_coroa_14 == '2' or exame.carie_coroa_14 == '3' or exame.carie_coroa_14 == '4' or exame.carie_coroa_14 == '5': entra_contagem = 1; cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
-            if exame.carie_tratamento_13 == '6' or exame.carie_coroa_13 == '1' or exame.carie_coroa_13 == '2' or exame.carie_coroa_13 == '3' or exame.carie_coroa_13 == '4' or exame.carie_coroa_13 == '5': entra_contagem = 1; cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
-            if exame.carie_tratamento_12 == '6' or exame.carie_coroa_12 == '1' or exame.carie_coroa_12 == '2' or exame.carie_coroa_12 == '3' or exame.carie_coroa_12 == '4' or exame.carie_coroa_12 == '5': entra_contagem = 1; cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
-            if exame.carie_tratamento_11 == '6' or exame.carie_coroa_11 == '1' or exame.carie_coroa_11 == '2' or exame.carie_coroa_11 == '3' or exame.carie_coroa_11 == '4' or exame.carie_coroa_11 == '5': entra_contagem = 1; cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
-            if exame.carie_tratamento_21 == '6' or exame.carie_coroa_21 == '1' or exame.carie_coroa_21 == '2' or exame.carie_coroa_21 == '3' or exame.carie_coroa_21 == '4' or exame.carie_coroa_21 == '5': entra_contagem = 1; cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
-            if exame.carie_tratamento_22 == '6' or exame.carie_coroa_22 == '1' or exame.carie_coroa_22 == '2' or exame.carie_coroa_22 == '3' or exame.carie_coroa_22 == '4' or exame.carie_coroa_22 == '5': entra_contagem = 1; cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
-            if exame.carie_tratamento_23 == '6' or exame.carie_coroa_23 == '1' or exame.carie_coroa_23 == '2' or exame.carie_coroa_23 == '3' or exame.carie_coroa_23 == '4' or exame.carie_coroa_23 == '5': entra_contagem = 1; cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
-            if exame.carie_tratamento_24 == '6' or exame.carie_coroa_24 == '1' or exame.carie_coroa_24 == '2' or exame.carie_coroa_24 == '3' or exame.carie_coroa_24 == '4' or exame.carie_coroa_24 == '5': entra_contagem = 1; cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
-            if exame.carie_tratamento_25 == '6' or exame.carie_coroa_25 == '1' or exame.carie_coroa_25 == '2' or exame.carie_coroa_25 == '3' or exame.carie_coroa_25 == '4' or exame.carie_coroa_25 == '5': entra_contagem = 1; cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
-            if exame.carie_tratamento_26 == '6' or exame.carie_coroa_26 == '1' or exame.carie_coroa_26 == '2' or exame.carie_coroa_26 == '3' or exame.carie_coroa_26 == '4' or exame.carie_coroa_26 == '5': entra_contagem = 1; cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
-            if exame.carie_tratamento_27 == '6' or exame.carie_coroa_27 == '1' or exame.carie_coroa_27 == '2' or exame.carie_coroa_27 == '3' or exame.carie_coroa_27 == '4' or exame.carie_coroa_27 == '5': entra_contagem = 1; cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
-            if exame.carie_tratamento_28 == '6' or exame.carie_coroa_28 == '1' or exame.carie_coroa_28 == '2' or exame.carie_coroa_28 == '3' or exame.carie_coroa_28 == '4' or exame.carie_coroa_28 == '5': entra_contagem = 1; cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
-            if exame.carie_tratamento_38 == '6' or exame.carie_coroa_38 == '1' or exame.carie_coroa_38 == '2' or exame.carie_coroa_38 == '3' or exame.carie_coroa_38 == '4' or exame.carie_coroa_38 == '5': entra_contagem = 1; cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
-            if exame.carie_tratamento_37 == '6' or exame.carie_coroa_37 == '1' or exame.carie_coroa_37 == '2' or exame.carie_coroa_37 == '3' or exame.carie_coroa_37 == '4' or exame.carie_coroa_37 == '5': entra_contagem = 1; cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
-            if exame.carie_tratamento_36 == '6' or exame.carie_coroa_36 == '1' or exame.carie_coroa_36 == '2' or exame.carie_coroa_36 == '3' or exame.carie_coroa_36 == '4' or exame.carie_coroa_36 == '5': entra_contagem = 1; cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
-            if exame.carie_tratamento_35 == '6' or exame.carie_coroa_35 == '1' or exame.carie_coroa_35 == '2' or exame.carie_coroa_35 == '3' or exame.carie_coroa_35 == '4' or exame.carie_coroa_35 == '5': entra_contagem = 1; cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
-            if exame.carie_tratamento_34 == '6' or exame.carie_coroa_34 == '1' or exame.carie_coroa_34 == '2' or exame.carie_coroa_34 == '3' or exame.carie_coroa_34 == '4' or exame.carie_coroa_34 == '5': entra_contagem = 1; cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
-            if exame.carie_tratamento_33 == '6' or exame.carie_coroa_33 == '1' or exame.carie_coroa_33 == '2' or exame.carie_coroa_33 == '3' or exame.carie_coroa_33 == '4' or exame.carie_coroa_33 == '5': entra_contagem = 1; cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
-            if exame.carie_tratamento_32 == '6' or exame.carie_coroa_32 == '1' or exame.carie_coroa_32 == '2' or exame.carie_coroa_32 == '3' or exame.carie_coroa_32 == '4' or exame.carie_coroa_32 == '5': entra_contagem = 1; cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
-            if exame.carie_tratamento_31 == '6' or exame.carie_coroa_31 == '1' or exame.carie_coroa_31 == '2' or exame.carie_coroa_31 == '3' or exame.carie_coroa_31 == '4' or exame.carie_coroa_31 == '5': entra_contagem = 1; cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
-            if exame.carie_tratamento_41 == '6' or exame.carie_coroa_41 == '1' or exame.carie_coroa_41 == '2' or exame.carie_coroa_41 == '3' or exame.carie_coroa_41 == '4' or exame.carie_coroa_41 == '5': entra_contagem = 1; cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
-            if exame.carie_tratamento_42 == '6' or exame.carie_coroa_42 == '1' or exame.carie_coroa_42 == '2' or exame.carie_coroa_42 == '3' or exame.carie_coroa_42 == '4' or exame.carie_coroa_42 == '5': entra_contagem = 1; cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
-            if exame.carie_tratamento_43 == '6' or exame.carie_coroa_43 == '1' or exame.carie_coroa_43 == '2' or exame.carie_coroa_43 == '3' or exame.carie_coroa_43 == '4' or exame.carie_coroa_43 == '5': entra_contagem = 1; cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
-            if exame.carie_tratamento_44 == '6' or exame.carie_coroa_44 == '1' or exame.carie_coroa_44 == '2' or exame.carie_coroa_44 == '3' or exame.carie_coroa_44 == '4' or exame.carie_coroa_44 == '5': entra_contagem = 1; cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
-            if exame.carie_tratamento_45 == '6' or exame.carie_coroa_45 == '1' or exame.carie_coroa_45 == '2' or exame.carie_coroa_45 == '3' or exame.carie_coroa_45 == '4' or exame.carie_coroa_45 == '5': entra_contagem = 1; cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
-            if exame.carie_tratamento_46 == '6' or exame.carie_coroa_46 == '1' or exame.carie_coroa_46 == '2' or exame.carie_coroa_46 == '3' or exame.carie_coroa_46 == '4' or exame.carie_coroa_46 == '5': entra_contagem = 1; cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
-            if exame.carie_tratamento_47 == '6' or exame.carie_coroa_47 == '1' or exame.carie_coroa_47 == '2' or exame.carie_coroa_47 == '3' or exame.carie_coroa_47 == '4' or exame.carie_coroa_47 == '5': entra_contagem = 1; cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
-            if exame.carie_tratamento_48 == '6' or exame.carie_coroa_48 == '1' or exame.carie_coroa_48 == '2' or exame.carie_coroa_48 == '3' or exame.carie_coroa_48 == '4' or exame.carie_coroa_48 == '5': entra_contagem = 1; cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_18 == '1': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_17 == '1': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_16 == '1': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_15 == '1': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_14 == '1': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_13 == '1': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_12 == '1': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_11 == '1': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_21 == '1': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_22 == '1': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_23 == '1': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_24 == '1': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_25 == '1': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_26 == '1': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_27 == '1': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_28 == '1': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_38 == '1': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_37 == '1': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_36 == '1': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_35 == '1': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_34 == '1': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_33 == '1': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_32 == '1': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_31 == '1': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_41 == '1': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_42 == '1': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_43 == '1': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_44 == '1': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_45 == '1': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_46 == '1': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_47 == '1': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_48 == '1': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
             
-            if entra_contagem == 1:
-                cpod_geral[2] += 1
-                cpod_escolas[escola][2] += 1
-                cpod_macrorregioes[macrorregiao][2] += 1
-                cpod_territorios_saude[territorio_saude][2] += 1
+            if exame.carie_coroa_18 == '2': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_17 == '2': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_16 == '2': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_15 == '2': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_14 == '2': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_13 == '2': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_12 == '2': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_11 == '2': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_21 == '2': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_22 == '2': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_23 == '2': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_24 == '2': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_25 == '2': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_26 == '2': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_27 == '2': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_28 == '2': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_38 == '2': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_37 == '2': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_36 == '2': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_35 == '2': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_34 == '2': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_33 == '2': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_32 == '2': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_31 == '2': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_41 == '2': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_42 == '2': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_43 == '2': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_44 == '2': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_45 == '2': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_46 == '2': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_47 == '2': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_48 == '2': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            
+            if exame.carie_coroa_18 == '3': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_17 == '3': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_16 == '3': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_15 == '3': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_14 == '3': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_13 == '3': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_12 == '3': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_11 == '3': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_21 == '3': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_22 == '3': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_23 == '3': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_24 == '3': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_25 == '3': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_26 == '3': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_27 == '3': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_28 == '3': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_38 == '3': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_37 == '3': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_36 == '3': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_35 == '3': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_34 == '3': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_33 == '3': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_32 == '3': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_31 == '3': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_41 == '3': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_42 == '3': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_43 == '3': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_44 == '3': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_45 == '3': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_46 == '3': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_47 == '3': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_48 == '3': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            
+            if exame.carie_coroa_18 == '4': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_17 == '4': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_16 == '4': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_15 == '4': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_14 == '4': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_13 == '4': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_12 == '4': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_11 == '4': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_21 == '4': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_22 == '4': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_23 == '4': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_24 == '4': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_25 == '4': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_26 == '4': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_27 == '4': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_28 == '4': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_38 == '4': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_37 == '4': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_36 == '4': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_35 == '4': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_34 == '4': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_33 == '4': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_32 == '4': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_31 == '4': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_41 == '4': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_42 == '4': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_43 == '4': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_44 == '4': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_45 == '4': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_46 == '4': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_47 == '4': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_48 == '4': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            
+            if exame.carie_coroa_18 == '5': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_17 == '5': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_16 == '5': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_15 == '5': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_14 == '5': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_13 == '5': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_12 == '5': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_11 == '5': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_21 == '5': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_22 == '5': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_23 == '5': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_24 == '5': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_25 == '5': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_26 == '5': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_27 == '5': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_28 == '5': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_38 == '5': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_37 == '5': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_36 == '5': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_35 == '5': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_34 == '5': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_33 == '5': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_32 == '5': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_31 == '5': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_41 == '5': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_42 == '5': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_43 == '5': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_44 == '5': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_45 == '5': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_46 == '5': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_47 == '5': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_coroa_48 == '5': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            
+            if exame.carie_tratamento_18 == '6': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_tratamento_17 == '6': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_tratamento_16 == '6': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_tratamento_15 == '6': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_tratamento_14 == '6': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_tratamento_13 == '6': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_tratamento_12 == '6': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_tratamento_11 == '6': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_tratamento_21 == '6': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_tratamento_22 == '6': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_tratamento_23 == '6': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_tratamento_24 == '6': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_tratamento_25 == '6': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_tratamento_26 == '6': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_tratamento_27 == '6': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_tratamento_28 == '6': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_tratamento_38 == '6': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_tratamento_37 == '6': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_tratamento_36 == '6': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_tratamento_35 == '6': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_tratamento_34 == '6': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_tratamento_33 == '6': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_tratamento_32 == '6': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_tratamento_31 == '6': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_tratamento_41 == '6': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_tratamento_42 == '6': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_tratamento_43 == '6': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_tratamento_44 == '6': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_tratamento_45 == '6': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_tratamento_46 == '6': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_tratamento_47 == '6': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            if exame.carie_tratamento_48 == '6': cpod_geral[1] += 1; cpod_escolas[escola][1] += 1; cpod_macrorregioes[macrorregiao][1] += 1; cpod_territorios_saude[territorio_saude][1] += 1
+            
+            cpod_geral[2] += 1
+            cpod_escolas[escola][2] += 1
+            cpod_macrorregioes[macrorregiao][2] += 1
+            cpod_territorios_saude[territorio_saude][2] += 1
         
         if cpod_geral[2] != 0:
             cpod_geral[1] /= cpod_geral[2]
