@@ -16,7 +16,7 @@
     <div class="col-md-12">
       <div class="panel panel-info">
         <div class="panel-heading">
-          <div class="panel-title">01. Número de escolares examinados por idade.</div>
+          <div class="panel-title">01. Número de escolares examinados por idade</div>
         </div>
         <div class="panel-body">
           
@@ -174,7 +174,7 @@
     <div class="col-md-12">
       <div class="panel panel-info">
         <div class="panel-heading">
-          <div class="panel-title">02. Número de escolares examinados por raça.</div>
+          <div class="panel-title">02. Número de escolares examinados por raça</div>
         </div>
         <div class="panel-body">
           
@@ -308,7 +308,7 @@
     <div class="col-md-12">
       <div class="panel panel-info">
         <div class="panel-heading">
-          <div class="panel-title">03. Número de escolares examinados por sexo.</div>
+          <div class="panel-title">03. Número de escolares examinados por sexo</div>
         </div>
         <div class="panel-body">
           
@@ -425,6 +425,132 @@
             
           </div> <!-- row -->
           
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          <div class="panel-title">04. Índices CPO-D geral, por escola, por território de saúde e por macrorregião</div>
+        </div>
+        <div class="panel-body">
+          <div class="row">
+          
+            <div class="col-md-3 selection-panel">
+              <div class="list-group">
+                <button id="4-list-group-item-1" class="list-group-item list-group-item-action active" onclick="changeTab('4', '1', '4')">Geral</button>
+                <button id="4-list-group-item-2" class="list-group-item list-group-item-action" onclick="changeTab('4', '2', '4')">Escola</button>
+                <button id="4-list-group-item-3" class="list-group-item list-group-item-action" onclick="changeTab('4', '3', '4')">Território de saúde</button>
+                <button id="4-list-group-item-4" class="list-group-item list-group-item-action" onclick="changeTab('4', '4', '4')">Macrorregião</button>
+              </div>
+            </div>
+            
+            <div class="col-md-9 data-panel">
+              <div class="data-panel-division" id="4-data-panel-1">
+                <table class="table table-striped table-hover" id="tabela">
+                  <thead>
+                    <tr>
+                      <th></th>
+                      <th>CPO-D</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>{{ cpod_geral.0 }}</td>
+                      <td>{{ cpod_geral.1 }}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              
+              <div class="data-panel-division hidden" id="4-data-panel-2">
+                <table class="table table-striped table-hover" id="tabela">
+                  <thead>
+                    <tr>
+                      <th></th>
+                      <th>CPO-D</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% for linha in cpod_escolas %}
+                    <tr>
+                      <td>{{ linha.0 }}</td>
+                      <td>{{ linha.1 }}</td>
+                    </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+              </div>
+              
+              <div class="data-panel-division hidden" id="4-data-panel-3">
+                <table class="table table-striped table-hover" id="tabela">
+                  <thead>
+                    <tr>
+                      <th></th>
+                      <th>CPO-D</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% for linha in cpod_territorios_saude %}
+                    <tr>
+                      <td>{{ linha.0 }}</td>
+                      <td>{{ linha.1 }}</td>
+                    </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+              </div>
+              
+              <div class="data-panel-division hidden" id="4-data-panel-4">
+                <table class="table table-striped table-hover" id="tabela">
+                  <thead>
+                    <tr>
+                      <th></th>
+                      <th>CPO-D</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% for linha in cpod_macrorregioes %}
+                    <tr>
+                      <td>{{ linha.0 }}</td>
+                      <td>{{ linha.1 }}</td>
+                    </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            
+          </div> <!-- row -->
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          <div class="panel-title">05. Qual o percentual dos componentes hígido, cariado, restaurado, mas com cárie, restaurado, sem cárie, perdido devido a carie, perdido por outras razões, apresenta selante, apoio depoente ou coroa, não erupcionado, dente excluído nas dentições permanente (CPO-D) e decídua (ceo-d)?</div>
+        </div>
+        <div class="panel-body">
+          <p>TO DO</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          <div class="panel-title">06. Necessidade de tratamento por código e critério.</div>
+        </div>
+        <div class="panel-body">
+          <p>TO DO</p>
         </div>
       </div>
     </div>
