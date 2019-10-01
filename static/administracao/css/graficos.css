@@ -8,6 +8,10 @@
     height: 450px;
 }
 
+.grafico-gigante {
+    height: 500px;
+}
+
 button {
     margin-right: 5px !important;
 }

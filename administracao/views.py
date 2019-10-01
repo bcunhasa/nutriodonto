@@ -5959,7 +5959,7 @@ class GraficosAlunosView(LoginRequired, View):
     def get(self, request):
         alunos = Aluno.objects.order_by('-id')
         
-        aluno_por_escola = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+        aluno_por_escola = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         for aluno in alunos:
             if aluno.escola.nome == "Escola municipal Antônio Carlos Jobim":
                 aluno_por_escola[0] = aluno_por_escola[0] + 1
@@ -5973,7 +5973,7 @@ class GraficosAlunosView(LoginRequired, View):
                 aluno_por_escola[4] = aluno_por_escola[4] + 1
             elif aluno.escola.nome == "Escola municipal de T.I. Vinícius de Moraes":
                 aluno_por_escola[5] = aluno_por_escola[5] + 1
-            elif aluno.escola.nome == "Escola municipal Beatriz Rodrigues da Silva":
+            elif aluno.escola.nome == "Escola Municipal Beatriz Rodrigues da Silva-2019":
                 aluno_por_escola[6] = aluno_por_escola[6] + 1
             elif aluno.escola.nome == "Escola municipal Mestre Pacífico S. Campos":
                 aluno_por_escola[7] = aluno_por_escola[7] + 1
@@ -6013,6 +6013,12 @@ class GraficosAlunosView(LoginRequired, View):
                 aluno_por_escola[24] = aluno_por_escola[24] + 1
             elif aluno.escola.nome == "Escola municipal de T.I. Sueli Pereira A. Reche":
                 aluno_por_escola[25] = aluno_por_escola[25] + 1
+            elif aluno.escola.nome == "Escola Municipal de Tempo Integral Marcos Freire":
+                aluno_por_escola[26] = aluno_por_escola[26] + 1
+            elif aluno.escola.nome == "Escola municipal de T.I. Anisio Spenola Teixeira":
+                aluno_por_escola[27] = aluno_por_escola[27] + 1
+            elif aluno.escola.nome == "Escola municipal de T.I.Almirante Tamandare":
+                aluno_por_escola[28] = aluno_por_escola[28] + 1
         
         sexo = [0, 0, 0, 0, 0]
         for aluno in alunos:
