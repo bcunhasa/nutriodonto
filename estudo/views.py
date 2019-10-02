@@ -223,22 +223,23 @@ class EstudoView(LoginRequired, View):
             # Idade (12, 13, 14, 15, 16, 17, 18 e 19)
             idade = int((datetime.date.today() - exame.aluno.nascimento).days / 365.25)
             coluna = 0
-            if idade <= 12:
-                coluna = 1
-            elif idade == 13:
-                coluna = 2
-            elif idade == 14:
-                coluna = 3
-            elif idade == 15:
-                coluna = 4
-            elif idade == 16:
-                coluna = 5
-            elif idade == 17:
-                coluna = 6
-            elif idade == 18:
-                coluna = 7
-            elif idade >= 19:
-                coluna = 8
+            if idade != None:
+                if idade <= 12:
+                    coluna = 1
+                elif idade == 13:
+                    coluna = 2
+                elif idade == 14:
+                    coluna = 3
+                elif idade == 15:
+                    coluna = 4
+                elif idade == 16:
+                    coluna = 5
+                elif idade == 17:
+                    coluna = 6
+                elif idade == 18:
+                    coluna = 7
+                elif idade >= 19:
+                    coluna = 8
             
             idade_geral[coluna] += 1
             if exame.aluno.escola.id == 4:  idade_escolas[0][coluna] += 1; idade_macrorregioes[0][coluna] += 1; idade_territorios_saude[0][coluna] += 1
@@ -273,16 +274,17 @@ class EstudoView(LoginRequired, View):
             
             # Raça (amarela, branca, indígena, parda, preta)
             raca = exame.aluno.raca
-            if raca == '0':                # Amarela
-                coluna = 1
-            elif raca == '1':              # Branca
-                coluna = 2
-            elif raca == '2':              # Indígena
-                coluna = 3
-            elif raca == '3':              # Parda
-                coluna = 4
-            elif raca == '4':              # Preta
-                coluna = 5
+            if raca != None:
+                if raca == '0':                # Amarela
+                    coluna = 1
+                elif raca == '1':              # Branca
+                    coluna = 2
+                elif raca == '2':              # Indígena
+                    coluna = 3
+                elif raca == '3':              # Parda
+                    coluna = 4
+                elif raca == '4':              # Preta
+                    coluna = 5
             
             raca_geral[coluna] += 1
             if exame.aluno.escola.id == 4:  raca_escolas[0][coluna] += 1; raca_macrorregioes[0][coluna] += 1; raca_territorios_saude[0][coluna] += 1
@@ -317,14 +319,15 @@ class EstudoView(LoginRequired, View):
             
             # Sexo (masculino, feminino, outro, sem resposta)
             sexo = exame.aluno.sexo
-            if sexo == '0':               # Masculino
-                coluna = 1
-            elif sexo == '1':             # Feminino
-                coluna = 2
-            elif sexo == '2':             # Outro
-                coluna = 3
-            elif sexo == '3':             # Prefiro não responder
-                coluna = 4
+            if sexo != None:
+                if sexo == '0':               # Masculino
+                    coluna = 1
+                elif sexo == '1':             # Feminino
+                    coluna = 2
+                elif sexo == '2':             # Outro
+                    coluna = 3
+                elif sexo == '3':             # Prefiro não responder
+                    coluna = 4
             
             sexo_geral[coluna] += 1
             if exame.aluno.escola.id == 4:  sexo_escolas[0][coluna] += 1; sexo_macrorregioes[0][coluna] += 1; sexo_territorios_saude[0][coluna] += 1

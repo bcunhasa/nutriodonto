@@ -2889,8 +2889,8 @@ class InferenciaView(LoginRequired, View):
         questao_54_esperado[8][0] = (questao_54[8][2] / questao_54[9][2]) * questao_54[9][0]
         questao_54_esperado[8][1] = (questao_54[8][2] / questao_54[9][2]) * questao_54[9][1]
         
-        print(questao_73_esperado)
-        print(list(chain.from_iterable([linha[:-1] for linha in questao_73_esperado if linha != questao_73_esperado[-1]])))
+        # print(questao_73_esperado)
+        # print(list(chain.from_iterable([linha[:-1] for linha in questao_73_esperado if linha != questao_73_esperado[-1]])))
         
         sexo_pvalor = chisquare(list(chain.from_iterable([linha[:-1] for linha in sexo if linha != sexo[-1]])), f_exp=list(chain.from_iterable([linha[:-1] for linha in sexo_esperado if linha != sexo_esperado[-1]])))
         raca_pvalor = chisquare(list(chain.from_iterable([linha[:-1] for linha in raca if linha != raca[-1]])), f_exp=list(chain.from_iterable([linha[:-1] for linha in raca_esperado if linha != raca_esperado[-1]])))
@@ -5961,77 +5961,49 @@ class GraficosAlunosView(LoginRequired, View):
         
         aluno_por_escola = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         for aluno in alunos:
-            if aluno.escola.nome == "Escola municipal Antônio Carlos Jobim":
-                aluno_por_escola[0] = aluno_por_escola[0] + 1
-            elif aluno.escola.nome == "Escola municipal Antônio G. de Carvalho Filho":
-                aluno_por_escola[1] = aluno_por_escola[1] + 1
-            elif aluno.escola.nome == "Escola municipal Anne Frank":
-                aluno_por_escola[2] = aluno_por_escola[2] + 1
-            elif aluno.escola.nome == "Escola municipal Darcy Ribeiro":
-                aluno_por_escola[3] = aluno_por_escola[3] + 1
-            elif aluno.escola.nome == "Escola municipal Henrique Talone Pinheiro":
-                aluno_por_escola[4] = aluno_por_escola[4] + 1
-            elif aluno.escola.nome == "Escola municipal de T.I. Vinícius de Moraes":
-                aluno_por_escola[5] = aluno_por_escola[5] + 1
-            elif aluno.escola.nome == "Escola Municipal Beatriz Rodrigues da Silva-2019":
-                aluno_por_escola[6] = aluno_por_escola[6] + 1
-            elif aluno.escola.nome == "Escola municipal Mestre Pacífico S. Campos":
-                aluno_por_escola[7] = aluno_por_escola[7] + 1
-            elif aluno.escola.nome == "Escola municipal Luiz Gonzaga":
-                aluno_por_escola[8] = aluno_por_escola[8] + 1
-            elif aluno.escola.nome == "Escola municipal de T.I. Padre Josimo M. Tavares":
-                aluno_por_escola[9] = aluno_por_escola[9] + 1
-            elif aluno.escola.nome == "Escola municipal de T.I. Daniel Batista":
-                aluno_por_escola[10] = aluno_por_escola[10] + 1
-            elif aluno.escola.nome == "Escola municipal de T.I. Monsenhor Pedro P. Piagem":
-                aluno_por_escola[11] = aluno_por_escola[11] + 1
-            elif aluno.escola.nome == "Escola municipal Jorge Amado":
-                aluno_por_escola[12] = aluno_por_escola[12] + 1
-            elif aluno.escola.nome == "Escola municipal Maria Rosa de Castro Sales":
-                aluno_por_escola[13] = aluno_por_escola[13] + 1
-            elif aluno.escola.nome == "Escola municipal Professor Sávia F. Jacome":
-                aluno_por_escola[14] = aluno_por_escola[14] + 1
-            elif aluno.escola.nome == "Escola municipal de T.I. Caroline C. C. da Silva":
-                aluno_por_escola[15] = aluno_por_escola[15] + 1
-            elif aluno.escola.nome == "Escola municipal Aurélio Buarque de Holanda":
-                aluno_por_escola[16] = aluno_por_escola[16] + 1
-            elif aluno.escola.nome == "Escola municipal Maria Júlia Amorim Rodrigues":
-                aluno_por_escola[17] = aluno_por_escola[17] + 1
-            elif aluno.escola.nome == "Escola municipal Thiago Barbosa":
-                aluno_por_escola[18] = aluno_por_escola[18] + 1
-            elif aluno.escola.nome == "Escola municipal de T.I. Euridice F. de Mello":
-                aluno_por_escola[19] = aluno_por_escola[19] + 1
-            elif aluno.escola.nome == "Escola municipal de T.I. Margarida Gonçalves":
-                aluno_por_escola[20] = aluno_por_escola[20] + 1
-            elif aluno.escola.nome == "Escola municipal Crispim Pereira de Alencar":
-                aluno_por_escola[21] = aluno_por_escola[21] + 1
-            elif aluno.escola.nome == "Escola municipal de T.I. Aprigio T. de Matos":
-                aluno_por_escola[22] = aluno_por_escola[22] + 1
-            elif aluno.escola.nome == "Escola municipal de T.I. João Beltrão":
-                aluno_por_escola[23] = aluno_por_escola[23] + 1
-            elif aluno.escola.nome == "Escola municipal de T.I. Luiz Nunes de Oliveira":
-                aluno_por_escola[24] = aluno_por_escola[24] + 1
-            elif aluno.escola.nome == "Escola municipal de T.I. Sueli Pereira A. Reche":
-                aluno_por_escola[25] = aluno_por_escola[25] + 1
-            elif aluno.escola.nome == "Escola Municipal de Tempo Integral Marcos Freire":
-                aluno_por_escola[26] = aluno_por_escola[26] + 1
-            elif aluno.escola.nome == "Escola municipal de T.I. Anisio Spenola Teixeira":
-                aluno_por_escola[27] = aluno_por_escola[27] + 1
-            elif aluno.escola.nome == "Escola municipal de T.I.Almirante Tamandare":
-                aluno_por_escola[28] = aluno_por_escola[28] + 1
+            if aluno.escola.nome == "Escola municipal Antônio Carlos Jobim":                aluno_por_escola[0] += 1
+            elif aluno.escola.nome == "Escola municipal Antônio G. de Carvalho Filho":      aluno_por_escola[1] += 1
+            elif aluno.escola.nome == "Escola municipal Anne Frank":                        aluno_por_escola[2] += 1
+            elif aluno.escola.nome == "Escola municipal Darcy Ribeiro":                     aluno_por_escola[3] += 1
+            elif aluno.escola.nome == "Escola municipal Henrique Talone Pinheiro":          aluno_por_escola[4] += 1
+            elif aluno.escola.nome == "Escola municipal de T.I. Vinícius de Moraes":        aluno_por_escola[5] += 1
+            elif aluno.escola.nome == "Escola Municipal Beatriz Rodrigues da Silva-2019":   aluno_por_escola[6] += 1
+            elif aluno.escola.nome == "Escola municipal Mestre Pacífico S. Campos":         aluno_por_escola[7] += 1
+            elif aluno.escola.nome == "Escola municipal Luiz Gonzaga":                      aluno_por_escola[8] += 1
+            elif aluno.escola.nome == "Escola municipal de T.I. Padre Josimo M. Tavares":   aluno_por_escola[9] += 1
+            elif aluno.escola.nome == "Escola municipal de T.I. Daniel Batista":            aluno_por_escola[10] += 1
+            elif aluno.escola.nome == "Escola municipal de T.I. Monsenhor Pedro P. Piagem": aluno_por_escola[11] += 1
+            elif aluno.escola.nome == "Escola municipal Jorge Amado":                       aluno_por_escola[12] += 1
+            elif aluno.escola.nome == "Escola municipal Maria Rosa de Castro Sales":        aluno_por_escola[13] += 1
+            elif aluno.escola.nome == "Escola municipal Professor Sávia F. Jacome":         aluno_por_escola[14] += 1
+            elif aluno.escola.nome == "Escola municipal de T.I. Caroline C. C. da Silva":   aluno_por_escola[15] += 1
+            elif aluno.escola.nome == "Escola municipal Aurélio Buarque de Holanda":        aluno_por_escola[16] += 1
+            elif aluno.escola.nome == "Escola municipal Maria Júlia Amorim Rodrigues":      aluno_por_escola[17] += 1
+            elif aluno.escola.nome == "Escola municipal Thiago Barbosa":                    aluno_por_escola[18] += 1
+            elif aluno.escola.nome == "Escola municipal de T.I. Euridice F. de Mello":      aluno_por_escola[19] += 1
+            elif aluno.escola.nome == "Escola municipal de T.I. Margarida Gonçalves":       aluno_por_escola[20] += 1
+            elif aluno.escola.nome == "Escola municipal Crispim Pereira de Alencar":        aluno_por_escola[21] += 1
+            elif aluno.escola.nome == "Escola municipal de T.I. Aprigio T. de Matos":       aluno_por_escola[22] += 1
+            elif aluno.escola.nome == "Escola municipal de T.I. João Beltrão":              aluno_por_escola[23] += 1
+            elif aluno.escola.nome == "Escola municipal de T.I. Luiz Nunes de Oliveira":    aluno_por_escola[24] += 1
+            elif aluno.escola.nome == "Escola municipal de T.I. Sueli Pereira A. Reche":    aluno_por_escola[25] += 1
+            elif aluno.escola.nome == "Escola Municipal de Tempo Integral Marcos Freire":   aluno_por_escola[26] += 1
+            elif aluno.escola.nome == "Escola municipal de T.I. Anisio Spenola Teixeira":   aluno_por_escola[27] += 1
+            elif aluno.escola.nome == "Escola municipal de T.I.Almirante Tamandare":        aluno_por_escola[28] += 1
         
         sexo = [0, 0, 0, 0, 0]
         for aluno in alunos:
-            if aluno.sexo == '0':
-                sexo[0] += 1
-            elif aluno.sexo == '1':
-                sexo[1] += 1
-            elif aluno.sexo == '2':
-                sexo[2] += 1
-            elif aluno.sexo == '3':
-                sexo[3] += 1
-            else:
-                sexo[4] += 1
+            if aluno.sexo != None:
+                if aluno.sexo == '0':
+                    sexo[0] += 1
+                elif aluno.sexo == '1':
+                    sexo[1] += 1
+                elif aluno.sexo == '2':
+                    sexo[2] += 1
+                elif aluno.sexo == '3':
+                    sexo[3] += 1
+                else:
+                    sexo[4] += 1
         
         participacao = [0, 0, 0, 0]
         tem_questionario = False
@@ -6063,20 +6035,21 @@ class GraficosAlunosView(LoginRequired, View):
         
         raca = [0, 0, 0, 0, 0, 0]
         for aluno in alunos:
-            if aluno.raca == '0':
-                raca[0] += 1
-            elif aluno.raca == '1':
-                raca[1] += 1
-            elif aluno.raca == '2':
-                raca[2] += 1
-            elif aluno.raca == '3':
-                raca[3] += 1
-            elif aluno.raca == '4':
-                raca[4] += 1
-            else:
-                raca[5] += 1
+            if aluno.raca != None:
+                if aluno.raca == '0':
+                    raca[0] += 1
+                elif aluno.raca == '1':
+                    raca[1] += 1
+                elif aluno.raca == '2':
+                    raca[2] += 1
+                elif aluno.raca == '3':
+                    raca[3] += 1
+                elif aluno.raca == '4':
+                    raca[4] += 1
+                else:
+                    raca[5] += 1
         
-        print(raca)
+        # print(raca)
         
         context = {
             'pagina_graficos': True,
