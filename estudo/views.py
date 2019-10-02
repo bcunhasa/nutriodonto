@@ -241,36 +241,36 @@ class EstudoView(LoginRequired, View):
                 elif idade >= 19:
                     coluna = 8
             
-            idade_geral[coluna] += 1
-            if exame.aluno.escola.id == 4:  idade_escolas[0][coluna] += 1; idade_macrorregioes[0][coluna] += 1; idade_territorios_saude[0][coluna] += 1
-            elif exame.aluno.escola.id == 65: idade_escolas[1][coluna] += 1; idade_macrorregioes[0][coluna] += 1; idade_territorios_saude[0][coluna] += 1
-            elif exame.aluno.escola.id == 2:  idade_escolas[2][coluna] += 1; idade_macrorregioes[0][coluna] += 1; idade_territorios_saude[0][coluna] += 1
-            elif exame.aluno.escola.id == 1:  idade_escolas[3][coluna] += 1; idade_macrorregioes[0][coluna] += 1; idade_territorios_saude[0][coluna] += 1
-            elif exame.aluno.escola.id == 55: idade_escolas[4][coluna] += 1; idade_macrorregioes[0][coluna] += 1; idade_territorios_saude[1][coluna] += 1
-            elif exame.aluno.escola.id == 48: idade_escolas[5][coluna] += 1; idade_macrorregioes[0][coluna] += 1; idade_territorios_saude[1][coluna] += 1
-            elif exame.aluno.escola.id == 5:  idade_escolas[6][coluna] += 1; idade_macrorregioes[0][coluna] += 1; idade_territorios_saude[1][coluna] += 1
-            elif exame.aluno.escola.id == 6:  idade_escolas[7][coluna] += 1; idade_macrorregioes[1][coluna] += 1; idade_territorios_saude[1][coluna] += 1
-            elif exame.aluno.escola.id == 46: idade_escolas[8][coluna] += 1; idade_macrorregioes[0][coluna] += 1; idade_territorios_saude[1][coluna] += 1
-            elif exame.aluno.escola.id == 59: idade_escolas[9][coluna] += 1; idade_macrorregioes[1][coluna] += 1; idade_territorios_saude[2][coluna] += 1
-            elif exame.aluno.escola.id == 49: idade_escolas[10][coluna] += 1; idade_macrorregioes[1][coluna] += 1; idade_territorios_saude[2][coluna] += 1
-            elif exame.aluno.escola.id == 44: idade_escolas[11][coluna] += 1; idade_macrorregioes[1][coluna] += 1; idade_territorios_saude[3][coluna] += 1
-            elif exame.aluno.escola.id == 7:  idade_escolas[12][coluna] += 1; idade_macrorregioes[1][coluna] += 1; idade_territorios_saude[3][coluna] += 1
-            elif exame.aluno.escola.id == 62: idade_escolas[13][coluna] += 1; idade_macrorregioes[1][coluna] += 1; idade_territorios_saude[3][coluna] += 1
-            elif exame.aluno.escola.id == 63: idade_escolas[14][coluna] += 1; idade_macrorregioes[2][coluna] += 1; idade_territorios_saude[4][coluna] += 1
-            elif exame.aluno.escola.id == 57: idade_escolas[15][coluna] += 1; idade_macrorregioes[2][coluna] += 1; idade_territorios_saude[4][coluna] += 1
-            elif exame.aluno.escola.id == 45: idade_escolas[16][coluna] += 1; idade_macrorregioes[2][coluna] += 1; idade_territorios_saude[4][coluna] += 1
-            elif exame.aluno.escola.id == 8:  idade_escolas[17][coluna] += 1; idade_macrorregioes[2][coluna] += 1; idade_territorios_saude[4][coluna] += 1
-            elif exame.aluno.escola.id == 60: idade_escolas[18][coluna] += 1; idade_macrorregioes[2][coluna] += 1; idade_territorios_saude[5][coluna] += 1
-            elif exame.aluno.escola.id == 50: idade_escolas[19][coluna] += 1; idade_macrorregioes[2][coluna] += 1; idade_territorios_saude[5][coluna] += 1
-            elif exame.aluno.escola.id == 61: idade_escolas[20][coluna] += 1; idade_macrorregioes[2][coluna] += 1; idade_territorios_saude[5][coluna] += 1
-            elif exame.aluno.escola.id == 54: idade_escolas[21][coluna] += 1; idade_macrorregioes[2][coluna] += 1; idade_territorios_saude[5][coluna] += 1
-            elif exame.aluno.escola.id == 58: idade_escolas[22][coluna] += 1; idade_macrorregioes[2][coluna] += 1; idade_territorios_saude[6][coluna] += 1
-            elif exame.aluno.escola.id == 53: idade_escolas[23][coluna] += 1; idade_macrorregioes[2][coluna] += 1; idade_territorios_saude[6][coluna] += 1
-            elif exame.aluno.escola.id == 47: idade_escolas[24][coluna] += 1; idade_macrorregioes[3][coluna] += 1; idade_territorios_saude[7][coluna] += 1
-            elif exame.aluno.escola.id == 56: idade_escolas[25][coluna] += 1; idade_macrorregioes[3][coluna] += 1; idade_territorios_saude[7][coluna] += 1
-            elif exame.aluno.escola.id == 52: idade_escolas[26][coluna] += 1; idade_macrorregioes[3][coluna] += 1; idade_territorios_saude[7][coluna] += 1
-            elif exame.aluno.escola.id == 64: idade_escolas[27][coluna] += 1; idade_macrorregioes[3][coluna] += 1; idade_territorios_saude[7][coluna] += 1
-            elif exame.aluno.escola.id == 51: idade_escolas[28][coluna] += 1; idade_macrorregioes[3][coluna] += 1; idade_territorios_saude[7][coluna] += 1
+                idade_geral[coluna] += 1
+                if exame.aluno.escola.id == 4:    idade_escolas[0][coluna] += 1; idade_macrorregioes[0][coluna] += 1; idade_territorios_saude[0][coluna] += 1
+                elif exame.aluno.escola.id == 65: idade_escolas[1][coluna] += 1; idade_macrorregioes[0][coluna] += 1; idade_territorios_saude[0][coluna] += 1
+                elif exame.aluno.escola.id == 2:  idade_escolas[2][coluna] += 1; idade_macrorregioes[0][coluna] += 1; idade_territorios_saude[0][coluna] += 1
+                elif exame.aluno.escola.id == 1:  idade_escolas[3][coluna] += 1; idade_macrorregioes[0][coluna] += 1; idade_territorios_saude[0][coluna] += 1
+                elif exame.aluno.escola.id == 55: idade_escolas[4][coluna] += 1; idade_macrorregioes[0][coluna] += 1; idade_territorios_saude[1][coluna] += 1
+                elif exame.aluno.escola.id == 48: idade_escolas[5][coluna] += 1; idade_macrorregioes[0][coluna] += 1; idade_territorios_saude[1][coluna] += 1
+                elif exame.aluno.escola.id == 5:  idade_escolas[6][coluna] += 1; idade_macrorregioes[0][coluna] += 1; idade_territorios_saude[1][coluna] += 1
+                elif exame.aluno.escola.id == 6:  idade_escolas[7][coluna] += 1; idade_macrorregioes[1][coluna] += 1; idade_territorios_saude[1][coluna] += 1
+                elif exame.aluno.escola.id == 46: idade_escolas[8][coluna] += 1; idade_macrorregioes[0][coluna] += 1; idade_territorios_saude[1][coluna] += 1
+                elif exame.aluno.escola.id == 59: idade_escolas[9][coluna] += 1; idade_macrorregioes[1][coluna] += 1; idade_territorios_saude[2][coluna] += 1
+                elif exame.aluno.escola.id == 49: idade_escolas[10][coluna] += 1; idade_macrorregioes[1][coluna] += 1; idade_territorios_saude[2][coluna] += 1
+                elif exame.aluno.escola.id == 44: idade_escolas[11][coluna] += 1; idade_macrorregioes[1][coluna] += 1; idade_territorios_saude[3][coluna] += 1
+                elif exame.aluno.escola.id == 7:  idade_escolas[12][coluna] += 1; idade_macrorregioes[1][coluna] += 1; idade_territorios_saude[3][coluna] += 1
+                elif exame.aluno.escola.id == 62: idade_escolas[13][coluna] += 1; idade_macrorregioes[1][coluna] += 1; idade_territorios_saude[3][coluna] += 1
+                elif exame.aluno.escola.id == 63: idade_escolas[14][coluna] += 1; idade_macrorregioes[2][coluna] += 1; idade_territorios_saude[4][coluna] += 1
+                elif exame.aluno.escola.id == 57: idade_escolas[15][coluna] += 1; idade_macrorregioes[2][coluna] += 1; idade_territorios_saude[4][coluna] += 1
+                elif exame.aluno.escola.id == 45: idade_escolas[16][coluna] += 1; idade_macrorregioes[2][coluna] += 1; idade_territorios_saude[4][coluna] += 1
+                elif exame.aluno.escola.id == 8:  idade_escolas[17][coluna] += 1; idade_macrorregioes[2][coluna] += 1; idade_territorios_saude[4][coluna] += 1
+                elif exame.aluno.escola.id == 60: idade_escolas[18][coluna] += 1; idade_macrorregioes[2][coluna] += 1; idade_territorios_saude[5][coluna] += 1
+                elif exame.aluno.escola.id == 50: idade_escolas[19][coluna] += 1; idade_macrorregioes[2][coluna] += 1; idade_territorios_saude[5][coluna] += 1
+                elif exame.aluno.escola.id == 61: idade_escolas[20][coluna] += 1; idade_macrorregioes[2][coluna] += 1; idade_territorios_saude[5][coluna] += 1
+                elif exame.aluno.escola.id == 54: idade_escolas[21][coluna] += 1; idade_macrorregioes[2][coluna] += 1; idade_territorios_saude[5][coluna] += 1
+                elif exame.aluno.escola.id == 58: idade_escolas[22][coluna] += 1; idade_macrorregioes[2][coluna] += 1; idade_territorios_saude[6][coluna] += 1
+                elif exame.aluno.escola.id == 53: idade_escolas[23][coluna] += 1; idade_macrorregioes[2][coluna] += 1; idade_territorios_saude[6][coluna] += 1
+                elif exame.aluno.escola.id == 47: idade_escolas[24][coluna] += 1; idade_macrorregioes[3][coluna] += 1; idade_territorios_saude[7][coluna] += 1
+                elif exame.aluno.escola.id == 56: idade_escolas[25][coluna] += 1; idade_macrorregioes[3][coluna] += 1; idade_territorios_saude[7][coluna] += 1
+                elif exame.aluno.escola.id == 52: idade_escolas[26][coluna] += 1; idade_macrorregioes[3][coluna] += 1; idade_territorios_saude[7][coluna] += 1
+                elif exame.aluno.escola.id == 64: idade_escolas[27][coluna] += 1; idade_macrorregioes[3][coluna] += 1; idade_territorios_saude[7][coluna] += 1
+                elif exame.aluno.escola.id == 51: idade_escolas[28][coluna] += 1; idade_macrorregioes[3][coluna] += 1; idade_territorios_saude[7][coluna] += 1
             
             # Raça (amarela, branca, indígena, parda, preta)
             raca = exame.aluno.raca
@@ -285,37 +285,37 @@ class EstudoView(LoginRequired, View):
                     coluna = 4
                 elif raca == '4':              # Preta
                     coluna = 5
-            
-            raca_geral[coluna] += 1
-            if exame.aluno.escola.id == 4:  raca_escolas[0][coluna] += 1; raca_macrorregioes[0][coluna] += 1; raca_territorios_saude[0][coluna] += 1
-            elif exame.aluno.escola.id == 65: raca_escolas[1][coluna] += 1; raca_macrorregioes[0][coluna] += 1; raca_territorios_saude[0][coluna] += 1
-            elif exame.aluno.escola.id == 2:  raca_escolas[2][coluna] += 1; raca_macrorregioes[0][coluna] += 1; raca_territorios_saude[0][coluna] += 1
-            elif exame.aluno.escola.id == 1:  raca_escolas[3][coluna] += 1; raca_macrorregioes[0][coluna] += 1; raca_territorios_saude[0][coluna] += 1
-            elif exame.aluno.escola.id == 55: raca_escolas[4][coluna] += 1; raca_macrorregioes[0][coluna] += 1; raca_territorios_saude[1][coluna] += 1
-            elif exame.aluno.escola.id == 48: raca_escolas[5][coluna] += 1; raca_macrorregioes[0][coluna] += 1; raca_territorios_saude[1][coluna] += 1
-            elif exame.aluno.escola.id == 5:  raca_escolas[6][coluna] += 1; raca_macrorregioes[0][coluna] += 1; raca_territorios_saude[1][coluna] += 1
-            elif exame.aluno.escola.id == 6:  raca_escolas[7][coluna] += 1; raca_macrorregioes[1][coluna] += 1; raca_territorios_saude[1][coluna] += 1
-            elif exame.aluno.escola.id == 46: raca_escolas[8][coluna] += 1; raca_macrorregioes[0][coluna] += 1; raca_territorios_saude[1][coluna] += 1
-            elif exame.aluno.escola.id == 59: raca_escolas[9][coluna] += 1; raca_macrorregioes[1][coluna] += 1; raca_territorios_saude[2][coluna] += 1
-            elif exame.aluno.escola.id == 49: raca_escolas[10][coluna] += 1; raca_macrorregioes[1][coluna] += 1; raca_territorios_saude[2][coluna] += 1
-            elif exame.aluno.escola.id == 44: raca_escolas[11][coluna] += 1; raca_macrorregioes[1][coluna] += 1; raca_territorios_saude[3][coluna] += 1
-            elif exame.aluno.escola.id == 7:  raca_escolas[12][coluna] += 1; raca_macrorregioes[1][coluna] += 1; raca_territorios_saude[3][coluna] += 1
-            elif exame.aluno.escola.id == 62: raca_escolas[13][coluna] += 1; raca_macrorregioes[1][coluna] += 1; raca_territorios_saude[3][coluna] += 1
-            elif exame.aluno.escola.id == 63: raca_escolas[14][coluna] += 1; raca_macrorregioes[2][coluna] += 1; raca_territorios_saude[4][coluna] += 1
-            elif exame.aluno.escola.id == 57: raca_escolas[15][coluna] += 1; raca_macrorregioes[2][coluna] += 1; raca_territorios_saude[4][coluna] += 1
-            elif exame.aluno.escola.id == 45: raca_escolas[16][coluna] += 1; raca_macrorregioes[2][coluna] += 1; raca_territorios_saude[4][coluna] += 1
-            elif exame.aluno.escola.id == 8:  raca_escolas[17][coluna] += 1; raca_macrorregioes[2][coluna] += 1; raca_territorios_saude[4][coluna] += 1
-            elif exame.aluno.escola.id == 60: raca_escolas[18][coluna] += 1; raca_macrorregioes[2][coluna] += 1; raca_territorios_saude[5][coluna] += 1
-            elif exame.aluno.escola.id == 50: raca_escolas[19][coluna] += 1; raca_macrorregioes[2][coluna] += 1; raca_territorios_saude[5][coluna] += 1
-            elif exame.aluno.escola.id == 61: raca_escolas[20][coluna] += 1; raca_macrorregioes[2][coluna] += 1; raca_territorios_saude[5][coluna] += 1
-            elif exame.aluno.escola.id == 54: raca_escolas[21][coluna] += 1; raca_macrorregioes[2][coluna] += 1; raca_territorios_saude[5][coluna] += 1
-            elif exame.aluno.escola.id == 58: raca_escolas[22][coluna] += 1; raca_macrorregioes[2][coluna] += 1; raca_territorios_saude[6][coluna] += 1
-            elif exame.aluno.escola.id == 53: raca_escolas[23][coluna] += 1; raca_macrorregioes[2][coluna] += 1; raca_territorios_saude[6][coluna] += 1
-            elif exame.aluno.escola.id == 47: raca_escolas[24][coluna] += 1; raca_macrorregioes[3][coluna] += 1; raca_territorios_saude[7][coluna] += 1
-            elif exame.aluno.escola.id == 56: raca_escolas[25][coluna] += 1; raca_macrorregioes[3][coluna] += 1; raca_territorios_saude[7][coluna] += 1
-            elif exame.aluno.escola.id == 52: raca_escolas[26][coluna] += 1; raca_macrorregioes[3][coluna] += 1; raca_territorios_saude[7][coluna] += 1
-            elif exame.aluno.escola.id == 64: raca_escolas[27][coluna] += 1; raca_macrorregioes[3][coluna] += 1; raca_territorios_saude[7][coluna] += 1
-            elif exame.aluno.escola.id == 51: raca_escolas[28][coluna] += 1; raca_macrorregioes[3][coluna] += 1; raca_territorios_saude[7][coluna] += 1
+                
+                raca_geral[coluna] += 1
+                if exame.aluno.escola.id == 4:    raca_escolas[0][coluna] += 1; raca_macrorregioes[0][coluna] += 1; raca_territorios_saude[0][coluna] += 1
+                elif exame.aluno.escola.id == 65: raca_escolas[1][coluna] += 1; raca_macrorregioes[0][coluna] += 1; raca_territorios_saude[0][coluna] += 1
+                elif exame.aluno.escola.id == 2:  raca_escolas[2][coluna] += 1; raca_macrorregioes[0][coluna] += 1; raca_territorios_saude[0][coluna] += 1
+                elif exame.aluno.escola.id == 1:  raca_escolas[3][coluna] += 1; raca_macrorregioes[0][coluna] += 1; raca_territorios_saude[0][coluna] += 1
+                elif exame.aluno.escola.id == 55: raca_escolas[4][coluna] += 1; raca_macrorregioes[0][coluna] += 1; raca_territorios_saude[1][coluna] += 1
+                elif exame.aluno.escola.id == 48: raca_escolas[5][coluna] += 1; raca_macrorregioes[0][coluna] += 1; raca_territorios_saude[1][coluna] += 1
+                elif exame.aluno.escola.id == 5:  raca_escolas[6][coluna] += 1; raca_macrorregioes[0][coluna] += 1; raca_territorios_saude[1][coluna] += 1
+                elif exame.aluno.escola.id == 6:  raca_escolas[7][coluna] += 1; raca_macrorregioes[1][coluna] += 1; raca_territorios_saude[1][coluna] += 1
+                elif exame.aluno.escola.id == 46: raca_escolas[8][coluna] += 1; raca_macrorregioes[0][coluna] += 1; raca_territorios_saude[1][coluna] += 1
+                elif exame.aluno.escola.id == 59: raca_escolas[9][coluna] += 1; raca_macrorregioes[1][coluna] += 1; raca_territorios_saude[2][coluna] += 1
+                elif exame.aluno.escola.id == 49: raca_escolas[10][coluna] += 1; raca_macrorregioes[1][coluna] += 1; raca_territorios_saude[2][coluna] += 1
+                elif exame.aluno.escola.id == 44: raca_escolas[11][coluna] += 1; raca_macrorregioes[1][coluna] += 1; raca_territorios_saude[3][coluna] += 1
+                elif exame.aluno.escola.id == 7:  raca_escolas[12][coluna] += 1; raca_macrorregioes[1][coluna] += 1; raca_territorios_saude[3][coluna] += 1
+                elif exame.aluno.escola.id == 62: raca_escolas[13][coluna] += 1; raca_macrorregioes[1][coluna] += 1; raca_territorios_saude[3][coluna] += 1
+                elif exame.aluno.escola.id == 63: raca_escolas[14][coluna] += 1; raca_macrorregioes[2][coluna] += 1; raca_territorios_saude[4][coluna] += 1
+                elif exame.aluno.escola.id == 57: raca_escolas[15][coluna] += 1; raca_macrorregioes[2][coluna] += 1; raca_territorios_saude[4][coluna] += 1
+                elif exame.aluno.escola.id == 45: raca_escolas[16][coluna] += 1; raca_macrorregioes[2][coluna] += 1; raca_territorios_saude[4][coluna] += 1
+                elif exame.aluno.escola.id == 8:  raca_escolas[17][coluna] += 1; raca_macrorregioes[2][coluna] += 1; raca_territorios_saude[4][coluna] += 1
+                elif exame.aluno.escola.id == 60: raca_escolas[18][coluna] += 1; raca_macrorregioes[2][coluna] += 1; raca_territorios_saude[5][coluna] += 1
+                elif exame.aluno.escola.id == 50: raca_escolas[19][coluna] += 1; raca_macrorregioes[2][coluna] += 1; raca_territorios_saude[5][coluna] += 1
+                elif exame.aluno.escola.id == 61: raca_escolas[20][coluna] += 1; raca_macrorregioes[2][coluna] += 1; raca_territorios_saude[5][coluna] += 1
+                elif exame.aluno.escola.id == 54: raca_escolas[21][coluna] += 1; raca_macrorregioes[2][coluna] += 1; raca_territorios_saude[5][coluna] += 1
+                elif exame.aluno.escola.id == 58: raca_escolas[22][coluna] += 1; raca_macrorregioes[2][coluna] += 1; raca_territorios_saude[6][coluna] += 1
+                elif exame.aluno.escola.id == 53: raca_escolas[23][coluna] += 1; raca_macrorregioes[2][coluna] += 1; raca_territorios_saude[6][coluna] += 1
+                elif exame.aluno.escola.id == 47: raca_escolas[24][coluna] += 1; raca_macrorregioes[3][coluna] += 1; raca_territorios_saude[7][coluna] += 1
+                elif exame.aluno.escola.id == 56: raca_escolas[25][coluna] += 1; raca_macrorregioes[3][coluna] += 1; raca_territorios_saude[7][coluna] += 1
+                elif exame.aluno.escola.id == 52: raca_escolas[26][coluna] += 1; raca_macrorregioes[3][coluna] += 1; raca_territorios_saude[7][coluna] += 1
+                elif exame.aluno.escola.id == 64: raca_escolas[27][coluna] += 1; raca_macrorregioes[3][coluna] += 1; raca_territorios_saude[7][coluna] += 1
+                elif exame.aluno.escola.id == 51: raca_escolas[28][coluna] += 1; raca_macrorregioes[3][coluna] += 1; raca_territorios_saude[7][coluna] += 1
             
             # Sexo (masculino, feminino, outro, sem resposta)
             sexo = exame.aluno.sexo
@@ -329,36 +329,36 @@ class EstudoView(LoginRequired, View):
                 elif sexo == '3':             # Prefiro não responder
                     coluna = 4
             
-            sexo_geral[coluna] += 1
-            if exame.aluno.escola.id == 4:  sexo_escolas[0][coluna] += 1; sexo_macrorregioes[0][coluna] += 1; sexo_territorios_saude[0][coluna] += 1
-            elif exame.aluno.escola.id == 65: sexo_escolas[1][coluna] += 1; sexo_macrorregioes[0][coluna] += 1; sexo_territorios_saude[0][coluna] += 1
-            elif exame.aluno.escola.id == 2:  sexo_escolas[2][coluna] += 1; sexo_macrorregioes[0][coluna] += 1; sexo_territorios_saude[0][coluna] += 1
-            elif exame.aluno.escola.id == 1:  sexo_escolas[3][coluna] += 1; sexo_macrorregioes[0][coluna] += 1; sexo_territorios_saude[0][coluna] += 1
-            elif exame.aluno.escola.id == 55: sexo_escolas[4][coluna] += 1; sexo_macrorregioes[0][coluna] += 1; sexo_territorios_saude[1][coluna] += 1
-            elif exame.aluno.escola.id == 48: sexo_escolas[5][coluna] += 1; sexo_macrorregioes[0][coluna] += 1; sexo_territorios_saude[1][coluna] += 1
-            elif exame.aluno.escola.id == 5:  sexo_escolas[6][coluna] += 1; sexo_macrorregioes[0][coluna] += 1; sexo_territorios_saude[1][coluna] += 1
-            elif exame.aluno.escola.id == 6:  sexo_escolas[7][coluna] += 1; sexo_macrorregioes[1][coluna] += 1; sexo_territorios_saude[1][coluna] += 1
-            elif exame.aluno.escola.id == 46: sexo_escolas[8][coluna] += 1; sexo_macrorregioes[0][coluna] += 1; sexo_territorios_saude[1][coluna] += 1
-            elif exame.aluno.escola.id == 59: sexo_escolas[9][coluna] += 1; sexo_macrorregioes[1][coluna] += 1; sexo_territorios_saude[2][coluna] += 1
-            elif exame.aluno.escola.id == 49: sexo_escolas[10][coluna] += 1; sexo_macrorregioes[1][coluna] += 1; sexo_territorios_saude[2][coluna] += 1
-            elif exame.aluno.escola.id == 44: sexo_escolas[11][coluna] += 1; sexo_macrorregioes[1][coluna] += 1; sexo_territorios_saude[3][coluna] += 1
-            elif exame.aluno.escola.id == 7:  sexo_escolas[12][coluna] += 1; sexo_macrorregioes[1][coluna] += 1; sexo_territorios_saude[3][coluna] += 1
-            elif exame.aluno.escola.id == 62: sexo_escolas[13][coluna] += 1; sexo_macrorregioes[1][coluna] += 1; sexo_territorios_saude[3][coluna] += 1
-            elif exame.aluno.escola.id == 63: sexo_escolas[14][coluna] += 1; sexo_macrorregioes[2][coluna] += 1; sexo_territorios_saude[4][coluna] += 1
-            elif exame.aluno.escola.id == 57: sexo_escolas[15][coluna] += 1; sexo_macrorregioes[2][coluna] += 1; sexo_territorios_saude[4][coluna] += 1
-            elif exame.aluno.escola.id == 45: sexo_escolas[16][coluna] += 1; sexo_macrorregioes[2][coluna] += 1; sexo_territorios_saude[4][coluna] += 1
-            elif exame.aluno.escola.id == 8:  sexo_escolas[17][coluna] += 1; sexo_macrorregioes[2][coluna] += 1; sexo_territorios_saude[4][coluna] += 1
-            elif exame.aluno.escola.id == 60: sexo_escolas[18][coluna] += 1; sexo_macrorregioes[2][coluna] += 1; sexo_territorios_saude[5][coluna] += 1
-            elif exame.aluno.escola.id == 50: sexo_escolas[19][coluna] += 1; sexo_macrorregioes[2][coluna] += 1; sexo_territorios_saude[5][coluna] += 1
-            elif exame.aluno.escola.id == 61: sexo_escolas[20][coluna] += 1; sexo_macrorregioes[2][coluna] += 1; sexo_territorios_saude[5][coluna] += 1
-            elif exame.aluno.escola.id == 54: sexo_escolas[21][coluna] += 1; sexo_macrorregioes[2][coluna] += 1; sexo_territorios_saude[5][coluna] += 1
-            elif exame.aluno.escola.id == 58: sexo_escolas[22][coluna] += 1; sexo_macrorregioes[2][coluna] += 1; sexo_territorios_saude[6][coluna] += 1
-            elif exame.aluno.escola.id == 53: sexo_escolas[23][coluna] += 1; sexo_macrorregioes[2][coluna] += 1; sexo_territorios_saude[6][coluna] += 1
-            elif exame.aluno.escola.id == 47: sexo_escolas[24][coluna] += 1; sexo_macrorregioes[3][coluna] += 1; sexo_territorios_saude[7][coluna] += 1
-            elif exame.aluno.escola.id == 56: sexo_escolas[25][coluna] += 1; sexo_macrorregioes[3][coluna] += 1; sexo_territorios_saude[7][coluna] += 1
-            elif exame.aluno.escola.id == 52: sexo_escolas[26][coluna] += 1; sexo_macrorregioes[3][coluna] += 1; sexo_territorios_saude[7][coluna] += 1
-            elif exame.aluno.escola.id == 64: sexo_escolas[27][coluna] += 1; sexo_macrorregioes[3][coluna] += 1; sexo_territorios_saude[7][coluna] += 1
-            elif exame.aluno.escola.id == 51: sexo_escolas[28][coluna] += 1; sexo_macrorregioes[3][coluna] += 1; sexo_territorios_saude[7][coluna] += 1
+                sexo_geral[coluna] += 1
+                if exame.aluno.escola.id == 4:    sexo_escolas[0][coluna] += 1; sexo_macrorregioes[0][coluna] += 1; sexo_territorios_saude[0][coluna] += 1
+                elif exame.aluno.escola.id == 65: sexo_escolas[1][coluna] += 1; sexo_macrorregioes[0][coluna] += 1; sexo_territorios_saude[0][coluna] += 1
+                elif exame.aluno.escola.id == 2:  sexo_escolas[2][coluna] += 1; sexo_macrorregioes[0][coluna] += 1; sexo_territorios_saude[0][coluna] += 1
+                elif exame.aluno.escola.id == 1:  sexo_escolas[3][coluna] += 1; sexo_macrorregioes[0][coluna] += 1; sexo_territorios_saude[0][coluna] += 1
+                elif exame.aluno.escola.id == 55: sexo_escolas[4][coluna] += 1; sexo_macrorregioes[0][coluna] += 1; sexo_territorios_saude[1][coluna] += 1
+                elif exame.aluno.escola.id == 48: sexo_escolas[5][coluna] += 1; sexo_macrorregioes[0][coluna] += 1; sexo_territorios_saude[1][coluna] += 1
+                elif exame.aluno.escola.id == 5:  sexo_escolas[6][coluna] += 1; sexo_macrorregioes[0][coluna] += 1; sexo_territorios_saude[1][coluna] += 1
+                elif exame.aluno.escola.id == 6:  sexo_escolas[7][coluna] += 1; sexo_macrorregioes[1][coluna] += 1; sexo_territorios_saude[1][coluna] += 1
+                elif exame.aluno.escola.id == 46: sexo_escolas[8][coluna] += 1; sexo_macrorregioes[0][coluna] += 1; sexo_territorios_saude[1][coluna] += 1
+                elif exame.aluno.escola.id == 59: sexo_escolas[9][coluna] += 1; sexo_macrorregioes[1][coluna] += 1; sexo_territorios_saude[2][coluna] += 1
+                elif exame.aluno.escola.id == 49: sexo_escolas[10][coluna] += 1; sexo_macrorregioes[1][coluna] += 1; sexo_territorios_saude[2][coluna] += 1
+                elif exame.aluno.escola.id == 44: sexo_escolas[11][coluna] += 1; sexo_macrorregioes[1][coluna] += 1; sexo_territorios_saude[3][coluna] += 1
+                elif exame.aluno.escola.id == 7:  sexo_escolas[12][coluna] += 1; sexo_macrorregioes[1][coluna] += 1; sexo_territorios_saude[3][coluna] += 1
+                elif exame.aluno.escola.id == 62: sexo_escolas[13][coluna] += 1; sexo_macrorregioes[1][coluna] += 1; sexo_territorios_saude[3][coluna] += 1
+                elif exame.aluno.escola.id == 63: sexo_escolas[14][coluna] += 1; sexo_macrorregioes[2][coluna] += 1; sexo_territorios_saude[4][coluna] += 1
+                elif exame.aluno.escola.id == 57: sexo_escolas[15][coluna] += 1; sexo_macrorregioes[2][coluna] += 1; sexo_territorios_saude[4][coluna] += 1
+                elif exame.aluno.escola.id == 45: sexo_escolas[16][coluna] += 1; sexo_macrorregioes[2][coluna] += 1; sexo_territorios_saude[4][coluna] += 1
+                elif exame.aluno.escola.id == 8:  sexo_escolas[17][coluna] += 1; sexo_macrorregioes[2][coluna] += 1; sexo_territorios_saude[4][coluna] += 1
+                elif exame.aluno.escola.id == 60: sexo_escolas[18][coluna] += 1; sexo_macrorregioes[2][coluna] += 1; sexo_territorios_saude[5][coluna] += 1
+                elif exame.aluno.escola.id == 50: sexo_escolas[19][coluna] += 1; sexo_macrorregioes[2][coluna] += 1; sexo_territorios_saude[5][coluna] += 1
+                elif exame.aluno.escola.id == 61: sexo_escolas[20][coluna] += 1; sexo_macrorregioes[2][coluna] += 1; sexo_territorios_saude[5][coluna] += 1
+                elif exame.aluno.escola.id == 54: sexo_escolas[21][coluna] += 1; sexo_macrorregioes[2][coluna] += 1; sexo_territorios_saude[5][coluna] += 1
+                elif exame.aluno.escola.id == 58: sexo_escolas[22][coluna] += 1; sexo_macrorregioes[2][coluna] += 1; sexo_territorios_saude[6][coluna] += 1
+                elif exame.aluno.escola.id == 53: sexo_escolas[23][coluna] += 1; sexo_macrorregioes[2][coluna] += 1; sexo_territorios_saude[6][coluna] += 1
+                elif exame.aluno.escola.id == 47: sexo_escolas[24][coluna] += 1; sexo_macrorregioes[3][coluna] += 1; sexo_territorios_saude[7][coluna] += 1
+                elif exame.aluno.escola.id == 56: sexo_escolas[25][coluna] += 1; sexo_macrorregioes[3][coluna] += 1; sexo_territorios_saude[7][coluna] += 1
+                elif exame.aluno.escola.id == 52: sexo_escolas[26][coluna] += 1; sexo_macrorregioes[3][coluna] += 1; sexo_territorios_saude[7][coluna] += 1
+                elif exame.aluno.escola.id == 64: sexo_escolas[27][coluna] += 1; sexo_macrorregioes[3][coluna] += 1; sexo_territorios_saude[7][coluna] += 1
+                elif exame.aluno.escola.id == 51: sexo_escolas[28][coluna] += 1; sexo_macrorregioes[3][coluna] += 1; sexo_territorios_saude[7][coluna] += 1
             
             # '1 - Cariado'; '4 - Perdido devido à cárie'; '5 - Perdido por outras razões'; '2 - Restaurado mas com cárie'; '3 - Restaurado e sem cárie'.
             # '6 - Extração'.
