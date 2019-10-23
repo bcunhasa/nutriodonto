@@ -1,7 +1,11 @@
 administracao/__pycache__/
+exportacao/__pycache__/
 api/__pycache__/
 servidor/__pycache__/
 estudo/__pycache__/
+questionarios/__pycache__/
+portal/__pycache__/
+gerencia/__pycache__/
 media/
 .vscode/
 env/

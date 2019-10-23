@@ -144,6 +144,16 @@
               </li>
               
               <li class="nav-heading ">
+                <span data-localize="sidebar.heading.HEADER">Arquivos</span>
+              </li>
+              <li class="{% if pagina_exportacao %} active {% endif %}">
+                <a href="{% url 'exportacao:exportacao' %}" title="Exportação">
+                  <em class="fa fa-file-text-o"></em>
+                  <span data-localize="sidebar.nav.SINGLEVIEW">Exportação</span>
+                </a>
+              </li>
+              
+              <li class="nav-heading ">
                 <span data-localize="sidebar.heading.HEADER">Administração</span>
               </li>
               <li class="{% if pagina_usuarios %} active {% endif %}">

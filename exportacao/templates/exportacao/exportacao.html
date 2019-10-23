@@ -1,0 +1,141 @@
+{% extends "administracao/base.html" %}
+{% load staticfiles %}
+
+{% block head %}
+{% endblock head %}
+
+{% block header %}
+  Exportação de dados
+{% endblock header %}
+
+{% block content %}
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          <div class="panel-title">Todo o banco</div>
+        </div>
+        <div class="panel-body">
+          <p>Esta opção gera um arquivo <i>.csv</i> com a seguinte formato:</p>
+          <p>todos os dados de aluno; todos os dados de escola; todos os dados de questionário; todos os dados de exame</p>
+          <a href="{% url 'exportacao:download_completo' %}" class="btn btn-primary">Exportar</a>
+        </div> <!-- panel body -->
+      </div> <!-- panel -->
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          <div class="panel-title">Alunos que fizeram o exame e o questionário</div>
+        </div>
+        <div class="panel-body">
+          <p>Esta opção gera um arquivo <i>.csv</i> com a seguinte formato:</p>
+          <p>aluno; escola</p>
+          <a href="{% url 'exportacao:download_aluno_questionario_exame' %}" class="btn btn-primary">Exportar</a>
+        </div> <!-- panel body -->
+      </div> <!-- panel -->
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          <div class="panel-title">Lista de campanhas</div>
+        </div>
+        <div class="panel-body">
+          <p>Esta opção gera um arquivo <i>.csv</i> com a lista de todos as campanhas.</p>
+          <a href="{% url 'exportacao:lista_campanhas' %}" class="btn btn-primary">Exportar</a>
+        </div> <!-- panel body -->
+      </div> <!-- panel -->
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          <div class="panel-title">Lista de ações</div>
+        </div>
+        <div class="panel-body">
+          <p>Esta opção gera um arquivo <i>.csv</i> com a lista de todos as ações.</p>
+          <a href="{% url 'exportacao:lista_acoes' %}" class="btn btn-primary">Exportar</a>
+        </div> <!-- panel body -->
+      </div> <!-- panel -->
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          <div class="panel-title">Lista de escolas</div>
+        </div>
+        <div class="panel-body">
+          <p>Esta opção gera um arquivo <i>.csv</i> com a lista de todos as escolas.</p>
+          <a href="{% url 'exportacao:lista_escolas' %}" class="btn btn-primary">Exportar</a>
+        </div> <!-- panel body -->
+      </div> <!-- panel -->
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          <div class="panel-title">Lista de alunos</div>
+        </div>
+        <div class="panel-body">
+          <p>Esta opção gera um arquivo <i>.csv</i> com a lista de todos os alunos.</p>
+          <a href="{% url 'exportacao:lista_alunos' %}" class="btn btn-primary">Exportar</a>
+        </div> <!-- panel body -->
+      </div> <!-- panel -->
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          <div class="panel-title">Lista de questionários</div>
+        </div>
+        <div class="panel-body">
+          <p>Esta opção gera um arquivo <i>.csv</i> com a lista de todos os questionários.</p>
+          <a href="{% url 'exportacao:lista_questionarios' %}" class="btn btn-primary">Exportar</a>
+        </div> <!-- panel body -->
+      </div> <!-- panel -->
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          <div class="panel-title">Lista de exames</div>
+        </div>
+        <div class="panel-body">
+          <p>Esta opção gera um arquivo <i>.csv</i> com a lista de todos os exames.</p>
+          <a href="{% url 'exportacao:lista_exames' %}" class="btn btn-primary">Exportar</a>
+        </div> <!-- panel body -->
+      </div> <!-- panel -->
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          <div class="panel-title">Lista de questionários de diretores</div>
+        </div>
+        <div class="panel-body">
+          <p>Esta opção gera um arquivo <i>.csv</i> com a lista de todos os questionários respondidos pelos diretores de escola.</p>
+          <a href="{% url 'exportacao:lista_diretores' %}" class="btn btn-primary">Exportar</a>
+        </div> <!-- panel body -->
+      </div> <!-- panel -->
+    </div>
+  </div>
+  
+{% endblock content %}

@@ -23,6 +23,7 @@ urlpatterns = [
     url(r'admin/', admin.site.urls),
     url(r'api/', include('api.urls', namespace='api')),
     url(r'questionarios/', include('questionarios.urls', namespace='questionarios')),
+    url(r'administracao/', include('exportacao.urls', namespace='exportacao')),
     url(r'administracao/', include('administracao.urls', namespace='administracao')),
     url(r'administracao/', include('estudo.urls', namespace='estudo')),
     url(r'administracao/', include('gerencia.urls', namespace='gerencia')),

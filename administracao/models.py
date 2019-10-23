@@ -447,4 +447,4 @@ class Diretor(models.Model):
     
     def __str__(self):
         """Devolve a representação do modelo em string"""
-        return str(self.escola.numero_identificacao)
+        return str(self.escola.nome)

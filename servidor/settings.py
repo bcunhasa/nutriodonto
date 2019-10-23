@@ -31,6 +31,7 @@ INSTALLED_APPS = [
     # Minhas aplicações
     'portal',
     'administracao',
+    'exportacao',
     'estudo',
     'questionarios',
     'gerencia',
