@@ -34,7 +34,11 @@
           </a>
         </div>
         <div class="panel-body">
-          <p class="text-center pv">AUTENTICAÇÃO PARA O SITE DE ADMINISTRAÇÃO</p>
+          {% if request.session.lang == "en" %}
+            <p class="text-center pv">LOGIN TO ADMINISTRATION AREA</p>
+          {% else %}
+            <p class="text-center pv">AUTENTICAÇÃO PARA O SITE DE ADMINISTRAÇÃO</p>
+          {% endif %}
           
           <form class="mb-lg" role="form" data-parsley-validate="" novalidate="" method="post" action="{% url 'administracao:login' %}">
             {% csrf_token %}
@@ -57,7 +61,11 @@
               {% endif %}
             </div>
             
-            <button class="btn btn-block btn-primary mt-lg" type="submit">Autenticar</button>
+            {% if request.session.lang == "en" %}
+              <button class="btn btn-block btn-primary mt-lg" type="submit">Login</button>
+            {% else %}
+              <button class="btn btn-block btn-primary mt-lg" type="submit">Autenticar</button>
+            {% endif %}
           </form>
         </div>
       </div>
@@ -68,7 +76,11 @@
         <span>-</span>
         <span>NutriOdontoApp</span>
         <br>
-        <span>Universidade Federal do Tocantins</span>
+        {% if request.session.lang == "en" %}
+          <span>Federal University of Tocantins</span>
+        {% else %}
+          <span>Universidade Federal do Tocantins</span>
+        {% endif %}
       </div>
     </div>
   </div>

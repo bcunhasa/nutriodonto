@@ -13,6 +13,11 @@
     color: #37bc9b;
 }
 
+/* Ícones de troca de língua */
+.img-flag {
+    padding-right: 10px;
+}
+
 /* Mapa de localizações */
 #map {
   width: 100%;

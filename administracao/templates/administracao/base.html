@@ -62,12 +62,20 @@
               <!-- START Offsidebar button-->
               <li>
                 <span class="navbar-text">
-                  Autenticado como <i>{{ user.username }}</i>.
+                  {% if request.session.lang == "en" %}
+                    Logged in as <i>{{ user.username }}</i>.
+                  {% else %}
+                    Autenticado como <i>{{ user.username }}</i>.
+                  {% endif %}
                 </span>
               </li>
               <li>
                 <a href="{% url 'administracao:logout' %}" class="nav-link">
-                  Sair <em class="fa fa-sign-out"></em>
+                  {% if request.session.lang == "en" %}
+                    Logout <em class="fa fa-sign-out"></em>
+                  {% else %}
+                    Sair <em class="fa fa-sign-out"></em>
+                  {% endif %}
                 </a>
               </li>
               <!-- END Offsidebar menu-->
@@ -87,39 +95,39 @@
             <ul class="nav">
               <!-- Iterates over all sidebar items-->
               <li class="nav-heading ">
-                <span data-localize="sidebar.heading.HEADER">Acompanhamento</span>
+                <span data-localize="sidebar.heading.HEADER">{% if request.session.lang == "en" %}Analysis{% else %}Análises{% endif %}</span>
               </li>
               <li class="{% if pagina_visao_geral %} active {% endif %}">
                 <a href="{% url 'administracao:visao_geral' %}" title="Visão geral">
                   <em class="fa fa-home"></em>
-                  <span data-localize="sidebar.nav.SINGLEVIEW">Visão geral</span>
+                  <span data-localize="sidebar.nav.SINGLEVIEW">{% if request.session.lang == "en" %}Overview{% else %}Visão geral{% endif %}</span>
                 </a>
               </li>
               <li class="{% if pagina_graficos %} active {% endif %}">
                 <a href="#graficos" title="Gráficos" data-toggle="collapse">
                   <em class="fa fa-pie-chart"></em>
-                  <span data-localize="sidebar.nav.menu.MENU">Gráficos</span>
+                  <span data-localize="sidebar.nav.menu.MENU">{% if request.session.lang == "en" %}Graphs{% else %}Gráficos{% endif %}</span>
                 </a>
                 <ul class="nav sidebar-subnav {% if not pagina_graficos %} collapse {% endif %}" id="graficos">
                   <li class="sidebar-subnav-header">Gráficos</li>
                   <li class="{% if pagina_graficos_alunos %} active {% endif %}">
                     <a href="{% url 'administracao:graficos_alunos' %}" title="Alunos">
-                      <span data-localize="sidebar.nav.menu.SUBMENU">Alunos</span>
+                      <span data-localize="sidebar.nav.menu.SUBMENU">{% if request.session.lang == "en" %}Students{% else %}Alunos{% endif %}</span>
                     </a>
                   </li>
                   <li class="{% if pagina_graficos_questionarios %} active {% endif %}">
                     <a href="{% url 'administracao:graficos_questionarios' %}" title="Questionários">
-                      <span data-localize="sidebar.nav.menu.SUBMENU">Questionários</span>
+                      <span data-localize="sidebar.nav.menu.SUBMENU">{% if request.session.lang == "en" %}Questionnaires{% else %}Questionários{% endif %}</span>
                     </a>
                   </li>
                   <li class="{% if pagina_graficos_exames %} active {% endif %}">
                     <a href="{% url 'administracao:graficos_exames' %}" title="Exames">
-                      <span data-localize="sidebar.nav.menu.SUBMENU">Exames</span>
+                      <span data-localize="sidebar.nav.menu.SUBMENU">{% if request.session.lang == "en" %}Exams{% else %}Exames{% endif %}</span>
                     </a>
                   </li>
                   <li class="{% if pagina_graficos_diretores %} active {% endif %}">
                     <a href="{% url 'administracao:graficos_diretores' %}" title="Diretores">
-                      <span data-localize="sidebar.nav.menu.SUBMENU">Diretores</span>
+                      <span data-localize="sidebar.nav.menu.SUBMENU">{% if request.session.lang == "en" %}Principals{% else %}Diretores{% endif %}</span>
                     </a>
                   </li>
                 </ul>
@@ -127,113 +135,113 @@
               <li class="{% if pagina_estudo %} active {% endif %}">
                 <a href="{% url 'estudo:estudo' %}" title="Estudo">
                   <em class="fa fa-bar-chart"></em>
-                  <span data-localize="sidebar.nav.SINGLEVIEW">Estudo</span>
+                  <span data-localize="sidebar.nav.SINGLEVIEW">{% if request.session.lang == "en" %}Study{% else %}Estudo{% endif %}</span>
                 </a>
               </li>
               <li class="{% if pagina_inferencia %} active {% endif %}">
                 <a href="{% url 'administracao:inferencia' %}" title="Inferência">
                   <em class="fa fa-table"></em>
-                  <span data-localize="sidebar.nav.SINGLEVIEW">Inferência</span>
+                  <span data-localize="sidebar.nav.SINGLEVIEW">{% if request.session.lang == "en" %}Inference{% else %}Inferência{% endif %}</span>
                 </a>
               </li>
               <li class="{% if pagina_predicao %} active {% endif %}">
                 <a href="{% url 'administracao:predicao' %}" title="Predição">
                   <em class="fa fa-arrow-right"></em>
-                  <span data-localize="sidebar.nav.SINGLEVIEW">Predição</span>
+                  <span data-localize="sidebar.nav.SINGLEVIEW">{% if request.session.lang == "en" %}Prediction{% else %}Predição{% endif %}</span>
                 </a>
               </li>
               
               <li class="nav-heading ">
-                <span data-localize="sidebar.heading.HEADER">Arquivos</span>
+                <span data-localize="sidebar.heading.HEADER">{% if request.session.lang == "en" %}Web service{% else %}Web service{% endif %}</span>
               </li>
               <li class="{% if pagina_exportacao %} active {% endif %}">
                 <a href="{% url 'exportacao:exportacao' %}" title="Exportação">
                   <em class="fa fa-file-text-o"></em>
-                  <span data-localize="sidebar.nav.SINGLEVIEW">Exportação</span>
+                  <span data-localize="sidebar.nav.SINGLEVIEW">{% if request.session.lang == "en" %}Export{% else %}Exportação{% endif %}</span>
                 </a>
               </li>
               
               <li class="nav-heading ">
-                <span data-localize="sidebar.heading.HEADER">Administração</span>
+                <span data-localize="sidebar.heading.HEADER">{% if request.session.lang == "en" %}General management{% else %}Administração{% endif %}</span>
               </li>
               <li class="{% if pagina_usuarios %} active {% endif %}">
                 <a href="{% url 'administracao:usuarios' %}" title="Usuários">
                   <em class="fa fa-user"></em>
-                  <span data-localize="sidebar.nav.SINGLEVIEW">Usuários</span>
+                  <span data-localize="sidebar.nav.SINGLEVIEW">{% if request.session.lang == "en" %}Users{% else %}Usuários{% endif %}</span>
                 </a>
               </li>
               
               <li class="nav-heading ">
-                <span data-localize="sidebar.heading.HEADER">Dados</span>
+                <span data-localize="sidebar.heading.HEADER">{% if request.session.lang == "en" %}Data gathering{% else %}Coleta de dados{% endif %}</span>
               </li>
               <li class="{% if pagina_campanhas %} active {% endif %}">
                 <a href="{% url 'administracao:campanhas' %}" title="Campanhas">
                   <em class="fa fa-compass"></em>
-                  <span data-localize="sidebar.nav.SINGLEVIEW">Campanhas</span>
+                  <span data-localize="sidebar.nav.SINGLEVIEW">{% if request.session.lang == "en" %}Campaign{% else %}Campanhas{% endif %}</span>
                 </a>
               </li>
               <li class="{% if pagina_acoes %} active {% endif %}">
                 <a href="{% url 'administracao:acoes' %}" title="Ações">
                   <em class="fa fa-archive"></em>
-                  <span data-localize="sidebar.nav.SINGLEVIEW">Ações</span>
+                  <span data-localize="sidebar.nav.SINGLEVIEW">{% if request.session.lang == "en" %}Actions{% else %}Ações{% endif %}</span>
                 </a>
               </li>
               <li class="{% if pagina_escolas %} active {% endif %}">
                 <a href="{% url 'administracao:escolas' %}" title="Escolas">
                   <em class="fa fa-book"></em>
-                  <span data-localize="sidebar.nav.SINGLEVIEW">Escolas</span>
+                  <span data-localize="sidebar.nav.SINGLEVIEW">{% if request.session.lang == "en" %}Schools{% else %}Escolas{% endif %}</span>
                 </a>
               </li>
               <li class="{% if pagina_diretores %} active {% endif %}">
                 <a href="{% url 'administracao:diretores' %}" title="Questionários para os diretores">
                   <em class="fa fa-graduation-cap"></em>
-                  <span data-localize="sidebar.nav.SINGLEVIEW">Diretores</span>
+                  <span data-localize="sidebar.nav.SINGLEVIEW">{% if request.session.lang == "en" %}Principals{% else %}Diretores{% endif %}</span>
                 </a>
               </li>
               <li class="{% if pagina_alunos %} active {% endif %}">
                 <a href="{% url 'administracao:alunos' %}" title="Alunos">
                   <em class="fa fa-users"></em>
-                  <span data-localize="sidebar.nav.SINGLEVIEW">Alunos</span>
+                  <span data-localize="sidebar.nav.SINGLEVIEW">{% if request.session.lang == "en" %}Students{% else %}Alunos{% endif %}</span>
                 </a>
               </li>
               <li class="{% if pagina_questionarios %} active {% endif %}">
                 <a href="{% url 'administracao:questionarios' %}" title="Questionários">
                   <em class="fa fa-question"></em>
-                  <span data-localize="sidebar.nav.SINGLEVIEW">Questionários</span>
+                  <span data-localize="sidebar.nav.SINGLEVIEW">{% if request.session.lang == "en" %}Questionnaires{% else %}Questionários{% endif %}</span>
                 </a>
               </li>
               <li class="{% if pagina_exames %} active {% endif %}">
                 <a href="{% url 'administracao:exames' %}" title="Exames">
                   <em class="fa fa-user-md"></em>
-                  <span data-localize="sidebar.nav.SINGLEVIEW">Exames</span>
+                  <span data-localize="sidebar.nav.SINGLEVIEW">{% if request.session.lang == "en" %}Exams{% else %}Exames{% endif %}</span>
                 </a>
               </li>
               
               <li class="nav-heading ">
-                <span data-localize="sidebar.heading.HEADER">Portal</span>
+                <span data-localize="sidebar.heading.HEADER">{% if request.session.lang == "en" %}Web portal{% else %}Portal web{% endif %}</span>
               </li>
               <li class="{% if pagina_noticias %} active {% endif %}">
                 <a href="{% url 'gerencia:noticias' %}" title="Notícias">
                   <em class="fa fa-newspaper-o"></em>
-                  <span data-localize="sidebar.nav.SINGLEVIEW">Notícias</span>
+                  <span data-localize="sidebar.nav.SINGLEVIEW">{% if request.session.lang == "en" %}News{% else %}Notícias{% endif %}</span>
                 </a>
               </li>
               <li class="{% if pagina_documentos %} active {% endif %}">
                 <a href="{% url 'gerencia:documentos' %}" title="Documentos">
                   <em class="fa fa-file-pdf-o"></em>
-                  <span data-localize="sidebar.nav.SINGLEVIEW">Documentos</span>
+                  <span data-localize="sidebar.nav.SINGLEVIEW">{% if request.session.lang == "en" %}Documents{% else %}Documentos{% endif %}</span>
                 </a>
               </li>
               <li class="{% if pagina_fotos %} active {% endif %}">
                 <a href="{% url 'gerencia:fotos' %}" title="Fotos">
                   <em class="fa fa-file-image-o"></em>
-                  <span data-localize="sidebar.nav.SINGLEVIEW">Fotos</span>
+                  <span data-localize="sidebar.nav.SINGLEVIEW">{% if request.session.lang == "en" %}Pictures{% else %}Fotos{% endif %}</span>
                 </a>
               </li>
               <li class="{% if pagina_videos %} active {% endif %}">
                 <a href="{% url 'gerencia:videos' %}" title="Vídeos">
                   <em class="fa fa-file-movie-o"></em>
-                  <span data-localize="sidebar.nav.SINGLEVIEW">Vídeos</span>
+                  <span data-localize="sidebar.nav.SINGLEVIEW">{% if request.session.lang == "en" %}Videos{% else %}Vídeos{% endif %}</span>
                 </a>
               </li>
             </ul>
@@ -253,7 +261,19 @@
       </section>
       <!-- Page footer-->
       <footer>
-        <span>&copy; 2019 - Universidade Federal do Tocantins</span>
+        <div class="row">
+          <div class="col-md-11">
+            {% if request.session.lang == "en" %}
+              <span>&copy; 2019 - Federal University of Tocantins</span>
+            {% else %}
+              <span>&copy; 2019 - Universidade Federal do Tocantins</span>
+            {% endif %}
+          </div>
+          <div class="col-md-1">
+            <a href="{% url 'portal:troca_lingua_portugues' %}" class="img-flag"> <img src="{% static 'index/img/brazil-flag.png' %}"> </a>
+            <a href="{% url 'portal:troca_lingua_ingles' %}" class="img-flag"> <img src="{% static 'index/img/usa-flag.png' %}"> </a>
+          </div>
+        </div>
       </footer>
     </div>
     
