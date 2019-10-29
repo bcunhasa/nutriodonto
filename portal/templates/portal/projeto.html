@@ -10,11 +10,11 @@
   <div class="row">
     <div class="col-3">
       <div class="list-group" id="list-tab" role="tablist">
-        <a class="list-group-item list-group-item-action active" id="list-contexto-list" data-toggle="list" href="#list-contexto" role="tab" aria-controls="contexto">Contexto</a>
-        <a class="list-group-item list-group-item-action" id="list-justificativa-list" data-toggle="list" href="#list-justificativa" role="tab" aria-controls="justificativa">Justificativa</a>
-        <a class="list-group-item list-group-item-action" id="list-objetivos-list" data-toggle="list" href="#list-objetivos" role="tab" aria-controls="objetivos">Objetivos</a>
+        <a class="list-group-item list-group-item-action active" id="list-contexto-list" data-toggle="list" href="#list-contexto" role="tab" aria-controls="contexto">{% if request.session.lang == "en" %}Context{% else %}Contexto{% endif %}</a>
+        <a class="list-group-item list-group-item-action" id="list-justificativa-list" data-toggle="list" href="#list-justificativa" role="tab" aria-controls="justificativa">{% if request.session.lang == "en" %}Justification{% else %}Justificativa{% endif %}</a>
+        <a class="list-group-item list-group-item-action" id="list-objetivos-list" data-toggle="list" href="#list-objetivos" role="tab" aria-controls="objetivos">{% if request.session.lang == "en" %}Objectives{% else %}Objetivos{% endif %}</a>
         <a class="list-group-item list-group-item-action" id="list-questionarios-list" data-toggle="list" href="#list-questionarios" role="tab" aria-controls="questionarios">Questionários</a>
-        <a class="list-group-item list-group-item-action" id="list-acoes-list" data-toggle="list" href="#list-acoes" role="tab" aria-controls="acoes">Ações</a>
+        <a class="list-group-item list-group-item-action" id="list-acoes-list" data-toggle="list" href="#list-acoes" role="tab" aria-controls="acoes">{% if request.session.lang == "en" %}Actions{% else %}Ações{% endif %}</a>
       </div>
     </div>
     <div class="col-9">

@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.http import HttpResponseRedirect
 from django.views import View
 
 from gerencia.models import Noticia, Documento, Foto, Video
@@ -44,3 +45,19 @@ class ContatosView(View):
     
     def get(self, request):
         return render(self.request, 'portal/contatos.html')
+
+
+class TrocaLinguaInglesView(View):
+    """Informações de contato"""
+    
+    def get(self, request):
+        request.session['lang'] = 'en'
+        return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
+
+
+class TrocaLinguaPortuguesView(View):
+    """Informações de contato"""
+    
+    def get(self, request):
+        request.session['lang'] = 'pt-br'
+        return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))

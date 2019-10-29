@@ -12,15 +12,27 @@
       <div id="uft"></div>
     </div>
     <div class="col-md-5 offset-md-3">
-      <h4>Universidade Federal do Tocantins</h4>
-      <p>Av. NS 15, ALCNO 14, Campus Palmas, Bloco III, Sala 05, Plano Diretor Norte, Palmas, Tocantins, CEP 77.001-090</p>
-      
-      <h4>Fábrica de Software</h4>
-      <p>E-mail: fabricadesoftware@uft.edu.br</p>
-      
-      <h4>Coordenação de computação</h4>
-      <p>E-mail: comppalmas@uft.edu.br</p>
-      <p>Telefone: (63) 3229-4527</p>
+      {% if request.session.lang == "en" %}
+        <h4>Federal University of Tocantins</h4>
+        <p>Av. NS 15, ALCNO 14, Campus Palmas, Bloco III, Sala 05, Plano Diretor Norte, Palmas, Tocantins, CEP 77.001-090</p>
+        
+        <h4>Software Factory</h4>
+        <p>E-mail: fabricadesoftware@uft.edu.br</p>
+        
+        <h4>Computer Science course coordination</h4>
+        <p>E-mail: comppalmas@uft.edu.br</p>
+        <p>Telephone: (63) 3229-4527</p>
+      {% else %}
+        <h4>Universidade Federal do Tocantins</h4>
+        <p>Av. NS 15, ALCNO 14, Campus Palmas, Bloco III, Sala 05, Plano Diretor Norte, Palmas, Tocantins, CEP 77.001-090</p>
+        
+        <h4>Fábrica de Software</h4>
+        <p>E-mail: fabricadesoftware@uft.edu.br</p>
+        
+        <h4>Coordenação de computação</h4>
+        <p>E-mail: comppalmas@uft.edu.br</p>
+        <p>Telefone: (63) 3229-4527</p>
+      {% endif %}
     </div>
   </div>
   

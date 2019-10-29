@@ -21,4 +21,10 @@ urlpatterns = [
     
     # Informações de contato
     url(r'^contatos/$', views.ContatosView.as_view(), name='contatos'),
+    
+    # Troca a língua padrão para inglês
+    url(r'^troca_lingua_ingles/$', views.TrocaLinguaInglesView.as_view(), name='troca_lingua_ingles'),
+    
+    # Troca a língua padrão para português
+    url(r'^troca_lingua_portugues/$', views.TrocaLinguaPortuguesView.as_view(), name='troca_lingua_portugues'),
 ]

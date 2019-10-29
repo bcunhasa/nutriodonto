@@ -16,7 +16,7 @@
         <h2 class="titulo-noticia">{{ noticia.titulo }}</h2>
         <p class="small data-noticia">{{ noticia.data }}</p>
         <p class="texto-noticia">{{ noticia.texto|slice:":230" }}...</p>
-        <button type="button" class="btn btn-link botao-ver-mais" data-toggle="modal" data-target="#modal-{{ noticia.id }}">Ver mais</button>
+        <button type="button" class="btn btn-link botao-ver-mais" data-toggle="modal" data-target="#modal-{{ noticia.id }}">{% if request.session.lang == "en" %}See more{% else %}Ver mais{% endif %}</button>
       </div>
     </div>
     
@@ -35,7 +35,7 @@
             <p class="texto-noticia">{{ noticia.texto }}</p>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">{% if request.session.lang == "en" %}Close{% else %}Fechar{% endif %}</button>
           </div>
         </div>
       </div>
@@ -44,9 +44,9 @@
 
   <nav aria-label="Navegação" class="d-flex justify-content-center">
     <ul class="pagination">
-      <li class="page-item disabled"><a class="page-link" href="#">Anterior</a></li>
+      <li class="page-item disabled"><a class="page-link" href="#">{% if request.session.lang == "en" %}Previous{% else %}Anterior{% endif %}</a></li>
       <li class="page-item"><a class="page-link" href="#">1</a></li>
-      <li class="page-item disabled"><a class="page-link" href="#">Próxima</a></li>
+      <li class="page-item disabled"><a class="page-link" href="#">{% if request.session.lang == "en" %}Next{% else %}Próxima{% endif %}</a></li>
     </ul>
   </nav>
   
