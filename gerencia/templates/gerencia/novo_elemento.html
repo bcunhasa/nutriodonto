@@ -9,13 +9,13 @@
 
 {% block header %}
   {% if pagina_noticias %}
-    Nova notícia
+    {% if request.session.lang == "en" %}New new{% else %}Nova notícia{% endif %}
   {% elif pagina_documentos %}
-    Novo documento
+    {% if request.session.lang == "en" %}New document{% else %}Novo documento{% endif %}
   {% elif pagina_fotos %}
-    Nova foto
+    {% if request.session.lang == "en" %}New photo{% else %}Nova foto{% endif %}
   {% elif pagina_videos %}
-    Novo vídeo
+    {% if request.session.lang == "en" %}New movie{% else %}Novo vídeo{% endif %}
   {% endif %}
 {% endblock header %}
 
@@ -46,7 +46,11 @@
         {% endfor %}
         <div class="form-group">
           <div class="col-lg-offset-2 col-lg-10">
-            <button class="btn btn-sm btn-default" type="submit" name="submit">Salvar</button>
+            {% if request.session.lang == "en" %}
+              <button class="btn btn-sm btn-default" type="submit" name="submit">Save</button>
+            {% else %}
+              <button class="btn btn-sm btn-default" type="submit" name="submit">Salvar</button>
+            {% endif %}
           </div>
         </div>
       </form>

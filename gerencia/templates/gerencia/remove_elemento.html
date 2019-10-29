@@ -6,31 +6,44 @@
 
 {% block header %}
   {% if pagina_noticias %}
-    Remoção da notícia {{ noticia.titulo }}
+    {% if request.session.lang == "en" %}Deletion of the new{% else %}Remoção da notícia{% endif %} {{ noticia.titulo }}
   {% elif pagina_documentos %}
-    Remoção do documento {{ documento.titulo }}
+    {% if request.session.lang == "en" %}Deletion of the document{% else %}Remoção do documento{% endif %} {{ documento.titulo }}
   {% elif pagina_fotos %}
-    Remoção da foto {{ foto.titulo }}
+    {% if request.session.lang == "en" %}Deletion of the photo{% else %}Remoção da foto{% endif %} {{ foto.titulo }}
   {% elif pagina_videos %}
-    Remoção do vídeo {{ video.titulo }}
+    {% if request.session.lang == "en" %}Deletion of the movie{% else %}Remoção do vídeo{% endif %} {{ video.titulo }}
   {% endif %}
 {% endblock header %}
 
 {% block content %}
   <div class="col-xs-12 text-center">
     <div class="panel panel-danger">
-      <div class="panel-heading">Confirmação de remoção</div>
+      {% if request.session.lang == "en" %}
+        <div class="panel-heading">Confirm deletion</div>
+      {% else %}
+        <div class="panel-heading">Confirmação de remoção</div>
+      {% endif %}
       <div class="panel-body">
         <form method="post">
           {% csrf_token %}
           
           <div class="form-group">
-            <p>A remoção desta entrada resulta em perda permanente dos dados.</p>
-            <p>Deseja remover a entrada?</p>
+            {% if request.session.lang == "en" %}
+              <p>The deletion of this entry will result in permanent loss of data.</p>
+              <p>Do you want to delete this entry?</p>
+            {% else %}
+              <p>A remoção desta entrada resulta em perda permanente dos dados.</p>
+              <p>Deseja remover a entrada?</p>
+            {% endif %}
           </div>
           
           <div class="form-group">
-            <button class="btn btn-sm btn-default" type="submit" name="submit">Confirmar remoção</button>
+            {% if request.session.lang == "en" %}
+              <button class="btn btn-sm btn-default" type="submit" name="submit">Confirm deletion</button>
+            {% else %}
+              <button class="btn btn-sm btn-default" type="submit" name="submit">Confirmar remoção</button>
+            {% endif %}
           </div>
         </form>
       </div>

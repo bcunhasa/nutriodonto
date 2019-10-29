@@ -6,37 +6,50 @@
 
 {% block header %}
   {% if pagina_campanhas %}
-    Remoção da campanha {{ campanha.nome }}
+    {% if request.session.lang == "en" %}Deletion of campaign{% else %}Remoção da campanha{% endif %} {{ campanha.nome }}
   {% elif pagina_acoes %}
-    Remoção da ação {{ acao.nome }}
+    {% if request.session.lang == "en" %}Deletion of action{% else %}Remoção da ação{% endif %} {{ acao.nome }}
   {% elif pagina_escolas %}
-    Remoção da escola {{ escola.nome }}
+    {% if request.session.lang == "en" %}Deletion of school{% else %}Remoção da escola{% endif %} {{ escola.nome }}
   {% elif pagina_alunos %}
-    Remoção do aluno {{ aluno.numero_identificacao }}
+    {% if request.session.lang == "en" %}Deletion of student{% else %}Remoção do aluno{% endif %} {{ aluno.numero_identificacao }}
   {% elif pagina_questionarios %}
-    Remoção do questionário do aluno {{ questionario.aluno.numero_identificacao }}
+    {% if request.session.lang == "en" %}Deletion of student questionnaire{% else %}Remoção do questionário do aluno{% endif %} {{ questionario.aluno.numero_identificacao }}
   {% elif pagina_diretores %}
-    Remoção do questionário para diretor da {{ diretor.escola.nome }}
+    {% if request.session.lang == "en" %}Deletion of principal questionnaire of{% else %}Remoção do questionário para diretor da{% endif %} {{ diretor.escola.nome }}
   {% elif pagina_exames %}
-    Remoção do exame do aluno {{ exame.aluno.numero_identificacao }}
+    {% if request.session.lang == "en" %}Deletion of student exam{% else %}Remoção do exame do aluno{% endif %} {{ exame.aluno.numero_identificacao }}
   {% endif %}
 {% endblock header %}
 
 {% block content %}
   <div class="col-xs-12 text-center">
     <div class="panel panel-danger">
-      <div class="panel-heading">Confirmação de remoção</div>
+      {% if request.session.lang == "en" %}
+        <div class="panel-heading">Confirm deletion</div>
+      {% else %}
+        <div class="panel-heading">Confirmação de remoção</div>
+      {% endif %}
       <div class="panel-body">
         <form method="post">
           {% csrf_token %}
           
           <div class="form-group">
-            <p>A remoção desta entrada resulta em perda permanente dos dados.</p>
-            <p>Deseja remover a entrada?</p>
+            {% if request.session.lang == "en" %}
+              <p>The deletion of this entry will result in permanent loss of data.</p>
+              <p>Do you want to delete this entry?</p>
+            {% else %}
+              <p>A remoção desta entrada resulta em perda permanente dos dados.</p>
+              <p>Deseja remover a entrada?</p>
+            {% endif %}
           </div>
           
           <div class="form-group">
-            <button class="btn btn-sm btn-default" type="submit" name="submit">Confirmar remoção</button>
+            {% if request.session.lang == "en" %}
+              <button class="btn btn-sm btn-default" type="submit" name="submit">Confirm deletion</button>
+            {% else %}
+              <button class="btn btn-sm btn-default" type="submit" name="submit">Confirmar remoção</button>
+            {% endif %}
           </div>
         </form>
       </div>

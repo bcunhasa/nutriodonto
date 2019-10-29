@@ -8,11 +8,15 @@
 {% endblock head %}
 
 {% block header %}
-  Exames
+  {% if request.session.lang == "en" %}
+    Exams
+  {% else %}
+    Exames
+  {% endif %}
   <div class="pull-right">
     <form action="{% url 'administracao:cria_exame' %}">
       <button class="btn btn-labeled btn-success" type="submit">
-        <span class="btn-label"><i class="fa fa-plus"></i></span>Novo
+        <span class="btn-label"><i class="fa fa-plus"></i></span>{% if request.session.lang == "en" %}New{% else %}Novo{% endif %}
       </button>
     </form>
   </div>
@@ -25,16 +29,26 @@
       <div class="col-lg-12">
         <div class="panel panel-default">
           <div class="panel-heading">
-            Exames | <small>Selecione para ver detalhes</small>
+            {% if request.session.lang == "en" %}
+              Exams | <small>Select to see the details</small>
+            {% else %}
+              Exames | <small>Selecione para ver detalhes</small>
+            {% endif %}
           </div>
           <div class="panel-body">
             <div class="table-responsive">
               <table class="table table-striped table-hover" id="tabela">
                 <thead>
                   <tr>
-                    <th>Aluno</th>
-                    <th>Escola</th>
-                    <th>Data</th>
+                    {% if request.session.lang == "en" %}
+                      <th>Student</th>
+                      <th>School</th>
+                      <th>Date</th>
+                    {% else %}
+                      <th>Aluno</th>
+                      <th>Escola</th>
+                      <th>Data</th>
+                    {% endif %}
                     <th></th>
                     <th></th>
                   </tr>
@@ -48,14 +62,14 @@
                       <td class="text-right">
                         <form action="{% url 'administracao:edita_exame' exame.id %}">
                           <button class="btn btn-labeled btn-info" type="submit">
-                            <span class="btn-label"><i class="fa fa-edit"></i></span>Editar
+                            <span class="btn-label"><i class="fa fa-edit"></i></span>{% if request.session.lang == "en" %}Update{% else %}Editar{% endif %}
                           </button>
                         </form>
                       </td>
                       <td class="text-right">
                         <form action="{% url 'administracao:remove_exame' exame.id %}">
                           <button class="btn btn-labeled btn-danger" type="submit">
-                            <span class="btn-label"><i class="fa fa-remove"></i></span>Excluir
+                            <span class="btn-label"><i class="fa fa-remove"></i></span>{% if request.session.lang == "en" %}Delete{% else %}Excluir{% endif %}
                           </button>
                         </form>
                       </td>
@@ -82,6 +96,10 @@
   <script src="{% static 'administracao/vendor/datatables-responsive/js/dataTables.responsive.js' %}"></script>
   <script src="{% static 'administracao/vendor/datatables-responsive/js/responsive.bootstrap.js' %}"></script>
   
-  <script src="{% static 'administracao/js/datatable.js' %}"></script>
+  {% if request.session.lang == "en" %}
+    <script src="{% static 'administracao/js/datatable_en.js' %}"></script>
+  {% else %}
+    <script src="{% static 'administracao/js/datatable.js' %}"></script>
+  {% endif %}
   
 {% endblock content %}

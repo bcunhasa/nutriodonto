@@ -8084,7 +8084,11 @@ class CriaQuestionarioView(LoginRequired, View):
     """Cadastra as informações de um novo questionário"""
     
     def get(self, request):
-        form = QuestionarioForm()
+        if request.session['lang'] == 'en':
+            form = QuestionarioInglesForm()
+        else:
+            form = QuestionarioForm()
+        
         context = {'pagina_questionarios': True, 'form': form}
         return render(self.request, 'administracao/novo_elemento.html', context)
     

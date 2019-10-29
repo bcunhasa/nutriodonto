@@ -8,7 +8,11 @@
 {% endblock head %}
 
 {% block header %}
-  Dados obtidos por meio de inferência estatística
+  {% if request.session.lang == "en" %}
+    Data obtained through statistical inference
+  {% else %}
+    Dados obtidos por meio de inferência estatística
+  {% endif %}
 {% endblock header %}
 
 {% block content %}

@@ -8,7 +8,11 @@
 {% endblock head %}
 
 {% block header %}
-  Dados obtidos por meio de predição pelo Naive Bayes
+  {% if request.session.lang == "en" %}
+    Data obtained through the Naive Bayes prediction
+  {% else %}
+    Dados obtidos por meio de predição pelo Naive Bayes
+  {% endif %}
 {% endblock header %}
 
 {% block content %}

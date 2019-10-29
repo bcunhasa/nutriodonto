@@ -6,7 +6,11 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>NutriOdontoApp - Área de Administração</title>
+    {% if request.session.lang == "en" %}
+      <title>NutriOdontoApp - Administration area</title>
+    {% else %}
+      <title>NutriOdontoApp - Área de administração</title>
+    {% endif %}
     <link rel="stylesheet" href="{% static 'administracao/vendor/fontawesome/css/font-awesome.min.css' %}">
     <link rel="stylesheet" href="{% static 'administracao/vendor/simple-line-icons/css/simple-line-icons.css' %}">
     <link rel="stylesheet" href="{% static 'administracao/vendor/animate.css/animate.min.css' %}">
@@ -63,7 +67,7 @@
               <li>
                 <span class="navbar-text">
                   {% if request.session.lang == "en" %}
-                    Logged in as <i>{{ user.username }}</i>.
+                    Authenticated as <i>{{ user.username }}</i>.
                   {% else %}
                     Autenticado como <i>{{ user.username }}</i>.
                   {% endif %}
@@ -235,13 +239,13 @@
               <li class="{% if pagina_fotos %} active {% endif %}">
                 <a href="{% url 'gerencia:fotos' %}" title="Fotos">
                   <em class="fa fa-file-image-o"></em>
-                  <span data-localize="sidebar.nav.SINGLEVIEW">{% if request.session.lang == "en" %}Pictures{% else %}Fotos{% endif %}</span>
+                  <span data-localize="sidebar.nav.SINGLEVIEW">{% if request.session.lang == "en" %}Photos{% else %}Fotos{% endif %}</span>
                 </a>
               </li>
               <li class="{% if pagina_videos %} active {% endif %}">
                 <a href="{% url 'gerencia:videos' %}" title="Vídeos">
                   <em class="fa fa-file-movie-o"></em>
-                  <span data-localize="sidebar.nav.SINGLEVIEW">{% if request.session.lang == "en" %}Videos{% else %}Vídeos{% endif %}</span>
+                  <span data-localize="sidebar.nav.SINGLEVIEW">{% if request.session.lang == "en" %}Movies{% else %}Vídeos{% endif %}</span>
                 </a>
               </li>
             </ul>

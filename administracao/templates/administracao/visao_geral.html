@@ -7,7 +7,11 @@
 {% endblock head %}
 
 {% block header %}
-  Visão geral
+  {% if request.session.lang == "en" %}
+    Overview
+  {% else %}
+    Visão geral
+  {% endif %}
 {% endblock header %}
 
 {% block content %}
@@ -15,7 +19,11 @@
     <div class="col-md-12">
       <div class="panel panel-default" id="painel-info">
         <div class="panel-heading">
-          <div class="panel-title">Informações sobre as campanhas</div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">Campaign informations</div>
+          {% else %}
+            <div class="panel-title">Informações sobre as campanhas</div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div class="col-md-4">
@@ -27,12 +35,20 @@
                   </div>
                   <div class="col-xs-9 text-right">
                     <div class="text-lg">{{ campanhas }}</div>
-                    <p class="m0">Campanhas</p>
+                    {% if request.session.lang == "en" %}
+                      <p class="m0">Campaigns</p>
+                    {% else %}
+                      <p class="m0">Campanhas</p>
+                    {% endif %}
                   </div>
                 </div>
               </div>
               <a class="panel-footer bg-gray-dark bt0 clearfix btn-block" href="{% url 'administracao:campanhas' %}">
-                <span class="pull-left">Ver detalhes</span>
+                {% if request.session.lang == "en" %}
+                  <span class="pull-left">See details</span>
+                {% else %}
+                  <span class="pull-left">Ver detalhes</span>
+                {% endif %}
                 <span class="pull-right">
                   <em class="fa fa-chevron-circle-right"></em>
                 </span>
@@ -50,12 +66,20 @@
                   </div>
                   <div class="col-xs-9 text-right">
                     <div class="text-lg">{{ acoes }}</div>
-                    <p class="m0">Ações</p>
+                    {% if request.session.lang == "en" %}
+                      <p class="m0">Actions</p>
+                    {% else %}
+                      <p class="m0">Ações</p>
+                    {% endif %}
                   </div>
                 </div>
               </div>
               <a class="panel-footer bg-gray-dark bt0 clearfix btn-block" href="{% url 'administracao:acoes' %}">
-                <span class="pull-left">Ver detalhes</span>
+                {% if request.session.lang == "en" %}
+                  <span class="pull-left">See details</span>
+                {% else %}
+                  <span class="pull-left">Ver detalhes</span>
+                {% endif %}
                 <span class="pull-right">
                   <em class="fa fa-chevron-circle-right"></em>
                 </span>
@@ -73,12 +97,20 @@
                   </div>
                   <div class="col-xs-9 text-right">
                     <div class="text-lg">{{ escolas }}</div>
-                    <p class="m0">Escolas</p>
+                    {% if request.session.lang == "en" %}
+                      <p class="m0">Schools</p>
+                    {% else %}
+                      <p class="m0">Escolas</p>
+                    {% endif %}
                   </div>
                 </div>
               </div>
               <a class="panel-footer bg-gray-dark bt0 clearfix btn-block" href="{% url 'administracao:escolas' %}">
-                <span class="pull-left">Ver detalhes</span>
+                {% if request.session.lang == "en" %}
+                  <span class="pull-left">See details</span>
+                {% else %}
+                  <span class="pull-left">Ver detalhes</span>
+                {% endif %}
                 <span class="pull-right">
                   <em class="fa fa-chevron-circle-right"></em>
                 </span>
@@ -107,12 +139,20 @@
                   </div>
                   <div class="col-xs-9 text-right">
                     <div class="text-lg">{{ alunos }}</div>
-                    <p class="m0">Alunos</p>
+                    {% if request.session.lang == "en" %}
+                      <p class="m0">Students</p>
+                    {% else %}
+                      <p class="m0">Alunos</p>
+                    {% endif %}
                   </div>
                 </div>
               </div>
               <a class="panel-footer bg-gray-dark bt0 clearfix btn-block" href="{% url 'administracao:alunos' %}">
-                <span class="pull-left">Ver detalhes</span>
+                {% if request.session.lang == "en" %}
+                  <span class="pull-left">See details</span>
+                {% else %}
+                  <span class="pull-left">Ver detalhes</span>
+                {% endif %}
                 <span class="pull-right">
                   <em class="fa fa-chevron-circle-right"></em>
                 </span>
@@ -130,12 +170,20 @@
                   </div>
                   <div class="col-xs-9 text-right">
                     <div class="text-lg">{{ questionarios }}</div>
-                    <p class="m0">Questionários</p>
+                    {% if request.session.lang == "en" %}
+                      <p class="m0">Questionnaries</p>
+                    {% else %}
+                      <p class="m0">Questionários</p>
+                    {% endif %}
                   </div>
                 </div>
               </div>
               <a class="panel-footer bg-gray-dark bt0 clearfix btn-block" href="{% url 'administracao:questionarios' %}">
-                <span class="pull-left">Ver detalhes</span>
+                {% if request.session.lang == "en" %}
+                  <span class="pull-left">See details</span>
+                {% else %}
+                  <span class="pull-left">Ver detalhes</span>
+                {% endif %}
                 <span class="pull-right">
                   <em class="fa fa-chevron-circle-right"></em>
                 </span>
@@ -153,12 +201,20 @@
                   </div>
                   <div class="col-xs-9 text-right">
                     <div class="text-lg">{{ exames }}</div>
-                    <p class="m0">Exames</p>
+                    {% if request.session.lang == "en" %}
+                      <p class="m0">Exams</p>
+                    {% else %}
+                      <p class="m0">Exames</p>
+                    {% endif %}
                   </div>
                 </div>
               </div>
               <a class="panel-footer bg-gray-dark bt0 clearfix btn-block" href="{% url 'administracao:exames' %}">
-                <span class="pull-left">Ver detalhes</span>
+                {% if request.session.lang == "en" %}
+                  <span class="pull-left">See details</span>
+                {% else %}
+                  <span class="pull-left">Ver detalhes</span>
+                {% endif %}
                 <span class="pull-right">
                   <em class="fa fa-chevron-circle-right"></em>
                 </span>

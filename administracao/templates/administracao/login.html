@@ -10,7 +10,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="Bootstrap Admin App + jQuery">
   <meta name="keywords" content="app, responsive, jquery, bootstrap, dashboard, admin">
-  <title>Autenticação</title>
+  {% if request.session.lang == "en" %}
+    <title>Autenticação</title>
+  {% else %}
+    <title>Autenticação</title>
+  {% endif %}
   <!-- =============== VENDOR STYLES ===============-->
   <!-- FONT AWESOME-->
   <link rel="stylesheet" href="{% static 'administracao/vendor/fontawesome/css/font-awesome.min.css' %}">

@@ -10,26 +10,26 @@
 
 {% block header %}
   {% if pagina_campanhas %}
-    Nova campanha
+    {% if request.session.lang == "en" %}New campaign {% else %} Nova campanha  {% endif %}{{ campanha.nome }}
   {% elif pagina_acoes %}
-    Nova ação
+    {% if request.session.lang == "en" %}New action {% else %} Nova ação  {% endif %}{{ acao.nome }}
   {% elif pagina_escolas %}
-    Nova escola
+    {% if request.session.lang == "en" %}New school {% else %} Nova escola  {% endif %}{{ escola.nome }}
   {% elif pagina_alunos %}
-    Novo aluno
+    {% if request.session.lang == "en" %}New student {% else %} Novo aluno  {% endif %}{{ aluno.numero_identificacao }}
   {% elif pagina_questionarios %}
-    Novo questionário
+    {% if request.session.lang == "en" %}New student questionnaire {% else %} Novo questionário do aluno  {% endif %}{{ questionario.aluno.numero_identificacao }}
   {% elif pagina_diretores %}
-    Novo questionário para diretor
+    {% if request.session.lang == "en" %}New principal questionnaire {% else %} Novo questionário para diretor da  {% endif %}{{ diretor.escola.nome }}
   {% elif pagina_exames %}
-    Novo exame
+    {% if request.session.lang == "en" %}New student exam {% else %} Novo exame do aluno  {% endif %}{{ exame.aluno.numero_identificacao }}
     <div class="pull-right">
       <button class="btn btn-labeled btn-warning" type="submit" onclick="valoresPadrao()">
-        <span class="btn-label"><i class="fa fa-clipboard"></i></span>Valores padrão
+        <span class="btn-label"><i class="fa fa-clipboard"></i></span>{% if request.session.lang == "en" %}Default values{% else %}Valores padrão{% endif %}
       </button>
       
       <button class="btn btn-labeled btn-warning" type="submit" onclick="limpaCampos()">
-        <span class="btn-label"><i class="fa fa-eraser"></i></span>Limpar campos
+        <span class="btn-label"><i class="fa fa-eraser"></i></span>{% if request.session.lang == "en" %}Clean fields{% else %}Limpar campos{% endif %}
       </button>
     </div>
   {% endif %}
@@ -58,7 +58,7 @@
           {% if pagina_alunos %}
             
             <div class="form-group has-feedback">
-              <label class="col-lg-2 control-label">Número de identificação</label>
+              <label class="col-lg-2 control-label">{% if request.session.lang == "en" %}Identification number{% else %}Número de identificação{% endif %}</label>
               {{ form.numero_identificacao.errors }}
               <div class="col-lg-10">
                 {% render_field form.numero_identificacao class='form-control' type='text' placeholder='' %}
@@ -69,7 +69,7 @@
             </div>
             
             <div class="form-group has-feedback">
-              <label class="col-lg-2 control-label">Escola</label>
+              <label class="col-lg-2 control-label">{% if request.session.lang == "en" %}School{% else %}Escola{% endif %}</label>
               {{ form.escola.errors }}
               <div class="col-lg-10">
                 {% render_field form.escola class='form-control' type='text' placeholder='' %}
@@ -80,7 +80,7 @@
             </div>
             
             <div class="form-group has-feedback">
-              <label class="col-lg-2 control-label">Período</label>
+              <label class="col-lg-2 control-label">{% if request.session.lang == "en" %}School shift{% else %}Período{% endif %}</label>
               {{ form.periodo.errors }}
               <div class="col-lg-10">
                 {% render_field form.periodo class='form-control' type='text' placeholder='' %}
@@ -91,7 +91,7 @@
             </div>
             
             <div class="form-group has-feedback">
-              <label class="col-lg-2 control-label">Turma</label>
+              <label class="col-lg-2 control-label">{% if request.session.lang == "en" %}Class{% else %}Turma{% endif %}</label>
               {{ form.turma.errors }}
               <div class="col-lg-10">
                 {% render_field form.turma class='form-control' type='text' placeholder='' %}
@@ -102,7 +102,7 @@
             </div>
             
             <div class="form-group has-feedback">
-              <label class="col-lg-2 control-label">Data de nascimento</label>
+              <label class="col-lg-2 control-label">{% if request.session.lang == "en" %}Birthday{% else %}Data de nascimento{% endif %}</label>
               {{ form.nascimento.errors }}
               <div class="col-lg-10">
                 {% render_field form.nascimento class='form-control' type='date' placeholder='' %}
@@ -113,7 +113,7 @@
             </div>
             
             <div class="form-group has-feedback">
-              <label class="col-lg-2 control-label">Sexo</label>
+              <label class="col-lg-2 control-label">{% if request.session.lang == "en" %}Sex{% else %}Sexo{% endif %}</label>
               {{ form.sexo.errors }}
               <div class="col-lg-10">
                 {% render_field form.sexo class='form-control' type='text' placeholder='' %}
@@ -124,7 +124,7 @@
             </div>
             
             <div class="form-group has-feedback">
-              <label class="col-lg-2 control-label">Raça</label>
+              <label class="col-lg-2 control-label">{% if request.session.lang == "en" %}Race{% else %}Raça{% endif %}</label>
               {{ form.raca.errors }}
               <div class="col-lg-10">
                 {% render_field form.raca class='form-control' type='text' placeholder='' %}
@@ -137,7 +137,7 @@
           {% elif pagina_exames %}
             
             <div class="form-group has-feedback">
-              <label class="col-lg-2 control-label">Aluno</label>
+              <label class="col-lg-2 control-label">{% if request.session.lang == "en" %}Student{% else %}Aluno{% endif %}</label>
               {{ form.aluno.errors }}
               <div class="col-lg-10">
                 {% render_field form.aluno class='form-control' type='text' placeholder='' %}
@@ -148,7 +148,7 @@
             </div>
             
             <div class="form-group has-feedback">
-              <label class="col-lg-2 control-label">Data</label>
+              <label class="col-lg-2 control-label">{% if request.session.lang == "en" %}Date{% else %}Data{% endif %}</label>
               {{ form.data.errors }}
               <div class="col-lg-10">
                 {% render_field form.data class='form-control' type='date' placeholder='' %}
@@ -159,7 +159,7 @@
             </div>
             
             <div class="form-group has-feedback">
-              <label class="col-lg-2 control-label">Examinador</label>
+              <label class="col-lg-2 control-label">{% if request.session.lang == "en" %}Examiner{% else %}Examinador{% endif %}</label>
               {{ form.examinador.errors }}
               <div class="col-lg-10">
                 {% render_field form.examinador class='form-control' type='text' placeholder='' %}
@@ -170,7 +170,7 @@
             </div>
             
             <div class="form-group has-feedback">
-              <label class="col-lg-2 control-label">Anotador</label>
+              <label class="col-lg-2 control-label">{% if request.session.lang == "en" %}Recorder{% else %}Anotador{% endif %}</label>
               {{ form.anotador.errors }}
               <div class="col-lg-10">
                 {% render_field form.anotador class='form-control' type='text' placeholder='' %}
@@ -183,7 +183,11 @@
             <!-- Exame de cárie dentária -->
             
             <div class="form-group has-feedback ">
-              <label class="col-lg-2 control-label">Exame de cárie dentária e necessidade de tratamento</label>
+              {% if request.session.lang == "en" %}
+                <label class="col-lg-2 control-label">Dental exam and necessity of treatment</label>
+              {% else %}
+                <label class="col-lg-2 control-label">Exame de cárie dentária e necessidade de tratamento</label>
+              {% endif %}
               <div class="col-lg-8 container">
                 <div class="row"> <!-- Essa linha engloba todo o exame de cárie dentária -->
                   
@@ -214,7 +218,7 @@
                     </div>
                     
                     <div class="row">
-                      <div class="col-md-1">Cor.</div>
+                      <div class="col-md-1">Tth.</div>
                       <div class="col-md-1">{% render_field form.carie_coroa_18 class='input-carie' type='text' placeholder='' %}</div>
                       <div class="col-md-1">{% render_field form.carie_coroa_17 class='input-carie' type='text' placeholder='' %}</div>
                       <div class="col-md-1">{% render_field form.carie_coroa_16 class='input-carie' type='text' placeholder='' %}</div>
@@ -226,7 +230,7 @@
                     </div>
                     
                     <div class="row">
-                      <div class="col-md-1">Trat.</div>
+                      <div class="col-md-1">Trea.</div>
                       <div class="col-md-1">{% render_field form.carie_tratamento_18 class='input-carie' type='text' placeholder='' %}</div>
                       <div class="col-md-1">{% render_field form.carie_tratamento_17 class='input-carie' type='text' placeholder='' %}</div>
                       <div class="col-md-1">{% render_field form.carie_tratamento_16 class='input-carie' type='text' placeholder='' %}</div>
@@ -262,7 +266,7 @@
                     </div>
                     
                     <div class="row">
-                      <div class="col-md-1">Cor.</div>
+                      <div class="col-md-1">Tth.</div>
                       <div class="col-md-1">{% render_field form.carie_coroa_48 class='input-carie' type='text' placeholder='' %}</div>
                       <div class="col-md-1">{% render_field form.carie_coroa_47 class='input-carie' type='text' placeholder='' %}</div>
                       <div class="col-md-1">{% render_field form.carie_coroa_46 class='input-carie' type='text' placeholder='' %}</div>
@@ -274,7 +278,7 @@
                     </div>
                     
                     <div class="row">
-                      <div class="col-md-1">Trat.</div>
+                      <div class="col-md-1">Trea.</div>
                       <div class="col-md-1">{% render_field form.carie_tratamento_48 class='input-carie' type='text' placeholder='' %}</div>
                       <div class="col-md-1">{% render_field form.carie_tratamento_47 class='input-carie' type='text' placeholder='' %}</div>
                       <div class="col-md-1">{% render_field form.carie_tratamento_46 class='input-carie' type='text' placeholder='' %}</div>
@@ -386,7 +390,11 @@
             <!-- Exame de condição periodontal -->
             
             <div class="form-group has-feedback ">
-              <label class="col-lg-2 control-label">Exame de condição periodontal</label>
+              {% if request.session.lang == "en" %}
+                <label class="col-lg-2 control-label">Periodontal condition exam</label>
+              {% else %}
+                <label class="col-lg-2 control-label">Exame de condição periodontal</label>
+              {% endif %}
               <div class="col-lg-3 container">
                 <div class="row">
                   <div class="col-md-3">
@@ -482,13 +490,25 @@
                   <div class="col-md-3">
                   </div>
                   <div class="col-md-3">
-                    S.G.
+                    {% if request.session.lang == "en" %}
+                      G.B.
+                    {% else %}
+                      S.G.
+                    {% endif %}
                   </div>
                   <div class="col-md-3">
-                    C.D.
+                    {% if request.session.lang == "en" %}
+                      D.C.
+                    {% else %}
+                      C.D.
+                    {% endif %}
                   </div>
                   <div class="col-md-3">
-                    B.P.
+                    {% if request.session.lang == "en" %}
+                      P.P.
+                    {% else %}
+                      B.P.
+                    {% endif %}
                   </div>
                 </div>
               </div>
@@ -498,7 +518,7 @@
           {% elif pagina_escolas %}
           
             <div class="form-group has-feedback">
-              <label class="col-lg-2 control-label">Ação</label>
+              <label class="col-lg-2 control-label">{% if request.session.lang == "en" %}Action{% else %}Ação{% endif %}</label>
               {{ form.acao.errors }}
               <div class="col-lg-10">
                 {% render_field form.acao class='form-control' type='number' placeholder='Ação' %}
@@ -509,7 +529,7 @@
             </div>
             
             <div class="form-group has-feedback">
-              <label class="col-lg-2 control-label">Nome</label>
+              <label class="col-lg-2 control-label">{% if request.session.lang == "en" %}Name{% else %}Nome{% endif %}</label>
               {{ form.nome.errors }}
               <div class="col-lg-10">
                 {% render_field form.nome class='form-control' type='text' placeholder='Nome' %}
@@ -520,7 +540,7 @@
             </div>
             
             <div class="form-group has-feedback">
-              <label class="col-lg-2 control-label">Latitude</label>
+              <label class="col-lg-2 control-label">{% if request.session.lang == "en" %}Latitude{% else %}Latitude{% endif %}</label>
               {{ form.latitude.errors }}
               <div class="col-lg-10">
                 {% render_field form.latitude class='form-control' type='number' placeholder='Latitude' %}
@@ -531,7 +551,7 @@
             </div>
             
             <div class="form-group has-feedback">
-              <label class="col-lg-2 control-label">Longitude</label>
+              <label class="col-lg-2 control-label">{% if request.session.lang == "en" %}Longitude{% else %}Longitude{% endif %}</label>
               {{ form.longitude.errors }}
               <div class="col-lg-10">
                 {% render_field form.longitude class='form-control' type='number' placeholder='Longitude' %}
@@ -620,7 +640,11 @@
 
           <div class="form-group">
             <div class="col-lg-offset-2 col-lg-10">
-              <button class="btn btn-sm btn-default" type="submit" name="submit" onclick="salvaQuestoes()">Salvar</button>
+              {% if request.session.lang == "en" %}
+                <button class="btn btn-sm btn-default" type="submit" name="submit" onclick="salvaQuestoes()">Save</button>
+              {% else %}
+                <button class="btn btn-sm btn-default" type="submit" name="submit" onclick="salvaQuestoes()">Salvar</button>
+              {% endif %}
             </div>
           </div>
         </form>
