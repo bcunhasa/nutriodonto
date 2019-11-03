@@ -266,14 +266,14 @@
       <!-- Page footer-->
       <footer>
         <div class="row">
-          <div class="col-md-11">
+          <div class="col-md-10">
             {% if request.session.lang == "en" %}
               <span>&copy; 2019 - Federal University of Tocantins</span>
             {% else %}
               <span>&copy; 2019 - Universidade Federal do Tocantins</span>
             {% endif %}
           </div>
-          <div class="col-md-1">
+          <div class="col-md-2">
             <a href="{% url 'portal:troca_lingua_portugues' %}" class="img-flag"> <img src="{% static 'index/img/brazil-flag.png' %}"> </a>
             <a href="{% url 'portal:troca_lingua_ingles' %}" class="img-flag"> <img src="{% static 'index/img/usa-flag.png' %}"> </a>
           </div>

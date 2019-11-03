@@ -6,7 +6,11 @@
 {% endblock head %}
 
 {% block header %}
-  Gráficos para a tabela de alunos
+  {% if request.session.lang == "en" %}
+    Graphs for the students table
+  {% else %}
+    Gráficos para a tabela de alunos
+  {% endif %}
 {% endblock header %}
 
 {% block content %}
@@ -15,7 +19,11 @@
     <div class="col-md-12">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">01. Alunos por escola participante <button id="baixa-grafico-1" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">01. Students per school <button id="baixa-grafico-1" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">01. Alunos por escola participante <button id="baixa-grafico-1" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="aluno_por_escola" class="grafico-gigante"></div>
@@ -28,7 +36,11 @@
     <div class="col-md-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">02. Sexo <button id="baixa-grafico-2" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">02. Students per sex <button id="baixa-grafico-2" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">02. Sexo <button id="baixa-grafico-2" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="sexo" class="grafico"></div>
@@ -38,7 +50,11 @@
     <div class="col-md-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">03. Participação <button id="baixa-grafico-3" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">03. Participation <button id="baixa-grafico-3" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">03. Participação <button id="baixa-grafico-3" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="participacao" class="grafico"></div>
@@ -51,7 +67,11 @@
     <div class="col-md-12">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">04. Alunos divididos por raça <button id="baixa-grafico-4" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">04. Students per race <button id="baixa-grafico-4" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">04. Alunos divididos por raça <button id="baixa-grafico-4" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="raca" class="grafico-grande"></div>
@@ -71,6 +91,11 @@
   <script src="{% static 'administracao/vendor/flot/jquery.flot.pie.js' %}"></script>
   <script src="{% static 'administracao/vendor/flot.tooltip/js/jquery.flot.tooltip.min.js' %}"></script>
   <script src="{% static 'administracao/js/html2canvas.min.js' %}"></script>
-  <script src="{% static 'administracao/js/graficos_alunos.js' %}"></script>
+  
+  {% if request.session.lang == "en" %}
+    <script src="{% static 'administracao/js/graficos_alunos_en.js' %}"></script>
+  {% else %}
+    <script src="{% static 'administracao/js/graficos_alunos.js' %}"></script>
+  {% endif %}
   
 {% endblock content %}

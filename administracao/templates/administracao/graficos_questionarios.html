@@ -6,7 +6,11 @@
 {% endblock head %}
 
 {% block header %}
-  Gráficos para a tabela de questionários
+  {% if request.session.lang == "en" %}
+    Graphs for the questionnaire table
+  {% else %}
+    Gráficos para a tabela de questionários
+  {% endif %}
 {% endblock header %}
 
 {% block content %}
@@ -15,7 +19,11 @@
     <div class="col-md-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">01. Qual o grau de escolaridade mais elevado que você pretende concluir?<button id="baixa-grafico-1" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">01. What is the highest level of education you intend to complete?<button id="baixa-grafico-1" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">01. Qual o grau de escolaridade mais elevado que você pretende concluir?<button id="baixa-grafico-1" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao1" class="grafico"></div>
@@ -25,7 +33,11 @@
     <div class="col-md-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">02. Quando terminar o ciclo/curso que você está frequentando atualmente, você pretende?<button id="baixa-grafico-2" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">02. When you finish the cycle / course you are currently attending, do you intend to?<button id="baixa-grafico-2" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">02. Quando terminar o ciclo/curso que você está frequentando atualmente, você pretende?<button id="baixa-grafico-2" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao2" class="grafico"></div>
@@ -38,7 +50,11 @@
     <div class="col-md-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">03. Você mora com sua mãe?<button id="baixa-grafico-3" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">03. Do you live with your mother?<button id="baixa-grafico-3" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">03. Você mora com sua mãe?<button id="baixa-grafico-3" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao3" class="grafico"></div>
@@ -48,7 +64,11 @@
     <div class="col-md-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">04. Você mora com seu pai?<button id="baixa-grafico-4" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">04. Do you live with your father?<button id="baixa-grafico-4" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">04. Você mora com seu pai?<button id="baixa-grafico-4" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao4" class="grafico"></div>
@@ -61,7 +81,11 @@
     <div class="col-md-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">05. Contando com você, quantas pessoas moram na sua casa ou apartamento?<button id="baixa-grafico-5" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">05. Counting on you, how many people live in your house or apartment?<button id="baixa-grafico-5" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">05. Contando com você, quantas pessoas moram na sua casa ou apartamento?<button id="baixa-grafico-5" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao5" class="grafico"></div>
@@ -71,7 +95,11 @@
     <div class="col-md-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">06. Na sua casa tem telefone fixo (convencional)?<button id="baixa-grafico-6" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">06. Does your home have a landline (conventional)?<button id="baixa-grafico-6" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">06. Na sua casa tem telefone fixo (convencional)?<button id="baixa-grafico-6" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao6" class="grafico"></div>
@@ -84,7 +112,11 @@
     <div class="col-md-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">07. Você tem celular?<button id="baixa-grafico-7" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">07. Do you have a cell phone?<button id="baixa-grafico-7" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">07. Você tem celular?<button id="baixa-grafico-7" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao7" class="grafico"></div>
@@ -94,7 +126,11 @@
     <div class="col-md-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">08. Na sua casa tem computador (de mesa, notbook, laptop etc.)?<button id="baixa-grafico-8" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">08. Does your home have a computer (desktop, laptop, etc.)?<button id="baixa-grafico-8" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">08. Na sua casa tem computador (de mesa, notbook, laptop etc.)?<button id="baixa-grafico-8" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao8" class="grafico"></div>
@@ -107,7 +143,11 @@
     <div class="col-md-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">09. Você tem acesso à internet em sua casa?<button id="baixa-grafico-9" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">09. Do you have internet access in your home?<button id="baixa-grafico-9" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">09. Você tem acesso à internet em sua casa?<button id="baixa-grafico-9" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao9" class="grafico"></div>
@@ -117,7 +157,11 @@
     <div class="col-md-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">10. Alguém que mora na sua casa tem carro?<button id="baixa-grafico-10" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">10. Does anyone who lives in your house have a car?<button id="baixa-grafico-10" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">10. Alguém que mora na sua casa tem carro?<button id="baixa-grafico-10" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao10" class="grafico"></div>
@@ -130,7 +174,11 @@
     <div class="col-md-12">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">11. Alguém que mora na sua casa tem moto?<button id="baixa-grafico-11" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">11. Does anyone who lives in your house have a motorcycle?<button id="baixa-grafico-11" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">11. Alguém que mora na sua casa tem moto?<button id="baixa-grafico-11" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao11" class="grafico"></div>
@@ -142,7 +190,11 @@
     <div class="col-md-12">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">12. Quantos banheiros com chuveiro têm dentro da sua casa?<button id="baixa-grafico-12" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">12. How many bathrooms with showers do you have inside your home?<button id="baixa-grafico-12" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">12. Quantos banheiros com chuveiro têm dentro da sua casa?<button id="baixa-grafico-12" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao12" class="grafico"></div>
@@ -155,7 +207,11 @@
     <div class="col-md-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">13. Na sua casa tem empregado (a) doméstico (a)?<button id="baixa-grafico-13" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">13. Do you have a domestic worker at home?<button id="baixa-grafico-13" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">13. Na sua casa tem empregado (a) doméstico (a)?<button id="baixa-grafico-13" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao13" class="grafico"></div>
@@ -165,7 +221,11 @@
     <div class="col-md-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">14. Caso responda SIM, quantos dias esta pessoa trabalha?<button id="baixa-grafico-14" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">14. If YES, how many days does this person work?<button id="baixa-grafico-14" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">14. Caso responda SIM, quantos dias esta pessoa trabalha?<button id="baixa-grafico-14" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao14" class="grafico"></div>
@@ -178,7 +238,11 @@
     <div class="col-md-12">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">15. Qual nível de ensino (grau) sua mãe estudou ou estuda?<button id="baixa-grafico-15" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">15. What level of education (degree) did your mother study or study at?<button id="baixa-grafico-15" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">15. Qual nível de ensino (grau) sua mãe estudou ou estuda?<button id="baixa-grafico-15" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao15" class="grafico"></div>
@@ -190,7 +254,11 @@
     <div class="col-md-12">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">16. Você tem algum trabalho, emprego ou negócio atualmente?<button id="baixa-grafico-16" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">16. Do you currently have a job, job or business?<button id="baixa-grafico-16" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">16. Você tem algum trabalho, emprego ou negócio atualmente?<button id="baixa-grafico-16" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao16" class="grafico"></div>
@@ -203,7 +271,11 @@
     <div class="col-md-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">17. Você recebe dinheiro por este trabalho, emprego ou negócio?<button id="baixa-grafico-17" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">17. Do you get money for this job, job or business?<button id="baixa-grafico-17" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">17. Você recebe dinheiro por este trabalho, emprego ou negócio?<button id="baixa-grafico-17" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao17" class="grafico"></div>
@@ -213,7 +285,11 @@
     <div class="col-md-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">18. Sua família recebe benefícios do Programa Bolsa Família? Comportamento Alimentar<button id="baixa-grafico-18" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">18. Does your family receive Bolsa Familia benefits?<button id="baixa-grafico-18" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">18. Sua família recebe benefícios do Programa Bolsa Família? Comportamento Alimentar<button id="baixa-grafico-18" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao18" class="grafico"></div>
@@ -226,7 +302,11 @@
     <div class="col-md-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">19. Você costuma tomar o café da manhã?<button id="baixa-grafico-19" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">19. Do you usually have breakfast?<button id="baixa-grafico-19" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">19. Você costuma tomar o café da manhã?<button id="baixa-grafico-19" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao19" class="grafico"></div>
@@ -236,7 +316,11 @@
     <div class="col-md-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">20. Você costuma almoçar ou jantar com sua mãe, pai ou responsável?<button id="baixa-grafico-20" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">20. Do you usually have lunch or dinner with your mother, father or guardian?<button id="baixa-grafico-20" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">20. Você costuma almoçar ou jantar com sua mãe, pai ou responsável?<button id="baixa-grafico-20" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao20" class="grafico"></div>
@@ -249,7 +333,11 @@
     <div class="col-md-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">21. Você costuma comer quando está assistindo à TV ou estudando?<button id="baixa-grafico-21" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">21. Do you usually eat when watching TV or studying?<button id="baixa-grafico-21" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">21. Você costuma comer quando está assistindo à TV ou estudando?<button id="baixa-grafico-21" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao21" class="grafico"></div>
@@ -259,7 +347,11 @@
     <div class="col-md-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">22. Sua escola oferece comida (merenda escolar/almoço) aos alunos da sua turma? (Não considerar lanches/comida comprados na cantina)<button id="baixa-grafico-22" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">22. Does your school offer food (school lunch / lunch) to students in your class? (Do not consider canteen-bought snacks / food)<button id="baixa-grafico-22" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">22. Sua escola oferece comida (merenda escolar/almoço) aos alunos da sua turma? (Não considerar lanches/comida comprados na cantina)<button id="baixa-grafico-22" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao22" class="grafico"></div>
@@ -272,7 +364,11 @@
     <div class="col-md-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">23. Você costuma comer a comida (merenda/almoço) oferecida pela escola? (Não considerar lanches/comida comprados na cantina)<button id="baixa-grafico-23" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">23. Do you usually eat the food (meals / lunch) offered by the school?<button id="baixa-grafico-23" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">23. Você costuma comer a comida (merenda/almoço) oferecida pela escola? (Não considerar lanches/comida comprados na cantina)<button id="baixa-grafico-23" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao23" class="grafico"></div>
@@ -282,7 +378,11 @@
     <div class="col-md-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">24. Nos últimos 30 dias, com que frequência você ficou com fome por não ter comida suficiente em sua casa?<button id="baixa-grafico-24" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">24. In the last 30 days, how often have you been hungry for not having enough food in your home?<button id="baixa-grafico-24" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">24. Nos últimos 30 dias, com que frequência você ficou com fome por não ter comida suficiente em sua casa?<button id="baixa-grafico-24" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao24" class="grafico"></div>
@@ -295,7 +395,11 @@
     <div class="col-md-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">25. Leite de vaca:<button id="baixa-grafico-25" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">25. Cow milk: <button id="baixa-grafico-25" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">25. Leite de vaca:<button id="baixa-grafico-25" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao25" class="grafico"></div>
@@ -305,7 +409,11 @@
     <div class="col-md-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">26. Leite de vaca com adição de achocolatados em pó (nescau, toddy, ovomaltine), mel ou açúcar:<button id="baixa-grafico-26" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">26. Cow\'s milk with added chocolate powder (nescau, toddy, ovomaltine), honey or sugar:<button id="baixa-grafico-26" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">26. Leite de vaca com adição de achocolatados em pó (nescau, toddy, ovomaltine), mel ou açúcar:<button id="baixa-grafico-26" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao26" class="grafico"></div>
@@ -318,7 +426,11 @@
     <div class="col-md-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">27. Achocolatados líquidos comprados em supermercados como, por exemplo: Todyynho, Chokinho; Nescau; Italac etc.<button id="baixa-grafico-27" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">27. Liquid chocolate bought in supermarkets, such as Todyynho, Chokinho; Nescau; Italac etc.<button id="baixa-grafico-27" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">27. Achocolatados líquidos comprados em supermercados como, por exemplo: Todyynho, Chokinho; Nescau; Italac etc.<button id="baixa-grafico-27" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao27" class="grafico"></div>
@@ -328,7 +440,11 @@
     <div class="col-md-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">28. Iogurte como, por exemplo: Danone, Danoninho, Nestlé, Ninho, etc.<button id="baixa-grafico-28" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">28. Yogurt such as Danone, Danoninho, Nestlé, Ninho, etc.<button id="baixa-grafico-28" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">28. Iogurte como, por exemplo: Danone, Danoninho, Nestlé, Ninho, etc.<button id="baixa-grafico-28" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao28" class="grafico"></div>
@@ -341,7 +457,11 @@
     <div class="col-md-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">29. Queijo.<button id="baixa-grafico-29" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">29. Cheese.<button id="baixa-grafico-29" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">29. Queijo.<button id="baixa-grafico-29" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao29" class="grafico"></div>
@@ -351,7 +471,11 @@
     <div class="col-md-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">30. Sobremesas feitas com leite (pudim, flam, pudim de chocolate, creme de leite).<button id="baixa-grafico-30" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">30. Desserts made with milk (pudding, flam, chocolate pudding, sour cream).<button id="baixa-grafico-30" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">30. Sobremesas feitas com leite (pudim, flam, pudim de chocolate, creme de leite).<button id="baixa-grafico-30" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao30" class="grafico"></div>
@@ -364,7 +488,11 @@
     <div class="col-md-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">31. Gelados (Picolé, sorvete, geladinho).<button id="baixa-grafico-31" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">31. Ice Cream (Popsicle, Ice Cream, Ice Cream).<button id="baixa-grafico-31" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">31. Gelados (Picolé, sorvete, geladinho).<button id="baixa-grafico-31" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao31" class="grafico"></div>
@@ -374,7 +502,11 @@
     <div class="col-md-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">32. Pão ou torrada (torrada é o mesmo que pão, sendo que em torrado).<button id="baixa-grafico-32" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">32. Bread or toast (Toast is the same as bread, but toasted).<button id="baixa-grafico-32" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">32. Pão ou torrada (torrada é o mesmo que pão, sendo que em torrado).<button id="baixa-grafico-32" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao32" class="grafico"></div>
@@ -387,7 +519,11 @@
     <div class="col-md-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">33. Flocos de cereais açucarados (por exemplo, flocos conhecidos como sucrilhos ou equivalentes, nescau cereal), etc.<button id="baixa-grafico-33" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">33. Sugary cereal flakes (for example, flakes known as cornflakes or the like, nescau cereal), etc.<button id="baixa-grafico-33" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">33. Flocos de cereais açucarados (por exemplo, flocos conhecidos como sucrilhos ou equivalentes, nescau cereal), etc.<button id="baixa-grafico-33" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao33" class="grafico"></div>
@@ -397,7 +533,11 @@
     <div class="col-md-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">34. Flocos de cereais (aveia, milho, centeio, como os da marca Nesfit e Nutry)<button id="baixa-grafico-34" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">34. Cereal flakes (oats, maize, rye, such as Nesfit and Nutry)<button id="baixa-grafico-34" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">34. Flocos de cereais (aveia, milho, centeio, como os da marca Nesfit e Nutry)<button id="baixa-grafico-34" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao34" class="grafico"></div>
@@ -410,7 +550,11 @@
     <div class="col-md-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">35. Arroz, massas, batatas.<button id="baixa-grafico-35" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">35. Rice, pasta, potatoes.<button id="baixa-grafico-35" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">35. Arroz, massas, batatas.<button id="baixa-grafico-35" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao35" class="grafico"></div>
@@ -420,7 +564,11 @@
     <div class="col-md-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">36. Batatas fritas pacote Ruffles, Pringles, Lay’s<button id="baixa-grafico-36" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">36. Chips Pack Ruffles, Pringles, Lay\'s<button id="baixa-grafico-36" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">36. Batatas fritas pacote Ruffles, Pringles, Lay’s<button id="baixa-grafico-36" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao36" class="grafico"></div>
@@ -433,7 +581,11 @@
     <div class="col-md-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">37. Batatas fritas caseiras.<button id="baixa-grafico-37" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">37. Homemade French Fries.<button id="baixa-grafico-37" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">37. Batatas fritas caseiras.<button id="baixa-grafico-37" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao37" class="grafico"></div>
@@ -443,7 +595,11 @@
     <div class="col-md-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">38. Bolachas Maria, bolachas Mabel, biscoitos ou bolachas cream cracker, (ou água e sal) etc.<button id="baixa-grafico-38" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">38. Maria biscuits, Mabel biscuits, cream crackers (or water and salt) etc.<button id="baixa-grafico-38" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">38. Bolachas Maria, bolachas Mabel, biscoitos ou bolachas cream cracker, (ou água e sal) etc.<button id="baixa-grafico-38" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao38" class="grafico"></div>
@@ -456,7 +612,11 @@
     <div class="col-md-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">39. Outras bolachas (biscoitos recheados como Bono, Trakinas e Oreo).<button id="baixa-grafico-39" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">39. Other cookies (stuffed cookies like Bono, Trakinas and Oreo).<button id="baixa-grafico-39" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">39. Outras bolachas (biscoitos recheados como Bono, Trakinas e Oreo).<button id="baixa-grafico-39" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao39" class="grafico"></div>
@@ -466,7 +626,11 @@
     <div class="col-md-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">40. Produtos de pastelaria (coxinhas, pastéis, salgadinhos de queijo, kibes).<button id="baixa-grafico-40" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">40. Pastry products (drumsticks, pastries, cheese chips, kibes).<button id="baixa-grafico-40" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">40. Produtos de pastelaria (coxinhas, pastéis, salgadinhos de queijo, kibes).<button id="baixa-grafico-40" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao40" class="grafico"></div>
@@ -479,7 +643,11 @@
     <div class="col-md-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">41. Snacks (chocolates vendidos em barrinhas, como Twix, Kitkat, Bis e Chokito)<button id="baixa-grafico-41" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">41. Snacks (chocolate sold in bars, such as Twix, Kitkat, Bis and Chokito)<button id="baixa-grafico-41" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">41. Snacks (chocolates vendidos em barrinhas, como Twix, Kitkat, Bis e Chokito)<button id="baixa-grafico-41" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao41" class="grafico"></div>
@@ -489,7 +657,11 @@
     <div class="col-md-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">42. Marmelada, doce em potinho, geleia, mel. (Como Paçoquita, Melzinho e Pé de moleque)<button id="baixa-grafico-42" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">42. Marmalade, sweet in jars, jam, honey. (Like Paçoquita, Melzinho and Kid\'s foot)<button id="baixa-grafico-42" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">42. Marmelada, doce em potinho, geleia, mel. (Como Paçoquita, Melzinho e Pé de moleque)<button id="baixa-grafico-42" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao42" class="grafico"></div>
@@ -502,7 +674,11 @@
     <div class="col-md-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">43. Açúcares em geral.<button id="baixa-grafico-43" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">43. Sugars in general.<button id="baixa-grafico-43" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">43. Açúcares em geral.<button id="baixa-grafico-43" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao43" class="grafico"></div>
@@ -512,7 +688,11 @@
     <div class="col-md-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">44. Sopas comuns caseiras (de carne, frango ou legumes)<button id="baixa-grafico-44" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">44. Homemade common soups (meat, chicken or vegetables)<button id="baixa-grafico-44" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">44. Sopas comuns caseiras (de carne, frango ou legumes)<button id="baixa-grafico-44" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao44" class="grafico"></div>
@@ -525,7 +705,11 @@
     <div class="col-md-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">45. Vegetais crus em salada ou cozinhados (Cenoura, couve flor, brócolis, alface, beterraba, agrião)<button id="baixa-grafico-45" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">45. Raw salad or cooked vegetables (Carrot, Cauliflower, Broccoli, Lettuce, Beetroot, Watercress)<button id="baixa-grafico-45" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">45. Vegetais crus em salada ou cozinhados (Cenoura, couve flor, brócolis, alface, beterraba, agrião)<button id="baixa-grafico-45" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao45" class="grafico"></div>
@@ -535,7 +719,11 @@
     <div class="col-md-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">46. Leguminosas (feijão, grão de bico, ervilhas, favas).<button id="baixa-grafico-46" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">46. Legumes (beans, chickpeas, peas, broad beans).<button id="baixa-grafico-46" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">46. Leguminosas (feijão, grão de bico, ervilhas, favas).<button id="baixa-grafico-46" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao46" class="grafico"></div>
@@ -548,7 +736,11 @@
     <div class="col-md-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">47. Fruta fresca. (Manga, caju, banana, goiaba, acerola, murici, maça, laranja)<button id="baixa-grafico-47" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">47. Fresh fruit. (Mango, cashew, banana, guava, acerola, murici, apple, orange)<button id="baixa-grafico-47" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">47. Fruta fresca. (Manga, caju, banana, goiaba, acerola, murici, maça, laranja)<button id="baixa-grafico-47" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao47" class="grafico"></div>
@@ -558,7 +750,11 @@
     <div class="col-md-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">48. Frutos enlatados em calda: (pêssego, banana, caju, goiaba).<button id="baixa-grafico-48" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">48. Canned fruit in syrup: (peach, banana, cashew, guava).<button id="baixa-grafico-48" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">48. Frutos enlatados em calda: (pêssego, banana, caju, goiaba).<button id="baixa-grafico-48" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao48" class="grafico"></div>
@@ -571,7 +767,11 @@
     <div class="col-md-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">49. Sucos naturais (de laranja, acerola, tangerina, uva)<button id="baixa-grafico-49" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">49. Natural juices (Orange, Acerola, Tangerine, Grape)<button id="baixa-grafico-49" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">49. Sucos naturais (de laranja, acerola, tangerina, uva)<button id="baixa-grafico-49" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao49" class="grafico"></div>
@@ -581,7 +781,11 @@
     <div class="col-md-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">50. Refrigerantes (Coca cola, graraná ou fanta) ou ainda sucos de caixinha com néctar (como Kapo, del Valle)<button id="baixa-grafico-50" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">50. Soft drinks (Coca cola, Grana or Fanta) or boxed juices with nectar (such as Kapo, del Valle)<button id="baixa-grafico-50" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">50. Refrigerantes (Coca cola, graraná ou fanta) ou ainda sucos de caixinha com néctar (como Kapo, del Valle)<button id="baixa-grafico-50" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao50" class="grafico"></div>
@@ -594,7 +798,11 @@
     <div class="col-md-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">51. Pizzas. (Mini Pizza por exemplo)<button id="baixa-grafico-51" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">51. Pizzas. (Mini Pizza for example)<button id="baixa-grafico-51" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">51. Pizzas. (Mini Pizza por exemplo)<button id="baixa-grafico-51" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao51" class="grafico"></div>
@@ -604,7 +812,11 @@
     <div class="col-md-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">52. Hamburguer e cachorro quente.<button id="baixa-grafico-52" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">52. Burger and hot dog.<button id="baixa-grafico-52" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">52. Hamburguer e cachorro quente.<button id="baixa-grafico-52" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao52" class="grafico"></div>
@@ -617,7 +829,11 @@
     <div class="col-md-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">53. Rebuçados, gomas, pastilhas elásticas. (Chicletes, balinhas, jujubas)<button id="baixa-grafico-53" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">53. Candies, gums, chewing gum. (Chewing Gum, Candies, Jelly Beans)<button id="baixa-grafico-53" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">53. Rebuçados, gomas, pastilhas elásticas. (Chicletes, balinhas, jujubas)<button id="baixa-grafico-53" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao53" class="grafico"></div>
@@ -627,7 +843,11 @@
     <div class="col-md-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">54. Rosquinhas (como Donuts, Sonhos, Rosquinhas de Polvilho, Pão de Mel) Hábitos Alimentares quando o (a) estudante tinha menos de dois anos de idade<button id="baixa-grafico-54" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">54. Donuts (like Donuts, Dreams, Sprinkles Donuts, Gingerbread)<button id="baixa-grafico-54" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">54. Rosquinhas (como Donuts, Sonhos, Rosquinhas de Polvilho, Pão de Mel) Hábitos Alimentares quando o (a) estudante tinha menos de dois anos de idade<button id="baixa-grafico-54" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao54" class="grafico"></div>
@@ -640,7 +860,11 @@
     <div class="col-md-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">55. Seu filho (a) foi alimentado (a) com leite materno?<button id="baixa-grafico-55" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">55. Has your child been fed breast milk?<button id="baixa-grafico-55" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">55. Seu filho (a) foi alimentado (a) com leite materno?<button id="baixa-grafico-55" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao55" class="grafico"></div>
@@ -650,7 +874,11 @@
     <div class="col-md-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">56. Ele (a) mamou (apenas no peito) até quantos meses de idade?<button id="baixa-grafico-56" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">56. Did you breastfeed (chest only) until how many months old?<button id="baixa-grafico-56" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">56. Ele (a) mamou (apenas no peito) até quantos meses de idade?<button id="baixa-grafico-56" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao56" class="grafico"></div>
@@ -663,7 +891,11 @@
     <div class="col-md-12">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">57. Se seu filho ou sua filha mamou até seis meses ou mais, até quantos meses ele (a) mamou no peito (mesmo que tenha se alimentado com outras comidas ou bebidas) Meu (minha) Filho (filha) mamou no peito até:<button id="baixa-grafico-57" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">57. If your child has breastfed for up to six months or more, how many months he or she has breastfed (even if he or she has eaten other foods or drinks)<button id="baixa-grafico-57" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">57. Se seu filho ou sua filha mamou até seis meses ou mais, até quantos meses ele (a) mamou no peito (mesmo que tenha se alimentado com outras comidas ou bebidas) Meu (minha) Filho (filha) mamou no peito até:<button id="baixa-grafico-57" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao57" class="grafico"></div>
@@ -675,7 +907,11 @@
     <div class="col-md-12">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">58. Antes de completar dois anos de idade, seu filho (a) foi alimentado (a) com leite industrial? (aquele leite comprado nas farmácias ou supermercados)<button id="baixa-grafico-58" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">58. Before you were two years old, was your child fed industrial milk? (that milk bought at pharmacies or supermarkets)<button id="baixa-grafico-58" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">58. Antes de completar dois anos de idade, seu filho (a) foi alimentado (a) com leite industrial? (aquele leite comprado nas farmácias ou supermercados)<button id="baixa-grafico-58" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao58" class="grafico"></div>
@@ -688,7 +924,11 @@
     <div class="col-md-12">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">59. Caso sua resposta tenha sido SIM, até quantos meses ele se alimentou de leite industrial, isto é, aquele leite que é comprado nas farmácias e supermercados?<button id="baixa-grafico-59" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">59. If your answer was YES, how many months did he feed on industrial milk, that is, milk that is bought at pharmacies and supermarkets?<button id="baixa-grafico-59" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">59. Caso sua resposta tenha sido SIM, até quantos meses ele se alimentou de leite industrial, isto é, aquele leite que é comprado nas farmácias e supermercados?<button id="baixa-grafico-59" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao59" class="grafico"></div>
@@ -700,7 +940,11 @@
     <div class="col-md-12">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">60. Até dois anos de idade, seu filho ou sua filha recebeu alimentação mista, isto é:<button id="baixa-grafico-60" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">60. Up to two years of age, your son or daughter has received mixed feeding, ie:<button id="baixa-grafico-60" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">60. Até dois anos de idade, seu filho ou sua filha recebeu alimentação mista, isto é:<button id="baixa-grafico-60" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao60" class="grafico"></div>
@@ -713,7 +957,11 @@
     <div class="col-md-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">61. Até dois anos de idade, seu filho ou sua filha tomou leite de vaca?<button id="baixa-grafico-61" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">61. Up to two years old, did your son or daughter drink cow\'s milk?<button id="baixa-grafico-61" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">61. Até dois anos de idade, seu filho ou sua filha tomou leite de vaca?<button id="baixa-grafico-61" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao61" class="grafico"></div>
@@ -723,7 +971,11 @@
     <div class="col-md-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">62. Caso sua resposta tenha sido sim, com que idade (em meses) ele começou a tomar leite de vaca?<button id="baixa-grafico-62" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">62. If so, at what age (in months) did he start drinking cow\'s milk?<button id="baixa-grafico-62" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">62. Caso sua resposta tenha sido sim, com que idade (em meses) ele começou a tomar leite de vaca?<button id="baixa-grafico-62" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao62" class="grafico"></div>
@@ -736,7 +988,11 @@
     <div class="col-md-12">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">63. Nos últimos dias, em quantos deles você foi a pé ou de bicicleta para a escola?<button id="baixa-grafico-63" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">63. In the last few days, how many of them have you been walking or cycling to school?<button id="baixa-grafico-63" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">63. Nos últimos dias, em quantos deles você foi a pé ou de bicicleta para a escola?<button id="baixa-grafico-63" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao63" class="grafico"></div>
@@ -748,7 +1004,11 @@
     <div class="col-md-12">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">64. Quando você vai para a escola a pé ou de bicicleta, quanto tempo você gasta?<button id="baixa-grafico-64" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">64. When you go to school on foot or by bike, how much time do you spend?<button id="baixa-grafico-64" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">64. Quando você vai para a escola a pé ou de bicicleta, quanto tempo você gasta?<button id="baixa-grafico-64" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao64" class="grafico"></div>
@@ -761,7 +1021,11 @@
     <div class="col-md-12">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">65. Nos últimos 7 dias, quantos dias você teve aulas de educação física na escola?<button id="baixa-grafico-65" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">65. In the last 7 days, how many days did you take PE classes at school?<button id="baixa-grafico-65" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">65. Nos últimos 7 dias, quantos dias você teve aulas de educação física na escola?<button id="baixa-grafico-65" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao65" class="grafico"></div>
@@ -773,7 +1037,11 @@
     <div class="col-md-12">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">66. Nos últimos sete dias, quanto tempo por dia você fez atividade física ou esporte durante as aulas de educação física na escola?<button id="baixa-grafico-66" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">66. In the last seven days, how long per day did you do physical activity or sport during physical education classes at school?<button id="baixa-grafico-66" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">66. Nos últimos sete dias, quanto tempo por dia você fez atividade física ou esporte durante as aulas de educação física na escola?<button id="baixa-grafico-66" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao66" class="grafico"></div>
@@ -786,7 +1054,11 @@
     <div class="col-md-12">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">67. Nos últimos 7 dias, sem contar as aulas de educação física da escola, em quantos dias você praticou alguma atividade física, como esportes, dança, ginástica, musculação, lutas ou outra atividade?<button id="baixa-grafico-67" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">67. In the last 7 days, not counting school physical education classes, how many days have you been engaged in any physical activity such as sports, dancing, gymnastics, bodybuilding, wrestling or any other activity?<button id="baixa-grafico-67" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">67. Nos últimos 7 dias, sem contar as aulas de educação física da escola, em quantos dias você praticou alguma atividade física, como esportes, dança, ginástica, musculação, lutas ou outra atividade?<button id="baixa-grafico-67" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao67" class="grafico"></div>
@@ -798,7 +1070,11 @@
     <div class="col-md-12">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">68. Normalmente, quanto tempo por dia duram essas atividades (como esportes, dança, ginástica, musculação, lutas ou outra atividade) que você faz? (Sem contar as aulas de educação física)<button id="baixa-grafico-68" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">68. How often do these activities (such as sports, dance, gymnastics, bodybuilding, wrestling, or other activity) last a day? (Not counting physical education classes)<button id="baixa-grafico-68" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">68. Normalmente, quanto tempo por dia duram essas atividades (como esportes, dança, ginástica, musculação, lutas ou outra atividade) que você faz? (Sem contar as aulas de educação física)<button id="baixa-grafico-68" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao68" class="grafico"></div>
@@ -811,7 +1087,11 @@
     <div class="col-md-12">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">69. Nos últimos 7 dias, em quantos dias você fez atividade física por pelo menos 60 minutos (1 hora) por dia? (Some todo o tempo que você gastou em qualquer tipo de atividade física, em cada dia)<button id="baixa-grafico-69" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">69. In the last 7 days, how many days have you been doing physical activity for at least 60 minutes (1 hour) a day? (Add up all the time you spent on any kind of physical activity each day)<button id="baixa-grafico-69" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">69. Nos últimos 7 dias, em quantos dias você fez atividade física por pelo menos 60 minutos (1 hora) por dia? (Some todo o tempo que você gastou em qualquer tipo de atividade física, em cada dia)<button id="baixa-grafico-69" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao69" class="grafico"></div>
@@ -823,7 +1103,11 @@
     <div class="col-md-12">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">70. Se você tivesse oportunidade de fazer atividade física na maioria dos dias da semana, qual seria a sua atitude?<button id="baixa-grafico-70" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">70. If you had the opportunity to do physical activity most days of the week, what would you do?<button id="baixa-grafico-70" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">70. Se você tivesse oportunidade de fazer atividade física na maioria dos dias da semana, qual seria a sua atitude?<button id="baixa-grafico-70" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao70" class="grafico"></div>
@@ -836,7 +1120,11 @@
     <div class="col-md-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">71. Em um dia de semana comum, quantas horas por dia você assiste a TV? (não contar sábado, domingo e feriado)<button id="baixa-grafico-71" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">71. On a typical weekday, how many hours a day do you watch TV? (do not count Saturday, Sunday and holiday)<button id="baixa-grafico-71" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">71. Em um dia de semana comum, quantas horas por dia você assiste a TV? (não contar sábado, domingo e feriado)<button id="baixa-grafico-71" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao71" class="grafico"></div>
@@ -846,7 +1134,11 @@
     <div class="col-md-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">72. Em um dia de semana comum, quanto tempo você fica sentado(a), assistindo televisão, usando computador, jogando videogame, conversando com amigos(as) ou fazendo outras atividades sentado(a)? (não contar sábado, domingo, feriados e o tempo sentado na escola)<button id="baixa-grafico-72" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">72. On a typical weekday, how long do you sit around watching television, using a computer, playing video games, talking to friends, or doing other sitting activities? (do not count Saturday, Sunday, holidays and time sitting at school)<button id="baixa-grafico-72" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">72. Em um dia de semana comum, quanto tempo você fica sentado(a), assistindo televisão, usando computador, jogando videogame, conversando com amigos(as) ou fazendo outras atividades sentado(a)? (não contar sábado, domingo, feriados e o tempo sentado na escola)<button id="baixa-grafico-72" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao72" class="grafico"></div>
@@ -859,7 +1151,11 @@
     <div class="col-md-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">73. Alguma vez na vida, você já fumou cigarro, mesmo uma ou duas tragadas?<button id="baixa-grafico-73" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">73. Have you ever smoked a cigarette, even one or two puffs?<button id="baixa-grafico-73" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">73. Alguma vez na vida, você já fumou cigarro, mesmo uma ou duas tragadas?<button id="baixa-grafico-73" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao73" class="grafico"></div>
@@ -869,7 +1165,11 @@
     <div class="col-md-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">74. Que idade você tinha quando experimentou fumar cigarro pela primeira vez?<button id="baixa-grafico-74" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">74. How old were you when you first tried cigarette smoking?<button id="baixa-grafico-74" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">74. Que idade você tinha quando experimentou fumar cigarro pela primeira vez?<button id="baixa-grafico-74" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao74" class="grafico"></div>
@@ -882,7 +1182,11 @@
     <div class="col-md-12">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">75. Nos últimos 30 dias, em quantos dias você fumou cigarros?<button id="baixa-grafico-75" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">75. In the last 30 days, how many days have you smoked cigarettes?<button id="baixa-grafico-75" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">75. Nos últimos 30 dias, em quantos dias você fumou cigarros?<button id="baixa-grafico-75" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao75" class="grafico"></div>
@@ -894,7 +1198,11 @@
     <div class="col-md-12">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">76. Nos últimos 30 dias, em geral, como você conseguiu seus próprios cigarros?<button id="baixa-grafico-76" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">76. In the last 30 days, in general, how did you get your own cigarettes?<button id="baixa-grafico-76" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">76. Nos últimos 30 dias, em geral, como você conseguiu seus próprios cigarros?<button id="baixa-grafico-76" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao76" class="grafico"></div>
@@ -907,7 +1215,11 @@
     <div class="col-md-12">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">77. Nos ultimos 30 dias, alguém se recusou a lhe vender cigarros por causa de sua idade?<button id="baixa-grafico-77" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">77. In the last 30 days, has anyone refused to sell you cigarettes because of your age?<button id="baixa-grafico-77" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">77. Nos ultimos 30 dias, alguém se recusou a lhe vender cigarros por causa de sua idade?<button id="baixa-grafico-77" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao77" class="grafico"></div>
@@ -919,7 +1231,11 @@
     <div class="col-md-12">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">78. Nos últimos 30 dias, em quantos dias você usou outros produtos de tabaco: cigarros de palha ou enrolados a mão, charuto, cachimbo, cigarrilha, cigarro indiano ou bali, narguilé, rapé, fumo de mascar etc.? (não incluir cigarro comum)<button id="baixa-grafico-78" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">78. In the past 30 days, how many days have you used other tobacco products: straw or hand-rolled cigarettes, cigar, pipe, cigarillo, Indian or bali cigarette, hookah, snuff, chewing tobacco, etc.? (not include regular cigarette)<button id="baixa-grafico-78" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">78. Nos últimos 30 dias, em quantos dias você usou outros produtos de tabaco: cigarros de palha ou enrolados a mão, charuto, cachimbo, cigarrilha, cigarro indiano ou bali, narguilé, rapé, fumo de mascar etc.? (não incluir cigarro comum)<button id="baixa-grafico-78" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao78" class="grafico"></div>
@@ -932,7 +1248,11 @@
     <div class="col-md-12">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">79. Qual outro produto do tabaco você usou com mais frequência nos últimos 30 dias?<button id="baixa-grafico-79" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">79. Which other tobacco product have you used most often in the last 30 days?<button id="baixa-grafico-79" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">79. Qual outro produto do tabaco você usou com mais frequência nos últimos 30 dias?<button id="baixa-grafico-79" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao79" class="grafico"></div>
@@ -944,7 +1264,11 @@
     <div class="col-md-12">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">80. Nos últimos 7 dias, em quantos dias pessoas fumaram na sua presença?<button id="baixa-grafico-80" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">80. In the last 7 days, how many days did people smoke in your presence?<button id="baixa-grafico-80" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">80. Nos últimos 7 dias, em quantos dias pessoas fumaram na sua presença?<button id="baixa-grafico-80" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao80" class="grafico"></div>
@@ -957,7 +1281,11 @@
     <div class="col-md-12">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">81. Algum de seus pais ou responsáveis fuma?<button id="baixa-grafico-81" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">81. Do any of your parents or guardians smoke?<button id="baixa-grafico-81" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">81. Algum de seus pais ou responsáveis fuma?<button id="baixa-grafico-81" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao81" class="grafico"></div>
@@ -969,7 +1297,11 @@
     <div class="col-md-12">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">82. Alguma vez na vida você tomou uma dose de bebida alcoólica (uma dose equivale a uma lata de cerveja ou uma taça de vinho ou uma dose de cachaça ou uísque etc.)?<button id="baixa-grafico-82" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">82. Have you ever had a shot of alcohol (a shot is like a can of beer or a glass of wine or a shot of rum or whiskey, etc.)?<button id="baixa-grafico-82" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">82. Alguma vez na vida você tomou uma dose de bebida alcoólica (uma dose equivale a uma lata de cerveja ou uma taça de vinho ou uma dose de cachaça ou uísque etc.)?<button id="baixa-grafico-82" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao82" class="grafico"></div>
@@ -982,7 +1314,11 @@
     <div class="col-md-12">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">83. Que idade você tinha quando tomou a primeira dose de bebida alcoólica (uma dose equivale a uma lata de cerveja ou uma taça de vinho ou uma dose de cachaça ou uísque etc.)?<button id="baixa-grafico-83" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">83. How old were you when you had your first shot of alcohol (one shot is like a can of beer or a glass of wine or a shot of rum or whiskey, etc.)?<button id="baixa-grafico-83" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">83. Que idade você tinha quando tomou a primeira dose de bebida alcoólica (uma dose equivale a uma lata de cerveja ou uma taça de vinho ou uma dose de cachaça ou uísque etc.)?<button id="baixa-grafico-83" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao83" class="grafico"></div>
@@ -994,7 +1330,11 @@
     <div class="col-md-12">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">84. Nos últimos 30 dias, em quantos dias você tomou pelo menos um copo ou uma dose de bebida alcoólica (uma dose equivale a uma lata de cerveja ou uma taça de vinho ou uma dose de cachaça ou uísque etc.)?<button id="baixa-grafico-84" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">84. Over the past 30 days, how many days have you had at least one glass or one shot of alcohol (one shot equals one can of beer or one glass of wine or one shot of rum or whiskey, etc.)?<button id="baixa-grafico-84" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">84. Nos últimos 30 dias, em quantos dias você tomou pelo menos um copo ou uma dose de bebida alcoólica (uma dose equivale a uma lata de cerveja ou uma taça de vinho ou uma dose de cachaça ou uísque etc.)?<button id="baixa-grafico-84" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao84" class="grafico"></div>
@@ -1007,7 +1347,11 @@
     <div class="col-md-12">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">85. Nos últimos 30 dias, nos dias em que você tomou alguma bebida alcoólica, quantos copos ou doses você tomou por dia?<button id="baixa-grafico-85" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">85. In the last 30 days, on the days you had a drink, how many glasses or drinks did you have a day?<button id="baixa-grafico-85" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">85. Nos últimos 30 dias, nos dias em que você tomou alguma bebida alcoólica, quantos copos ou doses você tomou por dia?<button id="baixa-grafico-85" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao85" class="grafico"></div>
@@ -1019,7 +1363,11 @@
     <div class="col-md-12">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">86. Nos últimos 30 dias, na maioria das vezes, como você conseguiu a bebida que tomou?<button id="baixa-grafico-86" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">86. Over the past 30 days, most of the time, how did you get the drink you had?<button id="baixa-grafico-86" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">86. Nos últimos 30 dias, na maioria das vezes, como você conseguiu a bebida que tomou?<button id="baixa-grafico-86" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao86" class="grafico"></div>
@@ -1032,7 +1380,11 @@
     <div class="col-md-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">87. Na sua vida, quantas vezes você bebeu tanto que ficou realmente bêbado(a)?<button id="baixa-grafico-87" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">87. How many times in your life did you drink so much that you were really drunk?<button id="baixa-grafico-87" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">87. Na sua vida, quantas vezes você bebeu tanto que ficou realmente bêbado(a)?<button id="baixa-grafico-87" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao87" class="grafico"></div>
@@ -1042,7 +1394,11 @@
     <div class="col-md-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">88. Na sua vida, quantas vezes você teve problemas com sua família ou amigos, perdeu aulas ou brigou por que tinha bebido?<button id="baixa-grafico-88" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">88. How many times in your life have you had problems with family or friends, missed classes, or fought over drinking?<button id="baixa-grafico-88" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">88. Na sua vida, quantas vezes você teve problemas com sua família ou amigos, perdeu aulas ou brigou por que tinha bebido?<button id="baixa-grafico-88" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao88" class="grafico"></div>
@@ -1055,7 +1411,11 @@
     <div class="col-md-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">89. Quantos amigos seus consomem bebida alcoólica?<button id="baixa-grafico-89" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">89. How many of your friends drink alcohol?<button id="baixa-grafico-89" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">89. Quantos amigos seus consomem bebida alcoólica?<button id="baixa-grafico-89" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao89" class="grafico"></div>
@@ -1065,7 +1425,11 @@
     <div class="col-md-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">90. Alguma vez na vida, você já usou alguma droga como: maconha, cocaína, crack, cola, loló, lança-perfume, ecstasy, oxy etc.?<button id="baixa-grafico-90" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">90. Have you ever used drugs like marijuana, cocaine, crack, glue, loló, perfume thrower, ecstasy, oxy etc.?<button id="baixa-grafico-90" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">90. Alguma vez na vida, você já usou alguma droga como: maconha, cocaína, crack, cola, loló, lança-perfume, ecstasy, oxy etc.?<button id="baixa-grafico-90" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao90" class="grafico"></div>
@@ -1078,7 +1442,11 @@
     <div class="col-md-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">91. Que idade você tinha quando usou alguma droga como: maconha, cocaína, crack, cola, loló, lança-perfume, ecstasy, oxy ou outra pela primeira vez?<button id="baixa-grafico-91" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">91. How old were you when you used a drug like marijuana, cocaine, crack, cola, loló, scent launcher, ecstasy, oxy or another for the first time?<button id="baixa-grafico-91" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">91. Que idade você tinha quando usou alguma droga como: maconha, cocaína, crack, cola, loló, lança-perfume, ecstasy, oxy ou outra pela primeira vez?<button id="baixa-grafico-91" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao91" class="grafico"></div>
@@ -1088,7 +1456,11 @@
     <div class="col-md-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">92. Nos ultimos 30 dias, quantos dias você usou droga como maconha, cocaína, crack, cola, loló, lança-perfume, ecstasy, oxy etc.?<button id="baixa-grafico-92" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">92. In the last 30 days, how many days have you used drugs like marijuana, cocaine, crack, glue, loló, perfume thrower, ecstasy, oxy etc.?<button id="baixa-grafico-92" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">92. Nos ultimos 30 dias, quantos dias você usou droga como maconha, cocaína, crack, cola, loló, lança-perfume, ecstasy, oxy etc.?<button id="baixa-grafico-92" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao92" class="grafico"></div>
@@ -1101,7 +1473,11 @@
     <div class="col-md-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">93. Nos últimos 30 dias, quantos dias você usou maconha?<button id="baixa-grafico-93" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">93. In the last 30 days, how many days have you used cannabis?<button id="baixa-grafico-93" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">93. Nos últimos 30 dias, quantos dias você usou maconha?<button id="baixa-grafico-93" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao93" class="grafico"></div>
@@ -1111,7 +1487,11 @@
     <div class="col-md-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">94. Nos últimos 30 dias, quantos dias você usou crack?<button id="baixa-grafico-94" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">94. In the last 30 days, how many days have you used crack?<button id="baixa-grafico-94" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">94. Nos últimos 30 dias, quantos dias você usou crack?<button id="baixa-grafico-94" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao94" class="grafico"></div>
@@ -1124,7 +1504,11 @@
     <div class="col-md-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">95. Quantos amigos seus usam drogas?<button id="baixa-grafico-95" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">95. How many of your friends use drugs?<button id="baixa-grafico-95" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">95. Quantos amigos seus usam drogas?<button id="baixa-grafico-95" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao95" class="grafico"></div>
@@ -1134,7 +1518,11 @@
     <div class="col-md-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">96. Nos últimos 30 dias, em quantos dias você faltou às aulas ou à escola sem permissão dos seus pais ou responsáveis?<button id="baixa-grafico-96" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">96. Over the past 30 days, how many days have you missed classes or school without permission from your parents or guardians?<button id="baixa-grafico-96" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">96. Nos últimos 30 dias, em quantos dias você faltou às aulas ou à escola sem permissão dos seus pais ou responsáveis?<button id="baixa-grafico-96" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao96" class="grafico"></div>
@@ -1147,7 +1535,11 @@
     <div class="col-md-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">97. Nos últimos 30 dias, com que frequência seus pais ou responsáveis sabiam realmente o que você estava fazendo em seu tempo livre?<button id="baixa-grafico-97" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">97. In the last 30 days, how often did your parents or guardians really know what you were doing in your free time?<button id="baixa-grafico-97" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">97. Nos últimos 30 dias, com que frequência seus pais ou responsáveis sabiam realmente o que você estava fazendo em seu tempo livre?<button id="baixa-grafico-97" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao97" class="grafico"></div>
@@ -1157,7 +1549,11 @@
     <div class="col-md-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">98. Nos últimos 30 dias, com que frequência seus pais ou responsáveis verificaram se os seus deveres de casa (lição de casa) foram feitos?<button id="baixa-grafico-98" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">98. In the last 30 days, how often have your parents or guardians checked that your homework (homework) has been done?<button id="baixa-grafico-98" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">98. Nos últimos 30 dias, com que frequência seus pais ou responsáveis verificaram se os seus deveres de casa (lição de casa) foram feitos?<button id="baixa-grafico-98" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao98" class="grafico"></div>
@@ -1170,7 +1566,11 @@
     <div class="col-md-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">99. Nos últimos 30 dias, com que frequência seus pais ou responsáveis entenderam seus problemas e preocupações?<button id="baixa-grafico-99" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">99. In the last 30 days, how often have your parents or guardians understood your issues and concerns?<button id="baixa-grafico-99" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">99. Nos últimos 30 dias, com que frequência seus pais ou responsáveis entenderam seus problemas e preocupações?<button id="baixa-grafico-99" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao99" class="grafico"></div>
@@ -1180,7 +1580,11 @@
     <div class="col-md-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">100. Nos últimos 30 dias, com que frequência seus pais ou responsáveis mexeram em suas coisas sem a sua concordância?<button id="baixa-grafico-100" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">100. Over the past 30 days, how often have your parents or guardians moved your things without your agreement?<button id="baixa-grafico-100" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">100. Nos últimos 30 dias, com que frequência seus pais ou responsáveis mexeram em suas coisas sem a sua concordância?<button id="baixa-grafico-100" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao100" class="grafico"></div>
@@ -1193,7 +1597,11 @@
     <div class="col-md-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">101. Nos últimos 30 dias, com que frequência os colegas de sua escola trataram você bem e/ou foram prestativos com você?<button id="baixa-grafico-101" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">101. Over the past 30 days, how often have your classmates treated you well and / or been helpful to you?<button id="baixa-grafico-101" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">101. Nos últimos 30 dias, com que frequência os colegas de sua escola trataram você bem e/ou foram prestativos com você?<button id="baixa-grafico-101" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao101" class="grafico"></div>
@@ -1203,7 +1611,11 @@
     <div class="col-md-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">102. Nos últimos 30 dias, com que frequência algum dos seus colegas de escola lhe esculacharam, zoaram, mangaram, intimidaram ou caçoaram tanto que você ficou magoado, incomodado, aborrecido, ofendido ou humilhado?<button id="baixa-grafico-102" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">102. Over the past 30 days, how often have any of your schoolmates scolded, mocked, mocked, intimidated, or mocked you so much that you were hurt, bothered, upset, offended, or humiliated?<button id="baixa-grafico-102" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">102. Nos últimos 30 dias, com que frequência algum dos seus colegas de escola lhe esculacharam, zoaram, mangaram, intimidaram ou caçoaram tanto que você ficou magoado, incomodado, aborrecido, ofendido ou humilhado?<button id="baixa-grafico-102" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao102" class="grafico"></div>
@@ -1216,7 +1628,11 @@
     <div class="col-md-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">103. Nos últimos 30 dias, qual o motivo ou causa de seus colegas terem lhe esculachado, zombado, zoado, caçoado, mangado, intimidado ou humilhado?<button id="baixa-grafico-103" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">103. In the last 30 days, why or why have your colleagues been cheating, mocking, mocking, mocking, intimidating or humiliating you?<button id="baixa-grafico-103" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">103. Nos últimos 30 dias, qual o motivo ou causa de seus colegas terem lhe esculachado, zombado, zoado, caçoado, mangado, intimidado ou humilhado?<button id="baixa-grafico-103" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao103" class="grafico"></div>
@@ -1226,7 +1642,11 @@
     <div class="col-md-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">104. Nos últimos 30 dias, você esculachou, zombou, mangou, intimidou ou caçoou algum de seus colegas da escola tanto que ele ficou magoado, aborrecido, ofendido ou humilhado?<button id="baixa-grafico-104" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">104. Over the past 30 days, have you sculpted, mocked, made a mockery, intimidated or mocked any of your schoolmates so much that he was hurt, upset, offended or humiliated?<button id="baixa-grafico-104" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">104. Nos últimos 30 dias, você esculachou, zombou, mangou, intimidou ou caçoou algum de seus colegas da escola tanto que ele ficou magoado, aborrecido, ofendido ou humilhado?<button id="baixa-grafico-104" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao104" class="grafico"></div>
@@ -1239,7 +1659,11 @@
     <div class="col-md-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">105. Você já sofreu bullying?<button id="baixa-grafico-105" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">105. Have you ever been bullied?<button id="baixa-grafico-105" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">105. Você já sofreu bullying?<button id="baixa-grafico-105" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao105" class="grafico"></div>
@@ -1249,7 +1673,11 @@
     <div class="col-md-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">106. Nos ultimos 12 meses, com que frequência você não conseguiu dormir à noite porque algo o(a) preocupava muito?<button id="baixa-grafico-106" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">106. In the last 12 months, how often have you been unable to sleep at night because something worried you so much?<button id="baixa-grafico-106" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">106. Nos ultimos 12 meses, com que frequência você não conseguiu dormir à noite porque algo o(a) preocupava muito?<button id="baixa-grafico-106" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao106" class="grafico"></div>
@@ -1262,7 +1690,11 @@
     <div class="col-md-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">107. Quantos amigos(as) próximos você tem?<button id="baixa-grafico-107" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">107. How many close friends do you have?<button id="baixa-grafico-107" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">107. Quantos amigos(as) próximos você tem?<button id="baixa-grafico-107" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao107" class="grafico"></div>
@@ -1272,7 +1704,11 @@
     <div class="col-md-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">108. Nos últimos 30 dias, com que frequência você lavou as mãos antes de comer?<button id="baixa-grafico-108" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">108. In the last 30 days, how often have you washed your hands before eating?<button id="baixa-grafico-108" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">108. Nos últimos 30 dias, com que frequência você lavou as mãos antes de comer?<button id="baixa-grafico-108" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao108" class="grafico"></div>
@@ -1285,7 +1721,11 @@
     <div class="col-md-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">109. Nos últimos 30 dias, com que frequência você lavou as mãos após usar o banheiro ou o vaso sanitário?<button id="baixa-grafico-109" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">109. In the last 30 days, how often have you washed your hands after using the bathroom or toilet?<button id="baixa-grafico-109" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">109. Nos últimos 30 dias, com que frequência você lavou as mãos após usar o banheiro ou o vaso sanitário?<button id="baixa-grafico-109" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao109" class="grafico"></div>
@@ -1295,7 +1735,11 @@
     <div class="col-md-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">110. Nos últimos 30 dias, com que frequência você usou sabão ou sabonete quando lavou suas mãos?<button id="baixa-grafico-110" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">110. In the last 30 days, how often did you use soap or soap when you washed your hands?<button id="baixa-grafico-110" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">110. Nos últimos 30 dias, com que frequência você usou sabão ou sabonete quando lavou suas mãos?<button id="baixa-grafico-110" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao110" class="grafico"></div>
@@ -1308,7 +1752,11 @@
     <div class="col-md-12">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">111. Nos últimos 30 dias, quantas vezes por dia você usualmente escovou os dentes?<button id="baixa-grafico-111" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">111. In the last 30 days, how many times a day have you usually brushed your teeth?<button id="baixa-grafico-111" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">111. Nos últimos 30 dias, quantas vezes por dia você usualmente escovou os dentes?<button id="baixa-grafico-111" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao111" class="grafico"></div>
@@ -1320,7 +1768,11 @@
     <div class="col-md-12">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">112. Nos últimos 06 meses, você teve dor de dente? (Não vale aquela dor de dente causada por uso de aparelho para correção dos dentes, isto é, aparelhos ortodônticos).)<button id="baixa-grafico-112" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">112. In the last 06 months, have you had a toothache? (Not worth that toothache caused by braces, ie orthodontic braces.)<button id="baixa-grafico-112" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">112. Nos últimos 06 meses, você teve dor de dente? (Não vale aquela dor de dente causada por uso de aparelho para correção dos dentes, isto é, aparelhos ortodônticos).)<button id="baixa-grafico-112" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao112" class="grafico"></div>
@@ -1333,7 +1785,11 @@
     <div class="col-md-12">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">113. Nos últimos 12 meses, quantas vezes você foi ao dentista?<button id="baixa-grafico-113" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">113. In the last 12 months, how many times have you been to the dentist?<button id="baixa-grafico-113" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">113. Nos últimos 12 meses, quantas vezes você foi ao dentista?<button id="baixa-grafico-113" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao113" class="grafico"></div>
@@ -1345,7 +1801,11 @@
     <div class="col-md-12">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">114. Nos últimos 30 dias, em quantos dias você deixou de ir à escola porque não se sentia seguro no caminho de casa para a escola ou da escola para casa?<button id="baixa-grafico-114" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">114. In the past 30 days, how many days have you dropped out of school because you didn\'t feel safe on the way home from school or from school to home?<button id="baixa-grafico-114" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">114. Nos últimos 30 dias, em quantos dias você deixou de ir à escola porque não se sentia seguro no caminho de casa para a escola ou da escola para casa?<button id="baixa-grafico-114" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao114" class="grafico"></div>
@@ -1358,7 +1818,11 @@
     <div class="col-md-12">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">115. Nos últimos 30 dias, em quantos dias você não foi à escola porque não se sentia seguro na escola?<button id="baixa-grafico-115" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">115. In the last 30 days, how many days did you not go to school because you did not feel safe at school?<button id="baixa-grafico-115" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">115. Nos últimos 30 dias, em quantos dias você não foi à escola porque não se sentia seguro na escola?<button id="baixa-grafico-115" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao115" class="grafico"></div>
@@ -1370,7 +1834,11 @@
     <div class="col-md-12">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">116. Nos últimos 30 dias, com que frequência você usou cinto de segurança enquanto andava como passageiro(a) no banco da frente de carro/automóvel, van ou táxi?<button id="baixa-grafico-116" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">116. Over the past 30 days, how often have you been wearing a seat belt while riding a passenger in the front seat of a car / car, van or taxi?<button id="baixa-grafico-116" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">116. Nos últimos 30 dias, com que frequência você usou cinto de segurança enquanto andava como passageiro(a) no banco da frente de carro/automóvel, van ou táxi?<button id="baixa-grafico-116" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao116" class="grafico"></div>
@@ -1383,7 +1851,11 @@
     <div class="col-md-12">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">117. Nos últimos 30 dias, com que frequência você usou capacete ao andar de motocicleta?<button id="baixa-grafico-117" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">117. In the last 30 days, how often have you worn a helmet when riding a motorcycle?<button id="baixa-grafico-117" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">117. Nos últimos 30 dias, com que frequência você usou capacete ao andar de motocicleta?<button id="baixa-grafico-117" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao117" class="grafico"></div>
@@ -1395,7 +1867,11 @@
     <div class="col-md-12">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">118. Nos últimos 30 dias, quantas vezes você dirigiu um veículo motorizado de transporte? (carro, motocicleta, voadeira, barco, etc.)<button id="baixa-grafico-118" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">118. In the last 30 days, how many times have you driven a motorized transport vehicle? (car, motorcycle, boat, boat, etc.)<button id="baixa-grafico-118" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">118. Nos últimos 30 dias, quantas vezes você dirigiu um veículo motorizado de transporte? (carro, motocicleta, voadeira, barco, etc.)<button id="baixa-grafico-118" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao118" class="grafico"></div>
@@ -1408,7 +1884,11 @@
     <div class="col-md-12">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">119. Nos últimos 30 dias, quantas vezes você andou em carro ou outro veículo motorizado dirigido por alguém que tinha consumido alguma bebida alcoólica?<button id="baixa-grafico-119" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">119. In the last 30 days, how many times have you ridden in a car or other motor vehicle driven by someone who had consumed an alcoholic beverage?<button id="baixa-grafico-119" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">119. Nos últimos 30 dias, quantas vezes você andou em carro ou outro veículo motorizado dirigido por alguém que tinha consumido alguma bebida alcoólica?<button id="baixa-grafico-119" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao119" class="grafico"></div>
@@ -1420,7 +1900,11 @@
     <div class="col-md-12">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">120. Nos últimos 30 dias, quantas vezes você foi agredido(a) fisicamente por um adulto da sua família?<button id="baixa-grafico-120" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">120. In the last 30 days, how many times have you been physically assaulted by an adult in your family?<button id="baixa-grafico-120" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">120. Nos últimos 30 dias, quantas vezes você foi agredido(a) fisicamente por um adulto da sua família?<button id="baixa-grafico-120" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao120" class="grafico"></div>
@@ -1433,7 +1917,11 @@
     <div class="col-md-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">121. Nos últimos 30 dias, você esteve envolvido(a) em alguma briga em que alguma pessoa usou arma de fogo, como revólver ou espingarda?<button id="baixa-grafico-121" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">121. In the last 30 days, have you been involved in a fight where someone used a gun, such as a revolver or shotgun?<button id="baixa-grafico-121" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">121. Nos últimos 30 dias, você esteve envolvido(a) em alguma briga em que alguma pessoa usou arma de fogo, como revólver ou espingarda?<button id="baixa-grafico-121" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao121" class="grafico"></div>
@@ -1443,7 +1931,11 @@
     <div class="col-md-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">122. Nos últimos 30 dias, você esteve envolvido(a) em alguma briga em que alguma pessoa usou alguma outra arma como faca, canivete, peixeira, pedra, pedaço de pau ou garrafa?<button id="baixa-grafico-122" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">122. Have you been involved in a fight in the last 30 days in which someone used any other weapon such as a knife, pocketknife, fishmonger, stone, stick or bottle?<button id="baixa-grafico-122" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">122. Nos últimos 30 dias, você esteve envolvido(a) em alguma briga em que alguma pessoa usou alguma outra arma como faca, canivete, peixeira, pedra, pedaço de pau ou garrafa?<button id="baixa-grafico-122" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao122" class="grafico"></div>
@@ -1456,7 +1948,11 @@
     <div class="col-md-12">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">123. Nos últimos 12 meses, quantas vezes você foi agredido(a) fisicamente?<button id="baixa-grafico-123" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">123. In the last 12 months, how many times have you been physically assaulted?<button id="baixa-grafico-123" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">123. Nos últimos 12 meses, quantas vezes você foi agredido(a) fisicamente?<button id="baixa-grafico-123" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao123" class="grafico"></div>
@@ -1468,7 +1964,11 @@
     <div class="col-md-12">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">124. Nos últimos 12 meses, quantas vezes você se envolveu em briga (uma luta física)?<button id="baixa-grafico-124" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">124. In the last 12 months, how many times have you been involved in fights?<button id="baixa-grafico-124" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">124. Nos últimos 12 meses, quantas vezes você se envolveu em briga (uma luta física)?<button id="baixa-grafico-124" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao124" class="grafico"></div>
@@ -1481,7 +1981,11 @@
     <div class="col-md-12">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">125. Nos últimos 12 meses, quantas vezes você foi seriamente ferido(a) em uma briga?<button id="baixa-grafico-125" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">125. In the last 12 months, how many times have you been seriously injuried in a fight?<button id="baixa-grafico-125" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">125. Nos últimos 12 meses, quantas vezes você foi seriamente ferido(a) em uma briga?<button id="baixa-grafico-125" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao125" class="grafico"></div>
@@ -1493,7 +1997,11 @@
     <div class="col-md-12">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">126. Nos últimos 12 meses, qual foi o ferimento ou a lesão mais séria que aconteceu com você?<button id="baixa-grafico-126" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">126. In the last 12 months, what was the most serious injury or injury to you?<button id="baixa-grafico-126" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">126. Nos últimos 12 meses, qual foi o ferimento ou a lesão mais séria que aconteceu com você?<button id="baixa-grafico-126" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao126" class="grafico"></div>
@@ -1506,7 +2014,11 @@
     <div class="col-md-12">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">127. Nos últimos 12 meses, qual foi a principal causa do ferimento ou da lesão mais séria que aconteceu com você?<button id="baixa-grafico-127" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">127. In the last 12 months, what was the main cause of the injury or the most serious injury to you?<button id="baixa-grafico-127" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">127. Nos últimos 12 meses, qual foi a principal causa do ferimento ou da lesão mais séria que aconteceu com você?<button id="baixa-grafico-127" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao127" class="grafico"></div>
@@ -1518,7 +2030,11 @@
     <div class="col-md-12">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">128. Nos últimos 12 meses, você sofreu algum acidente de bicicleta (caiu e se machucou)?<button id="baixa-grafico-128" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">128. In the last 12 months, have you had a bicycle accident (crashed and injured)?<button id="baixa-grafico-128" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">128. Nos últimos 12 meses, você sofreu algum acidente de bicicleta (caiu e se machucou)?<button id="baixa-grafico-128" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao128" class="grafico"></div>
@@ -1531,7 +2047,11 @@
     <div class="col-md-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">129. Alguma vez na vida você foi forçado(a) a ter relação sexual?<button id="baixa-grafico-129" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">129. Have you ever been forced to have sex in your life?<button id="baixa-grafico-129" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">129. Alguma vez na vida você foi forçado(a) a ter relação sexual?<button id="baixa-grafico-129" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao129" class="grafico"></div>
@@ -1541,7 +2061,11 @@
     <div class="col-md-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">130. Quem forçou você a ter relação sexual?<button id="baixa-grafico-130" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">130. Who forced you to have sex?<button id="baixa-grafico-130" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">130. Quem forçou você a ter relação sexual?<button id="baixa-grafico-130" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao130" class="grafico"></div>
@@ -1554,7 +2078,11 @@
     <div class="col-md-12">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">131. Como você classificaria seu estado de saúde?<button id="baixa-grafico-131" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">131. How would you rate your state of health?<button id="baixa-grafico-131" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">131. Como você classificaria seu estado de saúde?<button id="baixa-grafico-131" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao131" class="grafico"></div>
@@ -1566,7 +2094,11 @@
     <div class="col-md-12">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">132. Nos últimos 12 meses, quantos dias você faltou a escola por motivo(s) relacionado(s) à sua saúde?<button id="baixa-grafico-132" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">132. In the last 12 months, how many days did you miss school for a reason (s) related to your health?<button id="baixa-grafico-132" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">132. Nos últimos 12 meses, quantos dias você faltou a escola por motivo(s) relacionado(s) à sua saúde?<button id="baixa-grafico-132" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao132" class="grafico"></div>
@@ -1579,7 +2111,11 @@
     <div class="col-md-12">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">133. Nos últimos 12 meses você procurou algum serviço ou profissional de saúde para atendimento relacionado à própria saúde?<button id="baixa-grafico-133" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">133. In the last 12 months have you sought any health services or professionals for health-related care?<button id="baixa-grafico-133" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">133. Nos últimos 12 meses você procurou algum serviço ou profissional de saúde para atendimento relacionado à própria saúde?<button id="baixa-grafico-133" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao133" class="grafico"></div>
@@ -1591,7 +2127,11 @@
     <div class="col-md-12">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">134. Nos últimos 12 meses, qual foi o serviço de saúde que você procurou com mais frequência?<button id="baixa-grafico-134" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">134. In the last 12 months, which health service have you sought most often?<button id="baixa-grafico-134" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">134. Nos últimos 12 meses, qual foi o serviço de saúde que você procurou com mais frequência?<button id="baixa-grafico-134" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao134" class="grafico"></div>
@@ -1604,7 +2144,11 @@
     <div class="col-md-12">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">135. Você foi atendido(a) na última vez que procurou alguma Unidade Básica de Saúde (Centro ou Posto de saúde ou Unidade de Saúde da Família/PSF), nestes últimos 12 meses?<button id="baixa-grafico-135" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">135. Have you been seen the last time you went to any Basic Health Unit (Health Center or Post or Family Health Unit / PSF) in the last 12 months?<button id="baixa-grafico-135" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">135. Você foi atendido(a) na última vez que procurou alguma Unidade Básica de Saúde (Centro ou Posto de saúde ou Unidade de Saúde da Família/PSF), nestes últimos 12 meses?<button id="baixa-grafico-135" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao135" class="grafico"></div>
@@ -1616,7 +2160,11 @@
     <div class="col-md-12">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">136. Qual foi o principal motivo da sua procura na Unidade Básica de Saúde (Centro ou Posto de saúde ou Unidade de Saúde da Família/PSF) nesta última vez?<button id="baixa-grafico-136" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">136. What was the main reason for your search at the Basic Health Unit (Health Center or Post or Family Health Unit / PSF) this last time?<button id="baixa-grafico-136" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">136. Qual foi o principal motivo da sua procura na Unidade Básica de Saúde (Centro ou Posto de saúde ou Unidade de Saúde da Família/PSF) nesta última vez?<button id="baixa-grafico-136" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao136" class="grafico"></div>
@@ -1629,7 +2177,11 @@
     <div class="col-md-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">137. Você conhece/ouviu falar sobre a campanha de vacinação contra o vírus HPV?<button id="baixa-grafico-137" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">137. 137. Do you know / hear about the HPV vaccination campaign?<button id="baixa-grafico-137" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">137. Você conhece/ouviu falar sobre a campanha de vacinação contra o vírus HPV?<button id="baixa-grafico-137" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao137" class="grafico"></div>
@@ -1639,7 +2191,11 @@
     <div class="col-md-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">138. Você foi vacinada contra o vírus HPV?<button id="baixa-grafico-138" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">138. 138. Have you been vaccinated against the HPV virus?<button id="baixa-grafico-138" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">138. Você foi vacinada contra o vírus HPV?<button id="baixa-grafico-138" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao138" class="grafico"></div>
@@ -1652,7 +2208,11 @@
     <div class="col-md-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">139. Você considera sua imagem corporal como sendo algo:<button id="baixa-grafico-139" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">139. 139. You consider your body image to be something:<button id="baixa-grafico-139" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">139. Você considera sua imagem corporal como sendo algo:<button id="baixa-grafico-139" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao139" class="grafico"></div>
@@ -1662,7 +2222,11 @@
     <div class="col-md-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">140. Como você se sente em relação ao seu corpo?<button id="baixa-grafico-140" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">140. 140. How do you feel about your body?<button id="baixa-grafico-140" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">140. Como você se sente em relação ao seu corpo?<button id="baixa-grafico-140" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao140" class="grafico"></div>
@@ -1675,7 +2239,11 @@
     <div class="col-md-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">141. Quanto ao seu corpo, você se considera:<button id="baixa-grafico-141" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">141. As for your body, you consider yourself:<button id="baixa-grafico-141" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">141. Quanto ao seu corpo, você se considera:<button id="baixa-grafico-141" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao141" class="grafico"></div>
@@ -1685,7 +2253,11 @@
     <div class="col-md-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">142. O que você está fazendo em relação a seu peso?<button id="baixa-grafico-142" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">142. What are you doing about your weight?<button id="baixa-grafico-142" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">142. O que você está fazendo em relação a seu peso?<button id="baixa-grafico-142" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao142" class="grafico"></div>
@@ -1698,7 +2270,11 @@
     <div class="col-md-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">143. Nos últimos 30 dias, você vomitou ou tomou laxantes para perder peso ou evitar ganhar peso?<button id="baixa-grafico-143" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">143. In the last 30 days, have you vomited or taken laxatives to lose weight or avoid gaining weight?<button id="baixa-grafico-143" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">143. Nos últimos 30 dias, você vomitou ou tomou laxantes para perder peso ou evitar ganhar peso?<button id="baixa-grafico-143" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao143" class="grafico"></div>
@@ -1708,7 +2284,11 @@
     <div class="col-md-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">144. Nos últimos 30 dias, você tomou algum remédio, fórmula ou outro produto para perder peso, sem acompanhamento médico?<button id="baixa-grafico-144" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">144. In the last 30 days, have you taken any medicine, formula or other weight loss product without medical supervision?<button id="baixa-grafico-144" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">144. Nos últimos 30 dias, você tomou algum remédio, fórmula ou outro produto para perder peso, sem acompanhamento médico?<button id="baixa-grafico-144" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao144" class="grafico"></div>
@@ -1721,7 +2301,11 @@
     <div class="col-md-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">145. Nos últimos 30 dias, você tomou algum remédio, fórmula ou outro produto para ganhar peso ou massa muscular sem acompanhamento médico?<button id="baixa-grafico-145" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">145. In the last 30 days, have you taken any medicine, formula or other product to gain weight or muscle mass without medical supervision?<button id="baixa-grafico-145" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">145. Nos últimos 30 dias, você tomou algum remédio, fórmula ou outro produto para ganhar peso ou massa muscular sem acompanhamento médico?<button id="baixa-grafico-145" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao145" class="grafico"></div>
@@ -1731,7 +2315,11 @@
     <div class="col-md-6">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <div class="panel-title">146. O que você achou deste questionário?<button id="baixa-grafico-146" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">146. What did you think of this questionnaire?<button id="baixa-grafico-146" class="navbar-right btn btn-sm btn-default">Download</button></div>
+          {% else %}
+            <div class="panel-title">146. O que você achou deste questionário?<button id="baixa-grafico-146" class="navbar-right btn btn-sm btn-default">Baixar</button></div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div id="questao146" class="grafico"></div>
@@ -1893,6 +2481,11 @@
   <script src="{% static 'administracao/vendor/flot/jquery.flot.pie.js' %}"></script>
   <script src="{% static 'administracao/vendor/flot.tooltip/js/jquery.flot.tooltip.min.js' %}"></script>
   <script src="{% static 'administracao/js/html2canvas.min.js' %}"></script>
-  <script src="{% static 'administracao/js/graficos_questionarios.js' %}"></script>
+  
+  {% if request.session.lang == "en" %}
+    <script src="{% static 'administracao/js/graficos_questionarios_en.js' %}"></script>
+  {% else %}
+    <script src="{% static 'administracao/js/graficos_questionarios.js' %}"></script>
+  {% endif %}
   
 {% endblock content %}
