@@ -7,11 +7,14 @@
 {% endblock head %}
 
 {% block header %}
-  Resultados da pesquisa
+  {% if request.session.lang == "en" %}
+    Research results
+  {% else %}
+    Resultados da pesquisa
+  {% endif %}
 {% endblock header %}
 
 {% block content %}
-  
   <div class="row">
     <div class="col-md-12">
       <div class="panel panel-info">
