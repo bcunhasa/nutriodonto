@@ -19,7 +19,11 @@
     <div class="col-md-12">
       <div class="panel panel-info">
         <div class="panel-heading">
-          <div class="panel-title">01. Número de escolares examinados por idade</div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">01. Number of students examined by age</div>
+          {% else %}
+            <div class="panel-title">01. Número de escolares examinados por idade</div>
+          {% endif %}
         </div>
         <div class="panel-body">
           
@@ -27,10 +31,10 @@
           
             <div class="col-md-3 selection-panel">
               <div class="list-group">
-                <button id="1-list-group-item-1" class="list-group-item list-group-item-action active" onclick="changeTab('1', '1', '4')">Geral</button>
-                <button id="1-list-group-item-2" class="list-group-item list-group-item-action" onclick="changeTab('1', '2', '4')">Escola</button>
-                <button id="1-list-group-item-3" class="list-group-item list-group-item-action" onclick="changeTab('1', '3', '4')">Território de saúde</button>
-                <button id="1-list-group-item-4" class="list-group-item list-group-item-action" onclick="changeTab('1', '4', '4')">Macrorregião</button>
+                <button id="1-list-group-item-1" class="list-group-item list-group-item-action active" onclick="changeTab('1', '1', '4')">{% if request.session.lang == "en" %}General{% else %}Geral{% endif %}</button>
+                <button id="1-list-group-item-2" class="list-group-item list-group-item-action" onclick="changeTab('1', '2', '4')">{% if request.session.lang == "en" %}School{% else %}Escola{% endif %}</button>
+                <button id="1-list-group-item-3" class="list-group-item list-group-item-action" onclick="changeTab('1', '3', '4')">{% if request.session.lang == "en" %}Health territory{% else %}Território de saúde{% endif %}</button>
+                <button id="1-list-group-item-4" class="list-group-item list-group-item-action" onclick="changeTab('1', '4', '4')">{% if request.session.lang == "en" %}Macroregion{% else %}Macrorregião{% endif %}</button>
               </div>
             </div>
             
@@ -177,7 +181,11 @@
     <div class="col-md-12">
       <div class="panel panel-info">
         <div class="panel-heading">
-          <div class="panel-title">02. Número de escolares examinados por raça</div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">02. Number of students examined by race</div>
+          {% else %}
+            <div class="panel-title">02. Número de escolares examinados por raça</div>
+          {% endif %}
         </div>
         <div class="panel-body">
           
@@ -185,10 +193,10 @@
           
             <div class="col-md-3 selection-panel">
               <div class="list-group">
-                <button id="2-list-group-item-1" class="list-group-item list-group-item-action active" onclick="changeTab('2', '1', '4')">Geral</button>
-                <button id="2-list-group-item-2" class="list-group-item list-group-item-action" onclick="changeTab('2', '2', '4')">Escola</button>
-                <button id="2-list-group-item-3" class="list-group-item list-group-item-action" onclick="changeTab('2', '3', '4')">Território de saúde</button>
-                <button id="2-list-group-item-4" class="list-group-item list-group-item-action" onclick="changeTab('2', '4', '4')">Macrorregião</button>
+                <button id="2-list-group-item-1" class="list-group-item list-group-item-action active" onclick="changeTab('2', '1', '4')">{% if request.session.lang == "en" %}General{% else %}Geral{% endif %}</button>
+                <button id="2-list-group-item-2" class="list-group-item list-group-item-action" onclick="changeTab('2', '2', '4')">{% if request.session.lang == "en" %}School{% else %}Escola{% endif %}</button>
+                <button id="2-list-group-item-3" class="list-group-item list-group-item-action" onclick="changeTab('2', '3', '4')">{% if request.session.lang == "en" %}Health territory{% else %}Território de saúde{% endif %}</button>
+                <button id="2-list-group-item-4" class="list-group-item list-group-item-action" onclick="changeTab('2', '4', '4')">{% if request.session.lang == "en" %}Macroregion{% else %}Macrorregião{% endif %}</button>
               </div>
             </div>
             
@@ -197,12 +205,21 @@
                 <table class="table table-striped table-hover" id="tabela">
                   <thead>
                     <tr>
+                    {% if request.session.lang == "en" %}
+                      <th></th>
+                      <th>Yellow</th>
+                      <th>White</th>
+                      <th>Indigenous</th>
+                      <th>Mixed color</th>
+                      <th>Black</th>
+                    {% else %}
                       <th></th>
                       <th>Amarela</th>
                       <th>Branca</th>
-                      <th>Indígena</th>
+                      <th>Idígena</th>
                       <th>Parda</th>
                       <th>Preta</th>
+                    {% endif %}
                     </tr>
                   </thead>
                   <tbody>
@@ -222,12 +239,21 @@
                 <table class="table table-striped table-hover" id="tabela">
                   <thead>
                     <tr>
+                    {% if request.session.lang == "en" %}
+                      <th></th>
+                      <th>Yellow</th>
+                      <th>White</th>
+                      <th>Indigenous</th>
+                      <th>Mixed color</th>
+                      <th>Black</th>
+                    {% else %}
                       <th></th>
                       <th>Amarela</th>
                       <th>Branca</th>
-                      <th>Indígena</th>
+                      <th>Idígena</th>
                       <th>Parda</th>
                       <th>Preta</th>
+                    {% endif %}
                     </tr>
                   </thead>
                   <tbody>
@@ -249,12 +275,21 @@
                 <table class="table table-striped table-hover" id="tabela">
                   <thead>
                     <tr>
+                    {% if request.session.lang == "en" %}
+                      <th></th>
+                      <th>Yellow</th>
+                      <th>White</th>
+                      <th>Indigenous</th>
+                      <th>Mixed color</th>
+                      <th>Black</th>
+                    {% else %}
                       <th></th>
                       <th>Amarela</th>
                       <th>Branca</th>
-                      <th>Indígena</th>
+                      <th>Idígena</th>
                       <th>Parda</th>
                       <th>Preta</th>
+                    {% endif %}
                     </tr>
                   </thead>
                   <tbody>
@@ -276,12 +311,21 @@
                 <table class="table table-striped table-hover" id="tabela">
                   <thead>
                     <tr>
+                    {% if request.session.lang == "en" %}
+                      <th></th>
+                      <th>Yellow</th>
+                      <th>White</th>
+                      <th>Indigenous</th>
+                      <th>Mixed color</th>
+                      <th>Black</th>
+                    {% else %}
                       <th></th>
                       <th>Amarela</th>
                       <th>Branca</th>
-                      <th>Indígena</th>
+                      <th>Idígena</th>
                       <th>Parda</th>
                       <th>Preta</th>
+                    {% endif %}
                     </tr>
                   </thead>
                   <tbody>
@@ -311,7 +355,11 @@
     <div class="col-md-12">
       <div class="panel panel-info">
         <div class="panel-heading">
-          <div class="panel-title">03. Número de escolares examinados por sexo</div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">03. Number of students examined by sex</div>
+          {% else %}
+            <div class="panel-title">03. Número de escolares examinados por sexo</div>
+          {% endif %}
         </div>
         <div class="panel-body">
           
@@ -319,10 +367,10 @@
           
             <div class="col-md-3 selection-panel">
               <div class="list-group">
-                <button id="3-list-group-item-1" class="list-group-item list-group-item-action active" onclick="changeTab('3', '1', '4')">Geral</button>
-                <button id="3-list-group-item-2" class="list-group-item list-group-item-action" onclick="changeTab('3', '2', '4')">Escola</button>
-                <button id="3-list-group-item-3" class="list-group-item list-group-item-action" onclick="changeTab('3', '3', '4')">Território de saúde</button>
-                <button id="3-list-group-item-4" class="list-group-item list-group-item-action" onclick="changeTab('3', '4', '4')">Macrorregião</button>
+                <button id="3-list-group-item-1" class="list-group-item list-group-item-action active" onclick="changeTab('3', '1', '4')">{% if request.session.lang == "en" %}General{% else %}Geral{% endif %}</button>
+                <button id="3-list-group-item-2" class="list-group-item list-group-item-action" onclick="changeTab('3', '2', '4')">{% if request.session.lang == "en" %}School{% else %}Escola{% endif %}</button>
+                <button id="3-list-group-item-3" class="list-group-item list-group-item-action" onclick="changeTab('3', '3', '4')">{% if request.session.lang == "en" %}Health territory{% else %}Território de saúde{% endif %}</button>
+                <button id="3-list-group-item-4" class="list-group-item list-group-item-action" onclick="changeTab('3', '4', '4')">{% if request.session.lang == "en" %}Macroregion{% else %}Macrorregião{% endif %}</button>
               </div>
             </div>
             
@@ -331,11 +379,19 @@
                 <table class="table table-striped table-hover" id="tabela">
                   <thead>
                     <tr>
+                    {% if request.session.lang == "en" %}
+                      <th></th>
+                      <th>Male</th>
+                      <th>Female</th>
+                      <th>Other</th>
+                      <th>Don't answered</th>
+                    {% else %}
                       <th></th>
                       <th>Masculino</th>
                       <th>Feminino</th>
                       <th>Outro</th>
-                      <th>Prefiro não responder</th>
+                      <th>Sem resposta</th>
+                    {% endif %}
                     </tr>
                   </thead>
                   <tbody>
@@ -354,11 +410,19 @@
                 <table class="table table-striped table-hover" id="tabela">
                   <thead>
                     <tr>
+                    {% if request.session.lang == "en" %}
+                      <th></th>
+                      <th>Male</th>
+                      <th>Female</th>
+                      <th>Other</th>
+                      <th>Don't answered</th>
+                    {% else %}
                       <th></th>
                       <th>Masculino</th>
                       <th>Feminino</th>
                       <th>Outro</th>
-                      <th>Prefiro não responder</th>
+                      <th>Sem resposta</th>
+                    {% endif %}
                     </tr>
                   </thead>
                   <tbody>
@@ -379,11 +443,19 @@
                 <table class="table table-striped table-hover" id="tabela">
                   <thead>
                     <tr>
+                    {% if request.session.lang == "en" %}
+                      <th></th>
+                      <th>Male</th>
+                      <th>Female</th>
+                      <th>Other</th>
+                      <th>Don't answered</th>
+                    {% else %}
                       <th></th>
                       <th>Masculino</th>
                       <th>Feminino</th>
                       <th>Outro</th>
-                      <th>Prefiro não responder</th>
+                      <th>Sem resposta</th>
+                    {% endif %}
                     </tr>
                   </thead>
                   <tbody>
@@ -404,11 +476,19 @@
                 <table class="table table-striped table-hover" id="tabela">
                   <thead>
                     <tr>
+                    {% if request.session.lang == "en" %}
+                      <th></th>
+                      <th>Male</th>
+                      <th>Female</th>
+                      <th>Other</th>
+                      <th>Don't answered</th>
+                    {% else %}
                       <th></th>
                       <th>Masculino</th>
                       <th>Feminino</th>
                       <th>Outro</th>
-                      <th>Prefiro não responder</th>
+                      <th>Sem resposta</th>
+                    {% endif %}
                     </tr>
                   </thead>
                   <tbody>
@@ -437,17 +517,21 @@
     <div class="col-md-12">
       <div class="panel panel-info">
         <div class="panel-heading">
-          <div class="panel-title">04. Índices CPO-D geral, por escola, por território de saúde e por macrorregião</div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">04. CPO-D general index, by schools, healthy territory and macroregion</div>
+          {% else %}
+            <div class="panel-title">04. Índices CPO-D geral, por escola, por território de saúde e por macrorregião</div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <div class="row">
           
             <div class="col-md-3 selection-panel">
               <div class="list-group">
-                <button id="4-list-group-item-1" class="list-group-item list-group-item-action active" onclick="changeTab('4', '1', '4')">Geral</button>
-                <button id="4-list-group-item-2" class="list-group-item list-group-item-action" onclick="changeTab('4', '2', '4')">Escola</button>
-                <button id="4-list-group-item-3" class="list-group-item list-group-item-action" onclick="changeTab('4', '3', '4')">Território de saúde</button>
-                <button id="4-list-group-item-4" class="list-group-item list-group-item-action" onclick="changeTab('4', '4', '4')">Macrorregião</button>
+                <button id="4-list-group-item-1" class="list-group-item list-group-item-action active" onclick="changeTab('4', '1', '4')">{% if request.session.lang == "en" %}General{% else %}Geral{% endif %}</button>
+                <button id="4-list-group-item-2" class="list-group-item list-group-item-action" onclick="changeTab('4', '2', '4')">{% if request.session.lang == "en" %}School{% else %}Escola{% endif %}</button>
+                <button id="4-list-group-item-3" class="list-group-item list-group-item-action" onclick="changeTab('4', '3', '4')">{% if request.session.lang == "en" %}Health territory{% else %}Território de saúde{% endif %}</button>
+                <button id="4-list-group-item-4" class="list-group-item list-group-item-action" onclick="changeTab('4', '4', '4')">{% if request.session.lang == "en" %}Macroregion{% else %}Macrorregião{% endif %}</button>
               </div>
             </div>
             
@@ -537,7 +621,11 @@
     <div class="col-md-12">
       <div class="panel panel-info">
         <div class="panel-heading">
-          <div class="panel-title">05. Qual o percentual dos componentes hígido, cariado, restaurado, mas com cárie, restaurado, sem cárie, perdido devido a carie, perdido por outras razões, apresenta selante, apoio depoente ou coroa, não erupcionado, dente excluído nas dentições permanente (CPO-D) e decídua (ceo-d)?</div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">05. What is the percentage of healthy, decayed, restored but with caries, restored without caries, lost because of caries, lost for another reason, has sealant, tooth-supported bridge or tooth crown, unerupted?</div>
+          {% else %}
+            <div class="panel-title">05. Qual o percentual dos componentes hígido, cariado, restaurado, mas com cárie, restaurado, sem cárie, perdido devido a carie, perdido por outras razões, apresenta selante, apoio depoente ou coroa, não erupcionado, dente excluído nas dentições permanente (CPO-D) e decídua (ceo-d)?</div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <p>TO DO</p>
@@ -550,7 +638,11 @@
     <div class="col-md-12">
       <div class="panel panel-info">
         <div class="panel-heading">
-          <div class="panel-title">06. Necessidade de tratamento por código e critério.</div>
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">06. Need of treatment by code and criterion.</div>
+          {% else %}
+            <div class="panel-title">06. Necessidade de tratamento por código e critério.</div>
+          {% endif %}
         </div>
         <div class="panel-body">
           <p>TO DO</p>
