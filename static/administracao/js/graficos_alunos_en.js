@@ -40,7 +40,7 @@ function carregaDados(questao) {
             { label: "Anisio Spínola Teixeira Municipal School.", data: aluno_por_escola[27] },
             { label: "Almirante Tamandaré Municipal School.", data: aluno_por_escola[28] },
         ];
-    } else if (questao == "#Sex") {
+    } else if (questao == "#sexo") {
         return [
             { label: "Male", data: sexo[0] },
             { label: "Female", data: sexo[1] },
@@ -48,7 +48,7 @@ function carregaDados(questao) {
             { label: "I do not want to answer", data: sexo[3] },
             { label: "No answer", data: sexo[4] },
         ];
-    } else if (questao == "#Participation") {
+    } else if (questao == "#participacao") {
         return [
             { label: "Only questionnaire", data: participacao[0] },
             { label: "Only exam", data: participacao[1] },

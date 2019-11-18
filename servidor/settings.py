@@ -85,7 +85,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'sadoservidor',
         'USER': 'sadoadmin',
-        'PASSWORD': 'sadoadmin',
+        'PASSWORD': 'admin',
         'HOST': 'localhost',
         'PORT': '',
     }
