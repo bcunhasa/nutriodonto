@@ -13,7 +13,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '@2vnill&vol@xn&+xh_jb^hcts$b-34x6)qmvxb#t6+f1yb2^5'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# DEBUG = True
+DEBUG = int(os.environ.get('DEBUG', default=1)) 
 
 ALLOWED_HOSTS = ['*']
 
@@ -83,9 +84,9 @@ WSGI_APPLICATION = 'servidor.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'sadoservidor',
-        'USER': 'sadoadmin',
-        'PASSWORD': 'admin',
+        'NAME': 'nutriodonto',
+        'USER': 'postgres',
+        'PASSWORD': 'postgres',
         'HOST': 'localhost',
         'PORT': '',
     }

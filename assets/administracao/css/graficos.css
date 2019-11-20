@@ -1,0 +1,17 @@
+/* Customizações para os gráficos */
+
+.grafico {
+    height: 300px;
+}
+
+.grafico-grande {
+    height: 450px;
+}
+
+.grafico-gigante {
+    height: 500px;
+}
+
+button {
+    margin-right: 5px !important;
+}

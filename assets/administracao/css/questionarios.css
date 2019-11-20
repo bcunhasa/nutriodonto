@@ -1,0 +1,41 @@
+/* Arquivo que personaliza das páginas de coleta de questionários */
+
+h4, img {
+    text-align: center;
+}
+
+.dica {
+    size: 10px;
+    color: #a0a0a0;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 150px;
+    height: 100%;
+}
+
+.topico {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.panel-content {
+    margin-top: 30px;
+    margin-bottom: 60px;
+}
+
+.paragrafo-confirmacao {
+    text-align: center;
+}
+
+.espacamento-img {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.espacamento-p {
+    padding-bottom: 30px;
+}
