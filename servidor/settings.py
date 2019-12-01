@@ -87,7 +87,7 @@ DATABASES = {
         'NAME': 'nutriodonto',
         'USER': 'postgres',
         'PASSWORD': 'postgres',
-        'HOST': 'localhost',
+        'HOST': 'db', # host do banco de dados no docker
         'PORT': '',
     }
 }

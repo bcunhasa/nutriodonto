@@ -1,11 +1,28 @@
-db:
-  image: postgres
-web:
-  build: .
-  command: python manage.py runserver 0.0.0.0:8000
-  volumes:
-    - .:/code
-  ports:
-    - "8000:8000"
-  links:
-  - db
+version: '3'
+
+services:
+  
+  db:
+    image: postgres
+    volumes:
+      - db_volume:/var/lib/postgresql/data
+    networks:  # <-- connect to the bridge
+      - db_network
+  web:
+    build: .
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/code
+    ports:
+      - "8086:8000"
+    links:
+      - db
+    networks:  # <-- connect to the bridge
+      - db_network
+
+networks:
+  db_network:  # <-- add the bridge
+    driver: bridge
+
+volumes:
+  db_volume: # <-- volume para o banco de dados (assim ele não perde os dados quando o container é reiniciado)
