@@ -156,6 +156,16 @@
               </li>
               
               <li class="nav-heading ">
+                <span data-localize="sidebar.heading.HEADER">{% if request.session.lang == "en" %}Maps{% else %}Mapas{% endif %}</span>
+              </li>
+              <li class="{% if pagina_mapa_escolas %} active {% endif %}">
+                <a href="{% url 'mapas:escolas' %}" title="Exportação">
+                  <em class="fa fa-map-marker"></em>
+                  <span data-localize="sidebar.nav.SINGLEVIEW">{% if request.session.lang == "en" %}Schools{% else %}Escolas{% endif %}</span>
+                </a>
+              </li>
+              
+              <li class="nav-heading ">
                 <span data-localize="sidebar.heading.HEADER">{% if request.session.lang == "en" %}Web service{% else %}Web service{% endif %}</span>
               </li>
               <li class="{% if pagina_exportacao %} active {% endif %}">

@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'estudo',
     'questionarios',
     'gerencia',
+    'mapas',
     'api',
     
     # Aplicações de terceiros
@@ -87,7 +88,8 @@ DATABASES = {
         'NAME': 'nutriodonto',
         'USER': 'postgres',
         'PASSWORD': 'postgres',
-        'HOST': 'db', # host do banco de dados no docker
+        'HOST': 'localhost',
+        # 'HOST': 'db', # host do banco de dados no docker
         'PORT': '',
     }
 }

@@ -1,0 +1,60 @@
+{% extends "administracao/base.html" %}
+{% load staticfiles %}
+
+{% block head %}
+  <link rel="stylesheet" type="text/css" href="{% static 'mapas/css/escolas.css' %}">
+{% endblock head %}
+
+{% block header %}
+  {% if request.session.lang == "en" %}
+    Schools map
+  {% else %}
+    Mapa de escolas
+  {% endif %}
+{% endblock header %}
+
+{% block content %}
+  
+  <div class="row">
+    <div class="col-md-8">
+      <div id="mapa-escolas"></div>
+    </div>
+    <div class="col-md-4">
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">Information</div>
+          {% else %}
+            <div class="panel-title">Informações</div>
+          {% endif %}
+        </div>
+        <div class="panel-body">
+          {% if request.session.lang == "en" %}
+            <p>Name: <span id="escola-nome">select a school</span> </p>
+            <p>ID: <span id="escola-id">select a school</span> </p>
+            <p>CPO-D: <span id="escola-cpod">select a school</span> </p>
+            <p>Periodontal index: <span id="escola-periodontal">select a school</span> </p>
+            <p>Block: <span id="escola-quadra">select a school</span> </p>
+            <p>Health territory: <span id="escola-territorio">select a school</span> </p>
+            <p>Macroregion: <span id="escola-macrorregiao">select a school</span> </p>
+          {% else %}
+            <p>Nome: <span id="escola-nome">selecione uma escola</span> </p>
+            <p>ID: <span id="escola-id">selecione uma escola</span> </p>
+            <p>CPO-D: <span id="escola-cpod">selecione uma escola</span> </p>
+            <p>Indíce periodontal: <span id="escola-periodontal">selecione uma escola</span> </p>
+            <p>Quadra: <span id="escola-quadra">selecione uma escola</span> </p>
+            <p>Território de saúde: <span id="escola-territorio">selecione uma escola</span> </p>
+            <p>Macrorregião: <span id="escola-macrorregiao">selecione uma escola</span> </p>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <script src="{% static 'mapas/js/escolas.js' %}"></script>
+  {% if request.session.lang == "en" %}
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDu4apCMOsjMRElTJPCPgiO0ccKq2i9EcQ&language=en&region=US&callback=initMap"></script>
+  {% else %}
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDu4apCMOsjMRElTJPCPgiO0ccKq2i9EcQ&language=pt-BR&region=BR&callback=initMap"></script>
+  {% endif %}
+{% endblock content %}

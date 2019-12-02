@@ -27,6 +27,7 @@ urlpatterns = [
     url(r'administracao/', include('administracao.urls', namespace='administracao')),
     url(r'administracao/', include('estudo.urls', namespace='estudo')),
     url(r'administracao/', include('gerencia.urls', namespace='gerencia')),
+    url(r'administracao/', include('mapas.urls', namespace='mapas')),
     url(r'', include('portal.urls', namespace='portal')),
 ]
 
