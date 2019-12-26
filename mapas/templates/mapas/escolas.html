@@ -1,5 +1,5 @@
 {% extends "administracao/base.html" %}
-{% load staticfiles %}
+{% load static %}
 
 {% block head %}
   <link rel="stylesheet" type="text/css" href="{% static 'mapas/css/escolas.css' %}">
@@ -16,10 +16,10 @@
 {% block content %}
   
   <div class="row">
-    <div class="col-md-8">
+    <div class="col-md-7">
       <div id="mapa-escolas"></div>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-5">
       <div class="panel panel-info">
         <div class="panel-heading">
           {% if request.session.lang == "en" %}
@@ -30,21 +30,150 @@
         </div>
         <div class="panel-body">
           {% if request.session.lang == "en" %}
-            <p>Name: <span id="escola-nome">select a school</span> </p>
-            <p>ID: <span id="escola-id">select a school</span> </p>
-            <p>CPO-D: <span id="escola-cpod">select a school</span> </p>
-            <p>Periodontal index: <span id="escola-periodontal">select a school</span> </p>
-            <p>Block: <span id="escola-quadra">select a school</span> </p>
-            <p>Health territory: <span id="escola-territorio">select a school</span> </p>
-            <p>Macroregion: <span id="escola-macrorregiao">select a school</span> </p>
+            <p> 
+              <span id="ingles-id">Select a school</span>
+              <span id="ingles-nome"></span>
+            </p>
+            
+            <p>
+              <span id="ingles-quadra"></span>
+              <span id="ingles-macrorregiao"></span>
+              <span id="ingles-territorio"></span>
+            </p>
+            
+            <p> <span id="ingles-cpod"></span> </p>
+            <p> <span id="ingles-cpod-macrorregiao"></span> </p>
+            <p> <span id="ingles-cpod-territorio"></span> </p>
+            <p> <span id="ingles-cidade"></span> </p>
+            
+            <p hidden> <span id="portugues-nome"></span> </p>
+            <p hidden> <span id="portugues-id"></span> </p>
+            <p hidden> <span id="portugues-cpod"></span> </p>
+            <p hidden> <span id="portugues-quadra"></span> </p>
+            <p hidden> <span id="portugues-territorio"></span> </p>
+            <p hidden> <span id="portugues-cpod-territorio"></span> </p>
+            <p hidden> <span id="portugues-macrorregiao"></span> </p>
+            <p hidden> <span id="portugues-cpod-macrorregiao"></span> </p>
+            <p hidden> <span id="portugues-cidade"></span> </p>
           {% else %}
-            <p>Nome: <span id="escola-nome">selecione uma escola</span> </p>
-            <p>ID: <span id="escola-id">selecione uma escola</span> </p>
-            <p>CPO-D: <span id="escola-cpod">selecione uma escola</span> </p>
-            <p>Indíce periodontal: <span id="escola-periodontal">selecione uma escola</span> </p>
-            <p>Quadra: <span id="escola-quadra">selecione uma escola</span> </p>
-            <p>Território de saúde: <span id="escola-territorio">selecione uma escola</span> </p>
-            <p>Macrorregião: <span id="escola-macrorregiao">selecione uma escola</span> </p>
+            <p hidden> <span id="ingles-nome"></span> </p>
+            <p hidden> <span id="ingles-id"></span> </p>
+            <p hidden> <span id="ingles-cpod"></span> </p>
+            <p hidden> <span id="ingles-quadra"></span> </p>
+            <p hidden> <span id="ingles-territorio"></span> </p>
+            <p hidden> <span id="ingles-cpod-territorio"></span> </p>
+            <p hidden> <span id="ingles-macrorregiao"></span> </p>
+            <p hidden> <span id="ingles-cpod-macrorregiao"></span> </p>
+            <p hidden> <span id="ingles-cidade"></span> </p>
+            
+            <p>
+              <span id="portugues-id">Selecione uma escola</span>
+              <span id="portugues-nome"></span>
+            </p>
+            
+            <p>
+              <span id="portugues-quadra"></span>
+              <span id="portugues-macrorregiao"></span>
+              <span id="portugues-territorio"></span>
+            </p>
+            
+            <p> <span id="portugues-cpod"></span> </p>
+            <p> <span id="portugues-cpod-macrorregiao"></span> </p>
+            <p> <span id="portugues-cpod-territorio"></span> </p>
+            <p> <span id="portugues-cidade"></span> </p>
+          {% endif %}
+        </div>
+      </div>
+      
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          {% if request.session.lang == "en" %}
+            <div class="panel-title">Schools</div>
+          {% else %}
+            <div class="panel-title">Escolas</div>
+          {% endif %}
+        </div>
+        <div class="panel-body">
+          {% if request.session.lang == "en" %}
+            <table class="table table-striped table-hover" id="tabela">
+              <thead>
+                <tr>
+                  <th>School</th>
+                  <th>CPO-D</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr> <td>Escola municipal Luiz Gonzaga</td> <td>1.69</td> </tr>
+                <tr> <td>Escola municipal Mestre Pacífico S. Campos</td> <td>2.64</td> </tr>
+                <tr> <td>Escola municipal de T.I. Padre Josimo M. Tavares</td> <td>0.87</td> </tr>
+                <tr> <td>Escola municipal Anne Frank</td> <td>1.62</td> </tr>
+                <tr> <td>Escola municipal Henrique Talone Pinheiro</td> <td>1.72</td> </tr>
+                <tr> <td>Escola municipal de T.I. Margarida Gonçalves</td> <td>0.92</td> </tr>
+                <tr> <td>Escola municipal de T.I.Almirante Tamandare</td> <td>1.10</td> </tr>
+                <tr> <td>Escola municipal de T.I. Anisio Spenola Teixeira</td> <td>2.05</td> </tr>
+                <tr> <td>Escola Municipal de Tempo Integral Marcos Freire</td> <td>4.50</td> </tr>
+                <tr> <td>Escola municipal de T.I. Caroline C. C. da Silva</td> <td>0.89</td> </tr>
+                <tr> <td>Escola municipal Professor Sávia F. Jacome</td> <td>3.03</td> </tr>
+                <tr> <td>Escola municipal de T.I. Vinícius de Moraes</td> <td>2.27</td> </tr>
+                <tr> <td>Escola municipal de T.I. Euridice F. de Mello</td> <td>1.99</td> </tr>
+                <tr> <td>Escola municipal Thiago Barbosa</td> <td>1.70</td> </tr>
+                <tr> <td>Escola municipal de T.I. Sueli Pereira A. Reche</td> <td>2.24</td> </tr>
+                <tr> <td>Escola municipal de T.I. Monsenhor Pedro P. Piagem</td> <td>0.80</td> </tr>
+                <tr> <td>Escola municipal Maria Rosa de Castro Sales</td> <td>2.40</td> </tr>
+                <tr> <td>Escola municipal Maria Júlia Amorim Rodrigues</td> <td>0.68</td> </tr>
+                <tr> <td>Escola municipal de T.I. Luiz Nunes de Oliveira</td> <td>3.18</td> </tr>
+                <tr> <td>Escola municipal de T.I. João Beltrão</td> <td>3.47</td> </tr>
+                <tr> <td>Escola municipal Jorge Amado</td> <td>1.17</td> </tr>
+                <tr> <td>Escola municipal Darcy Ribeiro</td> <td>3.55</td> </tr>
+                <tr> <td>Escola municipal de T.I. Daniel Batista</td> <td>2.11</td> </tr>
+                <tr> <td>Escola municipal Crispim Pereira de Alencar</td> <td>4.09</td> </tr>
+                <tr> <td>Escola municipal de T.I. Aprigio T. de Matos</td> <td>2.10</td> </tr>
+                <tr> <td>Escola municipal Aurélio Buarque de Holanda</td> <td>1.62</td> </tr>
+                <tr> <td>Escola municipal Antônio G. de Carvalho Filho</td> <td>1.88</td> </tr>
+                <tr> <td>Escola municipal Antônio Carlos Jobim</td> <td>1.56</td> </tr>
+                <tr> <td>Escola Municipal Beatriz Rodrigues da Silva</td> <td>1,81</td> </tr>
+              </tbody>
+            </table>
+          {% else %}
+            <table class="table table-striped table-hover" id="tabela">
+              <thead>
+                <tr>
+                  <th>Escola</th>
+                  <th>CPO-D</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr> <td>Escola municipal Luiz Gonzaga</td> <td>1.69</td> </tr>
+                <tr> <td>Escola municipal Mestre Pacífico S. Campos</td> <td>2.64</td> </tr>
+                <tr> <td>Escola municipal de T.I. Padre Josimo M. Tavares</td> <td>0.87</td> </tr>
+                <tr> <td>Escola municipal Anne Frank</td> <td>1.62</td> </tr>
+                <tr> <td>Escola municipal Henrique Talone Pinheiro</td> <td>1.72</td> </tr>
+                <tr> <td>Escola municipal de T.I. Margarida Gonçalves</td> <td>0.92</td> </tr>
+                <tr> <td>Escola municipal de T.I.Almirante Tamandare</td> <td>1.10</td> </tr>
+                <tr> <td>Escola municipal de T.I. Anisio Spenola Teixeira</td> <td>2.05</td> </tr>
+                <tr> <td>Escola Municipal de Tempo Integral Marcos Freire</td> <td>4.50</td> </tr>
+                <tr> <td>Escola municipal de T.I. Caroline C. C. da Silva</td> <td>0.89</td> </tr>
+                <tr> <td>Escola municipal Professor Sávia F. Jacome</td> <td>3.03</td> </tr>
+                <tr> <td>Escola municipal de T.I. Vinícius de Moraes</td> <td>2.27</td> </tr>
+                <tr> <td>Escola municipal de T.I. Euridice F. de Mello</td> <td>1.99</td> </tr>
+                <tr> <td>Escola municipal Thiago Barbosa</td> <td>1.70</td> </tr>
+                <tr> <td>Escola municipal de T.I. Sueli Pereira A. Reche</td> <td>2.24</td> </tr>
+                <tr> <td>Escola municipal de T.I. Monsenhor Pedro P. Piagem</td> <td>0.80</td> </tr>
+                <tr> <td>Escola municipal Maria Rosa de Castro Sales</td> <td>2.40</td> </tr>
+                <tr> <td>Escola municipal Maria Júlia Amorim Rodrigues</td> <td>0.68</td> </tr>
+                <tr> <td>Escola municipal de T.I. Luiz Nunes de Oliveira</td> <td>3.18</td> </tr>
+                <tr> <td>Escola municipal de T.I. João Beltrão</td> <td>3.47</td> </tr>
+                <tr> <td>Escola municipal Jorge Amado</td> <td>1.17</td> </tr>
+                <tr> <td>Escola municipal Darcy Ribeiro</td> <td>3.55</td> </tr>
+                <tr> <td>Escola municipal de T.I. Daniel Batista</td> <td>2.11</td> </tr>
+                <tr> <td>Escola municipal Crispim Pereira de Alencar</td> <td>4.09</td> </tr>
+                <tr> <td>Escola municipal de T.I. Aprigio T. de Matos</td> <td>2.10</td> </tr>
+                <tr> <td>Escola municipal Aurélio Buarque de Holanda</td> <td>1.62</td> </tr>
+                <tr> <td>Escola municipal Antônio G. de Carvalho Filho</td> <td>1.88</td> </tr>
+                <tr> <td>Escola municipal Antônio Carlos Jobim</td> <td>1.56</td> </tr>
+                <tr> <td>Escola Municipal Beatriz Rodrigues da Silva</td> <td>1,81</td> </tr>
+              </tbody>
+            </table>
           {% endif %}
         </div>
       </div>
