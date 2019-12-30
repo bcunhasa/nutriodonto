@@ -5,7 +5,7 @@ function initMap() {
   map = new google.maps.Map(document.getElementById('mapa-escolas'), {
     zoom: 11,
     center: palmas,
-    // mapTypeId: google.maps.MapTypeId.SATELLITE,
+    mapTypeId: google.maps.MapTypeId.TERRAIN,
   });
   setMarker(-10.156690000000000000, -48.328120000000000000, 'Escola municipal Luiz Gonzaga', '1.69', '503 Norte', 'Kanela', '1.66', 'Norte', '1.67', '1', ' 1.81');
   setMarker(-10.156270000000000000, -48.344930000000000000, 'Escola municipal Mestre Pacífico S. Campos', '2.64', '409 Norte', 'Kanela', '1.66', 'Norte', '1.67', '2', '  1.81');
