@@ -85,9 +85,9 @@ WSGI_APPLICATION = 'servidor.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'sadoservidor',
-        'USER': 'sadoadmin',
-        'PASSWORD': 'sadoadmin',
+        'NAME': 'nutriodonto',
+        'USER': 'postgres',
+        'PASSWORD': 'postgres',
         'HOST': 'localhost',
         # 'HOST': 'db', # host do banco de dados no docker
         'PORT': '',
