@@ -1,6 +1,6 @@
-# Projeto SADO - Servidor
+# Projeto NutriOdonto
 
-Servidor Django para o projeto SADO (Sistema para Coleta e Análise de dados Odontológicos).
+Servidor Django para o projeto NutriOdonto.
 
 ## Instalação
 
@@ -23,14 +23,14 @@ $ sudo -u postgres psql
 Criamos um novo banco de dados, um novo usuário e o configuramos. Após a configuração garantimos o acesso do usuário ao banco criado.
 
 ```
-CREATE DATABASE sadoservidor;
-CREATE USER sadoadmin WITH PASSWORD 'sadoadmin';
+CREATE DATABASE nutriodonto;
+CREATE USER nutriodontoadmin WITH PASSWORD 'nutriodontoadmin';
 
-ALTER ROLE sadoadmin SET client_encoding TO 'utf8';
-ALTER ROLE sadoadmin SET default_transaction_isolation TO 'read committed';
-ALTER ROLE sadoadmin SET timezone TO 'UTC';
+ALTER ROLE nutriodontoadmin SET client_encoding TO 'utf8';
+ALTER ROLE nutriodontoadmin SET default_transaction_isolation TO 'read committed';
+ALTER ROLE nutriodontoadmin SET timezone TO 'UTC';
 
-GRANT ALL PRIVILEGES ON DATABASE sadoservidor TO sadoadmin;
+GRANT ALL PRIVILEGES ON DATABASE nutriodonto TO nutriodontoadmin;
 ```
 
 Podemos então sair da linha de comando do postgresql.
@@ -46,7 +46,7 @@ Usa-se os seguintes comandos para criar uma pasta para o projeto e cloná-lo.
 ```
 $ mkdir servidor
 $ cd servidor
-$ git clone https://bcunhasa@bitbucket.org/equipescado/servidor.git
+$ git clone https://github.com/bcunhasa/nutriodonto.git
 ```
 
 ### Criação do ambiente virtual
