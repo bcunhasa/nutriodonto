@@ -182,8 +182,8 @@
   
   <script src="{% static 'mapas/js/escolas.js' %}"></script>
   {% if request.session.lang == "en" %}
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDu4apCMOsjMRElTJPCPgiO0ccKq2i9EcQ&language=en&region=US&callback=initMap"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=YOURGOOGLEAPIKEY&language=en&region=US&callback=initMap"></script>
   {% else %}
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDu4apCMOsjMRElTJPCPgiO0ccKq2i9EcQ&language=pt-BR&region=BR&callback=initMap"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=YOURGOOGLEAPIKEY&language=pt-BR&region=BR&callback=initMap"></script>
   {% endif %}
 {% endblock content %}
